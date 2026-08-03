@@ -284,7 +284,7 @@ function ProjectCard({ index, title, category, description, image, insight, stag
 
 function FilmSection() {
   const VIDEO_URL =
-    '../../assets/video/the-train-story.mp4';
+    './assets/video/the-train-story.mp4';
 
   const videoRef = React.useRef(null);
   const progressRef = React.useRef(null);
@@ -302,6 +302,8 @@ function FilmSection() {
   const [duration, setDuration] =
     React.useState(0);
   const [reducedMotion, setReducedMotion] =
+    React.useState(false);
+  const [loadTimeout, setLoadTimeout] =
     React.useState(false);
 
   React.useEffect(function () {
@@ -346,6 +348,18 @@ function FilmSection() {
 
     return undefined;
   }, []);
+
+  React.useEffect(function () {
+    if (!videoReady && !videoError && !loadTimeout) {
+      const timer = setTimeout(function () {
+        setLoadTimeout(true);
+      }, 8000);
+
+      return function () {
+        clearTimeout(timer);
+      };
+    }
+  }, [videoReady, videoError, loadTimeout]);
 
   const togglePlayback = async function () {
     const video = videoRef.current;
@@ -1198,7 +1212,7 @@ function FilmSection() {
               Your browser does not support embedded video.
             </video>
 
-            {!videoReady && !videoError && (
+            {!videoReady && !videoError && !loadTimeout && (
               <div
                 className="jiz-creative-lab-loading"
                 role="status"
@@ -1206,6 +1220,19 @@ function FilmSection() {
               >
                 <div className="jiz-creative-lab-loader">
                   <span>Preparing The Train Story…</span>
+                </div>
+              </div>
+            )}
+
+            {loadTimeout && !videoError && !videoReady && (
+              <div
+                className="jiz-creative-lab-error"
+                role="alert"
+              >
+                <span>The video is taking longer than expected.</span>
+                <div style={{display:'flex',gap:'12px',marginTop:'16px',flexWrap:'wrap'}}>
+                  <button onClick={()=>{setLoadTimeout(false);videoRef.current?.load()}} style={{padding:'8px 16px',borderRadius:'var(--radius-sm)',background:'var(--color-accent-primary)',color:'var(--color-bg-primary)',border:'none',cursor:'pointer',fontSize:'0.875rem',fontWeight:'600'}}>Try Again</button>
+                  <a href={VIDEO_URL} target="_blank" rel="noopener noreferrer" style={{padding:'8px 16px',borderRadius:'var(--radius-sm)',background:'transparent',color:'var(--color-accent-primary)',border:'1px solid var(--color-accent-primary)',cursor:'pointer',fontSize:'0.875rem',fontWeight:'600',textDecoration:'none',display:'inline-block'}}>Open Video</a>
                 </div>
               </div>
             )}
