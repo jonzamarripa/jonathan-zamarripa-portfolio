@@ -1,0 +1,147 @@
+<!-- @dsCard group="Portfolio Website" viewport="1440x900" name="Portfolio Website" subtitle="Homepage + case study, click-through" -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jonathan Zamarripa — Learning Experience Designer</title>
+<meta name="description" content="Jonathan Zamarripa designs learning experiences, digital products, and enterprise enablement systems. Portfolio and case studies in AI-enabled learning strategy and creative production.">
+<link rel="canonical" href="https://jonathanzamarripa.com/">
+<meta property="og:title" content="Jonathan Zamarripa — Learning Experience Designer">
+<meta property="og:description" content="Portfolio and case studies: enterprise learning, AI-enabled production, digital transformation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jonathanzamarripa.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0b0d10">
+<link rel="icon" href="./assets/logo/jiz-logo-white.svg">
+<style>html, body { width: 100%; margin: 0; padding: 0; }</style>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script src="image-slot.js?v=2"></script>
+<div id="root"></div>
+<script type="text/babel" src="About_v2.jsx"></script>
+<script type="text/babel" src="Homepage.jsx"></script>
+<script type="text/babel" src="CaseStudyShell.jsx"></script>
+<script type="text/babel" src="CaseStudy-Legacy.jsx"></script>
+<script type="text/babel" src="CaseStudy-HotelKey.jsx"></script>
+<script type="text/babel" src="CaseStudy-GuestCRM.jsx"></script>
+<script type="text/babel" src="CaseStudy-Workday.jsx"></script>
+<script type="text/babel">
+function App(){
+  const initialView = (() => {
+    const raw = window.location.hash.replace('#', '');
+    return ['case-study', 'hotelkey-onboarding', 'guest-crm-pilot', 'workday-learn'].indexOf(raw) !== -1 ? raw : 'home';
+  })();
+  const [view, setView] = React.useState(initialView);
+  const [displayView, setDisplayView] = React.useState(initialView);
+  const [entering, setEntering] = React.useState(true);
+  const scrollPositionsRef = React.useRef({});
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+
+  const navigationMap = React.useMemo(() => ({
+    home: { view: 'home', section: 0 },
+    Home: { view: 'home', section: 0 },
+    Hero: { view: 'home', section: 0 },
+    About: { view: 'home', section: 1 },
+    'Featured Work': { view: 'home', section: 2 },
+    Work: { view: 'home', section: 2 },
+    'Creative Lab': { view: 'home', section: 3 },
+    Film: { view: 'home', section: 3 },
+    Insights: { view: 'home', section: 4 },
+    Contact: { view: 'home', section: 5 },
+    "Let's Build": { view: 'home', section: 5 },
+    'case-study': { view: 'case-study', section: null },
+    'Operation: Legacy Unlocked': { view: 'case-study', section: null },
+    'HotelKey New Hire Onboarding': { view: 'hotelkey-onboarding', section: null },
+    'Guest CRM Pilot': { view: 'guest-crm-pilot', section: null },
+    'Workday Learn Launch': { view: 'workday-learn', section: null },
+  }), []);
+
+  const hashForView = React.useCallback((v) => (v === 'home' ? '' : '#' + v), []);
+  const viewForHash = React.useCallback(() => {
+    const raw = window.location.hash.replace('#', '');
+    return ['case-study', 'hotelkey-onboarding', 'guest-crm-pilot', 'workday-learn'].indexOf(raw) !== -1 ? raw : 'home';
+  }, []);
+
+  React.useEffect(() => {
+    window.jizNavigate = (destination) => {
+      const target = navigationMap[destination];
+      if (!target) return;
+      if (target.section !== null) sessionStorage.setItem('jiz-target-section', String(target.section));
+      setView(target.view);
+    };
+    return () => { delete window.jizNavigate; };
+  }, [navigationMap]);
+
+  React.useEffect(() => {
+    if (view === displayView) return undefined;
+    scrollPositionsRef.current[displayView] = window.scrollY;
+
+    if (reduced) {
+      setDisplayView(view);
+      requestAnimationFrame(() => window.scrollTo(0, scrollPositionsRef.current[view] ?? 0));
+      return undefined;
+    }
+
+    setEntering(false);
+    const timer = window.setTimeout(() => {
+      setDisplayView(view);
+      requestAnimationFrame(() => {
+        window.scrollTo(0, scrollPositionsRef.current[view] ?? 0);
+        requestAnimationFrame(() => setEntering(true));
+      });
+    }, 260);
+    return () => window.clearTimeout(timer);
+  }, [view, displayView, reduced]);
+
+  React.useEffect(() => {
+    const onPopState = () => setView(viewForHash());
+    window.addEventListener('popstate', onPopState);
+    return () => window.removeEventListener('popstate', onPopState);
+  }, [viewForHash]);
+
+  React.useEffect(() => {
+    const nextHash = hashForView(displayView);
+    const nextUrl = `${window.location.pathname}${window.location.search}${nextHash}`;
+    if (window.location.hash !== nextHash) window.history.pushState(null, '', nextUrl);
+  }, [displayView, hashForView]);
+
+  const HomepageComponent = window.HomepageExports?.Homepage;
+  const CaseStudyComponent = window.CaseStudyLegacyExports?.CaseStudyLegacy;
+  const openProject = React.useCallback((route) => { if (window.jizNavigate) window.jizNavigate(route); }, []);
+  const backToWork = React.useCallback(() => { if (window.jizNavigate) window.jizNavigate('Featured Work'); }, []);
+  const placeholderViews = {
+    'hotelkey-onboarding': window.CaseStudyHotelKeyExports?.CaseStudyHotelKey,
+    'guest-crm-pilot': window.CaseStudyGuestCRMExports?.CaseStudyGuestCRM,
+    'workday-learn': window.CaseStudyWorkdayExports?.CaseStudyWorkday,
+  };
+  const PlaceholderComponent = placeholderViews[displayView];
+
+  if (!HomepageComponent || !CaseStudyComponent) {
+    return <div role="alert" style={{ padding: 32, color: '#fff', background: '#080D0B' }}>The portfolio could not initialize. Please refresh the page.</div>;
+  }
+
+  return (
+    <div style={{ opacity: entering ? 1 : 0, transform: entering ? 'scale(1)' : 'scale(0.99)', transition: reduced ? 'none' : 'opacity 0.26s ease, transform 0.26s ease' }}>
+      {displayView === 'case-study'
+        ? <CaseStudyComponent onBack={backToWork} onOpenProject={openProject} />
+        : PlaceholderComponent
+          ? <PlaceholderComponent onBack={backToWork} onOpenProject={openProject} />
+          : <HomepageComponent onOpenCaseStudy={(route) => window.jizNavigate(route || 'Operation: Legacy Unlocked')} />}
+    </div>
+  );
+}
+function bootPortfolio(attempt = 0) {
+  const ready = Boolean(window.React && window.ReactDOM && window.AboutV2 && window.HomepageExports?.Homepage && window.CaseStudyLegacyExports?.CaseStudyLegacy && window.CaseStudyShellExports?.CaseStudyShell && window.CaseStudyHotelKeyExports?.CaseStudyHotelKey && window.CaseStudyGuestCRMExports?.CaseStudyGuestCRM && window.CaseStudyWorkdayExports?.CaseStudyWorkday);
+  if (!ready) {
+    if (attempt >= 200) {
+      document.getElementById('root').innerHTML = '<div role="alert" style="padding:32px;color:#fff;background:#080D0B">The portfolio modules did not finish loading. Please refresh the page.</div>';
+      return;
+    }
+    window.setTimeout(() => bootPortfolio(attempt + 1), 25);
+    return;
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+}
+bootPortfolio();
+</script>
