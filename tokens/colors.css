@@ -1,0 +1,44 @@
+:root{
+--obsidian:#0B0D10;
+--carbon:#171A1F;
+--slate:#2A2F37;
+--mist:#D9DDE3;
+--white:#F7F8FA;
+--signal-lime:#C6F23A;
+--electric-moss:#A5D62E;
+--accent-cyan:#64E1FF;
+--black-pure:#000000;
+
+--color-background-primary:var(--obsidian);
+--color-background-secondary:var(--carbon);
+--color-surface-elevated:var(--slate);
+--color-surface-elevated-hover:#333944;
+--color-text-primary:var(--white);
+--color-text-secondary:var(--mist);
+--color-text-muted:#8A9099;
+--color-accent-primary:var(--signal-lime);
+--color-accent-primary-hover:var(--electric-moss);
+--color-accent-secondary:var(--accent-cyan);
+--color-border-default:rgba(217,221,227,0.12);
+--color-border-subtle:rgba(217,221,227,0.07);
+--color-border-active:var(--signal-lime);
+--color-on-accent:var(--obsidian);
+
+--color-success:var(--electric-moss);
+--color-info:var(--accent-cyan);
+
+--glow-lime: 0 0 32px rgba(198,242,58,0.28);
+--glow-cyan: 0 0 32px rgba(100,225,255,0.24);
+--selection-bg:var(--signal-lime);
+--selection-fg:var(--obsidian);
+
+/* aliases so cinematic-scene components (film HUD, scene rows) re-theme without edits */
+--gold:var(--signal-lime);
+--gold-hot:var(--electric-moss);
+--silver:var(--mist);
+--muted:var(--color-text-muted);
+--panel:var(--carbon);
+--line:var(--color-border-default);
+--teal-haze:rgba(100,225,255,0.16);
+--gold-haze:rgba(198,242,58,0.14);
+}

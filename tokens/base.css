@@ -1,0 +1,9 @@
+*{box-sizing:border-box;}
+html{background:var(--color-background-primary);color-scheme:dark;}
+body{margin:0;background:var(--color-background-primary);color:var(--color-text-primary);font:var(--text-body);font-family:var(--font-body);-webkit-font-smoothing:antialiased;text-wrap:pretty;}
+h1,h2,h3,h4{font-family:var(--font-display);margin:0;letter-spacing:var(--tracking-tight);}
+p{margin:0;}
+a{color:var(--color-accent-secondary);text-decoration:none;}
+a:hover{color:var(--color-accent-primary);}
+::selection{background:var(--selection-bg);color:var(--selection-fg);}
+:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:3px;border-radius:2px;}
