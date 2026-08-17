@@ -1735,7 +1735,6 @@ function FeaturedWork({ onOpenWork }) {
                 </div>
                 <div className="jiz-featured-action-row">
                   <button className="jiz-featured-action" type="button" disabled={activeProject.status !== 'available'} onClick={openActiveProject}>{activeProject.actionLabel}{activeProject.status === 'available' ? ' →' : ''}</button>
-                  <span className="jiz-featured-status">{activeProject.statusLabel}</span>
                 </div>
               </div>
             </article>
@@ -1750,9 +1749,240 @@ function FeaturedWork({ onOpenWork }) {
             <button className="jiz-featured-control" type="button" onClick={showNext} aria-label="Show next featured project" title="Next project"><span aria-hidden="true">→</span></button>
           </nav>
 
-          <p className="sr-only" role="status" aria-live="polite">Showing {activeProject.title}, project {activeIndex + 1} of {projects.length}.</p>
+          <p className="sr-only" role="status" aria-live="polite">Showing {activeProject.title}.</p>
         </div>
       </div>
+    </section>
+  );
+}
+
+function ArchiveBridge() {
+  const [hovering, setHovering] = React.useState(false);
+  return (
+    <section
+      className="jiz-archive-bridge"
+      data-archive-bridge="ready"
+      aria-labelledby="archive-bridge-title"
+      style={{
+        position: 'relative',
+        isolation: 'isolate',
+        width: '100%',
+        minHeight: 'min(85vh, 960px)',
+        overflow: 'hidden',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: '0 var(--container-pad)',
+        marginTop: 'clamp(60px, 8vw, 120px)',
+        background: 'linear-gradient(180deg, rgba(8,13,11,0.98) 0%, rgba(10,18,15,0.96) 48%, rgba(8,14,14,0.97) 100%)',
+      }}
+    >
+      {/* Video background */}
+      <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          zIndex: 0,
+        }}
+      >
+        <source
+          src="https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Archive_Film.mp4"
+          type="video/mp4"
+        />
+      </video>
+
+      {/* Teal/cyan cinematic overlay */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 1,
+          background: 'linear-gradient(180deg, rgba(26,74,82,0.68) 0%, rgba(20,56,62,0.74) 28%, rgba(14,44,50,0.82) 100%)',
+          mixBlendMode: 'multiply',
+        }}
+      />
+
+      {/* Radial glow accent */}
+      <div
+        aria-hidden="true"
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 1,
+          background: 'radial-gradient(ellipse at 50% 50%, rgba(100,225,255,0.12) 0%, transparent 68%)',
+          pointerEvents: 'none',
+        }}
+      />
+
+      {/* Content container */}
+      <div
+        style={{
+          position: 'relative',
+          zIndex: 2,
+          maxWidth: 'var(--container-max)',
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          textAlign: 'center',
+          gap: 'clamp(28px, 3.2vw, 48px)',
+          paddingBlock: 'clamp(60px, 8vw, 120px)',
+        }}
+      >
+        {/* Header section */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'clamp(16px, 1.8vw, 24px)',
+            maxWidth: '920px',
+          }}
+        >
+          <span
+            style={{
+              font: 'var(--text-eyebrow)',
+              color: 'var(--color-accent-secondary)',
+              textTransform: 'uppercase',
+              letterSpacing: 'var(--tracking-eyebrow)',
+              margin: 0,
+              animation: 'jiz-archive-in 600ms var(--ease-out) both',
+            }}
+          >
+            Project Archive
+          </span>
+
+          <h2
+            id="archive-bridge-title"
+            style={{
+              margin: 0,
+              color: 'var(--color-text-primary)',
+              font: 'var(--text-h2)',
+              fontSize: 'clamp(2.8rem, 5.2vw, 5.2rem)',
+              lineHeight: 1.02,
+              letterSpacing: '-0.055em',
+              textWrap: 'balance',
+              animation: 'jiz-archive-in 640ms var(--ease-out) 80ms both',
+            }}
+          >
+            More work. More range.
+          </h2>
+
+          <p
+            style={{
+              margin: 0,
+              color: 'rgba(245,247,248,0.82)',
+              font: 'var(--text-body)',
+              fontSize: 'clamp(1rem, 1.2vw, 1.125rem)',
+              lineHeight: 1.78,
+              maxWidth: '780px',
+              marginInline: 'auto',
+              animation: 'jiz-archive-in 680ms var(--ease-out) 160ms both',
+            }}
+          >
+            Explore additional learning experiences, product enablement, interactive media, creative production, and earlier work across my portfolio.
+          </p>
+        </div>
+
+        {/* CTA section */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            gap: 'clamp(14px, 1.6vw, 20px)',
+            alignItems: 'center',
+            marginTop: 'clamp(16px, 2vw, 28px)',
+            animation: 'jiz-archive-in 720ms var(--ease-out) 240ms both',
+          }}
+        >
+          <a
+            href="https://jonathan-iker-zamarripa.webflow.io/projects"
+            target="_blank"
+            rel="noopener noreferrer"
+            onMouseEnter={() => setHovering(true)}
+            onMouseLeave={() => setHovering(false)}
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '10px',
+              minHeight: '56px',
+              padding: '0 32px',
+              font: 'var(--text-button)',
+              fontSize: '0.9375rem',
+              fontWeight: 700,
+              color: '#0a0d0e',
+              background: 'var(--color-accent-primary)',
+              border: 'none',
+              borderRadius: 'var(--radius-pill)',
+              textDecoration: 'none',
+              cursor: 'pointer',
+              transition: 'all var(--motion-fast) var(--ease-standard)',
+              transform: hovering ? 'translateY(-3px)' : 'translateY(0)',
+              boxShadow: hovering
+                ? '0 0 40px rgba(198,242,58,0.28), 0 12px 32px rgba(0,0,0,0.3)'
+                : '0 0 20px rgba(198,242,58,0.12), 0 4px 16px rgba(0,0,0,0.2)',
+            }}
+          >
+            View the full archive
+            <span style={{ fontSize: '1.15em', fontWeight: 600 }}>→</span>
+          </a>
+          <p
+            style={{
+              margin: 0,
+              color: 'rgba(154,164,174,0.78)',
+              font: 'var(--text-caption)',
+              fontSize: '0.8125rem',
+              lineHeight: 1.6,
+              letterSpacing: '0.01em',
+            }}
+          >
+            Selected work from prior roles and independent projects
+          </p>
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes jiz-archive-in {
+          from {
+            opacity: 0;
+            transform: translateY(16px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @media (max-width: 900px) {
+          .jiz-archive-bridge {
+            min-height: min(90vh, 720px);
+          }
+        }
+
+        @media (max-width: 680px) {
+          .jiz-archive-bridge {
+            min-height: auto;
+            min-height: min(95vh, 640px);
+            padding-inline: max(20px, var(--container-pad));
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .jiz-archive-bridge * {
+            animation: none !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
@@ -1928,393 +2158,214 @@ function Insights() {
           min-width: 0;
         }
 
-        .jiz-insights-portrait-column {
+        .jiz-insights-controls {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+
+        .jiz-insights-control {
           position: relative;
-          min-width: 0;
-          height: 100%;
-          min-height: 0;
-        }
-
-        .jiz-insights-portrait-environment {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          min-height: 100%;
-          overflow: visible;
-          isolation: isolate;
-        }
-
-        .jiz-insights-portrait-glow {
-          position: absolute;
-          z-index: 0;
-          left: -38%;
-          top: -10%;
-          width: 176%;
-          height: 126%;
-          pointer-events: none;
-          border-radius: 50%;
-          background:
-            radial-gradient(
-              ellipse at 52% 44%,
-              rgba(100, 225, 255, 0.28) 0%,
-              rgba(100, 225, 255, 0.14) 24%,
-              rgba(100, 225, 255, 0.07) 42%,
-              rgba(198, 242, 58, 0.035) 58%,
-              transparent 76%
-            );
-          filter: blur(62px);
-          opacity: 0.96;
-        }
-
-        .jiz-insights-portrait-haze {
-          position: absolute;
-          z-index: 3;
-          left: -42%;
-          right: -48%;
-          bottom: -9%;
-          height: 46%;
-          pointer-events: none;
-          background:
-            radial-gradient(
-              ellipse at 42% 100%,
-              rgba(198, 242, 58, 0.24) 0%,
-              rgba(100, 225, 255, 0.09) 38%,
-              transparent 72%
-            ),
-            linear-gradient(
-              to top,
-              rgba(198, 242, 58, 0.14),
-              rgba(100, 225, 255, 0.055) 48%,
-              transparent 100%
-            );
-          filter: blur(26px);
-          mix-blend-mode: screen;
-          opacity: 0.88;
-        }
-
-        .jiz-insights-portrait-side-fade {
-          position: absolute;
-          z-index: 4;
-          left: -34%;
-          right: -44%;
-          top: -6%;
-          bottom: -8%;
-          pointer-events: none;
-          background:
-            radial-gradient(
-              ellipse at 43% 46%,
-              transparent 0%,
-              transparent 44%,
-              rgba(43, 61, 63, 0.16) 64%,
-              rgba(43, 61, 63, 0.54) 82%,
-              rgba(43, 61, 63, 0.88) 100%
-            ),
-            linear-gradient(
-              180deg,
-              transparent 0%,
-              transparent 72%,
-              rgba(34, 49, 51, 0.28) 86%,
-              rgba(34, 49, 51, 0.78) 100%
-            );
-          filter: blur(12px);
-        }
-
-        .jiz-insights-portrait {
-          position: absolute;
-          z-index: 2;
-          left: 47%;
-          bottom: -5%;
-          width:
-            clamp(540px, 47vw, 760px);
-          height: 112%;
-          max-width: none;
-          max-height: none;
-          object-fit: contain;
-          object-position: center bottom;
-          transform:
-            translateX(-50%)
-            scale(1.18);
-          transform-origin: center bottom;
-          opacity: 0.98;
-          pointer-events: none;
-          filter:
-            drop-shadow(
-              -22px 8px 46px
-              rgba(100, 225, 255, 0.20)
-            )
-            drop-shadow(
-              0 24px 58px
-              rgba(0, 0, 0, 0.28)
-            );
-          -webkit-mask-image:
-            linear-gradient(
-              to bottom,
-              rgba(0, 0, 0, 0.96) 0%,
-              #000 68%,
-              rgba(0, 0, 0, 0.84) 82%,
-              transparent 100%
-            ),
-            linear-gradient(
-              to right,
-              transparent 0%,
-              rgba(0, 0, 0, 0.55) 10%,
-              #000 24%,
-              #000 74%,
-              rgba(0, 0, 0, 0.5) 90%,
-              transparent 100%
-            );
-          -webkit-mask-composite:
-            source-in;
-          mask-image:
-            linear-gradient(
-              to bottom,
-              rgba(0, 0, 0, 0.96) 0%,
-              #000 68%,
-              rgba(0, 0, 0, 0.84) 82%,
-              transparent 100%
-            ),
-            linear-gradient(
-              to right,
-              transparent 0%,
-              rgba(0, 0, 0, 0.55) 10%,
-              #000 24%,
-              #000 74%,
-              rgba(0, 0, 0, 0.5) 90%,
-              transparent 100%
-            );
-          mask-composite: intersect;
-        }
-
-        .jiz-insights-portrait-copy {
-          position: absolute;
-          z-index: 5;
-          left: clamp(6px, 1vw, 18px);
-          bottom: clamp(18px, 3vw, 34px);
-          max-width: 250px;
-        }
-
-        .jiz-insights-portrait-label {
-          display: block;
-          margin-bottom: 10px;
-          color: var(--color-accent-primary);
-          font: var(--text-hud);
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-        }
-
-        .jiz-insights-portrait-note {
-          margin: 0;
-          color: rgba(247, 248, 250, 0.84);
-          font: var(--text-caption);
-          line-height: 1.55;
-        }
-
-        .jiz-insights-cards {
-          display: grid;
-          grid-template-rows:
-            repeat(3, minmax(230px, 1fr));
-          gap: 24px;
-          min-width: 0;
-          height: 100%;
-          align-self: stretch;
-        }
-
-        .jiz-insight-card-wrap {
-          min-width: 0;
-          height: 100%;
-        }
-
-        .jiz-insight-card {
-          position: relative;
-          display: grid;
-          grid-template-columns:
-            minmax(0, 0.92fr)
-            minmax(220px, 0.78fr);
-          gap:
-            clamp(24px, 4vw, 48px);
-          align-items: center;
-          min-width: 0;
-          height: 100%;
-          box-sizing: border-box;
-          padding:
-            clamp(28px, 3.4vw, 42px);
-          overflow: hidden;
-          border:
-            1px solid rgba(255, 255, 255, 0.075);
-          border-radius:
-            clamp(20px, 2.2vw, 30px);
+          text-align: left;
+          padding: 16px 20px;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          border-radius: var(--radius-md);
           background:
             linear-gradient(
               180deg,
-              rgba(255, 255, 255, 0.062) 0%,
-              rgba(255, 255, 255, 0.03) 26%,
-              rgba(255, 255, 255, 0.018) 100%
+              rgba(255, 255, 255, 0.05),
+              rgba(255, 255, 255, 0.02)
             );
-          box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.055),
-            0 20px 52px rgba(0, 0, 0, 0.14);
-          backdrop-filter: blur(18px);
+          color: var(--color-text-primary);
+          cursor: pointer;
+          font: var(--text-body);
+          font-weight: 500;
           transition:
-            transform var(--motion-fast)
-              var(--ease-standard),
-            border-color var(--motion-fast)
-              var(--ease-standard),
-            box-shadow var(--motion-fast)
-              var(--ease-standard),
-            background var(--motion-fast)
+            all var(--motion-standard)
               var(--ease-standard);
+          overflow: hidden;
         }
 
-        .jiz-insight-card::before {
+        .jiz-insights-control::before {
           content: '';
           position: absolute;
           inset: 0;
-          pointer-events: none;
           opacity: 0;
           background:
             linear-gradient(
-              112deg,
-              transparent 24%,
+              100deg,
+              transparent 30%,
               rgba(198, 242, 58, 0.08) 50%,
-              transparent 76%
+              transparent 70%
             );
-          transform: translateX(-72%);
+          transform: translateX(-100%);
           transition:
-            opacity 280ms ease,
-            transform 720ms var(--ease-standard);
+            opacity var(--motion-standard)
+              var(--ease-standard),
+            transform var(--motion-standard)
+              var(--ease-standard);
+          pointer-events: none;
         }
 
-        .jiz-insight-card:hover,
-        .jiz-insight-card:focus-within {
+        .jiz-insights-control:hover::before {
+          opacity: 1;
+          transform: translateX(100%);
+        }
+
+        .jiz-insights-control.is-active {
           border-color:
-            rgba(255, 255, 255, 0.135);
+            rgba(198, 242, 58, 0.44);
+          background:
+            rgba(198, 242, 58, 0.08);
+          color: var(--color-accent-primary);
+          box-shadow:
+            0 0 28px rgba(198, 242, 58, 0.12),
+            inset 0 1px 0
+              rgba(198, 242, 58, 0.16);
+        }
+
+        .jiz-insights-card {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding:
+            clamp(30px, 4vw, 52px);
+          border:
+            1px solid rgba(255, 255, 255, 0.06);
+          border-radius:
+            clamp(24px, 2.8vw, 36px);
           background:
             linear-gradient(
               180deg,
-              rgba(255, 255, 255, 0.078) 0%,
-              rgba(255, 255, 255, 0.038) 26%,
-              rgba(255, 255, 255, 0.022) 100%
+              rgba(255, 255, 255, 0.035) 0%,
+              rgba(255, 255, 255, 0.008) 100%
             );
           box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.07),
-            0 24px 58px rgba(0, 0, 0, 0.17);
-        }
-
-        .jiz-insight-card:hover::before,
-        .jiz-insight-card:focus-within::before {
-          opacity: 0;
-        }
-
-        .jiz-insight-card-main,
-        .jiz-insight-card-secondary {
-          position: relative;
-          z-index: 1;
+            0 36px 82px rgba(0, 0, 0, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.04);
+          backdrop-filter: blur(20px);
           min-width: 0;
         }
 
-        .jiz-insight-card-index {
-          display: block;
-          margin-bottom: 18px;
-          color: rgba(255, 255, 255, 0.58);
-          font: var(--text-hud);
-          letter-spacing: 0.13em;
+        .jiz-insights-card::before {
+          content: '';
+          position: absolute;
+          z-index: -1;
+          inset: 0;
+          border-radius: inherit;
+          background:
+            radial-gradient(
+              ellipse at 80% 20%,
+              rgba(100, 225, 255, 0.05),
+              transparent 52%
+            ),
+            radial-gradient(
+              ellipse at 20% 60%,
+              rgba(198, 242, 58, 0.025),
+              transparent 48%
+            );
+          filter: blur(42px);
+          opacity: 0.6;
+          pointer-events: none;
         }
 
-        .jiz-insight-card-label {
-          display: block;
+        .jiz-insights-label {
+          margin: 0 0 14px;
           color: var(--color-accent-secondary);
           font: var(--text-hud);
-          letter-spacing: var(--tracking-hud);
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          animation:
+            jiz-insights-in 500ms
+              var(--ease-out)
+              both;
         }
 
-        .jiz-insight-card-title {
-          margin: 14px 0 0;
-          max-width: 22ch;
+        .jiz-insights-card-title {
+          margin: 0 0 18px;
           color: var(--color-text-primary);
           font: var(--text-h3);
           font-size:
-            clamp(1.5rem, 2.3vw, 2.25rem);
-          line-height: 1.1;
-          letter-spacing: -0.038em;
+            clamp(
+              1.5rem,
+              2.2vw,
+              2rem
+            );
+          line-height: 1.12;
+          letter-spacing: -0.035em;
           text-wrap: balance;
+          animation:
+            jiz-insights-in 520ms
+              var(--ease-out)
+              70ms both;
         }
 
-        .jiz-insight-card-summary {
-          margin: 0;
-          max-width: 46ch;
-          color: rgba(214, 221, 226, 0.9);
+        .jiz-insights-summary {
+          margin: 0 0 24px;
+          max-width: 64ch;
+          color: var(--color-text-secondary);
           font: var(--text-body);
           font-size: 0.9375rem;
-          line-height: 1.74;
+          line-height: 1.72;
+          animation:
+            jiz-insights-in 540ms
+              var(--ease-out)
+              130ms both;
         }
 
-        .jiz-insight-card-takeaway {
-          margin: 24px 0 0;
-          max-width: 44ch;
-          padding-left: 16px;
+        .jiz-insights-takeaway {
+          margin: 0;
+          padding: 16px;
           border-left:
-            1px solid rgba(198, 242, 58, 0.55);
-          color: rgba(245, 247, 248, 0.92);
-          font: var(--text-caption);
-          font-size: 0.8125rem;
+            2px solid var(--color-accent-primary);
+          border-radius: 0;
+          background:
+            rgba(198, 242, 58, 0.04);
+          color: var(--color-text-primary);
+          font: var(--text-body);
+          font-size: 0.9375rem;
+          font-weight: 500;
           font-style: italic;
-          line-height: 1.62;
+          line-height: 1.68;
+          animation:
+            jiz-insights-in 560ms
+              var(--ease-out)
+              190ms both;
         }
 
-        @media (max-width: 1120px) {
-          .jiz-insights-stage {
-            grid-template-columns:
-              minmax(330px, 0.82fr)
-              minmax(0, 1.18fr);
-            gap: 34px;
+        @keyframes jiz-insights-in {
+          from {
+            opacity: 0;
+            transform: translateY(12px);
           }
 
-          .jiz-insight-card {
-            grid-template-columns: 1fr;
-            gap: 20px;
-          }
-
-          .jiz-insights-portrait {
-            left: 45%;
-            width:
-              clamp(460px, 47vw, 650px);
+          to {
+            opacity: 1;
+            transform: translateY(0);
           }
         }
 
-        @media (max-width: 900px) {
+        @media (max-width: 1080px) {
           .jiz-insights-stage {
             grid-template-columns: 1fr;
+            gap: clamp(28px, 4vw, 46px);
           }
 
-          .jiz-insights-portrait-column {
-            min-height: 650px;
-          }
-
-          .jiz-insights-portrait-environment {
-            height: 650px;
-            min-height: 650px;
-          }
-
-          .jiz-insights-portrait {
-            left: 50%;
-            width:
-              min(650px, 88vw);
-          }
-
-          .jiz-insights-cards {
-            grid-template-rows: none;
-            grid-template-columns: 1fr;
-          }
-
-          .jiz-insight-card {
-            min-height: 250px;
+          .jiz-insights-controls {
+            display: grid;
             grid-template-columns:
-              minmax(0, 0.95fr)
-              minmax(220px, 0.85fr);
+              repeat(3, minmax(0, 1fr));
+            gap: 12px;
+          }
+
+          .jiz-insights-control {
+            padding: 12px 14px;
+            font-size: 0.875rem;
           }
         }
 
-        @media (max-width: 680px) {
+        @media (max-width: 768px) {
           .jiz-insights {
             padding-inline:
               max(20px, var(--container-pad));
@@ -2322,631 +2373,136 @@ function Insights() {
 
           .jiz-insights-title {
             font-size:
-              clamp(2.75rem, 13vw, 4.2rem);
+              clamp(
+                2.5rem,
+                10vw,
+                3.8rem
+              );
           }
 
-          .jiz-insights-portrait-column {
-            min-height: 560px;
+          .jiz-insights-controls {
+            grid-template-columns:
+              repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
           }
 
-          .jiz-insights-portrait-environment {
-            height: 560px;
-            min-height: 560px;
+          .jiz-insights-control {
+            padding: 10px 12px;
+            font-size: 0.8125rem;
           }
 
-          .jiz-insights-portrait {
-            left: 50%;
-            bottom: -7%;
-            width:
-              min(620px, 118vw);
-            height: 112%;
-            transform:
-              translateX(-50%)
-              scale(1.18);
+          .jiz-insights-card-title {
+            font-size:
+              clamp(
+                1.25rem,
+                4.2vw,
+                1.75rem
+              );
+            margin-bottom: 14px;
           }
 
-          .jiz-insights-portrait-copy {
-            max-width: 215px;
+          .jiz-insights-summary {
+            font-size: 0.875rem;
+            margin-bottom: 16px;
           }
 
-          .jiz-insight-card-title,
-          .jiz-insight-card-summary,
-          .jiz-insight-card-takeaway {
-            max-width: 100%;
-          }
-
-          .jiz-insight-card {
-            min-height: auto;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            padding:
-              clamp(26px, 7vw, 34px);
+          .jiz-insights-takeaway {
+            padding: 12px;
+            font-size: 0.8125rem;
           }
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .jiz-creative-lab-method-step,
-          .jiz-creative-lab-tool {
+          .jiz-insights-control,
+          .jiz-insights-card,
+          .jiz-insights-label,
+          .jiz-insights-card-title,
+          .jiz-insights-summary,
+          .jiz-insights-takeaway {
+            animation: none;
             transition: none;
           }
 
-          .jiz-insight-card,
-          .jiz-insight-card::before {
-            transition: none;
-          }
-
-          .jiz-insight-card:hover,
-          .jiz-insight-card:focus-within {
-            transform: none;
+          .jiz-insights-control::before {
+            display: none;
           }
         }
       `}</style>
 
       <div className="jiz-insights-inner">
-        <Reveal>
-          <header className="jiz-insights-header">
-            <p className="jiz-insights-eyebrow">
-              Insights
-            </p>
+        <header className="jiz-insights-header">
+          <p className="jiz-insights-eyebrow">
+            Perspective
+          </p>
 
-            <h2
-              id="jiz-insights-title"
-              className="jiz-insights-title"
-            >
-              Thinking out loud.
-            </h2>
+          <h2
+            id="jiz-insights-title"
+            className="jiz-insights-title"
+          >
+            Insights on learning and systems.
+          </h2>
 
-            <p className="jiz-insights-subtitle">
-              Three principles shaping how I use AI,
-              design judgment, and systems thinking to
-              create experiences people can trust,
-              understand, and adopt.
-            </p>
-          </header>
-        </Reveal>
+          <p className="jiz-insights-subtitle">
+            Brief thoughts on practice, judgment, and the
+            systems that make change possible.
+          </p>
+        </header>
 
         <div className="jiz-insights-stage">
-          <Reveal
-            delay={80}
-            style={{
-              minWidth: 0,
-              height: '100%',
-            }}
-          >
-            <div className="jiz-insights-portrait-column">
-              <div className="jiz-insights-portrait-environment">
-                <div
-                  className="jiz-insights-portrait-glow"
-                  aria-hidden="true"
-                />
-
-                <ChromaKeyVideo
-                  src="./assets/video/Jonathan_Smiling.mp4"
-                  className="jiz-insights-portrait"
-                />
-
-                <div
-                  className="jiz-insights-portrait-haze"
-                  aria-hidden="true"
-                />
-
-                <div
-                  className="jiz-insights-portrait-side-fade"
-                  aria-hidden="true"
-                />
-
-                <div className="jiz-insights-portrait-copy">
-                  <span className="jiz-insights-portrait-label">
-                    Perspective in practice
-                  </span>
-
-                  <p className="jiz-insights-portrait-note">
-                    Technology becomes meaningful when
-                    judgment, context, and human experience
-                    remain part of the same system.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-
-          <div className="jiz-insights-cards">
+          <div className="jiz-insights-controls">
             {posts.map(function (post, index) {
               return (
-                <Reveal
-                  key={post.title}
-                  delay={140 + index * 90}
-                  style={{
-                    minWidth: 0,
-                    height: '100%',
-                  }}
+                <button
+                  key={post.label}
+                  className={
+                    'jiz-insights-control' +
+                    (index === 0 ? ' is-active' : '')
+                  }
+                  type="button"
+                  aria-pressed={index === 0}
                 >
-                  <div className="jiz-insight-card-wrap">
-                    <article className="jiz-insight-card">
-                      <div className="jiz-insight-card-main">
-                        <span className="jiz-insight-card-index">
-                          {String(index + 1).padStart(2, '0')}
-                        </span>
-
-                        <span className="jiz-insight-card-label">
-                          {post.label}
-                        </span>
-
-                        <h3 className="jiz-insight-card-title">
-                          {post.title}
-                        </h3>
-                      </div>
-
-                      <div className="jiz-insight-card-secondary">
-                        <p className="jiz-insight-card-summary">
-                          {post.summary}
-                        </p>
-
-                        <p className="jiz-insight-card-takeaway">
-                          {post.takeaway}
-                        </p>
-                      </div>
-                    </article>
-                  </div>
-                </Reveal>
+                  {post.label}
+                </button>
               );
             })}
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
 
-function LetsBuild({ onExploreWork }) {
-  const PROJECT_TYPES = ['Learning Experience', 'AI Strategy', 'Creative Production', 'Enterprise Transformation', 'Product Adoption', 'Consulting'];
-  const TIMELINES = ['Exploring', 'Within 30 Days', '1–3 Months', '3+ Months'];
-  const BUDGETS = ['Not Established', 'Under $10k', '$10k–25k', '$25k–50k', '$50k+'];
-  const REFERRALS = ['LinkedIn', 'Referral', 'Google Search', 'Previous Colleague', 'Conference or Event', 'Other'];
-  const [form, setForm] = React.useState({ name: '', email: '', org: '', types: [], detail: '', timeline: '', budget: '', referral: '' });
-  const [formStatus, setFormStatus] = React.useState('idle');
-  const [formMessage, setFormMessage] = React.useState('');
-  const statusRef = React.useRef(null);
-  const inFlightRef = React.useRef(false);
-  const mountedRef = React.useRef(true);
-  React.useEffect(() => () => { mountedRef.current = false; }, []);
-  React.useEffect(() => {
-    if ((formStatus === 'success' || formStatus === 'error') && statusRef.current) statusRef.current.focus();
-  }, [formStatus]);
-  const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
-  const toggleType = (t) => setForm((f) => ({ ...f, types: f.types.includes(t) ? f.types.filter((x) => x !== t) : f.types.concat(t) }));
-  const handleSubmit = async function (event) {
-    event.preventDefault();
-    if (inFlightRef.current) return;
-    const formEl = event.currentTarget;
-    if (form.types.length === 0) {
-      setFormStatus('error');
-      setFormMessage('Select at least one project type so I can route your inquiry correctly.');
-      return;
-    }
-    const formData = new FormData(formEl);
-    inFlightRef.current = true;
-    setFormStatus('submitting');
-    setFormMessage('');
-    formData.append('access_key', 'be51b404-7cd3-43c5-afaf-5b52369eb150');
-    formData.append('subject', 'New Portfolio Project Inquiry');
-    formData.append('from_name', 'Jonathan Zamarripa Portfolio');
-    let ok = false;
-    let notice = 'Something interrupted the submission. Please try again.';
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
-      let data = null;
-      try { data = await response.json(); } catch (parseError) { data = null; }
-      if (response.ok && data && data.success === true) {
-        ok = true;
-      } else if (data && typeof data.message === 'string' && data.message.length < 160) {
-        notice = data.message;
-      }
-    } catch (networkError) {
-      notice = 'The request could not reach the server. Check your connection and try again.';
-    } finally {
-      inFlightRef.current = false;
-      if (mountedRef.current) {
-        if (ok) {
-          setFormStatus('success');
-          setFormMessage('Your inquiry is on its way. I’ll be in touch soon.');
-          formEl.reset();
-          setForm({ name: '', email: '', org: '', types: [], detail: '', timeline: '', budget: '', referral: '' });
-        } else {
-          setFormStatus('error');
-          setFormMessage(notice);
-        }
-      }
-    }
-  };
-
-
-
-  return (
-    <section className="jiz-build" data-lets-build="ready" aria-labelledby="jiz-build-title">
-      <style>{`
-        .jiz-build{position:relative;isolation:isolate;overflow:hidden;padding:clamp(104px,11vw,176px) var(--container-pad) clamp(96px,10vw,152px);background:radial-gradient(ellipse 74% 54% at 18% 8%,rgba(100,225,255,.094),transparent 66%),radial-gradient(ellipse 62% 50% at 88% 64%,rgba(198,242,58,.05),transparent 70%),linear-gradient(180deg,#121a1d 0%,#141d20 40%,#101619 100%)}
-        .jiz-build::before{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%);mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%)}
-        .jiz-build-inner{position:relative;z-index:1;width:min(100%,1360px);margin-inline:auto}
-        .jiz-build-head{display:flex;flex-direction:column;gap:clamp(22px,2.6vw,34px);margin-bottom:clamp(56px,6.5vw,92px)}
-        .jiz-build-head-left{display:contents}
-        .jiz-build-head-right{display:contents}
-        .jiz-build-eyebrow{margin:0 0 14px;color:var(--color-accent-primary);font:var(--text-eyebrow);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase}
-        .jiz-build-title{margin:0 0 24px;color:var(--color-text-primary);font:var(--text-h2);font-size:clamp(2.6rem,5.2vw,5.2rem);line-height:1.04;letter-spacing:-.042em;text-wrap:balance}
-        .jiz-build-sub{margin:0;color:var(--color-text-secondary);font:var(--text-body-lg);font-size:clamp(1.05rem,1.25vw,1.2rem);line-height:1.72}
-        .jiz-build-stage{display:grid;grid-template-columns:minmax(360px,.98fr) minmax(0,1.02fr);gap:clamp(22px,2.6vw,34px);align-items:stretch}
-        .jiz-build-film{position:relative;overflow:visible;border-radius:0;min-height:clamp(420px,44vw,620px);background:transparent;order:2}
-        .jiz-build-film::after{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(18,26,29,1) 0%,transparent 22%,transparent 78%,rgba(18,26,29,1) 100%),linear-gradient(180deg,rgba(18,26,29,.6) 0%,transparent 12%,transparent 88%,rgba(18,26,29,1) 100%);z-index:2}
-        .jiz-build-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;opacity:0.82}
-        .jiz-build-film::before{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:radial-gradient(ellipse 68% 42% at 22% 8%,rgba(100,225,255,.035),transparent 66%),radial-gradient(ellipse 58% 46% at 84% 78%,rgba(198,242,58,.018),transparent 68%);opacity:0.7}
-        .jiz-build-film-copy{position:absolute;z-index:2;left:clamp(22px,3vw,40px);right:clamp(22px,3vw,40px);bottom:clamp(24px,3vw,40px);max-width:460px}
-        .jiz-build-film-label{margin:0 0 10px;color:var(--color-accent-secondary);font:var(--text-hud);letter-spacing:.14em;text-transform:uppercase}
-        .jiz-build-film-line{margin:0;color:var(--color-text-primary);font:var(--text-body);font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.6;text-shadow:0 2px 18px rgba(0,0,0,.6)}
-        .jiz-build-form{display:flex;flex-direction:column;padding:clamp(28px,3.2vw,44px);border:1px solid rgba(255,255,255,.075);border-radius:clamp(22px,2.4vw,32px);background:linear-gradient(180deg,rgba(255,255,255,.055),rgba(255,255,255,.018));box-shadow:0 34px 90px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.05);backdrop-filter:blur(20px);order:1}
-        .jiz-build-form h3{margin:0 0 6px;color:var(--color-text-primary);font:var(--text-h3);font-size:clamp(1.5rem,2vw,1.9rem);letter-spacing:-.03em}
-        .jiz-build-form-note{margin:0 0 22px;color:var(--color-text-muted);font:var(--text-caption)}
-        .jiz-build-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-        .jiz-build-field{display:flex;flex-direction:column;gap:6px}
-        .jiz-build-field.jiz-span{grid-column:1/-1}
-        .jiz-build-label{color:var(--color-accent-secondary);font:var(--text-hud);font-size:.625rem;letter-spacing:.1em;text-transform:uppercase}
-        .jiz-build-input,.jiz-build-area{width:100%;box-sizing:border-box;min-height:46px;padding:12px 14px;border:1px solid rgba(255,255,255,.1);border-radius:14px;background:rgba(8,13,15,.5);color:var(--color-text-primary);font:var(--text-body);font-size:.9375rem;transition:border-color var(--motion-fast) var(--ease-standard),background var(--motion-fast) var(--ease-standard)}
-        .jiz-build-area{min-height:92px;resize:vertical;line-height:1.55}
-        .jiz-build-input::placeholder,.jiz-build-area::placeholder{color:rgba(245,247,248,.32)}
-        .jiz-build-input:focus,.jiz-build-area:focus{outline:none;border-color:rgba(198,242,58,.5);background:rgba(198,242,58,.035)}
-        .jiz-build-chips{display:flex;flex-wrap:wrap;gap:8px}
-        .jiz-build-chip{min-height:38px;padding:0 14px;border:1px solid rgba(255,255,255,.11);border-radius:var(--radius-pill);background:rgba(255,255,255,.028);color:var(--color-text-secondary);font:var(--text-caption);cursor:pointer;transition:all var(--motion-fast) var(--ease-standard)}
-        .jiz-build-chip:hover{border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.045);color:var(--color-text-primary)}
-        .jiz-build-chip[aria-pressed="true"]{border-color:rgba(198,242,58,.55);background:rgba(198,242,58,.1);color:var(--color-text-primary)}
-        .jiz-build-chip:focus-visible,.jiz-build-submit:focus-visible,.jiz-build-tile:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:3px}
-        .jiz-build-submit{margin-top:22px;min-height:52px;padding:0 26px;border:none;border-radius:var(--radius-pill);background:var(--color-accent-primary);color:var(--color-on-accent);font:var(--text-button);cursor:pointer;transition:transform var(--motion-fast) var(--ease-standard),box-shadow var(--motion-fast) var(--ease-standard)}
-        .jiz-build-submit:hover:not(:disabled){background:var(--color-accent-primary-hover);box-shadow:0 10px 26px rgba(198,242,58,.16)}
-        .jiz-build-submit:disabled{opacity:.55;cursor:not-allowed;box-shadow:none}
-        .jiz-build-fieldset{min-width:0;margin:0;padding:0;border:0}
-        .jiz-build-fieldset legend{padding:0;margin-bottom:6px}
-        .jiz-build-status{margin:12px 0 0;min-height:0;text-align:center;font:var(--text-caption);line-height:1.55}
-        .jiz-build-status:empty{display:none}
-        .jiz-build-status.jiz-is-success{padding:12px 14px;border:1px solid rgba(198,242,58,.42);border-radius:14px;background:rgba(198,242,58,.09);color:var(--color-text-primary)}
-        .jiz-build-status.jiz-is-error{padding:12px 14px;border:1px solid rgba(255,150,120,.42);border-radius:14px;background:rgba(255,150,120,.09);color:#ffcbb8}
-        .jiz-build-status:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:3px}
-        .jiz-build-status-tag{font-weight:700;letter-spacing:.02em}
-        .jiz-build-privacy{margin:14px 0 0;text-align:center;color:var(--color-text-muted);font:var(--text-caption);font-size:.75rem;line-height:1.5}
-        .jiz-build-form-direct{margin:14px 0 0;text-align:center;color:var(--color-text-muted);font:var(--text-caption)}
-        .jiz-build-form-direct a{color:var(--color-accent-primary);text-decoration:none}
-        .jiz-build-form-direct a:hover{text-decoration:underline}
-        .jiz-build-rail{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.6vw,20px);margin-top:clamp(30px,3.4vw,48px)}
-        .jiz-build-tile{display:block;padding:clamp(22px,2.4vw,30px);border:1px solid rgba(255,255,255,.075);border-radius:20px;background:linear-gradient(180deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.024) 30%,rgba(255,255,255,.014));text-decoration:none;backdrop-filter:blur(16px);transition:transform var(--motion-fast) var(--ease-standard),border-color var(--motion-fast) var(--ease-standard),background var(--motion-fast) var(--ease-standard)}
-        .jiz-build-tile:hover{border-color:rgba(255,255,255,.155);background:linear-gradient(180deg,rgba(255,255,255,.062) 0%,rgba(255,255,255,.028) 30%,rgba(255,255,255,.014) 100%)}
-        .jiz-build-tile-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
-        .jiz-build-tile-name{color:var(--color-text-primary);font:var(--text-body);font-weight:650;font-size:1rem}
-        .jiz-build-tile-arrow{color:var(--color-accent-secondary);font-size:.95rem}
-        .jiz-build-tile-desc{margin:0;color:var(--color-text-secondary);font:var(--text-caption);line-height:1.6}
-        .jiz-build-tile-icon{display:block;margin-bottom:16px;color:var(--color-accent-primary);transition:transform var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard)}
-        .jiz-build-tile:hover .jiz-build-tile-icon{transform:scale(1.08);color:var(--color-accent-secondary)}
-        
-        
-        
-        
-        
-        
-        @media(max-width:1040px){.jiz-build-stage{grid-template-columns:1fr}.jiz-build-film{min-height:clamp(300px,52vw,460px)}}
-        @media(max-width:820px){.jiz-build-rail{grid-template-columns:1fr}}
-        @media(max-width:680px){.jiz-build-title{max-width:100%}.jiz-build-sub{max-width:100%}}
-        @media(max-width:520px){.jiz-build-fields{grid-template-columns:1fr}}
-        @media(prefers-reduced-motion:reduce){.jiz-build-tile,.jiz-build-submit,.jiz-build-chip{transition:none}}
-      `}</style>
-      <div className="jiz-build-inner">
-        <header className="jiz-build-head">
-          <p className="jiz-build-eyebrow">Let's build what's next</p>
-          <h2 id="jiz-build-title" className="jiz-build-title">Have a complex problem worth making clear?</h2>
-          <p className="jiz-build-sub">I partner with teams navigating complex learning, technology, adoption, and transformation challenges. Tell me what you're trying to change, where the friction lives, and what success should make possible.</p>
-        </header>
-
-        <div className="jiz-build-stage">
-          <div className="jiz-build-film">
-            <video className="jiz-build-video" data-build-film autoPlay muted loop playsInline preload="metadata" aria-hidden="true" tabIndex="-1">
-              <source src="./assets/video/Jonathan_Planning.mp4" type="video/mp4" />
-            </video>
-            <div className="jiz-build-film-copy">
-              <p className="jiz-build-film-label">From ambiguity to direction</p>
-              <p className="jiz-build-film-line">Strategy becomes tangible when the problem can be seen, mapped, tested, and refined.</p>
-            </div>
-          </div>
-
-          <form className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
-            <h3>Start a Project</h3>
-            <p className="jiz-build-form-note">A few details are enough to begin a useful conversation.</p>
-            <div className="jiz-build-fields">
-              <div className="jiz-build-field">
-                <label className="jiz-build-label" htmlFor="jiz-build-name">Name <span aria-hidden="true">*</span></label>
-                <input className="jiz-build-input" id="jiz-build-name" name="name" type="text" required value={form.name} onChange={set('name')} placeholder="Your name" autoComplete="name" />
-              </div>
-              <div className="jiz-build-field">
-                <label className="jiz-build-label" htmlFor="jiz-build-email">Work email <span aria-hidden="true">*</span></label>
-                <input className="jiz-build-input" id="jiz-build-email" name="email" type="email" required value={form.email} onChange={set('email')} placeholder="you@company.com" autoComplete="email" />
-              </div>
-              <div className="jiz-build-field jiz-span">
-                <label className="jiz-build-label" htmlFor="jiz-build-org">Organization</label>
-                <input className="jiz-build-input" id="jiz-build-org" name="organization" type="text" value={form.org} onChange={set('org')} placeholder="Company or team" autoComplete="organization" />
-              </div>
-              <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                <legend className="jiz-build-label">Project type <span aria-hidden="true">*</span></legend>
-                <div className="jiz-build-chips">
-                  {PROJECT_TYPES.map((t) => (
-                    <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.types.indexOf(t) !== -1} onClick={() => toggleType(t)}>{t}</button>
-                  ))}
-                </div>
-              </fieldset>
-              <div className="jiz-build-field jiz-span">
-                <label className="jiz-build-label" htmlFor="jiz-build-detail">What are you trying to make clearer, easier, or more effective? <span aria-hidden="true">*</span></label>
-                <textarea className="jiz-build-area" id="jiz-build-detail" name="challenge" required value={form.detail} onChange={set('detail')} placeholder="The change you're after, the friction in the way, what success looks like." />
-              </div>
-              <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                <legend className="jiz-build-label">Timeline</legend>
-                <div className="jiz-build-chips">
-                  {TIMELINES.map((t) => (
-                    <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.timeline === t} onClick={() => setForm((f) => ({ ...f, timeline: f.timeline === t ? '' : t }))}>{t}</button>
-                  ))}
-                </div>
-              </fieldset>
-              <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                <legend className="jiz-build-label">Budget</legend>
-                <div className="jiz-build-chips">
-                  {BUDGETS.map((b) => (
-                    <button key={b} type="button" className="jiz-build-chip" aria-pressed={form.budget === b} onClick={() => setForm((f) => ({ ...f, budget: f.budget === b ? '' : b }))}>{b}</button>
-                  ))}
-                </div>
-              </fieldset>
-              <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                <legend className="jiz-build-label">How did you hear about me?</legend>
-                <div className="jiz-build-chips">
-                  {REFERRALS.map((r) => (
-                    <button key={r} type="button" className="jiz-build-chip" aria-pressed={form.referral === r} onClick={() => setForm((f) => ({ ...f, referral: f.referral === r ? '' : r }))}>{r}</button>
-                  ))}
-                </div>
-              </fieldset>
-            </div>
-
-            <input type="hidden" name="project_type" value={form.types.join(', ')} />
-            <input type="hidden" name="timeline" value={form.timeline} />
-            <input type="hidden" name="budget" value={form.budget} />
-            <input type="hidden" name="referral_source" value={form.referral} />
-
-            <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
-              <label htmlFor="jiz-botcheck">Leave this field empty</label>
-              <input id="jiz-botcheck" type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" />
-            </div>
-
-            <button className="jiz-build-submit" type="submit" disabled={formStatus === 'submitting'} aria-busy={formStatus === 'submitting'}>
-              {formStatus === 'submitting' ? 'Sending…' : 'Start the Conversation →'}
-            </button>
-
-            <p
-              ref={statusRef}
-              tabIndex={-1}
-              className={'jiz-build-status' + (formStatus === 'success' ? ' jiz-is-success' : formStatus === 'error' ? ' jiz-is-error' : '')}
-              role={formStatus === 'error' ? 'alert' : 'status'}
-              aria-live={formStatus === 'error' ? 'assertive' : 'polite'}
-              aria-atomic="true"
-            >
-              {formMessage ? (
-                <React.Fragment>
-                  <strong className="jiz-build-status-tag">{formStatus === 'success' ? 'Sent' : 'Not sent'}</strong>
-                  {' '}{formMessage}
-                </React.Fragment>
-              ) : ''}
+          <div className="jiz-insights-card">
+            <p className="jiz-insights-label">
+              {posts[0].label}
             </p>
 
-            <p className="jiz-build-privacy">Your details are used only to respond to this inquiry. No mailing lists. No unsolicited follow-up.</p>
-            <p className="jiz-build-form-direct">Prefer email? <a href="mailto:jonathan.zamarripa@gmail.com">jonathan.zamarripa@gmail.com</a></p>
-          </form>
-        </div>
+            <h3 className="jiz-insights-card-title">
+              {posts[0].title}
+            </h3>
 
-        <div className="jiz-build-rail">
-          <a className="jiz-build-tile" href="https://www.linkedin.com/in/jonathanzamarripa/" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn">
-            <svg className="jiz-build-tile-icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-              <rect x="2" y="9" width="4" height="12" />
-              <circle cx="4" cy="4" r="2" />
-            </svg>
-            <span className="jiz-build-tile-top"><span className="jiz-build-tile-name">Connect on LinkedIn</span><span className="jiz-build-tile-arrow" aria-hidden="true">↗</span></span>
-            <p className="jiz-build-tile-desc">Follow current work and connect professionally.</p>
-          </a>
-          <a className="jiz-build-tile" href="https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf" target="_blank" rel="noopener noreferrer" aria-label="Explore My Experience">
-            <svg className="jiz-build-tile-icon" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M6 4h10l8 8v16a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
-              <path d="M16 4v8h8M9 18h6M9 22h8" />
-            </svg>
-            <span className="jiz-build-tile-top"><span className="jiz-build-tile-name">Explore My Experience</span><span className="jiz-build-tile-arrow" aria-hidden="true">↗</span></span>
-            <p className="jiz-build-tile-desc">Review professional background and capabilities.</p>
-          </a>
-          <div className="jiz-build-tile jiz-build-tile-email" onClick={() => { const form = document.querySelector('form[data-build-form]'); if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' }); }} style={{ cursor: 'pointer' }} role="button" tabIndex="0" aria-label="Start a Conversation — click to scroll to contact form" onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { const form = document.querySelector('form[data-build-form]'); if (form) form.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }}>
-            <svg className="jiz-build-tile-icon" viewBox="0 0 32 32" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M4 6h24a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z" />
-              <path d="M2 8l14 10 14-10" />
-              <path d="M12 18l-6 6M20 18l6 6" />
-            </svg>
-            <span className="jiz-build-tile-top"><span className="jiz-build-tile-name">Start a Conversation</span><span className="jiz-build-tile-arrow" aria-hidden="true">↗</span></span>
-            <p className="jiz-build-tile-desc">Reach out directly about projects and opportunities.</p>
-            <div style={{ marginTop: '10px', paddingTop: '10px', borderTop: '1px solid rgba(255,255,255,.1)', display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
-              <a href="mailto:jonathan.zamarripa@gmail.com?subject=Let%27s%20Build%20Something%20Great%20Together&body=Hi%20Jonathan%2C%0A%0AI%20enjoyed%20exploring%20your%20portfolio%20and%20wanted%20to%20reach%20out%20regarding%20a%20potential%20opportunity.%0A%0AI%27d%20love%20to%20connect%20and%20learn%20more%20about%20your%20work.%0A%0ALooking%20forward%20to%20hearing%20from%20you.%0A%0ABest%2C" aria-label="Email Jonathan" style={{ fontSize: '0.8125rem', color: 'var(--color-accent-secondary)', textDecoration: 'underline', flex: '1 1 auto' }}>Email</a>
-              <button type="button" onClick={(e) => { e.stopPropagation(); navigator.clipboard.writeText('jonathan.zamarripa@gmail.com').then(() => { const btn = e.target; const orig = btn.textContent; btn.textContent = 'Copied!'; setTimeout(() => { btn.textContent = orig; }, 2000); }).catch(() => { alert('jonathan.zamarripa@gmail.com'); }); }} aria-label="Copy email address" style={{ fontSize: '0.8125rem', color: 'var(--color-accent-secondary)', background: 'none', border: 'none', cursor: 'pointer', padding: 0, textDecoration: 'underline' }}>Copy</button>
-            </div>
+            <p className="jiz-insights-summary">
+              {posts[0].summary}
+            </p>
+
+            <p className="jiz-insights-takeaway">
+              {posts[0].takeaway}
+            </p>
           </div>
         </div>
-
       </div>
     </section>
   );
 }
 
-function FinalMoment({ onNavigate }) {
-  const [lit, setLit] = React.useState(false);
-  const ref = React.useRef(null);
-  const reduced = prefersReduced();
-  const NAV = [['About', 1], ['Featured Work', 2], ['Creative Lab', 3], ['Insights', 4], ["Let's Build", 5]];
-  React.useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setLit(true); }, { threshold: 0.4 });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-  const toTop = () => window.scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' });
+function HomePage() {
+  const [openWork, setOpenWork] = React.useState(null);
   return (
-    <footer ref={ref} className="jiz-footer" data-footer="ready">
-      <style>{`
-        .jiz-footer{position:relative;isolation:isolate;overflow:hidden;padding:clamp(64px,7vw,104px) var(--container-pad) clamp(36px,4vw,56px);background:radial-gradient(ellipse at 14% 6%,rgba(100,225,255,.32),transparent 46%),radial-gradient(ellipse at 88% 88%,rgba(255,255,255,.28),transparent 42%),linear-gradient(165deg,#d4f24a 0%,#c6f23a 46%,#aade34 100%);color:#0d1410}
-        .jiz-footer::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.16;background-image:linear-gradient(rgba(13,20,16,.4) 1px,transparent 1px),linear-gradient(90deg,rgba(13,20,16,.4) 1px,transparent 1px);background-size:72px 72px;-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000,transparent 78%);mask-image:radial-gradient(ellipse at 50% 40%,#000,transparent 78%)}
-        .jiz-footer-inner{max-width:1360px;position:relative;z-index:1;width:min(100%,1240px);margin-inline:auto;text-align:center}
-        .jiz-footer-mark{display:grid;place-items:center;margin:0 auto clamp(24px,3vw,34px)}
-        .jiz-footer-logo{width:96px;height:96px;object-fit:contain;filter:brightness(0)}
-        
-        .jiz-footer-name{margin:0 0 8px;color:#0d1410;font:var(--text-h3);font-size:clamp(1.55rem,2.6vw,2.35rem);letter-spacing:-.035em}
-        .jiz-footer-disciplines{margin:0 0 clamp(30px,3.4vw,44px);color:rgba(13,20,16,.72);font:var(--text-body);font-size:clamp(.9rem,1.1vw,1.02rem);letter-spacing:.01em}
-        .jiz-footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(6px,1vw,12px);margin-bottom:clamp(26px,3vw,38px)}
-        .jiz-footer-nav button{min-height:44px;padding:0 16px;border:1px solid transparent;border-radius:var(--radius-pill);background:transparent;color:rgba(13,20,16,.82);font:var(--text-body);font-size:.9375rem;font-weight:600;cursor:pointer;transition:all var(--motion-fast) var(--ease-standard)}
-        .jiz-footer-nav button:hover{border-color:rgba(13,20,16,.26);background:rgba(13,20,16,.07);color:#0d1410}
-        
-        
-        
-        .jiz-footer-top{min-height:48px;padding:0 22px;border:1px solid rgba(13,20,16,.24);border-radius:var(--radius-pill);background:rgba(13,20,16,.9);color:#e8f7c4;font:var(--text-button);cursor:pointer;transition:all var(--motion-fast) var(--ease-standard)}
-        .jiz-footer-top:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(13,20,16,.26)}
-        .jiz-footer-rule{height:1px;margin:clamp(32px,3.6vw,46px) auto 0;background:linear-gradient(90deg,transparent,rgba(13,20,16,.24),transparent)}
-        .jiz-footer-meta{display:flex;flex-direction:column;gap:6px;margin-top:clamp(22px,2.4vw,30px)}
-        .jiz-footer-copy{color:rgba(13,20,16,.78);font:var(--text-caption)}
-        .jiz-footer-credit{color:rgba(13,20,16,.6);font:var(--text-caption);font-style:italic}
-        .jiz-footer-tech{color:rgba(13,20,16,.48);font:var(--text-hud);font-size:.625rem;letter-spacing:.14em;text-transform:uppercase}
-        .jiz-footer-nav button:focus-visible,.jiz-footer-top:focus-visible{outline:2px solid #0d1410;outline-offset:3px}
-        
-        @media(prefers-reduced-motion:reduce){.jiz-footer-top,.jiz-footer-nav button{transition:none}.jiz-footer-top:hover{transform:none}}
-      `}</style>
-      <div className="jiz-footer-inner">
-        <div className="jiz-footer-mark">
-          <img className="jiz-footer-logo" src="./assets/logo/jiz-logo-white.svg" alt="Jonathan Iker Zamarripa logo" />
-        </div>
-        <p className="jiz-footer-name">Jonathan Iker Zamarripa</p>
-        <p className="jiz-footer-disciplines">Learning Experience Design • AI Strategy • Digital Transformation</p>
-        <nav className="jiz-footer-nav" aria-label="Footer">
-          {NAV.map(([label, index]) => (
-            <button key={label} type="button" onClick={() => onNavigate && onNavigate(index)}>{label}</button>
-          ))}
-        </nav>
-        <button className="jiz-footer-top" type="button" onClick={toTop}>↑ Back to Top</button>
-        <div className="jiz-footer-rule" aria-hidden="true" />
-        <div className="jiz-footer-meta">
-          <span className="jiz-footer-copy">© 2026 Jonathan Iker Zamarripa. All rights reserved.</span>
-          <span className="jiz-footer-credit">Designed with curiosity. Built with AI. Guided by human judgment.</span>
-          <span className="jiz-footer-tech">React • Accessibility First • Responsive • Motion Designed</span>
-        </div>
-      </div>
-    </footer>
+    <React.Fragment>
+      <Hero />
+      <FeaturedWork onOpenWork={setOpenWork} />
+      <FilmSection />
+      <CapabilityOS />
+      <ArchiveBridge />
+      <Insights />
+    </React.Fragment>
   );
 }
 
-function Homepage({ onOpenCaseStudy }) {
-  const { NavBar, Button } = window.JIZPortfolioSite_b3ba38;
-  const sectionRefs = React.useRef([]);
-  const [activeSection, setActiveSection] = React.useState(0);
-  const reduced = prefersReduced();
-
-  const navItems = ['About', 'Featured Work', 'Creative Lab', 'Insights'];
-  const sectionLabels = ['Hero', 'About', 'Featured Work', 'Creative Lab', 'Insights', "Let's Build"];
-  const sectionMap = React.useMemo(() => ({
-    Home: 0,
-    Hero: 0,
-    About: 1,
-    'Featured Work': 2,
-    Work: 2,
-    'Creative Lab': 3,
-    Film: 3,
-    Insights: 4,
-    Contact: 5,
-    "Let's Build": 5,
-  }), []);
-
-  const registerSection = React.useCallback((index) => (element) => {
-    sectionRefs.current[index] = element;
-  }, []);
-
-  const scrollToSection = React.useCallback((index) => {
-    const target = sectionRefs.current[index];
-    if (!target) return;
-    target.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
-    setActiveSection(index);
-  }, [reduced]);
-
-  React.useEffect(() => {
-    const rawTarget = sessionStorage.getItem('jiz-target-section');
-    if (rawTarget === null) return undefined;
-    sessionStorage.removeItem('jiz-target-section');
-    const target = Number.parseInt(rawTarget, 10);
-    if (!Number.isInteger(target) || target < 0 || target >= sectionLabels.length) return undefined;
-    const timer = window.setTimeout(() => scrollToSection(target), reduced ? 0 : 280);
-    return () => window.clearTimeout(timer);
-  }, [reduced, scrollToSection, sectionLabels.length]);
-
-  React.useEffect(() => {
-    if (typeof IntersectionObserver === 'undefined') {
-      const onScroll = () => {
-        let current = 0;
-        sectionRefs.current.forEach((element, index) => {
-          if (element && element.getBoundingClientRect().top <= window.innerHeight * 0.48) current = index;
-        });
-        setActiveSection(current);
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-      return () => window.removeEventListener('scroll', onScroll);
-    }
-
-    const visibility = new Map();
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => visibility.set(Number(entry.target.dataset.sectionIndex), entry.intersectionRatio));
-      let bestIndex = 0;
-      let bestRatio = -1;
-      visibility.forEach((ratio, index) => {
-        if (ratio > bestRatio) { bestRatio = ratio; bestIndex = index; }
-      });
-      setActiveSection(bestIndex);
-    }, { rootMargin: '-20% 0px -55% 0px', threshold: [0, 0.15, 0.35, 0.6] });
-
-    sectionRefs.current.forEach((element, index) => {
-      if (!element) return;
-      element.dataset.sectionIndex = String(index);
-      observer.observe(element);
-    });
-    return () => observer.disconnect();
-  }, []);
-
-  const activeNavLabel = sectionLabels[activeSection] || 'About';
-  const openLinkedIn = () => window.open('https://www.linkedin.com/in/jonathanzamarripa/', '_blank', 'noopener,noreferrer');
-
-  return (
-    <div className="jiz-homepage" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#080D0B', position: 'relative', zIndex: 1 }}>
-      <NavBar
-        items={navItems}
-        active={activeNavLabel}
-        onNavigate={(item) => {
-          const targetIndex = sectionMap[item];
-          if (targetIndex !== undefined) scrollToSection(targetIndex);
-          else window.jizNavigate?.(item);
-        }}
-        onConnect={() => scrollToSection(5)}
-      />
-
-      <main style={{ flex: 1, position: 'relative', zIndex: 1, overflow: 'visible' }}>
-
-        <div ref={registerSection(0)}><Hero onExploreWork={() => scrollToSection(2)} onConnect={() => scrollToSection(5)} /></div>
-        <div ref={registerSection(1)} data-section="about">{window.AboutV2 ? <window.AboutV2 /> : <div role="status" data-about-loading style={{ padding: 32, color: 'var(--color-text-secondary)' }}>Loading About experience…</div>}</div>
-        <div ref={registerSection(2)} data-section="featured-work"><FeaturedWork onOpenWork={onOpenCaseStudy} /></div>
-        <div ref={registerSection(3)}><FilmSection /></div>
-        <div ref={registerSection(4)}><Insights /></div>
-
-        <div ref={registerSection(5)}>
-          <LetsBuild onExploreWork={() => scrollToSection(2)} />
-          <FinalMoment onNavigate={scrollToSection} />
-        </div>
-      </main>
-    </div>
-  );
-}
-
-window.HomepageExports = { Homepage };
+export { Hero, FeaturedWork, FilmSection, CapabilityOS, ArchiveBridge, Insights, HomePage };
+export default HomePage;
