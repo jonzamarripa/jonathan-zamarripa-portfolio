@@ -1,0 +1,38 @@
+JIZ PORTFOLIO — VERCEL MANUAL UPDATE
+
+AUTHORITATIVE HOMEPAGE
+- Homepage.html is the production page entry point in the supplied project.
+- Homepage_COMPLETE.jsx is the matching React source/reference for the homepage.
+- styles.css is included because Homepage.html loads it.
+
+ARCHIVEBRIDGE
+- Uses Archive_Film.mp4 as a full-bleed looping background video.
+- Keeps autoplay, muted, loop, playsInline, preload="auto", object-fit: cover.
+- The visual overlay was reduced so the moving footage is clearly visible.
+- ArchiveBridge remains between CapabilityOS and Insights.
+
+DESIGN-SYSTEM DEPENDENCY
+- Homepage.html loads ./_ds_bundle.js before React.
+- IMPORTANT: _ds_bundle.js was not present among the files supplied for this package, so it is NOT fabricated here.
+- If _ds_bundle.js already exists in your GitHub repository, keep it in the same relative location.
+- Do not delete or replace an existing _ds_bundle.js unless you have a known-good copy.
+
+FILES TO ADD/UPDATE IN GITHUB
+1. Homepage.html
+2. Homepage_COMPLETE.jsx
+3. styles.css
+
+DO NOT UPLOAD
+- The merge-conflicted Homepage.jsx shown earlier.
+- Homepage_UPDATED.jsx unless it is separately confirmed to be the production source.
+- Any generated replacement _ds_bundle.js.
+
+AFTER COMMIT
+1. Push the three files.
+2. Let Vercel create a NEW deployment.
+3. Open the newest deployment, not an older hash-specific preview URL.
+4. Hard refresh the page.
+5. Verify the Archive Film visibly moves behind the Archive content.
+
+Suggested commit message:
+"Fix ArchiveBridge production homepage video visibility"
