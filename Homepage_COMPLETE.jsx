@@ -1758,6 +1758,20 @@ function FeaturedWork({ onOpenWork }) {
 
 function ArchiveBridge() {
   const [hovering, setHovering] = React.useState(false);
+  const videoRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    const startVideo = () => {
+      const playPromise = video.play();
+      if (playPromise && typeof playPromise.catch === 'function') playPromise.catch(() => {});
+    };
+    startVideo();
+    video.addEventListener('canplay', startVideo);
+    return () => video.removeEventListener('canplay', startVideo);
+  }, []);
   return (
     <section
       className="jiz-archive-bridge"
@@ -1774,11 +1788,12 @@ function ArchiveBridge() {
         justifyContent: 'center',
         padding: '0 var(--container-pad)',
         marginTop: 'clamp(60px, 8vw, 120px)',
-        background: 'rgba(8,13,11,0.18)',
+        background: 'rgba(8,13,11,0.10)',
       }}
     >
       {/* Video background */}
       <video
+        ref={videoRef}
         autoPlay
         muted
         loop
@@ -1791,8 +1806,11 @@ function ArchiveBridge() {
           width: '100%',
           height: '100%',
           objectFit: 'cover',
+          objectPosition: 'center center',
           zIndex: 0,
           pointerEvents: 'none',
+          display: 'block',
+          filter: 'saturate(1.08) contrast(1.04)',
         }}
       >
         <source
@@ -1808,7 +1826,7 @@ function ArchiveBridge() {
           position: 'absolute',
           inset: 0,
           zIndex: 1,
-          background: 'linear-gradient(180deg, rgba(8,28,34,0.28) 0%, rgba(14,55,62,0.34) 45%, rgba(7,25,30,0.50) 100%)',
+          background: 'linear-gradient(180deg, rgba(7,27,34,0.20) 0%, rgba(12,50,58,0.28) 45%, rgba(5,22,28,0.42) 100%)',
         }}
       />
 
