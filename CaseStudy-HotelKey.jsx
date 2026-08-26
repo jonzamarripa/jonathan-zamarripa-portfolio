@@ -86,10 +86,10 @@ function CaseStudyHotelKey({ onBack, onOpenProject }) {
       { label: "Deliverables", value: "Onboarding video, storyboard, motion graphics, supporting materials" }
     ],
     gallery: [
-      { src: "../../assets/imagery/hotelkey-01-hero.png", caption: "01 Case Study Hero" },
-      { src: "../../assets/imagery/hotelkey-04-storyboard.png", caption: "02 Six-Scene Onboarding Storyboard" },
-      { src: "../../assets/imagery/hotelkey-03-process.png", caption: "03 Production Workflow: Editing, Scene Direction & Build" },
-      { src: "../../assets/imagery/hotelkey-02-iteration.png", caption: "04 Stakeholder-Iteration Evidence" }
+      { src: "./assets/imagery/hotelkey-01-hero.png", caption: "01 Case Study Hero" },
+      { src: "./assets/imagery/hotelkey-04-storyboard.png", caption: "02 Six-Scene Onboarding Storyboard" },
+      { src: "./assets/imagery/hotelkey-03-process.png", caption: "03 Production Workflow: Editing, Scene Direction & Build" },
+      { src: "./assets/imagery/hotelkey-02-iteration.png", caption: "04 Stakeholder-Iteration Evidence" }
     ],
     related: [
       { direction: "Next project", title: "Guest CRM Pilot", route: "Guest CRM Pilot" },

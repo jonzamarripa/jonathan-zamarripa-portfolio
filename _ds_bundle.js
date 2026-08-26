@@ -592,7 +592,7 @@ function AboutV2({
   const [methodPaused, setMethodPaused] = React.useState(false);
   const LINKEDIN_URL = 'https://www.linkedin.com/in/jonathanzamarripa/';
   const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
-  const THINKING_ENGINE_SRC = '../../assets/video/about-me-thinking-engine.mp4';
+  const THINKING_ENGINE_SRC = './assets/video/about-me-thinking-engine.mp4';
   const methodStages = [{
     id: 'observe',
     label: '01',
@@ -1774,7 +1774,7 @@ function AboutV2() {
   const [activeMethodIndex, setActiveMethodIndex] = React.useState(0);
   const [methodVisible, setMethodVisible] = React.useState(false);
   const [methodPaused, setMethodPaused] = React.useState(false);
-  const THINKING_ENGINE_SRC = '../../assets/video/Man_thinking_strategic_intelligent.mp4';
+  const THINKING_ENGINE_SRC = './assets/video/Man_thinking_strategic_intelligent.mp4';
   const methodStages = [{
     id: 'observe',
     label: '01',
@@ -3068,7 +3068,7 @@ function AboutV2({
   const [isVisible, setIsVisible] = React.useState(false);
   const LINKEDIN_URL = 'https://www.linkedin.com/in/jonathanzamarripa/';
   const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
-  const THINKING_ENGINE_SRC = '../../assets/video/about-me-thinking-engine.mp4';
+  const THINKING_ENGINE_SRC = './assets/video/about-me-thinking-engine.mp4';
   const methodStages = [{
     id: 'observe',
     label: '01',
@@ -4043,7 +4043,7 @@ function AboutV2({
   const [isVisible, setIsVisible] = React.useState(false);
   const LINKEDIN_URL = 'https://www.linkedin.com/in/jonathanzamarripa/';
   const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
-  const THINKING_ENGINE_SRC = '../../assets/video/about-me-thinking-engine.mp4';
+  const THINKING_ENGINE_SRC = './assets/video/about-me-thinking-engine.mp4';
   const methodStages = [{
     id: 'observe',
     label: '01',
@@ -4875,7 +4875,7 @@ function AboutV2({
       background: 'rgba(8, 13, 11, 0.4)'
     }
   }, /*#__PURE__*/React.createElement("source", {
-    src: "../../assets/video/the-train-story.mp4",
+    src: "./assets/video/the-train-story.mp4",
     type: "video/mp4"
   }), "The Thinking Engine animation"), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5662,7 +5662,7 @@ function TrainStoryVideo() {
       pointerEvents: 'none'
     }
   }, /*#__PURE__*/React.createElement("source", {
-    src: "../../assets/video/the-train-story.mp4",
+    src: "./assets/video/the-train-story.mp4",
     type: "video/mp4"
   })), /*#__PURE__*/React.createElement("div", {
     style: {
@@ -5691,7 +5691,7 @@ function TrainStoryVideo() {
   }, /*#__PURE__*/React.createElement("path", {
     d: "M8 5v14l11-7z"
   }))))), /*#__PURE__*/React.createElement(VideoLightbox, {
-    src: "../../assets/video/the-train-story.mp4",
+    src: "./assets/video/the-train-story.mp4",
     open: open,
     onClose: () => setOpen(false)
   }));
@@ -5941,7 +5941,7 @@ function Hero({
       e.target.volume = 0;
     }
   }, /*#__PURE__*/React.createElement("source", {
-    src: "../../assets/video/hero-bg.mp4",
+    src: "./assets/video/hero-bg.mp4",
     type: "video/mp4"
   })), /*#__PURE__*/React.createElement("div", {
     className: "hero-signal-field"
@@ -5985,7 +5985,7 @@ function Hero({
   })))), /*#__PURE__*/React.createElement("div", {
     className: "hero-portrait-stage"
   }, /*#__PURE__*/React.createElement(ChromaKeyVideo, {
-    src: "../../assets/video/hero-portrait-green.mp4?v=4",
+    src: "./assets/video/hero-portrait-green.mp4?v=4",
     className: "hero-portrait",
     style: {
       WebkitMaskImage: 'linear-gradient(to bottom,#000 62%,rgba(0,0,0,.9) 80%,transparent 98%),linear-gradient(to right,transparent 0%,#000 30%),linear-gradient(to left,transparent 0%,#000 20%),radial-gradient(ellipse 55% 45% at 8% 100%,transparent 0%,transparent 20%,#000 75%)',
@@ -6737,7 +6737,7 @@ function FilmSection() {
       animation: reduced ? 'none' : 'jiz-fade-in 1.4s ease both'
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/logo/jiz-logo-white.svg",
+    src: "./assets/logo/jiz-logo-white.svg",
     alt: "JIZ logo",
     style: {
       width: 60,
@@ -6834,7 +6834,7 @@ function CapabilityOS() {
       paddingBottom: 'clamp(56px, 6vw, 100px)'
     }
   }, /*#__PURE__*/React.createElement(ChromaKeyVideo, {
-    src: "../../assets/video/capabilities-bg.mp4",
+    src: "./assets/video/capabilities-bg.mp4",
     style: {
       position: 'absolute',
       inset: 0,
@@ -7070,7 +7070,7 @@ function FeaturedWork({
     organization: 'Cox Enterprises',
     focus: 'Game-based learning, leadership development, enterprise engagement',
     status: 'Case study available',
-    image: '../../assets/imagery/operation-legacy-unlocked.png'
+    image: './assets/imagery/operation-legacy-unlocked.png'
   };
   return /*#__PURE__*/React.createElement("section", {
     style: {
@@ -7608,7 +7608,7 @@ function FinalMoment({
       transition: 'opacity 1.2s ease'
     }
   }), /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/logo/jiz-logo-white.svg",
+    src: "./assets/logo/jiz-logo-white.svg",
     alt: "JIZ logo",
     style: {
       width: 40,
@@ -7681,7 +7681,7 @@ function Homepage({
     description: 'A secret-agent learning escape room that turns compliance content into a mission.',
     stage: 'Design',
     insight: 'The challenge wasn\u2019t creating more content — it was reducing cognitive load.',
-    image: '../../assets/imagery/operation-legacy-unlocked.png'
+    image: './assets/imagery/operation-legacy-unlocked.png'
   }, {
     index: 'b',
     title: 'Learn@Cox Launch Promo',
@@ -7689,7 +7689,7 @@ function Homepage({
     description: 'The launch campaign for a Workday Learning rollout, built to make a platform switch feel like an event.',
     stage: 'Strategy',
     insight: 'We treated the rollout like a movie trailer instead of a training announcement.',
-    image: '../../assets/imagery/learn-cox-launch-promo.png'
+    image: './assets/imagery/learn-cox-launch-promo.png'
   }, {
     index: 'c',
     title: 'The Train Story',
@@ -10306,7 +10306,7 @@ function NavBar({
     "aria-label": "Go to homepage",
     onClick: () => onNavigate?.('Home')
   }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/logo/jiz-logo-white.svg",
+    src: "./assets/logo/jiz-logo-white.svg",
     alt: "",
     className: "jiz-brand__logo"
   }), /*#__PURE__*/React.createElement("span", {
@@ -10736,7 +10736,7 @@ function FilmHud({
       gap: 10
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "../../assets/logo/jiz-logo-white.svg",
+    src: "./assets/logo/jiz-logo-white.svg",
     alt: "JIZ logo",
     style: {
       width: 22,
@@ -12521,19 +12521,19 @@ function CaseStudyGuestCRM({
       value: "Reference Guide, Access Checklist, Training Toolkit, Pilot Diary, tutorial video"
     }],
     gallery: [{
-      src: "../../assets/imagery/guestcrm-01-cover.png",
+      src: "./assets/imagery/guestcrm-01-cover.png",
       caption: "01 Case Study Cover"
     }, {
-      src: "../../assets/imagery/guestcrm-02-storyboard.png",
+      src: "./assets/imagery/guestcrm-02-storyboard.png",
       caption: "02 Six-Scene Pilot Storyboard"
     }, {
-      src: "../../assets/imagery/guestcrm-03-workflow.png",
+      src: "./assets/imagery/guestcrm-03-workflow.png",
       caption: "03 Strategy, Learning Architecture & Production Workflow"
     }, {
-      src: "../../assets/imagery/guestcrm-04-feedback.png",
+      src: "./assets/imagery/guestcrm-04-feedback.png",
       caption: "04 Feedback-to-Impact: What We Heard, Changed & Iterated"
     }, {
-      src: "../../assets/imagery/guestcrm-05-kit.png",
+      src: "./assets/imagery/guestcrm-05-kit.png",
       caption: "05 Final Delivered Pilot Enablement Kit"
     }],
     related: [{
@@ -12686,16 +12686,16 @@ function CaseStudyHotelKey({
       value: "Onboarding video, storyboard, motion graphics, supporting materials"
     }],
     gallery: [{
-      src: "../../assets/imagery/hotelkey-01-hero.png",
+      src: "./assets/imagery/hotelkey-01-hero.png",
       caption: "01 Case Study Hero"
     }, {
-      src: "../../assets/imagery/hotelkey-04-storyboard.png",
+      src: "./assets/imagery/hotelkey-04-storyboard.png",
       caption: "02 Six-Scene Onboarding Storyboard"
     }, {
-      src: "../../assets/imagery/hotelkey-03-process.png",
+      src: "./assets/imagery/hotelkey-03-process.png",
       caption: "03 Production Workflow: Editing, Scene Direction & Build"
     }, {
-      src: "../../assets/imagery/hotelkey-02-iteration.png",
+      src: "./assets/imagery/hotelkey-02-iteration.png",
       caption: "04 Stakeholder-Iteration Evidence"
     }],
     related: [{
@@ -12877,22 +12877,22 @@ function CaseStudyLegacy({
       value: "Storyline 360 module, learning architecture, character scripts, SCORM deployment package"
     }],
     gallery: [{
-      src: "../../assets/imagery/olu-01-cover.png",
+      src: "./assets/imagery/olu-01-cover.png",
       caption: "01 Cover Artwork"
     }, {
-      src: "../../assets/imagery/olu-02-narrative.png",
+      src: "./assets/imagery/olu-02-narrative.png",
       caption: "02 Final Narrative & Case Study Story"
     }, {
-      src: "../../assets/imagery/olu-03-storyboard.png",
+      src: "./assets/imagery/olu-03-storyboard.png",
       caption: "03 Six-Scene Storyboard & Learning Architecture"
     }, {
-      src: "../../assets/imagery/olu-04-workflow.png",
+      src: "./assets/imagery/olu-04-workflow.png",
       caption: "04 Process Imagery & Build Workflow"
     }, {
-      src: "../../assets/imagery/olu-05-iteration.png",
+      src: "./assets/imagery/olu-05-iteration.png",
       caption: "05 Stakeholder-Iteration Evidence"
     }, {
-      src: "../../assets/imagery/olu-06-mockups.png",
+      src: "./assets/imagery/olu-06-mockups.png",
       caption: "06 Final Learning-Experience Mockups"
     }],
     videosHeading: "Prototype evolution \u2014 from orientation to final build.",
@@ -13049,27 +13049,27 @@ function CaseStudyWorkday({
       value: "Sizzle reel, Rise 360 modules, promotional assets"
     }],
     gallery: [{
-      src: "../../assets/imagery/workday-01-cover.png",
+      src: "./assets/imagery/workday-01-cover.png",
       caption: "01 Cover Artwork",
       alt: "Workday Learn Launch cover artwork"
     }, {
-      src: "../../assets/imagery/workday-02-overview.png",
+      src: "./assets/imagery/workday-02-overview.png",
       caption: "02 Project Overview and Final Narrative",
       alt: "Project overview and final narrative slide"
     }, {
-      src: "../../assets/imagery/workday-03-sizzle-reel.png",
+      src: "./assets/imagery/workday-03-sizzle-reel.png",
       caption: "03 Production Flow: Sizzle Reel",
       alt: "Sizzle reel production flow diagram"
     }, {
-      src: "../../assets/imagery/workday-04-rise360.png",
+      src: "./assets/imagery/workday-04-rise360.png",
       caption: "04 Rise 360 Learning Modules",
       alt: "Rise 360 learning modules overview"
     }, {
-      src: "../../assets/imagery/workday-05-workflow.png",
+      src: "./assets/imagery/workday-05-workflow.png",
       caption: "05 Process, Workflow & Production Stack",
       alt: "Process workflow and production stack diagram"
     }, {
-      src: "../../assets/imagery/workday-06-deliverables.png",
+      src: "./assets/imagery/workday-06-deliverables.png",
       caption: "06 Final Deliverables & Learning-Experience Mockups",
       alt: "Final deliverables and learning experience mockups"
     }],
@@ -14332,7 +14332,7 @@ function ProjectCard({
   }, "View project \u2192")));
 }
 function FilmSection() {
-  const VIDEO_URL = '../../assets/video/the-train-story.mp4';
+  const VIDEO_URL = './assets/video/the-train-story.mp4';
   const videoRef = React.useRef(null);
   const progressRef = React.useRef(null);
   const [videoReady, setVideoReady] = React.useState(false);
@@ -15504,7 +15504,7 @@ function FeaturedWork({
     projectType: 'Learning Experience Design',
     role: 'Learning Experience Designer / Developer',
     focus: 'Game-based learning · Leadership development · Enterprise engagement',
-    image: '../../assets/imagery/olu-featured-work-cover.png',
+    image: './assets/imagery/olu-featured-work-cover.png',
     imageAlt: 'Operation: Legacy Unlocked immersive learning experience',
     status: 'available',
     statusLabel: 'Case study available',
@@ -15521,7 +15521,7 @@ function FeaturedWork({
     projectType: 'Enterprise Onboarding',
     role: 'Creative Content Specialist / Developer',
     focus: 'Systems adoption · Video learning · Global onboarding',
-    image: '../../assets/imagery/hotelkey-featured-work-cover.png',
+    image: './assets/imagery/hotelkey-featured-work-cover.png',
     imageAlt: 'HotelKey New Hire Onboarding — IHG property system training experience',
     status: 'available',
     statusLabel: 'Case study available',
@@ -15538,7 +15538,7 @@ function FeaturedWork({
     projectType: 'Product Enablement',
     role: 'Learning Experience Strategist / Developer',
     focus: 'Pilot enablement · Performance support · Product adoption',
-    image: '../../assets/imagery/guestcrm-featured-work-cover.png',
+    image: './assets/imagery/guestcrm-featured-work-cover.png',
     imageAlt: 'Guest CRM Pilot — IHG Hotels & Resorts change enablement',
     status: 'available',
     actionLabel: 'Open Case Study',
@@ -15555,7 +15555,7 @@ function FeaturedWork({
     projectType: 'Enterprise Learning',
     role: 'Learning Experience Designer',
     focus: 'Change adoption · Learning systems · Internal communications',
-    image: '../../assets/imagery/workday-featured-work-cover.png',
+    image: './assets/imagery/workday-featured-work-cover.png',
     imageAlt: 'Workday Learn Launch — Cox Enterprises enablement experience',
     status: 'available',
     statusLabel: 'Case study available',
@@ -17301,7 +17301,7 @@ function AboutV2({
   const [isVisible, setIsVisible] = React.useState(false);
   const LINKEDIN_URL = 'https://www.linkedin.com/in/jonathanzamarripa/';
   const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
-  const THINKING_ENGINE_SRC = '../../assets/video/about-me-thinking-engine.mp4';
+  const THINKING_ENGINE_SRC = './assets/video/about-me-thinking-engine.mp4';
   const methodStages = [{
     id: 'observe',
     label: '01',
@@ -18394,7 +18394,7 @@ function AboutV2({
   const modalTriggerRef = React.useRef(null);
   const LINKEDIN_URL = 'https://www.linkedin.com/in/jonathanzamarripa/';
   const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
-  const THINKING_ENGINE_SRC = '../../assets/video/about-me-thinking-engine.mp4';
+  const THINKING_ENGINE_SRC = './assets/video/about-me-thinking-engine.mp4';
   const methodStages = [{
     id: 'observe',
     label: '01',
@@ -19814,7 +19814,7 @@ const Pages = () => {
     'operation-legacy-unlocked': {
       title: 'Operation: Legacy Unlocked',
       summary: 'A 12-month digital transformation for a Fortune 500 energy company, turning compliance content into an engaging mission-driven experience.',
-      heroImage: '../../assets/imagery/operation-legacy-unlocked.png',
+      heroImage: './assets/imagery/operation-legacy-unlocked.png',
       tags: ['Learning Design', 'Strategy', 'Digital Transformation', 'Gamification'],
       year: '2024',
       role: 'Lead Learning Experience Designer',

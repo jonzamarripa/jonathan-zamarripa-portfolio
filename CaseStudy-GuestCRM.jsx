@@ -87,11 +87,11 @@ function CaseStudyGuestCRM({ onBack, onOpenProject }) {
       { label: "Deliverables", value: "Reference Guide, Access Checklist, Training Toolkit, Pilot Diary, tutorial video" }
     ],
     gallery: [
-      { src: "../../assets/imagery/guestcrm-01-cover.png", caption: "01 Case Study Cover" },
-      { src: "../../assets/imagery/guestcrm-02-storyboard.png", caption: "02 Six-Scene Pilot Storyboard" },
-      { src: "../../assets/imagery/guestcrm-03-workflow.png", caption: "03 Strategy, Learning Architecture & Production Workflow" },
-      { src: "../../assets/imagery/guestcrm-04-feedback.png", caption: "04 Feedback-to-Impact: What We Heard, Changed & Iterated" },
-      { src: "../../assets/imagery/guestcrm-05-kit.png", caption: "05 Final Delivered Pilot Enablement Kit" }
+      { src: "./assets/imagery/guestcrm-01-cover.png", caption: "01 Case Study Cover" },
+      { src: "./assets/imagery/guestcrm-02-storyboard.png", caption: "02 Six-Scene Pilot Storyboard" },
+      { src: "./assets/imagery/guestcrm-03-workflow.png", caption: "03 Strategy, Learning Architecture & Production Workflow" },
+      { src: "./assets/imagery/guestcrm-04-feedback.png", caption: "04 Feedback-to-Impact: What We Heard, Changed & Iterated" },
+      { src: "./assets/imagery/guestcrm-05-kit.png", caption: "05 Final Delivered Pilot Enablement Kit" }
     ],
     related: [
       { direction: "Next project", title: "Workday Learn Launch", route: "Workday Learn Launch" },

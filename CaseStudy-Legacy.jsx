@@ -98,12 +98,12 @@ function CaseStudyLegacy({ onBack, onOpenProject }) {
       { label: "Deliverables", value: "Storyline 360 module, learning architecture, character scripts, SCORM deployment package" }
     ],
     gallery: [
-      { src: "../../assets/imagery/olu-01-cover.png", caption: "01 Cover Artwork" },
-      { src: "../../assets/imagery/olu-02-narrative.png", caption: "02 Final Narrative & Case Study Story" },
-      { src: "../../assets/imagery/olu-03-storyboard.png", caption: "03 Six-Scene Storyboard & Learning Architecture" },
-      { src: "../../assets/imagery/olu-04-workflow.png", caption: "04 Process Imagery & Build Workflow" },
-      { src: "../../assets/imagery/olu-05-iteration.png", caption: "05 Stakeholder-Iteration Evidence" },
-      { src: "../../assets/imagery/olu-06-mockups.png", caption: "06 Final Learning-Experience Mockups" }
+      { src: "./assets/imagery/olu-01-cover.png", caption: "01 Cover Artwork" },
+      { src: "./assets/imagery/olu-02-narrative.png", caption: "02 Final Narrative & Case Study Story" },
+      { src: "./assets/imagery/olu-03-storyboard.png", caption: "03 Six-Scene Storyboard & Learning Architecture" },
+      { src: "./assets/imagery/olu-04-workflow.png", caption: "04 Process Imagery & Build Workflow" },
+      { src: "./assets/imagery/olu-05-iteration.png", caption: "05 Stakeholder-Iteration Evidence" },
+      { src: "./assets/imagery/olu-06-mockups.png", caption: "06 Final Learning-Experience Mockups" }
     ],
     videosHeading: "Prototype evolution \u2014 from orientation to final build.",
     videos: [

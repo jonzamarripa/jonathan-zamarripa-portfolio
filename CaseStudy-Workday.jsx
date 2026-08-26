@@ -85,12 +85,12 @@ function CaseStudyWorkday({ onBack, onOpenProject }) {
       { label: "Deliverables", value: "Sizzle reel, Rise 360 modules, promotional assets" }
     ],
     gallery: [
-      { src: "../../assets/imagery/workday-01-cover.png", caption: "01 Cover Artwork", alt: "Workday Learn Launch cover artwork" },
-      { src: "../../assets/imagery/workday-02-overview.png", caption: "02 Project Overview and Final Narrative", alt: "Project overview and final narrative slide" },
-      { src: "../../assets/imagery/workday-03-sizzle-reel.png", caption: "03 Production Flow: Sizzle Reel", alt: "Sizzle reel production flow diagram" },
-      { src: "../../assets/imagery/workday-04-rise360.png", caption: "04 Rise 360 Learning Modules", alt: "Rise 360 learning modules overview" },
-      { src: "../../assets/imagery/workday-05-workflow.png", caption: "05 Process, Workflow & Production Stack", alt: "Process workflow and production stack diagram" },
-      { src: "../../assets/imagery/workday-06-deliverables.png", caption: "06 Final Deliverables & Learning-Experience Mockups", alt: "Final deliverables and learning experience mockups" }
+      { src: "./assets/imagery/workday-01-cover.png", caption: "01 Cover Artwork", alt: "Workday Learn Launch cover artwork" },
+      { src: "./assets/imagery/workday-02-overview.png", caption: "02 Project Overview and Final Narrative", alt: "Project overview and final narrative slide" },
+      { src: "./assets/imagery/workday-03-sizzle-reel.png", caption: "03 Production Flow: Sizzle Reel", alt: "Sizzle reel production flow diagram" },
+      { src: "./assets/imagery/workday-04-rise360.png", caption: "04 Rise 360 Learning Modules", alt: "Rise 360 learning modules overview" },
+      { src: "./assets/imagery/workday-05-workflow.png", caption: "05 Process, Workflow & Production Stack", alt: "Process workflow and production stack diagram" },
+      { src: "./assets/imagery/workday-06-deliverables.png", caption: "06 Final Deliverables & Learning-Experience Mockups", alt: "Final deliverables and learning experience mockups" }
     ],
     videosHeading: "Launch production: sizzle reel and editing process.",
     videos: [
