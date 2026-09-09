@@ -161,8 +161,38 @@ function PersistentEnvironment() {
   return null;
 }
 
+function LearningPathways() {
+  return (
+    <svg className="hero-pathways" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <linearGradient id="jz-path-a" x1="0" y1="1" x2="1" y2="0">
+          <stop offset="0%" stopColor="rgba(198,242,58,0)" />
+          <stop offset="45%" stopColor="rgba(198,242,58,0.42)" />
+          <stop offset="100%" stopColor="rgba(115,224,255,0.18)" />
+        </linearGradient>
+        <linearGradient id="jz-path-b" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stopColor="rgba(115,224,255,0)" />
+          <stop offset="50%" stopColor="rgba(115,224,255,0.3)" />
+          <stop offset="100%" stopColor="rgba(198,242,58,0.14)" />
+        </linearGradient>
+      </defs>
+      <g fill="none" strokeWidth="1.1">
+        <path className="hero-path hero-path--1" stroke="url(#jz-path-a)" d="M-40 610 C 240 610, 300 420, 520 420 S 760 300, 1240 250" />
+        <path className="hero-path hero-path--2" stroke="url(#jz-path-b)" d="M-40 720 C 280 720, 360 560, 600 540 S 880 520, 1240 400" />
+        <path className="hero-path hero-path--3" stroke="url(#jz-path-a)" d="M-40 480 C 200 470, 320 300, 560 268 S 900 210, 1240 120" />
+      </g>
+      <g className="hero-nodes">
+        {[[130,596],[520,420],[600,540],[560,268],[900,330],[1010,214]].map((p, i) => (
+          <circle key={i} cx={p[0]} cy={p[1]} r="3" style={{ animationDelay: (i * 0.9) + 's' }} />
+        ))}
+      </g>
+    </svg>
+  );
+}
+
 function Hero({ onExploreWork, onConnect }) {
   const { Button, StatusPill } = window.JIZPortfolioSite_b3ba38;
+  const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
   const [glassesFlash, setGlassesFlash] = React.useState(false);
   React.useEffect(() => {
     const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -178,18 +208,23 @@ function Hero({ onExploreWork, onConnect }) {
           <source src="./assets/video/hero-bg.mp4" type="video/mp4" />
         </video>
         <div className="hero-signal-field" />
+        <div className="hero-mesh" />
+        <LearningPathways />
         <div className="hero-ambient-glow hero-ambient-glow--blue" />
         <div className="hero-ambient-glow hero-ambient-glow--chartreuse" />
       </div>
 
       <div className="hero-content">
         <div className="hero-copy">
-          <Eyebrow>Strategist. Designer. Systems thinker.</Eyebrow>
-          <h1 className="hero-title">Learning, <span style={{ color: 'var(--color-accent-primary)' }}>directed.</span></h1>
-          <p className="hero-description">I turn complexity into experiences people understand.</p>
-          <p className="hero-manifesto">Understanding is the product.</p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 16, alignItems: 'flex-start', marginTop: 44, marginBottom: 18 }}>
-            <Button variant="primary" onClick={onExploreWork} style={{ padding: '15px 28px', fontSize: '1rem' }}>Explore featured work</Button>
+          <h1 className="hero-title hero-fade hero-fade--2">Learning Experience Designer<br />for <span style={{ color: 'var(--color-accent-primary)' }}>Enterprise Transformation</span></h1>
+          <p className="hero-lead hero-fade hero-fade--3">I turn complex technology, leadership, and business change into learning experiences people can understand, adopt, and act on.</p>
+          <p className="hero-support hero-fade hero-fade--4">Senior LXD <span className="hero-dot">•</span> Product Enablement <span className="hero-dot">•</span> Leadership Development <span className="hero-dot">•</span> AI-Enabled Learning</p>
+          <div className="hero-actions hero-fade hero-fade--5">
+            <Button variant="primary" onClick={onExploreWork}>View Case Studies</Button>
+            <Button variant="secondary" icon={false} onClick={() => window.open(RESUME_URL, '_blank', 'noopener')}>Download Resume</Button>
+            <Button variant="ghost" icon={false} onClick={onConnect}>Contact Me</Button>
+          </div>
+          <div className="hero-fade hero-fade--6" style={{ marginTop: 22 }}>
             <StatusPill label="Open to select opportunities" onClick={onConnect} />
           </div>
         </div>
@@ -211,22 +246,36 @@ function Hero({ onExploreWork, onConnect }) {
 .hero-ambient-glow--blue{width:min(72vw,1200px);height:min(72vw,1200px);right:-18vw;top:-16%;background:radial-gradient(circle,rgba(29,132,196,.2) 0%,rgba(24,91,126,.1) 38%,transparent 72%)}
 .hero-ambient-glow--chartreuse{width:min(46vw,760px);height:min(38vw,640px);left:12%;bottom:-26%;background:radial-gradient(circle,rgba(197,255,45,.028) 0%,transparent 68%)}
 .hero-content{position:relative;z-index:5;display:grid;align-items:center;width:min(1440px,calc(100% - 2*clamp(28px,6vw,112px)));min-height:calc(100svh - 96px);margin-inline:auto;padding-block:clamp(64px,7vw,104px)}
-.hero-copy{width:min(38vw,560px);margin-left:clamp(0px,1vw,20px)}
-.hero-eyebrow{margin-bottom:26px}
-.hero-title{font:var(--text-display);font-size:clamp(3.4rem,2.2rem + 4.2vw,6.6rem);line-height:.92;color:var(--color-text-primary);margin:0 0 40px}
-.hero-description{font:var(--text-body-lg);font-size:clamp(1.5rem,1.3rem + .5vw,2rem);line-height:1.42;color:var(--color-text-secondary);max-width:480px;margin:0 0 30px}
-.hero-manifesto{font:var(--text-body);font-size:1.5rem;font-weight:300;font-style:italic;color:rgba(247,248,250,0.85);max-width:440px;margin:0;border-left:2px solid rgba(255,255,255,0.25);padding-left:16px}
+.hero-copy{width:min(46vw,680px);margin-left:clamp(0px,1vw,20px)}
+.hero-eyebrow{margin-bottom:22px}
+.hero-title{font:var(--text-display);font-size:clamp(2.3rem,1.5rem + 2.3vw,4.05rem);line-height:1.02;letter-spacing:-.015em;text-wrap:balance;color:var(--color-text-primary);margin:0 0 26px}
+.hero-lead{font:var(--text-body-lg);font-size:clamp(1.125rem,1rem + .45vw,1.5rem);line-height:1.45;color:var(--color-text-primary);max-width:600px;margin:0 0 20px;text-wrap:pretty}
+.hero-support{font:var(--text-body);font-size:clamp(.875rem,.85rem + .2vw,1rem);line-height:1.6;letter-spacing:.01em;color:var(--color-text-secondary);max-width:620px;margin:0;text-wrap:pretty}
+.hero-dot{color:var(--color-accent-primary);opacity:.7;padding:0 4px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:36px}
+.hero-mesh{position:absolute;inset:-10%;background:radial-gradient(ellipse 42% 38% at 22% 30%,rgba(29,132,196,.2) 0%,transparent 62%),radial-gradient(ellipse 36% 34% at 62% 74%,rgba(198,242,58,.09) 0%,transparent 64%),radial-gradient(ellipse 48% 40% at 84% 22%,rgba(115,224,255,.12) 0%,transparent 66%);filter:blur(30px);opacity:.85;animation:hero-mesh-drift 34s ease-in-out infinite alternate}
+@keyframes hero-mesh-drift{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-2.2%,1.6%,0) scale(1.05)}100%{transform:translate3d(1.8%,-1.4%,0) scale(1.02)}}
+.hero-pathways{position:absolute;inset:0;width:100%;height:100%;opacity:.85}
+.hero-path{stroke-dasharray:26 320;stroke-dashoffset:0;animation:hero-path-flow 22s linear infinite}
+.hero-path--2{animation-duration:29s;animation-delay:-6s}
+.hero-path--3{animation-duration:35s;animation-delay:-13s;opacity:.7}
+@keyframes hero-path-flow{to{stroke-dashoffset:-1384}}
+.hero-nodes circle{fill:rgba(198,242,58,.65);animation:hero-node-pulse 6.5s ease-in-out infinite}
+@keyframes hero-node-pulse{0%,100%{opacity:.25;r:2.4}50%{opacity:.8;r:3.6}}
+.hero-fade{opacity:0;animation:hero-fade-in 1s cubic-bezier(.22,.61,.36,1) forwards}
+.hero-fade--1{animation-delay:.05s}.hero-fade--2{animation-delay:.2s}.hero-fade--3{animation-delay:.38s}.hero-fade--4{animation-delay:.54s}.hero-fade--5{animation-delay:.7s}.hero-fade--6{animation-delay:.86s}
+@keyframes hero-fade-in{from{opacity:0;transform:translate3d(0,14px,0)}to{opacity:1;transform:none}}
 .hero-portrait-stage{position:absolute;inset:0;z-index:3;overflow:visible;pointer-events:none;background:transparent;border:0;box-shadow:none}
-.hero-portrait{position:absolute;z-index:2;right:clamp(50px,7vw,140px);bottom:-7%;width:clamp(520px,44vw,840px);height:114%;max-width:none;max-height:114%;object-fit:contain;object-position:right bottom;transform:translate3d(0,0,0);transform-origin:right bottom;pointer-events:auto;cursor:pointer;opacity:.92;filter:drop-shadow(-30px 6px 52px rgba(27,128,194,.2)) drop-shadow(-10px 0 30px rgba(49,165,223,.12));-webkit-mask-image:linear-gradient(to bottom,#000 46%,rgba(0,0,0,.85) 66%,transparent 96%),linear-gradient(to right,transparent 0%,#000 26%),linear-gradient(to left,transparent 0%,#000 14%),linear-gradient(to top,transparent 0%,#000 8%);-webkit-mask-composite:source-in,source-in,source-in;mask-image:linear-gradient(to bottom,#000 46%,rgba(0,0,0,.85) 66%,transparent 96%),linear-gradient(to right,transparent 0%,#000 26%),linear-gradient(to left,transparent 0%,#000 14%),linear-gradient(to top,transparent 0%,#000 8%);mask-composite:intersect}
+.hero-portrait{position:absolute;z-index:2;right:clamp(16px,3vw,90px);bottom:-7%;width:clamp(430px,38vw,720px);height:114%;max-width:none;max-height:114%;object-fit:contain;object-position:right bottom;transform:translate3d(0,0,0);transform-origin:right bottom;pointer-events:auto;cursor:pointer;opacity:.92;filter:drop-shadow(-30px 6px 52px rgba(27,128,194,.2)) drop-shadow(-10px 0 30px rgba(49,165,223,.12));-webkit-mask-image:linear-gradient(to bottom,#000 46%,rgba(0,0,0,.85) 66%,transparent 96%),linear-gradient(to right,transparent 0%,#000 26%),linear-gradient(to left,transparent 0%,#000 14%),linear-gradient(to top,transparent 0%,#000 8%);-webkit-mask-composite:source-in,source-in,source-in;mask-image:linear-gradient(to bottom,#000 46%,rgba(0,0,0,.85) 66%,transparent 96%),linear-gradient(to right,transparent 0%,#000 26%),linear-gradient(to left,transparent 0%,#000 14%),linear-gradient(to top,transparent 0%,#000 8%);mask-composite:intersect}
 .hero-portrait-backlight{position:absolute;right:-8vw;top:8%;width:min(68vw,1120px);height:min(72vw,1180px);border-radius:50%;background:radial-gradient(ellipse at 56% 46%,rgba(48,169,236,.23) 0%,rgba(26,111,162,.14) 26%,rgba(19,72,99,.07) 48%,transparent 74%);filter:blur(48px);opacity:.9}
 .hero-portrait-edge-glow{position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse at 74% 48%,rgba(47,166,227,.11) 0%,rgba(31,110,159,.06) 30%,transparent 62%);mix-blend-mode:screen;filter:blur(14px)}
 .hero-portrait-haze{position:absolute;z-index:4;right:-2%;bottom:-3%;width:66%;height:58%;pointer-events:none;background:radial-gradient(ellipse at 68% 58%,rgba(54,160,204,.1) 0%,rgba(26,92,109,.06) 34%,transparent 70%),linear-gradient(90deg,transparent 10%,rgba(17,78,94,.04) 48%,transparent 92%);filter:blur(20px);mix-blend-mode:screen}
 .hero-foreground-atmosphere{position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(ellipse at 70% 66%,rgba(52,154,198,.075) 0%,transparent 44%),linear-gradient(90deg,transparent 34%,rgba(18,72,83,.03) 56%,transparent 88%);mix-blend-mode:screen}
-@media(max-width:1180px){.hero-copy{width:min(52vw,620px);margin-left:clamp(24px,4vw,64px)}.hero-title{font-size:clamp(2.6rem,5vw,4rem)}.hero-portrait{right:-100px;width:clamp(520px,54vw,780px)}}
+@media(max-width:1180px){.hero-copy{width:min(58vw,640px);margin-left:clamp(24px,4vw,64px)}.hero-title{font-size:clamp(2.1rem,3.6vw,3rem)}.hero-portrait{right:-100px;width:clamp(520px,54vw,780px)}}
 @media(max-width:900px){.hero{min-height:auto}.hero-content{min-height:auto;padding-top:92px;padding-bottom:520px}.hero-copy{width:min(100%,620px);margin-left:0}.hero-portrait{right:50%;bottom:-8px;width:min(640px,94vw);transform:translateX(50%)}.hero-portrait-backlight{right:50%;top:auto;bottom:-12%;width:100vw;height:640px;transform:translateX(50%)}.hero-portrait-haze{right:0;width:100%}}
-@media(max-width:768px){.hero{min-height:auto}.hero-content{min-height:auto;padding-top:48px;padding-bottom:480px;grid-template-columns:1fr}.hero-copy{width:100%;margin-left:0;margin-right:0;position:relative;z-index:6}.hero-eyebrow{margin-bottom:18px}.hero-title{font-size:clamp(2rem,5vw,3.2rem);margin:0 0 24px}.hero-description{font-size:clamp(1rem,3.5vw,1.375rem);margin:0 0 18px;max-width:100%}.hero-manifesto{font-size:1rem;max-width:100%;margin:0 0 24px}.hero-portrait-stage{z-index:2}.hero-portrait{position:absolute;right:50%;bottom:auto;top:480px;width:min(420px,85vw);height:auto;max-height:none;transform:translateX(50%);opacity:.9;filter:drop-shadow(-20px 4px 36px rgba(27,128,194,.18));mask-image:linear-gradient(to top,#000 0%,#000 70%,rgba(0,0,0,.8) 85%,transparent 100%),linear-gradient(to right,transparent 5%,#000 20%),linear-gradient(to left,transparent 5%,#000 15%);mask-composite:intersect}.hero-portrait-backlight{right:50%;top:480px;bottom:auto;width:120vw;height:420px;transform:translateX(50%);opacity:.5;filter:blur(40px)}.hero-portrait-haze{display:none}.hero-foreground-atmosphere{opacity:.3}}
-@media(max-width:600px){.hero-content{padding-top:40px;padding-bottom:400px}.hero-title{font-size:clamp(1.75rem,4vw,2.8rem);margin:0 0 20px}.hero-description{font-size:clamp(.9375rem,3vw,1.1875rem);margin:0 0 16px}.hero-manifesto{font-size:.9375rem;margin:0 0 20px}.hero-eyebrow{margin-bottom:14px}.hero-portrait{top:400px;width:min(340px,80vw)}.hero-portrait-backlight{top:400px;height:340px}}
-@media(prefers-reduced-motion:reduce){.hero-portrait{transform:none;transition:none}}
+@media(max-width:768px){.hero{min-height:auto}.hero-content{min-height:auto;padding-top:48px;padding-bottom:480px;grid-template-columns:1fr}.hero-copy{width:100%;margin-left:0;margin-right:0;position:relative;z-index:6}.hero-eyebrow{margin-bottom:18px}.hero-title{font-size:clamp(1.85rem,5.4vw,2.6rem);margin:0 0 20px}.hero-lead{font-size:clamp(1rem,3.4vw,1.1875rem);margin:0 0 16px;max-width:100%}.hero-support{font-size:.9375rem;max-width:100%;margin:0}.hero-actions{margin-top:28px;gap:12px}.hero-portrait-stage{z-index:2}.hero-portrait{position:absolute;right:50%;bottom:auto;top:480px;width:min(420px,85vw);height:auto;max-height:none;transform:translateX(50%);opacity:.9;filter:drop-shadow(-20px 4px 36px rgba(27,128,194,.18));mask-image:linear-gradient(to top,#000 0%,#000 70%,rgba(0,0,0,.8) 85%,transparent 100%),linear-gradient(to right,transparent 5%,#000 20%),linear-gradient(to left,transparent 5%,#000 15%);mask-composite:intersect}.hero-portrait-backlight{right:50%;top:480px;bottom:auto;width:120vw;height:420px;transform:translateX(50%);opacity:.5;filter:blur(40px)}.hero-portrait-haze{display:none}.hero-foreground-atmosphere{opacity:.3}}
+@media(max-width:600px){.hero-content{padding-top:40px;padding-bottom:400px}.hero-title{font-size:clamp(1.7rem,6vw,2.25rem);margin:0 0 18px}.hero-lead{font-size:1.0625rem;margin:0 0 14px}.hero-support{font-size:.9062rem}.hero-actions{margin-top:24px}.hero-eyebrow{margin-bottom:14px}.hero-portrait{top:400px;width:min(340px,80vw)}.hero-portrait-backlight{top:400px;height:340px}}
+@media(prefers-reduced-motion:reduce){.hero-portrait{transform:none;transition:none}.hero-fade{opacity:1;animation:none}.hero-mesh,.hero-path,.hero-nodes circle{animation:none}}
       `}</style>
     </section>
   );
