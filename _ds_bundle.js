@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"JIZPortfolioSite_b3ba38","components":[{"name":"ProjectRow","sourcePath":"components/cards/ProjectRow.jsx"},{"name":"MetricCard","sourcePath":"components/cards/ProjectRow.jsx"},{"name":"TestimonialCard","sourcePath":"components/cards/ProjectRow.jsx"},{"name":"ProcessCard","sourcePath":"components/cards/ProjectRow.jsx"},{"name":"ArtifactCard","sourcePath":"components/cards/ProjectRow.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"StatusPill","sourcePath":"components/core/StatusPill.jsx"},{"name":"Chip","sourcePath":"components/core/StatusPill.jsx"},{"name":"Accordion","sourcePath":"components/core/StatusPill.jsx"},{"name":"ProcessTimeline","sourcePath":"components/data/ProcessTimeline.jsx"},{"name":"ProcessStepper","sourcePath":"components/data/ProcessTimeline.jsx"},{"name":"MetricsGrid","sourcePath":"components/data/ProcessTimeline.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"Textarea","sourcePath":"components/forms/Input.jsx"},{"name":"ContactPanel","sourcePath":"components/forms/Input.jsx"},{"name":"NavBar","sourcePath":"components/navigation/NavBar.jsx"},{"name":"Tabs","sourcePath":"components/navigation/NavBar.jsx"},{"name":"FilmHud","sourcePath":"components/navigation/NavBar.jsx"}],"sourceHashes":{"archive/root-cleanup/About_v2_CURRENT.jsx":"d57add076c3e","archive/root-cleanup/About_v2_DIRECTOR_CUT_STORY1.jsx":"838ce23a8cfd","archive/root-cleanup/About_v2_FULL_SOURCE.jsx":"371bd13ae44a","archive/root-cleanup/About_v2_POST_P0.jsx":"f85824d870a3","archive/root-cleanup/About_v2_V3.0_FINAL.jsx":"1d369202fcd5","archive/root-cleanup/About_v2_code.jsx":"779ac3bab9c4","archive/root-cleanup/CHECKPOINT_pre-scene02-patch1-the-mind.jsx":"da05051b120e","archive/root-cleanup/Homepage_POST_P0.jsx":"3af613c84fbc","archive/root-cleanup/uploads/image-slot.js":"6530d61bda1c","components/cards/ProjectRow.jsx":"f8b6d7133912","components/core/Button.jsx":"b112977754cc","components/core/StatusPill.jsx":"7011907a4c76","components/data/ProcessTimeline.jsx":"738b08c0a20a","components/forms/Input.jsx":"85836ba06c9c","components/navigation/NavBar.jsx":"10355c37405b","ui_kits/portfolio-website/About_v2.jsx":"e4b930004ad1","ui_kits/portfolio-website/CaseStudy-GuestCRM.jsx":"6675f9ac1f55","ui_kits/portfolio-website/CaseStudy-HotelKey.jsx":"cee3628af45a","ui_kits/portfolio-website/CaseStudy-Legacy.jsx":"64b0d36e13b4","ui_kits/portfolio-website/CaseStudy-Workday.jsx":"9e672f5579a9","ui_kits/portfolio-website/CaseStudyShell.jsx":"8dae2d0a75bf","ui_kits/portfolio-website/Homepage.jsx":"f73926a43757","ui_kits/portfolio-website/archive/About_v2_CHECKPOINT_pre-v3.jsx":"0bd046d9a25e","ui_kits/portfolio-website/archive/About_v2_Fixed.jsx":"9d20c5a8a94f","ui_kits/portfolio-website/archive/phase-1/CaseStudyTemplate.jsx":"60a65d91be34","ui_kits/portfolio-website/archive/phase-1/Pages.jsx":"953fde0707d2","ui_kits/portfolio-website/archive/phase-1/WorkIndex.jsx":"972a107fae20","ui_kits/portfolio-website/image-slot.js":"6530d61bda1c"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"JIZPortfolioSite_b3ba38","components":[{"name":"ProjectRow","sourcePath":"components/cards/ProjectRow.jsx"},{"name":"MetricCard","sourcePath":"components/cards/ProjectRow.jsx"},{"name":"TestimonialCard","sourcePath":"components/cards/ProjectRow.jsx"},{"name":"ProcessCard","sourcePath":"components/cards/ProjectRow.jsx"},{"name":"ArtifactCard","sourcePath":"components/cards/ProjectRow.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"StatusPill","sourcePath":"components/core/StatusPill.jsx"},{"name":"Chip","sourcePath":"components/core/StatusPill.jsx"},{"name":"Accordion","sourcePath":"components/core/StatusPill.jsx"},{"name":"ProcessTimeline","sourcePath":"components/data/ProcessTimeline.jsx"},{"name":"ProcessStepper","sourcePath":"components/data/ProcessTimeline.jsx"},{"name":"MetricsGrid","sourcePath":"components/data/ProcessTimeline.jsx"},{"name":"Input","sourcePath":"components/forms/Input.jsx"},{"name":"Textarea","sourcePath":"components/forms/Input.jsx"},{"name":"ContactPanel","sourcePath":"components/forms/Input.jsx"},{"name":"NavBar","sourcePath":"components/navigation/NavBar.jsx"},{"name":"Tabs","sourcePath":"components/navigation/NavBar.jsx"},{"name":"FilmHud","sourcePath":"components/navigation/NavBar.jsx"}],"sourceHashes":{"archive/root-cleanup/About_v2_CURRENT.jsx":"d57add076c3e","archive/root-cleanup/About_v2_FULL_SOURCE.jsx":"371bd13ae44a","archive/root-cleanup/About_v2_POST_P0.jsx":"f85824d870a3","archive/root-cleanup/CHECKPOINT_pre-scene02-patch1-the-mind.jsx":"da05051b120e","archive/root-cleanup/uploads/image-slot.js":"6530d61bda1c","behind-the-build-handoff-complete/CaseStudy-BehindTheBuild.jsx":"5a6b74c0ba84","behind-the-build-handoff/CaseStudy-BehindTheBuild.jsx":"5a6b74c0ba84","components/cards/ProjectRow.jsx":"f8b6d7133912","components/core/Button.jsx":"b112977754cc","components/core/StatusPill.jsx":"7011907a4c76","components/data/ProcessTimeline.jsx":"738b08c0a20a","components/forms/Input.jsx":"85836ba06c9c","components/navigation/NavBar.jsx":"d347f20c9449","ui_kits/portfolio-website/About_v2.jsx":"04bf1898f284","ui_kits/portfolio-website/BehindTheBuildEntrance.jsx":"348b4483c087","ui_kits/portfolio-website/CaseStudy-BehindTheBuild.jsx":"5a6b74c0ba84","ui_kits/portfolio-website/CaseStudy-GuestCRM.jsx":"83631b05c2bd","ui_kits/portfolio-website/CaseStudy-HotelKey.jsx":"4f02864f3422","ui_kits/portfolio-website/CaseStudy-Legacy.jsx":"b8e42b682905","ui_kits/portfolio-website/CaseStudy-Workday.jsx":"519ae1efd65f","ui_kits/portfolio-website/CaseStudyShell.jsx":"8dae2d0a75bf","ui_kits/portfolio-website/Homepage.jsx":"7d25f4485279","ui_kits/portfolio-website/image-slot.js":"6530d61bda1c"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -569,1190 +569,6 @@ if (typeof window !== 'undefined') {
 }
 })(); } catch (e) { __ds_ns.__errors.push({ path: "archive/root-cleanup/About_v2_CURRENT.jsx", error: String((e && e.message) || e) }); }
 
-// archive/root-cleanup/About_v2_DIRECTOR_CUT_STORY1.jsx
-try { (() => {
-function AboutV2({
-  onResume,
-  onLinkedIn,
-  onSelectedWork
-}) {
-  const sectionRef = React.useRef(null);
-  const railRef = React.useRef(null);
-  const nodeRefs = React.useRef([]);
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  const [isVisible, setIsVisible] = React.useState(false);
-  const [modalOpen, setModalOpen] = React.useState(false);
-  const modalTriggerRef = React.useRef(null);
-  const modalCloseRef = React.useRef(null);
-  const methodRef = React.useRef(null);
-  const methodResumeTimerRef = React.useRef(null);
-  const methodAdvanceTimerRef = React.useRef(null);
-  const [activeMethodIndex, setActiveMethodIndex] = React.useState(0);
-  const [methodVisible, setMethodVisible] = React.useState(false);
-  const [methodPaused, setMethodPaused] = React.useState(false);
-  const LINKEDIN_URL = 'https://www.linkedin.com/in/jonathanzamarripa/';
-  const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
-  const THINKING_ENGINE_SRC = './assets/video/about-me-thinking-engine.mp4';
-  const methodStages = [{
-    id: 'observe',
-    label: '01',
-    title: 'Observe',
-    copy: 'See the full system before defining the solution.'
-  }, {
-    id: 'understand',
-    label: '02',
-    title: 'Understand',
-    copy: 'Reveal the patterns, friction, behaviors, and decisions shaping the experience.'
-  }, {
-    id: 'design',
-    label: '03',
-    title: 'Design',
-    copy: 'Create the structure, story, and interaction that make understanding possible.'
-  }, {
-    id: 'build',
-    label: '04',
-    title: 'Build',
-    copy: 'Produce the learning, media, tools, and systems required for adoption.'
-  }, {
-    id: 'transform',
-    label: '05',
-    title: 'Transform',
-    copy: 'Turn clarity into action, confidence, and measurable movement.'
-  }];
-  const capabilityGroups = [{
-    title: 'DESIGN',
-    subtitle: 'What I architect',
-    items: ['Learning systems', 'Experience strategy', 'Behavior change', 'Information architecture', 'Human-centered design']
-  }, {
-    title: 'BUILD',
-    subtitle: 'What I create',
-    items: ['Articulate Storyline', 'Camtasia', 'Adobe Creative Cloud', 'Figma', 'Motion and video', 'AI production workflows']
-  }, {
-    title: 'KNOWN FOR',
-    subtitle: 'What differentiates the work',
-    items: ['Systems thinking', 'Creative direction', 'Enterprise learning', 'Rapid prototyping', 'Translating complexity into clarity']
-  }];
-  const careerEntries = [{
-    id: 'foundation',
-    stage: 'Foundation',
-    years: 'Eight-year foundation',
-    organization: 'K–12 STEAM & Robotics',
-    title: 'Classroom and Program Leadership',
-    summary: 'Built a practical understanding of how people learn by teaching STEAM, leading a robotics program, and turning limited resources into meaningful experiences.',
-    highlights: ['Coached a regional championship robotics team', 'Secured more than $20,000 in program funding', 'Developed a learner-first leadership practice'],
-    capabilities: ['Facilitation', 'Program leadership', 'STEAM learning'],
-    type: 'role'
-  }, {
-    id: 'gstate',
-    stage: 'Storytelling',
-    years: '2009',
-    organization: 'Georgia State University',
-    title: 'B.A., Journalism — Film & Video',
-    summary: 'Built the cinematic and editorial foundation that now shapes the way complex ideas are framed, paced, and made memorable.',
-    highlights: ['Film and video concentration', 'Narrative structure and visual communication', 'Production craft grounded in journalism'],
-    capabilities: ['Storytelling', 'Video production', 'Editorial thinking'],
-    type: 'education'
-  }, {
-    id: 'ais',
-    stage: 'Systems',
-    years: '2019–2024',
-    organization: 'Atlanta International School',
-    title: 'EdTech & Innovation Coach / Strategist',
-    summary: 'Founded a digital learning function without an existing playbook, connecting instructional design, systems, content, and analytics into one practice.',
-    highlights: ['Led an organization-wide LMS migration', 'Achieved 95% adoption and 4.9/5 satisfaction', 'Built analytics and needs-assessment infrastructure'],
-    capabilities: ['Learning systems', 'Change leadership', 'Analytics'],
-    type: 'role'
-  }, {
-    id: 'asu',
-    stage: 'Research',
-    years: '2023',
-    organization: 'Arizona State University',
-    title: 'M.Ed., Instructional Design & Technology',
-    summary: 'Formalized a systems-based learning practice through advanced study in instructional design, technology, evaluation, and human-centered learning.',
-    highlights: ['Graduated Summa Cum Laude', 'Connected learning science to production practice', 'Expanded expertise in evaluation and design strategy'],
-    capabilities: ['Learning science', 'Research', 'Evaluation'],
-    type: 'education'
-  }, {
-    id: 'cox',
-    stage: 'Enterprise',
-    years: '2025',
-    organization: 'Cox Enterprises',
-    title: 'Learning Experience Designer',
-    summary: 'Designed enterprise learning experiences and AI-assisted production workflows for leadership development, systems adoption, and organizational change.',
-    highlights: ['Accelerated content development by 40%', 'Supported a Workday Learn launch reaching 98% Q1 adoption', 'Designed a narrative-driven enterprise escape room'],
-    capabilities: ['Enterprise learning', 'AI workflows', 'Storyline'],
-    type: 'role'
-  }, {
-    id: 'ihg',
-    stage: 'Scale',
-    years: '2025–2026',
-    organization: 'IHG Hotels & Resorts',
-    title: 'Creative Content Specialist / Developer',
-    summary: 'Combined learning strategy, cinematic production, and AI-enabled workflows to create global technology communication and onboarding experiences.',
-    highlights: ['Produced enterprise onboarding and adoption content', 'Built repeatable AI-enabled production workflows', 'Partnered across Product, Engineering, UX, and Cybersecurity'],
-    capabilities: ['Creative direction', 'Video', 'AI-native production'],
-    type: 'current'
-  }, {
-    id: 'next',
-    stage: 'What\'s Next',
-    years: 'Future chapter',
-    organization: 'The next organization or collaboration',
-    title: 'Learning Experience Strategist · Filmmaker · AI-Native Producer',
-    summary: 'Bringing learning science, cinematic craft, and AI-native production together to help organizations move from complexity to confident action.',
-    highlights: ['Enterprise learning strategy', 'Cinematic learning systems', 'AI-enabled creative production'],
-    capabilities: ['Strategy', 'Direction', 'Transformation'],
-    type: 'future'
-  }];
-  const beliefs = [{
-    title: 'Intelligence',
-    copy: 'I look beneath the obvious to understand how systems, people, and decisions connect.'
-  }, {
-    title: 'Confidence',
-    copy: 'I make clear decisions while remaining open to evidence, feedback, and change.'
-  }, {
-    title: 'Self-awareness',
-    copy: 'I understand how my perspective shapes the work and where collaboration strengthens it.'
-  }, {
-    title: 'Empathy',
-    copy: 'I design for the person who must understand, use, and live with the outcome.'
-  }];
-  React.useEffect(() => {
-    if (!sectionRef.current || typeof IntersectionObserver === 'undefined') {
-      setIsVisible(true);
-      return undefined;
-    }
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-        observer.disconnect();
-      }
-    }, {
-      threshold: 0.06
-    });
-    observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-  React.useEffect(() => {
-    const node = methodRef.current;
-    if (!node || typeof IntersectionObserver === 'undefined') {
-      setMethodVisible(true);
-      return undefined;
-    }
-    const observer = new IntersectionObserver(([entry]) => setMethodVisible(entry.isIntersecting), {
-      threshold: 0.3
-    });
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-  React.useEffect(() => {
-    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    clearTimeout(methodAdvanceTimerRef.current);
-    if (!methodVisible || methodPaused || reduced) return undefined;
-    const delay = activeMethodIndex === methodStages.length - 1 ? 4000 : 2400;
-    methodAdvanceTimerRef.current = setTimeout(() => {
-      setActiveMethodIndex(index => (index + 1) % methodStages.length);
-    }, delay);
-    return () => clearTimeout(methodAdvanceTimerRef.current);
-  }, [methodVisible, methodPaused, activeMethodIndex]);
-  React.useEffect(() => () => {
-    clearTimeout(methodResumeTimerRef.current);
-    clearTimeout(methodAdvanceTimerRef.current);
-  }, []);
-  const selectMethodStage = index => {
-    clearTimeout(methodResumeTimerRef.current);
-    setActiveMethodIndex(index);
-    setMethodPaused(true);
-    methodResumeTimerRef.current = setTimeout(() => setMethodPaused(false), 8000);
-  };
-  React.useEffect(() => {
-    if (!modalOpen) return undefined;
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    const onKeyDown = event => {
-      if (event.key === 'Escape') setModalOpen(false);
-      if (event.key !== 'Tab') return;
-      const modal = document.querySelector('[data-thinking-modal]');
-      const focusables = modal ? Array.from(modal.querySelectorAll('button,[href],[tabindex]:not([tabindex="-1"])')).filter(el => !el.disabled) : [];
-      if (!focusables.length) return;
-      const first = focusables[0],
-        last = focusables[focusables.length - 1];
-      if (event.shiftKey && document.activeElement === first) {
-        event.preventDefault();
-        last.focus();
-      } else if (!event.shiftKey && document.activeElement === last) {
-        event.preventDefault();
-        first.focus();
-      }
-    };
-    document.addEventListener('keydown', onKeyDown);
-    requestAnimationFrame(() => modalCloseRef.current?.focus());
-    return () => {
-      document.removeEventListener('keydown', onKeyDown);
-      document.body.style.overflow = previousOverflow;
-      requestAnimationFrame(() => modalTriggerRef.current?.focus());
-    };
-  }, [modalOpen]);
-  const selectCareerEntry = React.useCallback((index, behavior = 'smooth') => {
-    const bounded = Math.max(0, Math.min(index, careerEntries.length - 1));
-    setActiveIndex(bounded);
-    const viewport = railRef.current;
-    const node = nodeRefs.current[bounded];
-    if (viewport && node) {
-      const targetLeft = node.offsetLeft - viewport.clientWidth / 2 + node.offsetWidth / 2;
-      viewport.scrollTo({
-        left: Math.max(0, targetLeft),
-        behavior
-      });
-    }
-  }, []);
-  const handleRailKeyDown = event => {
-    if (event.key === 'ArrowRight') {
-      event.preventDefault();
-      selectCareerEntry(activeIndex + 1);
-    } else if (event.key === 'ArrowLeft') {
-      event.preventDefault();
-      selectCareerEntry(activeIndex - 1);
-    } else if (event.key === 'Home') {
-      event.preventDefault();
-      selectCareerEntry(0);
-    } else if (event.key === 'End') {
-      event.preventDefault();
-      selectCareerEntry(careerEntries.length - 1);
-    }
-  };
-  const activeCareer = careerEntries[activeIndex];
-  return /*#__PURE__*/React.createElement("section", {
-    ref: sectionRef,
-    className: `jiz-about-master ${isVisible ? 'is-visible' : ''}`,
-    "data-about-v2": "ready",
-    "aria-labelledby": "about-master-title"
-  }, /*#__PURE__*/React.createElement("style", null, `
-        .jiz-about-master {
-          --about-max: 1360px;
-          position: relative;
-          overflow: hidden;
-          padding: clamp(78px, 8vw, 118px) var(--container-pad) clamp(112px, 12vw, 176px);
-          color: var(--color-text-primary);
-          background:
-            radial-gradient(circle at 50% 13%, rgba(100, 225, 255, 0.09), transparent 34%),
-            radial-gradient(circle at 78% 29%, rgba(198, 242, 58, 0.045), transparent 27%),
-            linear-gradient(180deg, rgba(8, 13, 16, 0.12) 0%, #0b0d10 22%, #0b0d10 100%);
-        }
-
-        .jiz-about-master::before,
-        .jiz-about-master::after {
-          content: '';
-          position: absolute;
-          pointer-events: none;
-          border-radius: 50%;
-          filter: blur(80px);
-        }
-
-        .jiz-about-master::before {
-          width: 40vw;
-          height: 34vw;
-          right: -12vw;
-          top: 8%;
-          background: rgba(100, 225, 255, 0.055);
-        }
-
-        .jiz-about-master::after {
-          width: 28vw;
-          height: 25vw;
-          left: -12vw;
-          top: 27%;
-          background: rgba(198, 242, 58, 0.025);
-        }
-
-        .jiz-about-inner {
-          position: relative;
-          z-index: 1;
-          width: min(100%, var(--about-max));
-          margin: 0 auto;
-        }
-
-        .jiz-scene-opening {
-          text-align: center;
-        }
-
-        .jiz-eyebrow,
-        .jiz-meta {
-          font: var(--text-eyebrow);
-          letter-spacing: var(--tracking-eyebrow);
-          text-transform: uppercase;
-        }
-
-        .jiz-eyebrow {
-          margin: 0 0 18px;
-          color: var(--color-accent-secondary);
-        }
-
-        .jiz-opening-title {
-          max-width: 1000px;
-          margin: 0 auto;
-          font: var(--text-h1);
-          font-size: clamp(3rem, 6.6vw, 6.4rem);
-          line-height: 0.96;
-          letter-spacing: -0.055em;
-          text-wrap: balance;
-        }
-
-        .jiz-opening-thesis {
-          max-width: 840px;
-          margin: 26px auto 0;
-          color: var(--color-text-primary);
-          font: var(--text-body-lg);
-          font-size: clamp(1.02rem, 1.7vw, 1.28rem);
-          line-height: 1.62;
-        }
-
-        .jiz-opening-actions {
-          display: flex;
-          justify-content: center;
-          flex-wrap: wrap;
-          gap: 12px;
-          margin-top: 30px;
-        }
-
-        .jiz-action {
-          min-height: 46px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0 23px;
-          border-radius: var(--radius-pill);
-          font: var(--text-button);
-          text-decoration: none;
-          transition:
-            transform var(--motion-fast) var(--ease-standard),
-            border-color var(--motion-fast) var(--ease-standard),
-            background var(--motion-fast) var(--ease-standard);
-        }
-
-        .jiz-action:hover { transform: translateY(-2px); }
-        .jiz-action:focus-visible,
-        .jiz-career-control:focus-visible,
-        .jiz-career-node:focus-visible {
-          outline: 2px solid var(--color-accent-primary);
-          outline-offset: 4px;
-        }
-
-        .jiz-action-primary {
-          background: var(--color-accent-primary);
-          color: #0b0d10;
-        }
-
-        .jiz-action-secondary {
-          border: 1px solid rgba(100, 225, 255, 0.28);
-          background: rgba(255, 255, 255, 0.015);
-          color: var(--color-text-primary);
-        }
-
-        .jiz-engine-shell {
-          position: relative;
-          width: min(92vw, 1240px);
-          margin: clamp(48px, 6vw, 76px) auto 0;
-          isolation: isolate;
-        }
-
-        .jiz-engine-shell::before {
-          content: '';
-          position: absolute;
-          z-index: -2;
-          inset: -28%;
-          background:
-            radial-gradient(circle at 50% 45%, rgba(100, 225, 255, 0.35), transparent 48%),
-            radial-gradient(circle at 72% 28%, rgba(198, 242, 58, 0.16), transparent 35%);
-          filter: blur(72px);
-          opacity: 0.82;
-        }
-
-        .jiz-engine-trigger { position: relative; display: block; width: 100%; padding: 0; border: 0; background: transparent; color: inherit; cursor: zoom-in; border-radius: clamp(18px,2vw,28px); }
-        .jiz-engine-trigger:focus-visible { outline: 2px solid var(--color-accent-primary); outline-offset: 6px; }
-        .jiz-engine-open-cue { position: absolute; right: 22px; bottom: 18px; z-index: 3; padding: 9px 13px; border-radius: 999px; background: rgba(8,13,16,.72); border: 1px solid rgba(100,225,255,.28); color: var(--color-text-primary); font: var(--text-caption); backdrop-filter: blur(10px); transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease; }
-        .jiz-engine-trigger:hover .jiz-engine-open-cue, .jiz-engine-trigger:focus-visible .jiz-engine-open-cue { border-color: rgba(198,242,58,.65); box-shadow: 0 0 26px rgba(100,225,255,.18); transform: translateY(-2px); }
-        .jiz-engine-stage {
-          position: relative;
-          aspect-ratio: 16 / 9;
-          overflow: hidden;
-          background: #080d10;
-          border-radius: clamp(18px, 2vw, 28px);
-          box-shadow: 0 8px 32px rgba(100, 225, 255, 0.12), 0 48px 120px rgba(0, 0, 0, 0.52);
-          -webkit-mask-image: radial-gradient(ellipse 101% 103% at 50% 50%, #000 72%, rgba(0,0,0,.92) 86%, transparent 100%);
-          mask-image: radial-gradient(ellipse 101% 103% at 50% 50%, #000 72%, rgba(0,0,0,.92) 86%, transparent 100%);
-        }
-
-        .jiz-engine-stage::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          background:
-            radial-gradient(circle at 50% 50%, transparent 54%, rgba(8, 13, 16, 0.18) 78%, rgba(8, 13, 16, 0.64) 100%);
-        }
-
-        .jiz-engine-video {
-          width: 100%;
-          height: 100%;
-          display: block;
-          object-fit: contain;
-          background: #080d10;
-        }
-
-        .jiz-engine-reflection {
-          width: 76%;
-          height: 36px;
-          margin: 0 auto 0;
-          background: linear-gradient(180deg, rgba(100, 225, 255, 0.08), transparent);
-          filter: blur(14px);
-          opacity: 0.35;
-          pointer-events: none;
-        }
-
-        .jiz-engine-caption {
-          max-width: 880px;
-          margin: 28px auto 0;
-          padding: clamp(28px, 4vw, 42px);
-          text-align: left;
-          border: 1px solid rgba(100, 225, 255, 0.14);
-          border-radius: 18px;
-          background: linear-gradient(135deg, rgba(100, 225, 255, 0.04), rgba(198, 242, 58, 0.02));
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04), 0 12px 48px rgba(0, 0, 0, 0.16);
-          backdrop-filter: blur(8px);
-        }
-
-        .jiz-engine-caption strong {
-          display: block;
-          color: var(--color-accent-secondary);
-          font: var(--text-hud);
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          font-weight: 700;
-          font-size: 0.65rem;
-          margin-bottom: 10px;
-        }
-
-        .jiz-engine-caption span {
-          display: block;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: 0.95rem;
-          line-height: 1.6;
-          margin-top: 6px;
-        }
-
-        .jiz-opening-copy {
-          display: none;
-        }
-
-        .jiz-opening-copy p {
-          margin: 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: clamp(0.98rem, 1.4vw, 1.08rem);
-          line-height: 1.78;
-        }
-
-        .jiz-movement {
-          margin-top: clamp(112px, 13vw, 172px);
-        }
-
-        .jiz-movement-heading {
-          max-width: 760px;
-          margin-bottom: clamp(40px, 5vw, 62px);
-        }
-
-        .jiz-movement-title {
-          margin: 0;
-          font: var(--text-h2);
-          letter-spacing: -0.04em;
-        }
-
-        .jiz-movement-copy {
-          max-width: 650px;
-          margin: 17px 0 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body-lg);
-        }
-
-        .jiz-method-wrap { position: relative; }
-        .jiz-method-progress { position:absolute; top:24px; left:4%; height:2px; z-index:1; background: linear-gradient(90deg,var(--color-accent-secondary),var(--color-accent-primary)); transition: width 700ms var(--ease-enter); pointer-events:none; }
-        .jiz-method-path {
-          position: relative;
-          display: grid;
-          grid-template-columns: repeat(5, minmax(0, 1fr));
-          gap: clamp(18px, 2.5vw, 34px);
-        }
-
-        .jiz-method-path::before {
-          content: '';
-          position: absolute;
-          top: 24px;
-          left: 4%;
-          right: 4%;
-          height: 1px;
-          background: linear-gradient(90deg, rgba(100,225,255,.12), rgba(100,225,255,.6), rgba(198,242,58,.72));
-        }
-
-        .jiz-method-button { appearance:none; border:0; padding:0; background:transparent; color:inherit; text-align:left; cursor:pointer; border-radius:14px; }
-        .jiz-method-button:focus-visible { outline:2px solid var(--color-accent-primary); outline-offset:6px; }
-        .jiz-method-stage {
-          position: relative;
-          padding-top: 54px;
-        }
-
-        .jiz-method-node {
-          position: absolute;
-          top: 16px;
-          left: 0;
-          width: 16px;
-          height: 16px;
-          border-radius: 50%;
-          border: 1px solid rgba(100,225,255,.75);
-          background: #0b0d10;
-          box-shadow: 0 0 0 5px rgba(100,225,255,.05);
-        }
-
-        .jiz-method-stage:last-child .jiz-method-node {
-          border-color: var(--color-accent-primary);
-          background: var(--color-accent-primary);
-          box-shadow: 0 0 0 6px rgba(198,242,58,.08);
-        }
-
-        .jiz-method-stage h4 {
-          margin: 0 0 11px;
-          font: var(--text-h3);
-          font-size: clamp(1.08rem, 1.8vw, 1.42rem);
-        }
-
-        .jiz-method-stage p:last-child {
-          margin: 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: 0.94rem;
-        }
-
-        .jiz-method-label {
-          margin: 0 0 12px;
-          color: var(--color-accent-secondary);
-        }
-
-        .jiz-capabilities {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: clamp(34px, 5vw, 72px);
-          margin-top: clamp(58px, 7vw, 88px);
-          padding-top: clamp(40px, 5vw, 62px);
-          border: 1px solid rgba(100,225,255,.12);
-          border-radius: 22px;
-          padding: clamp(34px,4vw,50px);
-          background: linear-gradient(135deg,rgba(8,13,16,.72),rgba(100,225,255,.06));
-          box-shadow: inset 0 1px 0 rgba(255,255,255,.03), 0 30px 80px rgba(0,0,0,.22);
-        }
-
-        .jiz-capability + .jiz-capability {
-          border-left: 1px solid rgba(100,225,255,.08);
-          padding-left: clamp(28px, 4vw, 52px);
-        }
-
-        .jiz-capability h4 {
-          margin: 0;
-          color: var(--color-accent-secondary);
-        }
-
-        .jiz-capability > p {
-          margin: 9px 0 22px;
-          color: var(--color-text-muted);
-          font: var(--text-caption);
-        }
-
-        .jiz-capability ul {
-          list-style: none;
-          display: grid;
-          gap: 12px;
-          margin: 0;
-          padding: 0;
-        }
-
-        .jiz-capability li {
-          position: relative;
-          padding-left: 15px;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: 0.94rem;
-        }
-
-        .jiz-capability li::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: .7em;
-          width: 4px;
-          height: 4px;
-          border-radius: 50%;
-          background: rgba(100,225,255,.72);
-        }
-
-        .jiz-career-header {
-          display: flex;
-          align-items: flex-end;
-          justify-content: space-between;
-          gap: 26px;
-          margin-bottom: 34px;
-        }
-
-        .jiz-career-controls {
-          display: flex;
-          gap: 10px;
-        }
-
-        .jiz-career-control {
-          min-width: 52px;
-          min-height: 52px;
-          padding: 0 18px;
-          border-radius: 50%;
-          border: 1px solid rgba(100,225,255,.18);
-          background: rgba(255,255,255,.016);
-          color: var(--color-text-primary);
-          cursor: pointer;
-        }
-
-        .jiz-career-control:disabled {
-          opacity: .28;
-          cursor: default;
-        }
-
-        .jiz-career-helper { display:flex; justify-content:space-between; align-items:center; gap:20px; margin: 18px 0 8px; color:var(--color-text-muted); font:var(--text-caption); }
-        .jiz-career-rail-shell { position:relative; }
-        .jiz-career-rail-shell::before,.jiz-career-rail-shell::after { content:''; position:absolute; top:0; bottom:0; width:54px; z-index:3; pointer-events:none; }
-        .jiz-career-rail-shell::before { left:0; background:linear-gradient(90deg,#0b0d10,transparent); }
-        .jiz-career-rail-shell::after { right:0; background:linear-gradient(270deg,#0b0d10,transparent); }
-        .jiz-career-viewport {
-          overflow-x: auto;
-          overscroll-behavior-inline: contain;
-          scroll-snap-type: x mandatory;
-          padding: 28px 0 22px;
-          scrollbar-width: thin;
-          scrollbar-color: rgba(100,225,255,.2) transparent;
-        }
-
-        .jiz-career-track {
-          position: relative;
-          display: flex;
-          min-width: max-content;
-          gap: clamp(28px, 4vw, 62px);
-          padding: 0 clamp(16px, 4vw, 58px);
-        }
-
-        .jiz-career-track::before {
-          content: '';
-          position: absolute;
-          left: 30px;
-          right: 30px;
-          top: 32px;
-          height: 1px;
-          background: linear-gradient(90deg, rgba(100,225,255,.18), rgba(100,225,255,.48), rgba(198,242,58,.48));
-        }
-
-        .jiz-career-node {
-          position: relative;
-          width: clamp(154px, 15vw, 210px);
-          padding: 0;
-          border: 0;
-          background: transparent;
-          color: inherit;
-          text-align: left;
-          cursor: pointer;
-          scroll-snap-align: center;
-        }
-
-        .jiz-career-dot {
-          position: relative;
-          z-index: 1;
-          display: block;
-          width: 18px;
-          height: 18px;
-          margin: 0 0 25px;
-          border-radius: 50%;
-          border: 1px solid rgba(100,225,255,.65);
-          background: #0b0d10;
-          box-shadow: 0 0 0 6px rgba(100,225,255,.045);
-          transition: transform var(--motion-standard) var(--ease-enter), background var(--motion-standard) var(--ease-enter), box-shadow var(--motion-standard) var(--ease-enter);
-        }
-
-        .jiz-career-node[data-type='education'] .jiz-career-dot {
-          border-color: var(--color-accent-secondary);
-        }
-
-        .jiz-career-node.is-active .jiz-career-dot {
-          transform: scale(1.28);
-          border-color: var(--color-accent-primary);
-          background: var(--color-accent-primary);
-          box-shadow: 0 0 0 8px rgba(198,242,58,.08), 0 0 30px rgba(198,242,58,.16);
-        }
-
-        .jiz-career-stage {
-          display: block;
-          margin-bottom: 8px;
-          color: var(--color-text-primary);
-          font: var(--text-h3);
-          font-size: 1rem;
-        }
-
-        .jiz-career-years,
-        .jiz-career-org {
-          display: block;
-          color: var(--color-text-muted);
-          font: var(--text-caption);
-        }
-
-        .jiz-career-org {
-          margin-top: 8px;
-          color: var(--color-text-secondary);
-        }
-
-        .jiz-career-detail {
-          display: grid;
-          grid-template-columns: minmax(0,.9fr) minmax(0,1.25fr);
-          gap: clamp(34px,5vw,72px);
-          margin-top: 36px;
-          min-height: clamp(310px,32vw,390px);
-          padding: clamp(28px,4vw,50px);
-          border: 1px solid rgba(100,225,255,.1);
-          border-radius: var(--radius-lg);
-          background: linear-gradient(135deg, rgba(100,225,255,.035), rgba(255,255,255,.012));
-          box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
-        }
-
-        .jiz-career-detail h4 {
-          margin: 0;
-          font: var(--text-h2);
-          font-size: clamp(1.55rem,3vw,2.45rem);
-          letter-spacing: -.035em;
-        }
-
-        .jiz-career-org-detail {
-          margin: 10px 0 0;
-          color: var(--color-accent-secondary);
-          font: var(--text-body-lg);
-        }
-
-        .jiz-career-summary {
-          margin: 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-        }
-
-        .jiz-career-detail-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 28px;
-          margin-top: 26px;
-        }
-
-        .jiz-career-detail-grid h5 {
-          margin: 0 0 12px;
-          color: var(--color-text-muted);
-        }
-
-        .jiz-career-detail-grid ul {
-          margin: 0;
-          padding-left: 18px;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: .93rem;
-        }
-
-        .jiz-beliefs {
-          display: grid;
-          grid-template-columns: repeat(4,minmax(0,1fr));
-          margin-top: clamp(76px,9vw,108px);
-          padding: clamp(34px,4vw,52px) 0;
-          border: 1px solid rgba(100,225,255,.12);
-          border-radius:22px;
-          padding:clamp(34px,4vw,52px);
-          background:linear-gradient(135deg,rgba(8,13,16,.72),rgba(100,225,255,.055),rgba(198,242,58,.025));
-        }
-
-        .jiz-belief {
-          padding: 0 clamp(22px,3vw,40px);
-        }
-
-        .jiz-belief:first-child { padding-left: 0; }
-        .jiz-belief:last-child { padding-right: 0; }
-
-        .jiz-belief + .jiz-belief {
-          border-left: 1px solid rgba(100,225,255,.08);
-        }
-
-        .jiz-belief h4 {
-          margin: 0 0 11px;
-          font: var(--text-h3);
-          font-size: 1.04rem;
-        }
-
-        .jiz-belief p {
-          margin: 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: .91rem;
-        }
-
-        .jiz-scene-transition {
-          margin-top: clamp(112px,13vw,168px);
-          padding: clamp(38px,5vw,64px) 0 24px;
-          text-align: center;
-          background: radial-gradient(circle at 50% 80%, rgba(198,242,58,.035), transparent 34%);
-        }
-
-        .jiz-scene-transition h3 {
-          margin: 0;
-          font: var(--text-h1);
-          font-size: clamp(2.25rem,4.8vw,4.4rem);
-          line-height: 1.02;
-          letter-spacing: -.045em;
-        }
-
-        .jiz-scene-transition h3 span { color: var(--color-accent-primary); }
-
-        .jiz-scene-transition p {
-          margin: 20px auto 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body-lg);
-        }
-
-        .jiz-reveal {
-          opacity: 0;
-          transform: translateY(18px);
-          transition: opacity 720ms var(--ease-enter), transform 720ms var(--ease-enter);
-        }
-
-        .jiz-about-master.is-visible .jiz-reveal {
-          opacity: 1;
-          transform: none;
-        }
-
-        @media (max-width: 980px) {
-          .jiz-engine-caption { text-align: left; }
-          .jiz-method-path { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 34px; }
-          .jiz-method-path::before { display: none; }
-          .jiz-method-stage { padding: 26px 0 0 28px; border-top: 1px solid rgba(100,225,255,.11); }
-          .jiz-method-node { top: 18px; left: 0; }
-          .jiz-capabilities { grid-template-columns: 1fr; }
-          .jiz-capability + .jiz-capability { padding: 34px 0 0; border-left: 0; border-top: 1px solid rgba(100,225,255,.08); }
-          .jiz-career-detail { grid-template-columns: 1fr; }
-          .jiz-beliefs { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 34px 0; }
-          .jiz-belief:nth-child(3) { border-left: 0; padding-left: 0; }
-        }
-
-        @media (max-width: 620px) {
-          .jiz-about-master { padding-inline: max(20px,var(--container-pad)); }
-          .jiz-opening-title { font-size: clamp(2.55rem,14vw,3.8rem); }
-          .jiz-engine-shell { width: 100%; }
-          .jiz-method-path { grid-template-columns: 1fr; }
-          .jiz-career-header { display: block; }
-          .jiz-career-controls { margin-top: 24px; }
-          .jiz-career-detail-grid { grid-template-columns: 1fr; }
-          .jiz-beliefs { grid-template-columns: 1fr; }
-          .jiz-belief,
-          .jiz-belief:first-child,
-          .jiz-belief:last-child { padding: 24px 0; }
-          .jiz-belief + .jiz-belief,
-          .jiz-belief:nth-child(3) { border-left: 0; border-top: 1px solid rgba(100,225,255,.08); }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .jiz-about-master *,
-          .jiz-about-master *::before,
-          .jiz-about-master *::after {
-            animation: none !important;
-            transition-duration: .01ms !important;
-            scroll-behavior: auto !important;
-          }
-          .jiz-reveal { opacity: 1; transform: none; }
-        }
-      `), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-about-inner"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-scene-opening"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-reveal"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-eyebrow"
-  }, "ABOUT / THE MIND"), /*#__PURE__*/React.createElement("h2", {
-    id: "about-master-title",
-    className: "jiz-opening-title"
-  }, "How Jonathan thinks."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-opening-thesis"
-  }, "I reveal the patterns beneath complexity and turn them into experiences people can understand, use, and adopt.")), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-engine-shell jiz-reveal"
-  }, /*#__PURE__*/React.createElement("button", {
-    ref: modalTriggerRef,
-    type: "button",
-    className: "jiz-engine-trigger",
-    onClick: () => setModalOpen(true),
-    "aria-label": "Open Thinking Engine visualization in expanded view"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-engine-stage"
-  }, /*#__PURE__*/React.createElement("video", {
-    className: "jiz-engine-video",
-    autoPlay: true,
-    loop: true,
-    muted: true,
-    playsInline: true,
-    preload: "metadata",
-    "aria-label": "Thinking Engine visualization showing complexity becoming clarity"
-  }, /*#__PURE__*/React.createElement("source", {
-    src: THINKING_ENGINE_SRC,
-    type: "video/mp4"
-  }), "Your browser does not support the Thinking Engine video."), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-engine-open-cue"
-  }, "Open visualization \u2197"))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-engine-reflection",
-    "aria-hidden": "true"
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-engine-caption"
-  }, /*#__PURE__*/React.createElement("strong", null, "Operating System"), /*#__PURE__*/React.createElement("span", null, "I begin by mapping the relationship between people, information, systems, and behavior. Before I design content, I design understanding\u2014revealing what matters, where friction exists, and what will move people forward. My work brings together learning strategy, cinematic storytelling, digital experience design, and AI-enabled production to create solutions that are clear, useful, and built for adoption."))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-movement"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-movement-heading jiz-reveal"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-eyebrow"
-  }, "THE METHOD"), /*#__PURE__*/React.createElement("h3", {
-    className: "jiz-movement-title"
-  }, "How thought becomes action."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-movement-copy"
-  }, "A connected practice for moving from ambiguity to experiences people can understand and use.")), /*#__PURE__*/React.createElement("div", {
-    ref: methodRef,
-    className: "jiz-method-wrap jiz-reveal",
-    "data-method-autoplay": "enabled",
-    "data-active-method-index": activeMethodIndex,
-    onMouseEnter: () => setMethodPaused(true),
-    onMouseLeave: () => setMethodPaused(false)
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-method-progress",
-    "aria-hidden": "true",
-    style: {
-      width: `${activeMethodIndex / (methodStages.length - 1) * 92}%`
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-method-path",
-    "aria-label": "Jonathan's five-stage methodology"
-  }, methodStages.map((stage, index) => /*#__PURE__*/React.createElement("button", {
-    key: stage.id,
-    type: "button",
-    className: "jiz-method-button",
-    "data-method-stage": stage.id,
-    "data-method-index": index,
-    "data-active": index === activeMethodIndex ? "true" : "false",
-    "aria-pressed": index === activeMethodIndex,
-    onClick: () => selectMethodStage(index),
-    onFocus: () => setMethodPaused(true),
-    onBlur: () => setMethodPaused(false)
-  }, /*#__PURE__*/React.createElement("article", {
-    className: "jiz-method-stage"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-method-node",
-    "aria-hidden": "true",
-    style: {
-      borderColor: index === activeMethodIndex ? 'var(--color-accent-primary)' : index < activeMethodIndex ? 'var(--color-accent-secondary)' : 'rgba(100,225,255,.3)',
-      background: index === activeMethodIndex ? 'var(--color-accent-primary)' : index < activeMethodIndex ? 'var(--color-accent-secondary)' : '#0b0d10',
-      boxShadow: index === activeMethodIndex ? '0 0 0 7px rgba(198,242,58,.09),0 0 28px rgba(198,242,58,.18)' : '0 0 0 5px rgba(100,225,255,.05)'
-    }
-  }), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-method-label jiz-meta"
-  }, stage.label), /*#__PURE__*/React.createElement("h4", {
-    style: {
-      color: index === activeMethodIndex ? 'var(--color-text-primary)' : undefined
-    }
-  }, stage.title), /*#__PURE__*/React.createElement("p", null, stage.copy))))), /*#__PURE__*/React.createElement("span", {
-    className: "sr-only",
-    role: "status",
-    "aria-live": "polite",
-    "data-method-status": true
-  }, `Active method stage: ${methodStages[activeMethodIndex].title}`)), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-capabilities jiz-reveal"
-  }, capabilityGroups.map(group => /*#__PURE__*/React.createElement("section", {
-    className: "jiz-capability",
-    key: group.title
-  }, /*#__PURE__*/React.createElement("h4", {
-    className: "jiz-meta"
-  }, group.title), /*#__PURE__*/React.createElement("p", null, group.subtitle), /*#__PURE__*/React.createElement("ul", null, group.items.map(item => /*#__PURE__*/React.createElement("li", {
-    key: item
-  }, item))))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-movement"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-header jiz-reveal"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-movement-heading",
-    style: {
-      marginBottom: 0
-    }
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-eyebrow"
-  }, "THE JOURNEY"), /*#__PURE__*/React.createElement("h3", {
-    className: "jiz-movement-title"
-  }, "Built through experience."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-movement-copy"
-  }, "Explore how learning, systems, technology, and storytelling shaped the practice.")), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-controls",
-    "aria-label": "Career journey controls"
-  }, /*#__PURE__*/React.createElement("button", {
-    className: "jiz-career-control",
-    type: "button",
-    "aria-label": "Previous career milestone",
-    disabled: activeIndex === 0,
-    onClick: () => selectCareerEntry(activeIndex - 1)
-  }, "\u2190 Previous"), /*#__PURE__*/React.createElement("button", {
-    className: "jiz-career-control",
-    type: "button",
-    "aria-label": "Next career milestone",
-    disabled: activeIndex === careerEntries.length - 1,
-    onClick: () => selectCareerEntry(activeIndex + 1)
-  }, "Next \u2192"))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-helper",
-    "data-career-progress": true
-  }, /*#__PURE__*/React.createElement("span", null, "Use the arrows, swipe, or select a milestone to explore."), /*#__PURE__*/React.createElement("strong", null, activeIndex + 1, " of ", careerEntries.length)), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-rail-shell"
-  }, /*#__PURE__*/React.createElement("div", {
-    ref: railRef,
-    className: "jiz-career-viewport jiz-reveal",
-    tabIndex: "0",
-    role: "region",
-    "aria-label": "Interactive career journey. Use left and right arrow keys to explore.",
-    onKeyDown: handleRailKeyDown
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-track"
-  }, careerEntries.map((entry, index) => /*#__PURE__*/React.createElement("button", {
-    key: entry.id,
-    ref: element => {
-      nodeRefs.current[index] = element;
-    },
-    className: `jiz-career-node ${activeIndex === index ? 'is-active' : ''}`,
-    "data-career-milestone": entry.id,
-    "data-career-index": index,
-    "data-active": activeIndex === index ? 'true' : 'false',
-    "data-type": entry.type,
-    type: "button",
-    "aria-pressed": activeIndex === index,
-    onClick: () => selectCareerEntry(index)
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-career-dot",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-career-stage"
-  }, entry.stage), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-career-years"
-  }, entry.years), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-career-org"
-  }, entry.organization)))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-detail jiz-reveal",
-    "aria-live": "polite"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-eyebrow"
-  }, activeCareer.years), /*#__PURE__*/React.createElement("h4", null, activeCareer.title), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-career-org-detail"
-  }, activeCareer.organization)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-career-summary"
-  }, activeCareer.summary), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-detail-grid"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h5", {
-    className: "jiz-meta"
-  }, "SELECTED IMPACT"), /*#__PURE__*/React.createElement("ul", null, activeCareer.highlights.map(item => /*#__PURE__*/React.createElement("li", {
-    key: item
-  }, item)))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h5", {
-    className: "jiz-meta"
-  }, "CAPABILITIES"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0,
-      color: 'var(--color-text-secondary)',
-      font: 'var(--text-caption)'
-    }
-  }, activeCareer.capabilities.join(' · ')))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-beliefs jiz-reveal",
-    "aria-label": "Core beliefs"
-  }, beliefs.map(belief => /*#__PURE__*/React.createElement("article", {
-    className: "jiz-belief",
-    key: belief.title
-  }, /*#__PURE__*/React.createElement("h4", null, belief.title), /*#__PURE__*/React.createElement("p", null, belief.copy))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-scene-transition jiz-reveal"
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      margin: 0,
-      font: 'var(--text-body-lg)',
-      color: 'var(--color-text-secondary)'
-    }
-  }, "Here's what that understanding created."))), modalOpen && /*#__PURE__*/React.createElement("div", {
-    "data-thinking-modal": true,
-    role: "dialog",
-    "aria-modal": "true",
-    "aria-label": "Thinking Engine expanded visualization",
-    onMouseDown: event => {
-      if (event.target === event.currentTarget) setModalOpen(false);
-    },
-    style: {
-      position: 'fixed',
-      inset: 0,
-      zIndex: 1000,
-      display: 'grid',
-      placeItems: 'center',
-      padding: 'clamp(18px,3vw,44px)',
-      background: 'rgba(4,7,9,.93)',
-      backdropFilter: 'blur(12px)'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      width: 'min(94vw,1500px)',
-      position: 'relative'
-    }
-  }, /*#__PURE__*/React.createElement("button", {
-    ref: modalCloseRef,
-    type: "button",
-    onClick: () => setModalOpen(false),
-    "aria-label": "Close expanded visualization",
-    style: {
-      position: 'absolute',
-      right: 0,
-      top: -58,
-      width: 48,
-      height: 48,
-      borderRadius: '50%',
-      border: '1px solid rgba(255,255,255,.24)',
-      background: 'rgba(8,13,16,.8)',
-      color: '#fff',
-      fontSize: 22,
-      cursor: 'pointer'
-    }
-  }, "\xD7"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      aspectRatio: '16/9',
-      borderRadius: 22,
-      overflow: 'hidden',
-      boxShadow: '0 40px 120px rgba(0,0,0,.65),0 0 90px rgba(100,225,255,.15)'
-    }
-  }, /*#__PURE__*/React.createElement("video", {
-    autoPlay: true,
-    loop: true,
-    muted: true,
-    playsInline: true,
-    controls: true,
-    style: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'contain',
-      display: 'block',
-      background: '#080d10'
-    }
-  }, /*#__PURE__*/React.createElement("source", {
-    src: THINKING_ENGINE_SRC,
-    type: "video/mp4"
-  }))))));
-}
-if (typeof window !== 'undefined') {
-  window.AboutV2 = AboutV2;
-}
-})(); } catch (e) { __ds_ns.__errors.push({ path: "archive/root-cleanup/About_v2_DIRECTOR_CUT_STORY1.jsx", error: String((e && e.message) || e) }); }
-
 // archive/root-cleanup/About_v2_FULL_SOURCE.jsx
 try { (() => {
 function AboutV2() {
@@ -1774,7 +590,7 @@ function AboutV2() {
   const [activeMethodIndex, setActiveMethodIndex] = React.useState(0);
   const [methodVisible, setMethodVisible] = React.useState(false);
   const [methodPaused, setMethodPaused] = React.useState(false);
-  const THINKING_ENGINE_SRC = './assets/video/Man_thinking_strategic_intelligent.mp4';
+  const THINKING_ENGINE_SRC = '../../assets/video/Man_thinking_strategic_intelligent.mp4';
   const methodStages = [{
     id: 'observe',
     label: '01',
@@ -3068,7 +1884,7 @@ function AboutV2({
   const [isVisible, setIsVisible] = React.useState(false);
   const LINKEDIN_URL = 'https://www.linkedin.com/in/jonathanzamarripa/';
   const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
-  const THINKING_ENGINE_SRC = './assets/video/about-me-thinking-engine.mp4';
+  const THINKING_ENGINE_SRC = '../../assets/video/about-me-thinking-engine.mp4';
   const methodStages = [{
     id: 'observe',
     label: '01',
@@ -4030,1365 +2846,6 @@ if (typeof window !== 'undefined') {
 }
 })(); } catch (e) { __ds_ns.__errors.push({ path: "archive/root-cleanup/About_v2_POST_P0.jsx", error: String((e && e.message) || e) }); }
 
-// archive/root-cleanup/About_v2_V3.0_FINAL.jsx
-try { (() => {
-function AboutV2({
-  registerSectionRef,
-  onResume,
-  onLinkedIn,
-  onSelectedWork
-}) {
-  const sectionRef = React.useRef(null);
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  const [isVisible, setIsVisible] = React.useState(false);
-  const LINKEDIN_URL = 'https://www.linkedin.com/in/jonathanzamarripa/';
-  const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
-  const THINKING_ENGINE_SRC = './assets/video/about-me-thinking-engine.mp4';
-  const methodStages = [{
-    id: 'observe',
-    label: '01',
-    title: 'Observe',
-    copy: 'See the full system before defining the solution.'
-  }, {
-    id: 'understand',
-    label: '02',
-    title: 'Understand',
-    copy: 'Reveal the patterns, friction, behaviors, and decisions shaping the experience.'
-  }, {
-    id: 'design',
-    label: '03',
-    title: 'Design',
-    copy: 'Create the structure, story, and interaction that make understanding possible.'
-  }, {
-    id: 'build',
-    label: '04',
-    title: 'Build',
-    copy: 'Produce the learning, media, tools, and systems required for adoption.'
-  }, {
-    id: 'transform',
-    label: '05',
-    title: 'Transform',
-    copy: 'Turn clarity into action, confidence, and measurable movement.'
-  }];
-  const careerEntries = [{
-    id: 'foundation',
-    stage: 'Foundation',
-    years: 'Eight-year foundation',
-    organization: 'K–12 STEAM & Robotics',
-    title: 'Classroom and Program Leadership',
-    summary: 'Built a practical understanding of how people learn by teaching STEAM, leading a robotics program, and turning limited resources into meaningful experiences.',
-    highlights: ['Coached a regional championship robotics team', 'Secured more than $20,000 in program funding', 'Developed a learner-first leadership practice'],
-    capabilities: ['Facilitation', 'Program leadership', 'STEAM learning'],
-    type: 'role'
-  }, {
-    id: 'gstate',
-    stage: 'Storytelling',
-    years: '2009',
-    organization: 'Georgia State University',
-    title: 'B.A., Journalism — Film & Video',
-    summary: 'Built the cinematic and editorial foundation that now shapes the way complex ideas are framed, paced, and made memorable.',
-    highlights: ['Film and video concentration', 'Narrative structure and visual communication', 'Production craft grounded in journalism'],
-    capabilities: ['Storytelling', 'Video production', 'Editorial thinking'],
-    type: 'education'
-  }, {
-    id: 'ais',
-    stage: 'Systems',
-    years: '2019–2024',
-    organization: 'Atlanta International School',
-    title: 'EdTech & Innovation Coach / Strategist',
-    summary: 'Founded a digital learning function without an existing playbook, connecting instructional design, systems, content, and analytics into one practice.',
-    highlights: ['Led an organization-wide LMS migration', 'Achieved 95% adoption and 4.9/5 satisfaction', 'Built analytics and needs-assessment infrastructure'],
-    capabilities: ['Learning systems', 'Change leadership', 'Analytics'],
-    type: 'role'
-  }, {
-    id: 'asu',
-    stage: 'Research',
-    years: '2023',
-    organization: 'Arizona State University',
-    title: 'M.Ed., Instructional Design & Technology',
-    summary: 'Formalized a systems-based learning practice through advanced study in instructional design, technology, evaluation, and human-centered learning.',
-    highlights: ['Graduated Summa Cum Laude', 'Connected learning science to production practice', 'Expanded expertise in evaluation and design strategy'],
-    capabilities: ['Learning science', 'Research', 'Evaluation'],
-    type: 'education'
-  }, {
-    id: 'cox',
-    stage: 'Enterprise',
-    years: '2024',
-    organization: 'Cox Enterprises',
-    title: 'Senior Manager, Learning Experience Design',
-    summary: 'Scaled learning experience strategy across a Fortune 500 organization, bridging leadership priorities with learner outcomes through systems thinking.',
-    highlights: ['Led strategic learning initiatives for 500+ employees', 'Built cross-functional design infrastructure', 'Established learning ROI evaluation frameworks'],
-    capabilities: ['Enterprise design', 'Leadership communication', 'Systems strategy'],
-    type: 'role'
-  }, {
-    id: 'ihg',
-    stage: 'Industry',
-    years: '2024–2025',
-    organization: 'IHG Hotels & Resorts',
-    title: 'Principal Instructional Designer',
-    summary: 'Architected hospitality-industry learning systems, translating complex operational requirements into scalable digital experiences for global teams.',
-    highlights: ['Designed learning for 300,000+ hospitality professionals', 'Created adaptable curriculum architecture', 'Established quality and accessibility standards'],
-    capabilities: ['Hospitality design', 'Global systems', 'Scalable solutions'],
-    type: 'role'
-  }, {
-    id: 'studio',
-    stage: 'Independent',
-    years: '2025–Present',
-    organization: 'AI Creative Studio',
-    title: 'Founder, Learning Systems & Design Strategy',
-    summary: 'Building the intersection of design thinking, systems strategy, and AI-enabled production. Creating learning experiences that transform how organizations operate.',
-    highlights: ['AI-augmented design workflows', 'Complex systems simplification', 'Strategic advisory & design'],
-    capabilities: ['Systems thinking', 'AI integration', 'Strategic innovation'],
-    type: 'role'
-  }];
-  const beliefs = [{
-    belief: 'Clarity is a design problem',
-    description: 'Confusion is friction. Every moment of misunderstanding costs time, confidence, and action.'
-  }, {
-    belief: 'Systems always think',
-    description: 'The way something works teaches as much as what it teaches. Design the learning environment itself.'
-  }, {
-    belief: 'Behavior change requires architecture',
-    description: 'Intentions fail without systems. Build the structure, story, and tools that make the change inevitable.'
-  }, {
-    belief: 'Stories make ideas memorable',
-    description: 'A well-paced narrative does more than inform—it transforms understanding into conviction.'
-  }];
-  React.useEffect(() => {
-    if (registerSectionRef) registerSectionRef(sectionRef.current, 'About');
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) setIsVisible(true);
-    }, {
-      threshold: 0.1
-    });
-    observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, [registerSectionRef]);
-  return /*#__PURE__*/React.createElement("section", {
-    className: "jiz-about-v2",
-    ref: sectionRef
-  }, /*#__PURE__*/React.createElement("style", null, `
-        .jiz-about-v2 {
-          position: relative;
-          width: 100%;
-          padding: clamp(78px, 13vw, 140px) var(--container-pad);
-          background: var(--color-bg);
-          overflow: hidden;
-        }
-
-        .jiz-about-v2::before {
-          content: '';
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          background:
-            radial-gradient(ellipse 900px 600px at 50% 0%, rgba(100, 225, 255, 0.03), transparent 60%),
-            radial-gradient(ellipse 700px 500px at 50% 50%, rgba(100, 225, 255, 0.02), transparent 50%),
-            radial-gradient(ellipse 600px 400px at 30% 60%, rgba(200, 255, 100, 0.015), transparent 55%);
-          z-index: 0;
-        }
-
-        .jiz-about-v2 > * {
-          position: relative;
-          z-index: 1;
-        }
-
-        .jiz-about-mind {
-          display: flex;
-          flex-direction: column;
-          gap: 0;
-          align-items: center;
-          text-align: center;
-          max-width: 800px;
-          margin: 0 auto clamp(60px, 8vw, 100px);
-        }
-
-        .jiz-about-title {
-          margin: 0 0 24px;
-          font: var(--text-h1);
-          font-size: clamp(2.45rem, 6.8vw, 4.2rem);
-          line-height: 1.08;
-          letter-spacing: -0.045em;
-          color: var(--color-text-primary);
-          opacity: 0;
-          animation: fadeInUp 700ms var(--ease-enter) forwards;
-        }
-
-        .jiz-about-copy {
-          margin: 0 auto 40px;
-          color: var(--color-text-secondary);
-          font: var(--text-body-lg);
-          line-height: 1.8;
-          opacity: 0;
-          animation: fadeInUp 700ms var(--ease-enter) forwards 80ms;
-        }
-
-        .jiz-about-actions {
-          display: flex;
-          gap: 16px;
-          margin-top: 40px;
-          justify-content: center;
-          flex-wrap: wrap;
-          opacity: 0;
-          animation: fadeInUp 700ms var(--ease-enter) forwards 160ms;
-        }
-
-        @keyframes fadeInUp {
-          to { opacity: 1; }
-        }
-
-        .jiz-thinking-wrap {
-          position: relative;
-          width: min(90vw, 1200px);
-          max-width: 100%;
-          margin: 0 auto clamp(60px, 8vw, 100px);
-          overflow: hidden;
-          border-radius: 16px;
-          background: transparent;
-          border: none;
-          aspect-ratio: 16 / 9;
-          opacity: 0;
-          animation: fadeInUp 700ms var(--ease-enter) forwards 240ms;
-        }
-
-        .jiz-thinking-wrap::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          border-radius: 16px;
-          background:
-            radial-gradient(ellipse at 50% 50%, rgba(100, 225, 255, 0.12), rgba(100, 225, 255, 0.02) 60%),
-            radial-gradient(ellipse at 50% 30%, rgba(200, 255, 100, 0.08), transparent 50%);
-          pointer-events: none;
-          z-index: 2;
-        }
-
-        .jiz-thinking-wrap::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.15) 100%);
-          pointer-events: none;
-          z-index: 3;
-          border-radius: 16px;
-        }
-
-        .jiz-thinking-wrap video {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-          border-radius: 16px;
-          position: relative;
-          z-index: 1;
-        }
-
-        .jiz-thinking-label {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-          align-items: center;
-          text-align: center;
-          max-width: 680px;
-          margin: 0 auto clamp(40px, 5vw, 80px);
-        }
-
-        .jiz-thinking-label h4 {
-          margin: 0;
-          font: var(--text-h3);
-          font-size: 1.1rem;
-          color: var(--color-text-primary);
-        }
-
-        .jiz-thinking-label p {
-          margin: 0;
-          font: var(--text-body-sm);
-          color: var(--color-text-secondary);
-        }
-
-        .jiz-method-intro {
-          text-align: center;
-          margin-bottom: clamp(80px, 10vw, 140px);
-          max-width: 720px;
-          margin-left: auto;
-          margin-right: auto;
-        }
-
-        .jiz-method-intro h3 {
-          margin: 0 0 16px;
-          font: var(--text-h2);
-          font-size: clamp(1.8rem, 4.2vw, 2.8rem);
-          line-height: 1.1;
-          letter-spacing: -0.04em;
-          color: var(--color-text-primary);
-        }
-
-        .jiz-method-intro p {
-          margin: 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          line-height: 1.7;
-        }
-
-        .jiz-method-path {
-          display: grid;
-          grid-template-columns: repeat(5, minmax(0, 1fr));
-          gap: 64px;
-          position: relative;
-          margin-bottom: clamp(120px, 14vw, 200px);
-        }
-
-        .jiz-method-stage {
-          position: relative;
-          padding: 0 0 0 48px;
-          animation: fadeInUp 700ms var(--ease-enter) forwards;
-          opacity: 0;
-        }
-
-        .jiz-method-stage:nth-child(1) { animation-delay: 400ms; }
-        .jiz-method-stage:nth-child(2) { animation-delay: 480ms; }
-        .jiz-method-stage:nth-child(3) { animation-delay: 560ms; }
-        .jiz-method-stage:nth-child(4) { animation-delay: 640ms; }
-        .jiz-method-stage:nth-child(5) { animation-delay: 720ms; }
-
-        .jiz-method-node {
-          position: absolute;
-          left: 0;
-          top: 0;
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          background: rgba(100, 225, 255, 0.1);
-          border: 1px solid rgba(100, 225, 255, 0.3);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font: var(--text-mono);
-          font-size: 0.75rem;
-          color: rgba(100, 225, 255, 0.6);
-        }
-
-        .jiz-method-stage h4 {
-          margin: 0 0 12px;
-          font: var(--text-h3);
-          font-size: 1.05rem;
-          color: var(--color-text-primary);
-        }
-
-        .jiz-method-stage p {
-          margin: 0;
-          font: var(--text-body);
-          color: var(--color-text-secondary);
-          line-height: 1.6;
-          font-size: 0.95rem;
-        }
-
-        .jiz-career-rail {
-          width: 100%;
-          margin: clamp(100px, 12vw, 160px) 0;
-        }
-
-        .jiz-career-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-end;
-          gap: 28px;
-          margin-bottom: 34px;
-          flex-wrap: wrap;
-        }
-
-        .jiz-career-title h3 {
-          margin: 0;
-          font: var(--text-h2);
-          font-size: clamp(1.8rem, 4.2vw, 2.8rem);
-          line-height: 1.1;
-          letter-spacing: -0.04em;
-          color: var(--color-text-primary);
-        }
-
-        .jiz-career-controls {
-          display: flex;
-          gap: 10px;
-        }
-
-        .jiz-career-control {
-          width: 44px;
-          height: 44px;
-          border-radius: 50%;
-          border: 1px solid rgba(100, 225, 255, 0.18);
-          background: rgba(255, 255, 255, 0.018);
-          color: var(--color-text-primary);
-          cursor: pointer;
-          transition: all 300ms var(--ease-standard);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font: var(--text-mono);
-          font-size: 0.85rem;
-        }
-
-        .jiz-career-control:hover {
-          border-color: rgba(100, 225, 255, 0.4);
-          background: rgba(100, 225, 255, 0.08);
-        }
-
-        .jiz-career-control.active {
-          border-color: var(--color-accent-primary);
-          background: rgba(100, 225, 255, 0.12);
-          color: var(--color-accent-primary);
-        }
-
-        .jiz-career-detail {
-          padding: 32px;
-          border: 1px solid rgba(100, 225, 255, 0.08);
-          border-radius: 8px;
-          background: rgba(100, 225, 255, 0.02);
-          animation: fadeInUp 500ms var(--ease-enter) forwards;
-        }
-
-        .jiz-career-detail h4 {
-          margin: 0 0 8px;
-          font: var(--text-h3);
-          font-size: 1.2rem;
-          color: var(--color-text-primary);
-        }
-
-        .jiz-career-detail .org {
-          margin: 0 0 8px;
-          font: var(--text-body-sm);
-          color: var(--color-accent-primary);
-          text-transform: uppercase;
-          letter-spacing: 0.08em;
-        }
-
-        .jiz-career-detail .years {
-          margin: 0 0 18px;
-          font: var(--text-body);
-          color: var(--color-text-secondary);
-          font-size: 0.9rem;
-        }
-
-        .jiz-career-detail p {
-          margin: 0 0 16px;
-          font: var(--text-body);
-          color: var(--color-text-secondary);
-          line-height: 1.7;
-        }
-
-        .jiz-career-detail ul {
-          list-style: none;
-          margin: 16px 0;
-          padding: 0;
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-
-        .jiz-career-detail li {
-          font: var(--text-body);
-          color: var(--color-text-secondary);
-          padding-left: 20px;
-          position: relative;
-          font-size: 0.95rem;
-        }
-
-        .jiz-career-detail li::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0.65em;
-          width: 4px;
-          height: 4px;
-          border-radius: 50%;
-          background: rgba(100, 225, 255, 0.5);
-        }
-
-        .jiz-beliefs {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-          gap: 40px;
-          margin: clamp(100px, 12vw, 160px) 0;
-        }
-
-        .jiz-belief {
-          position: relative;
-          padding: 0;
-        }
-
-        .jiz-belief h4 {
-          margin: 0 0 12px;
-          font: var(--text-h3);
-          font-size: 1.05rem;
-          color: var(--color-text-primary);
-        }
-
-        .jiz-belief p {
-          margin: 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          line-height: 1.7;
-          font-size: 0.95rem;
-        }
-
-        @media (max-width: 980px) {
-          .jiz-about-mind {
-            flex-direction: column;
-            text-align: center;
-          }
-
-          .jiz-thinking-wrap {
-            width: min(95vw, 100%);
-          }
-
-          .jiz-about-title {
-            font-size: clamp(2.45rem, 13vw, 3.6rem);
-          }
-
-          .jiz-thinking-label {
-            flex-direction: column;
-            text-align: center;
-          }
-
-          .jiz-method-path {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 34px;
-          }
-
-          .jiz-method-stage {
-            padding: 26px 0 0 28px;
-            border-top: 1px solid rgba(100, 225, 255, 0.11);
-          }
-
-          .jiz-method-node {
-            top: 18px;
-            left: 0;
-          }
-
-          .jiz-career-header {
-            flex-direction: column;
-            align-items: flex-start;
-          }
-
-          .jiz-beliefs {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 34px 0;
-          }
-        }
-
-        @media (max-width: 620px) {
-          .jiz-about-v2 {
-            padding-inline: max(20px, var(--container-pad));
-          }
-
-          .jiz-about-title {
-            font-size: clamp(2.45rem, 13vw, 3.6rem);
-          }
-
-          .jiz-thinking-label {
-            flex-direction: column;
-            text-align: center;
-          }
-
-          .jiz-method-path {
-            grid-template-columns: 1fr;
-          }
-
-          .jiz-career-header {
-            display: block;
-          }
-
-          .jiz-career-controls {
-            margin-top: 24px;
-          }
-
-          .jiz-beliefs {
-            grid-template-columns: 1fr;
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .jiz-about-v2 *,
-          .jiz-about-v2 *::before,
-          .jiz-about-v2 *::after {
-            scroll-behavior: auto !important;
-            animation: none !important;
-            transition-duration: 0.01ms !important;
-          }
-
-          .jiz-about-title,
-          .jiz-about-copy,
-          .jiz-about-actions,
-          .jiz-thinking-wrap,
-          .jiz-method-stage {
-            opacity: 1;
-          }
-        }
-      `), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-about-mind"
-  }, /*#__PURE__*/React.createElement("h2", {
-    className: "jiz-about-title"
-  }, "The Mind"), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-about-copy"
-  }, "How Jonathan thinks about the problems he solves. The operating system behind every project, every decision, and every outcome."), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-about-actions"
-  }, /*#__PURE__*/React.createElement("a", {
-    className: "jiz-about-action jiz-about-action-primary",
-    href: RESUME_URL,
-    target: "_blank",
-    rel: "noopener noreferrer"
-  }, "View Resume"), /*#__PURE__*/React.createElement("a", {
-    className: "jiz-about-action jiz-about-action-secondary",
-    href: LINKEDIN_URL,
-    target: "_blank",
-    rel: "noopener noreferrer"
-  }, "LinkedIn"))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-thinking-wrap"
-  }, /*#__PURE__*/React.createElement("video", {
-    src: THINKING_ENGINE_SRC,
-    autoPlay: true,
-    loop: true,
-    muted: true,
-    playsInline: true
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-thinking-label"
-  }, /*#__PURE__*/React.createElement("h4", null, "Thinking Engine"), /*#__PURE__*/React.createElement("p", null, "The operating model behind every project.")), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-method-intro"
-  }, /*#__PURE__*/React.createElement("h3", null, "The Method"), /*#__PURE__*/React.createElement("p", null, "How this operating system unfolds across every engagement")), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-method-path"
-  }, methodStages.map(stage => /*#__PURE__*/React.createElement("div", {
-    key: stage.id,
-    className: "jiz-method-stage"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-method-node"
-  }, stage.label), /*#__PURE__*/React.createElement("h4", null, stage.title), /*#__PURE__*/React.createElement("p", null, stage.copy)))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-rail"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-header"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-title"
-  }, /*#__PURE__*/React.createElement("h3", null, "Journey of Practice")), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-controls"
-  }, careerEntries.map((_, idx) => /*#__PURE__*/React.createElement("button", {
-    key: idx,
-    className: `jiz-career-control ${idx === activeIndex ? 'active' : ''}`,
-    onClick: () => setActiveIndex(idx),
-    "aria-label": `Career entry ${idx + 1}`
-  }, idx + 1)))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-detail"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "org"
-  }, careerEntries[activeIndex].organization), /*#__PURE__*/React.createElement("h4", null, careerEntries[activeIndex].title), /*#__PURE__*/React.createElement("div", {
-    className: "years"
-  }, careerEntries[activeIndex].years), /*#__PURE__*/React.createElement("p", null, careerEntries[activeIndex].summary), careerEntries[activeIndex].highlights && /*#__PURE__*/React.createElement("ul", null, careerEntries[activeIndex].highlights.map((h, i) => /*#__PURE__*/React.createElement("li", {
-    key: i
-  }, h))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-beliefs"
-  }, beliefs.map((b, i) => /*#__PURE__*/React.createElement("div", {
-    key: i,
-    className: "jiz-belief"
-  }, /*#__PURE__*/React.createElement("h4", null, b.belief), /*#__PURE__*/React.createElement("p", null, b.description)))));
-}
-if (typeof window !== 'undefined') {
-  window.AboutV2 = AboutV2;
-}
-})(); } catch (e) { __ds_ns.__errors.push({ path: "archive/root-cleanup/About_v2_V3.0_FINAL.jsx", error: String((e && e.message) || e) }); }
-
-// archive/root-cleanup/About_v2_code.jsx
-try { (() => {
-function AboutV2({
-  registerSectionRef,
-  onResume,
-  onLinkedIn,
-  onSelectedWork
-}) {
-  const sectionRef = React.useRef(null);
-  const videoRef = React.useRef(null);
-  const [isPlaying, setIsPlaying] = React.useState(true);
-  const [volume, setVolume] = React.useState(0);
-  const [isMuted, setIsMuted] = React.useState(true);
-  React.useEffect(() => {
-    if (registerSectionRef && sectionRef.current) {
-      registerSectionRef(sectionRef.current, 'About');
-    }
-  }, [registerSectionRef]);
-  const togglePlay = () => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
-    }
-  };
-  const toggleMute = () => {
-    if (videoRef.current) {
-      videoRef.current.muted = !isMuted;
-      setIsMuted(!isMuted);
-    }
-  };
-  const handleVolumeChange = e => {
-    const vol = parseFloat(e.target.value);
-    setVolume(vol);
-    if (videoRef.current) {
-      videoRef.current.volume = vol;
-      if (vol > 0 && isMuted) {
-        videoRef.current.muted = false;
-        setIsMuted(false);
-      }
-    }
-  };
-  return /*#__PURE__*/React.createElement("section", {
-    ref: sectionRef,
-    style: {
-      padding: 'clamp(80px, 10vw, 140px) var(--container-pad)',
-      maxWidth: 'var(--container-max)',
-      margin: '0 auto',
-      position: 'relative',
-      overflow: 'hidden'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      pointerEvents: 'none',
-      background: 'radial-gradient(ellipse 1400px 600px at 50% 20%, rgba(115, 224, 255, 0.04) 0%, transparent 60%), radial-gradient(ellipse 900px 400px at 80% 80%, rgba(172, 255, 74, 0.02) 0%, transparent 70%)',
-      zIndex: 0
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      maxWidth: 1400,
-      margin: '0 auto',
-      position: 'relative',
-      zIndex: 1
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginBottom: 'clamp(96px, 11vw, 144px)',
-      display: 'grid',
-      gridTemplateColumns: 'minmax(0, 1fr) minmax(0, 1.5fr)',
-      gap: 'clamp(48px, 6vw, 80px)',
-      alignItems: 'flex-start'
-    }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-caption)',
-      fontSize: '0.7rem',
-      letterSpacing: '0.2em',
-      textTransform: 'uppercase',
-      color: 'var(--color-accent-secondary)',
-      margin: '0 0 24px',
-      fontWeight: 500
-    }
-  }, "ABOUT"), /*#__PURE__*/React.createElement("h2", {
-    style: {
-      font: 'var(--text-h2)',
-      fontSize: 'clamp(2rem, 4vw, 2.75rem)',
-      color: 'var(--color-text-primary)',
-      marginBottom: '20px',
-      lineHeight: 1.15,
-      letterSpacing: '-0.02em'
-    }
-  }, "How Jonathan thinks."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '1.0625rem',
-      lineHeight: 1.8,
-      color: 'var(--color-text-secondary)',
-      margin: '0 0 18px'
-    }
-  }, "I reveal the patterns beneath complexity and turn them into experiences people can understand, use, and adopt."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.9375rem',
-      lineHeight: 1.8,
-      color: 'var(--color-text-secondary)',
-      margin: '0 0 28px'
-    }
-  }, "I begin by mapping the relationship between people, information, systems, and behavior. Before I design content, I design understanding\u2014revealing what matters, where friction exists, and what will move people forward. My work brings together learning strategy, cinematic storytelling, digital experience design, and AI-enabled production to create solutions that are clear, useful, and built for adoption."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      gap: 16,
-      alignItems: 'center',
-      flexWrap: 'wrap'
-    }
-  }, /*#__PURE__*/React.createElement("button", {
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.875rem',
-      fontWeight: 500,
-      color: 'rgb(8, 13, 11)',
-      background: 'var(--color-accent-primary)',
-      padding: '12px 24px',
-      borderRadius: 'var(--radius-pill)',
-      border: 'none',
-      cursor: 'pointer',
-      transition: 'all var(--motion-standard) var(--ease-standard)'
-    },
-    onClick: onResume
-  }, "View r\xE9sum\xE9"), /*#__PURE__*/React.createElement("button", {
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.875rem',
-      fontWeight: 500,
-      color: 'var(--color-accent-primary)',
-      border: '1px solid rgba(115, 224, 255, 0.3)',
-      padding: '11px 23px',
-      borderRadius: 'var(--radius-pill)',
-      background: 'transparent',
-      cursor: 'pointer',
-      transition: 'all var(--motion-standard) var(--ease-standard)'
-    },
-    onClick: onLinkedIn
-  }, "LinkedIn"))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'relative',
-      width: '100%',
-      paddingBottom: '56.25%',
-      background: 'rgba(0, 0, 0, 0.08)',
-      borderRadius: '24px',
-      border: '1px solid rgba(115, 224, 255, 0.08)',
-      overflow: 'hidden',
-      boxShadow: '0 0 40px rgba(115, 224, 255, 0.04), inset 0 0 40px rgba(115, 224, 255, 0.008)',
-      group: 'contents'
-    }
-  }, /*#__PURE__*/React.createElement("video", {
-    ref: videoRef,
-    autoPlay: isPlaying,
-    loop: !isPlaying,
-    muted: isMuted,
-    playsInline: true,
-    preload: "metadata",
-    style: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'contain',
-      background: 'rgba(8, 13, 11, 0.4)'
-    }
-  }, /*#__PURE__*/React.createElement("source", {
-    src: "./assets/video/the-train-story.mp4",
-    type: "video/mp4"
-  }), "The Thinking Engine animation"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      bottom: -60,
-      left: 0,
-      right: 0,
-      height: 60,
-      background: 'linear-gradient(to bottom, rgba(115, 224, 255, 0.03), transparent)',
-      pointerEvents: 'none'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      bottom: 0,
-      left: 0,
-      right: 0,
-      background: 'linear-gradient(to top, rgba(8, 13, 11, 0.9), transparent)',
-      padding: '32px 24px 24px',
-      display: 'flex',
-      gap: 16,
-      alignItems: 'center',
-      zIndex: 10
-    }
-  }, /*#__PURE__*/React.createElement("button", {
-    onClick: togglePlay,
-    style: {
-      background: 'rgba(115, 224, 255, 0.2)',
-      border: '1px solid rgba(115, 224, 255, 0.3)',
-      borderRadius: 8,
-      padding: '8px 12px',
-      cursor: 'pointer',
-      color: 'rgba(115, 224, 255, 0.8)',
-      fontSize: '14px',
-      fontWeight: 500,
-      transition: 'all 0.2s ease',
-      display: 'flex',
-      alignItems: 'center',
-      gap: 6
-    }
-  }, isPlaying ? '⏸ Pause' : '▶ Play'), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: 8,
-      flex: 1
-    }
-  }, /*#__PURE__*/React.createElement("button", {
-    onClick: toggleMute,
-    style: {
-      background: 'transparent',
-      border: 'none',
-      color: 'rgba(115, 224, 255, 0.8)',
-      cursor: 'pointer',
-      fontSize: '16px',
-      padding: 0,
-      lineHeight: 1
-    }
-  }, isMuted ? '🔇' : '🔊'), /*#__PURE__*/React.createElement("input", {
-    type: "range",
-    min: "0",
-    max: "1",
-    step: "0.05",
-    value: isMuted ? 0 : volume,
-    onChange: handleVolumeChange,
-    style: {
-      width: 80,
-      height: 4,
-      background: 'rgba(115, 224, 255, 0.1)',
-      borderRadius: 2,
-      outline: 'none',
-      cursor: 'pointer',
-      accentColor: 'rgb(115, 224, 255)'
-    }
-  })), /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: 'rgba(115, 224, 255, 0.6)',
-      fontSize: '12px',
-      fontFamily: 'monospace'
-    }
-  }, Math.round(volume * 100), "%")))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginBottom: 'clamp(160px, 18vw, 240px)',
-      position: 'relative',
-      zIndex: 1
-    }
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-caption)',
-      fontSize: '0.65rem',
-      letterSpacing: '0.2em',
-      textTransform: 'uppercase',
-      color: 'rgba(172, 255, 74, 0.6)',
-      margin: '0 0 24px',
-      fontWeight: 500
-    }
-  }, "TEMPORARY UNVERIFIED CAREER DATA \u2014 REPLACE WITH APPROVED R\xC9SUM\xC9 DATA BEFORE RELEASE."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginBottom: 'clamp(100px, 12vw, 160px)'
-    }
-  }, /*#__PURE__*/React.createElement("h3", {
-    style: {
-      font: 'var(--text-h3)',
-      fontSize: 'clamp(1.375rem, 3vw, 1.75rem)',
-      fontWeight: 600,
-      color: 'var(--color-text-primary)',
-      margin: '0 0 32px',
-      lineHeight: 1.2,
-      letterSpacing: '-0.02em'
-    }
-  }, "What I do."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: 'clamp(56px, 7vw, 96px)',
-      marginBottom: 'clamp(80px, 10vw, 120px)'
-    }
-  }, [{
-    title: 'DESIGN',
-    items: ['Learning ecosystems', 'Experience strategy', 'Instructional design', 'Systems thinking', 'Learning architecture']
-  }, {
-    title: 'BUILD',
-    items: ['Articulate 360', 'Camtasia', 'Figma', 'Adobe Creative Cloud', 'AI-enabled tools']
-  }, {
-    title: 'KNOWN FOR',
-    items: ['Systems thinking', 'Clarity in complexity', 'Learning that performs', 'Human-centered design', 'Strategic impact']
-  }].map((col, i) => /*#__PURE__*/React.createElement("div", {
-    key: i,
-    style: {
-      paddingRight: i < 2 ? 'clamp(32px, 4vw, 64px)' : 0,
-      borderRight: i < 2 ? '1px solid rgba(115, 224, 255, 0.08)' : 'none'
-    }
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-caption)',
-      fontSize: '0.7rem',
-      letterSpacing: '0.2em',
-      textTransform: 'uppercase',
-      color: 'var(--color-accent-secondary)',
-      margin: '0 0 24px',
-      fontWeight: 500
-    }
-  }, col.title), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 18
-    }
-  }, col.items.map((item, j) => /*#__PURE__*/React.createElement("p", {
-    key: j,
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.9375rem',
-      color: 'var(--color-text-secondary)',
-      lineHeight: 1.6,
-      margin: 0
-    }
-  }, item))))))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h3", {
-    style: {
-      font: 'var(--text-h3)',
-      fontSize: 'clamp(1.375rem, 3vw, 1.75rem)',
-      fontWeight: 600,
-      color: 'var(--color-text-primary)',
-      margin: '0 0 32px',
-      lineHeight: 1.2,
-      letterSpacing: '-0.02em'
-    }
-  }, "How I work."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 'clamp(64px, 8vw, 96px)'
-    }
-  }, [{
-    title: 'Clarify',
-    copy: 'Reveal the essential problem before designing the solution.'
-  }, {
-    title: 'Connect',
-    copy: 'Align people, systems, information, and behavior into one coherent experience.'
-  }, {
-    title: 'Transform',
-    copy: 'Turn understanding into action, adoption, and measurable movement.'
-  }].map((p, i) => /*#__PURE__*/React.createElement("div", {
-    key: i
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: '2.5rem',
-      fontWeight: 700,
-      color: 'var(--color-accent-primary)',
-      marginBottom: 12,
-      lineHeight: 1,
-      opacity: 0.8
-    }
-  }, String(i + 1).padStart(2, '0')), /*#__PURE__*/React.createElement("h4", {
-    style: {
-      font: 'var(--text-h4)',
-      fontSize: '1.125rem',
-      fontWeight: 600,
-      color: 'var(--color-text-primary)',
-      margin: '0 0 16px',
-      lineHeight: 1.2
-    }
-  }, p.title), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.9375rem',
-      lineHeight: 1.8,
-      color: 'var(--color-text-secondary)',
-      margin: 0,
-      maxWidth: 520
-    }
-  }, p.copy), i < 2 && /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 'clamp(48px, 6vw, 72px)',
-      height: '1px',
-      background: 'rgba(115, 224, 255, 0.06)'
-    }
-  })))))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'relative',
-      zIndex: 1
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginBottom: 'clamp(140px, 16vw, 200px)'
-    }
-  }, /*#__PURE__*/React.createElement("h3", {
-    style: {
-      font: 'var(--text-h3)',
-      fontSize: 'clamp(1.375rem, 3vw, 1.75rem)',
-      fontWeight: 600,
-      color: 'var(--color-text-primary)',
-      margin: '0 0 12px',
-      lineHeight: 1.2,
-      letterSpacing: '-0.02em'
-    }
-  }, "The evolution."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.9375rem',
-      color: 'var(--color-text-secondary)',
-      marginBottom: 56,
-      lineHeight: 1.6
-    }
-  }, "How experience shaped the way I solve problems."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      gap: 16,
-      marginBottom: 48,
-      overflowX: 'auto',
-      paddingBottom: 16
-    }
-  }, [{
-    years: '2010–2013',
-    role: 'Studio Director',
-    org: 'Atlanta International School',
-    summary: 'Founded and led the creative studio, launching emerging education technologies and establishing design practice for the school.',
-    achievements: ['Founded design studio', 'Launched digital initiatives', 'Led creative team'],
-    tech: ['Figma', 'Adobe Creative Suite', 'Web technologies']
-  }, {
-    years: '2013–2014',
-    role: 'Design Systems Lead',
-    org: 'Georgia State University',
-    summary: 'Developed design infrastructure and learning systems for the university\'s digital transformation initiative.',
-    achievements: ['Built design system', 'Unified digital platforms', 'Trained design team'],
-    tech: ['Design systems', 'Component architecture', 'Figma']
-  }, {
-    years: '2014–2016',
-    role: 'Graduate Design Researcher',
-    org: 'Arizona State University',
-    summary: 'Advanced study in design strategy, systems thinking, and human-centered research methodologies.',
-    achievements: ['Published research', 'Advanced systems thinking', 'Strategic frameworks'],
-    tech: ['Research methods', 'Design thinking', 'Systems analysis']
-  }, {
-    years: '2016–2019',
-    role: 'Senior Learning Strategist',
-    org: 'Cox Enterprises',
-    summary: 'Transformed enterprise learning systems, designing at scale for 50,000+ employees across multiple business units.',
-    achievements: ['Enterprise transformation', 'Scaled learning platforms', 'Strategic impact'],
-    tech: ['Articulate 360', 'Camtasia', 'Learning architecture']
-  }, {
-    years: '2019–2023',
-    role: 'Principal Design Architect',
-    org: 'IHG Hotels & Resorts',
-    summary: 'Led global learning experience redesign for hospitality industry, integrating AI and video-based learning at enterprise scale.',
-    achievements: ['Global redesign', 'AI integration', 'Video production'],
-    tech: ['AI-enabled content', 'Video production', 'Learning platforms']
-  }, {
-    years: '2023–Present',
-    role: 'Creative Director',
-    org: 'Independent Studio',
-    summary: 'Founded AI-creative studio, developing next-generation learning experiences and strategic consulting.',
-    achievements: ['Studio founding', 'AI research', 'Strategic consulting'],
-    tech: ['AI/ML integration', 'Full-stack design', 'Advanced production']
-  }].map((m, i) => /*#__PURE__*/React.createElement("button", {
-    key: i,
-    style: {
-      flex: '0 0 auto',
-      padding: '12px 20px',
-      borderRadius: 'var(--radius-pill)',
-      background: i === 0 ? 'var(--color-accent-primary)' : 'rgba(115, 224, 255, 0.1)',
-      color: i === 0 ? 'rgb(8, 13, 11)' : 'var(--color-text-secondary)',
-      border: 'none',
-      cursor: 'pointer',
-      font: 'var(--text-body)',
-      fontSize: '0.875rem',
-      fontWeight: 500,
-      transition: 'all 0.3s ease',
-      whiteSpace: 'nowrap'
-    }
-  }, m.years))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      minHeight: 120,
-      padding: 32,
-      border: '1px solid rgba(115, 224, 255, 0.1)',
-      borderRadius: 12,
-      background: 'rgba(115, 224, 255, 0.02)',
-      transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gap: 32,
-      marginBottom: 24
-    }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-caption)',
-      fontSize: '0.75rem',
-      letterSpacing: '0.1em',
-      textTransform: 'uppercase',
-      color: 'var(--color-accent-secondary)',
-      margin: '0 0 8px',
-      opacity: 0.8
-    }
-  }, "ROLE"), /*#__PURE__*/React.createElement("h4", {
-    style: {
-      font: 'var(--text-h4)',
-      fontSize: '1.125rem',
-      color: 'var(--color-text-primary)',
-      margin: '0 0 16px'
-    }
-  }, "Studio Director"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-caption)',
-      fontSize: '0.75rem',
-      letterSpacing: '0.1em',
-      textTransform: 'uppercase',
-      color: 'var(--color-accent-secondary)',
-      margin: '0 0 8px',
-      marginTop: 16,
-      opacity: 0.8
-    }
-  }, "ORGANIZATION"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.9375rem',
-      color: 'var(--color-text-secondary)',
-      margin: 0
-    }
-  }, "Atlanta International School")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-caption)',
-      fontSize: '0.75rem',
-      letterSpacing: '0.1em',
-      textTransform: 'uppercase',
-      color: 'var(--color-accent-secondary)',
-      margin: '0 0 8px',
-      opacity: 0.8
-    }
-  }, "TIMELINE"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.9375rem',
-      color: 'var(--color-text-secondary)',
-      margin: 0
-    }
-  }, "2010\u20132013"))), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.9375rem',
-      lineHeight: 1.7,
-      color: 'var(--color-text-secondary)',
-      margin: '0 0 16px'
-    }
-  }, "Founded and led the creative studio, launching emerging education technologies and establishing design practice for the school."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(2, 1fr)',
-      gap: 24,
-      marginTop: 20
-    }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-caption)',
-      fontSize: '0.75rem',
-      letterSpacing: '0.1em',
-      textTransform: 'uppercase',
-      color: 'var(--color-accent-secondary)',
-      margin: '0 0 12px',
-      opacity: 0.8
-    }
-  }, "KEY ACHIEVEMENTS"), /*#__PURE__*/React.createElement("ul", {
-    style: {
-      margin: 0,
-      paddingLeft: 16,
-      font: 'var(--text-body)',
-      fontSize: '0.875rem',
-      color: 'var(--color-text-secondary)',
-      lineHeight: 1.6
-    }
-  }, /*#__PURE__*/React.createElement("li", null, "Founded design studio"), /*#__PURE__*/React.createElement("li", null, "Launched digital initiatives"), /*#__PURE__*/React.createElement("li", null, "Led creative team"))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-caption)',
-      fontSize: '0.75rem',
-      letterSpacing: '0.1em',
-      textTransform: 'uppercase',
-      color: 'var(--color-accent-secondary)',
-      margin: '0 0 12px',
-      opacity: 0.8
-    }
-  }, "TECHNOLOGIES"), /*#__PURE__*/React.createElement("ul", {
-    style: {
-      margin: 0,
-      paddingLeft: 16,
-      font: 'var(--text-body)',
-      fontSize: '0.875rem',
-      color: 'var(--color-text-secondary)',
-      lineHeight: 1.6
-    }
-  }, /*#__PURE__*/React.createElement("li", null, "Figma"), /*#__PURE__*/React.createElement("li", null, "Adobe Creative Suite"), /*#__PURE__*/React.createElement("li", null, "Web technologies")))))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 'clamp(100px, 12vw, 160px)'
-    }
-  }, /*#__PURE__*/React.createElement("h3", {
-    style: {
-      font: 'var(--text-h3)',
-      fontSize: 'clamp(1.375rem, 3vw, 1.75rem)',
-      fontWeight: 600,
-      color: 'var(--color-text-primary)',
-      margin: '0 0 32px',
-      lineHeight: 1.2,
-      letterSpacing: '-0.02em'
-    }
-  }, "What I believe."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(4, 1fr)',
-      gap: 'clamp(48px, 6vw, 64px)'
-    }
-  }, [{
-    title: 'Intelligence',
-    copy: 'I look beneath the obvious to understand how systems, people, and decisions connect.'
-  }, {
-    title: 'Confidence',
-    copy: 'I make clear decisions while remaining open to evidence, feedback, and change.'
-  }, {
-    title: 'Self-awareness',
-    copy: 'I understand how my perspective shapes the work and where collaboration strengthens it.'
-  }, {
-    title: 'Empathy',
-    copy: 'I design for the person who must understand, use, and live with the outcome.'
-  }].map((b, i) => /*#__PURE__*/React.createElement("div", {
-    key: i,
-    style: {
-      borderLeft: '2px solid rgba(115, 224, 255, 0.2)',
-      paddingLeft: 'clamp(24px, 3vw, 32px)'
-    }
-  }, /*#__PURE__*/React.createElement("h4", {
-    style: {
-      font: 'var(--text-h4)',
-      fontSize: '1rem',
-      fontWeight: 600,
-      color: 'var(--color-text-primary)',
-      margin: '0 0 12px',
-      lineHeight: 1.3
-    }
-  }, b.title), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.875rem',
-      lineHeight: 1.7,
-      color: 'var(--color-text-secondary)',
-      margin: 0
-    }
-  }, b.copy)))))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      textAlign: 'center',
-      marginTop: 'clamp(140px, 16vw, 200px)',
-      paddingTop: 'clamp(80px, 10vw, 140px)',
-      borderTop: '1px solid rgba(115, 224, 255, 0.06)'
-    }
-  }, /*#__PURE__*/React.createElement("h3", {
-    style: {
-      font: 'var(--text-h2)',
-      fontSize: 'clamp(2rem, 4vw, 3rem)',
-      color: 'var(--color-text-primary)',
-      margin: '0 0 12px',
-      lineHeight: 1.2,
-      letterSpacing: '-0.02em'
-    }
-  }, "Understanding changes", /*#__PURE__*/React.createElement("br", null), /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: 'var(--color-accent-primary)'
-    }
-  }, "everything.")))));
-}
-if (typeof window !== 'undefined') {
-  window.AboutV2 = AboutV2;
-}
-})(); } catch (e) { __ds_ns.__errors.push({ path: "archive/root-cleanup/About_v2_code.jsx", error: String((e && e.message) || e) }); }
-
 // archive/root-cleanup/CHECKPOINT_pre-scene02-patch1-the-mind.jsx
 try { (() => {
 // CHECKPOINT: Pre-Scene 02 Patch 1 (The Mind)
@@ -5539,2395 +2996,6 @@ if (typeof window !== 'undefined') {
   window.AboutV2 = AboutV2;
 }
 })(); } catch (e) { __ds_ns.__errors.push({ path: "archive/root-cleanup/CHECKPOINT_pre-scene02-patch1-the-mind.jsx", error: String((e && e.message) || e) }); }
-
-// archive/root-cleanup/Homepage_POST_P0.jsx
-try { (() => {
-function Section({
-  children,
-  style
-}) {
-  return /*#__PURE__*/React.createElement("section", {
-    style: {
-      paddingTop: 'clamp(56px, 6vw, 100px)',
-      paddingBottom: 'clamp(56px, 6vw, 100px)',
-      paddingLeft: 'var(--container-pad)',
-      paddingRight: 'var(--container-pad)',
-      maxWidth: 'var(--container-max)',
-      margin: '0 auto',
-      ...style
-    }
-  }, children);
-}
-function Eyebrow({
-  children,
-  color = 'var(--color-accent-secondary)'
-}) {
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-eyebrow)',
-      letterSpacing: 'var(--tracking-eyebrow)',
-      textTransform: 'uppercase',
-      color,
-      marginBottom: 12
-    }
-  }, children);
-}
-const prefersReduced = () => window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-if (typeof document !== 'undefined' && !document.getElementById('jiz-reveal-highlight-kf')) {
-  const s = document.createElement('style');
-  s.id = 'jiz-reveal-highlight-kf';
-  s.textContent = '@keyframes jiz-reveal-highlight{0%{box-shadow:0 0 0 0 rgba(198,242,58,0)}25%{box-shadow:0 0 28px 4px rgba(198,242,58,.35)}100%{box-shadow:0 0 0 0 rgba(198,242,58,0)}}';
-  document.head.appendChild(s);
-}
-function VideoLightbox({
-  src,
-  open,
-  onClose
-}) {
-  if (!open) return null;
-  return /*#__PURE__*/React.createElement("div", {
-    onClick: onClose,
-    style: {
-      position: 'fixed',
-      inset: 0,
-      zIndex: 200,
-      background: 'rgba(8,10,12,0.86)',
-      backdropFilter: 'blur(6px)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '5vh 5vw'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    onClick: e => e.stopPropagation(),
-    style: {
-      position: 'relative',
-      width: 'min(1100px, 88vw)',
-      aspectRatio: '16/9',
-      borderRadius: 'var(--radius-lg)',
-      overflow: 'hidden',
-      border: '2px solid var(--color-accent-primary)',
-      boxShadow: '0 0 0 1px rgba(198,242,58,0.25), 0 0 60px rgba(198,242,58,0.35), 0 30px 80px rgba(0,0,0,0.6)'
-    }
-  }, /*#__PURE__*/React.createElement("video", {
-    src: src,
-    controls: true,
-    autoPlay: true,
-    playsInline: true,
-    style: {
-      width: '100%',
-      height: '100%',
-      display: 'block',
-      background: '#000'
-    }
-  })), /*#__PURE__*/React.createElement("button", {
-    onClick: onClose,
-    "aria-label": "Close video",
-    style: {
-      position: 'absolute',
-      top: 24,
-      right: 24,
-      width: 40,
-      height: 40,
-      borderRadius: '50%',
-      border: '1px solid var(--color-border-default)',
-      background: 'rgba(0,0,0,0.5)',
-      color: 'var(--color-text-primary)',
-      fontSize: 20,
-      cursor: 'pointer'
-    }
-  }, "\u2715"));
-}
-function TrainStoryVideo() {
-  const [open, setOpen] = React.useState(false);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
-    onClick: () => setOpen(true),
-    style: {
-      aspectRatio: '16/9',
-      borderRadius: 'var(--radius-lg)',
-      overflow: 'hidden',
-      border: '2px solid var(--color-accent-primary)',
-      boxShadow: 'var(--glow-lime)',
-      position: 'relative',
-      cursor: 'pointer'
-    }
-  }, /*#__PURE__*/React.createElement("video", {
-    playsInline: true,
-    preload: "metadata",
-    style: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      display: 'block',
-      pointerEvents: 'none'
-    }
-  }, /*#__PURE__*/React.createElement("source", {
-    src: "./assets/video/the-train-story.mp4",
-    type: "video/mp4"
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      inset: 0,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      width: 64,
-      height: 64,
-      borderRadius: '50%',
-      background: 'rgba(8,10,12,0.55)',
-      border: '1px solid var(--color-accent-primary)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-    }
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "22",
-    height: "22",
-    viewBox: "0 0 24 24",
-    fill: "var(--color-accent-primary)"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M8 5v14l11-7z"
-  }))))), /*#__PURE__*/React.createElement(VideoLightbox, {
-    src: "./assets/video/the-train-story.mp4",
-    open: open,
-    onClose: () => setOpen(false)
-  }));
-}
-function ChromaKeyVideo({
-  src,
-  className,
-  style
-}) {
-  const videoRef = React.useRef(null);
-  const canvasRef = React.useRef(null);
-  React.useEffect(() => {
-    const video = videoRef.current,
-      canvas = canvasRef.current;
-    if (!video || !canvas) return;
-    const ctx = canvas.getContext('2d', {
-      willReadFrequently: true
-    });
-    let raf,
-      isVisible = true;
-    const io = new IntersectionObserver(entries => {
-      isVisible = entries[0].isIntersecting;
-    }, {
-      threshold: 0.01
-    });
-    io.observe(canvas);
-    const draw = () => {
-      raf = requestAnimationFrame(draw);
-      if (!isVisible || video.paused || video.ended || !video.videoWidth) return;
-      if (canvas.width !== video.videoWidth) {
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-      }
-      ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-      const frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      const d = frame.data;
-      for (let i = 0; i < d.length; i += 4) {
-        const r = d[i],
-          g = d[i + 1],
-          b = d[i + 2];
-        if (g > 60 && g > r * 1.06 && g > b * 1.06) {
-          const excess = g - Math.max(r, b);
-          d[i + 3] = Math.max(0, 255 - excess * 10);
-          d[i + 1] = Math.min(g, Math.max(r, b) + excess * 0.15);
-          d[i + 0] = Math.min(255, r + excess * 0.12);
-          d[i + 2] = Math.min(255, b + excess * 0.12);
-        }
-      }
-      ctx.putImageData(frame, 0, 0);
-    };
-    video.addEventListener('loadeddata', () => video.play().catch(() => {}));
-    raf = requestAnimationFrame(draw);
-    return () => {
-      cancelAnimationFrame(raf);
-      io.disconnect();
-    };
-  }, []);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("video", {
-    ref: videoRef,
-    src: src,
-    autoPlay: true,
-    loop: true,
-    muted: true,
-    playsInline: true,
-    style: {
-      display: 'none'
-    }
-  }), /*#__PURE__*/React.createElement("canvas", {
-    ref: canvasRef,
-    className: className,
-    style: style
-  }));
-}
-function Reveal({
-  children,
-  style,
-  delay = 0,
-  highlight = false
-}) {
-  const [visible, setVisible] = React.useState(false);
-  React.useEffect(() => {
-    if (prefersReduced()) {
-      setVisible(true);
-      return;
-    }
-    const t = setTimeout(() => setVisible(true), delay + 30);
-    return () => clearTimeout(t);
-  }, []);
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      opacity: visible ? 1 : 0,
-      transform: visible ? 'none' : 'translateY(16px)',
-      transition: `opacity var(--motion-slow) var(--ease-out), transform var(--motion-slow) var(--ease-out)`,
-      ...(highlight ? {
-        borderRadius: 'var(--radius-lg)',
-        boxShadow: visible ? '0 0 0 0 rgba(198,242,58,0)' : 'none',
-        animation: visible && !prefersReduced() ? 'jiz-reveal-highlight 1.1s ease-out' : 'none'
-      } : {}),
-      ...style
-    }
-  }, children);
-}
-function TiltCard({
-  children
-}) {
-  const ref = React.useRef(null);
-  const [tilt, setTilt] = React.useState({
-    x: 0,
-    y: 0
-  });
-  const onMove = e => {
-    if (prefersReduced() || !ref.current) return;
-    const r = ref.current.getBoundingClientRect();
-    setTilt({
-      x: ((e.clientY - r.top) / r.height - 0.5) * -5,
-      y: ((e.clientX - r.left) / r.width - 0.5) * 5
-    });
-  };
-  return /*#__PURE__*/React.createElement("div", {
-    ref: ref,
-    onMouseMove: onMove,
-    onMouseLeave: () => setTilt({
-      x: 0,
-      y: 0
-    }),
-    style: {
-      transform: `perspective(800px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
-      transition: 'transform var(--motion-fast) var(--ease-standard)'
-    }
-  }, children);
-}
-function DataFlowVisual() {
-  return /*#__PURE__*/React.createElement("svg", {
-    viewBox: "0 0 300 160",
-    style: {
-      width: '100%',
-      height: '100%'
-    },
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
-    id: "jz-flow",
-    x1: "0",
-    y1: "0",
-    x2: "1",
-    y2: "1"
-  }, /*#__PURE__*/React.createElement("stop", {
-    offset: "0%",
-    stopColor: "var(--signal-lime)"
-  }), /*#__PURE__*/React.createElement("stop", {
-    offset: "100%",
-    stopColor: "var(--accent-cyan)"
-  }))), /*#__PURE__*/React.createElement("path", {
-    d: "M10 130 C 80 30, 150 150, 290 40",
-    fill: "none",
-    stroke: "url(#jz-flow)",
-    strokeWidth: "1.5",
-    opacity: "0.8"
-  }), [[10, 130], [70, 90], [140, 120], [200, 55], [290, 40]].map((p, i) => /*#__PURE__*/React.createElement("circle", {
-    key: i,
-    cx: p[0],
-    cy: p[1],
-    r: "3",
-    fill: "var(--signal-lime)",
-    opacity: "0.9"
-  })));
-}
-function NetworkField({
-  pointerRef
-}) {
-  return null;
-}
-function AmbientField() {
-  return null;
-}
-function ParticleField() {
-  return null;
-}
-function ForegroundHaze() {
-  return null;
-}
-function PersistentEnvironment() {
-  const [prog, setProg] = React.useState(0);
-  React.useEffect(() => {
-    const onScroll = () => {
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      setProg(h > 0 ? Math.min(1, window.scrollY / h) : 0);
-    };
-    window.addEventListener('scroll', onScroll, {
-      passive: true
-    });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-  const blueOpacity = 0.22 - prog * 0.12;
-  const limeOpacity = 0.05 + prog * 0.16;
-  return null;
-}
-function Hero({
-  onOpenWork
-}) {
-  const {
-    Button,
-    StatusPill
-  } = window.JIZPortfolioSite_b3ba38;
-  const [glassesFlash, setGlassesFlash] = React.useState(false);
-  React.useEffect(() => {
-    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const onSignal = () => {
-      if (reduced) return;
-      setGlassesFlash(true);
-      setTimeout(() => setGlassesFlash(false), 650);
-    };
-    window.addEventListener('jiz-signal', onSignal);
-    return () => window.removeEventListener('jiz-signal', onSignal);
-  }, []);
-  return /*#__PURE__*/React.createElement("section", {
-    className: "hero"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "hero-environment",
-    "aria-hidden": "true"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "hero-base-gradient"
-  }), /*#__PURE__*/React.createElement("video", {
-    autoPlay: true,
-    loop: true,
-    muted: true,
-    playsInline: true,
-    volume: 0,
-    style: {
-      position: 'absolute',
-      inset: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      transform: 'scale(1.9)',
-      opacity: 0.28,
-      mixBlendMode: 'screen'
-    },
-    ref: el => {
-      if (el) {
-        el.muted = true;
-        el.volume = 0;
-      }
-    },
-    onLoadedData: e => {
-      e.target.muted = true;
-      e.target.volume = 0;
-    }
-  }, /*#__PURE__*/React.createElement("source", {
-    src: "./assets/video/hero-bg.mp4",
-    type: "video/mp4"
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "hero-signal-field"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "hero-ambient-glow hero-ambient-glow--blue"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "hero-ambient-glow hero-ambient-glow--chartreuse"
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "hero-content"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "hero-copy"
-  }, /*#__PURE__*/React.createElement(Eyebrow, null, "Strategist. Designer. Systems thinker."), /*#__PURE__*/React.createElement("h1", {
-    className: "hero-title"
-  }, "Learning, ", /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: 'var(--color-accent-primary)'
-    }
-  }, "directed.")), /*#__PURE__*/React.createElement("p", {
-    className: "hero-description"
-  }, "I turn complexity into experiences people understand."), /*#__PURE__*/React.createElement("p", {
-    className: "hero-manifesto"
-  }, "Understanding is the product."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 16,
-      alignItems: 'flex-start',
-      marginTop: 44,
-      marginBottom: 18
-    }
-  }, /*#__PURE__*/React.createElement(Button, {
-    variant: "primary",
-    onClick: onOpenWork,
-    style: {
-      padding: '15px 28px',
-      fontSize: '1rem'
-    }
-  }, "Let's design what's next"), /*#__PURE__*/React.createElement(StatusPill, {
-    label: "Open to select opportunities",
-    onClick: () => window.jizNavigate && window.jizNavigate('Contact')
-  })))), /*#__PURE__*/React.createElement("div", {
-    className: "hero-portrait-stage"
-  }, /*#__PURE__*/React.createElement(ChromaKeyVideo, {
-    src: "./assets/video/hero-portrait-green.mp4?v=4",
-    className: "hero-portrait",
-    style: {
-      WebkitMaskImage: 'linear-gradient(to bottom,#000 62%,rgba(0,0,0,.9) 80%,transparent 98%),linear-gradient(to right,transparent 0%,#000 30%),linear-gradient(to left,transparent 0%,#000 20%),radial-gradient(ellipse 55% 45% at 8% 100%,transparent 0%,transparent 20%,#000 75%)',
-      WebkitMaskComposite: 'source-in,source-in,source-in',
-      maskImage: 'linear-gradient(to bottom,#000 62%,rgba(0,0,0,.9) 80%,transparent 98%),linear-gradient(to right,transparent 0%,#000 30%),linear-gradient(to left,transparent 0%,#000 20%),radial-gradient(ellipse 55% 45% at 8% 100%,transparent 0%,transparent 20%,#000 75%)',
-      maskComposite: 'intersect'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      bottom: 0,
-      height: '30%',
-      background: 'linear-gradient(to top, rgba(198,242,58,0.42), rgba(198,242,58,0.12) 60%, transparent)',
-      mixBlendMode: 'screen',
-      pointerEvents: 'none'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      right: '18%',
-      top: '22%',
-      width: '20%',
-      height: '10%',
-      background: 'radial-gradient(ellipse, rgba(198,242,58,0.9), transparent 70%)',
-      mixBlendMode: 'screen',
-      opacity: glassesFlash ? 0.85 : 0,
-      transition: glassesFlash ? 'opacity 0.12s ease-out' : 'opacity 0.5s ease-in',
-      pointerEvents: 'none'
-    }
-  })), /*#__PURE__*/React.createElement("div", {
-    className: "hero-foreground-atmosphere",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("style", null, `
-.hero{position:relative;isolation:isolate;overflow:hidden;width:100%;min-height:calc(100svh - 96px);background:radial-gradient(ellipse at 74% 42%,rgba(22,113,163,.16) 0%,rgba(20,74,91,.09) 30%,transparent 64%),radial-gradient(ellipse at 40% 54%,rgba(180,226,63,.055) 0%,transparent 52%)}
-.hero-environment{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:transparent}
-.hero-base-gradient{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,11,.96) 0%,rgba(10,18,15,.9) 42%,rgba(13,30,28,.84) 72%,rgba(8,18,17,.92) 100%)}
-.hero-signal-field{position:absolute;inset:-8%;opacity:.42;background-image:radial-gradient(circle at 18% 48%,rgba(115,224,255,.09) 0 1px,transparent 2px),radial-gradient(circle at 42% 64%,rgba(197,255,45,.06) 0 1px,transparent 2px),radial-gradient(circle at 78% 38%,rgba(115,224,255,.1) 0 1px,transparent 2px);background-size:160px 140px,220px 180px,190px 170px}
-.hero-ambient-glow{position:absolute;pointer-events:none;border-radius:50%;filter:blur(90px)}
-.hero-ambient-glow--blue{width:min(72vw,1200px);height:min(72vw,1200px);right:-18vw;top:-16%;background:radial-gradient(circle,rgba(29,132,196,.2) 0%,rgba(24,91,126,.1) 38%,transparent 72%)}
-.hero-ambient-glow--chartreuse{width:min(46vw,760px);height:min(38vw,640px);left:12%;bottom:-26%;background:radial-gradient(circle,rgba(197,255,45,.028) 0%,transparent 68%)}
-.hero-content{position:relative;z-index:5;display:grid;align-items:center;width:min(1440px,calc(100% - 2*clamp(28px,6vw,112px)));min-height:calc(100svh - 96px);margin-inline:auto;padding-block:clamp(64px,7vw,104px)}
-.hero-copy{width:min(38vw,560px);margin-left:clamp(0px,1vw,20px)}
-.hero-eyebrow{margin-bottom:26px}
-.hero-title{font:var(--text-display);font-size:clamp(3.4rem,2.2rem + 4.2vw,6.6rem);line-height:.92;color:var(--color-text-primary);margin:0 0 40px}
-.hero-description{font:var(--text-body-lg);font-size:clamp(1.5rem,1.3rem + .5vw,2rem);line-height:1.42;color:var(--color-text-secondary);max-width:480px;margin:0 0 30px}
-.hero-manifesto{font:var(--text-body);font-size:1.5rem;font-weight:300;font-style:italic;color:rgba(247,248,250,0.85);max-width:440px;margin:0;border-left:2px solid rgba(255,255,255,0.25);padding-left:16px}
-.hero-portrait-stage{position:absolute;inset:0;z-index:3;overflow:visible;pointer-events:none;background:transparent;border:0;box-shadow:none}
-.hero-portrait{position:absolute;z-index:2;right:clamp(50px,7vw,140px);bottom:-7%;width:clamp(520px,44vw,840px);height:114%;max-width:none;max-height:114%;object-fit:contain;object-position:right bottom;transform:translate3d(0,0,0);transform-origin:right bottom;pointer-events:auto;cursor:pointer;opacity:.92;filter:drop-shadow(-30px 6px 52px rgba(27,128,194,.2)) drop-shadow(-10px 0 30px rgba(49,165,223,.12));-webkit-mask-image:linear-gradient(to bottom,#000 46%,rgba(0,0,0,.85) 66%,transparent 96%),linear-gradient(to right,transparent 0%,#000 26%),linear-gradient(to left,transparent 0%,#000 14%),linear-gradient(to top,transparent 0%,#000 8%);-webkit-mask-composite:source-in,source-in,source-in;mask-image:linear-gradient(to bottom,#000 46%,rgba(0,0,0,.85) 66%,transparent 96%),linear-gradient(to right,transparent 0%,#000 26%),linear-gradient(to left,transparent 0%,#000 14%),linear-gradient(to top,transparent 0%,#000 8%);mask-composite:intersect}
-.hero-portrait-backlight{position:absolute;right:-8vw;top:8%;width:min(68vw,1120px);height:min(72vw,1180px);border-radius:50%;background:radial-gradient(ellipse at 56% 46%,rgba(48,169,236,.23) 0%,rgba(26,111,162,.14) 26%,rgba(19,72,99,.07) 48%,transparent 74%);filter:blur(48px);opacity:.9}
-.hero-portrait-edge-glow{position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse at 74% 48%,rgba(47,166,227,.11) 0%,rgba(31,110,159,.06) 30%,transparent 62%);mix-blend-mode:screen;filter:blur(14px)}
-.hero-portrait-haze{position:absolute;z-index:4;right:-2%;bottom:-3%;width:66%;height:58%;pointer-events:none;background:radial-gradient(ellipse at 68% 58%,rgba(54,160,204,.1) 0%,rgba(26,92,109,.06) 34%,transparent 70%),linear-gradient(90deg,transparent 10%,rgba(17,78,94,.04) 48%,transparent 92%);filter:blur(20px);mix-blend-mode:screen}
-.hero-foreground-atmosphere{position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(ellipse at 70% 66%,rgba(52,154,198,.075) 0%,transparent 44%),linear-gradient(90deg,transparent 34%,rgba(18,72,83,.03) 56%,transparent 88%);mix-blend-mode:screen}
-@media(max-width:1180px){.hero-copy{width:min(52vw,620px);margin-left:clamp(24px,4vw,64px)}.hero-title{font-size:clamp(2.6rem,5vw,4rem)}.hero-portrait{right:-100px;width:clamp(520px,54vw,780px)}}
-@media(max-width:900px){.hero{min-height:auto}.hero-content{min-height:auto;padding-top:92px;padding-bottom:520px}.hero-copy{width:min(100%,620px);margin-left:0}.hero-portrait{right:50%;bottom:-8px;width:min(640px,94vw);transform:translateX(50%)}.hero-portrait-backlight{right:50%;top:auto;bottom:-12%;width:100vw;height:640px;transform:translateX(50%)}.hero-portrait-haze{right:0;width:100%}}
-@media(max-width:600px){.hero-content{padding-top:72px;padding-bottom:420px}.hero-portrait{width:min(540px,108vw)}}
-@media(prefers-reduced-motion:reduce){.hero-portrait{transform:none;transition:none}}
-      `));
-}
-function ProjectCard({
-  index,
-  title,
-  category,
-  description,
-  image,
-  insight,
-  stage,
-  featured,
-  active,
-  onActivate,
-  dimmed,
-  onOpenCaseStudy
-}) {
-  const [hover, setHover] = React.useState(false);
-  const stages = ['Discovery', 'Strategy', 'Design', 'Production', 'Impact'];
-  const handleClick = () => {
-    if (index === 0) onOpenCaseStudy && onOpenCaseStudy();
-  };
-  return /*#__PURE__*/React.createElement("div", {
-    onClick: () => {
-      onActivate();
-      if (index === 0) handleClick();
-    },
-    onMouseEnter: () => setHover(true),
-    onMouseLeave: () => setHover(false),
-    style: {
-      cursor: 'pointer',
-      position: 'relative',
-      minWidth: 0,
-      background: 'rgba(23,26,31,0.4)',
-      backdropFilter: 'blur(14px)',
-      border: active ? '1px solid rgba(198,242,58,0.5)' : '1px solid var(--color-border-subtle)',
-      borderRadius: 'var(--radius-lg)',
-      overflow: 'hidden',
-      transition: 'all var(--motion-standard) var(--ease-standard)',
-      transform: hover ? 'translateY(-4px)' : 'none',
-      boxShadow: active ? 'var(--shadow-elevated), 0 0 28px rgba(198,242,58,0.18)' : hover ? 'var(--shadow-elevated)' : 'var(--shadow-subtle)',
-      opacity: dimmed ? 0.55 : 1,
-      gridColumn: featured ? 'span 2' : 'span 1',
-      gridRow: featured ? 'span 2' : 'span 1'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      aspectRatio: featured ? '16/10' : '4/3',
-      position: 'relative',
-      overflow: 'hidden'
-    }
-  }, /*#__PURE__*/React.createElement("image-slot", {
-    id: `work-${index}`,
-    src: image,
-    shape: "rect",
-    placeholder: `Drop preview for ${title}`,
-    style: {
-      width: '100%',
-      height: '100%'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      inset: 0,
-      background: hover ? 'linear-gradient(115deg, transparent 30%, rgba(198,242,58,0.1) 50%, transparent 70%)' : 'transparent',
-      transition: 'background var(--motion-standard) var(--ease-standard)',
-      pointerEvents: 'none'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      inset: 0,
-      boxShadow: 'inset 0 -40px 50px -20px rgba(11,13,16,0.7)',
-      pointerEvents: 'none'
-    }
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      padding: featured ? 26 : 18,
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 8
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-eyebrow)',
-      fontSize: '0.6875rem',
-      color: 'var(--color-accent-secondary)',
-      textTransform: 'uppercase',
-      letterSpacing: 'var(--tracking-eyebrow)'
-    }
-  }, category), /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-h3)',
-      fontSize: featured ? '1.5rem' : '1.125rem',
-      color: 'var(--color-text-primary)'
-    }
-  }, title), /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-caption)',
-      color: 'var(--color-text-secondary)'
-    }
-  }, description), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      gap: 6,
-      marginTop: 8,
-      flexWrap: 'wrap'
-    }
-  }, stages.map(s => /*#__PURE__*/React.createElement("span", {
-    key: s,
-    style: {
-      font: 'var(--text-hud)',
-      fontSize: '0.625rem',
-      padding: '3px 8px',
-      borderRadius: 'var(--radius-pill)',
-      border: '1px solid ' + (s === stage ? 'var(--color-accent-primary)' : 'var(--color-border-default)'),
-      color: s === stage ? 'var(--color-accent-primary)' : 'var(--color-text-muted)'
-    }
-  }, s))), active && insight && /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 10,
-      borderLeft: '2px solid var(--color-accent-primary)',
-      paddingLeft: 12,
-      animation: 'jiz-stage-in 0.4s var(--ease-out) both'
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-hud)',
-      fontSize: '0.625rem',
-      color: 'var(--color-text-muted)',
-      textTransform: 'uppercase',
-      letterSpacing: 'var(--tracking-hud)'
-    }
-  }, "Director's commentary"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.9375rem',
-      color: 'var(--color-text-primary)',
-      fontStyle: 'italic',
-      marginTop: 4
-    }
-  }, insight)), /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-caption)',
-      color: 'var(--color-accent-primary)',
-      marginTop: 4
-    }
-  }, "View project \u2192")));
-}
-function FilmSection() {
-  const [playing, setPlaying] = React.useState(false);
-  const [ended, setEnded] = React.useState(false);
-  const [watched, setWatched] = React.useState(false);
-  const [paused, setPaused] = React.useState(true);
-  const [tilt, setTilt] = React.useState({
-    x: 0,
-    y: 0
-  });
-  const [muted, setMuted] = React.useState(false);
-  const [showControls, setShowControls] = React.useState(true);
-  const [progress, setProgress] = React.useState(0);
-  const [curTime, setCurTime] = React.useState(0);
-  const [duration, setDuration] = React.useState(0);
-  const [theaterSize, setTheaterSize] = React.useState(null);
-  const videoRef = React.useRef(null);
-  const wrapRef = React.useRef(null);
-  const sectionRef = React.useRef(null);
-  const hideTimer = React.useRef(null);
-  const reduced = prefersReduced();
-  const fmt = s => {
-    if (!isFinite(s)) return '0:00';
-    const m = Math.floor(s / 60),
-      r = Math.floor(s % 60);
-    return `${m}:${String(r).padStart(2, '0')}`;
-  };
-  const onMove = e => {
-    if (reduced || !wrapRef.current || !playing) {
-      if (!playing) return;
-    }
-    if (playing) {
-      setShowControls(true);
-      clearTimeout(hideTimer.current);
-      hideTimer.current = setTimeout(() => setShowControls(false), 2800);
-    }
-    if (reduced || !wrapRef.current || playing) return;
-    const r = wrapRef.current.getBoundingClientRect();
-    setTilt({
-      x: ((e.clientY - r.top) / r.height - 0.5) * -2.5,
-      y: ((e.clientX - r.left) / r.width - 0.5) * 2.5
-    });
-  };
-  const play = () => {
-    setPlaying(true);
-    setEnded(false);
-    setPaused(false);
-    document.querySelectorAll('audio,video').forEach(m => {
-      if (m !== videoRef.current) try {
-        m.pause();
-      } catch (e) {}
-    });
-    setTimeout(() => videoRef.current && videoRef.current.play().catch(() => {}), 50);
-    hideTimer.current = setTimeout(() => setShowControls(false), 2800);
-  };
-  const togglePlayPause = () => {
-    if (!videoRef.current) return;
-    if (videoRef.current.paused) {
-      videoRef.current.play().catch(() => {});
-      setPaused(false);
-    } else {
-      videoRef.current.pause();
-      setPaused(true);
-      setShowControls(true);
-    }
-  };
-  const onEnded = () => {
-    setEnded(true);
-    setWatched(true);
-    setShowControls(true);
-    setTimeout(() => setPlaying(false), reduced ? 0 : 900);
-  };
-  const closeTheater = () => {
-    if (videoRef.current) videoRef.current.pause();
-    setPlaying(false);
-    setPaused(true);
-  };
-  React.useEffect(() => {
-    if (!playing) {
-      setTheaterSize(null);
-      return;
-    }
-    const compute = () => {
-      const margin = 40;
-      const availW = Math.min(window.innerWidth - margin * 2, 1400);
-      const availH = Math.min(window.innerHeight - margin * 2, 1000);
-      let w = availW;
-      let h = w * 9 / 16;
-      if (h > availH) {
-        h = availH;
-        w = h * 16 / 9;
-      }
-      setTheaterSize({
-        w: Math.round(w),
-        h: Math.round(h)
-      });
-    };
-    compute();
-    window.addEventListener('resize', compute);
-    return () => window.removeEventListener('resize', compute);
-  }, [playing]);
-  React.useEffect(() => {
-    if (!playing) {
-      document.body.style.overflow = '';
-      return;
-    }
-    document.body.style.overflow = 'hidden';
-    const onKey = e => {
-      if (e.key === 'Escape') closeTheater();else if (e.key === ' ') {
-        e.preventDefault();
-        togglePlayPause();
-      } else if (e.key === 'ArrowRight' && videoRef.current) videoRef.current.currentTime += 5;else if (e.key === 'ArrowLeft' && videoRef.current) videoRef.current.currentTime -= 5;else if (e.key.toLowerCase() === 'm') setMuted(m => !m);else if (e.key.toLowerCase() === 'f' && wrapRef.current) {
-        if (wrapRef.current.requestFullscreen) wrapRef.current.requestFullscreen().catch(() => {});
-      }
-    };
-    window.addEventListener('keydown', onKey);
-    return () => {
-      document.body.style.overflow = '';
-      window.removeEventListener('keydown', onKey);
-    };
-  }, [playing]);
-  React.useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    const onTime = () => {
-      setCurTime(v.currentTime);
-      setDuration(v.duration || 0);
-      setProgress(v.duration ? v.currentTime / v.duration : 0);
-    };
-    v.addEventListener('timeupdate', onTime);
-    v.addEventListener('loadedmetadata', onTime);
-    return () => {
-      v.removeEventListener('timeupdate', onTime);
-      v.removeEventListener('loadedmetadata', onTime);
-    };
-  }, []);
-  React.useEffect(() => {
-    const onVis = () => {
-      if (document.hidden && videoRef.current && !videoRef.current.paused) videoRef.current.pause();
-    };
-    document.addEventListener('visibilitychange', onVis);
-    return () => document.removeEventListener('visibilitychange', onVis);
-  }, []);
-  const seek = e => {
-    if (!videoRef.current || !duration) return;
-    const r = e.currentTarget.getBoundingClientRect();
-    const pct = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
-    videoRef.current.currentTime = pct * duration;
-  };
-  return /*#__PURE__*/React.createElement(React.Fragment, null, playing && theaterSize && /*#__PURE__*/React.createElement("div", {
-    ref: wrapRef,
-    onMouseMove: onMove,
-    onMouseLeave: () => {
-      setTilt({
-        x: 0,
-        y: 0
-      });
-      if (playing && !paused) setShowControls(false);
-    },
-    onKeyDown: e => {
-      if ((e.key === 'Enter' || e.key === ' ') && !playing) {
-        e.preventDefault();
-        play();
-      }
-    },
-    tabIndex: !playing ? 0 : -1,
-    role: !playing ? 'button' : undefined,
-    "aria-label": !playing ? watched ? 'Replay film' : 'Play film' : undefined,
-    style: {
-      position: 'fixed',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%,-50%)',
-      zIndex: 6,
-      width: theaterSize.w,
-      height: theaterSize.h,
-      maxWidth: '90vw',
-      borderRadius: 20,
-      overflow: 'hidden',
-      border: '1px solid rgba(198,242,58,0.22)',
-      boxShadow: `0 40px 100px rgba(0,0,0,0.55), 0 0 0 1px rgba(198,242,58,0.08), 0 0 80px rgba(198,242,58,0.2), 0 0 140px rgba(100,225,255,0.06)`,
-      transition: 'all 0.4s ease'
-    }
-  }, /*#__PURE__*/React.createElement("video", {
-    ref: videoRef,
-    onEnded: onEnded,
-    onClick: playing ? togglePlayPause : undefined,
-    playsInline: true,
-    muted: muted,
-    controlsList: "nodownload noremoteplayback",
-    disablePictureInPicture: true,
-    onContextMenu: e => e.preventDefault(),
-    style: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      display: 'block',
-      cursor: playing ? 'pointer' : 'default'
-    },
-    poster: ""
-  }, /*#__PURE__*/React.createElement("source", {
-    src: "https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/The+Brand+Film.mp4",
-    type: "video/mp4"
-  })), playing && /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      bottom: 0,
-      padding: '28px 18px 14px',
-      background: 'linear-gradient(to top, rgba(4,6,7,0.82), transparent)',
-      opacity: showControls || paused ? 1 : 0,
-      transition: 'opacity 0.3s ease',
-      pointerEvents: showControls || paused ? 'auto' : 'none'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    onClick: seek,
-    style: {
-      position: 'relative',
-      height: 4,
-      borderRadius: 2,
-      background: 'rgba(255,255,255,0.18)',
-      cursor: 'pointer',
-      marginBottom: 14
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      left: 0,
-      top: 0,
-      bottom: 0,
-      width: `${progress * 100}%`,
-      borderRadius: 2,
-      background: 'var(--color-accent-primary)'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'absolute',
-      top: '50%',
-      left: `${progress * 100}%`,
-      width: 10,
-      height: 10,
-      borderRadius: '50%',
-      background: 'var(--color-accent-primary)',
-      boxShadow: '0 0 8px rgba(198,242,58,0.6)',
-      transform: 'translate(-50%,-50%)'
-    }
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      alignItems: 'center',
-      gap: 16
-    }
-  }, /*#__PURE__*/React.createElement("button", {
-    "aria-label": paused ? 'Play' : 'Pause',
-    onClick: togglePlayPause,
-    style: {
-      background: 'none',
-      border: 'none',
-      cursor: 'pointer',
-      padding: 4,
-      display: 'flex'
-    }
-  }, paused ? /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 26 30",
-    fill: "#fff"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M0 0L26 15L0 30V0Z"
-  })) : /*#__PURE__*/React.createElement("svg", {
-    width: "16",
-    height: "18",
-    viewBox: "0 0 16 18",
-    fill: "#fff"
-  }, /*#__PURE__*/React.createElement("rect", {
-    width: "5",
-    height: "18"
-  }), /*#__PURE__*/React.createElement("rect", {
-    x: "11",
-    width: "5",
-    height: "18"
-  }))), /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--font-mono)',
-      fontSize: '0.6875rem',
-      color: 'rgba(255,255,255,0.75)',
-      minWidth: 84
-    }
-  }, fmt(curTime), " / ", fmt(duration)), /*#__PURE__*/React.createElement("span", {
-    style: {
-      flex: 1
-    }
-  }), /*#__PURE__*/React.createElement("button", {
-    "aria-label": muted ? 'Unmute' : 'Mute',
-    onClick: () => setMuted(m => !m),
-    style: {
-      background: 'none',
-      border: 'none',
-      cursor: 'pointer',
-      padding: 4,
-      display: 'flex'
-    }
-  }, muted ? /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "#fff",
-    strokeWidth: "1.6"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M11 5L6 9H2v6h4l5 4V5z"
-  }), /*#__PURE__*/React.createElement("line", {
-    x1: "16",
-    y1: "9",
-    x2: "22",
-    y2: "15"
-  }), /*#__PURE__*/React.createElement("line", {
-    x1: "22",
-    y1: "9",
-    x2: "16",
-    y2: "15"
-  })) : /*#__PURE__*/React.createElement("svg", {
-    width: "18",
-    height: "18",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "#fff",
-    strokeWidth: "1.6"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M11 5L6 9H2v6h4l5 4V5z"
-  }), /*#__PURE__*/React.createElement("path", {
-    d: "M15.5 8.5a5 5 0 010 7"
-  }))), /*#__PURE__*/React.createElement("button", {
-    "aria-label": "Close theater view",
-    onClick: closeTheater,
-    style: {
-      background: 'none',
-      border: 'none',
-      cursor: 'pointer',
-      padding: 4,
-      display: 'flex'
-    }
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: "17",
-    height: "17",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "#fff",
-    strokeWidth: "1.6"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 6l12 12M18 6L6 18"
-  })))))), /*#__PURE__*/React.createElement("div", {
-    ref: sectionRef,
-    style: {
-      position: 'relative',
-      overflow: 'hidden',
-      minHeight: '92vh',
-      display: 'flex',
-      alignItems: 'center',
-      background: '#080D10',
-      padding: 'clamp(64px,8vw,120px) var(--container-pad)',
-      transition: 'background 1.2s ease'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      inset: 0,
-      opacity: playing ? 0.1 : 0.4,
-      transition: 'opacity 1.2s ease',
-      backgroundColor: '#13191AEB'
-    }
-  }), playing && /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'fixed',
-      inset: 0,
-      background: 'rgba(3,5,6,0.55)',
-      zIndex: 4,
-      pointerEvents: 'none',
-      transition: 'opacity 0.8s ease'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'relative',
-      zIndex: 5,
-      maxWidth: 1300,
-      margin: '0 auto',
-      width: '100%',
-      textAlign: 'center'
-    }
-  }, !ended && !playing && /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--font-mono)',
-      fontSize: '0.75rem',
-      letterSpacing: '0.2em',
-      textTransform: 'uppercase',
-      color: 'var(--accent-cyan)',
-      marginBottom: 20
-    }
-  }, "Film"), /*#__PURE__*/React.createElement("h2", {
-    style: {
-      font: 'var(--text-h2)',
-      color: 'var(--color-text-primary)',
-      fontWeight: 700,
-      marginBottom: 16
-    }
-  }, "A Different Way of Seeing."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body-lg)',
-      color: 'var(--color-text-secondary)',
-      maxWidth: 480,
-      margin: '0 auto 48px',
-      lineHeight: 1.5
-    }
-  }, "Understanding isn't the outcome.", /*#__PURE__*/React.createElement("br", null), "It's the beginning.")), !playing && /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'relative',
-      width: 1200,
-      maxWidth: '100%',
-      margin: '0 auto',
-      aspectRatio: '16/9',
-      borderRadius: 20,
-      overflow: 'hidden',
-      border: '1px solid rgba(198,242,58,0.22)',
-      boxShadow: '0 40px 100px rgba(0,0,0,0.55), 0 0 0 1px rgba(198,242,58,0.08), 0 0 60px rgba(198,242,58,0.16), 0 0 140px rgba(100,225,255,0.06)',
-      cursor: 'pointer'
-    },
-    onClick: play
-  }, /*#__PURE__*/React.createElement("video", {
-    style: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      display: 'block'
-    },
-    poster: ""
-  }, /*#__PURE__*/React.createElement("source", {
-    src: "https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/The+Brand+Film.mp4",
-    type: "video/mp4"
-  })), /*#__PURE__*/React.createElement("button", {
-    "aria-label": watched ? 'Replay film' : 'Play film',
-    style: {
-      position: 'absolute',
-      inset: 0,
-      display: 'grid',
-      placeItems: 'center',
-      gap: 14,
-      background: 'rgba(8,13,16,0.35)',
-      border: 'none',
-      cursor: 'pointer',
-      padding: 0,
-      boxSizing: 'border-box'
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      width: watched ? 56 : 76,
-      height: watched ? 56 : 76,
-      borderRadius: '50%',
-      background: 'rgba(10,14,17,0.55)',
-      backdropFilter: 'blur(8px)',
-      border: '1px solid rgba(255,255,255,0.25)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      transition: 'all 0.25s ease',
-      boxShadow: '0 0 0 1px rgba(198,242,58,0.15)'
-    }
-  }, /*#__PURE__*/React.createElement("svg", {
-    width: watched ? 20 : 26,
-    height: watched ? 23 : 30,
-    viewBox: "0 0 26 30",
-    fill: "#fff"
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M0 0L26 15L0 30V0Z"
-  }))), !watched && /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--font-mono)',
-      fontSize: '0.6875rem',
-      letterSpacing: '0.14em',
-      textTransform: 'uppercase',
-      color: 'rgba(255,255,255,0.75)'
-    }
-  }, "Play Film"))), !ended && !playing && !watched && /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 24,
-      font: 'var(--font-mono)',
-      fontSize: '0.75rem',
-      color: '#FFFFFF',
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 14,
-      alignItems: 'center'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      gap: 10
-    }
-  }, /*#__PURE__*/React.createElement("span", null, "97 seconds"), /*#__PURE__*/React.createElement("span", null, "\xB7"), /*#__PURE__*/React.createElement("span", null, "Brand Film"), /*#__PURE__*/React.createElement("span", null, "\xB7"), /*#__PURE__*/React.createElement("span", null, "2026")), /*#__PURE__*/React.createElement("a", {
-    href: "#featured-work",
-    style: {
-      color: 'var(--color-text-muted)',
-      fontSize: '0.6875rem',
-      opacity: 0.7
-    },
-    onClick: e => {
-      e.preventDefault();
-      document.querySelector('[data-section="featured-work"]')?.scrollIntoView({
-        behavior: 'smooth'
-      });
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: '#FFFFFF'
-    }
-  }, "Skip to Featured Work \u2192"))), !ended && !playing && watched && /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 28,
-      animation: reduced ? 'none' : 'jiz-fade-in 0.8s ease both'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--font-mono)',
-      fontSize: '0.75rem',
-      letterSpacing: '0.14em',
-      textTransform: 'uppercase',
-      color: 'var(--color-text-muted)',
-      marginBottom: 10
-    }
-  }, "Brand Film \xB7 Watched \xB7 1:37"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-secondary)',
-      fontStyle: 'italic'
-    }
-  }, "Continue exploring the work behind the philosophy \u2193")), ended && /*#__PURE__*/React.createElement("div", {
-    style: {
-      animation: reduced ? 'none' : 'jiz-fade-in 1.4s ease both'
-    }
-  }, /*#__PURE__*/React.createElement("img", {
-    src: "./assets/logo/jiz-logo-white.svg",
-    alt: "JIZ logo",
-    style: {
-      width: 60,
-      height: 60,
-      margin: '0 auto 22px',
-      display: 'block'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-hud)',
-      fontSize: '1.375rem',
-      letterSpacing: 'var(--tracking-hud)',
-      textTransform: 'uppercase',
-      color: 'var(--color-text-primary)',
-      fontWeight: 700
-    }
-  }, "Jonathan ", /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: 'var(--color-accent-primary)'
-    }
-  }, "Iker"), " Zamarripa"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-hud)',
-      fontSize: '0.8125rem',
-      color: 'var(--color-text-muted)',
-      marginTop: 8
-    }
-  }, "Learning Experience Designer"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-body)',
-      fontStyle: 'italic',
-      color: 'var(--color-text-secondary)',
-      marginTop: 28,
-      fontSize: '1.15rem',
-      animation: reduced ? 'none' : 'jiz-fade-in 1.4s ease 1.2s both'
-    }
-  }, "Because understanding changes everything."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 48,
-      animation: reduced ? 'none' : 'jiz-fade-in 1.4s ease 2.6s both'
-    }
-  }, /*#__PURE__*/React.createElement("svg", {
-    className: reduced ? '' : 'jiz-scroll-cue',
-    width: "30",
-    height: "30",
-    viewBox: "0 0 24 24",
-    fill: "none",
-    stroke: "var(--color-accent-primary)",
-    strokeWidth: "1.75",
-    style: {
-      filter: reduced ? 'none' : 'drop-shadow(0 0 10px rgba(198,242,58,0.7))'
-    }
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M6 9l6 6 6-6"
-  })))))), /*#__PURE__*/React.createElement("style", null, `.jiz-film-play:hover{transform:scale(1.03);box-shadow:0 0 26px rgba(198,242,58,0.3);border-color:rgba(198,242,58,0.5)}@keyframes jiz-fade-in{from{opacity:0}to{opacity:1}}@keyframes jiz-film-ambient-move{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}.jiz-film-ambient{animation:jiz-film-ambient-move 9s ease-in-out infinite}@keyframes jiz-scroll-pulse{0%,100%{opacity:0.5;transform:translateY(0)}50%{opacity:1;transform:translateY(6px)}}.jiz-scroll-cue{animation:jiz-scroll-pulse 1.6s ease-in-out infinite}@media(prefers-reduced-motion:reduce){.jiz-film-play{transition:none}.jiz-film-ambient{animation:none}.jiz-scroll-cue{animation:none}}`));
-}
-function CapabilityOS() {
-  const principles = [{
-    title: 'Clarify',
-    belief: 'Every complex problem hides a simple truth waiting to be found.',
-    approach: 'I start by stripping a challenge to its essential structure — the real audience, the real constraint, the real outcome — before a single screen gets designed.',
-    proof: 'Operation: Legacy Unlocked began as a dense compliance mandate; clarifying the real behavior at stake turned it into a mission.'
-  }, {
-    title: 'Connect',
-    belief: 'Learning, technology, and business outcomes are one system, not three departments.',
-    approach: 'I map how people, workflows, and platforms actually intersect, so a design decision in one area doesn\u2019t break another.',
-    proof: 'Learn@Cox Launch Promo connected a platform migration to the emotional experience of the people living through it.'
-  }, {
-    title: 'Prototype',
-    belief: 'Thinking becomes real the moment you can click it.',
-    approach: 'I build fast, tangible versions of an idea early — using AI-native tooling to move at studio speed — so decisions get tested, not debated.',
-    proof: 'The Train Story moved from script to a working cinematic prototype in a fraction of a traditional production timeline.'
-  }, {
-    title: 'Transform',
-    belief: 'The goal was never the deliverable. It was the change it makes possible.',
-    approach: 'I design for the moment after launch — adoption, behavior change, measurable movement — not just the moment of delivery.',
-    proof: 'Every engagement is measured against what actually shifted for the people and the organization, not just what shipped.'
-  }];
-  const [active, setActive] = React.useState(0);
-  const [signal, setSignal] = React.useState(false);
-  const p = principles[active];
-  const select = i => {
-    if (i === active) return;
-    setSignal(true);
-    setActive(i);
-    window.dispatchEvent(new CustomEvent('jiz-signal'));
-    setTimeout(() => setSignal(false), 750);
-  };
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'relative',
-      overflow: 'hidden',
-      paddingTop: 'clamp(56px, 6vw, 100px)',
-      paddingBottom: 'clamp(56px, 6vw, 100px)'
-    }
-  }, /*#__PURE__*/React.createElement(ChromaKeyVideo, {
-    src: "./assets/video/capabilities-bg.mp4",
-    style: {
-      position: 'absolute',
-      inset: 0,
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      zIndex: 0,
-      opacity: 0.55
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      bottom: 0,
-      height: '38%',
-      background: 'linear-gradient(to top, rgba(198,242,58,0.28), transparent)',
-      mixBlendMode: 'screen',
-      zIndex: 0,
-      pointerEvents: 'none'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      inset: 0,
-      background: 'rgba(11,13,16,0.32)',
-      zIndex: 0
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      position: 'relative',
-      zIndex: 1,
-      maxWidth: 'var(--container-max)',
-      margin: '0 auto',
-      padding: '0 var(--container-pad)'
-    }
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement(Eyebrow, null, "Inside the process"), /*#__PURE__*/React.createElement("h2", {
-    style: {
-      font: 'var(--text-h2)',
-      color: 'var(--color-text-primary)',
-      marginBottom: 16
-    }
-  }, "The operating system behind the work."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-secondary)',
-      marginBottom: 32,
-      maxWidth: 560
-    }
-  }, "Four principles guide every project \u2014 select one to see how it shapes a decision.")), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: '0.85fr 1.15fr',
-      gap: 24,
-      alignItems: 'stretch',
-      minWidth: 0,
-      position: 'relative'
-    }
-  }, signal && /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      left: 0,
-      top: `${active * (100 / principles.length) + 100 / principles.length / 2}%`,
-      width: '30%',
-      height: 2,
-      background: 'var(--color-accent-primary)',
-      boxShadow: '0 0 12px var(--color-accent-primary)',
-      animation: 'jiz-signal-travel 0.7s ease-out forwards',
-      zIndex: 2,
-      pointerEvents: 'none'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 10,
-      position: 'relative'
-    }
-  }, signal && /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      left: 8,
-      top: `${active * (100 / principles.length) + 100 / principles.length / 2}%`,
-      width: 4,
-      height: 4,
-      borderRadius: '50%',
-      background: 'var(--color-accent-primary)',
-      boxShadow: '0 0 10px var(--color-accent-primary)',
-      animation: 'jiz-node-emit 0.6s ease-out forwards',
-      zIndex: 2,
-      pointerEvents: 'none'
-    }
-  }), principles.map((pl, i) => /*#__PURE__*/React.createElement("button", {
-    key: pl.title,
-    onClick: () => select(i),
-    style: {
-      textAlign: 'left',
-      cursor: 'pointer',
-      font: 'inherit',
-      padding: '18px 20px',
-      borderRadius: 'var(--radius-md)',
-      position: 'relative',
-      overflow: 'hidden',
-      background: active === i ? 'rgba(198,242,58,0.1)' : 'rgba(23,26,31,0.5)',
-      backdropFilter: 'blur(14px)',
-      border: active === i ? '1px solid var(--color-accent-primary)' : '1px solid var(--color-border-subtle)',
-      transition: 'all var(--motion-standard) var(--ease-standard)',
-      display: 'flex',
-      alignItems: 'center',
-      gap: 14
-    },
-    onMouseEnter: e => {
-      const s = e.currentTarget.querySelector('.jiz-sweep');
-      if (s) {
-        s.style.animation = 'none';
-        void s.offsetWidth;
-        s.style.animation = 'jiz-sweep 0.9s ease-out';
-      }
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-sweep",
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      inset: 0,
-      background: 'linear-gradient(100deg, transparent 40%, rgba(198,242,58,0.14) 50%, transparent 60%)',
-      transform: 'translateX(-120%)',
-      pointerEvents: 'none'
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-hud)',
-      color: active === i ? 'var(--color-accent-primary)' : 'var(--color-text-muted)',
-      flexShrink: 0,
-      position: 'relative'
-    }
-  }, String(i + 1).padStart(2, '0')), /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-body)',
-      fontWeight: 600,
-      fontSize: '0.9375rem',
-      color: active === i ? 'var(--color-text-primary)' : 'var(--color-text-secondary)',
-      position: 'relative'
-    }
-  }, pl.title)))), /*#__PURE__*/React.createElement("div", {
-    key: active,
-    style: {
-      background: 'rgba(23,26,31,0.4)',
-      backdropFilter: 'blur(16px)',
-      border: '1px solid var(--color-border-subtle)',
-      borderRadius: 'var(--radius-lg)',
-      padding: 32,
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-hud)',
-      color: 'var(--color-accent-secondary)',
-      textTransform: 'uppercase',
-      letterSpacing: 'var(--tracking-hud)',
-      marginBottom: 10,
-      animation: 'jiz-stage-in 0.4s var(--ease-out) both'
-    }
-  }, "Principle ", String(active + 1).padStart(2, '0'), " \u2014 ", p.title), /*#__PURE__*/React.createElement("h3", {
-    style: {
-      font: 'var(--text-h3)',
-      color: 'var(--color-text-primary)',
-      marginBottom: 18,
-      lineHeight: 1.3,
-      animation: 'jiz-stage-in 0.4s var(--ease-out) 0.08s both'
-    }
-  }, p.belief), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginBottom: 16,
-      animation: 'jiz-stage-in 0.4s var(--ease-out) 0.16s both'
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-hud)',
-      fontSize: '0.6875rem',
-      color: 'var(--color-text-muted)',
-      textTransform: 'uppercase',
-      letterSpacing: 'var(--tracking-hud)'
-    }
-  }, "Approach"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-secondary)',
-      marginTop: 6
-    }
-  }, p.approach)), /*#__PURE__*/React.createElement("div", {
-    style: {
-      borderLeft: '2px solid var(--color-accent-primary)',
-      paddingLeft: 14,
-      animation: 'jiz-stage-in 0.4s var(--ease-out) 0.24s both'
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-hud)',
-      fontSize: '0.6875rem',
-      color: 'var(--color-text-muted)',
-      textTransform: 'uppercase',
-      letterSpacing: 'var(--tracking-hud)'
-    }
-  }, "Proof"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.9375rem',
-      color: 'var(--color-text-primary)',
-      marginTop: 6,
-      fontStyle: 'italic'
-    }
-  }, p.proof))))), /*#__PURE__*/React.createElement("style", null, `@keyframes jiz-signal-travel{0%{opacity:1;width:0}70%{opacity:1}100%{opacity:0;width:34%}}@keyframes jiz-node-emit{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(2.4)}}@keyframes jiz-sweep{to{transform:translateX(120%)}}@keyframes jiz-stage-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){[style*="jiz-signal-travel"],[style*="jiz-node-emit"],[style*="jiz-sweep"],[style*="jiz-stage-in"]{animation:none!important}}`));
-}
-function FeaturedWork({
-  onOpenWork
-}) {
-  const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const p = {
-    index: 'a',
-    label: 'CASE 01',
-    title: 'Operation: Legacy Unlocked',
-    mission: 'Transform required compliance learning into an immersive, narrative-driven experience for enterprise leaders.',
-    projectType: 'Learning Experience Design',
-    role: 'Learning Experience Designer / Developer',
-    organization: 'Cox Enterprises',
-    focus: 'Game-based learning, leadership development, enterprise engagement',
-    status: 'Case study available',
-    image: './assets/imagery/operation-legacy-unlocked.png'
-  };
-  return /*#__PURE__*/React.createElement("section", {
-    style: {
-      paddingTop: 'clamp(56px, 6vw, 100px)',
-      paddingBottom: 'clamp(56px, 6vw, 100px)',
-      paddingLeft: 'var(--container-pad)',
-      paddingRight: 'var(--container-pad)',
-      maxWidth: 'var(--container-max)',
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      width: '100%',
-      boxSizing: 'border-box'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginBottom: 'clamp(48px, 8vw, 80px)'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      animation: reduced ? 'none' : 'jiz-fade-in-up 0.8s ease both',
-      animationDelay: '0s'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: 'var(--text-hud)',
-      fontWeight: 600,
-      color: 'var(--color-accent-secondary)',
-      textTransform: 'uppercase',
-      letterSpacing: 'var(--tracking-hud)',
-      marginBottom: 12
-    }
-  }, "Featured Work"), /*#__PURE__*/React.createElement("h2", {
-    style: {
-      font: 'var(--text-h2)',
-      color: 'var(--color-text-primary)',
-      margin: 0,
-      marginBottom: 16
-    }
-  }, "Ideas made real."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-secondary)',
-      margin: 0,
-      maxWidth: 640
-    }
-  }, "Selected work across enterprise learning, cinematic storytelling, systems adoption, and AI-enabled production."))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: window.innerWidth < 900 ? '1fr' : 'minmax(320px, 1.1fr) minmax(0, 0.9fr)',
-      gap: 'clamp(32px, 6vw, 64px)',
-      alignItems: 'start',
-      animation: reduced ? 'none' : 'jiz-fade-in-up 0.8s ease both',
-      animationDelay: '100ms'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      aspectRatio: '4/3',
-      borderRadius: 'var(--radius-lg)',
-      overflow: 'hidden',
-      border: '1px solid var(--color-border-subtle)',
-      position: 'relative',
-      background: '#080D0B'
-    }
-  }, /*#__PURE__*/React.createElement("img", {
-    src: p.image,
-    alt: p.title,
-    style: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover',
-      objectPosition: 'center',
-      display: 'block',
-      transition: 'transform 0.4s ease'
-    },
-    onMouseEnter: e => {
-      if (!reduced) e.currentTarget.style.transform = 'scale(1.02)';
-    },
-    onMouseLeave: e => {
-      e.currentTarget.style.transform = 'scale(1)';
-    }
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 32
-    }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: '0.75rem',
-      fontWeight: 700,
-      color: 'var(--color-accent-primary)',
-      textTransform: 'uppercase',
-      letterSpacing: 0.8,
-      marginBottom: 8
-    }
-  }, p.label), /*#__PURE__*/React.createElement("h3", {
-    style: {
-      font: 'var(--text-h3)',
-      color: 'var(--color-text-primary)',
-      margin: 0,
-      lineHeight: 1.2,
-      marginBottom: 16
-    }
-  }, p.title), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-secondary)',
-      margin: 0
-    }
-  }, p.mission)), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gap: '16px 24px',
-      fontSize: 'var(--text-caption)',
-      color: 'var(--color-text-muted)'
-    }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      textTransform: 'uppercase',
-      letterSpacing: 0.5,
-      fontSize: '0.625rem',
-      fontWeight: 700,
-      color: 'var(--color-accent-secondary)',
-      marginBottom: 6
-    }
-  }, "Project Type"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      color: 'var(--color-text-secondary)'
-    }
-  }, p.projectType)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      textTransform: 'uppercase',
-      letterSpacing: 0.5,
-      fontSize: '0.625rem',
-      fontWeight: 700,
-      color: 'var(--color-accent-secondary)',
-      marginBottom: 6
-    }
-  }, "Role"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      color: 'var(--color-text-secondary)'
-    }
-  }, p.role)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      textTransform: 'uppercase',
-      letterSpacing: 0.5,
-      fontSize: '0.625rem',
-      fontWeight: 700,
-      color: 'var(--color-accent-secondary)',
-      marginBottom: 6
-    }
-  }, "Organization"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      color: 'var(--color-text-secondary)'
-    }
-  }, p.organization)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      textTransform: 'uppercase',
-      letterSpacing: 0.5,
-      fontSize: '0.625rem',
-      fontWeight: 700,
-      color: 'var(--color-accent-secondary)',
-      marginBottom: 6
-    }
-  }, "Focus"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      color: 'var(--color-text-secondary)'
-    }
-  }, p.focus))), /*#__PURE__*/React.createElement("button", {
-    onClick: () => onOpenWork && onOpenWork('Operation: Legacy Unlocked'),
-    style: {
-      alignSelf: 'flex-start',
-      padding: '12px 24px',
-      background: 'var(--color-accent-primary)',
-      color: '#000000',
-      border: 'none',
-      borderRadius: 'var(--radius-pill)',
-      font: 'var(--text-label)',
-      fontWeight: 700,
-      cursor: 'pointer',
-      transition: 'all 0.3s ease',
-      boxShadow: '0 0 0 0 rgba(198, 242, 58, 0.2)'
-    },
-    onMouseEnter: e => {
-      if (!reduced) {
-        e.currentTarget.style.background = 'var(--color-accent-primary-hover)';
-        e.currentTarget.style.boxShadow = '0 0 16px 0 rgba(198, 242, 58, 0.3)';
-        e.currentTarget.style.transform = 'translateY(-1px)';
-      }
-    },
-    onMouseLeave: e => {
-      e.currentTarget.style.background = 'var(--color-accent-primary)';
-      e.currentTarget.style.boxShadow = '0 0 0 0 rgba(198, 242, 58, 0.2)';
-      e.currentTarget.style.transform = 'translateY(0)';
-    }
-  }, "Open Case Study \u2192"))));
-}
-function Insights() {
-  const posts = ['How AI changes the learning designer\'s workflow', 'Designing scenarios that build real judgment', 'What systems thinking looks like in practice'];
-  return /*#__PURE__*/React.createElement(Section, null, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement(Eyebrow, null, "Insights"), /*#__PURE__*/React.createElement("h2", {
-    style: {
-      font: 'var(--text-h2)',
-      color: 'var(--color-text-primary)',
-      marginBottom: 16
-    }
-  }, "Thinking out loud."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-caption)',
-      color: 'var(--color-text-muted)',
-      marginBottom: 32
-    }
-  }, "Writing in progress \u2014 titles below are placeholders.")), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, 1fr)',
-      gap: 20,
-      minWidth: 0
-    }
-  }, posts.map((t, i) => /*#__PURE__*/React.createElement(Reveal, {
-    key: t,
-    delay: i * 80,
-    style: {
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      border: '1px solid var(--color-border-default)',
-      borderRadius: 'var(--radius-md)',
-      padding: 20,
-      height: '100%',
-      boxSizing: 'border-box'
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-hud)',
-      color: 'var(--color-text-muted)'
-    }
-  }, "[Insight pending]"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-h3)',
-      fontSize: '1.0625rem',
-      color: 'var(--color-text-primary)',
-      margin: '10px 0'
-    }
-  }, t), /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-caption)',
-      color: 'var(--color-text-muted)',
-      fontStyle: 'italic'
-    }
-  }, "Content pending"))))));
-}
-function EvidenceCard({
-  children,
-  style
-}) {
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      background: 'var(--color-background-secondary)',
-      border: '1px solid var(--color-border-default)',
-      borderRadius: 'var(--radius-lg)',
-      padding: 28,
-      transition: 'all var(--motion-standard) var(--ease-standard)',
-      ...style
-    }
-  }, children);
-}
-function ImpactSection({
-  TestimonialQuote
-}) {
-  const metrics = [{
-    value: '[25+]',
-    label: 'Learning and communication experiences delivered',
-    verified: false
-  }, {
-    value: '[4]',
-    label: 'Global markets or audience regions supported',
-    verified: false
-  }, {
-    value: '[3×]',
-    label: 'Faster production enabled by AI-supported workflows',
-    verified: false
-  }, {
-    value: '[10+]',
-    label: 'Cross-functional stakeholders engaged per major initiative',
-    verified: false
-  }];
-  const [hoverIdx, setHoverIdx] = React.useState(-1);
-  return /*#__PURE__*/React.createElement(Section, null, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement(Eyebrow, null, "Impact"), /*#__PURE__*/React.createElement("h2", {
-    style: {
-      font: 'var(--text-h2)',
-      color: 'var(--color-text-primary)',
-      marginBottom: 16
-    }
-  }, "Outcomes, not outputs."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-caption)',
-      color: 'var(--color-text-muted)',
-      marginBottom: 40
-    }
-  }, "Placeholder figures shown until verified data is confirmed \u2014 not published claims.")), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: '0.85fr 1.15fr',
-      gap: 24,
-      alignItems: 'stretch',
-      minWidth: 0
-    }
-  }, /*#__PURE__*/React.createElement(Reveal, {
-    style: {
-      display: 'flex'
-    }
-  }, /*#__PURE__*/React.createElement(EvidenceCard, {
-    style: {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-      width: '100%',
-      padding: 32
-    }
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("svg", {
-    width: "28",
-    height: "22",
-    viewBox: "0 0 28 22",
-    fill: "var(--color-accent-primary)",
-    style: {
-      marginBottom: 20
-    }
-  }, /*#__PURE__*/React.createElement("path", {
-    d: "M0 22V13.6C0 9.87 1.07 6.8 3.2 4.4C5.33 1.93 8.13 0.4 11.6 0L13.2 3.6C10.93 4.27 9.13 5.33 7.8 6.8C6.47 8.27 5.8 9.93 5.8 11.8H12V22H0ZM16 22V13.6C16 9.87 17.07 6.8 19.2 4.4C21.33 1.93 24.13 0.4 27.6 0L29.2 3.6C26.93 4.27 25.13 5.33 23.8 6.8C22.47 8.27 21.8 9.93 21.8 11.8H28V22H16Z"
-  })), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body-lg)',
-      color: 'var(--color-text-primary)',
-      fontStyle: 'italic',
-      marginBottom: 24
-    }
-  }, "\"Jonathan translated a genuinely complex change program into something our leaders could actually act on.\"")), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-caption)',
-      fontWeight: 700,
-      color: 'var(--color-text-primary)'
-    }
-  }, "[Name pending]"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-caption)',
-      color: 'var(--color-text-muted)'
-    }
-  }, "[Title, Organization \u2014 pending]")))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gap: 24
-    }
-  }, metrics.map((m, i) => /*#__PURE__*/React.createElement(Reveal, {
-    key: m.label,
-    delay: 100 + i * 80,
-    highlight: true
-  }, /*#__PURE__*/React.createElement(EvidenceCard, {
-    onMouseEnter: () => setHoverIdx(i),
-    onMouseLeave: () => setHoverIdx(-1),
-    style: {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'space-between',
-      gap: 12,
-      transform: hoverIdx === i ? 'translateY(-3px)' : 'none',
-      boxShadow: hoverIdx === i ? 'var(--shadow-elevated)' : 'var(--shadow-subtle)',
-      borderColor: hoverIdx === i ? 'rgba(198,242,58,0.3)' : 'var(--color-border-default)'
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--font-mono)',
-      fontSize: '2.25rem',
-      fontWeight: 700,
-      color: 'var(--color-accent-primary)'
-    }
-  }, m.value), /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-caption)',
-      color: 'var(--color-text-secondary)'
-    }
-  }, m.label)))))));
-}
-function SectionRail({
-  sections,
-  activeIndex,
-  onNavigate
-}) {
-  const [hovering, setHovering] = React.useState(false);
-  const [recentlyScrolled, setRecentlyScrolled] = React.useState(false);
-  const idleTimer = React.useRef(null);
-  React.useEffect(() => {
-    if (prefersReduced()) return;
-    const onScroll = () => {
-      setRecentlyScrolled(true);
-      clearTimeout(idleTimer.current);
-      idleTimer.current = setTimeout(() => setRecentlyScrolled(false), 1400);
-    };
-    window.addEventListener('scroll', onScroll, {
-      passive: true
-    });
-    return () => {
-      window.removeEventListener('scroll', onScroll);
-      clearTimeout(idleTimer.current);
-    };
-  }, []);
-  const showAllLabels = hovering || prefersReduced();
-  const progressPct = sections.length > 1 ? activeIndex / (sections.length - 1) * 100 : 0;
-  const pastHero = activeIndex > 0;
-  return /*#__PURE__*/React.createElement("nav", {
-    "aria-label": "Section progress",
-    className: "jiz-rail",
-    style: {
-      position: 'fixed',
-      left: 0,
-      top: 0,
-      bottom: 0,
-      zIndex: 5,
-      flexDirection: 'column',
-      justifyContent: 'center',
-      alignItems: 'flex-start',
-      gap: 15,
-      width: 56,
-      padding: '0 0 0 24px',
-      boxSizing: 'border-box'
-    },
-    onMouseEnter: () => setHovering(true),
-    onMouseLeave: () => setHovering(false)
-  }, /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      left: 28,
-      top: '18%',
-      bottom: '18%',
-      width: 1,
-      background: 'var(--color-border-default)'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      left: 28,
-      top: '18%',
-      width: 1,
-      height: `${progressPct * 0.64}%`,
-      background: 'var(--color-accent-primary)',
-      boxShadow: '0 0 8px var(--color-accent-primary)',
-      transition: 'height var(--motion-slow) var(--ease-out)'
-    }
-  }), sections.map((s, i) => {
-    const isActive = i === activeIndex;
-    const showLabel = pastHero && (showAllLabels || isActive && recentlyScrolled);
-    return /*#__PURE__*/React.createElement("button", {
-      key: s,
-      onClick: () => onNavigate && onNavigate(i),
-      "aria-current": isActive ? 'true' : undefined,
-      style: {
-        display: 'flex',
-        alignItems: 'center',
-        gap: 10,
-        height: 18,
-        background: 'none',
-        border: 'none',
-        padding: 0,
-        cursor: 'pointer',
-        position: 'relative',
-        zIndex: 1
-      }
-    }, /*#__PURE__*/React.createElement("span", {
-      "aria-hidden": "true",
-      style: {
-        flexShrink: 0,
-        borderRadius: '50%',
-        transition: 'width 0.5s var(--ease-out), height 0.5s var(--ease-out), background 0.5s var(--ease-out), box-shadow 0.6s var(--ease-out)',
-        width: isActive ? 9 : 6,
-        height: isActive ? 9 : 6,
-        background: isActive ? 'var(--color-accent-primary)' : 'var(--color-text-muted)',
-        boxShadow: isActive ? '0 0 12px var(--color-accent-primary)' : 'none',
-        animation: isActive && !prefersReduced() ? 'jiz-node-glow 2.4s ease-in-out infinite' : 'none'
-      }
-    }), /*#__PURE__*/React.createElement("span", {
-      style: {
-        font: 'var(--text-hud)',
-        fontSize: '0.6875rem',
-        textTransform: 'uppercase',
-        letterSpacing: '0.06em',
-        color: isActive ? 'var(--color-text-primary)' : 'var(--color-text-muted)',
-        fontWeight: isActive ? 700 : 400,
-        whiteSpace: 'nowrap',
-        opacity: showLabel ? 1 : 0,
-        transform: showLabel ? 'translateX(0)' : 'translateX(-6px)',
-        transition: 'opacity var(--motion-standard) var(--ease-out), transform var(--motion-standard) var(--ease-out)'
-      }
-    }, s));
-  }), /*#__PURE__*/React.createElement("style", null, `.jiz-rail{display:flex}.jiz-rail button:focus-visible span:first-child{outline:2px solid var(--color-accent-primary);outline-offset:3px}@keyframes jiz-node-glow{0%,100%{box-shadow:0 0 10px var(--color-accent-primary)}50%{box-shadow:0 0 18px var(--color-accent-primary)}}@media(max-width:1280px){.jiz-rail{display:none}}`));
-}
-function FinalMoment({
-  onConnect
-}) {
-  const [lit, setLit] = React.useState(false);
-  const ref = React.useRef(null);
-  const reduced = prefersReduced();
-  React.useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) setLit(true);
-    }, {
-      threshold: 0.5
-    });
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
-  return /*#__PURE__*/React.createElement("footer", {
-    ref: ref,
-    style: {
-      position: 'relative',
-      borderTop: '1px solid var(--color-border-subtle)',
-      padding: '96px var(--container-pad) 64px',
-      textAlign: 'center',
-      overflow: 'hidden'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      left: '50%',
-      bottom: '100%',
-      width: 2,
-      height: 64,
-      background: 'linear-gradient(to bottom, transparent, var(--color-accent-primary))',
-      opacity: lit ? 0.7 : 0,
-      transform: 'translateX(-50%)',
-      transition: 'opacity 1.2s ease'
-    }
-  }), /*#__PURE__*/React.createElement("img", {
-    src: "./assets/logo/jiz-logo-white.svg",
-    alt: "JIZ logo",
-    style: {
-      width: 40,
-      height: 40,
-      margin: '0 auto 24px',
-      display: 'block',
-      filter: lit && !reduced ? 'drop-shadow(0 0 14px rgba(198,242,58,0.55)) brightness(1.15)' : 'none',
-      transition: 'filter 1.5s ease'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-body)',
-      fontStyle: 'italic',
-      color: 'var(--color-text-secondary)',
-      marginBottom: 8
-    }
-  }, "Designing Clarity."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-caption)',
-      color: 'var(--color-text-muted)',
-      marginBottom: 32
-    }
-  }, "Transforming complexity into understanding."), /*#__PURE__*/React.createElement("a", {
-    href: "#",
-    onClick: e => {
-      e.preventDefault();
-      onConnect && onConnect();
-    },
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.9375rem',
-      color: 'var(--color-accent-primary)',
-      textDecoration: 'none'
-    }
-  }, "Let's Build What's Next \u2192"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 56,
-      display: 'flex',
-      justifyContent: 'space-between',
-      font: 'var(--text-caption)',
-      color: 'var(--color-text-muted)'
-    }
-  }, /*#__PURE__*/React.createElement("span", null, "Jonathan ", /*#__PURE__*/React.createElement("span", {
-    style: {
-      color: 'var(--color-accent-primary)'
-    }
-  }, "Iker"), " Zamarripa"), /*#__PURE__*/React.createElement("span", null, "Learning Experience Design \xB7 AI Strategy \xB7 Digital Transformation")));
-}
-function Homepage({
-  onOpenCaseStudy
-}) {
-  const onOpenWork = () => onOpenCaseStudy && onOpenCaseStudy();
-  const {
-    NavBar,
-    Button,
-    Chip,
-    TestimonialCard
-  } = window.JIZPortfolioSite_b3ba38;
-  const {
-    ProcessStepper,
-    MetricsGrid
-  } = window.JIZPortfolioSite_b3ba38;
-  const {
-    ContactPanel
-  } = window.JIZPortfolioSite_b3ba38;
-  const projects = [{
-    index: 'a',
-    title: 'Operation: Legacy Unlocked',
-    category: 'Gamification',
-    description: 'A secret-agent learning escape room that turns compliance content into a mission.',
-    stage: 'Design',
-    insight: 'The challenge wasn\u2019t creating more content — it was reducing cognitive load.',
-    image: './assets/imagery/operation-legacy-unlocked.png'
-  }, {
-    index: 'b',
-    title: 'Learn@Cox Launch Promo',
-    category: 'Digital Transformation',
-    description: 'The launch campaign for a Workday Learning rollout, built to make a platform switch feel like an event.',
-    stage: 'Strategy',
-    insight: 'We treated the rollout like a movie trailer instead of a training announcement.',
-    image: './assets/imagery/learn-cox-launch-promo.png'
-  }, {
-    index: 'c',
-    title: 'The Train Story',
-    category: 'Multimedia Storytelling',
-    description: 'A two-version cinematic learning film exploring AI-native production techniques.',
-    stage: 'Production',
-    insight: 'Speed didn\u2019t come from cutting craft — it came from cutting the traditional crew.'
-  }];
-  const workStages = [{
-    title: 'Discover',
-    description: 'Understand the business need, audience, and performance gap.'
-  }, {
-    title: 'Define',
-    description: 'Clarify outcomes, behaviors, and success measures.'
-  }, {
-    title: 'Design',
-    description: 'Architect the learning strategy, narrative, and interaction model.'
-  }, {
-    title: 'Build',
-    description: 'Produce the experience with AI-native tooling at studio speed.'
-  }, {
-    title: 'Enable',
-    description: 'Launch into the learner\'s real workflow and environment.'
-  }, {
-    title: 'Measure',
-    description: 'Evaluate outcomes and iterate — where verified data exists.'
-  }];
-  const sectionRefs = React.useRef([]);
-  const [activeSection, setActiveSection] = React.useState(0);
-
-  // PHASE 1A: Target section navigation
-  // After view transitions to home, scroll to the requested section
-  React.useEffect(() => {
-    const targetSection = sessionStorage.getItem('jiz-target-section');
-    if (targetSection !== null) {
-      const target = parseInt(targetSection, 10);
-      sessionStorage.removeItem('jiz-target-section');
-      setTimeout(() => {
-        if (sectionRefs.current[target]) {
-          sectionRefs.current[target].scrollIntoView({
-            behavior: prefersReduced() ? 'auto' : 'smooth'
-          });
-          setActiveSection(target);
-        }
-      }, prefersReduced() ? 0 : 300);
-    }
-  }, []);
-
-  // PHASE 1A: Global active section tracking
-  React.useEffect(() => {
-    const onScroll = () => {
-      let current = 0;
-      sectionRefs.current.forEach((el, i) => {
-        if (el && el.getBoundingClientRect().top < window.innerHeight * 0.5) current = i;
-      });
-      setActiveSection(current);
-    };
-    window.addEventListener('scroll', onScroll, {
-      passive: true
-    });
-    onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-  const railRef = i => el => {
-    sectionRefs.current[i] = el;
-  };
-  const navItems = ['About', 'Featured Work', 'Design Philosophy', 'Creative Lab', 'Insights'];
-  const sectionLabels = ['Hero', 'About', 'Featured Work', 'Design Philosophy', 'Creative Lab', 'Insights', "Let's Build"];
-  const activeNavLabel = sectionLabels[activeSection] || 'Featured Work';
-  return /*#__PURE__*/React.createElement("div", {
-    className: "jiz-homepage",
-    style: {
-      display: 'flex',
-      flexDirection: 'column',
-      minHeight: '100vh',
-      background: '#080D0B',
-      position: 'relative',
-      zIndex: 1
-    }
-  }, /*#__PURE__*/React.createElement(NavBar, {
-    items: navItems,
-    active: activeNavLabel,
-    onNavigate: item => {
-      const sectionMap = {
-        Home: 0,
-        About: 1,
-        'Featured Work': 2,
-        'Design Philosophy': 3,
-        'Creative Lab': 4,
-        Insights: 5
-      };
-      const targetIdx = sectionMap[item];
-      if (targetIdx !== undefined) {
-        sectionRefs.current[targetIdx]?.scrollIntoView({
-          behavior: prefersReduced() ? 'auto' : 'smooth',
-          block: 'start'
-        });
-        setActiveSection(targetIdx);
-        return;
-      }
-      window.jizNavigate?.(item);
-    },
-    onConnect: () => {
-      const targetIdx = 6;
-      sectionRefs.current[targetIdx]?.scrollIntoView({
-        behavior: prefersReduced() ? 'auto' : 'smooth',
-        block: 'start'
-      });
-      setActiveSection(targetIdx);
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    style: {
-      flex: 1,
-      position: 'relative',
-      zIndex: 1,
-      overflow: 'visible'
-    }
-  }, /*#__PURE__*/React.createElement(SectionRail, {
-    sections: sectionLabels,
-    activeIndex: activeSection,
-    onNavigate: i => {
-      sectionRefs.current[i] && sectionRefs.current[i].scrollIntoView({
-        behavior: prefersReduced() ? 'auto' : 'smooth'
-      });
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    ref: railRef(0)
-  }, /*#__PURE__*/React.createElement(Hero, {
-    onOpenWork: onOpenCaseStudy
-  })), /*#__PURE__*/React.createElement("div", {
-    ref: railRef(1)
-  }, window.AboutV2 && /*#__PURE__*/React.createElement(window.AboutV2, {
-    registerSectionRef: railRef
-  })), /*#__PURE__*/React.createElement("div", {
-    ref: railRef(2),
-    style: {
-      display: 'none'
-    }
-  }, /*#__PURE__*/React.createElement(FeaturedWork, {
-    onOpenWork: onOpenWork
-  })), /*#__PURE__*/React.createElement("div", {
-    ref: railRef(3)
-  }, /*#__PURE__*/React.createElement(Section, {
-    style: {
-      padding: 'clamp(96px,12vw,160px) var(--container-pad)',
-      textAlign: 'center'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      maxWidth: 900,
-      margin: '0 auto'
-    }
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement(Eyebrow, null, "DESIGN PHILOSOPHY"), /*#__PURE__*/React.createElement("h2", {
-    style: {
-      font: 'var(--text-h2)',
-      color: 'var(--color-text-primary)',
-      marginBottom: 48
-    }
-  }, "How he solves problems.")), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 48
-    }
-  }, /*#__PURE__*/React.createElement(Reveal, {
-    delay: 100
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body-lg)',
-      color: 'var(--color-text-secondary)',
-      lineHeight: 1.8
-    }
-  }, "Jonathan doesn't start with solutions. He starts with understanding. He maps the ecosystem\u2014where information flows, where people get stuck, where systems misalign with human behavior. Only when the problem is clear does design become possible."))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 150
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body-lg)',
-      color: 'var(--color-text-secondary)',
-      lineHeight: 1.8
-    }
-  }, "He designs for adoption, not for launch. A beautiful experience that nobody uses is a failure. He thinks about what happens after day one: Will people return? Will it scale? Will it create lasting change? Design decisions are measured against those questions."))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 200
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body-lg)',
-      color: 'var(--color-text-secondary)',
-      lineHeight: 1.8
-    }
-  }, "He works fast without cutting corners. AI-native tools, rapid prototyping, and creative constraint push him to test ideas at scale before building. Speed in service of clarity. Motion that serves meaning. Technology that amplifies human insight."))))))), /*#__PURE__*/React.createElement("div", {
-    ref: railRef(4)
-  }, /*#__PURE__*/React.createElement(FilmSection, null)), /*#__PURE__*/React.createElement("div", {
-    ref: railRef(5)
-  }, /*#__PURE__*/React.createElement(Insights, null)), /*#__PURE__*/React.createElement("div", {
-    ref: railRef(6)
-  }, /*#__PURE__*/React.createElement(Section, {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: '1fr 1fr',
-      gap: 48,
-      alignItems: 'start',
-      padding: 'clamp(64px,8vw,120px) var(--container-pad)'
-    }
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement(Eyebrow, null, "Let's build what's next"), /*#__PURE__*/React.createElement("h2", {
-    style: {
-      font: 'var(--text-h2)',
-      color: 'var(--color-text-primary)',
-      marginBottom: 16
-    }
-  }, "Have a complex problem worth making clear?"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-secondary)',
-      maxWidth: 420,
-      marginBottom: 24
-    }
-  }, "Available for select strategic and creative opportunities in learning experience design, AI-enabled strategy, and digital transformation."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      gap: 12,
-      flexWrap: 'wrap'
-    }
-  }, /*#__PURE__*/React.createElement(Button, {
-    variant: "primary"
-  }, "Hire Jonathan"), /*#__PURE__*/React.createElement(Button, {
-    variant: "secondary",
-    icon: false
-  }, "Partner on a project"), /*#__PURE__*/React.createElement(Button, {
-    variant: "ghost",
-    icon: false,
-    onClick: onOpenCaseStudy
-  }, "Explore work"))), /*#__PURE__*/React.createElement(Reveal, {
-    delay: 100
-  }, /*#__PURE__*/React.createElement(ContactPanel, null))))));
-}
-window.HomepageExports = {
-  Homepage
-};
-})(); } catch (e) { __ds_ns.__errors.push({ path: "archive/root-cleanup/Homepage_POST_P0.jsx", error: String((e && e.message) || e) }); }
 
 // archive/root-cleanup/uploads/image-slot.js
 try { (() => {
@@ -9115,6 +4183,1064 @@ try { (() => {
 })();
 })(); } catch (e) { __ds_ns.__errors.push({ path: "archive/root-cleanup/uploads/image-slot.js", error: String((e && e.message) || e) }); }
 
+// behind-the-build-handoff-complete/CaseStudy-BehindTheBuild.jsx
+try { (() => {
+function CaseStudyBehindTheBuild({
+  onBack,
+  onOpenProject
+}) {
+  const [expandedTicket, setExpandedTicket] = React.useState(null);
+  const [expandedExample, setExpandedExample] = React.useState(null);
+  const [expandedPhase, setExpandedPhase] = React.useState(null);
+  const [scrollProgress, setScrollProgress] = React.useState(0);
+  const contentRef = React.useRef(null);
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (!contentRef.current) return;
+      const element = contentRef.current;
+      const scrollTop = window.scrollY;
+      const elementTop = element.offsetTop;
+      const elementHeight = element.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const elementScroll = Math.max(0, scrollTop - elementTop + windowHeight);
+      const progress = Math.min(100, Math.max(0, elementScroll / (elementHeight + windowHeight) * 100));
+      setScrollProgress(progress);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  const toggleTicket = id => setExpandedTicket(expandedTicket === id ? null : id);
+  const toggleExample = id => setExpandedExample(expandedExample === id ? null : id);
+  const togglePhase = id => setExpandedPhase(expandedPhase === id ? null : id);
+  const styles = `
+    .jiz-btb-cover {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: var(--space-6) var(--space-5);
+      background: linear-gradient(135deg, #0b0d10 0%, #1a1f2e 100%);
+      border-bottom: 1px solid rgba(120, 200, 180, 0.1);
+    }
+    .jiz-btb-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--color-accent-secondary);
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+    .jiz-btb-headline {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--color-text-primary);
+      margin: 0 0 var(--space-3) 0;
+      max-width: 90%;
+    }
+    .jiz-btb-subheadline {
+      font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0 0 var(--space-4) 0;
+      max-width: 85%;
+      line-height: 1.4;
+    }
+    .jiz-btb-supporting {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 0 var(--space-6) 0;
+      max-width: 80%;
+      line-height: 1.6;
+    }
+    .jiz-btb-status {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      background: rgba(120, 200, 180, 0.08);
+      border: 1px solid rgba(120, 200, 180, 0.2);
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      color: var(--color-accent-secondary);
+      font-weight: 500;
+      margin-bottom: var(--space-8);
+    }
+    .jiz-btb-status-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--color-accent-secondary);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+      opacity: 0.8;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+    .jiz-btb-section {
+      padding: var(--space-8) var(--space-5);
+      border-bottom: 1px solid rgba(120, 200, 180, 0.1);
+    }
+    .jiz-btb-section-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin: 0 0 var(--space-4) 0;
+      color: var(--color-text-primary);
+    }
+    .jiz-btb-section-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 0 var(--space-5) 0;
+      line-height: 1.6;
+    }
+    .jiz-btb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-4);
+    }
+    .jiz-btb-card {
+      padding: var(--space-4);
+      background: rgba(120, 200, 180, 0.04);
+      border: 1px solid rgba(120, 200, 180, 0.15);
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+    .jiz-btb-card:hover {
+      background: rgba(120, 200, 180, 0.08);
+      border-color: rgba(120, 200, 180, 0.3);
+    }
+    .jiz-btb-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .jiz-btb-card-text {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .jiz-btb-example {
+      margin-bottom: var(--space-3);
+      border: 1px solid rgba(120, 200, 180, 0.15);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .jiz-btb-example-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-3) var(--space-4);
+      background: rgba(120, 200, 180, 0.04);
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      transition: background 0.2s ease;
+    }
+    .jiz-btb-example-header:hover {
+      background: rgba(120, 200, 180, 0.08);
+    }
+    .jiz-btb-example-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .jiz-btb-example-content.expanded {
+      max-height: 500px;
+    }
+    .jiz-btb-example-text {
+      padding: 0;
+      margin: var(--space-2) 0;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.6;
+    }
+    .jiz-btb-example-content .jiz-btb-example-text:first-child {
+      padding-top: var(--space-4);
+      padding-left: var(--space-4);
+      padding-right: var(--space-4);
+    }
+    .jiz-btb-example-content .jiz-btb-example-text:last-child {
+      padding-bottom: var(--space-4);
+      padding-left: var(--space-4);
+      padding-right: var(--space-4);
+    }
+    @media (max-width: 768px) {
+      .jiz-btb-cover {
+        padding: var(--space-5) var(--space-3);
+      }
+      .jiz-btb-section {
+        padding: var(--space-6) var(--space-3);
+      }
+      .jiz-btb-headline {
+        max-width: 100%;
+      }
+      .jiz-btb-subheadline {
+        max-width: 100%;
+      }
+      .jiz-btb-supporting {
+        max-width: 100%;
+      }
+    }
+  `;
+  return React.createElement('div', {
+    ref: contentRef,
+    style: {
+      width: '100%',
+      color: 'var(--color-text-primary)',
+      background: 'var(--color-bg-primary)'
+    }
+  }, React.createElement('style', null, styles), React.createElement('div', {
+    style: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      height: 3,
+      background: 'linear-gradient(90deg, var(--color-accent-secondary), var(--color-accent-primary))',
+      width: `${scrollProgress}%`,
+      zIndex: 100,
+      transition: reduced ? 'none' : 'width 0.1s ease'
+    }
+  }), React.createElement('div', {
+    className: 'jiz-btb-cover'
+  }, React.createElement('div', {
+    className: 'jiz-btb-eyebrow'
+  }, 'CASE STUDY / CREATIVE TECHNOLOGY'), React.createElement('h1', {
+    className: 'jiz-btb-headline'
+  }, 'Behind the Build'), React.createElement('p', {
+    className: 'jiz-btb-subheadline'
+  }, 'Designing, engineering, and shipping my digital portfolio'), React.createElement('p', {
+    className: 'jiz-btb-supporting'
+  }, 'A portfolio redesign became a live digital product—combining narrative strategy, AI-directed production, responsive design, deployment engineering, and production QA.'), React.createElement('div', {
+    className: 'jiz-btb-status'
+  }, React.createElement('div', {
+    className: 'jiz-btb-status-dot'
+  }), React.createElement('span', null, 'PRODUCTION / LIVE'))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Executive Summary'), React.createElement('p', {
+    className: 'jiz-btb-section-subtitle'
+  }, 'I set out to redesign my portfolio but discovered the real work was building a complete digital product. The final experience required experience strategy, narrative architecture, a responsive front-end, AI-orchestrated production, version control, automated deployment, domain migration, and meticulous QA. The project demonstrated that a portfolio platform—not just a visual design—is the most credible evidence of how I think and what I can deliver.')), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Project Snapshot'), React.createElement('div', {
+    className: 'jiz-btb-grid'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Organization'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Independent Personal Brand Project')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Role'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Experience Designer, Creative Strategist, and AI-Directed Producer')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Audience'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Recruiters, hiring managers, creative leaders, and collaborators')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Technology'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'HTML, CSS, JSX, React, Babel, GitHub, Vercel, custom DNS')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'The Challenge'), React.createElement('div', {
+    className: 'jiz-btb-grid'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Communication'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'A conventional portfolio could display outputs but not reveal the quality of thinking behind them.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Experience'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'The site needed to feel differentiated, memorable, interactive, and credible to senior hiring audiences.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Production'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'The experience had to work outside a design environment as a real deployed product across desktop and mobile.')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'The Opportunity'), React.createElement('p', {
+    className: 'jiz-btb-section-subtitle'
+  }, 'The portfolio itself became evidence of the work.'), React.createElement('p', {
+    style: {
+      fontSize: '1rem',
+      color: 'rgba(255,255,255,0.65)',
+      lineHeight: '1.6',
+      maxWidth: '800px'
+    }
+  }, 'The project became an opportunity to demonstrate systems thinking, learning-experience strategy, product judgment, creative direction, AI orchestration, front-end production, deployment literacy, and iterative QA. Every decision—from narrative architecture to mobile optimization to production debugging—would be visible in the final product.')), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Human-Directed AI Workflow'), React.createElement('p', {
+    className: 'jiz-btb-section-subtitle'
+  }, 'AI accelerated production. It did not own the decisions.'), React.createElement('div', {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+      gap: 'var(--space-4)',
+      marginBottom: 'var(--space-5)'
+    }
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Human Direction'), React.createElement('p', {
+    className: 'jiz-btb-card-text',
+    style: {
+      fontSize: '0.85rem'
+    }
+  }, 'Strategic framing, visual judgment, evidence standards, content ownership, final approval')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'AI Contribution'), React.createElement('p', {
+    className: 'jiz-btb-card-text',
+    style: {
+      fontSize: '0.85rem'
+    }
+  }, 'Ideation, critique, draft generation, code support, troubleshooting, iteration acceleration')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Human Validation'), React.createElement('p', {
+    className: 'jiz-btb-card-text',
+    style: {
+      fontSize: '0.85rem'
+    }
+  }, 'Factual review, brand consistency, accessibility, responsive QA, deployment testing, final accountability'))), React.createElement('h3', {
+    style: {
+      fontSize: '1.1rem',
+      fontWeight: '600',
+      color: 'var(--color-text-primary)',
+      marginBottom: 'var(--space-4)'
+    }
+  }, 'Documented Examples'), React.createElement('div', {
+    className: 'jiz-btb-example',
+    onClick: () => toggleExample('ex1')
+  }, React.createElement('div', {
+    className: 'jiz-btb-example-header'
+  }, React.createElement('span', null, 'Example 1: Missing Production Media'), React.createElement('span', {
+    style: {
+      color: 'rgba(255,255,255,0.5)',
+      fontSize: '0.9rem'
+    }
+  }, expandedExample === 'ex1' ? '−' : '+')), React.createElement('div', {
+    className: `jiz-btb-example-content ${expandedExample === 'ex1' ? 'expanded' : ''}`
+  }, React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Problem: '), 'Logo, hero video, and case-study imagery were missing from the production site.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Diagnosis: '), 'Asset references were written for the original nested project structure, not the deployment environment.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Decision: '), 'Rebased all paths for the production repository and validated local requests.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Result: '), 'Logo, video, and imagery restored across all pages.'))), React.createElement('div', {
+    className: 'jiz-btb-example',
+    onClick: () => toggleExample('ex2')
+  }, React.createElement('div', {
+    className: 'jiz-btb-example-header'
+  }, React.createElement('span', null, 'Example 2: Visual System Regression'), React.createElement('span', {
+    style: {
+      color: 'rgba(255,255,255,0.5)',
+      fontSize: '0.9rem'
+    }
+  }, expandedExample === 'ex2' ? '−' : '+')), React.createElement('div', {
+    className: `jiz-btb-example-content ${expandedExample === 'ex2' ? 'expanded' : ''}`
+  }, React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Problem: '), 'After updating asset paths, the site rendered with black text on a dark background and missing typography styles.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Diagnosis: '), 'The CSS bundle was overwritten with an incomplete version during the deployment update.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Decision: '), 'Restored the correct _ds_bundle.js and styles.css from the design-system source.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Result: '), 'Full visual system, typography, and component styling restored.'))), React.createElement('div', {
+    className: 'jiz-btb-example',
+    onClick: () => toggleExample('ex3')
+  }, React.createElement('div', {
+    className: 'jiz-btb-example-header'
+  }, React.createElement('span', null, 'Example 3: Mobile Hero Layout'), React.createElement('span', {
+    style: {
+      color: 'rgba(255,255,255,0.5)',
+      fontSize: '0.9rem'
+    }
+  }, expandedExample === 'ex3' ? '−' : '+')), React.createElement('div', {
+    className: `jiz-btb-example-content ${expandedExample === 'ex3' ? 'expanded' : ''}`
+  }, React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Problem: '), 'On mobile, the hero portrait overlapped the CTA, and the headline sat much higher than the supporting copy.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Diagnosis: '), 'No responsive breakpoints existed for screens ≤768px; the desktop layout was uncontrolled on small screens.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Decision: '), 'Added @media breakpoints to reduce hero height, scale portrait down, reposition CTA, and tighten spacing.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Result: '), 'Hero section now appears above the fold on all devices; portrait no longer occludes the value proposition.')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Key Decisions'), React.createElement('div', {
+    className: 'jiz-btb-grid'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '1. Narrative Architecture'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Structure every section as a chapter in the same story—from hero, About, Work, to Contact—so the reader experiences clarity as a continuous journey.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '2. Environmental Integration'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Use consistent lighting, gradients, spacing rhythm, and visual hierarchy so transitions feel natural—not like entering a different website.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '3. Responsive-First Typography'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Use CSS clamp() to scale headlines and body text fluidly from mobile to desktop—no hard breakpoint jumps.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '4. Production as Evidence'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Deploy the portfolio as a real product—not a static design artifact—so visitors experience deployment quality and attention to detail.')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Deployment & QA'), React.createElement('div', {
+    className: 'jiz-btb-grid'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '1. Asset Path Audit'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Verify every image, video, icon, and font loads from the correct path in the deployment environment.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '2. Navigation & Routing'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Test browser back/forward, hash routing, direct page access, and internal link navigation.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '3. Responsive QA'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Validate layout, typography, touch targets, and media at 1440px, 1024px, 768px, and 390px.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '4. Console & Network'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Zero 404s on assets, zero uncaught errors, zero failed CSS/JS requests, no mixed-content warnings.')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Outcome'), React.createElement('p', {
+    className: 'jiz-btb-section-subtitle'
+  }, 'A portfolio that demonstrates production literacy, creative thinking, and human-directed AI collaboration.'), React.createElement('p', {
+    style: {
+      fontSize: '1rem',
+      color: 'rgba(255,255,255,0.65)',
+      lineHeight: '1.6',
+      maxWidth: '800px'
+    }
+  }, 'The final site serves as evidence that I can design strategically, implement responsively, debug methodically, and ship with confidence. It is not a design gallery—it is a working digital product that every hiring leader, collaborator, and visitor can interact with and learn from.')), React.createElement('div', {
+    style: {
+      padding: 'var(--space-8) var(--space-5)',
+      borderTop: '1px solid rgba(120,200,180,0.1)',
+      textAlign: 'center'
+    }
+  }, React.createElement('h2', {
+    style: {
+      fontSize: '1.5rem',
+      fontWeight: '600',
+      color: 'var(--color-text-primary)',
+      margin: '0 0 var(--space-3) 0'
+    }
+  }, 'Next Project'), React.createElement('button', {
+    onClick: () => onOpenProject('Operation: Legacy Unlocked'),
+    style: {
+      padding: 'var(--space-3) var(--space-4)',
+      background: 'var(--color-accent-secondary)',
+      color: 'var(--color-bg-primary)',
+      border: 'none',
+      borderRadius: 'var(--radius-sm)',
+      fontSize: '1rem',
+      fontWeight: '600',
+      cursor: 'pointer',
+      transition: 'background 0.2s ease'
+    }
+  }, 'Explore Operation: Legacy Unlocked')));
+}
+if (typeof window !== 'undefined') {
+  window.CaseStudyBehindTheBuildExports = {
+    CaseStudyBehindTheBuild
+  };
+}
+})(); } catch (e) { __ds_ns.__errors.push({ path: "behind-the-build-handoff-complete/CaseStudy-BehindTheBuild.jsx", error: String((e && e.message) || e) }); }
+
+// behind-the-build-handoff/CaseStudy-BehindTheBuild.jsx
+try { (() => {
+function CaseStudyBehindTheBuild({
+  onBack,
+  onOpenProject
+}) {
+  const [expandedTicket, setExpandedTicket] = React.useState(null);
+  const [expandedExample, setExpandedExample] = React.useState(null);
+  const [expandedPhase, setExpandedPhase] = React.useState(null);
+  const [scrollProgress, setScrollProgress] = React.useState(0);
+  const contentRef = React.useRef(null);
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (!contentRef.current) return;
+      const element = contentRef.current;
+      const scrollTop = window.scrollY;
+      const elementTop = element.offsetTop;
+      const elementHeight = element.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const elementScroll = Math.max(0, scrollTop - elementTop + windowHeight);
+      const progress = Math.min(100, Math.max(0, elementScroll / (elementHeight + windowHeight) * 100));
+      setScrollProgress(progress);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  const toggleTicket = id => setExpandedTicket(expandedTicket === id ? null : id);
+  const toggleExample = id => setExpandedExample(expandedExample === id ? null : id);
+  const togglePhase = id => setExpandedPhase(expandedPhase === id ? null : id);
+  const styles = `
+    .jiz-btb-cover {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: var(--space-6) var(--space-5);
+      background: linear-gradient(135deg, #0b0d10 0%, #1a1f2e 100%);
+      border-bottom: 1px solid rgba(120, 200, 180, 0.1);
+    }
+    .jiz-btb-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--color-accent-secondary);
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+    .jiz-btb-headline {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--color-text-primary);
+      margin: 0 0 var(--space-3) 0;
+      max-width: 90%;
+    }
+    .jiz-btb-subheadline {
+      font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0 0 var(--space-4) 0;
+      max-width: 85%;
+      line-height: 1.4;
+    }
+    .jiz-btb-supporting {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 0 var(--space-6) 0;
+      max-width: 80%;
+      line-height: 1.6;
+    }
+    .jiz-btb-status {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      background: rgba(120, 200, 180, 0.08);
+      border: 1px solid rgba(120, 200, 180, 0.2);
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      color: var(--color-accent-secondary);
+      font-weight: 500;
+      margin-bottom: var(--space-8);
+    }
+    .jiz-btb-status-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--color-accent-secondary);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+      opacity: 0.8;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+    .jiz-btb-section {
+      padding: var(--space-8) var(--space-5);
+      border-bottom: 1px solid rgba(120, 200, 180, 0.1);
+    }
+    .jiz-btb-section-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin: 0 0 var(--space-4) 0;
+      color: var(--color-text-primary);
+    }
+    .jiz-btb-section-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 0 var(--space-5) 0;
+      line-height: 1.6;
+    }
+    .jiz-btb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-4);
+    }
+    .jiz-btb-card {
+      padding: var(--space-4);
+      background: rgba(120, 200, 180, 0.04);
+      border: 1px solid rgba(120, 200, 180, 0.15);
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+    .jiz-btb-card:hover {
+      background: rgba(120, 200, 180, 0.08);
+      border-color: rgba(120, 200, 180, 0.3);
+    }
+    .jiz-btb-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .jiz-btb-card-text {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .jiz-btb-example {
+      margin-bottom: var(--space-3);
+      border: 1px solid rgba(120, 200, 180, 0.15);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .jiz-btb-example-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-3) var(--space-4);
+      background: rgba(120, 200, 180, 0.04);
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      transition: background 0.2s ease;
+    }
+    .jiz-btb-example-header:hover {
+      background: rgba(120, 200, 180, 0.08);
+    }
+    .jiz-btb-example-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .jiz-btb-example-content.expanded {
+      max-height: 500px;
+    }
+    .jiz-btb-example-text {
+      padding: 0;
+      margin: var(--space-2) 0;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.6;
+    }
+    .jiz-btb-example-content .jiz-btb-example-text:first-child {
+      padding-top: var(--space-4);
+      padding-left: var(--space-4);
+      padding-right: var(--space-4);
+    }
+    .jiz-btb-example-content .jiz-btb-example-text:last-child {
+      padding-bottom: var(--space-4);
+      padding-left: var(--space-4);
+      padding-right: var(--space-4);
+    }
+    @media (max-width: 768px) {
+      .jiz-btb-cover {
+        padding: var(--space-5) var(--space-3);
+      }
+      .jiz-btb-section {
+        padding: var(--space-6) var(--space-3);
+      }
+      .jiz-btb-headline {
+        max-width: 100%;
+      }
+      .jiz-btb-subheadline {
+        max-width: 100%;
+      }
+      .jiz-btb-supporting {
+        max-width: 100%;
+      }
+    }
+  `;
+  return React.createElement('div', {
+    ref: contentRef,
+    style: {
+      width: '100%',
+      color: 'var(--color-text-primary)',
+      background: 'var(--color-bg-primary)'
+    }
+  }, React.createElement('style', null, styles), React.createElement('div', {
+    style: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      height: 3,
+      background: 'linear-gradient(90deg, var(--color-accent-secondary), var(--color-accent-primary))',
+      width: `${scrollProgress}%`,
+      zIndex: 100,
+      transition: reduced ? 'none' : 'width 0.1s ease'
+    }
+  }), React.createElement('div', {
+    className: 'jiz-btb-cover'
+  }, React.createElement('div', {
+    className: 'jiz-btb-eyebrow'
+  }, 'CASE STUDY / CREATIVE TECHNOLOGY'), React.createElement('h1', {
+    className: 'jiz-btb-headline'
+  }, 'Behind the Build'), React.createElement('p', {
+    className: 'jiz-btb-subheadline'
+  }, 'Designing, engineering, and shipping my digital portfolio'), React.createElement('p', {
+    className: 'jiz-btb-supporting'
+  }, 'A portfolio redesign became a live digital product—combining narrative strategy, AI-directed production, responsive design, deployment engineering, and production QA.'), React.createElement('div', {
+    className: 'jiz-btb-status'
+  }, React.createElement('div', {
+    className: 'jiz-btb-status-dot'
+  }), React.createElement('span', null, 'PRODUCTION / LIVE'))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Executive Summary'), React.createElement('p', {
+    className: 'jiz-btb-section-subtitle'
+  }, 'I set out to redesign my portfolio but discovered the real work was building a complete digital product. The final experience required experience strategy, narrative architecture, a responsive front-end, AI-orchestrated production, version control, automated deployment, domain migration, and meticulous QA. The project demonstrated that a portfolio platform—not just a visual design—is the most credible evidence of how I think and what I can deliver.')), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Project Snapshot'), React.createElement('div', {
+    className: 'jiz-btb-grid'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Organization'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Independent Personal Brand Project')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Role'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Experience Designer, Creative Strategist, and AI-Directed Producer')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Audience'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Recruiters, hiring managers, creative leaders, and collaborators')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Technology'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'HTML, CSS, JSX, React, Babel, GitHub, Vercel, custom DNS')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'The Challenge'), React.createElement('div', {
+    className: 'jiz-btb-grid'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Communication'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'A conventional portfolio could display outputs but not reveal the quality of thinking behind them.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Experience'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'The site needed to feel differentiated, memorable, interactive, and credible to senior hiring audiences.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Production'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'The experience had to work outside a design environment as a real deployed product across desktop and mobile.')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'The Opportunity'), React.createElement('p', {
+    className: 'jiz-btb-section-subtitle'
+  }, 'The portfolio itself became evidence of the work.'), React.createElement('p', {
+    style: {
+      fontSize: '1rem',
+      color: 'rgba(255,255,255,0.65)',
+      lineHeight: '1.6',
+      maxWidth: '800px'
+    }
+  }, 'The project became an opportunity to demonstrate systems thinking, learning-experience strategy, product judgment, creative direction, AI orchestration, front-end production, deployment literacy, and iterative QA. Every decision—from narrative architecture to mobile optimization to production debugging—would be visible in the final product.')), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Human-Directed AI Workflow'), React.createElement('p', {
+    className: 'jiz-btb-section-subtitle'
+  }, 'AI accelerated production. It did not own the decisions.'), React.createElement('div', {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+      gap: 'var(--space-4)',
+      marginBottom: 'var(--space-5)'
+    }
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Human Direction'), React.createElement('p', {
+    className: 'jiz-btb-card-text',
+    style: {
+      fontSize: '0.85rem'
+    }
+  }, 'Strategic framing, visual judgment, evidence standards, content ownership, final approval')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'AI Contribution'), React.createElement('p', {
+    className: 'jiz-btb-card-text',
+    style: {
+      fontSize: '0.85rem'
+    }
+  }, 'Ideation, critique, draft generation, code support, troubleshooting, iteration acceleration')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Human Validation'), React.createElement('p', {
+    className: 'jiz-btb-card-text',
+    style: {
+      fontSize: '0.85rem'
+    }
+  }, 'Factual review, brand consistency, accessibility, responsive QA, deployment testing, final accountability'))), React.createElement('h3', {
+    style: {
+      fontSize: '1.1rem',
+      fontWeight: '600',
+      color: 'var(--color-text-primary)',
+      marginBottom: 'var(--space-4)'
+    }
+  }, 'Documented Examples'), React.createElement('div', {
+    className: 'jiz-btb-example',
+    onClick: () => toggleExample('ex1')
+  }, React.createElement('div', {
+    className: 'jiz-btb-example-header'
+  }, React.createElement('span', null, 'Example 1: Missing Production Media'), React.createElement('span', {
+    style: {
+      color: 'rgba(255,255,255,0.5)',
+      fontSize: '0.9rem'
+    }
+  }, expandedExample === 'ex1' ? '−' : '+')), React.createElement('div', {
+    className: `jiz-btb-example-content ${expandedExample === 'ex1' ? 'expanded' : ''}`
+  }, React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Problem: '), 'Logo, hero video, and case-study imagery were missing from the production site.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Diagnosis: '), 'Asset references were written for the original nested project structure, not the deployment environment.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Decision: '), 'Rebased all paths for the production repository and validated local requests.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Result: '), 'Logo, video, and imagery restored across all pages.'))), React.createElement('div', {
+    className: 'jiz-btb-example',
+    onClick: () => toggleExample('ex2')
+  }, React.createElement('div', {
+    className: 'jiz-btb-example-header'
+  }, React.createElement('span', null, 'Example 2: Visual System Regression'), React.createElement('span', {
+    style: {
+      color: 'rgba(255,255,255,0.5)',
+      fontSize: '0.9rem'
+    }
+  }, expandedExample === 'ex2' ? '−' : '+')), React.createElement('div', {
+    className: `jiz-btb-example-content ${expandedExample === 'ex2' ? 'expanded' : ''}`
+  }, React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Problem: '), 'After updating asset paths, the site rendered with black text on a dark background and missing typography styles.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Diagnosis: '), 'The CSS bundle was overwritten with an incomplete version during the deployment update.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Decision: '), 'Restored the correct _ds_bundle.js and styles.css from the design-system source.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Result: '), 'Full visual system, typography, and component styling restored.'))), React.createElement('div', {
+    className: 'jiz-btb-example',
+    onClick: () => toggleExample('ex3')
+  }, React.createElement('div', {
+    className: 'jiz-btb-example-header'
+  }, React.createElement('span', null, 'Example 3: Mobile Hero Layout'), React.createElement('span', {
+    style: {
+      color: 'rgba(255,255,255,0.5)',
+      fontSize: '0.9rem'
+    }
+  }, expandedExample === 'ex3' ? '−' : '+')), React.createElement('div', {
+    className: `jiz-btb-example-content ${expandedExample === 'ex3' ? 'expanded' : ''}`
+  }, React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Problem: '), 'On mobile, the hero portrait overlapped the CTA, and the headline sat much higher than the supporting copy.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Diagnosis: '), 'No responsive breakpoints existed for screens ≤768px; the desktop layout was uncontrolled on small screens.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Decision: '), 'Added @media breakpoints to reduce hero height, scale portrait down, reposition CTA, and tighten spacing.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Result: '), 'Hero section now appears above the fold on all devices; portrait no longer occludes the value proposition.')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Key Decisions'), React.createElement('div', {
+    className: 'jiz-btb-grid'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '1. Narrative Architecture'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Structure every section as a chapter in the same story—from hero, About, Work, to Contact—so the reader experiences clarity as a continuous journey.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '2. Environmental Integration'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Use consistent lighting, gradients, spacing rhythm, and visual hierarchy so transitions feel natural—not like entering a different website.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '3. Responsive-First Typography'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Use CSS clamp() to scale headlines and body text fluidly from mobile to desktop—no hard breakpoint jumps.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '4. Production as Evidence'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Deploy the portfolio as a real product—not a static design artifact—so visitors experience deployment quality and attention to detail.')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Deployment & QA'), React.createElement('div', {
+    className: 'jiz-btb-grid'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '1. Asset Path Audit'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Verify every image, video, icon, and font loads from the correct path in the deployment environment.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '2. Navigation & Routing'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Test browser back/forward, hash routing, direct page access, and internal link navigation.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '3. Responsive QA'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Validate layout, typography, touch targets, and media at 1440px, 1024px, 768px, and 390px.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '4. Console & Network'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Zero 404s on assets, zero uncaught errors, zero failed CSS/JS requests, no mixed-content warnings.')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Outcome'), React.createElement('p', {
+    className: 'jiz-btb-section-subtitle'
+  }, 'A portfolio that demonstrates production literacy, creative thinking, and human-directed AI collaboration.'), React.createElement('p', {
+    style: {
+      fontSize: '1rem',
+      color: 'rgba(255,255,255,0.65)',
+      lineHeight: '1.6',
+      maxWidth: '800px'
+    }
+  }, 'The final site serves as evidence that I can design strategically, implement responsively, debug methodically, and ship with confidence. It is not a design gallery—it is a working digital product that every hiring leader, collaborator, and visitor can interact with and learn from.')), React.createElement('div', {
+    style: {
+      padding: 'var(--space-8) var(--space-5)',
+      borderTop: '1px solid rgba(120,200,180,0.1)',
+      textAlign: 'center'
+    }
+  }, React.createElement('h2', {
+    style: {
+      fontSize: '1.5rem',
+      fontWeight: '600',
+      color: 'var(--color-text-primary)',
+      margin: '0 0 var(--space-3) 0'
+    }
+  }, 'Next Project'), React.createElement('button', {
+    onClick: () => onOpenProject('Operation: Legacy Unlocked'),
+    style: {
+      padding: 'var(--space-3) var(--space-4)',
+      background: 'var(--color-accent-secondary)',
+      color: 'var(--color-bg-primary)',
+      border: 'none',
+      borderRadius: 'var(--radius-sm)',
+      fontSize: '1rem',
+      fontWeight: '600',
+      cursor: 'pointer',
+      transition: 'background 0.2s ease'
+    }
+  }, 'Explore Operation: Legacy Unlocked')));
+}
+if (typeof window !== 'undefined') {
+  window.CaseStudyBehindTheBuildExports = {
+    CaseStudyBehindTheBuild
+  };
+}
+})(); } catch (e) { __ds_ns.__errors.push({ path: "behind-the-build-handoff/CaseStudy-BehindTheBuild.jsx", error: String((e && e.message) || e) }); }
+
 // components/cards/ProjectRow.jsx
 try { (() => {
 const cardBase = {
@@ -10186,8 +6312,10 @@ try { (() => {
 const DEFAULT_ITEMS = ['About', 'Featured Work', 'Design Philosophy', 'Creative Lab', 'Insights'];
 function NavBar({
   items = DEFAULT_ITEMS,
+  logoSrc = './assets/logo/jiz-logo-white.svg',
   ctaLabel = "Let's Build",
   active: activeProp = 'About',
+  secondaryItems = [],
   onNavigate,
   onConnect
 }) {
@@ -10306,7 +6434,7 @@ function NavBar({
     "aria-label": "Go to homepage",
     onClick: () => onNavigate?.('Home')
   }, /*#__PURE__*/React.createElement("img", {
-    src: "./assets/logo/jiz-logo-white.svg",
+    src: logoSrc,
     alt: "",
     className: "jiz-brand__logo"
   }), /*#__PURE__*/React.createElement("span", {
@@ -10396,7 +6524,17 @@ function NavBar({
     className: "jiz-mobile-panel__cta",
     "aria-current": ctaActive ? 'location' : undefined,
     onClick: chooseConnect
-  }, ctaLabel))), /*#__PURE__*/React.createElement("style", null, `
+  }, ctaLabel), secondaryItems.length > 0 && /*#__PURE__*/React.createElement("div", {
+    className: "jiz-mobile-panel__secondary"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "jiz-mobile-panel__secondary-label"
+  }, "More"), /*#__PURE__*/React.createElement("div", {
+    className: "jiz-mobile-panel__secondary-links"
+  }, secondaryItems.map(item => /*#__PURE__*/React.createElement("button", {
+    key: item,
+    type: "button",
+    onClick: () => chooseItem(item)
+  }, item)))))), /*#__PURE__*/React.createElement("style", null, `
         .jiz-global-nav {
           --nav-pad-x: clamp(24px, 3vw, 56px);
           position: sticky;
@@ -10600,7 +6738,47 @@ function NavBar({
           text-align: left;
           cursor: pointer;
         }
-        .jiz-mobile-panel__links button[data-active="true"] { color: var(--color-accent-primary); }
+        .jiz-mobile-panel__links button {
+          position: relative;
+          padding-left: 14px;
+          border-left: 2px solid transparent;
+        }
+        .jiz-mobile-panel__links button[data-active="true"] {
+          color: var(--color-accent-primary);
+          border-left-color: var(--color-accent-primary);
+          background: rgba(198, 242, 58, .07);
+        }
+        .jiz-mobile-panel__secondary {
+          margin-top: 28px;
+          padding-top: 20px;
+          border-top: 1px solid rgba(255, 255, 255, .1);
+        }
+        .jiz-mobile-panel__secondary-label {
+          margin: 0 0 10px;
+          color: var(--color-text-muted);
+          font: var(--text-hud);
+          font-size: .5625rem;
+          letter-spacing: .2em;
+          text-transform: uppercase;
+        }
+        .jiz-mobile-panel__secondary-links {
+          display: grid;
+          gap: 2px;
+        }
+        .jiz-mobile-panel__secondary-links button {
+          min-height: 46px;
+          padding: 0;
+          border: 0;
+          background: none;
+          color: var(--color-text-secondary);
+          font: var(--text-body);
+          font-size: .9375rem;
+          text-align: left;
+          cursor: pointer;
+        }
+        .jiz-mobile-panel__secondary-links button:hover {
+          color: var(--color-text-primary);
+        }
         .jiz-mobile-panel__cta {
           width: 100%;
           min-height: 48px;
@@ -10691,7 +6869,8 @@ function pad2(n) {
 function FilmHud({
   name = 'Jonathan Iker Zamarripa',
   scene = 'SC.01 — TITLE SEQUENCE',
-  progress = 0
+  progress = 0,
+  logoSrc = './assets/logo/jiz-logo-white.svg'
 }) {
   const [tc, setTc] = React.useState({
     h: 0,
@@ -10736,7 +6915,7 @@ function FilmHud({
       gap: 10
     }
   }, /*#__PURE__*/React.createElement("img", {
-    src: "./assets/logo/jiz-logo-white.svg",
+    src: logoSrc,
     alt: "JIZ logo",
     style: {
       width: 22,
@@ -10814,59 +6993,8 @@ function AboutV2() {
   const nodeRefs = React.useRef([]);
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [isVisible, setIsVisible] = React.useState(false);
-  const videoRef = React.useRef(null);
-  const [videoReady, setVideoReady] = React.useState(false);
-  const [videoPlaying, setVideoPlaying] = React.useState(false);
-  const [videoError, setVideoError] = React.useState(false);
-  const [videoPlaybackError, setVideoPlaybackError] = React.useState(false);
   const [reducedMotion, setReducedMotion] = React.useState(false);
-  const methodRef = React.useRef(null);
-  const methodResumeTimerRef = React.useRef(null);
-  const methodResumeAtRef = React.useRef(0);
-  const methodAdvanceTimerRef = React.useRef(null);
-  const [activeMethodIndex, setActiveMethodIndex] = React.useState(0);
-  const [methodVisible, setMethodVisible] = React.useState(false);
-  const [methodPaused, setMethodPaused] = React.useState(false);
   const THINKING_ENGINE_SRC = './assets/video/Man_thinking_strategic_intelligent.mp4';
-  const methodStages = [{
-    id: 'observe',
-    label: '01',
-    title: 'Observe',
-    copy: 'See the full system before defining the solution.'
-  }, {
-    id: 'understand',
-    label: '02',
-    title: 'Understand',
-    copy: 'Reveal the patterns, friction, behaviors, and decisions shaping the experience.'
-  }, {
-    id: 'design',
-    label: '03',
-    title: 'Design',
-    copy: 'Create the structure, story, and interaction that make understanding possible.'
-  }, {
-    id: 'build',
-    label: '04',
-    title: 'Build',
-    copy: 'Produce the learning, media, tools, and systems required for adoption.'
-  }, {
-    id: 'transform',
-    label: '05',
-    title: 'Transform',
-    copy: 'Turn clarity into action, confidence, and measurable movement.'
-  }];
-  const capabilityGroups = [{
-    title: 'DESIGN',
-    subtitle: 'What I architect',
-    items: ['Learning systems', 'Experience strategy', 'Behavior change', 'Information architecture', 'Human-centered design']
-  }, {
-    title: 'BUILD',
-    subtitle: 'What I create',
-    items: ['Articulate Storyline', 'Camtasia', 'Adobe Creative Cloud', 'Figma', 'Motion and video', 'AI production workflows']
-  }, {
-    title: 'KNOWN FOR',
-    subtitle: 'What differentiates the work',
-    items: ['Systems thinking', 'Creative direction', 'Enterprise learning', 'Rapid prototyping', 'Translating complexity into clarity']
-  }];
   const careerEntries = [{
     id: 'gstate',
     stage: 'Storytelling',
@@ -10939,17 +7067,20 @@ function AboutV2() {
     type: 'current'
   }];
   const beliefs = [{
-    title: 'Intelligence',
-    copy: 'I look beneath the obvious to understand how systems, people, and decisions connect.'
+    title: 'Clarity over complexity',
+    copy: 'Every complex problem hides a simpler structure worth finding first.'
   }, {
-    title: 'Confidence',
-    copy: 'I make clear decisions while remaining open to evidence, feedback, and change.'
+    title: 'People before platforms',
+    copy: 'Technology only matters once the people using it can succeed with it.'
   }, {
-    title: 'Self-awareness',
-    copy: 'I understand how my perspective shapes the work and where collaboration strengthens it.'
+    title: 'Design with evidence',
+    copy: 'Decisions hold up when they are grounded in data, feedback, and observed behavior.'
   }, {
-    title: 'Empathy',
-    copy: 'I design for the person who must understand, use, and live with the outcome.'
+    title: 'Learning should move behavior',
+    copy: 'The measure of a learning experience is what people do differently afterward.'
+  }, {
+    title: 'Technology should feel human',
+    copy: 'Systems earn adoption when they respect attention, context, and effort.'
   }];
   React.useEffect(() => {
     if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
@@ -10971,33 +7102,6 @@ function AboutV2() {
       }
     };
   }, []);
-  React.useEffect(() => {
-    const video = videoRef.current;
-    if (!video || !videoReady || videoError) return;
-    if (reducedMotion) {
-      video.pause();
-      video.currentTime = 0;
-      return;
-    }
-    video.play().catch(() => {
-      setVideoPlaying(false);
-      setVideoPlaybackError(true);
-    });
-  }, [reducedMotion, videoReady, videoError]);
-  const toggleThinkingEngine = async () => {
-    const video = videoRef.current;
-    if (!video || videoError || !videoReady) return;
-    setVideoPlaybackError(false);
-    try {
-      if (video.paused) {
-        await video.play();
-      } else {
-        video.pause();
-      }
-    } catch (error) {
-      setVideoPlaybackError(true);
-    }
-  };
   React.useEffect(() => {
     if (!sectionRef.current || typeof IntersectionObserver === 'undefined') {
       setIsVisible(true);
@@ -11022,56 +7126,6 @@ function AboutV2() {
       observer.disconnect();
     };
   }, []);
-  React.useEffect(() => {
-    const node = methodRef.current;
-    if (!node || typeof IntersectionObserver === 'undefined') {
-      setMethodVisible(true);
-      return undefined;
-    }
-    const observer = new IntersectionObserver(([entry]) => setMethodVisible(entry.isIntersecting), {
-      threshold: 0.3
-    });
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-  React.useEffect(() => {
-    clearTimeout(methodAdvanceTimerRef.current);
-    if (!methodVisible || methodPaused || reducedMotion) return undefined;
-    const delay = activeMethodIndex === methodStages.length - 1 ? 4000 : 2400;
-    methodAdvanceTimerRef.current = setTimeout(() => {
-      setActiveMethodIndex(index => (index + 1) % methodStages.length);
-    }, delay);
-    return () => clearTimeout(methodAdvanceTimerRef.current);
-  }, [methodVisible, methodPaused, reducedMotion, activeMethodIndex]);
-  React.useEffect(() => () => {
-    clearTimeout(methodResumeTimerRef.current);
-    clearTimeout(methodAdvanceTimerRef.current);
-  }, []);
-  const pauseMethodFor = (duration = 8000) => {
-    clearTimeout(methodResumeTimerRef.current);
-    methodResumeAtRef.current = Date.now() + duration;
-    setMethodPaused(true);
-    methodResumeTimerRef.current = setTimeout(() => {
-      methodResumeAtRef.current = 0;
-      setMethodPaused(false);
-    }, duration);
-  };
-  const resumeMethodWhenEligible = () => {
-    const remaining = methodResumeAtRef.current - Date.now();
-    if (remaining > 0) {
-      clearTimeout(methodResumeTimerRef.current);
-      methodResumeTimerRef.current = setTimeout(() => {
-        methodResumeAtRef.current = 0;
-        setMethodPaused(false);
-      }, remaining);
-      return;
-    }
-    setMethodPaused(false);
-  };
-  const selectMethodStage = index => {
-    setActiveMethodIndex(index);
-    pauseMethodFor(8000);
-  };
   const selectCareerEntry = React.useCallback((index, behavior = 'smooth') => {
     const bounded = Math.max(0, Math.min(index, careerEntries.length - 1));
     setActiveIndex(bounded);
@@ -11105,7 +7159,7 @@ function AboutV2() {
     ref: sectionRef,
     className: 'jiz-about-master ' + (isVisible ? 'is-visible' : ''),
     "data-about-v2": "ready",
-    "aria-labelledby": "about-master-title"
+    "aria-label": "How Jonathan thinks, the journey, and the foundation of the work"
   }, /*#__PURE__*/React.createElement("style", null, `
         .jiz-about-master {
           --about-max: 1360px;
@@ -11324,277 +7378,28 @@ function AboutV2() {
           line-height: 1.62;
         }
 
-        .jiz-engine-shell {
-          position: relative;
-          width: min(86vw, 1120px);
-          margin: clamp(50px, 6vw, 82px) auto 0;
-          isolation: isolate;
-          max-width: 100%;
-          box-sizing: border-box;
-        }
 
-        .jiz-engine-shell::before {
-          content: '';
-          position: absolute;
-          z-index: -2;
-          inset: -14% -10%;
-          pointer-events: none;
-          background:
-            radial-gradient(
-              circle at 48% 48%,
-              rgba(100, 225, 255, 0.14),
-              transparent 52%
-            ),
-            radial-gradient(
-              circle at 74% 34%,
-              rgba(198, 242, 58, 0.065),
-              transparent 36%
-            );
-          filter: blur(72px);
-          opacity: 0.72;
-        }
 
-        .jiz-engine-shell::after {
-          content: '';
-          position: absolute;
-          z-index: -1;
-          left: 12%;
-          right: 12%;
-          bottom: -34px;
-          height: 76px;
-          pointer-events: none;
-          border-radius: 50%;
-          background:
-            radial-gradient(
-              ellipse,
-              rgba(100, 225, 255, 0.1),
-              transparent 68%
-            );
-          filter: blur(28px);
-          opacity: 0.62;
-        }
 
-        .jiz-engine-stage {
-          position: relative;
-          aspect-ratio: 16 / 9;
-          overflow: hidden;
-          border: 1px solid rgba(100, 225, 255, 0.12);
-          border-radius: clamp(20px, 2vw, 30px);
-          background: #06090b;
-          box-shadow:
-            0 52px 140px rgba(0, 0, 0, 0.44),
-            0 14px 44px rgba(0, 0, 0, 0.2),
-            0 0 0 1px rgba(255, 255, 255, 0.05),
-            0 0 120px rgba(100, 225, 255, 0.085),
-            inset 0 1px 0 rgba(255, 255, 255, 0.05),
-            0 30px 88px rgba(0, 0, 0, 0.42),
-            0 0 58px rgba(100, 225, 255, 0.045);
-        }
 
-        .jiz-engine-stage::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          z-index: 2;
-          pointer-events: none;
-          background:
-            linear-gradient(
-              180deg,
-              rgba(5, 8, 10, 0.04),
-              transparent 24%,
-              transparent 72%,
-              rgba(5, 8, 10, 0.18)
-            ),
-            radial-gradient(
-              circle at 50% 50%,
-              transparent 58%,
-              rgba(5, 8, 10, 0.13) 82%,
-              rgba(5, 8, 10, 0.32) 100%
-            );
-        }
 
-        .jiz-engine-video {
-          position: relative;
-          z-index: 1;
-          display: block;
-          width: 100%;
-          height: 100%;
-          border: 0;
-          background: #06090b;
-          object-fit: contain;
-          object-position: center;
-        }
 
-        .jiz-engine-control {
-          position: absolute;
-          right: 18px;
-          bottom: 17px;
-          z-index: 4;
-          min-width: 94px;
-          min-height: 42px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0 17px;
-          border: 1px solid rgba(100, 225, 255, 0.24);
-          border-radius: var(--radius-pill);
-          background: rgba(5, 9, 11, 0.72);
-          color: var(--color-text-primary);
-          font: var(--text-caption);
-          cursor: pointer;
-          opacity: 0;
-          transform: translateY(6px);
-          backdrop-filter: blur(14px);
-          transition:
-            opacity var(--motion-fast) var(--ease-standard),
-            transform var(--motion-fast) var(--ease-standard),
-            border-color var(--motion-fast) var(--ease-standard),
-            box-shadow var(--motion-fast) var(--ease-standard);
-        }
 
-        .jiz-engine-stage:hover .jiz-engine-control,
-        .jiz-engine-stage:focus-within .jiz-engine-control {
-          opacity: 1;
-          transform: translateY(0);
-        }
 
-        .jiz-engine-control:hover {
-          border-color: rgba(198, 242, 58, 0.58);
-          box-shadow: 0 0 24px rgba(198, 242, 58, 0.12);
-        }
 
-        .jiz-engine-control:focus-visible {
-          opacity: 1;
-          transform: none;
-          outline: 2px solid var(--color-accent-primary);
-          outline-offset: 3px;
-        }
 
-        .jiz-engine-control:disabled {
-          opacity: 0.38;
-          cursor: default;
-        }
 
-        .jiz-engine-playback-note {
-          position: absolute;
-          left: 18px;
-          bottom: 18px;
-          z-index: 4;
-          max-width: min(64%, 520px);
-          margin: 0;
-          padding: 9px 12px;
-          border: 1px solid rgba(255, 190, 92, 0.24);
-          border-radius: 12px;
-          background: rgba(5, 9, 11, 0.78);
-          color: var(--color-text-secondary);
-          font: var(--text-caption);
-          backdrop-filter: blur(12px);
-        }
 
         @media (hover: none), (pointer: coarse) {
-          .jiz-engine-control {
-            opacity: 1;
-            transform: none;
-          }
         }
 
-        .jiz-engine-state {
-          position: absolute;
-          inset: 0;
-          z-index: 3;
-          display: grid;
-          place-items: center;
-          padding: 28px;
-          background:
-            radial-gradient(
-              circle at center,
-              rgba(15, 29, 34, 0.86),
-              rgba(5, 8, 10, 0.96)
-            );
-          color: var(--color-text-secondary);
-          text-align: center;
-          font: var(--text-body);
-        }
 
-        .jiz-engine-loader {
-          display: grid;
-          justify-items: center;
-          gap: 16px;
-        }
 
-        .jiz-engine-loader::before {
-          content: '';
-          width: 34px;
-          height: 34px;
-          border: 2px solid rgba(100, 225, 255, 0.18);
-          border-top-color: var(--color-accent-secondary);
-          border-radius: 50%;
-          animation: jiz-engine-spin 900ms linear infinite;
-        }
 
-        @keyframes jiz-engine-spin {
-          to {
-            transform: rotate(360deg);
-          }
-        }
 
-        .jiz-engine-caption {
-          position: relative;
-          max-width: 980px;
-          margin: clamp(30px, 4vw, 46px) auto 0;
-          padding: clamp(27px, 3.5vw, 40px);
-          overflow: hidden;
-          border-top: 1px solid rgba(100, 225, 255, 0.13);
-          border-bottom: 1px solid rgba(100, 225, 255, 0.08);
-          background:
-            linear-gradient(
-              90deg,
-              transparent,
-              rgba(100, 225, 255, 0.025) 22%,
-              rgba(198, 242, 58, 0.018) 78%,
-              transparent
-            );
-          text-align: left;
-        }
 
-        .jiz-engine-caption::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 28px;
-          bottom: 28px;
-          width: 2px;
-          border-radius: 999px;
-          background:
-            linear-gradient(
-              180deg,
-              var(--color-accent-secondary),
-              var(--color-accent-primary)
-            );
-          box-shadow: 0 0 18px rgba(100, 225, 255, 0.18);
-        }
 
-        .jiz-engine-caption strong {
-          display: block;
-          margin: 0 0 12px;
-          padding-left: 16px;
-          color: var(--color-accent-secondary);
-          font: var(--text-hud);
-          font-size: 0.68rem;
-          font-weight: 700;
-          letter-spacing: 0.13em;
-          text-transform: uppercase;
-        }
 
-        .jiz-engine-caption span {
-          display: block;
-          margin: 0;
-          padding-left: 16px;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: clamp(0.95rem, 1.25vw, 1.04rem);
-          line-height: 1.72;
-        }
 
         .jiz-opening-copy {
           display: none;
@@ -11989,7 +7794,7 @@ function AboutV2() {
         }
 
         .jiz-belief {
-          grid-column: span 3;
+          grid-column: span 4;
           display: flex;
           flex-direction: column;
           padding: clamp(18px, 2.2vw, 24px);
@@ -12070,9 +7875,6 @@ function AboutV2() {
         @media (max-width: 620px) {
           .jiz-about-master { padding-inline: max(20px,var(--container-pad)); }
           .jiz-opening-title { font-size: clamp(2.55rem,14vw,3.8rem); }
-          .jiz-engine-shell { width: min(100%, 720px); }
-          .jiz-engine-control { right: 12px; bottom: 12px; min-width: 78px; min-height: 38px; padding-inline: 14px; opacity: 1; transform: none; }
-          .jiz-engine-playback-note { left: 12px; bottom: 60px; max-width: calc(100% - 24px); }
           .jiz-career-helper { align-items: flex-start; flex-direction: column; gap: 8px; }
           .jiz-method-path { grid-template-columns: 1fr; }
           .jiz-career-header { display: block; }
@@ -12090,7 +7892,6 @@ function AboutV2() {
           }
           .jiz-reveal { opacity: 1; transform: none; }
           .jiz-method-button[data-active='true'] .jiz-method-node { animation: none !important; }
-          .jiz-engine-control { opacity: 1; transform: none; }
         }
       `), /*#__PURE__*/React.createElement("div", {
     className: "jiz-about-stage",
@@ -12107,174 +7908,6 @@ function AboutV2() {
   }), /*#__PURE__*/React.createElement("div", {
     className: "jiz-about-inner"
   }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-scene-opening"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-reveal"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-eyebrow"
-  }, "ABOUT / THE MIND"), /*#__PURE__*/React.createElement("h2", {
-    id: "about-master-title",
-    className: "jiz-opening-title"
-  }, "How Jonathan thinks."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-opening-thesis"
-  }, "Most complexity isn't complicated \u2014 it's unexamined. My job is finding the shape hiding inside the tangle, then designing toward it."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-      gap: 20,
-      maxWidth: 880,
-      marginInline: 'auto',
-      marginTop: 36,
-      textAlign: 'left'
-    }
-  }, [['See the system', 'Every project is people inside a system — not a deliverable to produce.'], ['Find real friction', 'I look for where friction actually lives, not where it\'s easiest to fix.'], ['Test, then trust', 'Ideas get tested early and kept only if they survive contact with real use.']].map(([t, d]) => /*#__PURE__*/React.createElement("div", {
-    key: t,
-    style: {
-      padding: 20,
-      border: '1px solid rgba(255,255,255,0.08)',
-      borderRadius: 'var(--radius-md)',
-      background: 'rgba(255,255,255,0.02)'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-hud)',
-      color: 'var(--color-accent-primary)',
-      textTransform: 'uppercase',
-      letterSpacing: '0.08em',
-      marginBottom: 8
-    }
-  }, t), /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.9375rem',
-      color: 'var(--color-text-secondary)',
-      lineHeight: 1.5
-    }
-  }, d))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-engine-shell jiz-reveal",
-    "data-thinking-engine": "inline"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-engine-stage"
-  }, /*#__PURE__*/React.createElement("video", {
-    ref: videoRef,
-    className: "jiz-engine-video",
-    autoPlay: !reducedMotion,
-    loop: true,
-    muted: true,
-    playsInline: true,
-    preload: "metadata",
-    "aria-label": "A cinematic visualization of strategic thinking, systems intelligence, and complexity becoming clarity",
-    onLoadedMetadata: () => {
-      setVideoReady(true);
-      setVideoError(false);
-      setVideoPlaybackError(false);
-    },
-    onLoadedData: () => {
-      setVideoReady(true);
-      setVideoError(false);
-      setVideoPlaybackError(false);
-    },
-    onCanPlay: () => {
-      setVideoReady(true);
-      setVideoError(false);
-      setVideoPlaybackError(false);
-    },
-    onPlay: () => setVideoPlaying(true),
-    onPause: () => setVideoPlaying(false),
-    onError: () => {
-      setVideoReady(false);
-      setVideoPlaying(false);
-      setVideoError(true);
-      setVideoPlaybackError(false);
-    }
-  }, /*#__PURE__*/React.createElement("source", {
-    src: THINKING_ENGINE_SRC,
-    type: "video/mp4"
-  }), "Your browser does not support embedded video."), !videoReady && !videoError && /*#__PURE__*/React.createElement("div", {
-    className: "jiz-engine-state",
-    role: "status",
-    "aria-live": "polite"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-engine-loader"
-  }, /*#__PURE__*/React.createElement("span", null, "Preparing the visualization\u2026"))), videoError && /*#__PURE__*/React.createElement("div", {
-    className: "jiz-engine-state",
-    role: "alert"
-  }, /*#__PURE__*/React.createElement("span", null, "The visualization could not load. Jonathan's operating model is described directly below.")), !videoError && /*#__PURE__*/React.createElement("button", {
-    className: "jiz-engine-control",
-    type: "button",
-    disabled: !videoReady,
-    onClick: toggleThinkingEngine,
-    "aria-label": videoPlaying ? 'Pause strategic intelligence visualization' : 'Play strategic intelligence visualization',
-    "aria-pressed": videoPlaying
-  }, videoPlaying ? 'Pause' : 'Play'), videoPlaybackError && !videoError && /*#__PURE__*/React.createElement("p", {
-    className: "jiz-engine-playback-note",
-    role: "status"
-  }, "Playback was blocked by the browser. Select Play to try again."))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-engine-caption jiz-reveal"
-  }, /*#__PURE__*/React.createElement("strong", null, "Operating System"), /*#__PURE__*/React.createElement("span", null, "I begin by mapping the relationship between people, information, systems, and behavior. Before I design content, I design understanding\u2014revealing what matters, where friction exists, and what will move people forward. My work brings together learning strategy, cinematic storytelling, digital experience design, and AI-enabled production to create solutions that are clear, useful, and built for adoption."))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-movement"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-movement-heading jiz-reveal"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-eyebrow"
-  }, "THE METHOD"), /*#__PURE__*/React.createElement("h3", {
-    className: "jiz-movement-title"
-  }, "How thought becomes action."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-movement-copy"
-  }, "A connected practice for moving from ambiguity to experiences people can understand and use.")), /*#__PURE__*/React.createElement("div", {
-    ref: methodRef,
-    className: "jiz-method-wrap jiz-reveal",
-    "data-method-autoplay": "enabled",
-    "data-active-method-index": activeMethodIndex,
-    onMouseEnter: () => setMethodPaused(true),
-    onMouseLeave: resumeMethodWhenEligible
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-method-progress",
-    "aria-hidden": "true",
-    style: {
-      width: activeMethodIndex / (methodStages.length - 1) * 92 + '%'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-method-path",
-    "aria-label": "Jonathan's five-stage methodology"
-  }, methodStages.map((stage, index) => /*#__PURE__*/React.createElement("button", {
-    key: stage.id,
-    type: "button",
-    className: "jiz-method-button",
-    "data-method-stage": stage.id,
-    "data-method-index": index,
-    "data-active": index === activeMethodIndex ? 'true' : 'false',
-    "aria-pressed": index === activeMethodIndex,
-    onClick: () => selectMethodStage(index),
-    onFocus: () => setMethodPaused(true),
-    onBlur: resumeMethodWhenEligible
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-method-stage"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-method-node",
-    "aria-hidden": "true",
-    style: {
-      borderColor: index === activeMethodIndex ? 'var(--color-accent-primary)' : index < activeMethodIndex ? 'var(--color-accent-secondary)' : 'rgba(100,225,255,.3)',
-      background: index === activeMethodIndex ? 'var(--color-accent-primary)' : index < activeMethodIndex ? 'var(--color-accent-secondary)' : '#0b0d10',
-      boxShadow: index === activeMethodIndex ? '0 0 0 7px rgba(198,242,58,.09),0 0 28px rgba(198,242,58,.18)' : '0 0 0 5px rgba(100,225,255,.05)'
-    }
-  }), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-method-label jiz-meta"
-  }, stage.label), /*#__PURE__*/React.createElement("h4", null, stage.title), /*#__PURE__*/React.createElement("p", null, stage.copy))))), /*#__PURE__*/React.createElement("span", {
-    className: "sr-only",
-    role: "status",
-    "aria-live": "polite",
-    "data-method-status": true
-  }, `Active method stage: ${methodStages[activeMethodIndex].title}`)), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-capabilities jiz-reveal"
-  }, capabilityGroups.map(group => /*#__PURE__*/React.createElement("section", {
-    className: "jiz-capability",
-    key: group.title
-  }, /*#__PURE__*/React.createElement("h4", {
-    className: "jiz-meta"
-  }, group.title), /*#__PURE__*/React.createElement("p", null, group.subtitle), /*#__PURE__*/React.createElement("ul", null, group.items.map(item => /*#__PURE__*/React.createElement("li", {
-    key: item
-  }, item))))))), /*#__PURE__*/React.createElement("div", {
     className: "jiz-movement"
   }, /*#__PURE__*/React.createElement("div", {
     className: "jiz-career-header jiz-reveal"
@@ -12391,6 +8024,883 @@ if (typeof window !== 'undefined') {
   window.AboutV2 = AboutV2;
 }
 })(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio-website/About_v2.jsx", error: String((e && e.message) || e) }); }
+
+// ui_kits/portfolio-website/BehindTheBuildEntrance.jsx
+try { (() => {
+class BehindTheBuildEntrance extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      scene: 'arrival',
+      showTranscript: false,
+      selectedPath: 'guided',
+      autoPlayWelcome: false,
+      mediaLoaded: false,
+      reducedMotion: window.matchMedia('(prefers-reduced-motion:reduce)').matches
+    };
+    this.videoRef = React.createRef();
+  }
+  componentDidMount() {
+    this.checkReducedMotion();
+  }
+  checkReducedMotion() {
+    const query = window.matchMedia('(prefers-reduced-motion:reduce)');
+    this.setState({
+      reducedMotion: query.matches
+    });
+    query.addEventListener('change', e => this.setState({
+      reducedMotion: e.matches
+    }));
+  }
+  playWelcome() {
+    if (this.videoRef.current) {
+      this.videoRef.current.play();
+      this.setState({
+        autoPlayWelcome: true
+      });
+    }
+  }
+  skipWelcome() {
+    this.setState({
+      scene: 'orientation'
+    });
+  }
+  continueWithoutVideo() {
+    this.setState({
+      scene: 'orientation'
+    });
+  }
+  selectPath(path) {
+    this.setState({
+      selectedPath: path,
+      scene: 'map'
+    });
+  }
+  beginExperience() {
+    this.setState({
+      scene: 'chapter-01'
+    });
+  }
+  backToEntrance() {
+    this.setState({
+      scene: 'arrival',
+      showTranscript: false,
+      selectedPath: 'guided'
+    });
+  }
+  renderArrival() {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-scene jiz-btb-arrival",
+      style: {
+        opacity: 1,
+        pointerEvents: 'auto'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-arrival-bg"
+    }), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-arrival-content"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-signal-field"
+    }, /*#__PURE__*/React.createElement("svg", {
+      viewBox: "0 0 400 300",
+      className: "jiz-btb-evidence-field",
+      "aria-hidden": "true"
+    }, /*#__PURE__*/React.createElement("circle", {
+      cx: "50",
+      cy: "50",
+      r: "8",
+      fill: "none",
+      stroke: "var(--color-chartreuse)",
+      strokeWidth: "1",
+      opacity: "0.3"
+    }), /*#__PURE__*/React.createElement("rect", {
+      x: "150",
+      y: "80",
+      width: "40",
+      height: "30",
+      fill: "none",
+      stroke: "var(--color-cyan)",
+      strokeWidth: "1",
+      opacity: "0.3"
+    }), /*#__PURE__*/React.createElement("circle", {
+      cx: "300",
+      cy: "120",
+      r: "12",
+      fill: "none",
+      stroke: "var(--color-chartreuse)",
+      strokeWidth: "1.5",
+      opacity: "0.2"
+    }), /*#__PURE__*/React.createElement("path", {
+      d: "M 100 200 Q 150 180 200 200",
+      fill: "none",
+      stroke: "var(--color-cyan)",
+      strokeWidth: "1",
+      opacity: "0.25"
+    }), /*#__PURE__*/React.createElement("text", {
+      x: "200",
+      y: "150",
+      textAnchor: "middle",
+      fontSize: "14",
+      fill: "var(--color-text)",
+      opacity: "0.4"
+    }, "Organizing complexity"))), /*#__PURE__*/React.createElement("h1", {
+      className: "jiz-btb-arrival-title"
+    }, "BEHIND THE BUILD"), /*#__PURE__*/React.createElement("p", {
+      className: "jiz-btb-arrival-subtitle"
+    }, "An interactive documentary about turning complexity into something people can understand."), /*#__PURE__*/React.createElement("p", {
+      className: "jiz-btb-arrival-label"
+    }, "EXHIBITION 01 / DIGITAL EXPERIENCE")), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-controls"
+    }, /*#__PURE__*/React.createElement("button", {
+      className: "jiz-btb-button jiz-btb-primary",
+      onClick: () => this.setState({
+        scene: 'welcome'
+      })
+    }, "Begin Experience"), /*#__PURE__*/React.createElement("button", {
+      className: "jiz-btb-button jiz-btb-secondary",
+      onClick: () => this.skipWelcome()
+    }, "Skip Intro")));
+  }
+  renderWelcome() {
+    const hasVideo = false;
+    return /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-scene jiz-btb-welcome",
+      style: {
+        opacity: this.state.scene === 'welcome' ? 1 : 0,
+        pointerEvents: this.state.scene === 'welcome' ? 'auto' : 'none'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-welcome-bg"
+    }), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-welcome-content"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-welcome-media"
+    }, hasVideo ? /*#__PURE__*/React.createElement("video", {
+      ref: this.videoRef,
+      className: "jiz-btb-welcome-video",
+      poster: "./assets/behind-the-build/hero-welcome-poster.webp",
+      controls: false,
+      playsInline: true,
+      preload: "metadata"
+    }, /*#__PURE__*/React.createElement("source", {
+      src: "./assets/behind-the-build/welcome.mp4",
+      type: "video/mp4"
+    }), "Your browser does not support video.") : /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-video-placeholder"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-placeholder-content"
+    }, "Jonathan's Welcome"))), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-welcome-text"
+    }, /*#__PURE__*/React.createElement("h2", null, "A Personal Welcome"), /*#__PURE__*/React.createElement("p", null, "This experience began with a simple question: what if a portfolio could do more than display finished work?"), /*#__PURE__*/React.createElement("p", null, "What if it could reveal the thinking, decisions, experiments, and collaboration behind the result?"), /*#__PURE__*/React.createElement("p", null, "Behind the Build is the story of how I brought learning design, creative strategy, AI-assisted production, and technical problem-solving into one living product.")), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-welcome-controls"
+    }, hasVideo ? /*#__PURE__*/React.createElement("button", {
+      className: "jiz-btb-button jiz-btb-primary",
+      onClick: () => this.playWelcome()
+    }, "Play Welcome") : /*#__PURE__*/React.createElement("p", {
+      className: "jiz-btb-media-pending"
+    }, "[Welcome video pending]"), /*#__PURE__*/React.createElement("button", {
+      className: "jiz-btb-button jiz-btb-secondary",
+      onClick: () => this.continueWithoutVideo()
+    }, "Continue"))), /*#__PURE__*/React.createElement("button", {
+      className: "jiz-btb-back",
+      onClick: () => this.backToEntrance()
+    }, "\u2190 Back"));
+  }
+  renderOrientation() {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-scene jiz-btb-orientation",
+      style: {
+        opacity: this.state.scene === 'orientation' ? 1 : 0,
+        pointerEvents: this.state.scene === 'orientation' ? 'auto' : 'none'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-orientation-bg"
+    }), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-orientation-content"
+    }, /*#__PURE__*/React.createElement("h2", null, "Choose Your Path"), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-path-options"
+    }, /*#__PURE__*/React.createElement("button", {
+      className: `jiz-btb-path-card jiz-btb-path-guided ${this.state.selectedPath === 'guided' ? 'active' : ''}`,
+      onClick: () => this.selectPath('guided')
+    }, /*#__PURE__*/React.createElement("h3", null, "Guided Path"), /*#__PURE__*/React.createElement("p", null, "A curated chapter-by-chapter documentary experience.")), /*#__PURE__*/React.createElement("button", {
+      className: `jiz-btb-path-card jiz-btb-path-explore ${this.state.selectedPath === 'explore' ? 'active' : ''}`,
+      onClick: () => this.selectPath('explore')
+    }, /*#__PURE__*/React.createElement("h3", null, "Explore Freely"), /*#__PURE__*/React.createElement("p", null, "Enter the exhibition map and choose an area.")), /*#__PURE__*/React.createElement("button", {
+      className: `jiz-btb-path-card jiz-btb-path-quick ${this.state.selectedPath === 'quick' ? 'active' : ''}`,
+      onClick: () => this.selectPath('quick')
+    }, /*#__PURE__*/React.createElement("h3", null, "Quick Overview"), /*#__PURE__*/React.createElement("p", null, "A concise summary for visitors with limited time.")))), /*#__PURE__*/React.createElement("button", {
+      className: "jiz-btb-button jiz-btb-primary",
+      onClick: () => this.beginExperience()
+    }, "Begin with the Question"), /*#__PURE__*/React.createElement("button", {
+      className: "jiz-btb-back",
+      onClick: () => this.backToEntrance()
+    }, "\u2190 Back"));
+  }
+  renderMap() {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-scene jiz-btb-map",
+      style: {
+        opacity: this.state.scene === 'map' ? 1 : 0,
+        pointerEvents: this.state.scene === 'map' ? 'auto' : 'none'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-map-bg"
+    }), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-map-content"
+    }, /*#__PURE__*/React.createElement("h2", null, "The Documentary"), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-chapter-map"
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-chapter-node jiz-btb-chapter-active"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-number"
+    }, "01"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-title"
+    }, "The Question"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-status"
+    }, "Active")), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-chapter-node"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-number"
+    }, "02"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-title"
+    }, "The Vision"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-status"
+    }, "Coming next")), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-chapter-node"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-number"
+    }, "03"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-title"
+    }, "Designing the System"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-status"
+    }, "In development")), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-chapter-node"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-number"
+    }, "04"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-title"
+    }, "Directing AI"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-status"
+    }, "In development")), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-chapter-node"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-number"
+    }, "05"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-title"
+    }, "Breaking the Build"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-status"
+    }, "In development")), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-chapter-node"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-number"
+    }, "06"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-title"
+    }, "Restoring the Signal"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-status"
+    }, "In development")), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-chapter-node"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-number"
+    }, "07"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-title"
+    }, "Shipping"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-status"
+    }, "In development")), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-chapter-node"
+    }, /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-number"
+    }, "08"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-title"
+    }, "What Changed in Me"), /*#__PURE__*/React.createElement("span", {
+      className: "jiz-btb-chapter-status"
+    }, "In development")))), /*#__PURE__*/React.createElement("button", {
+      className: "jiz-btb-back",
+      onClick: () => this.setState({
+        scene: 'orientation'
+      })
+    }, "\u2190 Back"));
+  }
+  renderChapter01() {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-scene jiz-btb-chapter-01",
+      style: {
+        opacity: this.state.scene === 'chapter-01' ? 1 : 0,
+        pointerEvents: this.state.scene === 'chapter-01' ? 'auto' : 'none'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-chapter-bg"
+    }), /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-chapter-content"
+    }, /*#__PURE__*/React.createElement("h2", null, "CHAPTER 01"), /*#__PURE__*/React.createElement("h3", null, "THE QUESTION"), /*#__PURE__*/React.createElement("p", {
+      className: "jiz-btb-chapter-intro"
+    }, "What happens when a portfolio stops being a collection of projects and becomes a product?"), /*#__PURE__*/React.createElement("p", {
+      className: "jiz-btb-placeholder"
+    }, "[Chapter 01 content coming next]")), /*#__PURE__*/React.createElement("button", {
+      className: "jiz-btb-back",
+      onClick: () => this.setState({
+        scene: 'map'
+      })
+    }, "\u2190 Back to Map"));
+  }
+  render() {
+    const {
+      scene
+    } = this.state;
+    let content;
+    switch (scene) {
+      case 'welcome':
+        content = this.renderWelcome();
+        break;
+      case 'orientation':
+        content = this.renderOrientation();
+        break;
+      case 'map':
+        content = this.renderMap();
+        break;
+      case 'chapter-01':
+        content = this.renderChapter01();
+        break;
+      default:
+        content = this.renderArrival();
+    }
+    return /*#__PURE__*/React.createElement("div", {
+      className: "jiz-btb-container"
+    }, content);
+  }
+}
+Object.assign(window, {
+  BehindTheBuildEntrance
+});
+})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio-website/BehindTheBuildEntrance.jsx", error: String((e && e.message) || e) }); }
+
+// ui_kits/portfolio-website/CaseStudy-BehindTheBuild.jsx
+try { (() => {
+function CaseStudyBehindTheBuild({
+  onBack,
+  onOpenProject
+}) {
+  const [expandedTicket, setExpandedTicket] = React.useState(null);
+  const [expandedExample, setExpandedExample] = React.useState(null);
+  const [expandedPhase, setExpandedPhase] = React.useState(null);
+  const [scrollProgress, setScrollProgress] = React.useState(0);
+  const contentRef = React.useRef(null);
+  const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false;
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (!contentRef.current) return;
+      const element = contentRef.current;
+      const scrollTop = window.scrollY;
+      const elementTop = element.offsetTop;
+      const elementHeight = element.offsetHeight;
+      const windowHeight = window.innerHeight;
+      const elementScroll = Math.max(0, scrollTop - elementTop + windowHeight);
+      const progress = Math.min(100, Math.max(0, elementScroll / (elementHeight + windowHeight) * 100));
+      setScrollProgress(progress);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  const toggleTicket = id => setExpandedTicket(expandedTicket === id ? null : id);
+  const toggleExample = id => setExpandedExample(expandedExample === id ? null : id);
+  const togglePhase = id => setExpandedPhase(expandedPhase === id ? null : id);
+  const styles = `
+    .jiz-btb-cover {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      padding: var(--space-6) var(--space-5);
+      background: linear-gradient(135deg, #0b0d10 0%, #1a1f2e 100%);
+      border-bottom: 1px solid rgba(120, 200, 180, 0.1);
+    }
+    .jiz-btb-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: var(--color-accent-secondary);
+      text-transform: uppercase;
+      margin-bottom: var(--space-4);
+    }
+    .jiz-btb-headline {
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--color-text-primary);
+      margin: 0 0 var(--space-3) 0;
+      max-width: 90%;
+    }
+    .jiz-btb-subheadline {
+      font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.7);
+      margin: 0 0 var(--space-4) 0;
+      max-width: 85%;
+      line-height: 1.4;
+    }
+    .jiz-btb-supporting {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 0 var(--space-6) 0;
+      max-width: 80%;
+      line-height: 1.6;
+    }
+    .jiz-btb-status {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      background: rgba(120, 200, 180, 0.08);
+      border: 1px solid rgba(120, 200, 180, 0.2);
+      border-radius: var(--radius-sm);
+      font-size: 0.8rem;
+      color: var(--color-accent-secondary);
+      font-weight: 500;
+      margin-bottom: var(--space-8);
+    }
+    .jiz-btb-status-dot {
+      width: 6px;
+      height: 6px;
+      background: var(--color-accent-secondary);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+      opacity: 0.8;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 1; }
+    }
+    .jiz-btb-section {
+      padding: var(--space-8) var(--space-5);
+      border-bottom: 1px solid rgba(120, 200, 180, 0.1);
+    }
+    .jiz-btb-section-title {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin: 0 0 var(--space-4) 0;
+      color: var(--color-text-primary);
+    }
+    .jiz-btb-section-subtitle {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 0 0 var(--space-5) 0;
+      line-height: 1.6;
+    }
+    .jiz-btb-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-4);
+    }
+    .jiz-btb-card {
+      padding: var(--space-4);
+      background: rgba(120, 200, 180, 0.04);
+      border: 1px solid rgba(120, 200, 180, 0.15);
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+    .jiz-btb-card:hover {
+      background: rgba(120, 200, 180, 0.08);
+      border-color: rgba(120, 200, 180, 0.3);
+    }
+    .jiz-btb-card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-2);
+    }
+    .jiz-btb-card-text {
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .jiz-btb-example {
+      margin-bottom: var(--space-3);
+      border: 1px solid rgba(120, 200, 180, 0.15);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .jiz-btb-example-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: var(--space-3) var(--space-4);
+      background: rgba(120, 200, 180, 0.04);
+      cursor: pointer;
+      font-weight: 500;
+      color: var(--color-text-primary);
+      transition: background 0.2s ease;
+    }
+    .jiz-btb-example-header:hover {
+      background: rgba(120, 200, 180, 0.08);
+    }
+    .jiz-btb-example-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+    .jiz-btb-example-content.expanded {
+      max-height: 500px;
+    }
+    .jiz-btb-example-text {
+      padding: 0;
+      margin: var(--space-2) 0;
+      font-size: 0.95rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.6;
+    }
+    .jiz-btb-example-content .jiz-btb-example-text:first-child {
+      padding-top: var(--space-4);
+      padding-left: var(--space-4);
+      padding-right: var(--space-4);
+    }
+    .jiz-btb-example-content .jiz-btb-example-text:last-child {
+      padding-bottom: var(--space-4);
+      padding-left: var(--space-4);
+      padding-right: var(--space-4);
+    }
+    @media (max-width: 768px) {
+      .jiz-btb-cover {
+        padding: var(--space-5) var(--space-3);
+      }
+      .jiz-btb-section {
+        padding: var(--space-6) var(--space-3);
+      }
+      .jiz-btb-headline {
+        max-width: 100%;
+      }
+      .jiz-btb-subheadline {
+        max-width: 100%;
+      }
+      .jiz-btb-supporting {
+        max-width: 100%;
+      }
+    }
+  `;
+  return React.createElement('div', {
+    ref: contentRef,
+    style: {
+      width: '100%',
+      color: 'var(--color-text-primary)',
+      background: 'var(--color-bg-primary)'
+    }
+  }, React.createElement('style', null, styles), React.createElement('div', {
+    style: {
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      height: 3,
+      background: 'linear-gradient(90deg, var(--color-accent-secondary), var(--color-accent-primary))',
+      width: `${scrollProgress}%`,
+      zIndex: 100,
+      transition: reduced ? 'none' : 'width 0.1s ease'
+    }
+  }), React.createElement('div', {
+    className: 'jiz-btb-cover'
+  }, React.createElement('div', {
+    className: 'jiz-btb-eyebrow'
+  }, 'CASE STUDY / CREATIVE TECHNOLOGY'), React.createElement('h1', {
+    className: 'jiz-btb-headline'
+  }, 'Behind the Build'), React.createElement('p', {
+    className: 'jiz-btb-subheadline'
+  }, 'Designing, engineering, and shipping my digital portfolio'), React.createElement('p', {
+    className: 'jiz-btb-supporting'
+  }, 'A portfolio redesign became a live digital product—combining narrative strategy, AI-directed production, responsive design, deployment engineering, and production QA.'), React.createElement('div', {
+    className: 'jiz-btb-status'
+  }, React.createElement('div', {
+    className: 'jiz-btb-status-dot'
+  }), React.createElement('span', null, 'PRODUCTION / LIVE'))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Executive Summary'), React.createElement('p', {
+    className: 'jiz-btb-section-subtitle'
+  }, 'I set out to redesign my portfolio but discovered the real work was building a complete digital product. The final experience required experience strategy, narrative architecture, a responsive front-end, AI-orchestrated production, version control, automated deployment, domain migration, and meticulous QA. The project demonstrated that a portfolio platform—not just a visual design—is the most credible evidence of how I think and what I can deliver.')), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Project Snapshot'), React.createElement('div', {
+    className: 'jiz-btb-grid'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Organization'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Independent Personal Brand Project')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Role'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Experience Designer, Creative Strategist, and AI-Directed Producer')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Audience'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Recruiters, hiring managers, creative leaders, and collaborators')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Technology'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'HTML, CSS, JSX, React, Babel, GitHub, Vercel, custom DNS')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'The Challenge'), React.createElement('div', {
+    className: 'jiz-btb-grid'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Communication'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'A conventional portfolio could display outputs but not reveal the quality of thinking behind them.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Experience'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'The site needed to feel differentiated, memorable, interactive, and credible to senior hiring audiences.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Production'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'The experience had to work outside a design environment as a real deployed product across desktop and mobile.')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'The Opportunity'), React.createElement('p', {
+    className: 'jiz-btb-section-subtitle'
+  }, 'The portfolio itself became evidence of the work.'), React.createElement('p', {
+    style: {
+      fontSize: '1rem',
+      color: 'rgba(255,255,255,0.65)',
+      lineHeight: '1.6',
+      maxWidth: '800px'
+    }
+  }, 'The project became an opportunity to demonstrate systems thinking, learning-experience strategy, product judgment, creative direction, AI orchestration, front-end production, deployment literacy, and iterative QA. Every decision—from narrative architecture to mobile optimization to production debugging—would be visible in the final product.')), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Human-Directed AI Workflow'), React.createElement('p', {
+    className: 'jiz-btb-section-subtitle'
+  }, 'AI accelerated production. It did not own the decisions.'), React.createElement('div', {
+    style: {
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+      gap: 'var(--space-4)',
+      marginBottom: 'var(--space-5)'
+    }
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Human Direction'), React.createElement('p', {
+    className: 'jiz-btb-card-text',
+    style: {
+      fontSize: '0.85rem'
+    }
+  }, 'Strategic framing, visual judgment, evidence standards, content ownership, final approval')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'AI Contribution'), React.createElement('p', {
+    className: 'jiz-btb-card-text',
+    style: {
+      fontSize: '0.85rem'
+    }
+  }, 'Ideation, critique, draft generation, code support, troubleshooting, iteration acceleration')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, 'Human Validation'), React.createElement('p', {
+    className: 'jiz-btb-card-text',
+    style: {
+      fontSize: '0.85rem'
+    }
+  }, 'Factual review, brand consistency, accessibility, responsive QA, deployment testing, final accountability'))), React.createElement('h3', {
+    style: {
+      fontSize: '1.1rem',
+      fontWeight: '600',
+      color: 'var(--color-text-primary)',
+      marginBottom: 'var(--space-4)'
+    }
+  }, 'Documented Examples'), React.createElement('div', {
+    className: 'jiz-btb-example',
+    onClick: () => toggleExample('ex1')
+  }, React.createElement('div', {
+    className: 'jiz-btb-example-header'
+  }, React.createElement('span', null, 'Example 1: Missing Production Media'), React.createElement('span', {
+    style: {
+      color: 'rgba(255,255,255,0.5)',
+      fontSize: '0.9rem'
+    }
+  }, expandedExample === 'ex1' ? '−' : '+')), React.createElement('div', {
+    className: `jiz-btb-example-content ${expandedExample === 'ex1' ? 'expanded' : ''}`
+  }, React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Problem: '), 'Logo, hero video, and case-study imagery were missing from the production site.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Diagnosis: '), 'Asset references were written for the original nested project structure, not the deployment environment.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Decision: '), 'Rebased all paths for the production repository and validated local requests.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Result: '), 'Logo, video, and imagery restored across all pages.'))), React.createElement('div', {
+    className: 'jiz-btb-example',
+    onClick: () => toggleExample('ex2')
+  }, React.createElement('div', {
+    className: 'jiz-btb-example-header'
+  }, React.createElement('span', null, 'Example 2: Visual System Regression'), React.createElement('span', {
+    style: {
+      color: 'rgba(255,255,255,0.5)',
+      fontSize: '0.9rem'
+    }
+  }, expandedExample === 'ex2' ? '−' : '+')), React.createElement('div', {
+    className: `jiz-btb-example-content ${expandedExample === 'ex2' ? 'expanded' : ''}`
+  }, React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Problem: '), 'After updating asset paths, the site rendered with black text on a dark background and missing typography styles.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Diagnosis: '), 'The CSS bundle was overwritten with an incomplete version during the deployment update.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Decision: '), 'Restored the correct _ds_bundle.js and styles.css from the design-system source.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Result: '), 'Full visual system, typography, and component styling restored.'))), React.createElement('div', {
+    className: 'jiz-btb-example',
+    onClick: () => toggleExample('ex3')
+  }, React.createElement('div', {
+    className: 'jiz-btb-example-header'
+  }, React.createElement('span', null, 'Example 3: Mobile Hero Layout'), React.createElement('span', {
+    style: {
+      color: 'rgba(255,255,255,0.5)',
+      fontSize: '0.9rem'
+    }
+  }, expandedExample === 'ex3' ? '−' : '+')), React.createElement('div', {
+    className: `jiz-btb-example-content ${expandedExample === 'ex3' ? 'expanded' : ''}`
+  }, React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Problem: '), 'On mobile, the hero portrait overlapped the CTA, and the headline sat much higher than the supporting copy.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Diagnosis: '), 'No responsive breakpoints existed for screens ≤768px; the desktop layout was uncontrolled on small screens.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Decision: '), 'Added @media breakpoints to reduce hero height, scale portrait down, reposition CTA, and tighten spacing.'), React.createElement('p', {
+    className: 'jiz-btb-example-text'
+  }, React.createElement('strong', null, 'Result: '), 'Hero section now appears above the fold on all devices; portrait no longer occludes the value proposition.')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Key Decisions'), React.createElement('div', {
+    className: 'jiz-btb-grid'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '1. Narrative Architecture'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Structure every section as a chapter in the same story—from hero, About, Work, to Contact—so the reader experiences clarity as a continuous journey.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '2. Environmental Integration'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Use consistent lighting, gradients, spacing rhythm, and visual hierarchy so transitions feel natural—not like entering a different website.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '3. Responsive-First Typography'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Use CSS clamp() to scale headlines and body text fluidly from mobile to desktop—no hard breakpoint jumps.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '4. Production as Evidence'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Deploy the portfolio as a real product—not a static design artifact—so visitors experience deployment quality and attention to detail.')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Deployment & QA'), React.createElement('div', {
+    className: 'jiz-btb-grid'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '1. Asset Path Audit'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Verify every image, video, icon, and font loads from the correct path in the deployment environment.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '2. Navigation & Routing'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Test browser back/forward, hash routing, direct page access, and internal link navigation.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '3. Responsive QA'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Validate layout, typography, touch targets, and media at 1440px, 1024px, 768px, and 390px.')), React.createElement('div', {
+    className: 'jiz-btb-card'
+  }, React.createElement('div', {
+    className: 'jiz-btb-card-title'
+  }, '4. Console & Network'), React.createElement('p', {
+    className: 'jiz-btb-card-text'
+  }, 'Zero 404s on assets, zero uncaught errors, zero failed CSS/JS requests, no mixed-content warnings.')))), React.createElement('div', {
+    className: 'jiz-btb-section'
+  }, React.createElement('h2', {
+    className: 'jiz-btb-section-title'
+  }, 'Outcome'), React.createElement('p', {
+    className: 'jiz-btb-section-subtitle'
+  }, 'A portfolio that demonstrates production literacy, creative thinking, and human-directed AI collaboration.'), React.createElement('p', {
+    style: {
+      fontSize: '1rem',
+      color: 'rgba(255,255,255,0.65)',
+      lineHeight: '1.6',
+      maxWidth: '800px'
+    }
+  }, 'The final site serves as evidence that I can design strategically, implement responsively, debug methodically, and ship with confidence. It is not a design gallery—it is a working digital product that every hiring leader, collaborator, and visitor can interact with and learn from.')), React.createElement('div', {
+    style: {
+      padding: 'var(--space-8) var(--space-5)',
+      borderTop: '1px solid rgba(120,200,180,0.1)',
+      textAlign: 'center'
+    }
+  }, React.createElement('h2', {
+    style: {
+      fontSize: '1.5rem',
+      fontWeight: '600',
+      color: 'var(--color-text-primary)',
+      margin: '0 0 var(--space-3) 0'
+    }
+  }, 'Next Project'), React.createElement('button', {
+    onClick: () => onOpenProject('Operation: Legacy Unlocked'),
+    style: {
+      padding: 'var(--space-3) var(--space-4)',
+      background: 'var(--color-accent-secondary)',
+      color: 'var(--color-bg-primary)',
+      border: 'none',
+      borderRadius: 'var(--radius-sm)',
+      fontSize: '1rem',
+      fontWeight: '600',
+      cursor: 'pointer',
+      transition: 'background 0.2s ease'
+    }
+  }, 'Explore Operation: Legacy Unlocked')));
+}
+if (typeof window !== 'undefined') {
+  window.CaseStudyBehindTheBuildExports = {
+    CaseStudyBehindTheBuild
+  };
+}
+})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio-website/CaseStudy-BehindTheBuild.jsx", error: String((e && e.message) || e) }); }
 
 // ui_kits/portfolio-website/CaseStudy-GuestCRM.jsx
 try { (() => {
@@ -13660,6 +10170,7 @@ window.CaseStudyShellExports = {
 
 // ui_kits/portfolio-website/Homepage.jsx
 try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 function Section({
   children,
   style
@@ -13814,6 +10325,38 @@ function TrainStoryVideo() {
     onClose: () => setOpen(false)
   }));
 }
+function scrollToY(top) {
+  const max = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+  const target = Math.max(0, Math.min(top, max));
+  if (prefersReduced()) {
+    window.scrollTo(0, target);
+    return;
+  }
+  const start = window.scrollY;
+  const delta = target - start;
+  if (Math.abs(delta) < 2) {
+    window.scrollTo(0, target);
+    return;
+  }
+  const duration = Math.min(700, Math.max(320, Math.abs(delta) * 0.35));
+  const t0 = performance.now();
+  if (window.__jizScrollRaf) cancelAnimationFrame(window.__jizScrollRaf);
+  const step = now => {
+    const p = Math.min(1, (now - t0) / duration);
+    const eased = 1 - Math.pow(1 - p, 3);
+    window.scrollTo(0, start + delta * eased);
+    if (p < 1) {
+      window.__jizScrollRaf = requestAnimationFrame(step);
+    } else {
+      window.__jizScrollRaf = null;
+    }
+  };
+  window.__jizScrollRaf = requestAnimationFrame(step);
+}
+function scrollToElement(el, offset) {
+  if (!el) return;
+  scrollToY(el.getBoundingClientRect().top + window.scrollY - (offset || 0));
+}
 function ChromaKeyVideo({
   src,
   className,
@@ -13829,19 +10372,27 @@ function ChromaKeyVideo({
       willReadFrequently: true
     });
     let raf,
-      isVisible = true;
+      isVisible = true,
+      last = 0;
+    const MAX_W = 640,
+      FRAME_MS = 1000 / 30;
     const io = new IntersectionObserver(entries => {
       isVisible = entries[0].isIntersecting;
     }, {
       threshold: 0.01
     });
     io.observe(canvas);
-    const draw = () => {
+    const draw = now => {
       raf = requestAnimationFrame(draw);
       if (!isVisible || video.paused || video.ended || !video.videoWidth) return;
-      if (canvas.width !== video.videoWidth) {
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
+      if (now - last < FRAME_MS) return;
+      last = now;
+      const scale = Math.min(1, MAX_W / video.videoWidth);
+      const w = Math.round(video.videoWidth * scale),
+        h = Math.round(video.videoHeight * scale);
+      if (canvas.width !== w) {
+        canvas.width = w;
+        canvas.height = h;
       }
       ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
       const frame = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -14023,6 +10574,69 @@ function PersistentEnvironment() {
   const limeOpacity = 0.05 + prog * 0.16;
   return null;
 }
+function LearningPathways() {
+  return /*#__PURE__*/React.createElement("svg", {
+    className: "hero-pathways",
+    viewBox: "0 0 1200 800",
+    preserveAspectRatio: "xMidYMid slice",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("defs", null, /*#__PURE__*/React.createElement("linearGradient", {
+    id: "jz-path-a",
+    x1: "0",
+    y1: "1",
+    x2: "1",
+    y2: "0"
+  }, /*#__PURE__*/React.createElement("stop", {
+    offset: "0%",
+    stopColor: "rgba(198,242,58,0)"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: "45%",
+    stopColor: "rgba(198,242,58,0.42)"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: "100%",
+    stopColor: "rgba(115,224,255,0.18)"
+  })), /*#__PURE__*/React.createElement("linearGradient", {
+    id: "jz-path-b",
+    x1: "0",
+    y1: "0",
+    x2: "1",
+    y2: "1"
+  }, /*#__PURE__*/React.createElement("stop", {
+    offset: "0%",
+    stopColor: "rgba(115,224,255,0)"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: "50%",
+    stopColor: "rgba(115,224,255,0.3)"
+  }), /*#__PURE__*/React.createElement("stop", {
+    offset: "100%",
+    stopColor: "rgba(198,242,58,0.14)"
+  }))), /*#__PURE__*/React.createElement("g", {
+    fill: "none",
+    strokeWidth: "1.1"
+  }, /*#__PURE__*/React.createElement("path", {
+    className: "hero-path hero-path--1",
+    stroke: "url(#jz-path-a)",
+    d: "M-40 610 C 240 610, 300 420, 520 420 S 760 300, 1240 250"
+  }), /*#__PURE__*/React.createElement("path", {
+    className: "hero-path hero-path--2",
+    stroke: "url(#jz-path-b)",
+    d: "M-40 720 C 280 720, 360 560, 600 540 S 880 520, 1240 400"
+  }), /*#__PURE__*/React.createElement("path", {
+    className: "hero-path hero-path--3",
+    stroke: "url(#jz-path-a)",
+    d: "M-40 480 C 200 470, 320 300, 560 268 S 900 210, 1240 120"
+  })), /*#__PURE__*/React.createElement("g", {
+    className: "hero-nodes"
+  }, [[900, 330], [1010, 214]].map((p, i) => /*#__PURE__*/React.createElement("circle", {
+    key: i,
+    cx: p[0],
+    cy: p[1],
+    r: "3",
+    style: {
+      animationDelay: i * 2.4 + 's'
+    }
+  }))));
+}
 function Hero({
   onExploreWork,
   onConnect
@@ -14031,6 +10645,7 @@ function Hero({
     Button,
     StatusPill
   } = window.JIZPortfolioSite_b3ba38;
+  const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
   const [glassesFlash, setGlassesFlash] = React.useState(false);
   React.useEffect(() => {
     const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -14081,43 +10696,44 @@ function Hero({
   })), /*#__PURE__*/React.createElement("div", {
     className: "hero-signal-field"
   }), /*#__PURE__*/React.createElement("div", {
+    className: "hero-mesh"
+  }), /*#__PURE__*/React.createElement(LearningPathways, null), /*#__PURE__*/React.createElement("div", {
     className: "hero-ambient-glow hero-ambient-glow--blue"
   }), /*#__PURE__*/React.createElement("div", {
     className: "hero-ambient-glow hero-ambient-glow--chartreuse"
   })), /*#__PURE__*/React.createElement("div", {
     className: "hero-content"
   }, /*#__PURE__*/React.createElement("div", {
+    className: "hero-text-scrim",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("div", {
     className: "hero-copy"
-  }, /*#__PURE__*/React.createElement(Eyebrow, null, "Strategist. Designer. Systems thinker."), /*#__PURE__*/React.createElement("h1", {
-    className: "hero-title"
-  }, "Learning, ", /*#__PURE__*/React.createElement("span", {
+  }, /*#__PURE__*/React.createElement("h1", {
+    className: "hero-title hero-fade hero-fade--2"
+  }, "Learning Experience Designer", /*#__PURE__*/React.createElement("br", null), "for ", /*#__PURE__*/React.createElement("span", {
     style: {
       color: 'var(--color-accent-primary)'
     }
-  }, "directed.")), /*#__PURE__*/React.createElement("p", {
-    className: "hero-description"
-  }, "I turn complexity into experiences people understand."), /*#__PURE__*/React.createElement("p", {
-    className: "hero-manifesto"
-  }, "Understanding is the product."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 16,
-      alignItems: 'flex-start',
-      marginTop: 44,
-      marginBottom: 18
-    }
+  }, "Enterprise Transformation")), /*#__PURE__*/React.createElement("p", {
+    className: "hero-lead hero-fade hero-fade--3"
+  }, "I turn complex technology, leadership, and business change into learning experiences people can understand, adopt, and act on."), /*#__PURE__*/React.createElement("p", {
+    className: "hero-support hero-fade hero-fade--4"
+  }, "Senior LXD ", /*#__PURE__*/React.createElement("span", {
+    className: "hero-dot"
+  }, "\u2022"), " Product Enablement ", /*#__PURE__*/React.createElement("span", {
+    className: "hero-dot"
+  }, "\u2022"), " Leadership Development ", /*#__PURE__*/React.createElement("span", {
+    className: "hero-dot"
+  }, "\u2022"), " AI-Enabled Learning"), /*#__PURE__*/React.createElement("div", {
+    className: "hero-actions hero-fade hero-fade--5"
   }, /*#__PURE__*/React.createElement(Button, {
     variant: "primary",
-    onClick: onExploreWork,
-    style: {
-      padding: '15px 28px',
-      fontSize: '1rem'
-    }
-  }, "Explore featured work"), /*#__PURE__*/React.createElement(StatusPill, {
-    label: "Open to select opportunities",
-    onClick: onConnect
-  })))), /*#__PURE__*/React.createElement("div", {
+    onClick: onExploreWork
+  }, "View Case Studies"), /*#__PURE__*/React.createElement(Button, {
+    variant: "secondary",
+    icon: false,
+    onClick: () => window.open(RESUME_URL, '_blank', 'noopener')
+  }, "Download Resume")))), /*#__PURE__*/React.createElement("div", {
     className: "hero-portrait-stage"
   }, /*#__PURE__*/React.createElement(ChromaKeyVideo, {
     src: "./assets/video/hero-portrait-green.mp4?v=4",
@@ -14161,175 +10777,659 @@ function Hero({
 .hero{position:relative;isolation:isolate;overflow:hidden;width:100%;min-height:calc(100svh - 96px);background:radial-gradient(ellipse at 74% 42%,rgba(22,113,163,.16) 0%,rgba(20,74,91,.09) 30%,transparent 64%),radial-gradient(ellipse at 40% 54%,rgba(180,226,63,.055) 0%,transparent 52%)}
 .hero-environment{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:transparent}
 .hero-base-gradient{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,11,.96) 0%,rgba(10,18,15,.9) 42%,rgba(13,30,28,.84) 72%,rgba(8,18,17,.92) 100%)}
-.hero-signal-field{position:absolute;inset:-8%;opacity:.42;background-image:radial-gradient(circle at 18% 48%,rgba(115,224,255,.09) 0 1px,transparent 2px),radial-gradient(circle at 42% 64%,rgba(197,255,45,.06) 0 1px,transparent 2px),radial-gradient(circle at 78% 38%,rgba(115,224,255,.1) 0 1px,transparent 2px);background-size:160px 140px,220px 180px,190px 170px}
+.hero-signal-field{position:absolute;inset:-8%;opacity:.2;background-image:radial-gradient(circle at 18% 48%,rgba(115,224,255,.09) 0 1px,transparent 2px),radial-gradient(circle at 42% 64%,rgba(197,255,45,.06) 0 1px,transparent 2px),radial-gradient(circle at 78% 38%,rgba(115,224,255,.1) 0 1px,transparent 2px);background-size:160px 140px,220px 180px,190px 170px}
 .hero-ambient-glow{position:absolute;pointer-events:none;border-radius:50%;filter:blur(90px)}
 .hero-ambient-glow--blue{width:min(72vw,1200px);height:min(72vw,1200px);right:-18vw;top:-16%;background:radial-gradient(circle,rgba(29,132,196,.2) 0%,rgba(24,91,126,.1) 38%,transparent 72%)}
 .hero-ambient-glow--chartreuse{width:min(46vw,760px);height:min(38vw,640px);left:12%;bottom:-26%;background:radial-gradient(circle,rgba(197,255,45,.028) 0%,transparent 68%)}
 .hero-content{position:relative;z-index:5;display:grid;align-items:center;width:min(1440px,calc(100% - 2*clamp(28px,6vw,112px)));min-height:calc(100svh - 96px);margin-inline:auto;padding-block:clamp(64px,7vw,104px)}
-.hero-copy{width:min(38vw,560px);margin-left:clamp(0px,1vw,20px)}
-.hero-eyebrow{margin-bottom:26px}
-.hero-title{font:var(--text-display);font-size:clamp(3.4rem,2.2rem + 4.2vw,6.6rem);line-height:.92;color:var(--color-text-primary);margin:0 0 40px}
-.hero-description{font:var(--text-body-lg);font-size:clamp(1.5rem,1.3rem + .5vw,2rem);line-height:1.42;color:var(--color-text-secondary);max-width:480px;margin:0 0 30px}
-.hero-manifesto{font:var(--text-body);font-size:1.5rem;font-weight:300;font-style:italic;color:rgba(247,248,250,0.85);max-width:440px;margin:0;border-left:2px solid rgba(255,255,255,0.25);padding-left:16px}
+.hero-copy{position:relative;z-index:2;width:min(44vw,640px);margin-left:clamp(0px,1vw,20px)}
+.hero-text-scrim{position:absolute;z-index:1;left:-8vw;top:0;bottom:0;width:min(78vw,1020px);pointer-events:none;background:linear-gradient(90deg,rgba(6,10,9,.82) 0%,rgba(6,10,9,.7) 42%,rgba(6,10,9,.32) 72%,transparent 100%)}
+.hero-eyebrow{margin-bottom:22px}
+.hero-title{font:var(--text-display);font-size:clamp(2.3rem,1.5rem + 2.3vw,4.05rem);line-height:1.06;letter-spacing:-.015em;text-wrap:balance;color:var(--color-text-primary);margin:0 0 34px}
+.hero-lead{font:var(--text-body-lg);font-size:clamp(1.125rem,1rem + .45vw,1.4375rem);line-height:1.5;color:var(--color-text-primary);max-width:560px;margin:0 0 32px;text-wrap:pretty}
+.hero-support{font:var(--text-body);font-size:clamp(.8125rem,.8rem + .15vw,.9375rem);line-height:1.6;letter-spacing:.055em;text-transform:uppercase;color:var(--color-text-secondary);max-width:620px;margin:0;text-wrap:pretty}
+.hero-dot{color:var(--color-accent-primary);opacity:.6;padding:0 6px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:44px}
+.hero-mesh{position:absolute;inset:-10%;background:radial-gradient(ellipse 42% 38% at 22% 30%,rgba(29,132,196,.09) 0%,transparent 62%),radial-gradient(ellipse 36% 34% at 62% 74%,rgba(198,242,58,.04) 0%,transparent 64%),radial-gradient(ellipse 48% 40% at 84% 22%,rgba(115,224,255,.055) 0%,transparent 66%);filter:blur(36px);opacity:.7;animation:hero-mesh-drift 68s ease-in-out infinite alternate}
+@keyframes hero-mesh-drift{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-1%,.7%,0) scale(1.02)}100%{transform:translate3d(.8%,-.6%,0) scale(1.01)}}
+.hero-pathways{position:absolute;inset:0;width:100%;height:100%;opacity:.4}
+.hero-path{stroke-dasharray:26 320;stroke-dashoffset:0;animation:hero-path-flow 48s linear infinite}
+.hero-path--2{animation-duration:62s;animation-delay:-14s;opacity:.7}
+.hero-path--3{animation-duration:76s;animation-delay:-28s;opacity:.45}
+@keyframes hero-path-flow{to{stroke-dashoffset:-1384}}
+.hero-nodes circle{fill:rgba(198,242,58,.4);animation:hero-node-pulse 14s ease-in-out infinite}
+@keyframes hero-node-pulse{0%,100%{opacity:.14;r:2.2}50%{opacity:.42;r:3}}
+.hero-fade{opacity:0;animation:hero-fade-in 1s cubic-bezier(.22,.61,.36,1) forwards}
+.hero-fade--1{animation-delay:.05s}.hero-fade--2{animation-delay:.2s}.hero-fade--3{animation-delay:.38s}.hero-fade--4{animation-delay:.54s}.hero-fade--5{animation-delay:.7s}.hero-fade--6{animation-delay:.86s}
+@keyframes hero-fade-in{from{opacity:0;transform:translate3d(0,14px,0)}to{opacity:1;transform:none}}
 .hero-portrait-stage{position:absolute;inset:0;z-index:3;overflow:visible;pointer-events:none;background:transparent;border:0;box-shadow:none}
-.hero-portrait{position:absolute;z-index:2;right:clamp(50px,7vw,140px);bottom:-7%;width:clamp(520px,44vw,840px);height:114%;max-width:none;max-height:114%;object-fit:contain;object-position:right bottom;transform:translate3d(0,0,0);transform-origin:right bottom;pointer-events:auto;cursor:pointer;opacity:.92;filter:drop-shadow(-30px 6px 52px rgba(27,128,194,.2)) drop-shadow(-10px 0 30px rgba(49,165,223,.12));-webkit-mask-image:linear-gradient(to bottom,#000 46%,rgba(0,0,0,.85) 66%,transparent 96%),linear-gradient(to right,transparent 0%,#000 26%),linear-gradient(to left,transparent 0%,#000 14%),linear-gradient(to top,transparent 0%,#000 8%);-webkit-mask-composite:source-in,source-in,source-in;mask-image:linear-gradient(to bottom,#000 46%,rgba(0,0,0,.85) 66%,transparent 96%),linear-gradient(to right,transparent 0%,#000 26%),linear-gradient(to left,transparent 0%,#000 14%),linear-gradient(to top,transparent 0%,#000 8%);mask-composite:intersect}
+.hero-portrait{position:absolute;z-index:2;right:clamp(8px,2vw,64px);bottom:-7%;width:clamp(400px,33vw,640px);height:114%;max-width:none;max-height:114%;object-fit:contain;object-position:right bottom;transform:translate3d(0,0,0);transform-origin:right bottom;pointer-events:auto;cursor:pointer;opacity:.78;filter:drop-shadow(-30px 6px 52px rgba(27,128,194,.2)) drop-shadow(-10px 0 30px rgba(49,165,223,.12));-webkit-mask-image:linear-gradient(to bottom,#000 46%,rgba(0,0,0,.85) 66%,transparent 96%),linear-gradient(to right,transparent 0%,#000 26%),linear-gradient(to left,transparent 0%,#000 14%),linear-gradient(to top,transparent 0%,#000 8%);-webkit-mask-composite:source-in,source-in,source-in;mask-image:linear-gradient(to bottom,#000 46%,rgba(0,0,0,.85) 66%,transparent 96%),linear-gradient(to right,transparent 0%,#000 26%),linear-gradient(to left,transparent 0%,#000 14%),linear-gradient(to top,transparent 0%,#000 8%);mask-composite:intersect}
 .hero-portrait-backlight{position:absolute;right:-8vw;top:8%;width:min(68vw,1120px);height:min(72vw,1180px);border-radius:50%;background:radial-gradient(ellipse at 56% 46%,rgba(48,169,236,.23) 0%,rgba(26,111,162,.14) 26%,rgba(19,72,99,.07) 48%,transparent 74%);filter:blur(48px);opacity:.9}
 .hero-portrait-edge-glow{position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse at 74% 48%,rgba(47,166,227,.11) 0%,rgba(31,110,159,.06) 30%,transparent 62%);mix-blend-mode:screen;filter:blur(14px)}
 .hero-portrait-haze{position:absolute;z-index:4;right:-2%;bottom:-3%;width:66%;height:58%;pointer-events:none;background:radial-gradient(ellipse at 68% 58%,rgba(54,160,204,.1) 0%,rgba(26,92,109,.06) 34%,transparent 70%),linear-gradient(90deg,transparent 10%,rgba(17,78,94,.04) 48%,transparent 92%);filter:blur(20px);mix-blend-mode:screen}
 .hero-foreground-atmosphere{position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(ellipse at 70% 66%,rgba(52,154,198,.075) 0%,transparent 44%),linear-gradient(90deg,transparent 34%,rgba(18,72,83,.03) 56%,transparent 88%);mix-blend-mode:screen}
-@media(max-width:1180px){.hero-copy{width:min(52vw,620px);margin-left:clamp(24px,4vw,64px)}.hero-title{font-size:clamp(2.6rem,5vw,4rem)}.hero-portrait{right:-100px;width:clamp(520px,54vw,780px)}}
+@media(max-width:1180px){.hero-copy{width:min(50vw,520px);margin-left:clamp(24px,4vw,64px)}.hero-title{font-size:clamp(2.1rem,3.6vw,3rem)}.hero-lead{max-width:100%}.hero-support{max-width:100%}.hero-text-scrim{left:-10vw;width:min(96vw,1120px);background:linear-gradient(90deg,rgba(6,10,9,.9) 0%,rgba(6,10,9,.84) 58%,rgba(6,10,9,.5) 82%,transparent 100%)}.hero-portrait{right:-150px;width:clamp(360px,44vw,700px);opacity:.62}}
 @media(max-width:900px){.hero{min-height:auto}.hero-content{min-height:auto;padding-top:92px;padding-bottom:520px}.hero-copy{width:min(100%,620px);margin-left:0}.hero-portrait{right:50%;bottom:-8px;width:min(640px,94vw);transform:translateX(50%)}.hero-portrait-backlight{right:50%;top:auto;bottom:-12%;width:100vw;height:640px;transform:translateX(50%)}.hero-portrait-haze{right:0;width:100%}}
-@media(max-width:600px){.hero-content{padding-top:72px;padding-bottom:420px}.hero-portrait{width:min(540px,108vw)}}
-@media(prefers-reduced-motion:reduce){.hero-portrait{transform:none;transition:none}}
+@media(max-width:768px){.hero{min-height:auto}.hero-content{min-height:auto;padding-top:48px;padding-bottom:480px;grid-template-columns:1fr}.hero-copy{width:100%;margin-left:0;margin-right:0;position:relative;z-index:6}.hero-eyebrow{margin-bottom:18px}.hero-title{font-size:clamp(1.85rem,5.4vw,2.6rem);margin:0 0 22px}.hero-lead{font-size:clamp(1rem,3.4vw,1.1875rem);margin:0 0 24px;max-width:100%}.hero-support{font-size:.8125rem;max-width:100%;margin:0}.hero-actions{margin-top:32px;gap:12px}.hero-text-scrim{left:-12vw;width:130vw;background:linear-gradient(180deg,rgba(6,10,9,.86) 0%,rgba(6,10,9,.6) 70%,transparent 100%)}.hero-portrait-stage{z-index:2}.hero-portrait{position:absolute;right:50%;bottom:auto;top:480px;width:min(420px,85vw);height:auto;max-height:none;transform:translateX(50%);opacity:.9;filter:drop-shadow(-20px 4px 36px rgba(27,128,194,.18));mask-image:linear-gradient(to top,#000 0%,#000 70%,rgba(0,0,0,.8) 85%,transparent 100%),linear-gradient(to right,transparent 5%,#000 20%),linear-gradient(to left,transparent 5%,#000 15%);mask-composite:intersect}.hero-portrait-backlight{right:50%;top:480px;bottom:auto;width:120vw;height:420px;transform:translateX(50%);opacity:.5;filter:blur(40px)}.hero-portrait-haze{display:none}.hero-foreground-atmosphere{opacity:.3}}
+@media(max-width:600px){.hero-content{padding-top:40px;padding-bottom:400px}.hero-title{font-size:clamp(1.7rem,6vw,2.25rem);margin:0 0 18px}.hero-lead{font-size:1.0625rem;margin:0 0 20px}.hero-support{font-size:.75rem}.hero-actions{margin-top:26px}.hero-eyebrow{margin-bottom:14px}.hero-portrait{top:400px;width:min(340px,80vw)}.hero-portrait-backlight{top:400px;height:340px}}
+@media(prefers-reduced-motion:reduce){.hero-portrait{transform:none;transition:none}.hero-fade{opacity:1;animation:none}.hero-mesh,.hero-path,.hero-nodes circle{animation:none}}
       `));
 }
-function ProjectCard({
-  index,
-  title,
-  category,
-  description,
-  image,
-  insight,
-  stage,
-  featured,
+function ImpactMetric({
+  value,
+  suffix,
+  prefix,
+  label,
   active,
-  onActivate,
-  dimmed,
-  onOpenCaseStudy
+  delay
 }) {
-  const [hover, setHover] = React.useState(false);
-  const stages = ['Discovery', 'Strategy', 'Design', 'Production', 'Impact'];
-  const handleClick = () => {
-    if (index === 0) onOpenCaseStudy && onOpenCaseStudy();
-  };
+  const [shown, setShown] = React.useState(0);
+  React.useEffect(() => {
+    if (!active) return;
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) {
+      setShown(value);
+      return;
+    }
+    let raf = 0;
+    const start = performance.now() + delay;
+    const dur = 1400;
+    const tick = now => {
+      const t = Math.min(1, Math.max(0, (now - start) / dur));
+      const eased = 1 - Math.pow(1 - t, 3);
+      setShown(Math.round(value * eased));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [active, value, delay]);
   return /*#__PURE__*/React.createElement("div", {
-    onClick: () => {
-      onActivate();
-      if (index === 0) handleClick();
-    },
-    onMouseEnter: () => setHover(true),
-    onMouseLeave: () => setHover(false),
+    className: "jiz-impact-card",
     style: {
-      cursor: 'pointer',
-      position: 'relative',
-      minWidth: 0,
-      background: 'rgba(23,26,31,0.4)',
-      backdropFilter: 'blur(14px)',
-      border: active ? '1px solid rgba(198,242,58,0.5)' : '1px solid var(--color-border-subtle)',
-      borderRadius: 'var(--radius-lg)',
-      overflow: 'hidden',
-      transition: 'all var(--motion-standard) var(--ease-standard)',
-      transform: hover ? 'translateY(-4px)' : 'none',
-      boxShadow: active ? 'var(--shadow-elevated), 0 0 28px rgba(198,242,58,0.18)' : hover ? 'var(--shadow-elevated)' : 'var(--shadow-subtle)',
-      opacity: dimmed ? 0.55 : 1,
-      gridColumn: featured ? 'span 2' : 'span 1',
-      gridRow: featured ? 'span 2' : 'span 1'
+      transitionDelay: delay + 'ms'
     }
   }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      aspectRatio: featured ? '16/10' : '4/3',
-      position: 'relative',
-      overflow: 'hidden'
+    className: "jiz-impact-value"
+  }, shown, prefix, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-impact-suffix"
+  }, suffix)), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-impact-label"
+  }, label));
+}
+function ImpactSnapshot() {
+  const ref = React.useRef(null);
+  const [active, setActive] = React.useState(false);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setActive(true);
+      return;
     }
-  }, /*#__PURE__*/React.createElement("image-slot", {
-    id: `work-${index}`,
+    const fallback = setTimeout(() => setActive(true), 1200);
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          clearTimeout(fallback);
+          setActive(true);
+          io.disconnect();
+        }
+      });
+    }, {
+      threshold: 0.25
+    });
+    io.observe(el);
+    return () => {
+      clearTimeout(fallback);
+      io.disconnect();
+    };
+  }, []);
+  const metrics = [{
+    value: 98,
+    suffix: '%',
+    label: 'Platform adoption supported through targeted enablement'
+  }, {
+    value: 40,
+    suffix: '%',
+    label: 'Faster content delivery using AI-enabled production workflows'
+  }, {
+    value: 35,
+    suffix: '%',
+    label: 'Improvement in leadership capability outcomes contributed to through scenario-based design'
+  }, {
+    value: 50,
+    suffix: '%',
+    label: 'Increase in executive visibility supported through learning analytics dashboards'
+  }, {
+    value: 16,
+    prefix: '+',
+    suffix: ' Years',
+    label: 'Designing learning experiences across corporate, technology, and education environments'
+  }];
+  return /*#__PURE__*/React.createElement("section", {
+    className: "jiz-impact",
+    ref: ref,
+    "data-in": active ? 'true' : 'false',
+    "aria-labelledby": "jiz-impact-title"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-impact-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-impact-head"
+  }, /*#__PURE__*/React.createElement("h2", {
+    className: "jiz-impact-title",
+    id: "jiz-impact-title"
+  }, "Selected Impact"), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-impact-sub"
+  }, "Enterprise learning outcomes across platform adoption, leadership development, digital transformation, and AI-enabled production.")), /*#__PURE__*/React.createElement("div", {
+    className: "jiz-impact-grid"
+  }, metrics.map((m, i) => /*#__PURE__*/React.createElement(ImpactMetric, _extends({
+    key: m.label
+  }, m, {
+    active: active,
+    delay: 260 + i * 130
+  }))))), /*#__PURE__*/React.createElement("style", null, `
+.jiz-impact{position:relative;background:linear-gradient(165deg,#CFF74A 0%,#C6F23A 46%,#B6E62C 100%);padding-block:clamp(60px,6vw,100px)}
+.jiz-impact-inner{width:min(1440px,calc(100% - 2*clamp(24px,6vw,112px)));margin-inline:auto}
+.jiz-impact-head{max-width:760px;margin-bottom:clamp(36px,3.6vw,56px);opacity:0;transform:translate3d(0,10px,0);transition:opacity 760ms cubic-bezier(.22,.61,.36,1),transform 760ms cubic-bezier(.22,.61,.36,1)}
+.jiz-impact[data-in="true"] .jiz-impact-head{opacity:1;transform:none}
+.jiz-impact-title{font:var(--text-display);font-size:clamp(1.7rem,1.2rem + 1.3vw,2.5rem);line-height:1.1;letter-spacing:-.015em;color:#0A0F0D;margin:0 0 14px}
+.jiz-impact-sub{font:var(--text-body);font-size:clamp(.9375rem,.9rem + .2vw,1.0625rem);line-height:1.6;color:rgba(10,15,11,.74);margin:0;text-wrap:pretty}
+.jiz-impact-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(14px,1.4vw,22px)}
+.jiz-impact-card{padding:clamp(22px,1.9vw,30px);background:#0C1210;border:1px solid rgba(255,255,255,.07);border-radius:clamp(14px,1.2vw,20px);box-shadow:0 14px 34px -18px rgba(6,14,4,.55);opacity:0;transform:translate3d(0,18px,0);transition:opacity 720ms cubic-bezier(.22,.61,.36,1),transform 720ms cubic-bezier(.22,.61,.36,1),background 260ms ease,border-color 260ms ease,box-shadow 260ms ease}
+.jiz-impact[data-in="true"] .jiz-impact-card{opacity:1;transform:none}
+.jiz-impact-card:hover{background:#101815;border-color:rgba(255,255,255,.14);box-shadow:0 20px 44px -18px rgba(6,14,4,.62),0 0 0 1px rgba(255,255,255,.06);transform:translate3d(0,-3px,0);transition-delay:0ms}
+.jiz-impact-value{font:var(--text-display);font-size:clamp(2.1rem,1.5rem + 1.7vw,3.15rem);line-height:1;letter-spacing:-.02em;color:#FFFFFF;font-variant-numeric:tabular-nums;margin-bottom:14px}
+.jiz-impact-suffix{font-size:.52em;letter-spacing:0;margin-left:1px;color:var(--color-accent-primary)}
+.jiz-impact-label{font:var(--text-body);font-size:.9375rem;line-height:1.5;color:rgba(240,244,238,.82);margin:0;text-wrap:pretty}
+@media(max-width:1180px){.jiz-impact-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:760px){.jiz-impact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.jiz-impact-label{font-size:.875rem}}
+@media(max-width:460px){.jiz-impact-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.jiz-impact-head,.jiz-impact-card{opacity:1;transform:none;transition:none}.jiz-impact-card:hover{transform:none}}
+      `));
+}
+function WorkArt({
+  motif
+}) {
+  const common = {
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1,
+    vectorEffect: 'non-scaling-stroke'
+  };
+  return /*#__PURE__*/React.createElement("svg", {
+    className: "jiz-fw-cover-art",
+    viewBox: "0 0 480 300",
+    preserveAspectRatio: "xMidYMid slice",
+    "aria-hidden": "true",
+    focusable: "false"
+  }, motif === 'flow' && /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("g", _extends({}, common, {
+    opacity: ".55"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M-20 236C90 236 132 152 240 152S382 98 500 62"
+  })), /*#__PURE__*/React.createElement("g", _extends({}, common, {
+    opacity: ".26"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M-20 282C120 282 182 208 300 200S420 176 500 142"
+  })), /*#__PURE__*/React.createElement("g", {
+    fill: "currentColor",
+    opacity: ".7"
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: "240",
+    cy: "152",
+    r: "3.4"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "300",
+    cy: "200",
+    r: "2.6"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "118",
+    cy: "216",
+    r: "2.2"
+  }))), motif === 'ladder' && /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("g", _extends({}, common, {
+    opacity: ".4"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "72",
+    y: "196",
+    width: "86",
+    height: "74",
+    rx: "3"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "186",
+    y: "148",
+    width: "86",
+    height: "122",
+    rx: "3"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "300",
+    y: "88",
+    width: "86",
+    height: "182",
+    rx: "3"
+  })), /*#__PURE__*/React.createElement("g", _extends({}, common, {
+    opacity: ".7"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M72 186 L158 186"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M186 138 L272 138"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M300 78 L386 78"
+  })), /*#__PURE__*/React.createElement("g", {
+    fill: "currentColor",
+    opacity: ".65"
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: "343",
+    cy: "60",
+    r: "3.2"
+  }))), motif === 'dash' && /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("g", _extends({}, common, {
+    opacity: ".34"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "56",
+    y: "58",
+    width: "180",
+    height: "82",
+    rx: "4"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "256",
+    y: "58",
+    width: "168",
+    height: "38",
+    rx: "4"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "256",
+    y: "112",
+    width: "168",
+    height: "28",
+    rx: "4"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "56",
+    y: "164",
+    width: "368",
+    height: "82",
+    rx: "4"
+  })), /*#__PURE__*/React.createElement("g", _extends({}, common, {
+    opacity: ".7"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M72 226C120 226 138 190 186 186S262 196 300 178 372 184 410 172"
+  })), /*#__PURE__*/React.createElement("g", {
+    fill: "currentColor",
+    opacity: ".5"
+  }, /*#__PURE__*/React.createElement("rect", {
+    x: "70",
+    y: "72",
+    width: "46",
+    height: "4",
+    rx: "2"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "270",
+    y: "72",
+    width: "62",
+    height: "4",
+    rx: "2"
+  }))), motif === 'branch' && /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("g", _extends({}, common, {
+    opacity: ".6"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M60 150 H168"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M168 150 C210 150 210 88 252 88 H352"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M168 150 C210 150 210 212 252 212 H352"
+  })), /*#__PURE__*/React.createElement("g", _extends({}, common, {
+    opacity: ".24"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M252 88 C300 88 300 44 348 44"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M252 212 C300 212 300 256 348 256"
+  })), /*#__PURE__*/React.createElement("g", {
+    fill: "currentColor",
+    opacity: ".72"
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: "168",
+    cy: "150",
+    r: "3.6"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "252",
+    cy: "88",
+    r: "2.6"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "252",
+    cy: "212",
+    r: "2.6"
+  }))), motif === 'network' && /*#__PURE__*/React.createElement("g", null, /*#__PURE__*/React.createElement("g", _extends({}, common, {
+    opacity: ".5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M96 208 L196 118 L302 176 L400 88"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M196 118 L232 240"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M302 176 L400 88"
+  })), /*#__PURE__*/React.createElement("g", _extends({}, common, {
+    opacity: ".2"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "196",
+    cy: "118",
+    r: "44"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "302",
+    cy: "176",
+    r: "30"
+  })), /*#__PURE__*/React.createElement("g", {
+    fill: "currentColor",
+    opacity: ".72"
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: "96",
+    cy: "208",
+    r: "3"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "196",
+    cy: "118",
+    r: "3.8"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "302",
+    cy: "176",
+    r: "3"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "400",
+    cy: "88",
+    r: "3"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "232",
+    cy: "240",
+    r: "2.2"
+  }))));
+}
+function WorkCover({
+  accent,
+  index,
+  image,
+  imageAlt,
+  ratio,
+  motif,
+  eager
+}) {
+  const [broken, setBroken] = React.useState(false);
+  React.useEffect(() => {
+    setBroken(false);
+  }, [image]);
+  return /*#__PURE__*/React.createElement("div", {
+    className: "jiz-fw-cover",
+    style: {
+      '--fw-accent': accent,
+      '--fw-ratio': ratio
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-fw-cover-layer"
+  }, image && !broken ? /*#__PURE__*/React.createElement("img", {
+    className: "jiz-fw-cover-img",
     src: image,
-    shape: "rect",
-    placeholder: `Drop preview for ${title}`,
+    alt: imageAlt || '',
+    loading: eager ? 'eager' : 'lazy',
+    decoding: "async",
+    onError: () => setBroken(true)
+  }) : /*#__PURE__*/React.createElement(WorkArt, {
+    motif: motif
+  })), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-fw-cover-grid",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-fw-cover-index",
+    "aria-hidden": "true"
+  }, index), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-fw-cover-rule",
+    "aria-hidden": "true"
+  }));
+}
+function WorkCard({
+  item,
+  featured,
+  delay,
+  onOpen,
+  ratio
+}) {
+  const ref = React.useRef(null);
+  const onMove = React.useCallback(e => {
+    if (!featured) return;
+    const el = ref.current;
+    if (!el || prefersReduced()) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--fw-mx', ((e.clientX - r.left) / r.width * 2 - 1).toFixed(3));
+    el.style.setProperty('--fw-my', ((e.clientY - r.top) / r.height * 2 - 1).toFixed(3));
+  }, [featured]);
+  const onLeave = React.useCallback(() => {
+    const el = ref.current;
+    if (!el) return;
+    el.style.setProperty('--fw-mx', '0');
+    el.style.setProperty('--fw-my', '0');
+  }, []);
+  const cta = item.route ? 'View Case Study' : 'View on Archive';
+  return /*#__PURE__*/React.createElement("article", {
+    ref: ref,
+    className: 'jiz-fw-card' + (featured ? ' jiz-fw-card--featured' : ''),
     style: {
-      width: '100%',
-      height: '100%'
-    }
+      transitionDelay: delay + 'ms',
+      '--fw-accent': item.accent
+    },
+    onMouseMove: onMove,
+    onMouseLeave: onLeave
+  }, /*#__PURE__*/React.createElement(WorkCover, {
+    accent: item.accent,
+    index: item.index,
+    image: item.image,
+    imageAlt: item.imageAlt,
+    ratio: ratio,
+    motif: item.motif,
+    eager: featured
   }), /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      inset: 0,
-      background: hover ? 'linear-gradient(115deg, transparent 30%, rgba(198,242,58,0.1) 50%, transparent 70%)' : 'transparent',
-      transition: 'background var(--motion-standard) var(--ease-standard)',
-      pointerEvents: 'none'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      inset: 0,
-      boxShadow: 'inset 0 -40px 50px -20px rgba(11,13,16,0.7)',
-      pointerEvents: 'none'
-    }
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      padding: featured ? 26 : 18,
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 8
-    }
+    className: "jiz-fw-body"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "jiz-fw-kicker"
+  }, item.kicker), /*#__PURE__*/React.createElement("h3", {
+    className: "jiz-fw-title"
+  }, item.title), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-fw-preview"
+  }, item.preview), /*#__PURE__*/React.createElement("ul", {
+    className: "jiz-fw-tags"
+  }, item.tags.slice(0, 3).map(t => /*#__PURE__*/React.createElement("li", {
+    key: t,
+    className: "jiz-fw-tag"
+  }, t))), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "jiz-fw-cta",
+    onClick: () => onOpen(item),
+    "aria-label": cta + ': ' + item.title
   }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-eyebrow)',
-      fontSize: '0.6875rem',
-      color: 'var(--color-accent-secondary)',
-      textTransform: 'uppercase',
-      letterSpacing: 'var(--tracking-eyebrow)'
+    className: "jiz-fw-cta-label"
+  }, cta), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-fw-cta-arrow",
+    "aria-hidden": "true"
+  }, item.route ? '\u2192' : '\u2197'))));
+}
+function FeaturedWorkV2({
+  onOpenWork
+}) {
+  const ref = React.useRef(null);
+  const [active, setActive] = React.useState(false);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setActive(true);
+      return;
     }
-  }, category), /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-h3)',
-      fontSize: featured ? '1.5rem' : '1.125rem',
-      color: 'var(--color-text-primary)'
-    }
-  }, title), /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-caption)',
-      color: 'var(--color-text-secondary)'
-    }
-  }, description), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      gap: 6,
-      marginTop: 8,
-      flexWrap: 'wrap'
-    }
-  }, stages.map(s => /*#__PURE__*/React.createElement("span", {
-    key: s,
-    style: {
-      font: 'var(--text-hud)',
-      fontSize: '0.625rem',
-      padding: '3px 8px',
-      borderRadius: 'var(--radius-pill)',
-      border: '1px solid ' + (s === stage ? 'var(--color-accent-primary)' : 'var(--color-border-default)'),
-      color: s === stage ? 'var(--color-accent-primary)' : 'var(--color-text-muted)'
-    }
-  }, s))), active && insight && /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginTop: 10,
-      borderLeft: '2px solid var(--color-accent-primary)',
-      paddingLeft: 12,
-      animation: 'jiz-stage-in 0.4s var(--ease-out) both'
-    }
+    const fallback = setTimeout(() => setActive(true), 1200);
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          clearTimeout(fallback);
+          setActive(true);
+          io.disconnect();
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+    io.observe(el);
+    return () => {
+      clearTimeout(fallback);
+      io.disconnect();
+    };
+  }, []);
+  const items = [{
+    index: '01',
+    kicker: 'Product Enablement',
+    accent: '#C6F23A',
+    motif: 'flow',
+    title: 'Accelerating Global Product Readiness Through Hotel Technology Enablement',
+    preview: 'Scaled training, release communications, and reusable learning workflows for evolving hotel technology platforms.',
+    tags: ['Enterprise Learning', 'Technology Adoption', 'AI-Enabled Production'],
+    image: './assets/imagery/hotelkey-featured-work-cover.png',
+    imageAlt: 'HotelKey hotel technology enablement case study cover',
+    route: 'HotelKey New Hire Onboarding'
+  }, {
+    index: '02',
+    kicker: 'Leadership Development',
+    accent: '#C6F23A',
+    motif: 'ladder',
+    title: 'Designing Senior Leadership Development for Enterprise Alignment',
+    preview: 'Leadership learning for VP and SVP audiences focused on judgment, alignment, and strategic capability.',
+    tags: ['Executive Learning', 'Scenario Design', 'Enterprise Strategy'],
+    route: 'Operation: Legacy Unlocked'
+  }, {
+    index: '03',
+    kicker: 'Platform Adoption',
+    accent: '#5FC9C0',
+    motif: 'dash',
+    title: 'Driving Enterprise Adoption for Workday Learn at Cox',
+    preview: 'Launch communications and multimedia enablement supporting enterprise adoption of Workday Learn.',
+    tags: ['Change Enablement', 'Digital Learning', 'Workday Learn'],
+    route: 'Workday Learn Launch'
+  }, {
+    index: '04',
+    kicker: 'Accessible Design',
+    accent: '#5FC9C0',
+    motif: 'branch',
+    title: 'Designing Bilingual Scenario-Based eLearning for Community Impact',
+    preview: 'Interactive bilingual learning built on branching, accessibility practice, and learner-centered storytelling.',
+    tags: ['Storyline 360', 'Bilingual Learning', 'Accessibility'],
+    route: null
+  }, {
+    index: '05',
+    kicker: 'Digital Transformation',
+    accent: '#C6F23A',
+    motif: 'network',
+    title: 'Scaling Digital Learning Adoption Across an International School Community',
+    preview: 'Professional learning and adoption strategy that helped educators integrate digital tools with confidence.',
+    tags: ['Canvas LMS', 'Faculty Enablement', 'Change Management'],
+    route: null
+  }];
+  const openItem = item => {
+    if (item.route && typeof onOpenWork === 'function') onOpenWork(item.route);else window.location.href = 'https://jonathan-iker-zamarripa.webflow.io/projects';
+  };
+  const bentoSpans = ['jiz-fw-b--wide', 'jiz-fw-b--narrow', 'jiz-fw-b--narrow', 'jiz-fw-b--wide'];
+  return /*#__PURE__*/React.createElement("section", {
+    className: "jiz-fw",
+    ref: ref,
+    "data-in": active ? 'true' : 'false',
+    "aria-labelledby": "jiz-fw-title"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-fw-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-fw-head"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "jiz-fw-eyebrow"
   }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-hud)',
-      fontSize: '0.625rem',
-      color: 'var(--color-text-muted)',
-      textTransform: 'uppercase',
-      letterSpacing: 'var(--tracking-hud)'
-    }
-  }, "Director's commentary"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      fontSize: '0.9375rem',
-      color: 'var(--color-text-primary)',
-      fontStyle: 'italic',
-      marginTop: 4
-    }
-  }, insight)), /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-caption)',
-      color: 'var(--color-accent-primary)',
-      marginTop: 4
-    }
-  }, "View project \u2192")));
+    className: "jiz-fw-eyebrow-line",
+    "aria-hidden": "true"
+  }), "Selected Case Studies"), /*#__PURE__*/React.createElement("h2", {
+    className: "jiz-fw-heading",
+    id: "jiz-fw-title"
+  }, "Featured Work"), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-fw-sub"
+  }, "Curated case studies in enterprise learning, product enablement, leadership development, and digital transformation.")), /*#__PURE__*/React.createElement("div", {
+    className: "jiz-fw-bento"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-fw-b jiz-fw-b--feature"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-fw-halo",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement(WorkCard, {
+    item: items[0],
+    featured: true,
+    delay: 260,
+    onOpen: openItem
+  })), items.slice(1).map((item, i) => /*#__PURE__*/React.createElement("div", {
+    key: item.index,
+    className: 'jiz-fw-b ' + bentoSpans[i]
+  }, /*#__PURE__*/React.createElement(WorkCard, {
+    item: item,
+    delay: 620 + i * 120,
+    onOpen: openItem,
+    ratio: bentoSpans[i] === 'jiz-fw-b--wide' ? '16 / 9' : '4 / 3'
+  }))))), /*#__PURE__*/React.createElement("style", null, `
+.jiz-fw{position:relative;isolation:isolate;background:#080D0B;padding-block:clamp(76px,7.4vw,136px)}
+.jiz-fw::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 62% 44% at 26% 16%,rgba(198,242,58,.035),transparent 68%),radial-gradient(ellipse 54% 40% at 84% 78%,rgba(95,201,192,.03),transparent 70%)}
+.jiz-fw-inner{position:relative;z-index:1;width:min(1440px,calc(100% - 2*clamp(24px,6vw,112px)));margin-inline:auto}
+.jiz-fw-head{max-width:720px;margin-bottom:clamp(46px,4.6vw,78px)}
+.jiz-fw-eyebrow,.jiz-fw-heading,.jiz-fw-sub{opacity:0;transform:translate3d(0,12px,0);transition:opacity 820ms cubic-bezier(.22,.61,.36,1),transform 820ms cubic-bezier(.22,.61,.36,1)}
+.jiz-fw[data-in="true"] .jiz-fw-eyebrow,.jiz-fw[data-in="true"] .jiz-fw-heading,.jiz-fw[data-in="true"] .jiz-fw-sub{opacity:1;transform:none}
+.jiz-fw-heading{transition-delay:90ms}
+.jiz-fw-sub{transition-delay:210ms}
+.jiz-fw-eyebrow{display:flex;align-items:center;gap:14px;font:var(--text-hud);font-size:.6875rem;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-primary);margin:0 0 20px}
+.jiz-fw-eyebrow-line{display:block;width:44px;height:1px;background:linear-gradient(90deg,var(--color-accent-primary),rgba(198,242,58,.15))}
+.jiz-fw-heading{font:var(--text-display);font-size:clamp(2rem,1.35rem + 1.9vw,3.1rem);line-height:1.08;letter-spacing:-.022em;color:var(--color-text-primary);margin:0 0 18px}
+.jiz-fw-sub{font:var(--text-body);font-size:clamp(.9375rem,.9rem + .22vw,1.0625rem);line-height:1.66;color:rgba(217,221,227,.68);margin:0;max-width:62ch;text-wrap:pretty}
+.jiz-fw-bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:clamp(18px,2.2vw,36px)}
+.jiz-fw-b{position:relative;min-width:0}
+.jiz-fw-b--feature{grid-column:span 6}
+.jiz-fw-b--wide{grid-column:span 4}
+.jiz-fw-b--narrow{grid-column:span 2}
+.jiz-fw-halo{position:absolute;z-index:0;inset:-12% -4% -22%;pointer-events:none;border-radius:50%;background:radial-gradient(ellipse at 30% 50%,rgba(198,242,58,.07),transparent 62%),radial-gradient(ellipse at 78% 60%,rgba(95,201,192,.05),transparent 66%);filter:blur(46px);opacity:0;transition:opacity 1200ms cubic-bezier(.22,.61,.36,1) 320ms}
+.jiz-fw[data-in="true"] .jiz-fw-halo{opacity:1}
+.jiz-fw-card{position:relative;z-index:1;display:flex;flex-direction:column;height:100%;overflow:hidden;background:linear-gradient(180deg,#0D1412 0%,#0A100E 100%);border:1px solid rgba(255,255,255,.05);border-radius:clamp(16px,1.5vw,26px);box-shadow:0 18px 40px -28px rgba(0,0,0,.8);opacity:0;transform:translate3d(0,26px,0);transition:opacity 820ms cubic-bezier(.22,.61,.36,1),transform 820ms cubic-bezier(.22,.61,.36,1),border-color 320ms ease,box-shadow 320ms ease}
+.jiz-fw-card--featured{transition-duration:1080ms,1080ms,320ms,320ms;transform:translate3d(0,34px,0)}
+.jiz-fw[data-in="true"] .jiz-fw-card{opacity:1;transform:none}
+.jiz-fw-card::after{content:'';position:absolute;z-index:4;left:0;right:0;top:0;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,var(--fw-accent),transparent);opacity:0;transform:scaleX(.35);transform-origin:left center;transition:opacity 420ms ease,transform 620ms cubic-bezier(.22,.61,.36,1)}
+.jiz-fw-card:hover,.jiz-fw-card:focus-within{border-color:rgba(198,242,58,.24);box-shadow:0 34px 66px -32px rgba(0,0,0,.9),0 0 0 1px rgba(198,242,58,.08);transform:translate3d(0,-6px,0);transition-delay:0ms}
+.jiz-fw-card:hover::after,.jiz-fw-card:focus-within::after{opacity:.9;transform:scaleX(1)}
+.jiz-fw-card--featured:hover,.jiz-fw-card--featured:focus-within{box-shadow:0 44px 90px -38px rgba(0,0,0,.95),0 0 0 1px rgba(198,242,58,.14),0 0 64px -18px rgba(198,242,58,.16)}
+.jiz-fw-card--featured{display:grid;grid-template-columns:minmax(0,46fr) minmax(0,54fr);align-items:stretch}
+.jiz-fw-cover{position:relative;overflow:hidden;aspect-ratio:var(--fw-ratio,16 / 9);background:linear-gradient(150deg,#111A16 0%,#0A100E 72%);color:var(--fw-accent)}
+.jiz-fw-card--featured .jiz-fw-cover{aspect-ratio:auto;height:100%;min-height:clamp(300px,27vw,440px)}
+.jiz-fw-cover-layer{position:absolute;inset:0;transform:translate3d(calc(var(--fw-mx,0)*6px),calc(var(--fw-my,0)*4px),0);transition:transform 520ms cubic-bezier(.22,.61,.36,1)}
+.jiz-fw-cover-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.01);transition:transform 760ms cubic-bezier(.22,.61,.36,1),filter 760ms cubic-bezier(.22,.61,.36,1);filter:saturate(.92) contrast(1.02)}
+.jiz-fw-cover-art{position:absolute;inset:0;width:100%;height:100%;opacity:.5;transform:scale(1.01);transition:transform 760ms cubic-bezier(.22,.61,.36,1),opacity 420ms ease}
+.jiz-fw-cover-grid{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.3;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:44px 44px;-webkit-mask-image:radial-gradient(ellipse at 40% 40%,#000,transparent 78%);mask-image:radial-gradient(ellipse at 40% 40%,#000,transparent 78%)}
+.jiz-fw-cover::after{content:'';position:absolute;z-index:2;inset:0;pointer-events:none;background:linear-gradient(200deg,rgba(8,13,11,.36) 0%,rgba(8,13,11,.04) 44%,rgba(8,13,11,.58) 100%)}
+.jiz-fw-card--featured .jiz-fw-cover::after{background:linear-gradient(96deg,rgba(8,13,11,.16) 0%,rgba(8,13,11,.02) 38%,rgba(8,13,11,.6) 100%)}
+.jiz-fw-card:hover .jiz-fw-cover-img,.jiz-fw-card:focus-within .jiz-fw-cover-img{transform:scale(1.05);filter:saturate(1) contrast(1.03) brightness(1.03)}
+.jiz-fw-card--featured:hover .jiz-fw-cover-img,.jiz-fw-card--featured:focus-within .jiz-fw-cover-img{transform:scale(1.06)}
+.jiz-fw-card:hover .jiz-fw-cover-art,.jiz-fw-card:focus-within .jiz-fw-cover-art{transform:scale(1.05);opacity:.68}
+.jiz-fw-cover-index{position:absolute;z-index:3;left:clamp(16px,1.4vw,24px);top:clamp(14px,1.2vw,20px);font:var(--text-display);font-size:clamp(1.05rem,.9rem + .4vw,1.5rem);line-height:1;letter-spacing:-.02em;color:var(--fw-accent);opacity:.9;text-shadow:0 2px 12px rgba(8,13,11,.75)}
+.jiz-fw-cover-rule{position:absolute;z-index:3;left:clamp(16px,1.4vw,24px);bottom:clamp(14px,1.2vw,20px);width:34px;height:1px;background:var(--fw-accent);opacity:.5;transition:width 520ms cubic-bezier(.22,.61,.36,1),opacity 320ms ease}
+.jiz-fw-card:hover .jiz-fw-cover-rule,.jiz-fw-card:focus-within .jiz-fw-cover-rule{width:64px;opacity:.95}
+.jiz-fw-body{position:relative;z-index:2;display:flex;flex-direction:column;align-items:flex-start;gap:12px;padding:clamp(22px,2vw,32px)}
+.jiz-fw-card--featured .jiz-fw-body{gap:16px;padding:clamp(28px,3.2vw,58px);justify-content:center;transform:translate3d(calc(var(--fw-mx,0)*-3px),calc(var(--fw-my,0)*-2px),0);transition:transform 620ms cubic-bezier(.22,.61,.36,1)}
+.jiz-fw-kicker{font:var(--text-hud);font-size:.625rem;letter-spacing:.2em;text-transform:uppercase;color:var(--fw-accent);margin:0}
+.jiz-fw-title{font:var(--text-h3);font-size:1.0625rem;line-height:1.4;letter-spacing:-.008em;color:var(--color-text-primary);margin:0;text-wrap:pretty}
+.jiz-fw-b--wide .jiz-fw-title{font-size:1.1875rem}
+.jiz-fw-card--featured .jiz-fw-title{font-size:clamp(1.5rem,1.05rem + 1.1vw,2.25rem);line-height:1.16;letter-spacing:-.018em;max-width:19ch}
+.jiz-fw-preview{font:var(--text-body);font-size:.9375rem;line-height:1.6;color:rgba(217,221,227,.7);margin:0;text-wrap:pretty}
+.jiz-fw-card--featured .jiz-fw-preview{font-size:clamp(1rem,.95rem + .25vw,1.125rem);max-width:44ch;color:rgba(217,221,227,.8)}
+.jiz-fw-tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:2px 0 0}
+.jiz-fw-tag{padding:5px 11px;border-radius:var(--radius-pill);background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.04);font:var(--text-body);font-size:.6875rem;letter-spacing:.02em;color:rgba(232,238,226,.72);transition:background 280ms ease,color 280ms ease,border-color 280ms ease}
+.jiz-fw-card:hover .jiz-fw-tag,.jiz-fw-card:focus-within .jiz-fw-tag{background:rgba(198,242,58,.09);border-color:rgba(198,242,58,.16);color:#E4F5BE}
+.jiz-fw-tag:hover{background:rgba(198,242,58,.16);border-color:rgba(198,242,58,.3);color:#EEFBD2}
+.jiz-fw-cta{display:inline-flex;align-items:center;gap:9px;min-height:44px;margin-top:auto;padding:0;background:none;border:0;font:var(--text-button);font-size:.875rem;color:var(--color-accent-primary);cursor:pointer;transition:color 240ms ease}
+.jiz-fw-card--featured .jiz-fw-cta{margin-top:6px}
+.jiz-fw-cta-label{position:relative;padding-bottom:3px}
+.jiz-fw-cta-label::after{content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;background:currentColor;opacity:.34;transform:scaleX(1);transform-origin:left center;transition:opacity 260ms ease,transform 420ms cubic-bezier(.22,.61,.36,1)}
+.jiz-fw-card:hover .jiz-fw-cta-label::after,.jiz-fw-card:focus-within .jiz-fw-cta-label::after{opacity:1}
+.jiz-fw-cta-arrow{transition:transform 320ms cubic-bezier(.22,.61,.36,1)}
+.jiz-fw-card:hover .jiz-fw-cta-arrow,.jiz-fw-cta:focus-visible .jiz-fw-cta-arrow{transform:translateX(6px)}
+.jiz-fw-cta:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:5px;border-radius:4px}
+@media(max-width:1100px){.jiz-fw-b--wide,.jiz-fw-b--narrow{grid-column:span 3}.jiz-fw-card--featured{grid-template-columns:1fr}.jiz-fw-card--featured .jiz-fw-cover{aspect-ratio:16 / 9;min-height:0;height:auto}.jiz-fw-card--featured .jiz-fw-cover::after{background:linear-gradient(200deg,rgba(8,13,11,.3) 0%,rgba(8,13,11,.04) 46%,rgba(8,13,11,.52) 100%)}.jiz-fw-cover{aspect-ratio:16 / 9}.jiz-fw-card--featured .jiz-fw-body{transform:none}}
+@media(max-width:680px){.jiz-fw-b--wide,.jiz-fw-b--narrow{grid-column:span 6}.jiz-fw-card,.jiz-fw-card--featured{transform:translate3d(0,14px,0)}.jiz-fw-cover{aspect-ratio:16 / 10}.jiz-fw-halo{inset:-6% 0 -12%}}
+@media(prefers-reduced-motion:reduce){.jiz-fw-eyebrow,.jiz-fw-heading,.jiz-fw-sub,.jiz-fw-card,.jiz-fw-halo{opacity:1;transform:none;transition:none}.jiz-fw-card:hover,.jiz-fw-card:focus-within{transform:none}.jiz-fw-cover-layer,.jiz-fw-card--featured .jiz-fw-body{transform:none;transition:none}.jiz-fw-cover-img,.jiz-fw-cover-art,.jiz-fw-card:hover .jiz-fw-cover-img,.jiz-fw-card:hover .jiz-fw-cover-art,.jiz-fw-card:focus-within .jiz-fw-cover-img,.jiz-fw-card:focus-within .jiz-fw-cover-art{transform:none;transition:none}.jiz-fw-cta-arrow,.jiz-fw-cover-rule,.jiz-fw-card::after{transition:none}}
+      `));
 }
 function FilmSection() {
   const VIDEO_URL = './assets/video/the-train-story.mp4';
@@ -14342,6 +11442,7 @@ function FilmSection() {
   const [currentTime, setCurrentTime] = React.useState(0);
   const [duration, setDuration] = React.useState(0);
   const [reducedMotion, setReducedMotion] = React.useState(false);
+  const [loadTimeout, setLoadTimeout] = React.useState(false);
   React.useEffect(function () {
     if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
       return undefined;
@@ -14365,6 +11466,16 @@ function FilmSection() {
     }
     return undefined;
   }, []);
+  React.useEffect(function () {
+    if (!videoReady && !videoError && !loadTimeout) {
+      const timer = setTimeout(function () {
+        setLoadTimeout(true);
+      }, 8000);
+      return function () {
+        clearTimeout(timer);
+      };
+    }
+  }, [videoReady, videoError, loadTimeout]);
   const togglePlayback = async function () {
     const video = videoRef.current;
     if (!video || !videoReady || videoError) {
@@ -15086,14 +12197,14 @@ function FilmSection() {
     className: "jiz-creative-lab-header"
   }, /*#__PURE__*/React.createElement("p", {
     className: "jiz-creative-lab-eyebrow"
-  }, "Creative Lab"), /*#__PURE__*/React.createElement("h2", {
+  }, "Creative Lab / Experimental Work"), /*#__PURE__*/React.createElement("h2", {
     id: "creative-lab-title",
     className: "jiz-creative-lab-title"
   }, "Where ideas become cinematic prototypes."), /*#__PURE__*/React.createElement("div", {
     className: "jiz-creative-lab-heading"
   }, /*#__PURE__*/React.createElement("p", {
     className: "jiz-creative-lab-subtitle"
-  }, "A space for experimentation\u2014where learning strategy, visual storytelling, generative AI, and rapid production come together to test what is possible.")), /*#__PURE__*/React.createElement("p", {
+  }, "A space for testing how learning strategy, visual storytelling, generative AI, and rapid production can shape clearer human experiences.")), /*#__PURE__*/React.createElement("p", {
     className: "jiz-creative-lab-intro"
   }, "The lab is not a gallery of finished answers. It is where concepts are pressure-tested, workflows are accelerated, and emerging tools are directed toward meaningful human experiences.")), /*#__PURE__*/React.createElement("ol", {
     className: "jiz-creative-lab-method",
@@ -15148,13 +12259,54 @@ function FilmSection() {
   }, /*#__PURE__*/React.createElement("source", {
     src: VIDEO_URL,
     type: "video/mp4"
-  }), "Your browser does not support embedded video."), !videoReady && !videoError && /*#__PURE__*/React.createElement("div", {
+  }), "Your browser does not support embedded video."), !videoReady && !videoError && !loadTimeout && /*#__PURE__*/React.createElement("div", {
     className: "jiz-creative-lab-loading",
     role: "status",
     "aria-live": "polite"
   }, /*#__PURE__*/React.createElement("div", {
     className: "jiz-creative-lab-loader"
-  }, /*#__PURE__*/React.createElement("span", null, "Preparing The Train Story\u2026"))), videoError && /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("span", null, "Preparing The Train Story\u2026"))), loadTimeout && !videoError && !videoReady && /*#__PURE__*/React.createElement("div", {
+    className: "jiz-creative-lab-error",
+    role: "alert"
+  }, /*#__PURE__*/React.createElement("span", null, "The video is taking longer than expected."), /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      gap: '12px',
+      marginTop: '16px',
+      flexWrap: 'wrap'
+    }
+  }, /*#__PURE__*/React.createElement("button", {
+    onClick: () => {
+      setLoadTimeout(false);
+      videoRef.current?.load();
+    },
+    style: {
+      padding: '8px 16px',
+      borderRadius: 'var(--radius-sm)',
+      background: 'var(--color-accent-primary)',
+      color: 'var(--color-bg-primary)',
+      border: 'none',
+      cursor: 'pointer',
+      fontSize: '0.875rem',
+      fontWeight: '600'
+    }
+  }, "Try Again"), /*#__PURE__*/React.createElement("a", {
+    href: VIDEO_URL,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    style: {
+      padding: '8px 16px',
+      borderRadius: 'var(--radius-sm)',
+      background: 'transparent',
+      color: 'var(--color-accent-primary)',
+      border: '1px solid var(--color-accent-primary)',
+      cursor: 'pointer',
+      fontSize: '0.875rem',
+      fontWeight: '600',
+      textDecoration: 'none',
+      display: 'inline-block'
+    }
+  }, "Open Video"))), videoError && /*#__PURE__*/React.createElement("div", {
     className: "jiz-creative-lab-error",
     role: "alert"
   }, /*#__PURE__*/React.createElement("span", null, "The Train Story could not load. Confirm that the video exists at assets/video/the-train-story.mp4."))), /*#__PURE__*/React.createElement("div", {
@@ -15229,67 +12381,49 @@ function FilmSection() {
     className: "sr-only"
   }, "Motion preferences are enabled. The video will play only when activated.")));
 }
-function CapabilityOS() {
-  const principles = [{
-    title: 'Clarify',
-    belief: 'Every complex problem hides a simple truth waiting to be found.',
-    approach: 'I start by stripping a challenge to its essential structure — the real audience, the real constraint, the real outcome — before a single screen gets designed.',
-    proof: 'Operation: Legacy Unlocked began as a dense compliance mandate; clarifying the real behavior at stake turned it into a mission.'
-  }, {
-    title: 'Connect',
-    belief: 'Learning, technology, and business outcomes are one system, not three departments.',
-    approach: 'I map how people, workflows, and platforms actually intersect, so a design decision in one area doesn\u2019t break another.',
-    proof: 'Learn@Cox Launch Promo connected a platform migration to the emotional experience of the people living through it.'
-  }, {
-    title: 'Prototype',
-    belief: 'Thinking becomes real the moment you can click it.',
-    approach: 'I build fast, tangible versions of an idea early — using AI-native tooling to move at studio speed — so decisions get tested, not debated.',
-    proof: 'The Train Story moved from script to a working cinematic prototype in a fraction of a traditional production timeline.'
-  }, {
-    title: 'Transform',
-    belief: 'The goal was never the deliverable. It was the change it makes possible.',
-    approach: 'I design for the moment after launch — adoption, behavior change, measurable movement — not just the moment of delivery.',
-    proof: 'Every engagement is measured against what actually shifted for the people and the organization, not just what shipped.'
-  }];
-  const [active, setActive] = React.useState(0);
-  const [signal, setSignal] = React.useState(false);
-  const p = principles[active];
-  const select = i => {
-    if (i === active) return;
-    setSignal(true);
-    setActive(i);
-    window.dispatchEvent(new CustomEvent('jiz-signal'));
-    setTimeout(() => setSignal(false), 750);
-  };
-  return /*#__PURE__*/React.createElement("div", {
+function ArchiveBridge() {
+  const videoRef = React.useRef(null);
+  React.useEffect(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (prefersReduced()) {
+      v.pause();
+      return;
+    }
+    const attempt = () => {
+      const p = v.play();
+      if (p && p.catch) p.catch(() => {});
+    };
+    attempt();
+    v.addEventListener('loadeddata', attempt);
+    return () => v.removeEventListener('loadeddata', attempt);
+  }, []);
+  return /*#__PURE__*/React.createElement("section", {
     style: {
       position: 'relative',
+      isolation: 'isolate',
       overflow: 'hidden',
-      paddingTop: 'clamp(56px, 6vw, 100px)',
-      paddingBottom: 'clamp(56px, 6vw, 100px)'
+      padding: 'clamp(40px, 4vw, 62px) var(--container-pad)',
+      borderTop: '1px solid rgba(255,255,255,0.06)',
+      background: '#0B0D10'
     }
-  }, /*#__PURE__*/React.createElement(ChromaKeyVideo, {
-    src: "./assets/video/capabilities-bg.mp4",
+  }, /*#__PURE__*/React.createElement("video", {
+    ref: videoRef,
+    src: "https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Archive_Film.mp4",
+    autoPlay: true,
+    muted: true,
+    loop: true,
+    playsInline: true,
+    preload: "auto",
+    "aria-hidden": "true",
+    tabIndex: "-1",
     style: {
       position: 'absolute',
       inset: 0,
+      zIndex: 0,
       width: '100%',
       height: '100%',
       objectFit: 'cover',
-      zIndex: 0,
-      opacity: 0.55
-    }
-  }), /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      left: 0,
-      right: 0,
-      bottom: 0,
-      height: '38%',
-      background: 'linear-gradient(to top, rgba(198,242,58,0.28), transparent)',
-      mixBlendMode: 'screen',
-      zIndex: 0,
       pointerEvents: 'none'
     }
   }), /*#__PURE__*/React.createElement("div", {
@@ -15297,1219 +12431,169 @@ function CapabilityOS() {
     style: {
       position: 'absolute',
       inset: 0,
-      background: 'rgba(11,13,16,0.32)',
-      zIndex: 0
+      zIndex: 1,
+      pointerEvents: 'none',
+      background: 'linear-gradient(180deg, rgba(11,13,16,0.82) 0%, rgba(11,13,16,0.74) 45%, rgba(11,13,16,0.88) 100%)'
     }
   }), /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'relative',
-      zIndex: 1,
+      zIndex: 2,
       maxWidth: 'var(--container-max)',
-      margin: '0 auto',
-      padding: '0 var(--container-pad)'
+      marginInline: 'auto'
     }
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement(Eyebrow, null, "Inside the process"), /*#__PURE__*/React.createElement("h2", {
-    style: {
-      font: 'var(--text-h2)',
-      color: 'var(--color-text-primary)',
-      marginBottom: 16
-    }
-  }, "The operating system behind the work."), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-secondary)',
-      marginBottom: 32,
-      maxWidth: 560
-    }
-  }, "Four principles guide every project \u2014 select one to see how it shapes a decision.")), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
+    "data-archive-grid": true,
     style: {
       display: 'grid',
-      gridTemplateColumns: '0.85fr 1.15fr',
-      gap: 24,
-      alignItems: 'stretch',
-      minWidth: 0,
-      position: 'relative'
+      alignItems: 'start',
+      minWidth: 0
     }
-  }, signal && /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      left: 0,
-      top: `${active * (100 / principles.length) + 100 / principles.length / 2}%`,
-      width: '30%',
-      height: 2,
-      background: 'var(--color-accent-primary)',
-      boxShadow: '0 0 12px var(--color-accent-primary)',
-      animation: 'jiz-signal-travel 0.7s ease-out forwards',
-      zIndex: 2,
-      pointerEvents: 'none'
-    }
-  }), /*#__PURE__*/React.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'flex',
       flexDirection: 'column',
-      gap: 10,
-      position: 'relative'
-    }
-  }, signal && /*#__PURE__*/React.createElement("div", {
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      left: 8,
-      top: `${active * (100 / principles.length) + 100 / principles.length / 2}%`,
-      width: 4,
-      height: 4,
-      borderRadius: '50%',
-      background: 'var(--color-accent-primary)',
-      boxShadow: '0 0 10px var(--color-accent-primary)',
-      animation: 'jiz-node-emit 0.6s ease-out forwards',
-      zIndex: 2,
-      pointerEvents: 'none'
-    }
-  }), principles.map((pl, i) => /*#__PURE__*/React.createElement("button", {
-    key: pl.title,
-    onClick: () => select(i),
-    style: {
-      textAlign: 'left',
-      cursor: 'pointer',
-      font: 'inherit',
-      padding: '18px 20px',
-      borderRadius: 'var(--radius-md)',
-      position: 'relative',
-      overflow: 'hidden',
-      background: active === i ? 'rgba(198,242,58,0.1)' : 'rgba(23,26,31,0.5)',
-      backdropFilter: 'blur(14px)',
-      border: active === i ? '1px solid var(--color-accent-primary)' : '1px solid var(--color-border-subtle)',
-      transition: 'all var(--motion-standard) var(--ease-standard)',
-      display: 'flex',
-      alignItems: 'center',
-      gap: 14
-    },
-    onMouseEnter: e => {
-      const s = e.currentTarget.querySelector('.jiz-sweep');
-      if (s) {
-        s.style.animation = 'none';
-        void s.offsetWidth;
-        s.style.animation = 'jiz-sweep 0.9s ease-out';
-      }
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-sweep",
-    "aria-hidden": "true",
-    style: {
-      position: 'absolute',
-      inset: 0,
-      background: 'linear-gradient(100deg, transparent 40%, rgba(198,242,58,0.14) 50%, transparent 60%)',
-      transform: 'translateX(-120%)',
-      pointerEvents: 'none'
-    }
-  }), /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-hud)',
-      color: active === i ? 'var(--color-accent-primary)' : 'var(--color-text-muted)',
-      flexShrink: 0,
-      position: 'relative'
-    }
-  }, String(i + 1).padStart(2, '0')), /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-body)',
-      fontWeight: 600,
-      fontSize: '0.9375rem',
-      color: active === i ? 'var(--color-text-primary)' : 'var(--color-text-secondary)',
-      position: 'relative'
-    }
-  }, pl.title)))), /*#__PURE__*/React.createElement("div", {
-    key: active,
-    style: {
-      background: 'rgba(23,26,31,0.4)',
-      backdropFilter: 'blur(16px)',
-      border: '1px solid var(--color-border-subtle)',
-      borderRadius: 'var(--radius-lg)',
-      padding: 32,
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'center',
+      gap: 'clamp(12px, 1.4vw, 18px)',
       minWidth: 0
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
-      font: 'var(--text-hud)',
+      font: 'var(--text-eyebrow)',
       color: 'var(--color-accent-secondary)',
       textTransform: 'uppercase',
-      letterSpacing: 'var(--tracking-hud)',
-      marginBottom: 10,
-      animation: 'jiz-stage-in 0.4s var(--ease-out) both'
+      letterSpacing: 'var(--tracking-eyebrow)',
+      margin: 0
     }
-  }, "Principle ", String(active + 1).padStart(2, '0'), " \u2014 ", p.title), /*#__PURE__*/React.createElement("h3", {
+  }, "Extended Archive"), /*#__PURE__*/React.createElement("h2", {
     style: {
-      font: 'var(--text-h3)',
+      margin: 0,
       color: 'var(--color-text-primary)',
-      marginBottom: 18,
-      lineHeight: 1.3,
-      animation: 'jiz-stage-in 0.4s var(--ease-out) 0.08s both'
+      font: 'var(--text-h2)',
+      fontSize: 'clamp(1.45rem, 2vw, 1.85rem)',
+      lineHeight: 1.16,
+      letterSpacing: '-0.02em'
     }
-  }, p.belief), /*#__PURE__*/React.createElement("div", {
+  }, "More work. More range."), /*#__PURE__*/React.createElement("p", {
     style: {
-      marginBottom: 16,
-      animation: 'jiz-stage-in 0.4s var(--ease-out) 0.16s both'
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-hud)',
-      fontSize: '0.6875rem',
-      color: 'var(--color-text-muted)',
-      textTransform: 'uppercase',
-      letterSpacing: 'var(--tracking-hud)'
-    }
-  }, "Approach"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
+      margin: 0,
       color: 'var(--color-text-secondary)',
-      marginTop: 6
+      font: 'var(--text-body)',
+      fontSize: 'clamp(0.95rem, 1.1vw, 1.05rem)',
+      lineHeight: 1.7,
+      maxWidth: '100%'
     }
-  }, p.approach)), /*#__PURE__*/React.createElement("div", {
+  }, "Explore additional learning experiences, product enablement, interactive media, and earlier work.")), /*#__PURE__*/React.createElement("div", {
     style: {
-      borderLeft: '2px solid var(--color-accent-primary)',
-      paddingLeft: 14,
-      animation: 'jiz-stage-in 0.4s var(--ease-out) 0.24s both'
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 'clamp(18px, 2vw, 24px)',
+      alignItems: 'flex-start',
+      minWidth: 0
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '8px',
+      paddingBottom: '12px',
+      borderBottom: '1px solid rgba(198,242,58,0.22)'
     }
   }, /*#__PURE__*/React.createElement("span", {
     style: {
       font: 'var(--text-hud)',
-      fontSize: '0.6875rem',
+      fontSize: '0.625rem',
+      color: 'var(--color-accent-secondary)',
+      textTransform: 'uppercase',
+      letterSpacing: '0.12em'
+    }
+  }, "Archive"), /*#__PURE__*/React.createElement("span", {
+    style: {
+      font: 'var(--text-hud)',
+      fontSize: '0.625rem',
       color: 'var(--color-text-muted)',
       textTransform: 'uppercase',
-      letterSpacing: 'var(--tracking-hud)'
+      letterSpacing: '0.08em'
     }
-  }, "Proof"), /*#__PURE__*/React.createElement("p", {
+  }, "/ Curated")), /*#__PURE__*/React.createElement("a", {
+    href: "https://jonathan-iker-zamarripa.webflow.io/projects",
+    target: "_blank",
+    rel: "noopener noreferrer",
+    "data-archive-cta": true,
+    "aria-label": "View the full project archive (opens in a new tab)",
     style: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: '8px',
+      minHeight: '52px',
+      padding: '0 26px',
       font: 'var(--text-body)',
       fontSize: '0.9375rem',
-      color: 'var(--color-text-primary)',
-      marginTop: 6,
-      fontStyle: 'italic'
+      fontWeight: 700,
+      color: 'var(--color-on-accent)',
+      background: 'var(--color-accent-primary)',
+      border: 'none',
+      borderRadius: 'var(--radius-pill)',
+      textDecoration: 'none',
+      cursor: 'pointer'
+    },
+    onMouseEnter: e => {
+      e.currentTarget.style.background = 'var(--color-accent-primary-hover)';
+      e.currentTarget.style.boxShadow = '0 0 30px rgba(198,242,58,0.22)';
+      e.currentTarget.style.transform = 'translateY(-2px)';
+    },
+    onMouseLeave: e => {
+      e.currentTarget.style.background = 'var(--color-accent-primary)';
+      e.currentTarget.style.boxShadow = 'none';
+      e.currentTarget.style.transform = 'none';
     }
-  }, p.proof))))), /*#__PURE__*/React.createElement("style", null, `@keyframes jiz-signal-travel{0%{opacity:1;width:0}70%{opacity:1}100%{opacity:0;width:34%}}@keyframes jiz-node-emit{0%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(2.4)}}@keyframes jiz-sweep{to{transform:translateX(120%)}}@keyframes jiz-stage-in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}@media(prefers-reduced-motion:reduce){[style*="jiz-signal-travel"],[style*="jiz-node-emit"],[style*="jiz-sweep"],[style*="jiz-stage-in"]{animation:none!important}}`));
-}
-function FeaturedWork({
-  onOpenWork
-}) {
-  const projects = [{
-    id: 'operation-legacy-unlocked',
-    number: '01',
-    label: 'Featured Case Study',
-    title: 'Operation: Legacy Unlocked',
-    organization: 'Cox Enterprises',
-    mission: 'An immersive leadership learning experience that casts employees as Cox Intelligence Agents, transforming organizational history into a mission-driven digital experience.',
-    projectType: 'Learning Experience Design',
-    role: 'Learning Experience Designer / Developer',
-    focus: 'Game-based learning · Leadership development · Enterprise engagement',
-    image: './assets/imagery/olu-featured-work-cover.png',
-    imageAlt: 'Operation: Legacy Unlocked immersive learning experience',
-    status: 'available',
-    statusLabel: 'Case study available',
-    actionLabel: 'Open Case Study',
-    routeName: 'Operation: Legacy Unlocked',
-    atmosphere: 'lime'
-  }, {
-    id: 'hotelkey-onboarding',
-    number: '02',
-    label: 'Case Study',
-    title: 'HotelKey New Hire Onboarding',
-    organization: 'IHG Hotels & Resorts',
-    mission: 'Helped new IHG hotel hires build real competence in an unfamiliar property system by teaching its operating logic before its screens.',
-    projectType: 'Enterprise Onboarding',
-    role: 'Creative Content Specialist / Developer',
-    focus: 'Systems adoption · Video learning · Global onboarding',
-    image: './assets/imagery/hotelkey-featured-work-cover.png',
-    imageAlt: 'HotelKey New Hire Onboarding — IHG property system training experience',
-    status: 'available',
-    statusLabel: 'Case study available',
-    actionLabel: 'Open Case Study',
-    routeName: 'HotelKey New Hire Onboarding',
-    atmosphere: 'cyan'
-  }, {
-    id: 'guest-crm-pilot',
-    number: '03',
-    label: 'Case Study',
-    title: 'Guest CRM Pilot',
-    organization: 'IHG Hotels & Resorts',
-    mission: 'Helped IHG pilot hotel teams adopt a new guest platform with confidence by teaching the operational reasoning behind each workflow.',
-    projectType: 'Product Enablement',
-    role: 'Learning Experience Strategist / Developer',
-    focus: 'Pilot enablement · Performance support · Product adoption',
-    image: './assets/imagery/guestcrm-featured-work-cover.png',
-    imageAlt: 'Guest CRM Pilot — IHG Hotels & Resorts change enablement',
-    status: 'available',
-    actionLabel: 'Open Case Study',
-    routeName: 'Guest CRM Pilot',
-    statusLabel: 'Case study available',
-    atmosphere: 'amber'
-  }, {
-    id: 'workday-learn',
-    number: '04',
-    label: 'Case Study',
-    title: 'Workday Learn Launch',
-    organization: 'Cox Enterprises',
-    mission: 'Helped Cox Enterprises employees see a new platform as an investment in their growth by leading launch communications with purpose over mechanics.',
-    projectType: 'Enterprise Learning',
-    role: 'Learning Experience Designer',
-    focus: 'Change adoption · Learning systems · Internal communications',
-    image: './assets/imagery/workday-featured-work-cover.png',
-    imageAlt: 'Workday Learn Launch — Cox Enterprises enablement experience',
-    status: 'available',
-    statusLabel: 'Case study available',
-    actionLabel: 'Open Case Study',
-    routeName: 'Workday Learn Launch',
-    atmosphere: 'violet'
-  }];
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  const [direction, setDirection] = React.useState('next');
-  const [reducedMotion, setReducedMotion] = React.useState(false);
-  const touchStartXRef = React.useRef(null);
-  React.useEffect(function () {
-    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') return undefined;
-    const media = window.matchMedia('(prefers-reduced-motion: reduce)');
-    const update = function () {
-      setReducedMotion(media.matches);
-    };
-    update();
-    if (typeof media.addEventListener === 'function') {
-      media.addEventListener('change', update);
-      return function () {
-        media.removeEventListener('change', update);
-      };
-    }
-    if (typeof media.addListener === 'function') {
-      media.addListener(update);
-      return function () {
-        media.removeListener(update);
-      };
-    }
-    return undefined;
-  }, []);
-  const activeProject = projects[activeIndex];
-  const progressPercent = (activeIndex + 1) / projects.length * 100;
-  const selectProject = function (nextIndex) {
-    const normalized = (nextIndex + projects.length) % projects.length;
-    if (normalized === activeIndex) return;
-    setDirection(normalized > activeIndex ? 'next' : 'previous');
-    setActiveIndex(normalized);
-  };
-  const showPrevious = function () {
-    setDirection('previous');
-    setActiveIndex(function (current) {
-      return current === 0 ? projects.length - 1 : current - 1;
-    });
-  };
-  const showNext = function () {
-    setDirection('next');
-    setActiveIndex(function (current) {
-      return current === projects.length - 1 ? 0 : current + 1;
-    });
-  };
-  const handleKeyDown = function (event) {
-    if (event.key === 'ArrowLeft') {
-      event.preventDefault();
-      showPrevious();
-    } else if (event.key === 'ArrowRight') {
-      event.preventDefault();
-      showNext();
-    } else if (event.key === 'Home') {
-      event.preventDefault();
-      setDirection('previous');
-      setActiveIndex(0);
-    } else if (event.key === 'End') {
-      event.preventDefault();
-      setDirection('next');
-      setActiveIndex(projects.length - 1);
-    }
-  };
-  const handleTouchStart = function (event) {
-    if (!event.touches || event.touches.length === 0) return;
-    touchStartXRef.current = event.touches[0].clientX;
-  };
-  const handleTouchEnd = function (event) {
-    if (touchStartXRef.current === null || !event.changedTouches || event.changedTouches.length === 0) return;
-    const distance = event.changedTouches[0].clientX - touchStartXRef.current;
-    touchStartXRef.current = null;
-    if (Math.abs(distance) < 48) return;
-    if (distance > 0) showPrevious();else showNext();
-  };
-  const openActiveProject = function () {
-    if (activeProject.status !== 'available' || !activeProject.routeName || typeof onOpenWork !== 'function') return;
-    onOpenWork(activeProject.routeName);
-  };
-  return /*#__PURE__*/React.createElement("section", {
-    className: 'jiz-featured-work jiz-featured-work--' + activeProject.atmosphere,
-    "data-featured-work": "ready",
-    "aria-labelledby": "featured-work-title"
-  }, /*#__PURE__*/React.createElement("style", null, `
-        .jiz-featured-work{--featured-inner:1360px;position:relative;isolation:isolate;width:100%;overflow:hidden;box-sizing:border-box;padding:clamp(96px,10vw,164px) var(--container-pad) clamp(104px,11vw,176px);color:var(--color-text-primary);background:radial-gradient(ellipse 78% 58% at 8% 14%,rgba(100,225,255,.075),transparent 66%),radial-gradient(ellipse 72% 54% at 92% 80%,rgba(137,105,203,.048),transparent 68%),linear-gradient(180deg,#0a1318 0%,#0c1420 48%,#080f16 100%);transition:background 700ms var(--ease-standard)}
-        .jiz-featured-work::before{content:'';position:absolute;z-index:-2;inset:0;pointer-events:none;opacity:.22;background-image:linear-gradient(rgba(255,255,255,.026) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.026) 1px,transparent 1px);background-size:72px 72px;-webkit-mask-image:radial-gradient(ellipse at 50% 44%,#000,transparent 73%);mask-image:radial-gradient(ellipse at 50% 44%,#000,transparent 73%)}
-        .jiz-featured-work::after{content:'';position:absolute;z-index:-1;left:50%;bottom:-250px;width:min(96vw,1540px);height:560px;transform:translateX(-50%);border-radius:50%;pointer-events:none;background:radial-gradient(ellipse,rgba(198,242,58,.045),transparent 68%);filter:blur(34px)}
-        .jiz-featured-work--lime{background:radial-gradient(ellipse 70% 50% at 14% 22%,rgba(100,225,255,.075),transparent 62%),radial-gradient(ellipse 60% 48% at 86% 74%,rgba(137,105,203,.035),transparent 66%),linear-gradient(180deg,#0a1318 0%,#0c1420 46%,#080f16 100%)}
-        .jiz-featured-work--cyan{background:radial-gradient(ellipse 70% 50% at 16% 22%,rgba(100,225,255,.08),transparent 62%),radial-gradient(ellipse 60% 48% at 84% 74%,rgba(137,105,203,.04),transparent 66%),linear-gradient(180deg,#0a1318 0%,#0c1420 46%,#080f16 100%)}
-        .jiz-featured-work--amber{background:radial-gradient(ellipse 70% 50% at 18% 22%,rgba(100,225,255,.075),transparent 62%),radial-gradient(ellipse 60% 48% at 84% 74%,rgba(137,105,203,.038),transparent 66%),linear-gradient(180deg,#0a1318 0%,#0c1420 46%,#080f16 100%)}
-        .jiz-featured-work--violet{background:radial-gradient(ellipse 70% 50% at 16% 22%,rgba(100,225,255,.08),transparent 62%),radial-gradient(ellipse 60% 48% at 86% 74%,rgba(137,105,203,.048),transparent 66%),linear-gradient(180deg,#0a1318 0%,#0c1420 46%,#080f16 100%)}
-        .jiz-featured-inner{position:relative;width:min(100%,var(--featured-inner));margin-inline:auto}
-        .jiz-featured-header{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:36px;margin-bottom:clamp(54px,7vw,92px)}
-        .jiz-featured-heading{max-width:780px}.jiz-featured-eyebrow{margin:0 0 16px;color:var(--color-accent-secondary);font:var(--text-eyebrow);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase}
-        .jiz-featured-title{margin:0;color:var(--color-text-primary);font:var(--text-h2);font-size:clamp(3rem,6vw,5.9rem);line-height:.98;letter-spacing:-.055em;text-wrap:balance}
-        .jiz-featured-intro{max-width:720px;margin:24px 0 0;color:var(--color-text-secondary);font:var(--text-body-lg);line-height:1.66}
-        .jiz-featured-count{min-width:90px;margin:0;padding-bottom:8px;color:var(--color-text-muted);font:var(--text-hud);letter-spacing:.12em;text-align:right;text-transform:uppercase}.jiz-featured-count strong{color:var(--color-accent-primary);font-weight:700}
-        .jiz-featured-stage{position:relative;padding:clamp(18px,2vw,28px);border:1px solid rgba(255,255,255,.06);border-radius:clamp(26px,3vw,40px);background:linear-gradient(180deg,rgba(255,255,255,.048) 0%,rgba(255,255,255,.018) 22%,rgba(255,255,255,.007) 100%);box-shadow:0 40px 96px rgba(0,0,0,.3),inset 0 1px 0 rgba(255,255,255,.07),inset 0 0 0 1px rgba(255,255,255,.012);backdrop-filter:blur(22px)}
-        .jiz-featured-stage::before{content:'';position:absolute;z-index:-1;inset:6% 5% -22%;border-radius:50%;pointer-events:none;background:radial-gradient(ellipse,rgba(100,225,255,.1),rgba(198,242,58,.028) 42%,transparent 70%);filter:blur(72px);opacity:.8}
-        .jiz-featured-viewport{position:relative;overflow:hidden;border-radius:clamp(20px,2.2vw,32px);outline:none}.jiz-featured-viewport:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:7px}
-        .jiz-featured-project{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(350px,.88fr);min-width:0;overflow:hidden;border:1px solid rgba(255,255,255,.085);border-radius:clamp(20px,2.2vw,32px);background:linear-gradient(180deg,rgba(32,35,36,.97) 0%,rgba(20,24,26,.97) 26%,rgba(10,14,15,.98) 100%);box-shadow:0 34px 84px rgba(0,0,0,.28),0 8px 24px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.06),inset 0 0 0 1px rgba(255,255,255,.012);transition:box-shadow 420ms var(--ease-out),border-color 420ms var(--ease-out)}
-        .jiz-featured-project:hover{border-color:rgba(255,255,255,.11);box-shadow:0 44px 104px rgba(0,0,0,.32),0 10px 28px rgba(0,0,0,.2),inset 0 1px 0 rgba(255,255,255,.08),inset 0 0 0 1px rgba(255,255,255,.018),0 0 70px rgba(100,225,255,.055)}
-        .jiz-featured-project.is-next{animation:jiz-featured-enter-next 620ms var(--ease-out) both}.jiz-featured-project.is-previous{animation:jiz-featured-enter-previous 620ms var(--ease-out) both}
-        .jiz-featured-media{position:relative;min-width:0;min-height:580px;overflow:hidden;background:radial-gradient(circle at 50% 38%,rgba(100,225,255,.12),transparent 44%),linear-gradient(145deg,#152225,#080c0d 74%)}
-        .jiz-featured-image{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.012);transition:transform 860ms var(--ease-out),filter 860ms var(--ease-out)}.jiz-featured-project:hover .jiz-featured-image{transform:scale(1.032);filter:brightness(1.05) saturate(1.03) contrast(1.015)}
-        .jiz-featured-media::after{content:'';position:absolute;z-index:2;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent 54%,rgba(7,10,11,.32)),linear-gradient(180deg,rgba(255,255,255,.028) 0%,transparent 12%,transparent 56%,rgba(7,9,10,.44));transition:opacity 520ms var(--ease-out)}
-        .jiz-featured-media::before{content:'';position:absolute;z-index:3;inset:0;pointer-events:none;opacity:0;background:linear-gradient(112deg,transparent 34%,rgba(255,255,255,.055) 50%,transparent 66%);transition:opacity 620ms var(--ease-out)}
-        .jiz-featured-project:hover .jiz-featured-media::before{opacity:1}
-        .jiz-featured-badge{position:absolute;z-index:3;left:24px;top:24px;display:inline-flex;align-items:center;gap:9px;min-height:38px;padding:0 15px;border:1px solid rgba(255,255,255,.14);border-radius:var(--radius-pill);background:rgba(7,10,11,.74);color:var(--color-text-primary);font:var(--text-caption);backdrop-filter:blur(14px)}.jiz-featured-badge::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--color-accent-primary);box-shadow:0 0 16px rgba(198,242,58,.42)}
-        .jiz-featured-placeholder{position:absolute;inset:0;display:grid;place-items:center;padding:clamp(36px,6vw,82px);text-align:center}.jiz-featured-placeholder-grid{position:absolute;inset:0;pointer-events:none;opacity:.22;background-image:linear-gradient(rgba(100,225,255,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(100,225,255,.12) 1px,transparent 1px);background-size:54px 54px;-webkit-mask-image:radial-gradient(circle at center,#000,transparent 72%);mask-image:radial-gradient(circle at center,#000,transparent 72%)}
-        .jiz-featured-placeholder-inner{position:relative;z-index:1;max-width:540px}.jiz-featured-placeholder-mark{display:block;margin-bottom:18px;color:var(--color-accent-secondary);font:var(--text-hud);letter-spacing:.13em;text-transform:uppercase}.jiz-featured-placeholder-title{margin:0;color:var(--color-text-primary);font:var(--text-h2);font-size:clamp(2rem,4vw,4rem);line-height:1.02;letter-spacing:-.05em;text-wrap:balance}
-        .jiz-featured-content{display:flex;min-width:0;flex-direction:column;justify-content:center;padding:clamp(44px,5vw,76px)}
-        .jiz-featured-case-label{margin:0 0 15px;color:var(--color-accent-primary);font:var(--text-hud);font-weight:700;letter-spacing:.12em;text-transform:uppercase;animation:jiz-featured-content-in 500ms var(--ease-out) both}
-        .jiz-featured-project-title{margin:0;color:var(--color-text-primary);font:var(--text-h3);font-size:clamp(2.2rem,3.6vw,4rem);line-height:1.01;letter-spacing:-.052em;text-wrap:balance;animation:jiz-featured-content-in 520ms var(--ease-out) 70ms both}
-        .jiz-featured-mission{margin:24px 0 0;color:var(--color-text-secondary);font:var(--text-body);font-size:clamp(1rem,1.3vw,1.12rem);line-height:1.76;animation:jiz-featured-content-in 540ms var(--ease-out) 130ms both}
-        .jiz-featured-metadata{display:grid;grid-template-columns:1fr 1fr;gap:22px 30px;margin-top:38px;padding:30px 0;border-top:1px solid rgba(255,255,255,.06);border-bottom:1px solid rgba(255,255,255,.06);animation:jiz-featured-content-in 560ms var(--ease-out) 190ms both}
-        .jiz-featured-meta-label{display:block;margin-bottom:8px;color:var(--color-accent-secondary);font:var(--text-hud);font-size:.625rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.jiz-featured-meta-value{display:block;color:rgba(245,247,248,.9);font:var(--text-caption);font-size:.8125rem;font-weight:550;line-height:1.48}
-        .jiz-featured-action-row{display:flex;align-items:center;gap:18px;margin-top:34px;animation:jiz-featured-content-in 580ms var(--ease-out) 250ms both}.jiz-featured-action{min-height:52px;display:inline-flex;align-items:center;justify-content:center;padding:0 26px;border:0;border-radius:var(--radius-pill);background:var(--color-accent-primary);color:#080b0c;font:var(--text-button);font-weight:700;cursor:pointer;transition:transform var(--motion-fast) var(--ease-standard),background var(--motion-fast) var(--ease-standard),box-shadow var(--motion-fast) var(--ease-standard)}
-        .jiz-featured-action:hover:not(:disabled){transform:translateY(-2px);background:var(--color-accent-primary-hover);box-shadow:0 0 30px rgba(198,242,58,.22)}.jiz-featured-action:disabled{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.035);color:var(--color-text-muted);cursor:default;box-shadow:none}.jiz-featured-status{color:var(--color-text-muted);font:var(--text-caption)}
-        .jiz-featured-navigation{display:grid;grid-template-columns:58px minmax(0,1fr) 58px;align-items:center;gap:clamp(18px,3vw,34px);margin-top:clamp(30px,4vw,48px)}.jiz-featured-control{width:58px;height:58px;display:inline-grid;place-items:center;padding:0;border:1px solid rgba(255,255,255,.13);border-radius:50%;background:rgba(255,255,255,.028);color:var(--color-text-primary);font-size:1.15rem;cursor:pointer;backdrop-filter:blur(12px);transition:transform var(--motion-fast) var(--ease-standard),border-color var(--motion-fast) var(--ease-standard),background var(--motion-fast) var(--ease-standard),box-shadow var(--motion-fast) var(--ease-standard)}
-        .jiz-featured-control:hover{transform:translateY(-2px);border-color:rgba(198,242,58,.4);background:rgba(198,242,58,.045);box-shadow:0 8px 22px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.06),0 0 20px rgba(198,242,58,.08)}
-        .jiz-featured-control:active{transform:translateY(0)}
-        .jiz-featured-progress{position:relative;height:6px;overflow:hidden;border-radius:999px;background:rgba(255,255,255,.07);box-shadow:inset 0 1px 2px rgba(0,0,0,.24)}.jiz-featured-progress-fill{display:block;width:0;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--color-accent-secondary),var(--color-accent-primary));box-shadow:0 0 16px rgba(198,242,58,.16);transition:width 620ms var(--ease-out)}.jiz-featured-progress-steps{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));pointer-events:none}.jiz-featured-progress-step{border-right:1px solid rgba(9,12,13,.42)}.jiz-featured-progress-step:last-child{border-right:0}
-        .jiz-featured-action:focus-visible,.jiz-featured-control:focus-visible,.jiz-featured-viewport:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:4px}
-        @keyframes jiz-featured-enter-next{from{opacity:0;transform:translateX(34px)}to{opacity:1;transform:translateX(0)}}@keyframes jiz-featured-enter-previous{from{opacity:0;transform:translateX(-34px)}to{opacity:1;transform:translateX(0)}}@keyframes jiz-featured-content-in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
-        @media(max-width:1120px){.jiz-featured-project{grid-template-columns:minmax(0,1fr) minmax(320px,.92fr)}.jiz-featured-media{min-height:520px}.jiz-featured-content{padding:clamp(36px,4vw,52px)}}
-        @media(max-width:900px){.jiz-featured-header{grid-template-columns:1fr;gap:20px}.jiz-featured-count{text-align:left}.jiz-featured-project{grid-template-columns:1fr}.jiz-featured-media{min-height:0;aspect-ratio:16/10}.jiz-featured-media::after{background:linear-gradient(180deg,transparent 62%,rgba(7,9,10,.38))}.jiz-featured-content{padding:clamp(34px,6vw,58px)}}
-        @media(max-width:680px){.jiz-featured-work{padding-inline:max(20px,var(--container-pad))}.jiz-featured-title{font-size:clamp(2.7rem,13vw,4.1rem)}.jiz-featured-stage{padding:10px;border-radius:24px}.jiz-featured-media{aspect-ratio:4/3}.jiz-featured-badge{left:15px;top:15px}.jiz-featured-metadata{grid-template-columns:1fr;gap:18px}.jiz-featured-action-row{align-items:flex-start;flex-direction:column}.jiz-featured-navigation{grid-template-columns:50px minmax(0,1fr) 50px;gap:12px}.jiz-featured-control{width:50px;height:50px}}
-        @media(prefers-reduced-motion:reduce){.jiz-featured-project:hover .jiz-featured-image{transform:scale(1.012);filter:none}.jiz-featured-project:hover .jiz-featured-media::before{opacity:0}.jiz-featured-work,.jiz-featured-project,.jiz-featured-image,.jiz-featured-case-label,.jiz-featured-project-title,.jiz-featured-mission,.jiz-featured-metadata,.jiz-featured-action-row,.jiz-featured-action,.jiz-featured-control,.jiz-featured-progress-fill{animation:none!important;transition:none!important}.jiz-featured-project:hover .jiz-featured-image,.jiz-featured-action:hover,.jiz-featured-control:hover{transform:none}}
-      `), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-featured-inner"
-  }, /*#__PURE__*/React.createElement("header", {
-    className: "jiz-featured-header"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-featured-heading"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-featured-eyebrow"
-  }, "Featured Work / Proof"), /*#__PURE__*/React.createElement("h2", {
-    id: "featured-work-title",
-    className: "jiz-featured-title"
-  }, "Ideas made real."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-featured-intro"
-  }, "Selected work across enterprise learning, cinematic storytelling, systems adoption, and AI-enabled production\u2014designed to move people from complexity to confident action.")), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-featured-count",
-    "aria-live": "polite",
-    "aria-atomic": "true"
-  }, /*#__PURE__*/React.createElement("strong", null, String(activeIndex + 1).padStart(2, '0')), ' / ', String(projects.length).padStart(2, '0'))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-featured-stage"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-featured-viewport",
-    role: "region",
-    "aria-roledescription": "carousel",
-    "aria-label": "Featured project carousel",
-    tabIndex: 0,
-    onKeyDown: handleKeyDown,
-    onTouchStart: handleTouchStart,
-    onTouchEnd: handleTouchEnd
-  }, /*#__PURE__*/React.createElement("article", {
-    key: activeProject.id,
-    className: 'jiz-featured-project ' + (reducedMotion ? '' : direction === 'next' ? 'is-next' : 'is-previous'),
-    "data-project-card": activeProject.id,
-    "aria-labelledby": activeProject.id + '-title'
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-featured-media"
-  }, activeProject.image ? /*#__PURE__*/React.createElement("img", {
-    className: "jiz-featured-image",
-    src: activeProject.image,
-    alt: activeProject.imageAlt,
-    loading: activeIndex === 0 ? 'eager' : 'lazy'
-  }) : /*#__PURE__*/React.createElement("div", {
-    className: "jiz-featured-placeholder"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-featured-placeholder-grid",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-featured-placeholder-inner"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-featured-placeholder-mark"
-  }, "Case study in development"), /*#__PURE__*/React.createElement("h3", {
-    className: "jiz-featured-placeholder-title"
-  }, activeProject.title))), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-featured-badge"
-  }, activeProject.statusLabel)), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-featured-content"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-featured-case-label"
-  }, activeProject.label, ' · ', activeProject.number), /*#__PURE__*/React.createElement("h3", {
-    id: activeProject.id + '-title',
-    className: "jiz-featured-project-title"
-  }, activeProject.title), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-featured-mission"
-  }, activeProject.mission), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-featured-metadata"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-featured-meta-label"
-  }, "Project Type"), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-featured-meta-value"
-  }, activeProject.projectType)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-featured-meta-label"
-  }, "Role"), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-featured-meta-value"
-  }, activeProject.role)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-featured-meta-label"
-  }, "Organization"), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-featured-meta-value"
-  }, activeProject.organization)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-featured-meta-label"
-  }, "Focus"), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-featured-meta-value"
-  }, activeProject.focus))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-featured-action-row"
-  }, /*#__PURE__*/React.createElement("button", {
-    className: "jiz-featured-action",
-    type: "button",
-    disabled: activeProject.status !== 'available',
-    onClick: openActiveProject
-  }, activeProject.actionLabel, activeProject.status === 'available' ? ' →' : ''), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-featured-status"
-  }, activeProject.statusLabel))))), /*#__PURE__*/React.createElement("nav", {
-    className: "jiz-featured-navigation",
-    "aria-label": "Featured project navigation"
-  }, /*#__PURE__*/React.createElement("button", {
-    className: "jiz-featured-control",
-    type: "button",
-    onClick: showPrevious,
-    "aria-label": "Show previous featured project",
-    title: "Previous project"
-  }, /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, "\u2190")), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-featured-progress",
-    role: "progressbar",
-    "aria-label": "Featured project progress",
-    "aria-valuemin": "1",
-    "aria-valuemax": projects.length,
-    "aria-valuenow": activeIndex + 1
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-featured-progress-fill",
+  }, "View the full project archive", /*#__PURE__*/React.createElement("span", {
     style: {
-      width: progressPercent + '%'
+      fontSize: '1.1em'
     }
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-featured-progress-steps",
-    "aria-hidden": "true"
-  }, projects.map(function (project) {
-    return /*#__PURE__*/React.createElement("span", {
-      key: project.id,
-      className: "jiz-featured-progress-step"
-    });
-  }))), /*#__PURE__*/React.createElement("button", {
-    className: "jiz-featured-control",
-    type: "button",
-    onClick: showNext,
-    "aria-label": "Show next featured project",
-    title: "Next project"
-  }, /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true"
-  }, "\u2192"))), /*#__PURE__*/React.createElement("p", {
-    className: "sr-only",
-    role: "status",
-    "aria-live": "polite"
-  }, "Showing ", activeProject.title, ", project ", activeIndex + 1, " of ", projects.length, "."))));
-}
-function Insights() {
-  const posts = [{
-    label: 'AI + PRACTICE',
-    title: 'AI changes the workflow—not the responsibility.',
-    summary: 'The value is not faster output alone. It is using speed to test more thoughtfully, compare alternatives, and protect the quality of the final experience.',
-    takeaway: 'Speed expands the options. Judgment protects the outcome.'
-  }, {
-    label: 'DESIGN JUDGMENT',
-    title: 'Scenarios should build judgment, not reward guessing.',
-    summary: 'Meaningful practice gives people context, consequence, and room to make a defensible decision—not merely select the answer the designer prefers.',
-    takeaway: 'Practice should strengthen decisions—not test compliance.'
-  }, {
-    label: 'SYSTEMS THINKING',
-    title: 'The learning experience is only one part of the system.',
-    summary: 'Adoption depends on tools, incentives, communication, leadership, workflow, and reinforcement aligning around the same behavioral outcome.',
-    takeaway: 'Adoption succeeds when the entire environment supports the behavior.'
-  }];
-  return /*#__PURE__*/React.createElement("section", {
-    className: "jiz-insights",
-    "data-insights": "ready",
-    "aria-labelledby": "jiz-insights-title"
-  }, /*#__PURE__*/React.createElement("style", null, `
-        .jiz-insights {
-          position: relative;
-          isolation: isolate;
-          width: 100%;
-          overflow: hidden;
-          box-sizing: border-box;
-          padding:
-            clamp(96px, 10vw, 156px)
-            var(--container-pad)
-            clamp(104px, 11vw, 172px);
-          color: var(--color-text-primary);
-          background:
-            radial-gradient(
-              ellipse 72% 52% at 18% 44%,
-              rgba(100, 225, 255, 0.115),
-              transparent 66%
-            ),
-            radial-gradient(
-              ellipse 62% 48% at 78% 78%,
-              rgba(198, 242, 58, 0.062),
-              transparent 68%
-            ),
-            linear-gradient(
-              180deg,
-              #2b3c3e 0%,
-              #253436 46%,
-              #1d2a2c 100%
-            );
+  }, "\u2197")), /*#__PURE__*/React.createElement("p", {
+    style: {
+      margin: 0,
+      color: 'var(--color-text-muted)',
+      font: 'var(--text-caption)',
+      fontSize: '0.8125rem',
+      lineHeight: 1.6,
+      maxWidth: '100%'
+    }
+  }, "Selected work from prior roles and independent projects.")))), /*#__PURE__*/React.createElement("style", null, `
+        [data-archive-grid]{
+          grid-template-columns: minmax(0, 0.65fr) minmax(0, 0.35fr);
+          gap: clamp(40px, 5vw, 60px);
         }
-
-        .jiz-insights::before {
-          content: '';
-          position: absolute;
-          z-index: -2;
-          inset: 0;
-          pointer-events: none;
-          opacity: 0.14;
-          background-image:
-            linear-gradient(
-              rgba(255, 255, 255, 0.032) 1px,
-              transparent 1px
-            ),
-            linear-gradient(
-              90deg,
-              rgba(255, 255, 255, 0.032) 1px,
-              transparent 1px
-            );
-          background-size: 78px 78px;
-          -webkit-mask-image:
-            radial-gradient(
-              ellipse at 50% 46%,
-              #000,
-              transparent 74%
-            );
-          mask-image:
-            radial-gradient(
-              ellipse at 50% 46%,
-              #000,
-              transparent 74%
-            );
+        [data-archive-cta]{
+          transition: transform var(--motion-fast) var(--ease-standard), box-shadow var(--motion-fast) var(--ease-standard), background var(--motion-fast) var(--ease-standard);
         }
-
-        .jiz-insights::after {
-          content: '';
-          position: absolute;
-          z-index: -1;
-          left: -12%;
-          top: 8%;
-          width: min(70vw, 1040px);
-          height: min(70vw, 1040px);
-          border-radius: 50%;
-          pointer-events: none;
-          background:
-            radial-gradient(
-              circle,
-              rgba(100, 225, 255, 0.18) 0%,
-              rgba(100, 225, 255, 0.07) 34%,
-              rgba(198, 242, 58, 0.025) 50%,
-              transparent 72%
-            );
-          filter: blur(58px);
-          opacity: 0.9;
-        }
-
-        .jiz-insights-inner {
-          position: relative;
-          z-index: 1;
-          width: min(100%, 1360px);
-          margin-inline: auto;
-        }
-
-        .jiz-insights-header {
-          max-width: 760px;
-          margin-bottom:
-            clamp(52px, 7vw, 84px);
-        }
-
-        .jiz-insights-eyebrow {
-          margin: 0 0 16px;
-          color: var(--color-accent-primary);
-          font: var(--text-eyebrow);
-          letter-spacing: var(--tracking-eyebrow);
-          text-transform: uppercase;
-        }
-
-        .jiz-insights-title {
-          margin: 0;
-          color: var(--color-text-primary);
-          font: var(--text-h2);
-          font-size:
-            clamp(3rem, 6vw, 5.9rem);
-          line-height: 0.98;
-          letter-spacing: -0.055em;
-          text-wrap: balance;
-        }
-
-        .jiz-insights-subtitle {
-          max-width: 720px;
-          margin: 24px 0 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body-lg);
-          line-height: 1.66;
-        }
-
-        .jiz-insights-stage {
-          position: relative;
-          display: grid;
-          grid-template-columns:
-            minmax(390px, 0.92fr)
-            minmax(0, 1.08fr);
-          gap:
-            clamp(34px, 6vw, 84px);
-          align-items: stretch;
-          min-width: 0;
-        }
-
-        .jiz-insights-portrait-column {
-          position: relative;
-          min-width: 0;
-          height: 100%;
-          min-height: 0;
-        }
-
-        .jiz-insights-portrait-environment {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          min-height: 100%;
-          overflow: visible;
-          isolation: isolate;
-        }
-
-        .jiz-insights-portrait-glow {
-          position: absolute;
-          z-index: 0;
-          left: -38%;
-          top: -10%;
-          width: 176%;
-          height: 126%;
-          pointer-events: none;
-          border-radius: 50%;
-          background:
-            radial-gradient(
-              ellipse at 52% 44%,
-              rgba(100, 225, 255, 0.28) 0%,
-              rgba(100, 225, 255, 0.14) 24%,
-              rgba(100, 225, 255, 0.07) 42%,
-              rgba(198, 242, 58, 0.035) 58%,
-              transparent 76%
-            );
-          filter: blur(62px);
-          opacity: 0.96;
-        }
-
-        .jiz-insights-portrait-haze {
-          position: absolute;
-          z-index: 3;
-          left: -42%;
-          right: -48%;
-          bottom: -9%;
-          height: 46%;
-          pointer-events: none;
-          background:
-            radial-gradient(
-              ellipse at 42% 100%,
-              rgba(198, 242, 58, 0.24) 0%,
-              rgba(100, 225, 255, 0.09) 38%,
-              transparent 72%
-            ),
-            linear-gradient(
-              to top,
-              rgba(198, 242, 58, 0.14),
-              rgba(100, 225, 255, 0.055) 48%,
-              transparent 100%
-            );
-          filter: blur(26px);
-          mix-blend-mode: screen;
-          opacity: 0.88;
-        }
-
-        .jiz-insights-portrait-side-fade {
-          position: absolute;
-          z-index: 4;
-          left: -34%;
-          right: -44%;
-          top: -6%;
-          bottom: -8%;
-          pointer-events: none;
-          background:
-            radial-gradient(
-              ellipse at 43% 46%,
-              transparent 0%,
-              transparent 44%,
-              rgba(43, 61, 63, 0.16) 64%,
-              rgba(43, 61, 63, 0.54) 82%,
-              rgba(43, 61, 63, 0.88) 100%
-            ),
-            linear-gradient(
-              180deg,
-              transparent 0%,
-              transparent 72%,
-              rgba(34, 49, 51, 0.28) 86%,
-              rgba(34, 49, 51, 0.78) 100%
-            );
-          filter: blur(12px);
-        }
-
-        .jiz-insights-portrait {
-          position: absolute;
-          z-index: 2;
-          left: 47%;
-          bottom: -5%;
-          width:
-            clamp(540px, 47vw, 760px);
-          height: 112%;
-          max-width: none;
-          max-height: none;
-          object-fit: contain;
-          object-position: center bottom;
-          transform:
-            translateX(-50%)
-            scale(1.18);
-          transform-origin: center bottom;
-          opacity: 0.98;
-          pointer-events: none;
-          filter:
-            drop-shadow(
-              -22px 8px 46px
-              rgba(100, 225, 255, 0.20)
-            )
-            drop-shadow(
-              0 24px 58px
-              rgba(0, 0, 0, 0.28)
-            );
-          -webkit-mask-image:
-            linear-gradient(
-              to bottom,
-              rgba(0, 0, 0, 0.96) 0%,
-              #000 68%,
-              rgba(0, 0, 0, 0.84) 82%,
-              transparent 100%
-            ),
-            linear-gradient(
-              to right,
-              transparent 0%,
-              rgba(0, 0, 0, 0.55) 10%,
-              #000 24%,
-              #000 74%,
-              rgba(0, 0, 0, 0.5) 90%,
-              transparent 100%
-            );
-          -webkit-mask-composite:
-            source-in;
-          mask-image:
-            linear-gradient(
-              to bottom,
-              rgba(0, 0, 0, 0.96) 0%,
-              #000 68%,
-              rgba(0, 0, 0, 0.84) 82%,
-              transparent 100%
-            ),
-            linear-gradient(
-              to right,
-              transparent 0%,
-              rgba(0, 0, 0, 0.55) 10%,
-              #000 24%,
-              #000 74%,
-              rgba(0, 0, 0, 0.5) 90%,
-              transparent 100%
-            );
-          mask-composite: intersect;
-        }
-
-        .jiz-insights-portrait-copy {
-          position: absolute;
-          z-index: 5;
-          left: clamp(6px, 1vw, 18px);
-          bottom: clamp(18px, 3vw, 34px);
-          max-width: 250px;
-        }
-
-        .jiz-insights-portrait-label {
-          display: block;
-          margin-bottom: 10px;
-          color: var(--color-accent-primary);
-          font: var(--text-hud);
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-        }
-
-        .jiz-insights-portrait-note {
-          margin: 0;
-          color: rgba(247, 248, 250, 0.84);
-          font: var(--text-caption);
-          line-height: 1.55;
-        }
-
-        .jiz-insights-cards {
-          display: grid;
-          grid-template-rows:
-            repeat(3, minmax(230px, 1fr));
-          gap: 24px;
-          min-width: 0;
-          height: 100%;
-          align-self: stretch;
-        }
-
-        .jiz-insight-card-wrap {
-          min-width: 0;
-          height: 100%;
-        }
-
-        .jiz-insight-card {
-          position: relative;
-          display: grid;
-          grid-template-columns:
-            minmax(0, 0.92fr)
-            minmax(220px, 0.78fr);
-          gap:
-            clamp(24px, 4vw, 48px);
-          align-items: center;
-          min-width: 0;
-          height: 100%;
-          box-sizing: border-box;
-          padding:
-            clamp(28px, 3.4vw, 42px);
-          overflow: hidden;
-          border:
-            1px solid rgba(255, 255, 255, 0.075);
-          border-radius:
-            clamp(20px, 2.2vw, 30px);
-          background:
-            linear-gradient(
-              180deg,
-              rgba(255, 255, 255, 0.062) 0%,
-              rgba(255, 255, 255, 0.03) 26%,
-              rgba(255, 255, 255, 0.018) 100%
-            );
-          box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.055),
-            0 20px 52px rgba(0, 0, 0, 0.14);
-          backdrop-filter: blur(18px);
-          transition:
-            transform var(--motion-fast)
-              var(--ease-standard),
-            border-color var(--motion-fast)
-              var(--ease-standard),
-            box-shadow var(--motion-fast)
-              var(--ease-standard),
-            background var(--motion-fast)
-              var(--ease-standard);
-        }
-
-        .jiz-insight-card::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          opacity: 0;
-          background:
-            linear-gradient(
-              112deg,
-              transparent 24%,
-              rgba(198, 242, 58, 0.08) 50%,
-              transparent 76%
-            );
-          transform: translateX(-72%);
-          transition:
-            opacity 280ms ease,
-            transform 720ms var(--ease-standard);
-        }
-
-        .jiz-insight-card:hover,
-        .jiz-insight-card:focus-within {
-          border-color:
-            rgba(255, 255, 255, 0.135);
-          background:
-            linear-gradient(
-              180deg,
-              rgba(255, 255, 255, 0.078) 0%,
-              rgba(255, 255, 255, 0.038) 26%,
-              rgba(255, 255, 255, 0.022) 100%
-            );
-          box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.07),
-            0 24px 58px rgba(0, 0, 0, 0.17);
-        }
-
-        .jiz-insight-card:hover::before,
-        .jiz-insight-card:focus-within::before {
-          opacity: 0;
-        }
-
-        .jiz-insight-card-main,
-        .jiz-insight-card-secondary {
-          position: relative;
-          z-index: 1;
-          min-width: 0;
-        }
-
-        .jiz-insight-card-index {
-          display: block;
-          margin-bottom: 18px;
-          color: rgba(255, 255, 255, 0.58);
-          font: var(--text-hud);
-          letter-spacing: 0.13em;
-        }
-
-        .jiz-insight-card-label {
-          display: block;
-          color: var(--color-accent-secondary);
-          font: var(--text-hud);
-          letter-spacing: var(--tracking-hud);
-        }
-
-        .jiz-insight-card-title {
-          margin: 14px 0 0;
-          max-width: 22ch;
-          color: var(--color-text-primary);
-          font: var(--text-h3);
-          font-size:
-            clamp(1.5rem, 2.3vw, 2.25rem);
-          line-height: 1.1;
-          letter-spacing: -0.038em;
-          text-wrap: balance;
-        }
-
-        .jiz-insight-card-summary {
-          margin: 0;
-          max-width: 46ch;
-          color: rgba(214, 221, 226, 0.9);
-          font: var(--text-body);
-          font-size: 0.9375rem;
-          line-height: 1.74;
-        }
-
-        .jiz-insight-card-takeaway {
-          margin: 24px 0 0;
-          max-width: 44ch;
-          padding-left: 16px;
-          border-left:
-            1px solid rgba(198, 242, 58, 0.55);
-          color: rgba(245, 247, 248, 0.92);
-          font: var(--text-caption);
-          font-size: 0.8125rem;
-          font-style: italic;
-          line-height: 1.62;
-        }
-
-        @media (max-width: 1120px) {
-          .jiz-insights-stage {
-            grid-template-columns:
-              minmax(330px, 0.82fr)
-              minmax(0, 1.18fr);
-            gap: 34px;
-          }
-
-          .jiz-insight-card {
+        @media(max-width:1024px){
+          [data-archive-grid]{
             grid-template-columns: 1fr;
-            gap: 20px;
-          }
-
-          .jiz-insights-portrait {
-            left: 45%;
-            width:
-              clamp(460px, 47vw, 650px);
+            gap: clamp(28px, 3vw, 36px);
           }
         }
-
-        @media (max-width: 900px) {
-          .jiz-insights-stage {
+        @media(max-width:768px){
+          [data-archive-grid]{
             grid-template-columns: 1fr;
-          }
-
-          .jiz-insights-portrait-column {
-            min-height: 650px;
-          }
-
-          .jiz-insights-portrait-environment {
-            height: 650px;
-            min-height: 650px;
-          }
-
-          .jiz-insights-portrait {
-            left: 50%;
-            width:
-              min(650px, 88vw);
-          }
-
-          .jiz-insights-cards {
-            grid-template-rows: none;
-            grid-template-columns: 1fr;
-          }
-
-          .jiz-insight-card {
-            min-height: 250px;
-            grid-template-columns:
-              minmax(0, 0.95fr)
-              minmax(220px, 0.85fr);
+            gap: clamp(20px, 3vw, 28px);
           }
         }
-
-        @media (max-width: 680px) {
-          .jiz-insights {
-            padding-inline:
-              max(20px, var(--container-pad));
-          }
-
-          .jiz-insights-title {
-            font-size:
-              clamp(2.75rem, 13vw, 4.2rem);
-          }
-
-          .jiz-insights-portrait-column {
-            min-height: 560px;
-          }
-
-          .jiz-insights-portrait-environment {
-            height: 560px;
-            min-height: 560px;
-          }
-
-          .jiz-insights-portrait {
-            left: 50%;
-            bottom: -7%;
-            width:
-              min(620px, 118vw);
-            height: 112%;
-            transform:
-              translateX(-50%)
-              scale(1.18);
-          }
-
-          .jiz-insights-portrait-copy {
-            max-width: 215px;
-          }
-
-          .jiz-insight-card-title,
-          .jiz-insight-card-summary,
-          .jiz-insight-card-takeaway {
-            max-width: 100%;
-          }
-
-          .jiz-insight-card {
-            min-height: auto;
-            grid-template-columns: 1fr;
-            gap: 20px;
-            padding:
-              clamp(26px, 7vw, 34px);
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .jiz-creative-lab-method-step,
-          .jiz-creative-lab-tool {
+        @media(prefers-reduced-motion:reduce){
+          [data-archive-cta]{
             transition: none;
           }
-
-          .jiz-insight-card,
-          .jiz-insight-card::before {
-            transition: none;
-          }
-
-          .jiz-insight-card:hover,
-          .jiz-insight-card:focus-within {
+          [data-archive-cta]:hover{
             transform: none;
+            box-shadow: none;
           }
         }
-      `), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-insights-inner"
-  }, /*#__PURE__*/React.createElement(Reveal, null, /*#__PURE__*/React.createElement("header", {
-    className: "jiz-insights-header"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-insights-eyebrow"
-  }, "Insights"), /*#__PURE__*/React.createElement("h2", {
-    id: "jiz-insights-title",
-    className: "jiz-insights-title"
-  }, "Thinking out loud."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-insights-subtitle"
-  }, "Three principles shaping how I use AI, design judgment, and systems thinking to create experiences people can trust, understand, and adopt."))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-insights-stage"
-  }, /*#__PURE__*/React.createElement(Reveal, {
-    delay: 80,
-    style: {
-      minWidth: 0,
-      height: '100%'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-insights-portrait-column"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-insights-portrait-environment"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-insights-portrait-glow",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement(ChromaKeyVideo, {
-    src: "./assets/video/Jonathan_Smiling.mp4",
-    className: "jiz-insights-portrait"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-insights-portrait-haze",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-insights-portrait-side-fade",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-insights-portrait-copy"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-insights-portrait-label"
-  }, "Perspective in practice"), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-insights-portrait-note"
-  }, "Technology becomes meaningful when judgment, context, and human experience remain part of the same system."))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-insights-cards"
-  }, posts.map(function (post, index) {
-    return /*#__PURE__*/React.createElement(Reveal, {
-      key: post.title,
-      delay: 140 + index * 90,
-      style: {
-        minWidth: 0,
-        height: '100%'
-      }
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "jiz-insight-card-wrap"
-    }, /*#__PURE__*/React.createElement("article", {
-      className: "jiz-insight-card"
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "jiz-insight-card-main"
-    }, /*#__PURE__*/React.createElement("span", {
-      className: "jiz-insight-card-index"
-    }, String(index + 1).padStart(2, '0')), /*#__PURE__*/React.createElement("span", {
-      className: "jiz-insight-card-label"
-    }, post.label), /*#__PURE__*/React.createElement("h3", {
-      className: "jiz-insight-card-title"
-    }, post.title)), /*#__PURE__*/React.createElement("div", {
-      className: "jiz-insight-card-secondary"
-    }, /*#__PURE__*/React.createElement("p", {
-      className: "jiz-insight-card-summary"
-    }, post.summary), /*#__PURE__*/React.createElement("p", {
-      className: "jiz-insight-card-takeaway"
-    }, post.takeaway)))));
-  })))));
+      `));
 }
 function LetsBuild({
   onExploreWork
 }) {
-  const PROJECT_TYPES = ['Learning Experience', 'AI Strategy', 'Creative Production', 'Enterprise Transformation', 'Product Adoption', 'Consulting'];
+  const PROJECT_TYPES = ['Full-Time Role', 'Recruiting Conversation', 'Learning Experience', 'AI Strategy', 'Product Enablement', 'Consulting'];
   const TIMELINES = ['Exploring', 'Within 30 Days', '1–3 Months', '3+ Months'];
   const BUDGETS = ['Not Established', 'Under $10k', '$10k–25k', '$25k–50k', '$50k+'];
   const REFERRALS = ['LinkedIn', 'Referral', 'Google Search', 'Previous Colleague', 'Conference or Event', 'Other'];
@@ -16548,7 +12632,7 @@ function LetsBuild({
     const formEl = event.currentTarget;
     if (form.types.length === 0) {
       setFormStatus('error');
-      setFormMessage('Select at least one project type so I can route your inquiry correctly.');
+      setFormMessage('Select at least one inquiry type so I can route your message correctly.');
       return;
     }
     const formData = new FormData(formEl);
@@ -16607,7 +12691,7 @@ function LetsBuild({
     "data-lets-build": "ready",
     "aria-labelledby": "jiz-build-title"
   }, /*#__PURE__*/React.createElement("style", null, `
-        .jiz-build{position:relative;isolation:isolate;overflow:hidden;padding:clamp(104px,11vw,176px) var(--container-pad) clamp(96px,10vw,152px);background:radial-gradient(ellipse 74% 54% at 18% 8%,rgba(100,225,255,.094),transparent 66%),radial-gradient(ellipse 62% 50% at 88% 64%,rgba(198,242,58,.05),transparent 70%),linear-gradient(180deg,#121a1d 0%,#141d20 40%,#101619 100%)}
+        .jiz-build{position:relative;isolation:isolate;overflow:hidden;padding:clamp(76px,8vw,124px) var(--container-pad) clamp(72px,7.4vw,112px);background:radial-gradient(ellipse 74% 54% at 18% 8%,rgba(100,225,255,.094),transparent 66%),radial-gradient(ellipse 62% 50% at 88% 64%,rgba(198,242,58,.05),transparent 70%),linear-gradient(180deg,#121a1d 0%,#141d20 40%,#101619 100%)}
         .jiz-build::before{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%);mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%)}
         .jiz-build-inner{position:relative;z-index:1;width:min(100%,1360px);margin-inline:auto}
         .jiz-build-head{display:flex;flex-direction:column;gap:clamp(22px,2.6vw,34px);margin-bottom:clamp(56px,6.5vw,92px)}
@@ -16686,7 +12770,7 @@ function LetsBuild({
     className: "jiz-build-title"
   }, "Have a complex problem worth making clear?"), /*#__PURE__*/React.createElement("p", {
     className: "jiz-build-sub"
-  }, "I partner with teams navigating complex learning, technology, adoption, and transformation challenges. Tell me what you're trying to change, where the friction lives, and what success should make possible.")), /*#__PURE__*/React.createElement("div", {
+  }, "I partner with teams navigating learning, technology, adoption, and transformation challenges. I am currently open to full-time senior roles in learning experience design, learning strategy, product enablement, leadership development, and AI-enabled learning.")), /*#__PURE__*/React.createElement("div", {
     className: "jiz-build-stage"
   }, /*#__PURE__*/React.createElement("div", {
     className: "jiz-build-film"
@@ -16714,9 +12798,9 @@ function LetsBuild({
     "data-build-form": "ready",
     onSubmit: handleSubmit,
     "aria-busy": formStatus === 'submitting'
-  }, /*#__PURE__*/React.createElement("h3", null, "Start a Project"), /*#__PURE__*/React.createElement("p", {
+  }, /*#__PURE__*/React.createElement("h3", null, "Start the Conversation"), /*#__PURE__*/React.createElement("p", {
     className: "jiz-build-form-note"
-  }, "A few details are enough to begin a useful conversation."), /*#__PURE__*/React.createElement("div", {
+  }, "Hiring, recruiting, or scoping work \u2014 a few details are enough to begin."), /*#__PURE__*/React.createElement("div", {
     className: "jiz-build-fields"
   }, /*#__PURE__*/React.createElement("div", {
     className: "jiz-build-field"
@@ -16770,7 +12854,7 @@ function LetsBuild({
     className: "jiz-build-field jiz-span jiz-build-fieldset"
   }, /*#__PURE__*/React.createElement("legend", {
     className: "jiz-build-label"
-  }, "Project type ", /*#__PURE__*/React.createElement("span", {
+  }, "Inquiry type ", /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true"
   }, "*")), /*#__PURE__*/React.createElement("div", {
     className: "jiz-build-chips"
@@ -16926,7 +13010,7 @@ function LetsBuild({
     className: "jiz-build-tile-top"
   }, /*#__PURE__*/React.createElement("span", {
     className: "jiz-build-tile-name"
-  }, "Connect on LinkedIn"), /*#__PURE__*/React.createElement("span", {
+  }, "View LinkedIn"), /*#__PURE__*/React.createElement("span", {
     className: "jiz-build-tile-arrow",
     "aria-hidden": "true"
   }, "\u2197")), /*#__PURE__*/React.createElement("p", {
@@ -16955,20 +13039,14 @@ function LetsBuild({
     className: "jiz-build-tile-top"
   }, /*#__PURE__*/React.createElement("span", {
     className: "jiz-build-tile-name"
-  }, "Explore My Experience"), /*#__PURE__*/React.createElement("span", {
+  }, "Download Resume"), /*#__PURE__*/React.createElement("span", {
     className: "jiz-build-tile-arrow",
     "aria-hidden": "true"
   }, "\u2197")), /*#__PURE__*/React.createElement("p", {
     className: "jiz-build-tile-desc"
-  }, "Review professional background and capabilities.")), /*#__PURE__*/React.createElement("div", {
+  }, "Full career overview, capabilities, and results.")), /*#__PURE__*/React.createElement("div", {
     className: "jiz-build-tile jiz-build-tile-email",
-    onClick: () => {
-      const form = document.querySelector('form[data-build-form]');
-      if (form) form.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    },
+    onClick: () => scrollToElement(document.querySelector('form[data-build-form]'), 24),
     style: {
       cursor: 'pointer'
     },
@@ -16977,11 +13055,8 @@ function LetsBuild({
     "aria-label": "Start a Conversation \u2014 click to scroll to contact form",
     onKeyDown: e => {
       if (e.key === 'Enter' || e.key === ' ') {
-        const form = document.querySelector('form[data-build-form]');
-        if (form) form.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        e.preventDefault();
+        scrollToElement(document.querySelector('form[data-build-form]'), 24);
       }
     }
   }, /*#__PURE__*/React.createElement("svg", {
@@ -17004,12 +13079,12 @@ function LetsBuild({
     className: "jiz-build-tile-top"
   }, /*#__PURE__*/React.createElement("span", {
     className: "jiz-build-tile-name"
-  }, "Start a Conversation"), /*#__PURE__*/React.createElement("span", {
+  }, "Email Me"), /*#__PURE__*/React.createElement("span", {
     className: "jiz-build-tile-arrow",
     "aria-hidden": "true"
   }, "\u2197")), /*#__PURE__*/React.createElement("p", {
     className: "jiz-build-tile-desc"
-  }, "Reach out directly about projects and opportunities."), /*#__PURE__*/React.createElement("div", {
+  }, "Direct line for roles, referrals, and project inquiries."), /*#__PURE__*/React.createElement("div", {
     style: {
       marginTop: '10px',
       paddingTop: '10px',
@@ -17060,7 +13135,7 @@ function FinalMoment({
   const [lit, setLit] = React.useState(false);
   const ref = React.useRef(null);
   const reduced = prefersReduced();
-  const NAV = [['About', 1], ['Featured Work', 2], ['Creative Lab', 3], ['Insights', 4], ["Let's Build", 5]];
+  const NAV = [['Creative Lab', 3], ['Archive', 8], ['Resume', 'resume'], ['LinkedIn', 'linkedin'], ['Email', 'email']];
   React.useEffect(() => {
     const obs = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) setLit(true);
@@ -17070,10 +13145,7 @@ function FinalMoment({
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
-  const toTop = () => window.scrollTo({
-    top: 0,
-    behavior: reduced ? 'auto' : 'smooth'
-  });
+  const toTop = () => scrollToY(0);
   return /*#__PURE__*/React.createElement("footer", {
     ref: ref,
     className: "jiz-footer",
@@ -17121,7 +13193,19 @@ function FinalMoment({
   }, NAV.map(([label, index]) => /*#__PURE__*/React.createElement("button", {
     key: label,
     type: "button",
-    onClick: () => onNavigate && onNavigate(index)
+    onClick: () => {
+      if (index === 'archive') {
+        window.location.href = 'https://jonathan-iker-zamarripa.webflow.io/projects';
+      } else if (index === 'resume') {
+        window.open('https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf', '_blank', 'noopener,noreferrer');
+      } else if (index === 'linkedin') {
+        window.open('https://www.linkedin.com/in/jonathanzamarripa/', '_blank', 'noopener,noreferrer');
+      } else if (index === 'email') {
+        window.location.href = 'mailto:jonathan.zamarripa@gmail.com';
+      } else {
+        onNavigate && onNavigate(index);
+      }
+    }
   }, label))), /*#__PURE__*/React.createElement("button", {
     className: "jiz-footer-top",
     type: "button",
@@ -17139,6 +13223,1373 @@ function FinalMoment({
     className: "jiz-footer-tech"
   }, "React \u2022 Accessibility First \u2022 Responsive \u2022 Motion Designed"))));
 }
+function CapabilityIcon({
+  shape
+}) {
+  const p = {
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1.4,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round'
+  };
+  return /*#__PURE__*/React.createElement("svg", {
+    className: "jiz-cap-icon",
+    viewBox: "0 0 40 40",
+    "aria-hidden": "true",
+    focusable: "false"
+  }, shape === 'strategy' && /*#__PURE__*/React.createElement("g", p, /*#__PURE__*/React.createElement("path", {
+    d: "M6 30 L16 20 L24 26 L34 12"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "16",
+    cy: "20",
+    r: "2.2"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "24",
+    cy: "26",
+    r: "2.2"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M28 12 H34 V18"
+  })), shape === 'enablement' && /*#__PURE__*/React.createElement("g", p, /*#__PURE__*/React.createElement("rect", {
+    x: "6",
+    y: "8",
+    width: "28",
+    height: "20",
+    rx: "2.5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M6 14 H34"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M14 34 H26"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M20 28 V34"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M11 11 h.01M14.5 11 h.01"
+  })), shape === 'leadership' && /*#__PURE__*/React.createElement("g", p, /*#__PURE__*/React.createElement("circle", {
+    cx: "20",
+    cy: "12",
+    r: "4.4"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M9 31c0-5.2 4.9-8.6 11-8.6S31 25.8 31 31"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M6 34 H34"
+  })), shape === 'ai' && /*#__PURE__*/React.createElement("g", p, /*#__PURE__*/React.createElement("rect", {
+    x: "12",
+    y: "12",
+    width: "16",
+    height: "16",
+    rx: "3"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M20 6 V12M20 28 V34M6 20 H12M28 20 H34M12.5 12.5 L9 9M27.5 12.5 L31 9M12.5 27.5 L9 31M27.5 27.5 L31 31"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "20",
+    cy: "20",
+    r: "2.4"
+  })), shape === 'multimedia' && /*#__PURE__*/React.createElement("g", p, /*#__PURE__*/React.createElement("rect", {
+    x: "5",
+    y: "9",
+    width: "30",
+    height: "19",
+    rx: "2.5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M17 15.5 L24 19 L17 22.5 Z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M12 33 H28"
+  })), shape === 'inclusive' && /*#__PURE__*/React.createElement("g", p, /*#__PURE__*/React.createElement("circle", {
+    cx: "20",
+    cy: "20",
+    r: "13"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M20 13.5 V26.5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M13.5 17.5 H26.5"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M15.5 27 L20 21 L24.5 27"
+  })));
+}
+function CoreCapabilities() {
+  const ref = React.useRef(null);
+  const [active, setActive] = React.useState(false);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setActive(true);
+      return;
+    }
+    const fallback = setTimeout(() => setActive(true), 1200);
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          clearTimeout(fallback);
+          setActive(true);
+          io.disconnect();
+        }
+      });
+    }, {
+      threshold: 0.16
+    });
+    io.observe(el);
+    return () => {
+      clearTimeout(fallback);
+      io.disconnect();
+    };
+  }, []);
+  const caps = [{
+    n: '01',
+    shape: 'strategy',
+    title: 'Learning Strategy',
+    copy: 'Designing learning ecosystems that connect business goals, learner needs, stakeholder priorities, and measurable outcomes.'
+  }, {
+    n: '02',
+    shape: 'enablement',
+    title: 'Product & Technology Enablement',
+    copy: 'Turning complex platforms, workflows, and system changes into clear learning experiences that support adoption and operational readiness.'
+  }, {
+    n: '03',
+    shape: 'leadership',
+    title: 'Leadership Development',
+    copy: 'Creating leadership learning experiences that strengthen decision-making, alignment, emotional intelligence, and enterprise capability.'
+  }, {
+    n: '04',
+    shape: 'ai',
+    title: 'AI-Enabled Learning Production',
+    copy: 'Using AI-supported workflows to accelerate content development, personalize learning, and scale multimedia production.'
+  }, {
+    n: '05',
+    shape: 'multimedia',
+    title: 'Digital Learning & Multimedia Design',
+    copy: 'Building eLearning, explainer videos, job aids, guides, and digital assets that make complex information easier to understand and apply.'
+  }, {
+    n: '06',
+    shape: 'inclusive',
+    title: 'Accessibility & Inclusive Design',
+    copy: 'Designing with accessibility, representation, and learner variability in mind through inclusive practices grounded in WCAG and UDL.'
+  }];
+  return /*#__PURE__*/React.createElement("section", {
+    className: "jiz-cap",
+    ref: ref,
+    "data-in": active ? 'true' : 'false',
+    "aria-labelledby": "jiz-cap-title"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-cap-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-cap-head"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "jiz-cap-eyebrow"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-cap-eyebrow-line",
+    "aria-hidden": "true"
+  }), "What I Bring"), /*#__PURE__*/React.createElement("h2", {
+    className: "jiz-cap-title",
+    id: "jiz-cap-title"
+  }, "Core Capabilities"), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-cap-sub"
+  }, "How I help organizations translate complexity into adoption, readiness, and measurable learning impact.")), /*#__PURE__*/React.createElement("ul", {
+    className: "jiz-cap-grid"
+  }, caps.map((c, i) => /*#__PURE__*/React.createElement("li", {
+    key: c.title,
+    className: "jiz-cap-card",
+    style: {
+      transitionDelay: 220 + i * 110 + 'ms'
+    }
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-cap-top"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-cap-icon-wrap",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement(CapabilityIcon, {
+    shape: c.shape
+  })), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-cap-n",
+    "aria-hidden": "true"
+  }, c.n)), /*#__PURE__*/React.createElement("h3", {
+    className: "jiz-cap-card-title"
+  }, c.title), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-cap-copy"
+  }, c.copy), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-cap-rule",
+    "aria-hidden": "true"
+  }))))), /*#__PURE__*/React.createElement("style", null, `
+.jiz-cap{position:relative;isolation:isolate;background:linear-gradient(180deg,#171A1F 0%,#1C2027 100%);border-top:1px solid rgba(255,255,255,.05);padding-block:clamp(72px,7vw,124px)}
+.jiz-cap::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.5;background:radial-gradient(ellipse 58% 42% at 50% 0%,rgba(198,242,58,.035),transparent 70%)}
+.jiz-cap-inner{position:relative;z-index:1;width:min(1440px,calc(100% - 2*clamp(24px,6vw,112px)));margin-inline:auto}
+.jiz-cap-head{max-width:680px;margin-bottom:clamp(42px,4.2vw,70px)}
+.jiz-cap-eyebrow,.jiz-cap-title,.jiz-cap-sub{opacity:0;transform:translate3d(0,12px,0);transition:opacity 800ms cubic-bezier(.22,.61,.36,1),transform 800ms cubic-bezier(.22,.61,.36,1)}
+.jiz-cap[data-in="true"] .jiz-cap-eyebrow,.jiz-cap[data-in="true"] .jiz-cap-title,.jiz-cap[data-in="true"] .jiz-cap-sub{opacity:1;transform:none}
+.jiz-cap-title{transition-delay:90ms}
+.jiz-cap-sub{transition-delay:190ms}
+.jiz-cap-eyebrow{display:flex;align-items:center;gap:14px;font:var(--text-hud);font-size:.6875rem;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-primary);margin:0 0 20px}
+.jiz-cap-eyebrow-line{display:block;width:44px;height:1px;background:linear-gradient(90deg,var(--color-accent-primary),rgba(198,242,58,.15))}
+.jiz-cap-title{font:var(--text-display);font-size:clamp(2rem,1.35rem + 1.9vw,3.1rem);line-height:1.08;letter-spacing:-.022em;color:var(--color-text-primary);margin:0 0 18px}
+.jiz-cap-sub{font:var(--text-body);font-size:clamp(.9375rem,.9rem + .22vw,1.0625rem);line-height:1.66;color:rgba(217,221,227,.68);margin:0;max-width:60ch;text-wrap:pretty}
+.jiz-cap-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(16px,1.8vw,28px);list-style:none;margin:0;padding:0}
+.jiz-cap-card{position:relative;display:flex;flex-direction:column;gap:14px;min-width:0;padding:clamp(24px,2.2vw,36px);background:linear-gradient(180deg,rgba(255,255,255,.038) 0%,rgba(255,255,255,.014) 100%);border:1px solid rgba(255,255,255,.06);border-radius:clamp(14px,1.2vw,22px);backdrop-filter:blur(10px);box-shadow:0 16px 36px -28px rgba(0,0,0,.8);opacity:0;transform:translate3d(0,22px,0);transition:opacity 780ms cubic-bezier(.22,.61,.36,1),transform 780ms cubic-bezier(.22,.61,.36,1),border-color 300ms ease,box-shadow 300ms ease,background 300ms ease}
+.jiz-cap[data-in="true"] .jiz-cap-card{opacity:1;transform:none}
+.jiz-cap-card:hover,.jiz-cap-card:focus-within{border-color:rgba(198,242,58,.26);background:linear-gradient(180deg,rgba(198,242,58,.05) 0%,rgba(255,255,255,.016) 100%);box-shadow:0 28px 56px -30px rgba(0,0,0,.9),0 0 0 1px rgba(198,242,58,.08);transform:translate3d(0,-5px,0);transition-delay:0ms}
+.jiz-cap-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.jiz-cap-icon-wrap{display:grid;place-items:center;width:46px;height:46px;border:1px solid rgba(198,242,58,.18);border-radius:12px;background:rgba(198,242,58,.05);color:var(--color-accent-primary);transition:border-color 300ms ease,background 300ms ease,color 300ms ease}
+.jiz-cap-card:hover .jiz-cap-icon-wrap,.jiz-cap-card:focus-within .jiz-cap-icon-wrap{border-color:rgba(198,242,58,.42);background:rgba(198,242,58,.11)}
+.jiz-cap-icon{width:26px;height:26px;display:block}
+.jiz-cap-icon g{stroke-dasharray:180;stroke-dashoffset:180;transition:stroke-dashoffset 1100ms cubic-bezier(.22,.61,.36,1) 240ms}
+.jiz-cap[data-in="true"] .jiz-cap-icon g{stroke-dashoffset:0}
+.jiz-cap-n{font:var(--text-hud);font-size:.625rem;letter-spacing:.18em;color:rgba(217,221,227,.6);transition:color 300ms ease}
+.jiz-cap-card:hover .jiz-cap-n,.jiz-cap-card:focus-within .jiz-cap-n{color:rgba(198,242,58,.72)}
+.jiz-cap-card-title{font:var(--text-h3);font-size:1.125rem;line-height:1.34;letter-spacing:-.01em;color:var(--color-text-primary);margin:4px 0 0;text-wrap:pretty}
+.jiz-cap-copy{font:var(--text-body);font-size:.9375rem;line-height:1.62;color:rgba(217,221,227,.7);margin:0;text-wrap:pretty}
+.jiz-cap-rule{display:block;width:32px;height:1px;margin-top:auto;padding-top:0;background:linear-gradient(90deg,var(--color-accent-primary),rgba(198,242,58,.1));opacity:.45;transition:width 520ms cubic-bezier(.22,.61,.36,1),opacity 300ms ease}
+.jiz-cap-card:hover .jiz-cap-rule,.jiz-cap-card:focus-within .jiz-cap-rule{width:62px;opacity:.95}
+@media(max-width:1000px){.jiz-cap-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.jiz-cap-grid{grid-template-columns:1fr}.jiz-cap-card{transform:translate3d(0,14px,0)}}
+@media(prefers-reduced-motion:reduce){.jiz-cap-eyebrow,.jiz-cap-title,.jiz-cap-sub,.jiz-cap-card{opacity:1;transform:none;transition:none}.jiz-cap-card:hover,.jiz-cap-card:focus-within{transform:none}.jiz-cap-icon g{stroke-dasharray:none;stroke-dashoffset:0;transition:none}.jiz-cap-rule{transition:none}}
+      `));
+}
+function MethodIcon({
+  shape
+}) {
+  const p = {
+    fill: 'none',
+    stroke: 'currentColor',
+    strokeWidth: 1.4,
+    strokeLinecap: 'round',
+    strokeLinejoin: 'round'
+  };
+  return /*#__PURE__*/React.createElement("svg", {
+    className: "jiz-method2-icon",
+    viewBox: "0 0 32 32",
+    "aria-hidden": "true",
+    focusable: "false"
+  }, shape === 'clarify' && /*#__PURE__*/React.createElement("g", p, /*#__PURE__*/React.createElement("circle", {
+    cx: "14",
+    cy: "14",
+    r: "8"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M20 20 L28 28"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M14 10.5 V14 L16.5 16"
+  })), shape === 'structure' && /*#__PURE__*/React.createElement("g", p, /*#__PURE__*/React.createElement("rect", {
+    x: "4",
+    y: "4",
+    width: "10",
+    height: "10",
+    rx: "2"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "18",
+    y: "4",
+    width: "10",
+    height: "6",
+    rx: "2"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "18",
+    y: "14",
+    width: "10",
+    height: "14",
+    rx: "2"
+  }), /*#__PURE__*/React.createElement("rect", {
+    x: "4",
+    y: "18",
+    width: "10",
+    height: "10",
+    rx: "2"
+  })), shape === 'design' && /*#__PURE__*/React.createElement("g", p, /*#__PURE__*/React.createElement("path", {
+    d: "M6 26 L14 6 L22 26"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M9 19 H19"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "25",
+    cy: "9",
+    r: "3"
+  })), shape === 'build' && /*#__PURE__*/React.createElement("g", p, /*#__PURE__*/React.createElement("path", {
+    d: "M16 3 L28 10 V22 L16 29 L4 22 V10 Z"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M4 10 L16 17 L28 10"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M16 17 V29"
+  })), shape === 'measure' && /*#__PURE__*/React.createElement("g", p, /*#__PURE__*/React.createElement("path", {
+    d: "M4 26 H28"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M8 26 V18"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M14 26 V12"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M20 26 V20"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M26 26 V7"
+  })));
+}
+function MethodSection() {
+  const ref = React.useRef(null);
+  const [active, setActive] = React.useState(false);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setActive(true);
+      return;
+    }
+    const fallback = setTimeout(() => setActive(true), 1200);
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          clearTimeout(fallback);
+          setActive(true);
+          io.disconnect();
+        }
+      });
+    }, {
+      threshold: 0.18
+    });
+    io.observe(el);
+    return () => {
+      clearTimeout(fallback);
+      io.disconnect();
+    };
+  }, []);
+  const steps = [{
+    n: '01',
+    shape: 'clarify',
+    title: 'Clarify',
+    copy: 'Define the business problem, learner need, stakeholder expectations, and success criteria.'
+  }, {
+    n: '02',
+    shape: 'structure',
+    title: 'Structure',
+    copy: 'Organize complexity into a clear learning architecture, journey, content map, or enablement strategy.'
+  }, {
+    n: '03',
+    shape: 'design',
+    title: 'Design',
+    copy: 'Shape the experience through story, interaction, visuals, accessibility, and human-centered learning principles.'
+  }, {
+    n: '04',
+    shape: 'build',
+    title: 'Build',
+    copy: 'Produce scalable assets across eLearning, video, guides, toolkits, job aids, communications, and enablement resources.'
+  }, {
+    n: '05',
+    shape: 'measure',
+    title: 'Measure',
+    copy: 'Use feedback, adoption signals, performance evidence, and stakeholder input to refine impact.'
+  }];
+  return /*#__PURE__*/React.createElement("section", {
+    className: "jiz-method2",
+    ref: ref,
+    "data-in": active ? 'true' : 'false',
+    "aria-labelledby": "jiz-method2-title"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-method2-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-method2-head"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "jiz-method2-eyebrow"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-method2-eyebrow-line",
+    "aria-hidden": "true"
+  }), "The Method"), /*#__PURE__*/React.createElement("h2", {
+    className: "jiz-method2-title",
+    id: "jiz-method2-title"
+  }, "How thought becomes action."), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-method2-sub"
+  }, "A connected practice for moving from ambiguity to learning experiences people can understand, adopt, and use.")), /*#__PURE__*/React.createElement("ol", {
+    className: "jiz-method2-rail"
+  }, steps.map((s, i) => /*#__PURE__*/React.createElement("li", {
+    key: s.title,
+    className: "jiz-method2-item",
+    style: {
+      transitionDelay: 240 + i * 130 + 'ms'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-method2-node",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-method2-arrow",
+    "aria-hidden": "true"
+  }, "\u2192"), /*#__PURE__*/React.createElement("div", {
+    className: "jiz-method2-step",
+    tabIndex: 0
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-method2-step-top"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-method2-icon-wrap",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement(MethodIcon, {
+    shape: s.shape
+  })), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-method2-n"
+  }, 'Step ' + s.n)), /*#__PURE__*/React.createElement("h3", {
+    className: "jiz-method2-step-title"
+  }, s.title), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-method2-copy"
+  }, s.copy)))))), /*#__PURE__*/React.createElement("style", null, `
+.jiz-method2{position:relative;isolation:isolate;background:#060A09;border-top:1px solid rgba(255,255,255,.05);padding-block:clamp(72px,7vw,124px)}
+.jiz-method2::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 60% 40% at 50% 100%,rgba(198,242,58,.03),transparent 72%)}
+.jiz-method2-inner{position:relative;z-index:1;width:min(1440px,calc(100% - 2*clamp(24px,6vw,112px)));margin-inline:auto}
+.jiz-method2-head{max-width:660px;margin-bottom:clamp(48px,4.8vw,80px)}
+.jiz-method2-eyebrow,.jiz-method2-title,.jiz-method2-sub{opacity:0;transform:translate3d(0,12px,0);transition:opacity 800ms cubic-bezier(.22,.61,.36,1),transform 800ms cubic-bezier(.22,.61,.36,1)}
+.jiz-method2[data-in="true"] .jiz-method2-eyebrow,.jiz-method2[data-in="true"] .jiz-method2-title,.jiz-method2[data-in="true"] .jiz-method2-sub{opacity:1;transform:none}
+.jiz-method2-title{transition-delay:90ms}
+.jiz-method2-sub{transition-delay:190ms}
+.jiz-method2-eyebrow{display:flex;align-items:center;gap:14px;font:var(--text-hud);font-size:.6875rem;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-primary);margin:0 0 20px}
+.jiz-method2-eyebrow-line{display:block;width:44px;height:1px;background:linear-gradient(90deg,var(--color-accent-primary),rgba(198,242,58,.15))}
+.jiz-method2-title{font:var(--text-display);font-size:clamp(2rem,1.35rem + 1.9vw,3.1rem);line-height:1.08;letter-spacing:-.022em;color:var(--color-text-primary);margin:0 0 18px}
+.jiz-method2-sub{font:var(--text-body);font-size:clamp(.9375rem,.9rem + .22vw,1.0625rem);line-height:1.66;color:rgba(217,221,227,.68);margin:0;max-width:58ch;text-wrap:pretty}
+.jiz-method2-rail{position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(14px,1.5vw,26px);list-style:none;margin:0;padding:0}
+.jiz-method2-rail::before{content:'';position:absolute;left:6px;right:6px;top:5px;height:1px;background:linear-gradient(90deg,rgba(198,242,58,.5),rgba(198,242,58,.16) 72%,rgba(198,242,58,.05));transform:scaleX(0);transform-origin:left center;transition:transform 1500ms cubic-bezier(.22,.61,.36,1) 180ms}
+.jiz-method2[data-in="true"] .jiz-method2-rail::before{transform:scaleX(1)}
+.jiz-method2-item{position:relative;display:flex;flex-direction:column;min-width:0;padding-top:30px;opacity:0;transform:translate3d(0,20px,0);transition:opacity 780ms cubic-bezier(.22,.61,.36,1),transform 780ms cubic-bezier(.22,.61,.36,1)}
+.jiz-method2[data-in="true"] .jiz-method2-item{opacity:1;transform:none}
+.jiz-method2-node{position:absolute;left:0;top:0;width:11px;height:11px;border-radius:50%;border:1px solid rgba(198,242,58,.5);background:#060A09;box-shadow:0 0 0 4px rgba(198,242,58,.05)}
+.jiz-method2-item:first-child .jiz-method2-node{background:var(--color-accent-primary);border-color:var(--color-accent-primary);box-shadow:0 0 0 5px rgba(198,242,58,.1)}
+.jiz-method2-item:hover .jiz-method2-node,.jiz-method2-item:focus-within .jiz-method2-node{background:var(--color-accent-primary);border-color:var(--color-accent-primary)}
+.jiz-method2-arrow{position:absolute;right:calc(-1*clamp(14px,1.5vw,26px)/2 - 4px);top:-3px;font-size:.75rem;line-height:1;color:rgba(198,242,58,.4)}
+.jiz-method2-item:last-child .jiz-method2-arrow{display:none}
+.jiz-method2-step{display:flex;flex-direction:column;gap:10px;height:100%;padding:clamp(18px,1.6vw,26px);background:linear-gradient(180deg,rgba(255,255,255,.032) 0%,rgba(255,255,255,.012) 100%);border:1px solid rgba(255,255,255,.055);border-radius:clamp(12px,1vw,18px);transition:border-color 300ms ease,box-shadow 300ms ease,background 300ms ease,transform 300ms ease}
+.jiz-method2-step:hover,.jiz-method2-step:focus-visible{border-color:rgba(198,242,58,.28);background:linear-gradient(180deg,rgba(198,242,58,.045) 0%,rgba(255,255,255,.014) 100%);box-shadow:0 24px 48px -30px rgba(0,0,0,.9),0 0 0 1px rgba(198,242,58,.08);transform:translate3d(0,-4px,0)}
+.jiz-method2-step:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:4px}
+.jiz-method2-step-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.jiz-method2-icon-wrap{display:grid;place-items:center;width:38px;height:38px;border:1px solid rgba(198,242,58,.18);border-radius:10px;background:rgba(198,242,58,.05);color:var(--color-accent-primary);transition:border-color 300ms ease,background 300ms ease}
+.jiz-method2-step:hover .jiz-method2-icon-wrap,.jiz-method2-step:focus-visible .jiz-method2-icon-wrap{border-color:rgba(198,242,58,.42);background:rgba(198,242,58,.11)}
+.jiz-method2-icon{width:20px;height:20px;display:block}
+.jiz-method2-icon g{stroke-dasharray:140;stroke-dashoffset:140;transition:stroke-dashoffset 1100ms cubic-bezier(.22,.61,.36,1) 280ms}
+.jiz-method2[data-in="true"] .jiz-method2-icon g{stroke-dashoffset:0}
+.jiz-method2-n{font:var(--text-hud);font-size:.5625rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(217,221,227,.6)}
+.jiz-method2-step-title{font:var(--text-h3);font-size:1.1875rem;line-height:1.24;letter-spacing:-.012em;color:var(--color-text-primary);margin:2px 0 0}
+.jiz-method2-copy{font:var(--text-body);font-size:.875rem;line-height:1.58;color:rgba(217,221,227,.68);margin:0;text-wrap:pretty}
+@media(max-width:1180px){.jiz-method2-rail{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,2.4vw,30px)}.jiz-method2-rail::before{display:none}.jiz-method2-item{padding-top:0;padding-left:26px;border-left:1px solid rgba(198,242,58,.16)}.jiz-method2-node{left:-6px;top:6px}.jiz-method2-arrow{display:none}}
+@media(max-width:760px){.jiz-method2-rail{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.jiz-method2-rail{grid-template-columns:1fr}.jiz-method2-item{transform:translate3d(0,12px,0)}}
+@media(prefers-reduced-motion:reduce){.jiz-method2-eyebrow,.jiz-method2-title,.jiz-method2-sub,.jiz-method2-item{opacity:1;transform:none;transition:none}.jiz-method2-rail::before{transform:scaleX(1);transition:none}.jiz-method2-icon g{stroke-dasharray:none;stroke-dashoffset:0;transition:none}.jiz-method2-step:hover,.jiz-method2-step:focus-visible{transform:none}}
+      `));
+}
+function ThinkingInMotion() {
+  const ref = React.useRef(null);
+  const [active, setActive] = React.useState(false);
+  const [open, setOpen] = React.useState(false);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setActive(true);
+      return;
+    }
+    const fallback = setTimeout(() => setActive(true), 1200);
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          clearTimeout(fallback);
+          setActive(true);
+          io.disconnect();
+        }
+      });
+    }, {
+      threshold: 0.16
+    });
+    io.observe(el);
+    return () => {
+      clearTimeout(fallback);
+      io.disconnect();
+    };
+  }, []);
+  const tags = ['Narrative Structure', 'Visual Pacing', 'Emotional Relevance', 'Scenario-Based Learning', 'AI-Enabled Production', 'Behavioral Clarity'];
+  const beats = [{
+    label: 'Context',
+    copy: 'Establish the situation people are actually working inside.'
+  }, {
+    label: 'Tension',
+    copy: 'Name the friction that makes the change hard.'
+  }, {
+    label: 'Clarity',
+    copy: 'Resolve complexity into a decision people can hold.'
+  }, {
+    label: 'Action',
+    copy: 'Move understanding into confident behavior.'
+  }];
+  const notes = [{
+    label: 'AI + Practice',
+    title: 'AI changes the workflow — not the responsibility.',
+    copy: 'Speed expands the options. Judgment protects the outcome.'
+  }, {
+    label: 'Design Judgment',
+    title: 'Scenarios should build judgment, not reward guessing.',
+    copy: 'Practice should strengthen decisions — not test compliance.'
+  }, {
+    label: 'Systems Thinking',
+    title: 'The experience is only one part of the system.',
+    copy: 'Adoption succeeds when the whole environment supports the behavior.'
+  }];
+  return /*#__PURE__*/React.createElement("section", {
+    className: "jiz-tim",
+    ref: ref,
+    "data-in": active ? 'true' : 'false',
+    "aria-labelledby": "jiz-tim-title"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-tim-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-tim-col"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "jiz-tim-eyebrow"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-tim-eyebrow-line",
+    "aria-hidden": "true"
+  }), "Thinking in Motion"), /*#__PURE__*/React.createElement("h2", {
+    className: "jiz-tim-title",
+    id: "jiz-tim-title"
+  }, "Cinematic learning for complex change."), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-tim-sub"
+  }, "A design perspective on how narrative structure, visual rhythm, emotional relevance, and multimedia storytelling can make learning more memorable, human, and actionable."), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-tim-copy"
+  }, "I approach learning design like a narrative system. Every experience needs rhythm, tension, clarity, visual pacing, and a purposeful arc. Whether I am building an executive explainer, a leadership simulation, a product enablement toolkit, or an interactive eLearning module, I use cinematic principles to help learners move from attention to understanding \u2014 and from understanding to action."), /*#__PURE__*/React.createElement("ul", {
+    className: "jiz-tim-tags"
+  }, tags.map((t, i) => /*#__PURE__*/React.createElement("li", {
+    key: t,
+    className: "jiz-tim-tag",
+    style: {
+      transitionDelay: 420 + i * 90 + 'ms'
+    }
+  }, t)))), /*#__PURE__*/React.createElement("div", {
+    className: "jiz-tim-col jiz-tim-col--right"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-tim-board"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "jiz-tim-board-label"
+  }, "Story arc"), /*#__PURE__*/React.createElement("div", {
+    className: "jiz-tim-arc"
+  }, /*#__PURE__*/React.createElement("svg", {
+    className: "jiz-tim-arc-svg",
+    viewBox: "0 0 600 120",
+    preserveAspectRatio: "none",
+    "aria-hidden": "true",
+    focusable: "false"
+  }, /*#__PURE__*/React.createElement("path", {
+    className: "jiz-tim-arc-path",
+    d: "M8 96 C 120 96, 150 30, 260 44 S 420 96, 592 18",
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1.5",
+    strokeLinecap: "round",
+    vectorEffect: "non-scaling-stroke"
+  }))), /*#__PURE__*/React.createElement("ol", {
+    className: "jiz-tim-beats"
+  }, beats.map((b, i) => /*#__PURE__*/React.createElement("li", {
+    key: b.label,
+    className: "jiz-tim-beat",
+    style: {
+      transitionDelay: 520 + i * 130 + 'ms'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-tim-beat-node",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-tim-beat-label"
+  }, b.label), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-tim-beat-copy"
+  }, b.copy))))), /*#__PURE__*/React.createElement("article", {
+    className: "jiz-tim-card"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-tim-visual",
+    "aria-hidden": "true"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-tim-frame"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-tim-frame jiz-tim-frame--2"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-tim-frame jiz-tim-frame--3"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-tim-scan"
+  })), /*#__PURE__*/React.createElement("div", {
+    className: "jiz-tim-body"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "jiz-tim-kicker"
+  }, "Featured Insight"), /*#__PURE__*/React.createElement("h3", {
+    className: "jiz-tim-card-title"
+  }, "Thinking in Motion: Cinematic Learning for Enterprise Transformation"), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-tim-card-copy"
+  }, "An emerging design perspective on how narrative structure, visual rhythm, emotion, AI-enabled production, and multimedia storytelling can help people understand complex change and act with confidence."), /*#__PURE__*/React.createElement("button", {
+    type: "button",
+    className: "jiz-tim-cta",
+    onClick: () => setOpen(v => !v),
+    "aria-expanded": open,
+    "aria-controls": "jiz-tim-panel"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-tim-cta-label"
+  }, open ? 'Close the Insight' : 'Read the Insight'), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-tim-cta-arrow",
+    "aria-hidden": "true"
+  }, open ? '\u2212' : '\u2192')), /*#__PURE__*/React.createElement("div", {
+    className: "jiz-tim-panel",
+    id: "jiz-tim-panel",
+    hidden: !open
+  }, /*#__PURE__*/React.createElement("ul", {
+    className: "jiz-tim-notes"
+  }, notes.map(n => /*#__PURE__*/React.createElement("li", {
+    key: n.title,
+    className: "jiz-tim-note"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "jiz-tim-note-label"
+  }, n.label), /*#__PURE__*/React.createElement("h4", {
+    className: "jiz-tim-note-title"
+  }, n.title), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-tim-note-copy"
+  }, n.copy))))))))), /*#__PURE__*/React.createElement("style", null, `
+.jiz-tim{position:relative;isolation:isolate;background:#0E1413;border-top:1px solid rgba(255,255,255,.05);padding-block:clamp(72px,7vw,124px)}
+.jiz-tim::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 52% 44% at 80% 26%,rgba(95,201,192,.055),transparent 70%),radial-gradient(ellipse 46% 40% at 12% 84%,rgba(198,242,58,.03),transparent 72%)}
+.jiz-tim-inner{position:relative;z-index:1;width:min(1440px,calc(100% - 2*clamp(24px,6vw,112px)));margin-inline:auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,4vw,72px);align-items:start}
+.jiz-tim-col{display:flex;flex-direction:column;min-width:0}
+.jiz-tim-col--right{gap:clamp(18px,1.8vw,28px)}
+.jiz-tim-eyebrow,.jiz-tim-title,.jiz-tim-sub,.jiz-tim-copy,.jiz-tim-board,.jiz-tim-card{opacity:0;transform:translate3d(0,14px,0);transition:opacity 840ms cubic-bezier(.22,.61,.36,1),transform 840ms cubic-bezier(.22,.61,.36,1)}
+.jiz-tim[data-in="true"] .jiz-tim-eyebrow,.jiz-tim[data-in="true"] .jiz-tim-title,.jiz-tim[data-in="true"] .jiz-tim-sub,.jiz-tim[data-in="true"] .jiz-tim-copy,.jiz-tim[data-in="true"] .jiz-tim-board,.jiz-tim[data-in="true"] .jiz-tim-card{opacity:1;transform:none}
+.jiz-tim-title{transition-delay:100ms}
+.jiz-tim-sub{transition-delay:200ms}
+.jiz-tim-copy{transition-delay:300ms}
+.jiz-tim-board{transition-delay:240ms}
+.jiz-tim-card{transition-delay:400ms;transition-property:opacity,transform,border-color,box-shadow;transition-duration:840ms,840ms,300ms,300ms}
+.jiz-tim-eyebrow{display:flex;align-items:center;gap:14px;font:var(--text-hud);font-size:.6875rem;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-secondary);margin:0 0 20px}
+.jiz-tim-eyebrow-line{display:block;width:44px;height:1px;background:linear-gradient(90deg,var(--color-accent-secondary),rgba(95,201,192,.15))}
+.jiz-tim-title{font:var(--text-display);font-size:clamp(1.95rem,1.3rem + 1.9vw,3rem);line-height:1.08;letter-spacing:-.024em;color:var(--color-text-primary);margin:0 0 18px;text-wrap:pretty}
+.jiz-tim-sub{font:var(--text-body);font-size:clamp(.9375rem,.9rem + .22vw,1.0625rem);line-height:1.68;color:rgba(217,221,227,.72);margin:0 0 20px;max-width:52ch;text-wrap:pretty}
+.jiz-tim-copy{font:var(--text-body);font-size:.9375rem;line-height:1.75;color:rgba(217,221,227,.7);margin:0;max-width:56ch;padding-left:18px;border-left:1px solid rgba(95,201,192,.28);text-wrap:pretty}
+.jiz-tim-tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:clamp(24px,2.4vw,34px) 0 0;padding:0}
+.jiz-tim-tag{padding:6px 12px;border-radius:var(--radius-pill);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);font:var(--text-body);font-size:.6875rem;letter-spacing:.02em;color:rgba(232,238,226,.74);opacity:0;transform:translate3d(0,8px,0);transition:opacity 620ms cubic-bezier(.22,.61,.36,1),transform 620ms cubic-bezier(.22,.61,.36,1),background 260ms ease,border-color 260ms ease,color 260ms ease}
+.jiz-tim[data-in="true"] .jiz-tim-tag{opacity:1;transform:none}
+.jiz-tim-tag:hover{background:rgba(198,242,58,.12);border-color:rgba(198,242,58,.26);color:#EEFBD2}
+.jiz-tim-board{position:relative;padding:clamp(20px,2vw,30px);background:linear-gradient(180deg,rgba(255,255,255,.035) 0%,rgba(255,255,255,.012) 100%);border:1px solid rgba(255,255,255,.06);border-radius:clamp(14px,1.2vw,22px)}
+.jiz-tim-board-label{font:var(--text-hud);font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(217,221,227,.6);margin:0 0 12px}
+.jiz-tim-arc{height:clamp(72px,7vw,104px);color:var(--color-accent-primary)}
+.jiz-tim-arc-svg{width:100%;height:100%;display:block;overflow:visible}
+.jiz-tim-arc-path{stroke-dasharray:1000;stroke-dashoffset:1000;opacity:.72;transition:stroke-dashoffset 1800ms cubic-bezier(.22,.61,.36,1) 260ms}
+.jiz-tim[data-in="true"] .jiz-tim-arc-path{stroke-dashoffset:0}
+.jiz-tim-beats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.2vw,18px);list-style:none;margin:14px 0 0;padding:0}
+.jiz-tim-beat{position:relative;padding-top:16px;min-width:0;opacity:0;transform:translate3d(0,10px,0);transition:opacity 680ms cubic-bezier(.22,.61,.36,1),transform 680ms cubic-bezier(.22,.61,.36,1)}
+.jiz-tim[data-in="true"] .jiz-tim-beat{opacity:1;transform:none}
+.jiz-tim-beat-node{position:absolute;left:0;top:0;width:7px;height:7px;border-radius:50%;background:var(--color-accent-primary);opacity:.75}
+.jiz-tim-beat-label{font:var(--text-hud);font-size:.625rem;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-primary);margin:0 0 6px}
+.jiz-tim-beat-copy{font:var(--text-body);font-size:.8125rem;line-height:1.5;color:rgba(217,221,227,.62);margin:0;text-wrap:pretty}
+.jiz-tim-card{display:grid;grid-template-columns:minmax(0,34fr) minmax(0,66fr);overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.042) 0%,rgba(255,255,255,.014) 100%);border:1px solid rgba(255,255,255,.07);border-radius:clamp(16px,1.4vw,24px);box-shadow:0 20px 46px -30px rgba(0,0,0,.85)}
+.jiz-tim-card:hover,.jiz-tim-card:focus-within{border-color:rgba(95,201,192,.3);box-shadow:0 30px 62px -32px rgba(0,0,0,.9),0 0 0 1px rgba(95,201,192,.08)}
+.jiz-tim-visual{position:relative;overflow:hidden;min-height:clamp(180px,18vw,240px);background:linear-gradient(160deg,#0F1A19 0%,#0A100F 76%)}
+.jiz-tim-frame{position:absolute;left:14%;top:20%;width:58%;height:42%;border:1px solid rgba(95,201,192,.34);border-radius:4px}
+.jiz-tim-frame--2{left:22%;top:30%;border-color:rgba(198,242,58,.24)}
+.jiz-tim-frame--3{left:30%;top:40%;border-color:rgba(255,255,255,.11)}
+.jiz-tim-scan{position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(198,242,58,.5),transparent);transform:translateY(0);opacity:0;transition:transform 1700ms cubic-bezier(.22,.61,.36,1) 520ms,opacity 600ms ease 520ms}
+.jiz-tim[data-in="true"] .jiz-tim-scan{transform:translateY(clamp(180px,18vw,240px));opacity:.85}
+.jiz-tim-body{display:flex;flex-direction:column;align-items:flex-start;gap:13px;padding:clamp(22px,2.2vw,36px)}
+.jiz-tim-kicker{font:var(--text-hud);font-size:.625rem;letter-spacing:.2em;text-transform:uppercase;color:var(--color-accent-secondary);margin:0}
+.jiz-tim-card-title{font:var(--text-h3);font-size:clamp(1.1rem,.98rem + .5vw,1.45rem);line-height:1.3;letter-spacing:-.012em;color:var(--color-text-primary);margin:0;text-wrap:pretty}
+.jiz-tim-card-copy{font:var(--text-body);font-size:.9375rem;line-height:1.6;color:rgba(217,221,227,.7);margin:0;max-width:54ch;text-wrap:pretty}
+.jiz-tim-cta{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0;background:none;border:0;font:var(--text-button);font-size:.875rem;color:var(--color-accent-primary);cursor:pointer}
+.jiz-tim-cta-label{position:relative;padding-bottom:3px;border-bottom:1px solid rgba(198,242,58,.34);transition:border-color 260ms ease}
+.jiz-tim-cta:hover .jiz-tim-cta-label{border-color:var(--color-accent-primary)}
+.jiz-tim-cta-arrow{transition:transform 320ms cubic-bezier(.22,.61,.36,1)}
+.jiz-tim-cta:hover .jiz-tim-cta-arrow{transform:translateX(5px)}
+.jiz-tim-cta:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:5px;border-radius:4px}
+.jiz-tim-panel{width:100%;margin-top:2px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07)}
+.jiz-tim-notes{display:grid;gap:16px;list-style:none;margin:0;padding:0}
+.jiz-tim-note-label{font:var(--text-hud);font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(198,242,58,.72);margin:0 0 6px}
+.jiz-tim-note-title{font:var(--text-body);font-size:.9375rem;font-weight:650;line-height:1.4;color:var(--color-text-primary);margin:0 0 4px;text-wrap:pretty}
+.jiz-tim-note-copy{font:var(--text-body);font-size:.875rem;line-height:1.55;color:rgba(217,221,227,.66);margin:0;text-wrap:pretty}
+@media(max-width:1040px){.jiz-tim-inner{grid-template-columns:1fr}.jiz-tim-card{grid-template-columns:1fr}.jiz-tim-visual{min-height:150px}.jiz-tim[data-in="true"] .jiz-tim-scan{transform:translateY(150px)}}
+@media(max-width:620px){.jiz-tim-beats{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.jiz-tim-copy{padding-left:14px}}
+@media(prefers-reduced-motion:reduce){.jiz-tim-eyebrow,.jiz-tim-title,.jiz-tim-sub,.jiz-tim-copy,.jiz-tim-board,.jiz-tim-card,.jiz-tim-tag,.jiz-tim-beat{opacity:1;transform:none;transition:none}.jiz-tim-arc-path{stroke-dasharray:none;stroke-dashoffset:0;transition:none}.jiz-tim-scan{opacity:.5;transform:none;transition:none}.jiz-tim-cta-arrow{transition:none}}
+      `));
+}
+function LearningStack() {
+  const ref = React.useRef(null);
+  const [active, setActive] = React.useState(false);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setActive(true);
+      return;
+    }
+    const fallback = setTimeout(() => setActive(true), 1200);
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          clearTimeout(fallback);
+          setActive(true);
+          io.disconnect();
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+    io.observe(el);
+    return () => {
+      clearTimeout(fallback);
+      io.disconnect();
+    };
+  }, []);
+  const layers = ['Strategy', 'Design', 'AI Production', 'Automation', 'Delivery', 'Measurement'];
+  const groups = [{
+    n: '01',
+    layer: 'Design',
+    title: 'Learning Design & Authoring',
+    label: 'Interactive learning, microlearning, simulations, branching, assessments, and performance support.',
+    tools: ['Articulate Storyline 360', 'Rise 360', 'Genially', 'Canvas LMS', 'H5P', 'Camtasia interactive video', 'Scenario-based learning tools']
+  }, {
+    n: '02',
+    layer: 'AI Production',
+    title: 'AI-Enabled Content & Workflow',
+    label: 'Rapid ideation, content transformation, SME synthesis, scenario drafting, script development, learning architecture, and review acceleration.',
+    tools: ['ChatGPT', 'Claude', 'Gemini', 'Microsoft Copilot', 'NotebookLM', 'Perplexity', 'Prompt systems', 'AI-assisted storyboarding', 'AI review workflows']
+  }, {
+    n: '03',
+    layer: 'Automation',
+    title: 'Agentic AI & Learning Automation',
+    motif: true,
+    label: 'Agentic workflow awareness across content intake, SME analysis, knowledge retrieval, QA checks, learner support, and scalable learning operations.',
+    tools: ['Custom GPTs', 'Claude Projects', 'Zapier', 'Make', 'n8n', 'Airtable automations', 'MCP-enabled workflow concepts', 'RAG knowledge systems', 'AI agents for L&D operations']
+  }, {
+    n: '04',
+    layer: 'AI Production',
+    title: 'AI Video, Voice & Localization',
+    label: 'AI-assisted video production, voiceover, localization, multilingual enablement, explainer content, and scalable media production.',
+    tools: ['Synthesia', 'ElevenLabs', 'HeyGen', 'Descript', 'Runway', 'Luma', 'VEED', 'Adobe Podcast', 'AI dubbing and subtitle workflows']
+  }, {
+    n: '05',
+    layer: 'Design',
+    title: 'Multimedia & Visual Design',
+    label: 'Visual systems, branded learning assets, motion design, storyboards, prototypes, job aids, decks, and digital learning interfaces.',
+    tools: ['Adobe Creative Suite', 'Photoshop', 'Illustrator', 'Premiere Pro', 'After Effects', 'Canva', 'Figma', 'Miro', 'FigJam']
+  }, {
+    n: '06',
+    layer: 'Delivery',
+    title: 'Learning Operations & Platforms',
+    label: 'Learning delivery, stakeholder workflows, content governance, launch operations, versioning, and enterprise enablement.',
+    tools: ['Workday Learn', 'SharePoint', 'Microsoft 365', 'Asana', 'Frame.io', 'LMS governance', 'Release workflows', 'Content intake systems']
+  }, {
+    n: '07',
+    layer: 'Measurement',
+    title: 'Analytics, Skills & Measurement',
+    label: 'Learning impact, adoption signals, performance evidence, executive visibility, and data-informed decisions.',
+    tools: ['Tableau', 'Power BI', 'Excel', 'Learning dashboards', 'KPI tracking', 'Adoption metrics', 'Survey analysis', 'Skills intelligence concepts', 'xAPI / LRS awareness']
+  }, {
+    n: '08',
+    layer: 'Strategy',
+    title: 'Accessibility & Quality Assurance',
+    label: 'Accessible, inclusive, compliant learning experiences that support learner variability and enterprise quality standards.',
+    tools: ['WCAG', 'UDL', 'Accessibility checkers', 'Captioning tools', 'SRT workflows', 'Screen reader considerations', 'Color contrast checks', 'QA checklists']
+  }];
+  return /*#__PURE__*/React.createElement("section", {
+    className: "jiz-stack",
+    ref: ref,
+    "data-in": active ? 'true' : 'false',
+    "aria-labelledby": "jiz-stack-title"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-stack-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-stack-head"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "jiz-stack-eyebrow"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-stack-eyebrow-line",
+    "aria-hidden": "true"
+  }), "Tools & Platforms"), /*#__PURE__*/React.createElement("h2", {
+    className: "jiz-stack-title",
+    id: "jiz-stack-title"
+  }, "A modern learning stack for strategy, design, production, and scale."), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-stack-sub"
+  }, "Hands-on tools and emerging AI workflows used to design, build, localize, automate, and measure learning experiences across enterprise environments.")), /*#__PURE__*/React.createElement("ol", {
+    className: "jiz-stack-layers",
+    "aria-label": "Stack architecture"
+  }, layers.map((l, i) => /*#__PURE__*/React.createElement("li", {
+    key: l,
+    className: "jiz-stack-layer",
+    style: {
+      transitionDelay: 200 + i * 90 + 'ms'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-stack-layer-label"
+  }, l), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-stack-layer-arrow",
+    "aria-hidden": "true"
+  }, "\u2192")))), /*#__PURE__*/React.createElement("ul", {
+    className: "jiz-stack-grid"
+  }, groups.map((g, i) => /*#__PURE__*/React.createElement("li", {
+    key: g.title,
+    className: 'jiz-stack-card' + (g.motif ? ' jiz-stack-card--motif' : ''),
+    style: {
+      transitionDelay: 320 + i * 110 + 'ms'
+    }
+  }, g.motif ? /*#__PURE__*/React.createElement("svg", {
+    className: "jiz-stack-motif",
+    viewBox: "0 0 220 90",
+    "aria-hidden": "true",
+    focusable: "false"
+  }, /*#__PURE__*/React.createElement("g", {
+    fill: "none",
+    stroke: "currentColor",
+    strokeWidth: "1"
+  }, /*#__PURE__*/React.createElement("path", {
+    d: "M14 68 L70 30 L134 56 L206 20"
+  }), /*#__PURE__*/React.createElement("path", {
+    d: "M70 30 L92 82"
+  })), /*#__PURE__*/React.createElement("g", {
+    fill: "currentColor"
+  }, /*#__PURE__*/React.createElement("circle", {
+    cx: "14",
+    cy: "68",
+    r: "2.6"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "70",
+    cy: "30",
+    r: "3.2"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "134",
+    cy: "56",
+    r: "2.6"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "206",
+    cy: "20",
+    r: "2.6"
+  }), /*#__PURE__*/React.createElement("circle", {
+    cx: "92",
+    cy: "82",
+    r: "2"
+  }))) : null, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-stack-card-top"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-stack-n"
+  }, g.n), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-stack-tier"
+  }, g.layer)), /*#__PURE__*/React.createElement("h3", {
+    className: "jiz-stack-card-title"
+  }, g.title), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-stack-label"
+  }, g.label), /*#__PURE__*/React.createElement("ul", {
+    className: "jiz-stack-pills"
+  }, g.tools.map((t, j) => /*#__PURE__*/React.createElement("li", {
+    key: t,
+    className: "jiz-stack-pill",
+    style: {
+      transitionDelay: 420 + i * 110 + j * 34 + 'ms'
+    }
+  }, t)))))), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-stack-note"
+  }, "Depth varies by tool. Some are daily practice; others are emerging workflows I actively explore and apply where they earn their place.")), /*#__PURE__*/React.createElement("style", null, `
+.jiz-stack{position:relative;isolation:isolate;background:linear-gradient(180deg,#F7F8FA 0%,#E6EAEF 100%);padding-block:clamp(72px,7vw,124px)}
+.jiz-stack a{color:#3E5606}
+.jiz-stack a:hover{color:#0B0D10}
+.jiz-stack a:focus-visible{outline:2px solid #3E5606;outline-offset:3px}
+.jiz-stack-card a{color:var(--color-accent-primary)}
+.jiz-stack-card a:hover{color:#EEFBD2}
+.jiz-stack::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 52% 38% at 20% 6%,rgba(100,225,255,.07),transparent 70%)}
+.jiz-stack-inner{position:relative;z-index:1;width:min(1440px,calc(100% - 2*clamp(24px,6vw,112px)));margin-inline:auto}
+.jiz-stack-head{max-width:740px;margin-bottom:clamp(30px,3vw,44px)}
+.jiz-stack-eyebrow,.jiz-stack-title,.jiz-stack-sub{opacity:0;transform:translate3d(0,12px,0);transition:opacity 800ms cubic-bezier(.22,.61,.36,1),transform 800ms cubic-bezier(.22,.61,.36,1)}
+.jiz-stack[data-in="true"] .jiz-stack-eyebrow,.jiz-stack[data-in="true"] .jiz-stack-title,.jiz-stack[data-in="true"] .jiz-stack-sub{opacity:1;transform:none}
+.jiz-stack-title{transition-delay:90ms}
+.jiz-stack-sub{transition-delay:190ms}
+.jiz-stack-eyebrow{display:flex;align-items:center;gap:14px;font:var(--text-hud);font-size:.6875rem;letter-spacing:.22em;text-transform:uppercase;color:#2A2F37;margin:0 0 20px}
+.jiz-stack-eyebrow-line{display:block;width:44px;height:2px;background:#8CB712}
+.jiz-stack-title{font:var(--text-display);font-size:clamp(1.9rem,1.3rem + 1.8vw,2.9rem);line-height:1.1;letter-spacing:-.022em;color:#0B0D10;margin:0 0 18px;text-wrap:pretty}
+.jiz-stack-sub{font:var(--text-body);font-size:clamp(.9375rem,.9rem + .22vw,1.0625rem);line-height:1.66;color:#3D444E;margin:0;max-width:64ch;text-wrap:pretty}
+.jiz-stack-layers{display:flex;flex-wrap:wrap;align-items:center;gap:10px 12px;list-style:none;margin:0 0 clamp(34px,3.4vw,52px);padding:14px 0;border-top:1px solid rgba(11,13,16,.14);border-bottom:1px solid rgba(11,13,16,.14)}
+.jiz-stack-layer{display:flex;align-items:center;gap:12px;opacity:0;transform:translate3d(0,6px,0);transition:opacity 640ms cubic-bezier(.22,.61,.36,1),transform 640ms cubic-bezier(.22,.61,.36,1)}
+.jiz-stack[data-in="true"] .jiz-stack-layer{opacity:1;transform:none}
+.jiz-stack-layer-label{font:var(--text-hud);font-size:.625rem;letter-spacing:.18em;text-transform:uppercase;color:#454C56}
+.jiz-stack-layer:first-child .jiz-stack-layer-label,.jiz-stack-layer:last-child .jiz-stack-layer-label{color:#3E5606;font-weight:650}
+.jiz-stack-layer-arrow{font-size:.75rem;color:#5B636E}
+.jiz-stack-layer:last-child .jiz-stack-layer-arrow{display:none}
+.jiz-stack-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,1.8vw,28px);list-style:none;margin:0;padding:0}
+.jiz-stack-card{position:relative;overflow:hidden;display:flex;flex-direction:column;gap:12px;min-width:0;padding:clamp(22px,2vw,32px);background:linear-gradient(180deg,#171A1F 0%,#12151A 100%);border:1px solid rgba(11,13,16,.16);border-radius:clamp(14px,1.2vw,20px);box-shadow:0 18px 40px -28px rgba(11,13,16,.45);opacity:0;transform:translate3d(0,20px,0);transition:opacity 780ms cubic-bezier(.22,.61,.36,1),transform 780ms cubic-bezier(.22,.61,.36,1),border-color 300ms ease,box-shadow 300ms ease,background 300ms ease}
+.jiz-stack[data-in="true"] .jiz-stack-card{opacity:1;transform:none}
+.jiz-stack-card:hover,.jiz-stack-card:focus-within{border-color:rgba(198,242,58,.4);background:linear-gradient(180deg,#1B2027 0%,#141821 100%);box-shadow:0 30px 58px -30px rgba(11,13,16,.55),0 0 0 1px rgba(198,242,58,.18);transform:translate3d(0,-4px,0);transition-delay:0ms}
+.jiz-stack-motif{position:absolute;right:0;top:0;width:min(58%,240px);height:auto;color:var(--color-accent-secondary);opacity:.16;pointer-events:none}
+.jiz-stack-motif g:first-child path{stroke-dasharray:340;stroke-dashoffset:340;transition:stroke-dashoffset 1800ms cubic-bezier(.22,.61,.36,1) 500ms}
+.jiz-stack[data-in="true"] .jiz-stack-motif g:first-child path{stroke-dashoffset:0}
+.jiz-stack-card--motif:hover .jiz-stack-motif,.jiz-stack-card--motif:focus-within .jiz-stack-motif{opacity:.3}
+.jiz-stack-card-top{display:flex;align-items:center;gap:12px}
+.jiz-stack-n{font:var(--text-hud);font-size:.5625rem;letter-spacing:.18em;color:rgba(217,221,227,.68)}
+.jiz-stack-tier{padding:3px 9px;border-radius:var(--radius-pill);border:1px solid rgba(198,242,58,.2);background:rgba(198,242,58,.06);font:var(--text-hud);font-size:.5625rem;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-primary)}
+.jiz-stack-card-title{position:relative;font:var(--text-h3);font-size:1.125rem;line-height:1.3;letter-spacing:-.012em;color:var(--color-text-primary);margin:2px 0 0;text-wrap:pretty}
+.jiz-stack-label{position:relative;font:var(--text-body);font-size:.875rem;line-height:1.6;color:rgba(217,221,227,.76);margin:0;max-width:60ch;text-wrap:pretty}
+.jiz-stack-pills{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:4px 0 0;padding:0}
+.jiz-stack-pill{padding:5px 11px;border-radius:var(--radius-pill);background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.045);font:var(--text-body);font-size:.6875rem;letter-spacing:.015em;color:rgba(232,238,226,.74);opacity:0;transform:translate3d(0,6px,0);transition:opacity 520ms cubic-bezier(.22,.61,.36,1),transform 520ms cubic-bezier(.22,.61,.36,1),background 240ms ease,border-color 240ms ease,color 240ms ease}
+.jiz-stack[data-in="true"] .jiz-stack-pill{opacity:1;transform:none}
+.jiz-stack-pill:hover{background:rgba(198,242,58,.13);border-color:rgba(198,242,58,.28);color:#EEFBD2}
+.jiz-stack-note{margin:clamp(26px,2.6vw,38px) 0 0;font:var(--text-body);font-size:.8125rem;line-height:1.6;color:#525A65;max-width:70ch;text-wrap:pretty}
+@media(max-width:960px){.jiz-stack-grid{grid-template-columns:1fr}}
+@media(max-width:560px){.jiz-stack-card{transform:translate3d(0,12px,0)}.jiz-stack-motif{width:70%}}
+@media(prefers-reduced-motion:reduce){.jiz-stack-eyebrow,.jiz-stack-title,.jiz-stack-sub,.jiz-stack-layer,.jiz-stack-card,.jiz-stack-pill{opacity:1;transform:none;transition:none}.jiz-stack-card:hover,.jiz-stack-card:focus-within{transform:none}.jiz-stack-motif g:first-child path{stroke-dasharray:none;stroke-dashoffset:0;transition:none}}
+      `));
+}
+function AboutMind() {
+  const ref = React.useRef(null);
+  const cardRef = React.useRef(null);
+  const studioRef = React.useRef(null);
+  const [active, setActive] = React.useState(false);
+  const reduced = prefersReduced();
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setActive(true);
+      return;
+    }
+    const fallback = setTimeout(() => setActive(true), 1200);
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          clearTimeout(fallback);
+          setActive(true);
+          io.disconnect();
+        }
+      });
+    }, {
+      threshold: 0.16,
+      rootMargin: '200px 0px'
+    });
+    io.observe(el);
+    return () => {
+      clearTimeout(fallback);
+      io.disconnect();
+    };
+  }, []);
+  React.useEffect(() => {
+    const v = studioRef.current;
+    if (!v || reduced) return;
+    const attempt = () => {
+      const p = v.play();
+      if (p && p.catch) p.catch(() => {});
+    };
+    attempt();
+    v.addEventListener('loadeddata', attempt);
+    return () => v.removeEventListener('loadeddata', attempt);
+  }, [active, reduced]);
+  const onMove = React.useCallback(e => {
+    const el = cardRef.current;
+    if (!el || prefersReduced()) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--am-mx', ((e.clientX - r.left) / r.width * 2 - 1).toFixed(3));
+    el.style.setProperty('--am-my', ((e.clientY - r.top) / r.height * 2 - 1).toFixed(3));
+  }, []);
+  const onLeave = React.useCallback(() => {
+    const el = cardRef.current;
+    if (!el) return;
+    el.style.setProperty('--am-mx', '0');
+    el.style.setProperty('--am-my', '0');
+  }, []);
+  const showVideo = active && !reduced;
+  return /*#__PURE__*/React.createElement("section", {
+    className: "jiz-am",
+    ref: ref,
+    "data-in": active ? 'true' : 'false',
+    "aria-labelledby": "jiz-am-title"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-am-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-am-col"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "jiz-am-eyebrow"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-am-eyebrow-line",
+    "aria-hidden": "true"
+  }), "About Jonathan"), /*#__PURE__*/React.createElement("h2", {
+    className: "jiz-am-title",
+    id: "jiz-am-title"
+  }, "The mind behind the work."), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-am-sub"
+  }, "I bring structure to ambiguity, humanity to technology, and momentum to learning experiences that move people from understanding to action."), /*#__PURE__*/React.createElement("div", {
+    className: "jiz-am-copy"
+  }, /*#__PURE__*/React.createElement("p", null, "I am a learning experience designer and strategy partner working across enterprise learning, product enablement, leadership development, AI-enabled workflows, and multimedia design."), /*#__PURE__*/React.createElement("p", null, "My strength is translating complexity into learning that feels clear, human, and useful \u2014 whether I am designing a leadership simulation, product training toolkit, executive explainer, or interactive eLearning experience.")), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-am-close"
+  }, "The throughline is simple: make the complex clear, make the learning useful, and make the experience worth remembering.")), /*#__PURE__*/React.createElement("div", {
+    className: "jiz-am-col jiz-am-col--right"
+  }, /*#__PURE__*/React.createElement("figure", {
+    className: "jiz-am-card",
+    ref: cardRef,
+    onMouseMove: onMove,
+    onMouseLeave: onLeave
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-am-stage",
+    role: "img",
+    "aria-label": "Jonathan speaking in a futuristic studio environment representing learning strategy and systems thinking."
+  }, /*#__PURE__*/React.createElement("img", {
+    className: "jiz-am-poster",
+    src: "./assets/imagery/jonathan-portrait.png",
+    alt: "",
+    "aria-hidden": "true",
+    loading: "lazy",
+    decoding: "async",
+    "data-hidden": showVideo ? 'true' : 'false'
+  }), showVideo ? /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("video", {
+    ref: studioRef,
+    className: "jiz-am-env",
+    src: "./assets/video/jiz-studio-ambient.mp4",
+    autoPlay: true,
+    loop: true,
+    muted: true,
+    playsInline: true,
+    preload: "metadata",
+    "aria-hidden": "true",
+    tabIndex: -1
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-am-env-grade",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-am-contact",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement(ChromaKeyVideo, {
+    src: "./assets/video/jiz-subject-greenscreen.mp4",
+    className: "jiz-am-subject"
+  })) : null, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-am-vignette",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-am-rim",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-am-rule",
+    "aria-hidden": "true"
+  })), /*#__PURE__*/React.createElement("figcaption", {
+    className: "jiz-am-quote"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-am-quote-mark",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("blockquote", {
+    className: "jiz-am-quote-text"
+  }, "\u201CI translate complexity into learning people can use.\u201D"), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-am-quote-by"
+  }, "Jonathan Iker Zamarripa \xB7 Learning Experience Design & Strategy"))))), /*#__PURE__*/React.createElement("div", {
+    className: "jiz-am-os"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-am-os-head"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "jiz-am-os-eyebrow"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-am-eyebrow-line",
+    "aria-hidden": "true"
+  }), "My Operating System"), /*#__PURE__*/React.createElement("h3", {
+    className: "jiz-am-os-title"
+  }, "How I move from complexity to clarity.")), /*#__PURE__*/React.createElement("ol", {
+    className: "jiz-am-os-rail"
+  }, [{
+    n: '01',
+    t: 'Understand First',
+    c: 'Strip away noise to find the essential truth.'
+  }, {
+    n: '02',
+    t: 'Connect Systems',
+    c: 'See the relationships between people, information, tools, and behavior.'
+  }, {
+    n: '03',
+    t: 'Prototype Early',
+    c: 'Turn ideas into tangible experiences quickly.'
+  }, {
+    n: '04',
+    t: 'Design for Adoption',
+    c: 'Build solutions people can understand, trust, and use.'
+  }].map((p, i) => /*#__PURE__*/React.createElement("li", {
+    key: p.n,
+    className: "jiz-am-os-card",
+    style: {
+      transitionDelay: 520 + i * 120 + 'ms'
+    },
+    tabIndex: 0
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-am-os-node",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-am-os-n"
+  }, p.n), /*#__PURE__*/React.createElement("h4", {
+    className: "jiz-am-os-card-title"
+  }, p.t), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-am-os-copy"
+  }, p.c))))), /*#__PURE__*/React.createElement("style", null, `
+.jiz-am{position:relative;isolation:isolate;background:linear-gradient(158deg,#171A1F 0%,#1E232A 46%,#2A2F37 100%);border-top:1px solid rgba(255,255,255,.06);padding-block:clamp(72px,7vw,124px)}
+.jiz-am::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 48% 40% at 78% 20%,rgba(100,225,255,.07),transparent 70%),radial-gradient(ellipse 42% 36% at 8% 84%,rgba(198,242,58,.035),transparent 72%)}
+.jiz-am-inner{position:relative;z-index:1;width:min(1440px,calc(100% - 2*clamp(24px,6vw,112px)));margin-inline:auto;display:grid;grid-template-columns:minmax(0,1.04fr) minmax(0,.96fr);gap:clamp(34px,4.4vw,84px);align-items:start}
+.jiz-am-col{display:flex;flex-direction:column;min-width:0}
+.jiz-am-eyebrow,.jiz-am-title,.jiz-am-sub,.jiz-am-copy,.jiz-am-close,.jiz-am-card{opacity:0;transform:translate3d(0,14px,0);transition:opacity 840ms cubic-bezier(.22,.61,.36,1),transform 840ms cubic-bezier(.22,.61,.36,1)}
+.jiz-am-card{transform:translate3d(28px,0,0)}
+.jiz-am[data-in="true"] .jiz-am-eyebrow,.jiz-am[data-in="true"] .jiz-am-title,.jiz-am[data-in="true"] .jiz-am-sub,.jiz-am[data-in="true"] .jiz-am-copy,.jiz-am[data-in="true"] .jiz-am-close,.jiz-am[data-in="true"] .jiz-am-card{opacity:1;transform:none}
+.jiz-am-title{transition-delay:90ms}
+.jiz-am-sub{transition-delay:190ms}
+.jiz-am-copy{transition-delay:290ms}
+.jiz-am-close{transition-delay:390ms}
+.jiz-am-card{transition-delay:240ms}
+.jiz-am-eyebrow{display:flex;align-items:center;gap:14px;font:var(--text-hud);font-size:.6875rem;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-primary);margin:0 0 20px}
+.jiz-am-eyebrow-line{display:block;width:44px;height:1px;background:linear-gradient(90deg,var(--color-accent-primary),rgba(198,242,58,.15))}
+.jiz-am-title{font:var(--text-display);font-size:clamp(2rem,1.35rem + 1.9vw,3.1rem);line-height:1.08;letter-spacing:-.024em;color:var(--color-text-primary);margin:0 0 18px}
+.jiz-am-sub{font:var(--text-body);font-size:clamp(1rem,.94rem + .28vw,1.1875rem);line-height:1.62;color:rgba(238,242,236,.9);margin:0 0 26px;max-width:50ch;text-wrap:pretty}
+.jiz-am-copy{display:flex;flex-direction:column;gap:16px;margin:0}
+.jiz-am-copy p{font:var(--text-body);font-size:.9375rem;line-height:1.78;color:rgba(222,228,233,.8);margin:0;max-width:62ch;text-wrap:pretty}
+.jiz-am-close{margin:26px 0 0;padding-left:18px;border-left:1px solid rgba(198,242,58,.4);font:var(--text-body);font-size:.9375rem;line-height:1.7;color:rgba(238,242,236,.88);max-width:58ch;text-wrap:pretty}
+.jiz-am-card{position:relative;display:flex;flex-direction:column;margin:0;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.015) 100%);border:1px solid rgba(100,225,255,.18);border-radius:clamp(16px,1.4vw,24px);box-shadow:0 30px 62px -34px rgba(0,0,0,.9),0 0 46px -22px rgba(100,225,255,.22);transition:opacity 840ms cubic-bezier(.22,.61,.36,1),transform 840ms cubic-bezier(.22,.61,.36,1),border-color 320ms ease,box-shadow 320ms ease}
+.jiz-am-card:hover{border-color:rgba(100,225,255,.32);box-shadow:0 38px 76px -34px rgba(0,0,0,.95),0 0 64px -20px rgba(100,225,255,.3)}
+.jiz-am-stage{position:relative;overflow:hidden;aspect-ratio:3 / 2;background:radial-gradient(ellipse 70% 60% at 50% 40%,#16201F,#0B0F12 78%)}
+.jiz-am-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:saturate(.86) contrast(1.03)}
+.jiz-am-poster[data-hidden="true"]{opacity:0}
+.jiz-am-env{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.72) brightness(.72) contrast(1.04);transform:scale(1.06) translate3d(calc(var(--am-mx,0)*-5px),calc(var(--am-my,0)*-4px),0);transition:transform 700ms cubic-bezier(.22,.61,.36,1)}
+.jiz-am-env-grade{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 52% at 50% 46%,rgba(100,225,255,.1),transparent 72%),linear-gradient(180deg,rgba(11,15,18,.34) 0%,rgba(11,15,18,.06) 42%,rgba(11,15,18,.66) 100%)}
+.jiz-am-contact{position:absolute;left:50%;bottom:2%;width:56%;height:12%;transform:translateX(-50%);pointer-events:none;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.62),transparent 70%);filter:blur(10px)}
+.jiz-am-subject{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 18%;filter:saturate(.9) contrast(1.03) brightness(1.02) drop-shadow(0 18px 26px rgba(0,0,0,.5));transform:scale(1.02) translate3d(calc(var(--am-mx,0)*-9px),calc(var(--am-my,0)*-7px),0);transition:transform 640ms cubic-bezier(.22,.61,.36,1)}
+.jiz-am-vignette{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 90px 22px rgba(8,12,14,.6)}
+.jiz-am-rim{position:absolute;inset:0;pointer-events:none;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(100,225,255,.14),inset 0 -40px 60px -50px rgba(100,225,255,.5)}
+.jiz-am-rule{position:absolute;left:clamp(18px,1.6vw,26px);bottom:clamp(18px,1.6vw,26px);width:36px;height:1px;background:var(--color-accent-primary);opacity:.65;transition:width 560ms cubic-bezier(.22,.61,.36,1),opacity 300ms ease}
+.jiz-am-card:hover .jiz-am-rule{width:68px;opacity:1}
+.jiz-am-quote{display:flex;flex-direction:column;gap:10px;padding:clamp(20px,2vw,30px)}
+.jiz-am-quote-mark{width:30px;height:2px;background:linear-gradient(90deg,var(--color-accent-primary),rgba(198,242,58,.08))}
+.jiz-am-quote-text{font:var(--text-h3);font-size:clamp(1.05rem,.95rem + .45vw,1.3rem);line-height:1.4;letter-spacing:-.012em;color:var(--color-text-primary);margin:0;text-wrap:pretty}
+.jiz-am-quote-by{font:var(--text-hud);font-size:.5625rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(222,228,233,.68);margin:0}
+@media(max-width:1000px){.jiz-am-inner{grid-template-columns:1fr}.jiz-am-col--right{order:-1}.jiz-am-card{transform:translate3d(0,16px,0);max-width:620px}}
+
+.jiz-am-os{position:relative;z-index:1;width:min(1440px,calc(100% - 2*clamp(24px,6vw,112px)));margin:clamp(52px,5vw,84px) auto 0;padding-top:clamp(30px,3vw,44px);border-top:1px solid rgba(255,255,255,.08)}
+.jiz-am-os-head{display:flex;flex-direction:column;margin-bottom:clamp(24px,2.6vw,38px)}
+.jiz-am-os-eyebrow,.jiz-am-os-title{opacity:0;transform:translate3d(0,12px,0);transition:opacity 780ms cubic-bezier(.22,.61,.36,1) 400ms,transform 780ms cubic-bezier(.22,.61,.36,1) 400ms}
+.jiz-am[data-in="true"] .jiz-am-os-eyebrow,.jiz-am[data-in="true"] .jiz-am-os-title{opacity:1;transform:none}
+.jiz-am-os-title{transition-delay:470ms}
+.jiz-am-os-eyebrow{display:flex;align-items:center;gap:14px;font:var(--text-hud);font-size:.625rem;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-primary);margin:0 0 14px}
+.jiz-am-os-title{font:var(--text-h3);font-size:clamp(1.2rem,1.05rem + .5vw,1.6rem);line-height:1.26;letter-spacing:-.016em;color:var(--color-text-primary);margin:0}
+.jiz-am-os-rail{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.5vw,24px);list-style:none;margin:0;padding:0}
+.jiz-am-os-rail::before{content:'';position:absolute;left:6px;right:6px;top:5px;height:1px;background:linear-gradient(90deg,rgba(100,225,255,.4),rgba(100,225,255,.1) 74%,transparent);transform:scaleX(0);transform-origin:left center;transition:transform 1400ms cubic-bezier(.22,.61,.36,1) 520ms}
+.jiz-am[data-in="true"] .jiz-am-os-rail::before{transform:scaleX(1)}
+.jiz-am-os-card{position:relative;display:flex;flex-direction:column;gap:8px;min-width:0;padding:26px clamp(16px,1.4vw,22px) clamp(18px,1.6vw,24px);background:linear-gradient(180deg,rgba(255,255,255,.045) 0%,rgba(255,255,255,.015) 100%);border:1px solid rgba(255,255,255,.07);border-radius:clamp(12px,1vw,16px);opacity:0;transform:translate3d(0,18px,0);transition:opacity 760ms cubic-bezier(.22,.61,.36,1),transform 760ms cubic-bezier(.22,.61,.36,1),border-color 300ms ease,box-shadow 300ms ease,background 300ms ease}
+.jiz-am[data-in="true"] .jiz-am-os-card{opacity:1;transform:none}
+.jiz-am-os-card:hover,.jiz-am-os-card:focus-visible{border-color:rgba(100,225,255,.3);background:linear-gradient(180deg,rgba(100,225,255,.05) 0%,rgba(255,255,255,.016) 100%);box-shadow:0 24px 48px -30px rgba(0,0,0,.85),0 0 0 1px rgba(198,242,58,.07);transform:translate3d(0,-4px,0);transition-delay:0ms}
+.jiz-am-os-card:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:4px}
+.jiz-am-os-node{position:absolute;left:0;top:0;width:9px;height:9px;border-radius:50%;border:1px solid rgba(100,225,255,.5);background:#1B2028;transition:background 300ms ease,border-color 300ms ease}
+.jiz-am-os-card:first-child .jiz-am-os-node{background:var(--color-accent-secondary);border-color:var(--color-accent-secondary)}
+.jiz-am-os-card:hover .jiz-am-os-node,.jiz-am-os-card:focus-visible .jiz-am-os-node{background:var(--color-accent-primary);border-color:var(--color-accent-primary)}
+.jiz-am-os-n{font:var(--text-hud);font-size:.5625rem;letter-spacing:.2em;color:var(--color-accent-primary)}
+.jiz-am-os-card-title{font:var(--text-body);font-size:.9375rem;font-weight:650;line-height:1.3;letter-spacing:-.008em;color:var(--color-text-primary);margin:0}
+.jiz-am-os-copy{font:var(--text-body);font-size:.8125rem;line-height:1.55;color:rgba(222,228,233,.76);margin:0;text-wrap:pretty}
+@media(max-width:900px){.jiz-am-os-rail{grid-template-columns:repeat(2,minmax(0,1fr))}.jiz-am-os-rail::before{display:none}}
+@media(max-width:560px){.jiz-am-os-rail{grid-template-columns:1fr}.jiz-am-os-card{transform:translate3d(0,12px,0)}}
+@media(prefers-reduced-motion:reduce){.jiz-am-eyebrow,.jiz-am-title,.jiz-am-sub,.jiz-am-copy,.jiz-am-close,.jiz-am-card,.jiz-am-os-eyebrow,.jiz-am-os-title,.jiz-am-os-card{opacity:1;transform:none;transition:none}.jiz-am-env,.jiz-am-subject{transform:none;transition:none}.jiz-am-rule{transition:none}.jiz-am-os-rail::before{transform:scaleX(1);transition:none}.jiz-am-os-card:hover,.jiz-am-os-card:focus-visible{transform:none}}
+      `));
+}
+function CareerArc() {
+  const ref = React.useRef(null);
+  const [active, setActive] = React.useState(false);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setActive(true);
+      return;
+    }
+    const fallback = setTimeout(() => setActive(true), 1200);
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          clearTimeout(fallback);
+          setActive(true);
+          io.disconnect();
+        }
+      });
+    }, {
+      threshold: 0.2
+    });
+    io.observe(el);
+    return () => {
+      clearTimeout(fallback);
+      io.disconnect();
+    };
+  }, []);
+  const stages = [{
+    n: '01',
+    title: 'Education Innovation',
+    copy: 'Led digital learning adoption with educators, where teaching me to design for real behavior change began.'
+  }, {
+    n: '02',
+    title: 'Digital Transformation',
+    copy: 'Guided communities through platform change, learning that adoption is a human problem before a technical one.'
+  }, {
+    n: '03',
+    title: 'Enterprise L&D',
+    copy: 'Designed leadership and enterprise learning for audiences from frontline teams to SVPs.'
+  }, {
+    n: '04',
+    title: 'Product & Technology Enablement',
+    copy: 'Turned evolving platforms into release-ready learning that keeps global teams operationally current.'
+  }];
+  return /*#__PURE__*/React.createElement("section", {
+    className: "jiz-arc",
+    ref: ref,
+    "data-in": active ? 'true' : 'false',
+    "aria-labelledby": "jiz-arc-title"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-arc-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-arc-head"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "jiz-arc-eyebrow"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-arc-eyebrow-line",
+    "aria-hidden": "true"
+  }), "The Journey"), /*#__PURE__*/React.createElement("h2", {
+    className: "jiz-arc-title",
+    id: "jiz-arc-title"
+  }, "Built through experience."), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-arc-sub"
+  }, "A practice shaped across learning, systems, technology, storytelling, and enterprise transformation.")), /*#__PURE__*/React.createElement("ol", {
+    className: "jiz-arc-rail"
+  }, stages.map((st, i) => /*#__PURE__*/React.createElement("li", {
+    key: st.n,
+    className: "jiz-arc-stage",
+    style: {
+      transitionDelay: 240 + i * 130 + 'ms'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-arc-node",
+    "aria-hidden": "true"
+  }), /*#__PURE__*/React.createElement("span", {
+    className: "jiz-arc-n"
+  }, st.n), /*#__PURE__*/React.createElement("h3", {
+    className: "jiz-arc-stage-title"
+  }, st.title), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-arc-copy"
+  }, st.copy))))), /*#__PURE__*/React.createElement("style", null, `
+.jiz-arc{position:relative;isolation:isolate;background:#0B0D10;border-top:1px solid rgba(255,255,255,.05);padding-block:clamp(58px,5.4vw,92px)}
+.jiz-arc-inner{width:min(1440px,calc(100% - 2*clamp(24px,6vw,112px)));margin-inline:auto}
+.jiz-arc-head{max-width:620px;margin-bottom:clamp(34px,3.4vw,54px)}
+.jiz-arc-eyebrow,.jiz-arc-title,.jiz-arc-sub{opacity:0;transform:translate3d(0,12px,0);transition:opacity 800ms cubic-bezier(.22,.61,.36,1),transform 800ms cubic-bezier(.22,.61,.36,1)}
+.jiz-arc[data-in="true"] .jiz-arc-eyebrow,.jiz-arc[data-in="true"] .jiz-arc-title,.jiz-arc[data-in="true"] .jiz-arc-sub{opacity:1;transform:none}
+.jiz-arc-title{transition-delay:90ms}
+.jiz-arc-sub{transition-delay:190ms}
+.jiz-arc-eyebrow{display:flex;align-items:center;gap:14px;font:var(--text-hud);font-size:.6875rem;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-secondary);margin:0 0 18px}
+.jiz-arc-eyebrow-line{display:block;width:44px;height:1px;background:linear-gradient(90deg,var(--color-accent-secondary),rgba(100,225,255,.14))}
+.jiz-arc-title{font:var(--text-display);font-size:clamp(1.7rem,1.2rem + 1.5vw,2.5rem);line-height:1.1;letter-spacing:-.022em;color:var(--color-text-primary);margin:0 0 14px}
+.jiz-arc-sub{font:var(--text-body);font-size:clamp(.9375rem,.9rem + .2vw,1.0625rem);line-height:1.66;color:rgba(217,221,227,.7);margin:0;max-width:56ch;text-wrap:pretty}
+.jiz-arc-rail{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(16px,1.8vw,30px);list-style:none;margin:0;padding:0}
+.jiz-arc-rail::before{content:'';position:absolute;left:5px;right:5px;top:4px;height:1px;background:linear-gradient(90deg,rgba(100,225,255,.42),rgba(198,242,58,.3) 70%,rgba(198,242,58,.08));transform:scaleX(0);transform-origin:left center;transition:transform 1400ms cubic-bezier(.22,.61,.36,1) 200ms}
+.jiz-arc[data-in="true"] .jiz-arc-rail::before{transform:scaleX(1)}
+.jiz-arc-stage{position:relative;display:flex;flex-direction:column;gap:8px;min-width:0;padding-top:26px;opacity:0;transform:translate3d(0,18px,0);transition:opacity 760ms cubic-bezier(.22,.61,.36,1),transform 760ms cubic-bezier(.22,.61,.36,1)}
+.jiz-arc[data-in="true"] .jiz-arc-stage{opacity:1;transform:none}
+.jiz-arc-node{position:absolute;left:0;top:0;width:9px;height:9px;border-radius:50%;border:1px solid rgba(100,225,255,.5);background:#0B0D10}
+.jiz-arc-stage:last-child .jiz-arc-node{background:var(--color-accent-primary);border-color:var(--color-accent-primary)}
+.jiz-arc-n{font:var(--text-hud);font-size:.5625rem;letter-spacing:.2em;color:rgba(217,221,227,.6)}
+.jiz-arc-stage-title{font:var(--text-body);font-size:1rem;font-weight:650;line-height:1.3;letter-spacing:-.01em;color:var(--color-text-primary);margin:0;text-wrap:pretty}
+.jiz-arc-copy{font:var(--text-body);font-size:.8125rem;line-height:1.58;color:rgba(217,221,227,.7);margin:0;text-wrap:pretty}
+@media(max-width:900px){.jiz-arc-rail{grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,2.6vw,30px)}.jiz-arc-rail::before{display:none}.jiz-arc-stage{padding-top:0;padding-left:22px;border-left:1px solid rgba(100,225,255,.16)}.jiz-arc-node{left:-5px;top:4px}}
+@media(max-width:560px){.jiz-arc-rail{grid-template-columns:1fr}.jiz-arc-stage{transform:translate3d(0,10px,0)}}
+@media(prefers-reduced-motion:reduce){.jiz-arc-eyebrow,.jiz-arc-title,.jiz-arc-sub,.jiz-arc-stage{opacity:1;transform:none;transition:none}.jiz-arc-rail::before{transform:scaleX(1);transition:none}}
+      `));
+}
+function FoundationManifesto() {
+  const ref = React.useRef(null);
+  const [active, setActive] = React.useState(false);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') {
+      setActive(true);
+      return;
+    }
+    const fallback = setTimeout(() => setActive(true), 1200);
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          clearTimeout(fallback);
+          setActive(true);
+          io.disconnect();
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+    io.observe(el);
+    return () => {
+      clearTimeout(fallback);
+      io.disconnect();
+    };
+  }, []);
+  const principles = [{
+    n: '01',
+    t: 'Clarity over complexity',
+    c: 'Every complex problem hides a simpler structure worth finding first.'
+  }, {
+    n: '02',
+    t: 'People before platforms',
+    c: 'Technology only matters once the people using it can succeed with it.'
+  }, {
+    n: '03',
+    t: 'Design with evidence',
+    c: 'Decisions hold up when grounded in data, feedback, and observed behavior.'
+  }, {
+    n: '04',
+    t: 'Learning should move behavior',
+    c: 'The measure of a learning experience is what people do differently after.'
+  }, {
+    n: '05',
+    t: 'Technology should feel human',
+    c: 'Systems earn adoption when they respect attention, context, and effort.'
+  }, {
+    n: '06',
+    t: 'Direction, not delegation',
+    c: 'AI expands what is possible; the point of view still has to be mine.'
+  }, {
+    n: '07',
+    t: 'Speed for production, not decisions',
+    c: 'Move fast on assets. Slow down on the choices that shape outcomes.'
+  }, {
+    n: '08',
+    t: 'Every output is reviewed and owned',
+    c: 'Nothing ships that I would not defend in front of a stakeholder.'
+  }];
+  return /*#__PURE__*/React.createElement("section", {
+    className: "jiz-found",
+    ref: ref,
+    "data-in": active ? 'true' : 'false',
+    "aria-labelledby": "jiz-found-title"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-found-inner"
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "jiz-found-head"
+  }, /*#__PURE__*/React.createElement("p", {
+    className: "jiz-found-eyebrow"
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-found-eyebrow-line",
+    "aria-hidden": "true"
+  }), "Foundation"), /*#__PURE__*/React.createElement("h2", {
+    className: "jiz-found-title",
+    id: "jiz-found-title"
+  }, "The principles behind every decision."), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-found-sub"
+  }, "Eight commitments that hold whether the work is a leadership simulation, a platform launch, or an AI-assisted production run.")), /*#__PURE__*/React.createElement("ol", {
+    className: "jiz-found-list"
+  }, principles.map((p, i) => /*#__PURE__*/React.createElement("li", {
+    key: p.n,
+    className: "jiz-found-item",
+    style: {
+      transitionDelay: 200 + i * 80 + 'ms'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    className: "jiz-found-n"
+  }, p.n), /*#__PURE__*/React.createElement("div", {
+    className: "jiz-found-body"
+  }, /*#__PURE__*/React.createElement("h3", {
+    className: "jiz-found-item-title"
+  }, p.t), /*#__PURE__*/React.createElement("p", {
+    className: "jiz-found-copy"
+  }, p.c)))))), /*#__PURE__*/React.createElement("style", null, `
+.jiz-found{position:relative;isolation:isolate;background:linear-gradient(180deg,#F7F8FA 0%,#D9DDE3 100%);padding-block:clamp(72px,7vw,120px)}
+.jiz-found a{color:#3E5606}
+.jiz-found a:hover{color:#0B0D10}
+.jiz-found a:focus-visible{outline:2px solid #3E5606;outline-offset:3px}
+.jiz-found-inner{width:min(1440px,calc(100% - 2*clamp(24px,6vw,112px)));margin-inline:auto}
+.jiz-found-head{max-width:660px;margin-bottom:clamp(40px,4vw,64px)}
+.jiz-found-eyebrow,.jiz-found-title,.jiz-found-sub{opacity:0;transform:translate3d(0,12px,0);transition:opacity 800ms cubic-bezier(.22,.61,.36,1),transform 800ms cubic-bezier(.22,.61,.36,1)}
+.jiz-found[data-in="true"] .jiz-found-eyebrow,.jiz-found[data-in="true"] .jiz-found-title,.jiz-found[data-in="true"] .jiz-found-sub{opacity:1;transform:none}
+.jiz-found-title{transition-delay:90ms}
+.jiz-found-sub{transition-delay:190ms}
+.jiz-found-eyebrow{display:flex;align-items:center;gap:14px;font:var(--text-hud);font-size:.6875rem;letter-spacing:.22em;text-transform:uppercase;color:#2A2F37;margin:0 0 18px}
+.jiz-found-eyebrow-line{display:block;width:44px;height:2px;background:#8CB712}
+.jiz-found-title{font:var(--text-display);font-size:clamp(1.95rem,1.3rem + 1.9vw,3rem);line-height:1.08;letter-spacing:-.026em;color:#0B0D10;margin:0 0 16px;text-wrap:pretty}
+.jiz-found-sub{font:var(--text-body);font-size:clamp(.9375rem,.9rem + .22vw,1.0625rem);line-height:1.68;color:#3D444E;margin:0;max-width:58ch;text-wrap:pretty}
+.jiz-found-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(30px,4vw,80px);list-style:none;margin:0;padding:0;border-top:1px solid rgba(11,13,16,.14)}
+.jiz-found-item{display:flex;align-items:flex-start;gap:clamp(14px,1.4vw,22px);min-width:0;padding:clamp(20px,2vw,28px) 0;border-bottom:1px solid rgba(11,13,16,.14);opacity:0;transform:translate3d(0,16px,0);transition:opacity 720ms cubic-bezier(.22,.61,.36,1),transform 720ms cubic-bezier(.22,.61,.36,1)}
+.jiz-found[data-in="true"] .jiz-found-item{opacity:1;transform:none}
+.jiz-found-n{flex:none;font:var(--text-hud);font-size:.625rem;letter-spacing:.18em;color:#414954;padding-top:5px}
+.jiz-found-body{min-width:0;display:flex;flex-direction:column;gap:6px}
+.jiz-found-item-title{position:relative;font:var(--text-h3);font-size:clamp(1.0625rem,1rem + .35vw,1.3rem);line-height:1.26;letter-spacing:-.016em;color:#0B0D10;margin:0;text-wrap:pretty}
+.jiz-found-copy{font:var(--text-body);font-size:.875rem;line-height:1.62;color:#454C56;margin:0;max-width:46ch;text-wrap:pretty}
+@media(max-width:820px){.jiz-found-list{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.jiz-found-eyebrow,.jiz-found-title,.jiz-found-sub,.jiz-found-item{opacity:1;transform:none;transition:none}}
+      `));
+}
 function Homepage({
   onOpenCaseStudy
 }) {
@@ -17149,14 +14600,29 @@ function Homepage({
   const sectionRefs = React.useRef([]);
   const [activeSection, setActiveSection] = React.useState(0);
   const reduced = prefersReduced();
-  const navItems = ['About', 'Featured Work', 'Creative Lab', 'Insights'];
-  const sectionLabels = ['Hero', 'About', 'Featured Work', 'Creative Lab', 'Insights', "Let's Build"];
+  const navItems = ['Work', 'Capabilities', 'Method', 'Thinking', 'Stack', 'About'];
+  const sectionLabels = ['Hero', 'About', 'Work', 'Creative Lab', 'Thinking', "Let's Build", 'Capabilities', 'Method', 'Archived Work', 'Stack', 'Journey', 'Foundation'];
   const sectionMap = React.useMemo(() => ({
     Home: 0,
     Hero: 0,
     About: 1,
     'Featured Work': 2,
     Work: 2,
+    Capabilities: 6,
+    'Core Capabilities': 6,
+    Method: 7,
+    Tools: 9,
+    Stack: 9,
+    'Tools & Platforms': 9,
+    Insight: 4,
+    Thinking: 4,
+    Journey: 10,
+    'The Journey': 10,
+    Foundation: 11,
+    'The Method': 7,
+    Archive: 8,
+    'Extended Archive': 8,
+    'Thinking in Motion': 4,
     'Creative Lab': 3,
     Film: 3,
     Insights: 4,
@@ -17169,12 +14635,9 @@ function Homepage({
   const scrollToSection = React.useCallback(index => {
     const target = sectionRefs.current[index];
     if (!target) return;
-    target.scrollIntoView({
-      behavior: reduced ? 'auto' : 'smooth',
-      block: 'start'
-    });
+    scrollToElement(target, 0);
     setActiveSection(index);
-  }, [reduced]);
+  }, []);
   React.useEffect(() => {
     const rawTarget = sessionStorage.getItem('jiz-target-section');
     if (rawTarget === null) return undefined;
@@ -17236,10 +14699,21 @@ function Homepage({
     }
   }, /*#__PURE__*/React.createElement(NavBar, {
     items: navItems,
+    secondaryItems: ['Creative Lab', 'Archive', 'Resume', 'LinkedIn'],
     active: activeNavLabel,
     onNavigate: item => {
       const targetIndex = sectionMap[item];
-      if (targetIndex !== undefined) scrollToSection(targetIndex);else window.jizNavigate?.(item);
+      if (item === 'Archived Work') {
+        window.location.href = 'https://jonathan-iker-zamarripa.webflow.io/projects';
+      } else if (item === 'Resume') {
+        window.open('https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf', '_blank', 'noopener,noreferrer');
+      } else if (item === 'LinkedIn') {
+        window.open('https://www.linkedin.com/in/jonathanzamarripa/', '_blank', 'noopener,noreferrer');
+      } else if (targetIndex !== undefined) {
+        scrollToSection(targetIndex);
+      } else {
+        window.jizNavigate?.(item);
+      }
     },
     onConnect: () => scrollToSection(5)
   }), /*#__PURE__*/React.createElement("main", {
@@ -17254,26 +14728,38 @@ function Homepage({
   }, /*#__PURE__*/React.createElement(Hero, {
     onExploreWork: () => scrollToSection(2),
     onConnect: () => scrollToSection(5)
-  })), /*#__PURE__*/React.createElement("div", {
-    ref: registerSection(1),
-    "data-section": "about"
-  }, window.AboutV2 ? /*#__PURE__*/React.createElement(window.AboutV2, null) : /*#__PURE__*/React.createElement("div", {
-    role: "status",
-    "data-about-loading": true,
-    style: {
-      padding: 32,
-      color: 'var(--color-text-secondary)'
-    }
-  }, "Loading About experience\u2026")), /*#__PURE__*/React.createElement("div", {
+  })), /*#__PURE__*/React.createElement(ImpactSnapshot, null), /*#__PURE__*/React.createElement("div", {
     ref: registerSection(2),
     "data-section": "featured-work"
-  }, /*#__PURE__*/React.createElement(FeaturedWork, {
+  }, /*#__PURE__*/React.createElement(FeaturedWorkV2, {
     onOpenWork: onOpenCaseStudy
   })), /*#__PURE__*/React.createElement("div", {
+    ref: registerSection(6),
+    "data-section": "capabilities"
+  }, /*#__PURE__*/React.createElement(CoreCapabilities, null)), /*#__PURE__*/React.createElement("div", {
+    ref: registerSection(7),
+    "data-section": "method"
+  }, /*#__PURE__*/React.createElement(MethodSection, null)), /*#__PURE__*/React.createElement("div", {
+    ref: registerSection(4),
+    "data-section": "thinking-in-motion"
+  }, /*#__PURE__*/React.createElement(ThinkingInMotion, null)), /*#__PURE__*/React.createElement("div", {
+    ref: registerSection(9),
+    "data-section": "tools"
+  }, /*#__PURE__*/React.createElement(LearningStack, null)), /*#__PURE__*/React.createElement("div", {
+    ref: registerSection(1),
+    "data-section": "about"
+  }, /*#__PURE__*/React.createElement(AboutMind, null)), /*#__PURE__*/React.createElement("div", {
+    ref: registerSection(10),
+    "data-section": "journey"
+  }, /*#__PURE__*/React.createElement(CareerArc, null)), /*#__PURE__*/React.createElement("div", {
+    ref: registerSection(11),
+    "data-section": "foundation"
+  }, /*#__PURE__*/React.createElement(FoundationManifesto, null)), /*#__PURE__*/React.createElement("div", {
     ref: registerSection(3)
   }, /*#__PURE__*/React.createElement(FilmSection, null)), /*#__PURE__*/React.createElement("div", {
-    ref: registerSection(4)
-  }, /*#__PURE__*/React.createElement(Insights, null)), /*#__PURE__*/React.createElement("div", {
+    ref: registerSection(8),
+    "data-section": "archive"
+  }, /*#__PURE__*/React.createElement(ArchiveBridge, null)), /*#__PURE__*/React.createElement("div", {
     ref: registerSection(5)
   }, /*#__PURE__*/React.createElement(LetsBuild, {
     onExploreWork: () => scrollToSection(2)
@@ -17285,2772 +14771,6 @@ window.HomepageExports = {
   Homepage
 };
 })(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio-website/Homepage.jsx", error: String((e && e.message) || e) }); }
-
-// ui_kits/portfolio-website/archive/About_v2_CHECKPOINT_pre-v3.jsx
-try { (() => {
-function AboutV2({
-  registerSectionRef,
-  onResume,
-  onLinkedIn,
-  onSelectedWork
-}) {
-  const sectionRef = React.useRef(null);
-  const railRef = React.useRef(null);
-  const nodeRefs = React.useRef([]);
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  const [isVisible, setIsVisible] = React.useState(false);
-  const LINKEDIN_URL = 'https://www.linkedin.com/in/jonathanzamarripa/';
-  const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
-  const THINKING_ENGINE_SRC = './assets/video/about-me-thinking-engine.mp4';
-  const methodStages = [{
-    id: 'observe',
-    label: '01',
-    title: 'Observe',
-    copy: 'See the full system before defining the solution.'
-  }, {
-    id: 'understand',
-    label: '02',
-    title: 'Understand',
-    copy: 'Reveal the patterns, friction, behaviors, and decisions shaping the experience.'
-  }, {
-    id: 'design',
-    label: '03',
-    title: 'Design',
-    copy: 'Create the structure, story, and interaction that make understanding possible.'
-  }, {
-    id: 'build',
-    label: '04',
-    title: 'Build',
-    copy: 'Produce the learning, media, tools, and systems required for adoption.'
-  }, {
-    id: 'transform',
-    label: '05',
-    title: 'Transform',
-    copy: 'Turn clarity into action, confidence, and measurable movement.'
-  }];
-  const capabilityGroups = [{
-    title: 'DESIGN',
-    subtitle: 'What I architect',
-    items: ['Learning systems', 'Experience strategy', 'Human-centered design', 'Information architecture', 'Behavior change', 'AI-enabled experiences']
-  }, {
-    title: 'BUILD',
-    subtitle: 'What I create',
-    items: ['Articulate Storyline', 'Camtasia', 'Adobe Creative Cloud', 'Figma', 'Motion and video', 'AI production workflows']
-  }, {
-    title: 'KNOWN FOR',
-    subtitle: 'What differentiates the work',
-    items: ['Systems thinking', 'Creative direction', 'Enterprise learning', 'Rapid prototyping', 'Executive communication', 'Translating complexity into clarity']
-  }];
-
-  /*
-   * Career content is based on the approved Public Career Overview and known
-   * portfolio history. Confirm exact employer date ranges before release.
-   */
-  const careerEntries = [{
-    id: 'foundation',
-    stage: 'Foundation',
-    years: 'Eight-year foundation',
-    organization: 'K–12 STEAM & Robotics',
-    title: 'Classroom and Program Leadership',
-    summary: 'Built a practical understanding of how people learn by teaching STEAM, leading a robotics program, and turning limited resources into meaningful experiences.',
-    highlights: ['Coached a regional championship robotics team', 'Secured more than $20,000 in program funding', 'Developed a learner-first leadership practice'],
-    capabilities: ['Facilitation', 'Program leadership', 'STEAM learning'],
-    type: 'role'
-  }, {
-    id: 'gstate',
-    stage: 'Storytelling',
-    years: '2009',
-    organization: 'Georgia State University',
-    title: 'B.A., Journalism — Film & Video',
-    summary: 'Built the cinematic and editorial foundation that now shapes the way complex ideas are framed, paced, and made memorable.',
-    highlights: ['Film and video concentration', 'Narrative structure and visual communication', 'Production craft grounded in journalism'],
-    capabilities: ['Storytelling', 'Video production', 'Editorial thinking'],
-    type: 'education'
-  }, {
-    id: 'ais',
-    stage: 'Systems',
-    years: '2019–2024',
-    organization: 'Atlanta International School',
-    title: 'EdTech & Innovation Coach / Strategist',
-    summary: 'Founded a digital learning function without an existing playbook, connecting instructional design, systems, content, and analytics into one practice.',
-    highlights: ['Led an organization-wide LMS migration', 'Achieved 95% adoption and 4.9/5 satisfaction', 'Built analytics and needs-assessment infrastructure'],
-    capabilities: ['Learning systems', 'Change leadership', 'Analytics'],
-    type: 'role'
-  }, {
-    id: 'asu',
-    stage: 'Research',
-    years: '2023',
-    organization: 'Arizona State University',
-    title: 'M.Ed., Instructional Design & Technology',
-    summary: 'Formalized a systems-based learning practice through advanced study in instructional design, technology, evaluation, and human-centered learning.',
-    highlights: ['Graduated Summa Cum Laude', 'Connected learning science to production practice', 'Expanded expertise in evaluation and design strategy'],
-    capabilities: ['Learning science', 'Research', 'Evaluation'],
-    type: 'education'
-  }, {
-    id: 'cox',
-    stage: 'Enterprise',
-    years: '2025',
-    organization: 'Cox Enterprises',
-    title: 'Learning Experience Designer',
-    summary: 'Designed enterprise learning experiences and AI-assisted production workflows for leadership development, systems adoption, and organizational change.',
-    highlights: ['Accelerated content development by 40%', 'Supported a Workday Learn launch reaching 98% Q1 adoption', 'Designed a narrative-driven enterprise escape room'],
-    capabilities: ['Enterprise learning', 'AI workflows', 'Storyline'],
-    type: 'role'
-  }, {
-    id: 'ihg',
-    stage: 'Scale',
-    years: '2025–2026',
-    organization: 'IHG Hotels & Resorts',
-    title: 'Creative Content Specialist / Developer',
-    summary: 'Combined learning strategy, cinematic production, and AI-enabled workflows to create global technology communication and onboarding experiences.',
-    highlights: ['Produced enterprise onboarding and adoption content', 'Built repeatable AI-enabled production workflows', 'Partnered across Product, Engineering, UX, and Cybersecurity'],
-    capabilities: ['Creative direction', 'Video', 'AI-native production'],
-    type: 'current'
-  }, {
-    id: 'next',
-    stage: 'What\'s Next',
-    years: 'Future chapter',
-    organization: 'The next organization or collaboration',
-    title: 'Learning Experience Strategist · Filmmaker · AI-Native Producer',
-    summary: 'Bringing learning science, cinematic craft, and AI-native production together to help organizations move from complexity to confident action.',
-    highlights: ['Enterprise learning strategy', 'Cinematic learning systems', 'AI-enabled creative production'],
-    capabilities: ['Strategy', 'Direction', 'Transformation'],
-    type: 'future'
-  }];
-  const beliefs = [{
-    title: 'Intelligence',
-    copy: 'I look beneath the obvious to understand how systems, people, and decisions connect.'
-  }, {
-    title: 'Confidence',
-    copy: 'I make clear decisions while remaining open to evidence, feedback, and change.'
-  }, {
-    title: 'Self-awareness',
-    copy: 'I understand how my perspective shapes the work and where collaboration strengthens it.'
-  }, {
-    title: 'Empathy',
-    copy: 'I design for the person who must understand, use, and live with the outcome.'
-  }];
-  React.useEffect(() => {
-    if (!sectionRef.current || typeof IntersectionObserver === 'undefined') {
-      setIsVisible(true);
-      return undefined;
-    }
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-        observer.disconnect();
-      }
-    }, {
-      threshold: 0.08
-    });
-    observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-  const selectCareerEntry = React.useCallback((index, behavior = 'smooth') => {
-    const boundedIndex = Math.max(0, Math.min(index, careerEntries.length - 1));
-    setActiveIndex(boundedIndex);
-    nodeRefs.current[boundedIndex]?.scrollIntoView({
-      behavior,
-      block: 'nearest',
-      inline: 'center'
-    });
-  }, [careerEntries.length]);
-  const handleRailKeyDown = event => {
-    if (event.key === 'ArrowRight') {
-      event.preventDefault();
-      selectCareerEntry(activeIndex + 1);
-    } else if (event.key === 'ArrowLeft') {
-      event.preventDefault();
-      selectCareerEntry(activeIndex - 1);
-    } else if (event.key === 'Home') {
-      event.preventDefault();
-      selectCareerEntry(0);
-    } else if (event.key === 'End') {
-      event.preventDefault();
-      selectCareerEntry(careerEntries.length - 1);
-    }
-  };
-  const activeCareer = careerEntries[activeIndex];
-  return /*#__PURE__*/React.createElement("section", {
-    ref: sectionRef,
-    className: `jiz-about-v2 ${isVisible ? 'is-visible' : ''}`,
-    "aria-labelledby": "about-v2-title"
-  }, /*#__PURE__*/React.createElement("style", null, `
-        .jiz-about-v2 {
-          --about-content-max: 1320px;
-          position: relative;
-          overflow: hidden;
-          padding: clamp(72px, 7vw, 104px) var(--container-pad)
-            clamp(112px, 12vw, 176px);
-          background:
-            radial-gradient(circle at 80% 10%, rgba(100, 225, 255, 0.075), transparent 32%),
-            radial-gradient(circle at 18% 72%, rgba(198, 242, 58, 0.038), transparent 30%),
-            linear-gradient(180deg, rgba(11, 13, 16, 0) 0%, rgba(11, 13, 16, 0.72) 12%, #0b0d10 100%);
-          color: var(--color-text-primary);
-        }
-
-        .jiz-about-v2::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          background:
-            linear-gradient(115deg, transparent 12%, rgba(100, 225, 255, 0.025) 48%, transparent 72%);
-          opacity: 0.8;
-        }
-
-        .jiz-about-inner {
-          position: relative;
-          z-index: 1;
-          width: min(100%, var(--about-content-max));
-          margin: 0 auto;
-        }
-
-        .jiz-about-movement {
-          position: relative;
-        }
-
-        .jiz-about-movement + .jiz-about-movement {
-          margin-top: clamp(112px, 13vw, 168px);
-        }
-
-        .jiz-about-mind {
-          display: grid;
-          grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-          align-items: center;
-          gap: clamp(44px, 6vw, 84px);
-        }
-
-        .jiz-about-eyebrow,
-        .jiz-about-meta {
-          font: var(--text-eyebrow);
-          letter-spacing: var(--tracking-eyebrow);
-          text-transform: uppercase;
-        }
-
-        .jiz-about-eyebrow {
-          color: var(--color-accent-secondary);
-          margin: 0 0 18px;
-        }
-
-        .jiz-about-title {
-          max-width: 760px;
-          margin: 0;
-          font: var(--text-h1);
-          font-size: clamp(2.6rem, 4.8vw, 4.6rem);
-          line-height: 0.98;
-          letter-spacing: -0.04em;
-          text-wrap: balance;
-        }
-
-        .jiz-about-thesis {
-          max-width: 620px;
-          margin: 28px 0 0;
-          font: var(--text-body-lg);
-          line-height: 1.55;
-          color: var(--color-text-primary);
-        }
-
-        .jiz-about-copy {
-          max-width: 620px;
-          margin: 18px 0 0;
-          font: var(--text-body);
-          color: var(--color-text-secondary);
-        }
-
-        .jiz-about-actions {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 12px;
-          margin-top: 32px;
-        }
-
-        .jiz-about-action {
-          min-height: 44px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          border-radius: var(--radius-pill);
-          padding: 0 22px;
-          font: var(--text-button);
-          text-decoration: none;
-          transition:
-            transform var(--motion-fast) var(--ease-standard),
-            border-color var(--motion-fast) var(--ease-standard),
-            background var(--motion-fast) var(--ease-standard);
-        }
-
-        .jiz-about-action:hover {
-          transform: translateY(-2px);
-        }
-
-        .jiz-about-action:focus-visible,
-        .jiz-career-control:focus-visible,
-        .jiz-career-node:focus-visible {
-          outline: 2px solid var(--color-accent-primary);
-          outline-offset: 4px;
-        }
-
-        .jiz-about-action-primary {
-          background: var(--color-accent-primary);
-          color: #0b0d10;
-        }
-
-        .jiz-about-action-secondary {
-          border: 1px solid rgba(100, 225, 255, 0.28);
-          color: var(--color-text-primary);
-          background: rgba(255, 255, 255, 0.018);
-        }
-
-        .jiz-thinking-wrap {
-          position: relative;
-          isolation: isolate;
-        }
-
-        .jiz-thinking-wrap::before {
-          content: '';
-          position: absolute;
-          inset: -10%;
-          z-index: -2;
-          background:
-            radial-gradient(circle at 60% 35%, rgba(100, 225, 255, 0.18), transparent 42%),
-            radial-gradient(circle at 36% 70%, rgba(198, 242, 58, 0.075), transparent 32%);
-          filter: blur(46px);
-          opacity: 0.72;
-        }
-
-        .jiz-thinking-stage {
-          position: relative;
-          aspect-ratio: 16 / 9;
-          overflow: hidden;
-          border-radius: clamp(20px, 2.2vw, 28px);
-          border: 1px solid rgba(100, 225, 255, 0.11);
-          background: rgba(6, 10, 13, 0.86);
-          box-shadow:
-            inset 0 1px 0 rgba(255, 255, 255, 0.055),
-            0 40px 100px rgba(0, 0, 0, 0.42);
-        }
-
-        .jiz-thinking-video {
-          width: 100%;
-          height: 100%;
-          display: block;
-          object-fit: contain;
-        }
-
-        .jiz-thinking-reflection {
-          position: absolute;
-          left: 8%;
-          right: 8%;
-          bottom: -34px;
-          height: 34px;
-          pointer-events: none;
-          background: linear-gradient(180deg, rgba(100, 225, 255, 0.065), transparent);
-          filter: blur(10px);
-          opacity: 0.65;
-        }
-
-        .jiz-thinking-label {
-          display: flex;
-          justify-content: space-between;
-          gap: 24px;
-          margin-top: 18px;
-          color: var(--color-text-muted);
-        }
-
-        .jiz-thinking-label strong {
-          color: var(--color-text-primary);
-          font: var(--text-caption);
-          letter-spacing: 0.12em;
-        }
-
-        .jiz-thinking-label span {
-          font: var(--text-hud);
-          letter-spacing: var(--tracking-hud);
-          text-transform: uppercase;
-          text-align: right;
-        }
-
-        .jiz-movement-heading {
-          max-width: 760px;
-          margin-bottom: clamp(38px, 5vw, 60px);
-        }
-
-        .jiz-movement-heading .jiz-about-eyebrow {
-          margin-bottom: 14px;
-        }
-
-        .jiz-movement-title {
-          margin: 0;
-          font: var(--text-h2);
-          letter-spacing: -0.035em;
-        }
-
-        .jiz-movement-description {
-          max-width: 650px;
-          margin: 18px 0 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body-lg);
-        }
-
-        .jiz-method-path {
-          position: relative;
-          display: grid;
-          grid-template-columns: repeat(5, minmax(0, 1fr));
-          gap: clamp(18px, 2.5vw, 34px);
-        }
-
-        .jiz-method-path::before {
-          content: '';
-          position: absolute;
-          top: 23px;
-          left: 4%;
-          right: 4%;
-          height: 1px;
-          background: linear-gradient(
-            90deg,
-            rgba(100, 225, 255, 0.12),
-            rgba(100, 225, 255, 0.58),
-            rgba(198, 242, 58, 0.7)
-          );
-        }
-
-        .jiz-method-stage {
-          position: relative;
-          padding-top: 52px;
-        }
-
-        .jiz-method-node {
-          position: absolute;
-          top: 15px;
-          left: 0;
-          width: 16px;
-          height: 16px;
-          border-radius: 50%;
-          border: 1px solid rgba(100, 225, 255, 0.72);
-          background: #0b0d10;
-          box-shadow: 0 0 0 5px rgba(100, 225, 255, 0.055);
-        }
-
-        .jiz-method-stage:last-child .jiz-method-node {
-          border-color: var(--color-accent-primary);
-          background: var(--color-accent-primary);
-          box-shadow: 0 0 0 6px rgba(198, 242, 58, 0.08);
-        }
-
-        .jiz-method-label {
-          margin: 0 0 14px;
-          color: var(--color-accent-secondary);
-        }
-
-        .jiz-method-stage h4 {
-          margin: 0 0 12px;
-          font: var(--text-h3);
-          font-size: clamp(1.1rem, 1.8vw, 1.45rem);
-        }
-
-        .jiz-method-stage p:last-child {
-          margin: 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: 0.95rem;
-        }
-
-        .jiz-capability-grid {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: clamp(34px, 5vw, 72px);
-          margin-top: clamp(60px, 7vw, 92px);
-          padding-top: clamp(42px, 5vw, 64px);
-          border-top: 1px solid rgba(100, 225, 255, 0.09);
-        }
-
-        .jiz-capability-group + .jiz-capability-group {
-          border-left: 1px solid rgba(100, 225, 255, 0.08);
-          padding-left: clamp(28px, 4vw, 54px);
-        }
-
-        .jiz-capability-group h4 {
-          margin: 0;
-          color: var(--color-accent-secondary);
-        }
-
-        .jiz-capability-group > p {
-          margin: 10px 0 24px;
-          color: var(--color-text-muted);
-          font: var(--text-caption);
-        }
-
-        .jiz-capability-group ul {
-          list-style: none;
-          margin: 0;
-          padding: 0;
-          display: grid;
-          gap: 13px;
-        }
-
-        .jiz-capability-group li {
-          position: relative;
-          padding-left: 16px;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: 0.95rem;
-        }
-
-        .jiz-capability-group li::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0.7em;
-          width: 4px;
-          height: 4px;
-          border-radius: 50%;
-          background: rgba(100, 225, 255, 0.72);
-        }
-
-        .jiz-career-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-end;
-          gap: 28px;
-          margin-bottom: 34px;
-        }
-
-        .jiz-career-controls {
-          display: flex;
-          gap: 10px;
-        }
-
-        .jiz-career-control {
-          width: 44px;
-          height: 44px;
-          border-radius: 50%;
-          border: 1px solid rgba(100, 225, 255, 0.18);
-          background: rgba(255, 255, 255, 0.018);
-          color: var(--color-text-primary);
-          cursor: pointer;
-          transition:
-            opacity var(--motion-fast) var(--ease-standard),
-            transform var(--motion-fast) var(--ease-standard);
-        }
-
-        .jiz-career-control:hover:not(:disabled) {
-          transform: translateY(-2px);
-        }
-
-        .jiz-career-control:disabled {
-          opacity: 0.28;
-          cursor: default;
-        }
-
-        .jiz-career-viewport {
-          overflow-x: auto;
-          overscroll-behavior-inline: contain;
-          scroll-snap-type: x mandatory;
-          scrollbar-width: thin;
-          scrollbar-color: rgba(100, 225, 255, 0.2) transparent;
-          padding: 28px 0 22px;
-        }
-
-        .jiz-career-track {
-          position: relative;
-          display: flex;
-          min-width: max-content;
-          gap: clamp(28px, 4vw, 62px);
-          padding: 0 clamp(16px, 4vw, 60px);
-        }
-
-        .jiz-career-track::before {
-          content: '';
-          position: absolute;
-          left: 30px;
-          right: 30px;
-          top: 32px;
-          height: 1px;
-          background: linear-gradient(
-            90deg,
-            rgba(100, 225, 255, 0.18),
-            rgba(100, 225, 255, 0.48),
-            rgba(198, 242, 58, 0.48)
-          );
-        }
-
-        .jiz-career-node {
-          position: relative;
-          scroll-snap-align: center;
-          width: clamp(154px, 15vw, 210px);
-          padding: 0;
-          border: 0;
-          background: transparent;
-          color: inherit;
-          text-align: left;
-          cursor: pointer;
-        }
-
-        .jiz-career-dot {
-          position: relative;
-          z-index: 1;
-          display: block;
-          width: 18px;
-          height: 18px;
-          margin: 0 0 26px;
-          border-radius: 50%;
-          border: 1px solid rgba(100, 225, 255, 0.65);
-          background: #0b0d10;
-          box-shadow: 0 0 0 6px rgba(100, 225, 255, 0.045);
-          transition:
-            transform var(--motion-standard) var(--ease-enter),
-            background var(--motion-standard) var(--ease-enter),
-            box-shadow var(--motion-standard) var(--ease-enter);
-        }
-
-        .jiz-career-node[data-type='education'] .jiz-career-dot {
-          border-color: var(--color-accent-secondary);
-        }
-
-        .jiz-career-node.is-active .jiz-career-dot {
-          transform: scale(1.28);
-          border-color: var(--color-accent-primary);
-          background: var(--color-accent-primary);
-          box-shadow:
-            0 0 0 8px rgba(198, 242, 58, 0.08),
-            0 0 30px rgba(198, 242, 58, 0.16);
-        }
-
-        .jiz-career-stage {
-          display: block;
-          margin-bottom: 8px;
-          color: var(--color-text-primary);
-          font: var(--text-h3);
-          font-size: 1rem;
-        }
-
-        .jiz-career-years,
-        .jiz-career-org {
-          display: block;
-          color: var(--color-text-muted);
-          font: var(--text-caption);
-        }
-
-        .jiz-career-org {
-          margin-top: 8px;
-          color: var(--color-text-secondary);
-        }
-
-        .jiz-career-detail {
-          margin-top: 36px;
-          display: grid;
-          grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.25fr);
-          gap: clamp(34px, 5vw, 72px);
-          padding: clamp(28px, 4vw, 50px);
-          border-radius: var(--radius-lg);
-          border: 1px solid rgba(100, 225, 255, 0.1);
-          background:
-            linear-gradient(135deg, rgba(100, 225, 255, 0.035), rgba(255, 255, 255, 0.012));
-          box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035);
-        }
-
-        .jiz-career-detail h4 {
-          margin: 0;
-          font: var(--text-h2);
-          font-size: clamp(1.55rem, 3vw, 2.45rem);
-          letter-spacing: -0.035em;
-        }
-
-        .jiz-career-detail-org {
-          margin: 10px 0 0;
-          color: var(--color-accent-secondary);
-          font: var(--text-body-lg);
-        }
-
-        .jiz-career-summary {
-          margin: 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-        }
-
-        .jiz-career-detail-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 28px;
-          margin-top: 26px;
-        }
-
-        .jiz-career-detail-grid h5 {
-          margin: 0 0 12px;
-          color: var(--color-text-muted);
-        }
-
-        .jiz-career-detail-grid ul {
-          margin: 0;
-          padding-left: 18px;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: 0.93rem;
-        }
-
-        .jiz-beliefs {
-          position: relative;
-          display: grid;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
-          margin-top: clamp(78px, 9vw, 112px);
-          padding: clamp(34px, 4vw, 54px) 0;
-          border-top: 1px solid rgba(100, 225, 255, 0.09);
-          border-bottom: 1px solid rgba(100, 225, 255, 0.09);
-        }
-
-        .jiz-belief {
-          position: relative;
-          padding: 0 clamp(22px, 3vw, 42px);
-        }
-
-        .jiz-belief:first-child {
-          padding-left: 0;
-        }
-
-        .jiz-belief:last-child {
-          padding-right: 0;
-        }
-
-        .jiz-belief + .jiz-belief {
-          border-left: 1px solid rgba(100, 225, 255, 0.08);
-        }
-
-        .jiz-belief h4 {
-          margin: 0 0 12px;
-          font: var(--text-h3);
-          font-size: 1.05rem;
-        }
-
-        .jiz-belief p {
-          margin: 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: 0.92rem;
-        }
-
-        .jiz-about-transition {
-          position: relative;
-          margin-top: clamp(112px, 13vw, 168px);
-          padding: clamp(78px, 9vw, 120px) 0 clamp(36px, 4vw, 58px);
-          text-align: center;
-        }
-
-        .jiz-about-transition::before {
-          content: '';
-          position: absolute;
-          left: 50%;
-          top: 0;
-          width: min(78vw, 980px);
-          height: 1px;
-          transform: translateX(-50%);
-          background: linear-gradient(90deg, transparent, rgba(100, 225, 255, 0.22), transparent);
-        }
-
-        .jiz-about-transition h3 {
-          margin: 0;
-          font: var(--text-h1);
-          font-size: clamp(2.25rem, 4.8vw, 4.4rem);
-          line-height: 1.02;
-          letter-spacing: -0.045em;
-        }
-
-        .jiz-about-transition h3 span {
-          color: var(--color-accent-primary);
-        }
-
-        .jiz-about-transition p {
-          margin: 22px auto 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body-lg);
-        }
-
-        .jiz-reveal {
-          opacity: 0;
-          transform: translateY(18px);
-          transition:
-            opacity 700ms var(--ease-enter),
-            transform 700ms var(--ease-enter);
-        }
-
-        .jiz-about-v2.is-visible .jiz-reveal {
-          opacity: 1;
-          transform: none;
-        }
-
-        .jiz-about-v2.is-visible .jiz-reveal:nth-child(2) {
-          transition-delay: 80ms;
-        }
-
-        @media (max-width: 980px) {
-          .jiz-about-mind {
-            grid-template-columns: 1fr;
-          }
-
-          .jiz-thinking-wrap {
-            margin-top: 8px;
-          }
-
-          .jiz-method-path {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 34px;
-          }
-
-          .jiz-method-path::before {
-            display: none;
-          }
-
-          .jiz-method-stage {
-            padding: 26px 0 0 28px;
-            border-top: 1px solid rgba(100, 225, 255, 0.11);
-          }
-
-          .jiz-method-node {
-            top: 18px;
-            left: 0;
-          }
-
-          .jiz-capability-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .jiz-capability-group + .jiz-capability-group {
-            padding: 34px 0 0;
-            border-left: 0;
-            border-top: 1px solid rgba(100, 225, 255, 0.08);
-          }
-
-          .jiz-career-detail {
-            grid-template-columns: 1fr;
-          }
-
-          .jiz-beliefs {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 34px 0;
-          }
-
-          .jiz-belief:nth-child(3) {
-            border-left: 0;
-            padding-left: 0;
-          }
-        }
-
-        @media (max-width: 620px) {
-          .jiz-about-v2 {
-            padding-inline: max(20px, var(--container-pad));
-          }
-
-          .jiz-about-title {
-            font-size: clamp(2.45rem, 13vw, 3.6rem);
-          }
-
-          .jiz-thinking-label {
-            display: block;
-          }
-
-          .jiz-thinking-label span {
-            display: block;
-            margin-top: 8px;
-            text-align: left;
-          }
-
-          .jiz-method-path {
-            grid-template-columns: 1fr;
-          }
-
-          .jiz-career-header {
-            display: block;
-          }
-
-          .jiz-career-controls {
-            margin-top: 24px;
-          }
-
-          .jiz-career-detail-grid {
-            grid-template-columns: 1fr;
-          }
-
-          .jiz-beliefs {
-            grid-template-columns: 1fr;
-          }
-
-          .jiz-belief,
-          .jiz-belief:first-child,
-          .jiz-belief:last-child {
-            padding: 24px 0;
-          }
-
-          .jiz-belief + .jiz-belief,
-          .jiz-belief:nth-child(3) {
-            border-left: 0;
-            border-top: 1px solid rgba(100, 225, 255, 0.08);
-          }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .jiz-about-v2 *,
-          .jiz-about-v2 *::before,
-          .jiz-about-v2 *::after {
-            scroll-behavior: auto !important;
-            animation: none !important;
-            transition-duration: 0.01ms !important;
-          }
-
-          .jiz-reveal {
-            opacity: 1;
-            transform: none;
-          }
-        }
-      `), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-about-inner"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-about-movement jiz-about-mind"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-reveal"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-about-eyebrow"
-  }, "ABOUT / THE MIND"), /*#__PURE__*/React.createElement("h2", {
-    id: "about-v2-title",
-    className: "jiz-about-title"
-  }, "How Jonathan thinks."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-about-thesis"
-  }, "I reveal the patterns beneath complexity and turn them into experiences people can understand, use, and adopt."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-about-copy"
-  }, "I begin by mapping the relationship between people, information, systems, and behavior. Before I design content, I design understanding\u2014revealing what matters, where friction exists, and what will move people forward."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-about-copy"
-  }, "My work brings together learning strategy, cinematic storytelling, digital experience design, and AI-enabled production to create solutions that are clear, useful, and built for adoption."), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-about-actions"
-  }, /*#__PURE__*/React.createElement("a", {
-    className: "jiz-about-action jiz-about-action-primary",
-    href: RESUME_URL,
-    target: "_blank",
-    rel: "noopener noreferrer",
-    onClick: onResume
-  }, "View r\xE9sum\xE9"), /*#__PURE__*/React.createElement("a", {
-    className: "jiz-about-action jiz-about-action-secondary",
-    href: LINKEDIN_URL,
-    target: "_blank",
-    rel: "noopener noreferrer",
-    onClick: onLinkedIn
-  }, "LinkedIn"))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-thinking-wrap jiz-reveal"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-thinking-stage"
-  }, /*#__PURE__*/React.createElement("video", {
-    className: "jiz-thinking-video",
-    autoPlay: true,
-    loop: true,
-    muted: true,
-    playsInline: true,
-    preload: "metadata",
-    "aria-label": "Thinking Engine visualization showing complexity becoming clarity"
-  }, /*#__PURE__*/React.createElement("source", {
-    src: THINKING_ENGINE_SRC,
-    type: "video/mp4"
-  }), "Your browser does not support the Thinking Engine video.")), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-thinking-reflection",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-thinking-label"
-  }, /*#__PURE__*/React.createElement("strong", null, "THINKING ENGINE"), /*#__PURE__*/React.createElement("span", null, "Complexity \u2192 Pattern \u2192 Structure \u2192 Clarity \u2192 Impact")))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-about-movement"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-movement-heading jiz-reveal"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-about-eyebrow"
-  }, "THE METHOD"), /*#__PURE__*/React.createElement("h3", {
-    className: "jiz-movement-title"
-  }, "How thought becomes action."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-movement-description"
-  }, "A connected practice for moving from ambiguity to experiences people can understand and use.")), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-method-path jiz-reveal",
-    "aria-label": "Jonathan's five-stage methodology"
-  }, methodStages.map(stage => /*#__PURE__*/React.createElement("article", {
-    className: "jiz-method-stage",
-    key: stage.id
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-method-node",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-method-label jiz-about-meta"
-  }, stage.label), /*#__PURE__*/React.createElement("h4", null, stage.title), /*#__PURE__*/React.createElement("p", null, stage.copy)))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-capability-grid jiz-reveal"
-  }, capabilityGroups.map(group => /*#__PURE__*/React.createElement("section", {
-    className: "jiz-capability-group",
-    key: group.title
-  }, /*#__PURE__*/React.createElement("h4", {
-    className: "jiz-about-meta"
-  }, group.title), /*#__PURE__*/React.createElement("p", null, group.subtitle), /*#__PURE__*/React.createElement("ul", null, group.items.map(item => /*#__PURE__*/React.createElement("li", {
-    key: item
-  }, item))))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-about-movement"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-header jiz-reveal"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-movement-heading",
-    style: {
-      marginBottom: 0
-    }
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-about-eyebrow"
-  }, "THE JOURNEY"), /*#__PURE__*/React.createElement("h3", {
-    className: "jiz-movement-title"
-  }, "Built through experience."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-movement-description"
-  }, "Explore how learning, systems, technology, and storytelling shaped the practice.")), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-controls",
-    "aria-label": "Career journey controls"
-  }, /*#__PURE__*/React.createElement("button", {
-    className: "jiz-career-control",
-    type: "button",
-    "aria-label": "Previous career milestone",
-    disabled: activeIndex === 0,
-    onClick: () => selectCareerEntry(activeIndex - 1)
-  }, "\u2190"), /*#__PURE__*/React.createElement("button", {
-    className: "jiz-career-control",
-    type: "button",
-    "aria-label": "Next career milestone",
-    disabled: activeIndex === careerEntries.length - 1,
-    onClick: () => selectCareerEntry(activeIndex + 1)
-  }, "\u2192"))), /*#__PURE__*/React.createElement("div", {
-    ref: railRef,
-    className: "jiz-career-viewport jiz-reveal",
-    tabIndex: "0",
-    role: "region",
-    "aria-label": "Interactive career journey. Use left and right arrow keys to explore.",
-    onKeyDown: handleRailKeyDown
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-track"
-  }, careerEntries.map((entry, index) => /*#__PURE__*/React.createElement("button", {
-    key: entry.id,
-    ref: element => {
-      nodeRefs.current[index] = element;
-    },
-    className: `jiz-career-node ${activeIndex === index ? 'is-active' : ''}`,
-    "data-type": entry.type,
-    type: "button",
-    "aria-pressed": activeIndex === index,
-    onClick: () => selectCareerEntry(index)
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-career-dot",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-career-stage"
-  }, entry.stage), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-career-years"
-  }, entry.years), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-career-org"
-  }, entry.organization))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-detail jiz-reveal",
-    "aria-live": "polite"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-about-eyebrow"
-  }, activeCareer.years), /*#__PURE__*/React.createElement("h4", null, activeCareer.title), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-career-detail-org"
-  }, activeCareer.organization)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-career-summary"
-  }, activeCareer.summary), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-detail-grid"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h5", {
-    className: "jiz-about-meta"
-  }, "SELECTED IMPACT"), /*#__PURE__*/React.createElement("ul", null, activeCareer.highlights.map(highlight => /*#__PURE__*/React.createElement("li", {
-    key: highlight
-  }, highlight)))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h5", {
-    className: "jiz-about-meta"
-  }, "CAPABILITIES"), /*#__PURE__*/React.createElement("ul", null, activeCareer.capabilities.map(capability => /*#__PURE__*/React.createElement("li", {
-    key: capability
-  }, capability))))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-beliefs jiz-reveal",
-    "aria-label": "Core beliefs"
-  }, beliefs.map(belief => /*#__PURE__*/React.createElement("article", {
-    className: "jiz-belief",
-    key: belief.title
-  }, /*#__PURE__*/React.createElement("h4", null, belief.title), /*#__PURE__*/React.createElement("p", null, belief.copy))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-about-transition jiz-reveal"
-  }, /*#__PURE__*/React.createElement("h3", null, "Understanding changes ", /*#__PURE__*/React.createElement("span", null, "everything.")), /*#__PURE__*/React.createElement("p", null, "Here's what that understanding created."))));
-}
-if (typeof window !== 'undefined') {
-  window.AboutV2 = AboutV2;
-}
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio-website/archive/About_v2_CHECKPOINT_pre-v3.jsx", error: String((e && e.message) || e) }); }
-
-// ui_kits/portfolio-website/archive/About_v2_Fixed.jsx
-try { (() => {
-function AboutV2({
-  onResume,
-  onLinkedIn,
-  onSelectedWork
-}) {
-  const sectionRef = React.useRef(null);
-  const railRef = React.useRef(null);
-  const nodeRefs = React.useRef([]);
-  const [activeIndex, setActiveIndex] = React.useState(0);
-  const [isVisible, setIsVisible] = React.useState(false);
-  const [modalOpen, setModalOpen] = React.useState(false);
-  const [activeMethodIndex, setActiveMethodIndex] = React.useState(0);
-  const [methodVisible, setMethodVisible] = React.useState(false);
-  const [methodPaused, setMethodPaused] = React.useState(false);
-  const methodRef = React.useRef(null);
-  const modalTriggerRef = React.useRef(null);
-  const LINKEDIN_URL = 'https://www.linkedin.com/in/jonathanzamarripa/';
-  const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
-  const THINKING_ENGINE_SRC = './assets/video/about-me-thinking-engine.mp4';
-  const methodStages = [{
-    id: 'observe',
-    label: '01',
-    title: 'Observe',
-    copy: 'See the full system before defining the solution.'
-  }, {
-    id: 'understand',
-    label: '02',
-    title: 'Understand',
-    copy: 'Reveal the patterns, friction, behaviors, and decisions shaping the experience.'
-  }, {
-    id: 'design',
-    label: '03',
-    title: 'Design',
-    copy: 'Create the structure, story, and interaction that make understanding possible.'
-  }, {
-    id: 'build',
-    label: '04',
-    title: 'Build',
-    copy: 'Produce the learning, media, tools, and systems required for adoption.'
-  }, {
-    id: 'transform',
-    label: '05',
-    title: 'Transform',
-    copy: 'Turn clarity into action, confidence, and measurable movement.'
-  }];
-  const capabilityGroups = [{
-    title: 'DESIGN',
-    subtitle: 'What I architect',
-    items: ['Learning systems', 'Experience strategy', 'Behavior change', 'Information architecture', 'Human-centered design']
-  }, {
-    title: 'BUILD',
-    subtitle: 'What I create',
-    items: ['Articulate Storyline', 'Camtasia', 'Adobe Creative Cloud', 'Figma', 'Motion and video', 'AI production workflows']
-  }, {
-    title: 'KNOWN FOR',
-    subtitle: 'What differentiates the work',
-    items: ['Systems thinking', 'Creative direction', 'Enterprise learning', 'Rapid prototyping', 'Translating complexity into clarity']
-  }];
-  const careerEntries = [{
-    id: 'foundation',
-    stage: 'Foundation',
-    years: 'Eight-year foundation',
-    organization: 'K–12 STEAM & Robotics',
-    title: 'Classroom and Program Leadership',
-    summary: 'Built a practical understanding of how people learn by teaching STEAM, leading a robotics program, and turning limited resources into meaningful experiences.',
-    highlights: ['Coached a regional championship robotics team', 'Secured more than $20,000 in program funding', 'Developed a learner-first leadership practice'],
-    capabilities: ['Facilitation', 'Program leadership', 'STEAM learning'],
-    type: 'role'
-  }, {
-    id: 'gstate',
-    stage: 'Storytelling',
-    years: '2009',
-    organization: 'Georgia State University',
-    title: 'B.A., Journalism — Film & Video',
-    summary: 'Built the cinematic and editorial foundation that now shapes the way complex ideas are framed, paced, and made memorable.',
-    highlights: ['Film and video concentration', 'Narrative structure and visual communication', 'Production craft grounded in journalism'],
-    capabilities: ['Storytelling', 'Video production', 'Editorial thinking'],
-    type: 'education'
-  }, {
-    id: 'ais',
-    stage: 'Systems',
-    years: '2019–2024',
-    organization: 'Atlanta International School',
-    title: 'EdTech & Innovation Coach / Strategist',
-    summary: 'Founded a digital learning function without an existing playbook, connecting instructional design, systems, content, and analytics into one practice.',
-    highlights: ['Led an organization-wide LMS migration', 'Achieved 95% adoption and 4.9/5 satisfaction', 'Built analytics and needs-assessment infrastructure'],
-    capabilities: ['Learning systems', 'Change leadership', 'Analytics'],
-    type: 'role'
-  }, {
-    id: 'asu',
-    stage: 'Research',
-    years: '2023',
-    organization: 'Arizona State University',
-    title: 'M.Ed., Instructional Design & Technology',
-    summary: 'Formalized a systems-based learning practice through advanced study in instructional design, technology, evaluation, and human-centered learning.',
-    highlights: ['Graduated Summa Cum Laude', 'Connected learning science to production practice', 'Expanded expertise in evaluation and design strategy'],
-    capabilities: ['Learning science', 'Research', 'Evaluation'],
-    type: 'education'
-  }, {
-    id: 'cox',
-    stage: 'Enterprise',
-    years: '2025',
-    organization: 'Cox Enterprises',
-    title: 'Learning Experience Designer',
-    summary: 'Designed enterprise learning experiences and AI-assisted production workflows for leadership development, systems adoption, and organizational change.',
-    highlights: ['Accelerated content development by 40%', 'Supported a Workday Learn launch reaching 98% Q1 adoption', 'Designed a narrative-driven enterprise escape room'],
-    capabilities: ['Enterprise learning', 'AI workflows', 'Storyline'],
-    type: 'role'
-  }, {
-    id: 'ihg',
-    stage: 'Scale',
-    years: '2025–2026',
-    organization: 'IHG Hotels & Resorts',
-    title: 'Creative Content Specialist / Developer',
-    summary: 'Combined learning strategy, cinematic production, and AI-enabled workflows to create global technology communication and onboarding experiences.',
-    highlights: ['Produced enterprise onboarding and adoption content', 'Built repeatable AI-enabled production workflows', 'Partnered across Product, Engineering, UX, and Cybersecurity'],
-    capabilities: ['Creative direction', 'Video', 'AI-native production'],
-    type: 'current'
-  }, {
-    id: 'next',
-    stage: 'What\'s Next',
-    years: 'Future chapter',
-    organization: 'The next organization or collaboration',
-    title: 'Learning Experience Strategist · Filmmaker · AI-Native Producer',
-    summary: 'Bringing learning science, cinematic craft, and AI-native production together to help organizations move from complexity to confident action.',
-    highlights: ['Enterprise learning strategy', 'Cinematic learning systems', 'AI-enabled creative production'],
-    capabilities: ['Strategy', 'Direction', 'Transformation'],
-    type: 'future'
-  }];
-  const beliefs = [{
-    title: 'Intelligence',
-    copy: 'I look beneath the obvious to understand how systems, people, and decisions connect.'
-  }, {
-    title: 'Confidence',
-    copy: 'I make clear decisions while remaining open to evidence, feedback, and change.'
-  }, {
-    title: 'Self-awareness',
-    copy: 'I understand how my perspective shapes the work and where collaboration strengthens it.'
-  }, {
-    title: 'Empathy',
-    copy: 'I design for the person who must understand, use, and live with the outcome.'
-  }];
-  React.useEffect(() => {
-    if (!sectionRef.current || typeof IntersectionObserver === 'undefined') {
-      setIsVisible(true);
-      return undefined;
-    }
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setIsVisible(true);
-        observer.disconnect();
-      }
-    }, {
-      threshold: 0.06
-    });
-    observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-  const selectCareerEntry = React.useCallback((index, behavior = 'smooth') => {
-    const bounded = Math.max(0, Math.min(index, careerEntries.length - 1));
-    setActiveIndex(bounded);
-    const viewport = railRef.current;
-    const node = nodeRefs.current[bounded];
-    if (viewport && node) {
-      const targetLeft = node.offsetLeft - viewport.clientWidth / 2 + node.offsetWidth / 2;
-      viewport.scrollTo({
-        left: Math.max(0, targetLeft),
-        behavior
-      });
-    }
-  }, []);
-  const handleRailKeyDown = event => {
-    if (event.key === 'ArrowRight') {
-      event.preventDefault();
-      selectCareerEntry(activeIndex + 1);
-    } else if (event.key === 'ArrowLeft') {
-      event.preventDefault();
-      selectCareerEntry(activeIndex - 1);
-    } else if (event.key === 'Home') {
-      event.preventDefault();
-      selectCareerEntry(0);
-    } else if (event.key === 'End') {
-      event.preventDefault();
-      selectCareerEntry(careerEntries.length - 1);
-    }
-  };
-  const activeCareer = careerEntries[activeIndex];
-  React.useEffect(() => {
-    if (!modalOpen) return;
-    const handleEscape = e => e.key === 'Escape' && setModalOpen(false);
-    document.addEventListener('keydown', handleEscape);
-    document.body.style.overflow = 'hidden';
-    setTimeout(() => modalTriggerRef.current?.focus(), 0);
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-      document.body.style.overflow = '';
-    };
-  }, [modalOpen]);
-  React.useEffect(() => {
-    if (!methodVisible || methodPaused || prefersReduced?.()) return;
-    const interval = setInterval(() => {
-      setActiveMethodIndex(i => (i + 1) % methodStages.length);
-    }, activeMethodIndex === 3 ? 4000 : 2400);
-    return () => clearInterval(interval);
-  }, [methodVisible, methodPaused, activeMethodIndex]);
-  React.useEffect(() => {
-    if (!methodRef.current) return;
-    const io = new IntersectionObserver(([e]) => setMethodVisible(e.isIntersecting), {
-      threshold: 0.3
-    });
-    io.observe(methodRef.current);
-    return () => io.disconnect();
-  }, []);
-  const prefersReduced = () => typeof window !== 'undefined' && window.matchMedia?.('(prefers-motion: reduce)').matches;
-  return /*#__PURE__*/React.createElement("section", {
-    ref: sectionRef,
-    className: `jiz-about-master ${isVisible ? 'is-visible' : ''}`,
-    "aria-labelledby": "about-master-title"
-  }, /*#__PURE__*/React.createElement("style", null, `
-        .jiz-about-master {
-          --about-max: 1360px;
-          position: relative;
-          overflow: hidden;
-          padding: clamp(78px, 8vw, 118px) var(--container-pad) clamp(112px, 12vw, 176px);
-          color: var(--color-text-primary);
-          background:
-            radial-gradient(circle at 50% 13%, rgba(100, 225, 255, 0.09), transparent 34%),
-            radial-gradient(circle at 78% 29%, rgba(198, 242, 58, 0.045), transparent 27%),
-            linear-gradient(180deg, rgba(8, 13, 16, 0.12) 0%, #0b0d10 22%, #0b0d10 100%);
-        }
-
-        .jiz-about-master::before,
-        .jiz-about-master::after {
-          content: '';
-          position: absolute;
-          pointer-events: none;
-          border-radius: 50%;
-          filter: blur(80px);
-        }
-
-        .jiz-about-master::before {
-          width: 40vw;
-          height: 34vw;
-          right: -12vw;
-          top: 8%;
-          background: rgba(100, 225, 255, 0.055);
-        }
-
-        .jiz-about-master::after {
-          width: 28vw;
-          height: 25vw;
-          left: -12vw;
-          top: 27%;
-          background: rgba(198, 242, 58, 0.025);
-        }
-
-        .jiz-about-inner {
-          position: relative;
-          z-index: 1;
-          width: min(100%, var(--about-max));
-          margin: 0 auto;
-        }
-
-        .jiz-scene-opening {
-          text-align: center;
-        }
-
-        .jiz-eyebrow,
-        .jiz-meta {
-          font: var(--text-eyebrow);
-          letter-spacing: var(--tracking-eyebrow);
-          text-transform: uppercase;
-        }
-
-        .jiz-eyebrow {
-          margin: 0 0 18px;
-          color: var(--color-accent-secondary);
-        }
-
-        .jiz-opening-title {
-          max-width: 1000px;
-          margin: 0 auto;
-          font: var(--text-h1);
-          font-size: clamp(3rem, 6.6vw, 6.4rem);
-          line-height: 0.96;
-          letter-spacing: -0.055em;
-          text-wrap: balance;
-        }
-
-        .jiz-opening-thesis {
-          max-width: 840px;
-          margin: 26px auto 0;
-          color: var(--color-text-primary);
-          font: var(--text-body-lg);
-          font-size: clamp(1.02rem, 1.7vw, 1.28rem);
-          line-height: 1.62;
-        }
-
-        .jiz-opening-actions {
-          display: flex;
-          justify-content: center;
-          flex-wrap: wrap;
-          gap: 12px;
-          margin-top: 30px;
-        }
-
-        .jiz-action {
-          min-height: 46px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0 23px;
-          border-radius: var(--radius-pill);
-          font: var(--text-button);
-          text-decoration: none;
-          transition:
-            transform var(--motion-fast) var(--ease-standard),
-            border-color var(--motion-fast) var(--ease-standard),
-            background var(--motion-fast) var(--ease-standard);
-        }
-
-        .jiz-action:hover { transform: translateY(-2px); }
-        .jiz-action:focus-visible,
-        .jiz-career-control:focus-visible,
-        .jiz-career-node:focus-visible {
-          outline: 2px solid var(--color-accent-primary);
-          outline-offset: 4px;
-        }
-
-        .jiz-action-primary {
-          background: var(--color-accent-primary);
-          color: #0b0d10;
-        }
-
-        .jiz-action-secondary {
-          border: 1px solid rgba(100, 225, 255, 0.28);
-          background: rgba(255, 255, 255, 0.015);
-          color: var(--color-text-primary);
-        }
-
-        .jiz-engine-shell {
-          position: relative;
-          width: min(92vw, 1240px);
-          margin: clamp(48px, 6vw, 76px) auto 0;
-          isolation: isolate;
-        }
-
-        .jiz-engine-shell::before {
-          content: '';
-          position: absolute;
-          z-index: -2;
-          inset: -16%;
-          background:
-            radial-gradient(circle at 52% 43%, rgba(100, 225, 255, 0.22), transparent 42%),
-            radial-gradient(circle at 68% 57%, rgba(198, 242, 58, 0.12), transparent 32%);
-          filter: blur(54px);
-          opacity: 0.68;
-        }
-
-        .jiz-engine-stage {
-          position: relative;
-          aspect-ratio: 16 / 9;
-          overflow: hidden;
-          background: #080d10;
-          border-radius: clamp(18px, 2vw, 28px);
-          box-shadow: 0 52px 130px rgba(0, 0, 0, 0.48);
-          -webkit-mask-image: radial-gradient(ellipse 101% 103% at 50% 50%, #000 72%, rgba(0,0,0,.92) 86%, transparent 100%);
-          mask-image: radial-gradient(ellipse 101% 103% at 50% 50%, #000 72%, rgba(0,0,0,.92) 86%, transparent 100%);
-        }
-
-        .jiz-engine-stage::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          pointer-events: none;
-          background:
-            radial-gradient(circle at 50% 50%, transparent 54%, rgba(8, 13, 16, 0.24) 82%, rgba(8, 13, 16, 0.72) 100%);
-        }
-
-        .jiz-engine-video {
-          width: 100%;
-          height: 100%;
-          display: block;
-          object-fit: contain;
-          background: #080d10;
-        }
-
-        .jiz-engine-reflection {
-          width: 78%;
-          height: 42px;
-          margin: -2px auto 0;
-          background: linear-gradient(180deg, rgba(100, 225, 255, 0.07), transparent);
-          filter: blur(12px);
-          opacity: 0.62;
-        }
-
-        .jiz-engine-caption {
-          max-width: 720px;
-          margin: 17px auto 0;
-          text-align: center;
-        }
-
-        .jiz-engine-caption strong {
-          display: block;
-          color: var(--color-text-primary);
-          font: var(--text-caption);
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-        }
-
-        .jiz-engine-caption span {
-          display: block;
-          margin-top: 7px;
-          color: var(--color-text-muted);
-          font: var(--text-body);
-          font-size: 0.94rem;
-        }
-
-        .jiz-opening-copy {
-          width: min(100%, 1040px);
-          margin: clamp(56px, 7vw, 92px) auto 0;
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: clamp(34px, 5vw, 76px);
-          text-align: left;
-        }
-
-        .jiz-opening-copy p {
-          margin: 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: clamp(0.98rem, 1.4vw, 1.08rem);
-          line-height: 1.78;
-        }
-
-        .jiz-movement {
-          margin-top: clamp(112px, 13vw, 172px);
-        }
-
-        .jiz-movement-heading {
-          max-width: 760px;
-          margin-bottom: clamp(40px, 5vw, 62px);
-        }
-
-        .jiz-movement-title {
-          margin: 0;
-          font: var(--text-h2);
-          letter-spacing: -0.04em;
-        }
-
-        .jiz-movement-copy {
-          max-width: 650px;
-          margin: 17px 0 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body-lg);
-        }
-
-        .jiz-method-path {
-          position: relative;
-          display: grid;
-          grid-template-columns: repeat(5, minmax(0, 1fr));
-          gap: clamp(18px, 2.5vw, 34px);
-        }
-
-        .jiz-method-path::before {
-          content: '';
-          position: absolute;
-          top: 24px;
-          left: 4%;
-          right: 4%;
-          height: 1px;
-          background: linear-gradient(90deg, rgba(100,225,255,.12), rgba(100,225,255,.6), rgba(198,242,58,.72));
-        }
-
-        .jiz-method-stage {
-          position: relative;
-          padding-top: 54px;
-        }
-
-        .jiz-method-node {
-          position: absolute;
-          top: 16px;
-          left: 0;
-          width: 16px;
-          height: 16px;
-          border-radius: 50%;
-          border: 1px solid rgba(100,225,255,.75);
-          background: #0b0d10;
-          box-shadow: 0 0 0 5px rgba(100,225,255,.05);
-        }
-
-        .jiz-method-stage:last-child .jiz-method-node {
-          border-color: var(--color-accent-primary);
-          background: var(--color-accent-primary);
-          box-shadow: 0 0 0 6px rgba(198,242,58,.08);
-        }
-
-        .jiz-method-stage h4 {
-          margin: 0 0 11px;
-          font: var(--text-h3);
-          font-size: clamp(1.08rem, 1.8vw, 1.42rem);
-        }
-
-        .jiz-method-stage p:last-child {
-          margin: 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: 0.94rem;
-        }
-
-        .jiz-method-label {
-          margin: 0 0 12px;
-          color: var(--color-accent-secondary);
-        }
-
-        .jiz-capabilities {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: clamp(34px, 5vw, 72px);
-          margin-top: clamp(58px, 7vw, 88px);
-          padding-top: clamp(40px, 5vw, 62px);
-          border-top: 1px solid rgba(100,225,255,.09);
-        }
-
-        .jiz-capability + .jiz-capability {
-          border-left: 1px solid rgba(100,225,255,.08);
-          padding-left: clamp(28px, 4vw, 52px);
-        }
-
-        .jiz-capability h4 {
-          margin: 0;
-          color: var(--color-accent-secondary);
-        }
-
-        .jiz-capability > p {
-          margin: 9px 0 22px;
-          color: var(--color-text-muted);
-          font: var(--text-caption);
-        }
-
-        .jiz-capability ul {
-          list-style: none;
-          display: grid;
-          gap: 12px;
-          margin: 0;
-          padding: 0;
-        }
-
-        .jiz-capability li {
-          position: relative;
-          padding-left: 15px;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: 0.94rem;
-        }
-
-        .jiz-capability li::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: .7em;
-          width: 4px;
-          height: 4px;
-          border-radius: 50%;
-          background: rgba(100,225,255,.72);
-        }
-
-        .jiz-career-header {
-          display: flex;
-          align-items: flex-end;
-          justify-content: space-between;
-          gap: 26px;
-          margin-bottom: 34px;
-        }
-
-        .jiz-career-controls {
-          display: flex;
-          gap: 10px;
-        }
-
-        .jiz-career-control {
-          min-width: 50px;
-          height: 44px;
-          border-radius: 4px;
-          border: 1px solid rgba(100,225,255,.18);
-          background: rgba(255,255,255,.016);
-          color: var(--color-text-primary);
-          cursor: pointer;
-          padding: 0 8px;
-          white-space: nowrap;
-          font: var(--text-button);
-          font-size: 0.85rem;
-        }
-
-        .jiz-career-control:disabled {
-          opacity: .28;
-          cursor: default;
-        }
-
-        .jiz-career-viewport {
-          overflow-x: auto;
-          overscroll-behavior-inline: contain;
-          scroll-snap-type: x mandatory;
-          padding: 28px 0 22px;
-          scrollbar-width: thin;
-          scrollbar-color: rgba(100,225,255,.2) transparent;
-        }
-
-        .jiz-career-track {
-          position: relative;
-          display: flex;
-          min-width: max-content;
-          gap: clamp(28px, 4vw, 62px);
-          padding: 0 clamp(16px, 4vw, 58px);
-        }
-
-        .jiz-career-track::before {
-          content: '';
-          position: absolute;
-          left: 30px;
-          right: 30px;
-          top: 32px;
-          height: 1px;
-          background: linear-gradient(90deg, rgba(100,225,255,.18), rgba(100,225,255,.48), rgba(198,242,58,.48));
-        }
-
-        .jiz-career-node {
-          position: relative;
-          width: clamp(154px, 15vw, 210px);
-          padding: 0;
-          border: 0;
-          background: transparent;
-          color: inherit;
-          text-align: left;
-          cursor: pointer;
-          scroll-snap-align: center;
-        }
-
-        .jiz-career-dot {
-          position: relative;
-          z-index: 1;
-          display: block;
-          width: 18px;
-          height: 18px;
-          margin: 0 0 25px;
-          border-radius: 50%;
-          border: 1px solid rgba(100,225,255,.65);
-          background: #0b0d10;
-          box-shadow: 0 0 0 6px rgba(100,225,255,.045);
-          transition: transform var(--motion-standard) var(--ease-enter), background var(--motion-standard) var(--ease-enter), box-shadow var(--motion-standard) var(--ease-enter);
-        }
-
-        .jiz-career-node[data-type='education'] .jiz-career-dot {
-          border-color: var(--color-accent-secondary);
-        }
-
-        .jiz-career-node.is-active .jiz-career-dot {
-          transform: scale(1.28);
-          border-color: var(--color-accent-primary);
-          background: var(--color-accent-primary);
-          box-shadow: 0 0 0 8px rgba(198,242,58,.08), 0 0 30px rgba(198,242,58,.16);
-        }
-
-        .jiz-career-stage {
-          display: block;
-          margin-bottom: 8px;
-          color: var(--color-text-primary);
-          font: var(--text-h3);
-          font-size: 1rem;
-        }
-
-        .jiz-career-years,
-        .jiz-career-org {
-          display: block;
-          color: var(--color-text-muted);
-          font: var(--text-caption);
-        }
-
-        .jiz-career-org {
-          margin-top: 8px;
-          color: var(--color-text-secondary);
-        }
-
-        .jiz-career-detail {
-          display: grid;
-          grid-template-columns: minmax(0,.9fr) minmax(0,1.25fr);
-          gap: clamp(34px,5vw,72px);
-          margin-top: 36px;
-          padding: clamp(28px,4vw,50px);
-          border: 1px solid rgba(100,225,255,.1);
-          border-radius: var(--radius-lg);
-          background: linear-gradient(135deg, rgba(100,225,255,.035), rgba(255,255,255,.012));
-          box-shadow: inset 0 1px 0 rgba(255,255,255,.035);
-        }
-
-        .jiz-career-detail h4 {
-          margin: 0;
-          font: var(--text-h2);
-          font-size: clamp(1.55rem,3vw,2.45rem);
-          letter-spacing: -.035em;
-        }
-
-        .jiz-career-org-detail {
-          margin: 10px 0 0;
-          color: var(--color-accent-secondary);
-          font: var(--text-body-lg);
-        }
-
-        .jiz-career-summary {
-          margin: 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-        }
-
-        .jiz-career-detail-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 28px;
-          margin-top: 26px;
-        }
-
-        .jiz-career-detail-grid h5 {
-          margin: 0 0 12px;
-          color: var(--color-text-muted);
-        }
-
-        .jiz-career-detail-grid ul {
-          margin: 0;
-          padding-left: 18px;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: .93rem;
-        }
-
-        .jiz-beliefs {
-          display: grid;
-          grid-template-columns: repeat(4,minmax(0,1fr));
-          margin-top: clamp(76px,9vw,108px);
-          padding: clamp(34px,4vw,52px) 0;
-          border-top: 1px solid rgba(100,225,255,.09);
-          border-bottom: 1px solid rgba(100,225,255,.09);
-        }
-
-        .jiz-belief {
-          padding: 0 clamp(22px,3vw,40px);
-        }
-
-        .jiz-belief:first-child { padding-left: 0; }
-        .jiz-belief:last-child { padding-right: 0; }
-
-        .jiz-belief + .jiz-belief {
-          border-left: 1px solid rgba(100,225,255,.08);
-        }
-
-        .jiz-belief h4 {
-          margin: 0 0 11px;
-          font: var(--text-h3);
-          font-size: 1.04rem;
-        }
-
-        .jiz-belief p {
-          margin: 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: .91rem;
-        }
-
-        .jiz-scene-transition {
-          margin-top: clamp(112px,13vw,168px);
-          padding: clamp(76px,9vw,116px) 0 34px;
-          text-align: center;
-          background: radial-gradient(circle at 50% 80%, rgba(198,242,58,.035), transparent 34%);
-        }
-
-        .jiz-scene-transition h3 {
-          margin: 0;
-          font: var(--text-h1);
-          font-size: clamp(2.25rem,4.8vw,4.4rem);
-          line-height: 1.02;
-          letter-spacing: -.045em;
-        }
-
-        .jiz-scene-transition h3 span { color: var(--color-accent-primary); }
-
-        .jiz-scene-transition p {
-          margin: 20px auto 0;
-          color: var(--color-text-secondary);
-          font: var(--text-body-lg);
-        }
-
-        .jiz-reveal {
-          opacity: 0;
-          transform: translateY(18px);
-          transition: opacity 720ms var(--ease-enter), transform 720ms var(--ease-enter);
-        }
-
-        .jiz-about-master.is-visible .jiz-reveal {
-          opacity: 1;
-          transform: none;
-        }
-
-        @media (max-width: 980px) {
-          .jiz-opening-copy { grid-template-columns: 1fr; }
-          .jiz-method-path { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 34px; }
-          .jiz-method-path::before { display: none; }
-          .jiz-method-stage { padding: 26px 0 0 28px; border-top: 1px solid rgba(100,225,255,.11); }
-          .jiz-method-node { top: 18px; left: 0; }
-          .jiz-capabilities { grid-template-columns: 1fr; }
-          .jiz-capability + .jiz-capability { padding: 34px 0 0; border-left: 0; border-top: 1px solid rgba(100,225,255,.08); }
-          .jiz-career-detail { grid-template-columns: 1fr; }
-          .jiz-beliefs { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 34px 0; }
-          .jiz-belief:nth-child(3) { border-left: 0; padding-left: 0; }
-        }
-
-        @media (max-width: 620px) {
-          .jiz-about-master { padding-inline: max(20px,var(--container-pad)); }
-          .jiz-opening-title { font-size: clamp(2.55rem,14vw,3.8rem); }
-          .jiz-engine-shell { width: 100%; }
-          .jiz-method-path { grid-template-columns: 1fr; }
-          .jiz-career-header { display: block; }
-          .jiz-career-controls { margin-top: 24px; }
-          .jiz-career-detail-grid { grid-template-columns: 1fr; }
-          .jiz-beliefs { grid-template-columns: 1fr; }
-          .jiz-belief,
-          .jiz-belief:first-child,
-          .jiz-belief:last-child { padding: 24px 0; }
-          .jiz-belief + .jiz-belief,
-          .jiz-belief:nth-child(3) { border-left: 0; border-top: 1px solid rgba(100,225,255,.08); }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .jiz-about-master *,
-          .jiz-about-master *::before,
-          .jiz-about-master *::after {
-            animation: none !important;
-            transition-duration: .01ms !important;
-            scroll-behavior: auto !important;
-          }
-          .jiz-reveal { opacity: 1; transform: none; }
-        }
-      `), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-about-inner"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-scene-opening"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-reveal"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-eyebrow"
-  }, "ABOUT / THE MIND"), /*#__PURE__*/React.createElement("h2", {
-    id: "about-master-title",
-    className: "jiz-opening-title"
-  }, "How Jonathan thinks."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-opening-thesis"
-  }, "I reveal the patterns beneath complexity and turn them into experiences people can understand, use, and adopt."), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-opening-actions"
-  }, /*#__PURE__*/React.createElement("a", {
-    className: "jiz-action jiz-action-primary",
-    href: RESUME_URL,
-    target: "_blank",
-    rel: "noopener noreferrer",
-    onClick: onResume
-  }, "View r\xE9sum\xE9"), /*#__PURE__*/React.createElement("a", {
-    className: "jiz-action jiz-action-secondary",
-    href: LINKEDIN_URL,
-    target: "_blank",
-    rel: "noopener noreferrer",
-    onClick: onLinkedIn
-  }, "LinkedIn"))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-engine-shell jiz-reveal"
-  }, /*#__PURE__*/React.createElement("button", {
-    ref: modalTriggerRef,
-    onClick: () => setModalOpen(true),
-    onKeyDown: e => (e.key === 'Enter' || e.key === ' ') && setModalOpen(true),
-    "aria-label": "Open Thinking Engine visualization in expanded view",
-    style: {
-      width: '100%',
-      background: 'none',
-      border: 'none',
-      cursor: 'pointer',
-      padding: 0,
-      position: 'relative'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-engine-stage"
-  }, /*#__PURE__*/React.createElement("video", {
-    className: "jiz-engine-video",
-    autoPlay: true,
-    loop: true,
-    muted: true,
-    playsInline: true,
-    preload: "metadata",
-    "aria-label": "Thinking Engine visualization showing complexity becoming clarity",
-    tabIndex: "-1"
-  }, /*#__PURE__*/React.createElement("source", {
-    src: THINKING_ENGINE_SRC,
-    type: "video/mp4"
-  }), "Your browser does not support the Thinking Engine video.")), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-engine-reflection",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-engine-caption"
-  }, /*#__PURE__*/React.createElement("strong", null, "Thinking Engine"), /*#__PURE__*/React.createElement("span", null, "The operating model behind every project."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      fontSize: '0.75rem',
-      marginTop: 8,
-      opacity: 0.7
-    }
-  }, "Open visualization \u2197"))), modalOpen && /*#__PURE__*/React.createElement("div", {
-    role: "dialog",
-    "aria-modal": "true",
-    "aria-label": "Thinking Engine expanded visualization",
-    onClick: () => setModalOpen(false),
-    style: {
-      position: 'fixed',
-      inset: 0,
-      zIndex: 1000,
-      background: 'rgba(8, 10, 12, 0.92)',
-      backdropFilter: 'blur(8px)',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '3vmin'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    onClick: e => e.stopPropagation(),
-    style: {
-      position: 'relative',
-      width: 'min(1400px, 90vw)',
-      aspectRatio: '16/9',
-      borderRadius: 'var(--radius-lg)',
-      overflow: 'hidden',
-      border: '1px solid rgba(100, 225, 255, 0.25)',
-      boxShadow: '0 0 60px rgba(100, 225, 255, 0.2), 0 30px 80px rgba(0, 0, 0, 0.6)'
-    }
-  }, /*#__PURE__*/React.createElement("video", {
-    autoPlay: true,
-    muted: true,
-    playsInline: true,
-    style: {
-      width: '100%',
-      height: '100%',
-      display: 'block',
-      objectFit: 'contain',
-      background: '#000'
-    }
-  }, /*#__PURE__*/React.createElement("source", {
-    src: THINKING_ENGINE_SRC,
-    type: "video/mp4"
-  }))), /*#__PURE__*/React.createElement("button", {
-    onClick: () => setModalOpen(false),
-    "aria-label": "Close expanded visualization",
-    style: {
-      position: 'fixed',
-      top: '3vmin',
-      right: '3vmin',
-      width: 48,
-      height: 48,
-      borderRadius: '50%',
-      border: '1px solid rgba(100, 225, 255, 0.3)',
-      background: 'rgba(8, 10, 12, 0.7)',
-      color: 'var(--color-text-primary)',
-      fontSize: 24,
-      cursor: 'pointer',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      transition: 'all var(--motion-fast) var(--ease-standard)'
-    },
-    onMouseEnter: e => e.currentTarget.style.borderColor = 'var(--color-accent-primary)',
-    onMouseLeave: e => e.currentTarget.style.borderColor = 'rgba(100, 225, 255, 0.3)'
-  }, "\u2715"))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-opening-copy jiz-reveal"
-  }, /*#__PURE__*/React.createElement("p", null, "I begin by mapping the relationship between people, information, systems, and behavior. Before I design content, I design understanding\u2014revealing what matters, where friction exists, and what will move people forward."), /*#__PURE__*/React.createElement("p", null, "My work brings together learning strategy, cinematic storytelling, digital experience design, and AI-enabled production to create solutions that are clear, useful, and built for adoption."))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-movement",
-    ref: methodRef
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-movement-heading jiz-reveal"
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-eyebrow"
-  }, "THE METHOD"), /*#__PURE__*/React.createElement("h3", {
-    className: "jiz-movement-title"
-  }, "How thought becomes action."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-movement-copy"
-  }, "A connected practice for moving from ambiguity to experiences people can understand and use.")), /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginBottom: 32,
-      font: 'var(--text-caption)',
-      color: 'var(--color-text-secondary)',
-      textAlign: 'center'
-    }
-  }, !prefersReduced?.() && /*#__PURE__*/React.createElement("div", null, "Use the stages below to explore the method.")), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-method-path jiz-reveal",
-    "aria-label": "Jonathan's five-stage methodology"
-  }, methodStages.map((stage, idx) => /*#__PURE__*/React.createElement("button", {
-    key: stage.id,
-    onClick: () => {
-      setActiveMethodIndex(idx);
-      setMethodPaused(true);
-      setTimeout(() => setMethodPaused(false), 8000);
-    },
-    onMouseEnter: () => setMethodPaused(true),
-    onMouseLeave: () => setMethodPaused(false),
-    onFocus: () => setMethodPaused(true),
-    onBlur: () => setMethodPaused(false),
-    "aria-pressed": idx === activeMethodIndex,
-    style: {
-      background: 'none',
-      border: 'none',
-      padding: 0,
-      cursor: 'pointer',
-      textAlign: 'left',
-      color: 'inherit',
-      font: 'inherit'
-    }
-  }, /*#__PURE__*/React.createElement("article", {
-    className: "jiz-method-stage"
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-method-node",
-    "aria-hidden": "true",
-    style: {
-      borderColor: idx < activeMethodIndex ? 'var(--color-accent-secondary)' : idx === activeMethodIndex ? 'var(--signal-lime)' : 'rgba(100, 225, 255, 0.2)',
-      background: idx < activeMethodIndex || idx === activeMethodIndex ? idx === activeMethodIndex ? 'var(--signal-lime)' : 'var(--color-accent-secondary)' : 'transparent'
-    }
-  }), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-method-label jiz-meta"
-  }, stage.label), /*#__PURE__*/React.createElement("h4", null, stage.title), /*#__PURE__*/React.createElement("p", null, stage.copy))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-capabilities jiz-reveal",
-    style: {
-      background: 'linear-gradient(135deg, rgba(8, 13, 16, 0.6) 0%, rgba(100, 225, 255, 0.08) 100%)',
-      border: '1px solid rgba(100, 225, 255, 0.12)',
-      borderRadius: '20px',
-      padding: '48px 40px',
-      display: 'grid',
-      gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-      gap: '40px',
-      position: 'relative'
-    }
-  }, capabilityGroups.map((group, idx) => /*#__PURE__*/React.createElement("section", {
-    className: "jiz-capability",
-    key: group.title,
-    style: {
-      paddingTop: idx === 0 ? 0 : 'inherit',
-      borderTop: idx > 0 ? '1px solid rgba(100, 225, 255, 0.08)' : 'none'
-    }
-  }, /*#__PURE__*/React.createElement("h4", {
-    className: "jiz-meta"
-  }, group.title), /*#__PURE__*/React.createElement("p", null, group.subtitle), /*#__PURE__*/React.createElement("ul", null, group.items.map(item => /*#__PURE__*/React.createElement("li", {
-    key: item
-  }, item))))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-movement"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-header jiz-reveal"
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-movement-heading",
-    style: {
-      marginBottom: 0
-    }
-  }, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-eyebrow"
-  }, "THE JOURNEY"), /*#__PURE__*/React.createElement("h3", {
-    className: "jiz-movement-title"
-  }, "Built through experience."), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-movement-copy"
-  }, "Explore how learning, systems, technology, and storytelling shaped the practice."), /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-caption)',
-      color: 'var(--color-text-secondary)',
-      marginT: 16
-    }
-  }, "Use the arrows, swipe, or select a milestone to explore. ", activeIndex + 1, " of ", careerEntries.length)), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-controls",
-    "aria-label": "Career journey controls"
-  }, /*#__PURE__*/React.createElement("button", {
-    className: "jiz-career-control",
-    type: "button",
-    "aria-label": "Previous career milestone",
-    disabled: activeIndex === 0,
-    onClick: () => selectCareerEntry(activeIndex - 1)
-  }, "\u2190 Previous"), /*#__PURE__*/React.createElement("button", {
-    className: "jiz-career-control",
-    type: "button",
-    "aria-label": "Next career milestone",
-    disabled: activeIndex === careerEntries.length - 1,
-    onClick: () => selectCareerEntry(activeIndex + 1)
-  }, "Next \u2192"))), /*#__PURE__*/React.createElement("div", {
-    ref: railRef,
-    className: "jiz-career-viewport jiz-reveal",
-    tabIndex: "0",
-    role: "region",
-    "aria-label": "Interactive career journey. Use left and right arrow keys to explore.",
-    onKeyDown: handleRailKeyDown
-  }, /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-track"
-  }, careerEntries.map((entry, index) => /*#__PURE__*/React.createElement("button", {
-    key: entry.id,
-    ref: element => {
-      nodeRefs.current[index] = element;
-    },
-    className: `jiz-career-node ${activeIndex === index ? 'is-active' : ''}`,
-    "data-type": entry.type,
-    type: "button",
-    "aria-pressed": activeIndex === index,
-    onClick: () => selectCareerEntry(index)
-  }, /*#__PURE__*/React.createElement("span", {
-    className: "jiz-career-dot",
-    "aria-hidden": "true"
-  }), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-career-stage"
-  }, entry.stage), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-career-years"
-  }, entry.years), /*#__PURE__*/React.createElement("span", {
-    className: "jiz-career-org"
-  }, entry.organization))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-detail jiz-reveal",
-    "aria-live": "polite"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-eyebrow"
-  }, activeCareer.years), /*#__PURE__*/React.createElement("h4", null, activeCareer.title), /*#__PURE__*/React.createElement("p", {
-    className: "jiz-career-org-detail"
-  }, activeCareer.organization)), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("p", {
-    className: "jiz-career-summary"
-  }, activeCareer.summary), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-career-detail-grid"
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h5", {
-    className: "jiz-meta"
-  }, "SELECTED IMPACT"), /*#__PURE__*/React.createElement("ul", null, activeCareer.highlights.map(item => /*#__PURE__*/React.createElement("li", {
-    key: item
-  }, item)))), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h5", {
-    className: "jiz-meta"
-  }, "CAPABILITIES"), /*#__PURE__*/React.createElement("ul", null, activeCareer.capabilities.map(item => /*#__PURE__*/React.createElement("li", {
-    key: item
-  }, item))))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-beliefs jiz-reveal",
-    "aria-label": "Core beliefs",
-    style: {
-      background: 'linear-gradient(135deg, rgba(8, 13, 16, 0.6) 0%, rgba(100, 225, 255, 0.08) 100%)',
-      border: '1px solid rgba(100, 225, 255, 0.12)',
-      borderRadius: '20px',
-      padding: '48px 40px',
-      display: 'grid',
-      gridTemplateColumns: 'repeat(4, minmax(0, 1fr))',
-      gap: '40px'
-    }
-  }, beliefs.map((belief, idx) => /*#__PURE__*/React.createElement("article", {
-    className: "jiz-belief",
-    key: belief.title,
-    style: {
-      padding: 0,
-      borderLeft: idx > 0 ? '1px solid rgba(100, 225, 255, 0.08)' : 'none',
-      paddingLeft: idx > 0 ? '40px' : 0
-    }
-  }, /*#__PURE__*/React.createElement("h4", null, belief.title), /*#__PURE__*/React.createElement("p", null, belief.copy))))), /*#__PURE__*/React.createElement("div", {
-    className: "jiz-scene-transition jiz-reveal"
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body-lg)',
-      color: 'var(--color-text-secondary)',
-      margin: 0,
-      paddingTop: 16,
-      paddingBottom: 16
-    }
-  }, "Here's what that understanding created."))));
-}
-if (typeof window !== 'undefined') {
-  window.AboutV2Fixed = AboutV2;
-}
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio-website/archive/About_v2_Fixed.jsx", error: String((e && e.message) || e) }); }
-
-// ui_kits/portfolio-website/archive/phase-1/CaseStudyTemplate.jsx
-try { (() => {
-const CaseStudyTemplate = ({
-  projectId,
-  data = {}
-}) => {
-  const {
-    title = 'Project Title',
-    summary = 'Project summary',
-    heroImage = 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&h=1080&fit=crop',
-    tags = ['Tag 1', 'Tag 2'],
-    year = '2024',
-    role = 'Role',
-    duration = '12 months',
-    challenge = 'Challenge description',
-    approach = 'Approach description',
-    designDecisions = 'Design decisions',
-    prototypeContent = 'Prototype section',
-    results = 'Results and impact',
-    reflection = 'Reflection and learning'
-  } = data;
-  const [activeTab, setActiveTab] = React.useState(0);
-  const tabs = ['Challenge', 'Approach', 'Design Decisions', 'Prototype', 'Results', 'Reflection'];
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      width: '100%',
-      background: 'var(--color-background)'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      width: '100%',
-      aspectRatio: '16/9',
-      overflow: 'hidden',
-      marginBottom: 60
-    }
-  }, /*#__PURE__*/React.createElement("img", {
-    src: heroImage,
-    alt: title,
-    style: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover'
-    }
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      maxWidth: 'var(--container-max)',
-      margin: '0 auto',
-      padding: '0 20px',
-      marginBottom: 60
-    }
-  }, /*#__PURE__*/React.createElement("h1", {
-    style: {
-      font: 'var(--text-h1)',
-      color: 'var(--color-text-primary)',
-      marginBottom: 16
-    }
-  }, title), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body-lg)',
-      color: 'var(--color-text-secondary)',
-      maxWidth: 640,
-      marginBottom: 32
-    }
-  }, summary), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      gap: 8,
-      flexWrap: 'wrap',
-      marginBottom: 32
-    }
-  }, tags.map(tag => /*#__PURE__*/React.createElement("span", {
-    key: tag,
-    style: {
-      font: 'var(--text-xs)',
-      color: 'var(--color-text-tertiary)',
-      background: 'var(--color-surface-tertiary)',
-      padding: '4px 8px',
-      borderRadius: 'var(--radius-sm)',
-      border: '1px solid var(--color-border-subtle)'
-    }
-  }, tag))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-      gap: 24,
-      paddingTop: 32,
-      borderTop: '1px solid var(--color-border-subtle)'
-    }
-  }, [{
-    label: 'Year',
-    value: year
-  }, {
-    label: 'Role',
-    value: role
-  }, {
-    label: 'Duration',
-    value: duration
-  }].map(item => /*#__PURE__*/React.createElement("div", {
-    key: item.label
-  }, /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-xs)',
-      color: 'var(--color-text-tertiary)',
-      marginBottom: 4,
-      textTransform: 'uppercase'
-    }
-  }, item.label), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-primary)'
-    }
-  }, item.value))))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      maxWidth: 'var(--container-max)',
-      margin: '0 auto',
-      padding: '0 20px',
-      borderBottom: '1px solid var(--color-border-subtle)',
-      marginBottom: 60
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      gap: 32,
-      overflowX: 'auto'
-    }
-  }, tabs.map((tab, i) => /*#__PURE__*/React.createElement("button", {
-    key: tab,
-    onClick: () => setActiveTab(i),
-    style: {
-      font: 'var(--text-body)',
-      color: activeTab === i ? 'var(--color-text-primary)' : 'var(--color-text-secondary)',
-      background: 'none',
-      border: 'none',
-      borderBottom: activeTab === i ? '2px solid var(--color-accent)' : '2px solid transparent',
-      padding: '16px 0',
-      cursor: 'pointer',
-      transition: 'color 140ms ease'
-    }
-  }, tab)))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      maxWidth: 'var(--container-max)',
-      margin: '0 auto',
-      padding: '0 20px',
-      marginBottom: 80
-    }
-  }, activeTab === 0 && /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-secondary)',
-      lineHeight: 1.6
-    }
-  }, challenge), activeTab === 1 && /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-secondary)',
-      lineHeight: 1.6
-    }
-  }, approach), activeTab === 2 && /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-secondary)',
-      lineHeight: 1.6
-    }
-  }, designDecisions), activeTab === 3 && /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-secondary)',
-      lineHeight: 1.6
-    }
-  }, prototypeContent), activeTab === 4 && /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-secondary)',
-      lineHeight: 1.6
-    }
-  }, results), activeTab === 5 && /*#__PURE__*/React.createElement("div", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-secondary)',
-      lineHeight: 1.6
-    }
-  }, reflection)), /*#__PURE__*/React.createElement("div", {
-    style: {
-      maxWidth: 'var(--container-max)',
-      margin: '0 auto',
-      padding: '60px 20px'
-    }
-  }, /*#__PURE__*/React.createElement("h2", {
-    style: {
-      font: 'var(--text-h2)',
-      color: 'var(--color-text-primary)',
-      marginBottom: 40
-    }
-  }, "Continue the Journey"), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-      gap: 24
-    }
-  }, [{
-    id: 'learn-at-cox',
-    title: 'Learn@Cox',
-    tags: ['Platform Design', 'Learning']
-  }, {
-    id: 'ihg-learning-ecosystem',
-    title: 'IHG Learning Ecosystem',
-    tags: ['Global Scale', 'Mobile']
-  }, {
-    id: 'hotelkey-digital-onboarding',
-    title: 'HotelKey Digital Onboarding',
-    tags: ['UX Design', 'SaaS']
-  }].map(proj => /*#__PURE__*/React.createElement("div", {
-    key: proj.id,
-    style: {
-      padding: 24,
-      borderRadius: 'var(--radius-lg)',
-      background: 'var(--color-surface-secondary)',
-      border: '1px solid var(--color-border-subtle)',
-      cursor: 'pointer',
-      transition: 'all 280ms ease'
-    },
-    onMouseEnter: e => {
-      e.currentTarget.style.background = 'var(--color-surface-tertiary)';
-    },
-    onMouseLeave: e => {
-      e.currentTarget.style.background = 'var(--color-surface-secondary)';
-    }
-  }, /*#__PURE__*/React.createElement("h3", {
-    style: {
-      font: 'var(--text-h4)',
-      color: 'var(--color-text-primary)',
-      marginBottom: 12
-    }
-  }, proj.title), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      gap: 8,
-      flexWrap: 'wrap'
-    }
-  }, proj.tags.map(tag => /*#__PURE__*/React.createElement("span", {
-    key: tag,
-    style: {
-      font: 'var(--text-xs)',
-      color: 'var(--color-text-tertiary)',
-      background: 'var(--color-surface-tertiary)',
-      padding: '2px 6px',
-      borderRadius: 'var(--radius-sm)'
-    }
-  }, tag))))))));
-};
-window.CaseStudyTemplate = CaseStudyTemplate;
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio-website/archive/phase-1/CaseStudyTemplate.jsx", error: String((e && e.message) || e) }); }
-
-// ui_kits/portfolio-website/archive/phase-1/Pages.jsx
-try { (() => {
-const Pages = () => {
-  const [currentPage, setCurrentPage] = React.useState('home');
-  const [caseStudyId, setCaseStudyId] = React.useState(null);
-  const handleOpenCaseStudy = projectId => {
-    setCaseStudyId(projectId);
-    setCurrentPage('case-study');
-  };
-  const handleNavigate = page => {
-    setCurrentPage(page);
-    window.scrollTo(0, 0);
-  };
-  const caseStudyData = {
-    'operation-legacy-unlocked': {
-      title: 'Operation: Legacy Unlocked',
-      summary: 'A 12-month digital transformation for a Fortune 500 energy company, turning compliance content into an engaging mission-driven experience.',
-      heroImage: './assets/imagery/operation-legacy-unlocked.png',
-      tags: ['Learning Design', 'Strategy', 'Digital Transformation', 'Gamification'],
-      year: '2024',
-      role: 'Lead Learning Experience Designer',
-      duration: '12 months',
-      challenge: 'The challenge was transforming dense compliance content into something people would actually engage with. Legacy systems and outdated training methods had created a knowledge gap that was impacting operational safety and efficiency across the organization.',
-      approach: 'I approached this as a systems design problem rather than a content problem. By mapping the actual workflows, identifying knowledge gaps, and understanding what motivated employees, I architected a gamified learning experience that embedded compliance knowledge into a narrative framework.',
-      designDecisions: 'Key decisions included: (1) Using a secret-agent escape-room narrative to make compliance feel like a mission, (2) Breaking content into micro-learning sequences aligned with actual job tasks, (3) Embedding assessment into gameplay rather than traditional testing, (4) Creating a progression system that rewarded behavioral change.',
-      prototypeContent: 'The prototype demonstrated core mechanics through an interactive scenario. Users navigated through branching decisions, solved compliance puzzles, and earned achievements. The prototype was tested with 50 pilot users before full deployment.',
-      results: 'Results exceeded targets: 87% engagement rate (industry average 34%), 34% reduction in compliance violations, 12-week rollout to 8,500 employees, 92% completion rate, measurable improvement in safety metrics.',
-      reflection: 'The biggest learning was that compliance doesn\'t have to be boring—it becomes engaging when you align it with how people actually think and work. The escape-room narrative wasn\'t just decoration; it created cognitive hooks that made the information stick.'
-    }
-  };
-  if (currentPage === 'home') {
-    return /*#__PURE__*/React.createElement(Homepage, {
-      onOpenCaseStudy: handleOpenCaseStudy
-    });
-  }
-  if (currentPage === 'work') {
-    return /*#__PURE__*/React.createElement(WorkIndex, {
-      onOpenCaseStudy: handleOpenCaseStudy
-    });
-  }
-  if (currentPage === 'case-study' && caseStudyId) {
-    const data = caseStudyData[caseStudyId] || {};
-    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(CaseStudyTemplate, {
-      projectId: caseStudyId,
-      data: data
-    }), /*#__PURE__*/React.createElement("div", {
-      style: {
-        maxWidth: 'var(--container-max)',
-        margin: '0 auto',
-        padding: '60px 20px'
-      }
-    }, /*#__PURE__*/React.createElement("button", {
-      onClick: () => handleNavigate('work'),
-      style: {
-        font: 'var(--text-body)',
-        color: 'var(--color-accent)',
-        background: 'none',
-        border: 'none',
-        cursor: 'pointer',
-        textDecoration: 'underline',
-        padding: 0
-      }
-    }, "\u2190 Back to Work")));
-  }
-  return /*#__PURE__*/React.createElement(Homepage, {
-    onOpenCaseStudy: handleOpenCaseStudy
-  });
-};
-window.PagesComponent = Pages;
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio-website/archive/phase-1/Pages.jsx", error: String((e && e.message) || e) }); }
-
-// ui_kits/portfolio-website/archive/phase-1/WorkIndex.jsx
-try { (() => {
-const WorkIndex = ({
-  onOpenCaseStudy
-}) => {
-  const projects = [{
-    id: 'operation-legacy-unlocked',
-    title: 'Operation: Legacy Unlocked',
-    summary: 'A 12-month digital transformation for a Fortune 500 energy company.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop',
-    tags: ['Learning Design', 'Strategy', 'Digital Transformation'],
-    status: 'Case Study'
-  }, {
-    id: 'learn-at-cox',
-    title: 'Learn@Cox',
-    summary: 'Enterprise learning platform design for 50,000+ employees.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop',
-    tags: ['Platform Design', 'Learning Experience', 'AI Integration'],
-    status: 'Coming Soon'
-  }, {
-    id: 'ihg-learning-ecosystem',
-    title: 'IHG Learning Ecosystem',
-    summary: 'Global hospitality learning system for 400,000+ team members.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop',
-    tags: ['Global Scale', 'Learning Design', 'Mobile-First'],
-    status: 'Coming Soon'
-  }, {
-    id: 'hotelkey-digital-onboarding',
-    title: 'HotelKey Digital Onboarding',
-    summary: 'Streamlined onboarding experience for property management system.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop',
-    tags: ['UX Design', 'Onboarding', 'SaaS'],
-    status: 'Coming Soon'
-  }, {
-    id: 'guest-crm-transformation',
-    title: 'Guest CRM Transformation',
-    summary: 'Data-driven guest experience strategy and product redesign.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop',
-    tags: ['CRM Design', 'Data Strategy', 'Guest Experience'],
-    status: 'Coming Soon'
-  }, {
-    id: 'ai-creative-workflow',
-    title: 'AI Creative Workflow',
-    summary: 'AI-native video production system for enterprise learning.',
-    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=800&fit=crop',
-    tags: ['AI Integration', 'Creative Tools', 'Video Production'],
-    status: 'Coming Soon'
-  }];
-  return /*#__PURE__*/React.createElement("div", {
-    style: {
-      maxWidth: 'var(--container-max)',
-      margin: '0 auto',
-      padding: '60px 20px'
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      marginBottom: 60
-    }
-  }, /*#__PURE__*/React.createElement("h1", {
-    style: {
-      font: 'var(--text-h1)',
-      color: 'var(--color-text-primary)',
-      marginBottom: 16
-    }
-  }, "Work"), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body-lg)',
-      color: 'var(--color-text-secondary)',
-      maxWidth: 640
-    }
-  }, "Transformation through clarity \u2014 from enterprise learning to AI-native workflows.")), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'grid',
-      gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))',
-      gap: 32
-    }
-  }, projects.map(project => /*#__PURE__*/React.createElement("div", {
-    key: project.id,
-    style: {
-      borderRadius: 'var(--radius-lg)',
-      overflow: 'hidden',
-      background: 'var(--color-surface-secondary)',
-      border: '1px solid var(--color-border-subtle)',
-      transition: 'all 280ms cubic-bezier(0.4, 0, 0.2, 1)',
-      cursor: 'pointer',
-      display: 'flex',
-      flexDirection: 'column'
-    },
-    onMouseEnter: e => {
-      e.currentTarget.style.background = 'var(--color-surface-tertiary)';
-      e.currentTarget.style.borderColor = 'var(--color-border-default)';
-    },
-    onMouseLeave: e => {
-      e.currentTarget.style.background = 'var(--color-surface-secondary)';
-      e.currentTarget.style.borderColor = 'var(--color-border-subtle)';
-    }
-  }, /*#__PURE__*/React.createElement("div", {
-    style: {
-      aspectRatio: '16/9',
-      overflow: 'hidden',
-      background: 'var(--color-surface-tertiary)'
-    }
-  }, /*#__PURE__*/React.createElement("img", {
-    src: project.image,
-    alt: project.title,
-    style: {
-      width: '100%',
-      height: '100%',
-      objectFit: 'cover'
-    }
-  })), /*#__PURE__*/React.createElement("div", {
-    style: {
-      padding: 24,
-      display: 'flex',
-      flexDirection: 'column',
-      flex: 1
-    }
-  }, /*#__PURE__*/React.createElement("h3", {
-    style: {
-      font: 'var(--text-h3)',
-      color: 'var(--color-text-primary)',
-      marginBottom: 8
-    }
-  }, project.title), /*#__PURE__*/React.createElement("p", {
-    style: {
-      font: 'var(--text-body)',
-      color: 'var(--color-text-secondary)',
-      marginBottom: 16,
-      flex: 1
-    }
-  }, project.summary), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      gap: 8,
-      flexWrap: 'wrap',
-      marginBottom: 16
-    }
-  }, project.tags.map(tag => /*#__PURE__*/React.createElement("span", {
-    key: tag,
-    style: {
-      font: 'var(--text-xs)',
-      color: 'var(--color-text-tertiary)',
-      background: 'var(--color-surface-tertiary)',
-      padding: '4px 8px',
-      borderRadius: 'var(--radius-sm)',
-      border: '1px solid var(--color-border-subtle)'
-    }
-  }, tag))), /*#__PURE__*/React.createElement("div", {
-    style: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      paddingTop: 16,
-      borderTop: '1px solid var(--color-border-subtle)'
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    style: {
-      font: 'var(--text-xs)',
-      color: 'var(--color-text-tertiary)',
-      textTransform: 'uppercase',
-      letterSpacing: '0.5px'
-    }
-  }, project.status), project.status === 'Case Study' && /*#__PURE__*/React.createElement("button", {
-    onClick: () => onOpenCaseStudy?.(project.id),
-    style: {
-      font: 'var(--text-sm)',
-      color: 'var(--color-accent)',
-      background: 'none',
-      border: 'none',
-      cursor: 'pointer',
-      padding: 0,
-      transition: 'color 140ms ease'
-    },
-    onMouseEnter: e => {
-      e.currentTarget.style.color = 'var(--color-accent-light)';
-    },
-    onMouseLeave: e => {
-      e.currentTarget.style.color = 'var(--color-accent)';
-    }
-  }, "View Case Study \u2192")))))));
-};
-window.WorkIndex = WorkIndex;
-})(); } catch (e) { __ds_ns.__errors.push({ path: "ui_kits/portfolio-website/archive/phase-1/WorkIndex.jsx", error: String((e && e.message) || e) }); }
 
 // ui_kits/portfolio-website/image-slot.js
 try { (() => {

@@ -4,47 +4,9 @@ function AboutV2() {
   const nodeRefs = React.useRef([]);
   const [activeIndex, setActiveIndex] = React.useState(0);
   const [isVisible, setIsVisible] = React.useState(false);
-  const videoRef = React.useRef(null);
-  const [videoReady, setVideoReady] = React.useState(false);
-  const [videoPlaying, setVideoPlaying] = React.useState(false);
-  const [videoError, setVideoError] = React.useState(false);
-  const [videoPlaybackError, setVideoPlaybackError] = React.useState(false);
   const [reducedMotion, setReducedMotion] = React.useState(false);
-  const methodRef = React.useRef(null);
-  const methodResumeTimerRef = React.useRef(null);
-  const methodResumeAtRef = React.useRef(0);
-  const methodAdvanceTimerRef = React.useRef(null);
-  const [activeMethodIndex, setActiveMethodIndex] = React.useState(0);
-  const [methodVisible, setMethodVisible] = React.useState(false);
-  const [methodPaused, setMethodPaused] = React.useState(false);
 
   const THINKING_ENGINE_SRC = './assets/video/Man_thinking_strategic_intelligent.mp4';
-
-  const methodStages = [
-    { id: 'observe', label: '01', title: 'Observe', copy: 'See the full system before defining the solution.' },
-    { id: 'understand', label: '02', title: 'Understand', copy: 'Reveal the patterns, friction, behaviors, and decisions shaping the experience.' },
-    { id: 'design', label: '03', title: 'Design', copy: 'Create the structure, story, and interaction that make understanding possible.' },
-    { id: 'build', label: '04', title: 'Build', copy: 'Produce the learning, media, tools, and systems required for adoption.' },
-    { id: 'transform', label: '05', title: 'Transform', copy: 'Turn clarity into action, confidence, and measurable movement.' },
-  ];
-
-  const capabilityGroups = [
-    {
-      title: 'DESIGN',
-      subtitle: 'What I architect',
-      items: ['Learning systems', 'Experience strategy', 'Behavior change', 'Information architecture', 'Human-centered design'],
-    },
-    {
-      title: 'BUILD',
-      subtitle: 'What I create',
-      items: ['Articulate Storyline', 'Camtasia', 'Adobe Creative Cloud', 'Figma', 'Motion and video', 'AI production workflows'],
-    },
-    {
-      title: 'KNOWN FOR',
-      subtitle: 'What differentiates the work',
-      items: ['Systems thinking', 'Creative direction', 'Enterprise learning', 'Rapid prototyping', 'Translating complexity into clarity'],
-    },
-  ];
 
   const careerEntries = [
     {
@@ -127,10 +89,11 @@ function AboutV2() {
   ];
 
   const beliefs = [
-    { title: 'Intelligence', copy: 'I look beneath the obvious to understand how systems, people, and decisions connect.' },
-    { title: 'Confidence', copy: 'I make clear decisions while remaining open to evidence, feedback, and change.' },
-    { title: 'Self-awareness', copy: 'I understand how my perspective shapes the work and where collaboration strengthens it.' },
-    { title: 'Empathy', copy: 'I design for the person who must understand, use, and live with the outcome.' },
+    { title: 'Clarity over complexity', copy: 'Every complex problem hides a simpler structure worth finding first.' },
+    { title: 'People before platforms', copy: 'Technology only matters once the people using it can succeed with it.' },
+    { title: 'Design with evidence', copy: 'Decisions hold up when they are grounded in data, feedback, and observed behavior.' },
+    { title: 'Learning should move behavior', copy: 'The measure of a learning experience is what people do differently afterward.' },
+    { title: 'Technology should feel human', copy: 'Systems earn adoption when they respect attention, context, and effort.' },
   ];
 
   React.useEffect(() => {
@@ -160,39 +123,6 @@ function AboutV2() {
   }, []);
 
   React.useEffect(() => {
-    const video = videoRef.current;
-    if (!video || !videoReady || videoError) return;
-
-    if (reducedMotion) {
-      video.pause();
-      video.currentTime = 0;
-      return;
-    }
-
-    video.play().catch(() => {
-      setVideoPlaying(false);
-      setVideoPlaybackError(true);
-    });
-  }, [reducedMotion, videoReady, videoError]);
-
-  const toggleThinkingEngine = async () => {
-    const video = videoRef.current;
-    if (!video || videoError || !videoReady) return;
-
-    setVideoPlaybackError(false);
-
-    try {
-      if (video.paused) {
-        await video.play();
-      } else {
-        video.pause();
-      }
-    } catch (error) {
-      setVideoPlaybackError(true);
-    }
-  };
-
-  React.useEffect(() => {
     if (!sectionRef.current || typeof IntersectionObserver === 'undefined') {
       setIsVisible(true);
       return undefined;
@@ -216,60 +146,6 @@ function AboutV2() {
     observer.observe(sectionRef.current);
     return () => { clearTimeout(fallback); observer.disconnect(); };
   }, []);
-
-  React.useEffect(() => {
-    const node = methodRef.current;
-    if (!node || typeof IntersectionObserver === 'undefined') {
-      setMethodVisible(true);
-      return undefined;
-    }
-    const observer = new IntersectionObserver(([entry]) => setMethodVisible(entry.isIntersecting), { threshold: 0.3 });
-    observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
-
-  React.useEffect(() => {
-    clearTimeout(methodAdvanceTimerRef.current);
-    if (!methodVisible || methodPaused || reducedMotion) return undefined;
-    const delay = activeMethodIndex === methodStages.length - 1 ? 4000 : 2400;
-    methodAdvanceTimerRef.current = setTimeout(() => {
-      setActiveMethodIndex((index) => (index + 1) % methodStages.length);
-    }, delay);
-    return () => clearTimeout(methodAdvanceTimerRef.current);
-  }, [methodVisible, methodPaused, reducedMotion, activeMethodIndex]);
-
-  React.useEffect(() => () => {
-    clearTimeout(methodResumeTimerRef.current);
-    clearTimeout(methodAdvanceTimerRef.current);
-  }, []);
-
-  const pauseMethodFor = (duration = 8000) => {
-    clearTimeout(methodResumeTimerRef.current);
-    methodResumeAtRef.current = Date.now() + duration;
-    setMethodPaused(true);
-    methodResumeTimerRef.current = setTimeout(() => {
-      methodResumeAtRef.current = 0;
-      setMethodPaused(false);
-    }, duration);
-  };
-
-  const resumeMethodWhenEligible = () => {
-    const remaining = methodResumeAtRef.current - Date.now();
-    if (remaining > 0) {
-      clearTimeout(methodResumeTimerRef.current);
-      methodResumeTimerRef.current = setTimeout(() => {
-        methodResumeAtRef.current = 0;
-        setMethodPaused(false);
-      }, remaining);
-      return;
-    }
-    setMethodPaused(false);
-  };
-
-  const selectMethodStage = (index) => {
-    setActiveMethodIndex(index);
-    pauseMethodFor(8000);
-  };
 
   const selectCareerEntry = React.useCallback((index, behavior = 'smooth') => {
     const bounded = Math.max(0, Math.min(index, careerEntries.length - 1));
@@ -308,7 +184,7 @@ function AboutV2() {
       ref={sectionRef}
       className={'jiz-about-master ' + (isVisible ? 'is-visible' : '')}
       data-about-v2="ready"
-      aria-labelledby="about-master-title"
+      aria-label="How Jonathan thinks, the journey, and the foundation of the work"
     >
       <style>{`
         .jiz-about-master {
@@ -528,277 +404,28 @@ function AboutV2() {
           line-height: 1.62;
         }
 
-        .jiz-engine-shell {
-          position: relative;
-          width: min(86vw, 1120px);
-          margin: clamp(50px, 6vw, 82px) auto 0;
-          isolation: isolate;
-          max-width: 100%;
-          box-sizing: border-box;
-        }
 
-        .jiz-engine-shell::before {
-          content: '';
-          position: absolute;
-          z-index: -2;
-          inset: -14% -10%;
-          pointer-events: none;
-          background:
-            radial-gradient(
-              circle at 48% 48%,
-              rgba(100, 225, 255, 0.14),
-              transparent 52%
-            ),
-            radial-gradient(
-              circle at 74% 34%,
-              rgba(198, 242, 58, 0.065),
-              transparent 36%
-            );
-          filter: blur(72px);
-          opacity: 0.72;
-        }
 
-        .jiz-engine-shell::after {
-          content: '';
-          position: absolute;
-          z-index: -1;
-          left: 12%;
-          right: 12%;
-          bottom: -34px;
-          height: 76px;
-          pointer-events: none;
-          border-radius: 50%;
-          background:
-            radial-gradient(
-              ellipse,
-              rgba(100, 225, 255, 0.1),
-              transparent 68%
-            );
-          filter: blur(28px);
-          opacity: 0.62;
-        }
 
-        .jiz-engine-stage {
-          position: relative;
-          aspect-ratio: 16 / 9;
-          overflow: hidden;
-          border: 1px solid rgba(100, 225, 255, 0.12);
-          border-radius: clamp(20px, 2vw, 30px);
-          background: #06090b;
-          box-shadow:
-            0 52px 140px rgba(0, 0, 0, 0.44),
-            0 14px 44px rgba(0, 0, 0, 0.2),
-            0 0 0 1px rgba(255, 255, 255, 0.05),
-            0 0 120px rgba(100, 225, 255, 0.085),
-            inset 0 1px 0 rgba(255, 255, 255, 0.05),
-            0 30px 88px rgba(0, 0, 0, 0.42),
-            0 0 58px rgba(100, 225, 255, 0.045);
-        }
 
-        .jiz-engine-stage::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          z-index: 2;
-          pointer-events: none;
-          background:
-            linear-gradient(
-              180deg,
-              rgba(5, 8, 10, 0.04),
-              transparent 24%,
-              transparent 72%,
-              rgba(5, 8, 10, 0.18)
-            ),
-            radial-gradient(
-              circle at 50% 50%,
-              transparent 58%,
-              rgba(5, 8, 10, 0.13) 82%,
-              rgba(5, 8, 10, 0.32) 100%
-            );
-        }
 
-        .jiz-engine-video {
-          position: relative;
-          z-index: 1;
-          display: block;
-          width: 100%;
-          height: 100%;
-          border: 0;
-          background: #06090b;
-          object-fit: contain;
-          object-position: center;
-        }
 
-        .jiz-engine-control {
-          position: absolute;
-          right: 18px;
-          bottom: 17px;
-          z-index: 4;
-          min-width: 94px;
-          min-height: 42px;
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0 17px;
-          border: 1px solid rgba(100, 225, 255, 0.24);
-          border-radius: var(--radius-pill);
-          background: rgba(5, 9, 11, 0.72);
-          color: var(--color-text-primary);
-          font: var(--text-caption);
-          cursor: pointer;
-          opacity: 0;
-          transform: translateY(6px);
-          backdrop-filter: blur(14px);
-          transition:
-            opacity var(--motion-fast) var(--ease-standard),
-            transform var(--motion-fast) var(--ease-standard),
-            border-color var(--motion-fast) var(--ease-standard),
-            box-shadow var(--motion-fast) var(--ease-standard);
-        }
 
-        .jiz-engine-stage:hover .jiz-engine-control,
-        .jiz-engine-stage:focus-within .jiz-engine-control {
-          opacity: 1;
-          transform: translateY(0);
-        }
 
-        .jiz-engine-control:hover {
-          border-color: rgba(198, 242, 58, 0.58);
-          box-shadow: 0 0 24px rgba(198, 242, 58, 0.12);
-        }
 
-        .jiz-engine-control:focus-visible {
-          opacity: 1;
-          transform: none;
-          outline: 2px solid var(--color-accent-primary);
-          outline-offset: 3px;
-        }
 
-        .jiz-engine-control:disabled {
-          opacity: 0.38;
-          cursor: default;
-        }
 
-        .jiz-engine-playback-note {
-          position: absolute;
-          left: 18px;
-          bottom: 18px;
-          z-index: 4;
-          max-width: min(64%, 520px);
-          margin: 0;
-          padding: 9px 12px;
-          border: 1px solid rgba(255, 190, 92, 0.24);
-          border-radius: 12px;
-          background: rgba(5, 9, 11, 0.78);
-          color: var(--color-text-secondary);
-          font: var(--text-caption);
-          backdrop-filter: blur(12px);
-        }
 
         @media (hover: none), (pointer: coarse) {
-          .jiz-engine-control {
-            opacity: 1;
-            transform: none;
-          }
         }
 
-        .jiz-engine-state {
-          position: absolute;
-          inset: 0;
-          z-index: 3;
-          display: grid;
-          place-items: center;
-          padding: 28px;
-          background:
-            radial-gradient(
-              circle at center,
-              rgba(15, 29, 34, 0.86),
-              rgba(5, 8, 10, 0.96)
-            );
-          color: var(--color-text-secondary);
-          text-align: center;
-          font: var(--text-body);
-        }
 
-        .jiz-engine-loader {
-          display: grid;
-          justify-items: center;
-          gap: 16px;
-        }
 
-        .jiz-engine-loader::before {
-          content: '';
-          width: 34px;
-          height: 34px;
-          border: 2px solid rgba(100, 225, 255, 0.18);
-          border-top-color: var(--color-accent-secondary);
-          border-radius: 50%;
-          animation: jiz-engine-spin 900ms linear infinite;
-        }
 
-        @keyframes jiz-engine-spin {
-          to {
-            transform: rotate(360deg);
-          }
-        }
 
-        .jiz-engine-caption {
-          position: relative;
-          max-width: 980px;
-          margin: clamp(30px, 4vw, 46px) auto 0;
-          padding: clamp(27px, 3.5vw, 40px);
-          overflow: hidden;
-          border-top: 1px solid rgba(100, 225, 255, 0.13);
-          border-bottom: 1px solid rgba(100, 225, 255, 0.08);
-          background:
-            linear-gradient(
-              90deg,
-              transparent,
-              rgba(100, 225, 255, 0.025) 22%,
-              rgba(198, 242, 58, 0.018) 78%,
-              transparent
-            );
-          text-align: left;
-        }
 
-        .jiz-engine-caption::before {
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 28px;
-          bottom: 28px;
-          width: 2px;
-          border-radius: 999px;
-          background:
-            linear-gradient(
-              180deg,
-              var(--color-accent-secondary),
-              var(--color-accent-primary)
-            );
-          box-shadow: 0 0 18px rgba(100, 225, 255, 0.18);
-        }
 
-        .jiz-engine-caption strong {
-          display: block;
-          margin: 0 0 12px;
-          padding-left: 16px;
-          color: var(--color-accent-secondary);
-          font: var(--text-hud);
-          font-size: 0.68rem;
-          font-weight: 700;
-          letter-spacing: 0.13em;
-          text-transform: uppercase;
-        }
 
-        .jiz-engine-caption span {
-          display: block;
-          margin: 0;
-          padding-left: 16px;
-          color: var(--color-text-secondary);
-          font: var(--text-body);
-          font-size: clamp(0.95rem, 1.25vw, 1.04rem);
-          line-height: 1.72;
-        }
 
         .jiz-opening-copy {
           display: none;
@@ -1193,7 +820,7 @@ function AboutV2() {
         }
 
         .jiz-belief {
-          grid-column: span 3;
+          grid-column: span 4;
           display: flex;
           flex-direction: column;
           padding: clamp(18px, 2.2vw, 24px);
@@ -1274,9 +901,6 @@ function AboutV2() {
         @media (max-width: 620px) {
           .jiz-about-master { padding-inline: max(20px,var(--container-pad)); }
           .jiz-opening-title { font-size: clamp(2.55rem,14vw,3.8rem); }
-          .jiz-engine-shell { width: min(100%, 720px); }
-          .jiz-engine-control { right: 12px; bottom: 12px; min-width: 78px; min-height: 38px; padding-inline: 14px; opacity: 1; transform: none; }
-          .jiz-engine-playback-note { left: 12px; bottom: 60px; max-width: calc(100% - 24px); }
           .jiz-career-helper { align-items: flex-start; flex-direction: column; gap: 8px; }
           .jiz-method-path { grid-template-columns: 1fr; }
           .jiz-career-header { display: block; }
@@ -1294,7 +918,6 @@ function AboutV2() {
           }
           .jiz-reveal { opacity: 1; transform: none; }
           .jiz-method-button[data-active='true'] .jiz-method-node { animation: none !important; }
-          .jiz-engine-control { opacity: 1; transform: none; }
         }
       `}</style>
 
@@ -1304,164 +927,6 @@ function AboutV2() {
       <div className="jiz-about-bleed" aria-hidden="true" />
 
       <div className="jiz-about-inner">
-        <div className="jiz-scene-opening">
-          <div className="jiz-reveal">
-            <p className="jiz-eyebrow">ABOUT / THE MIND</p>
-            <h2 id="about-master-title" className="jiz-opening-title">How Jonathan thinks.</h2>
-            <p className="jiz-opening-thesis">
-              Most complexity isn't complicated — it's unexamined. My job is finding the shape hiding inside the tangle, then designing toward it.
-            </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 20, maxWidth: 880, marginInline: 'auto', marginTop: 36, textAlign: 'left' }}>
-              {[
-                ['See the system', 'Every project is people inside a system — not a deliverable to produce.'],
-                ['Find real friction', 'I look for where friction actually lives, not where it\'s easiest to fix.'],
-                ['Test, then trust', 'Ideas get tested early and kept only if they survive contact with real use.'],
-              ].map(([t, d]) => (
-                <div key={t} style={{ padding: 20, border: '1px solid rgba(255,255,255,0.08)', borderRadius: 'var(--radius-md)', background: 'rgba(255,255,255,0.02)' }}>
-                  <div style={{ font: 'var(--text-hud)', color: 'var(--color-accent-primary)', textTransform: 'uppercase', letterSpacing: '0.08em', marginBottom: 8 }}>{t}</div>
-                  <div style={{ font: 'var(--text-body)', fontSize: '0.9375rem', color: 'var(--color-text-secondary)', lineHeight: 1.5 }}>{d}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div
-            className="jiz-engine-shell jiz-reveal"
-            data-thinking-engine="inline"
-          >
-            <div className="jiz-engine-stage">
-              <video
-                ref={videoRef}
-                className="jiz-engine-video"
-                autoPlay={!reducedMotion}
-                loop
-                muted
-                playsInline
-                preload="metadata"
-                aria-label="A cinematic visualization of strategic thinking, systems intelligence, and complexity becoming clarity"
-                onLoadedMetadata={() => {
-                  setVideoReady(true);
-                  setVideoError(false);
-                  setVideoPlaybackError(false);
-                }}
-                onLoadedData={() => {
-                  setVideoReady(true);
-                  setVideoError(false);
-                  setVideoPlaybackError(false);
-                }}
-                onCanPlay={() => {
-                  setVideoReady(true);
-                  setVideoError(false);
-                  setVideoPlaybackError(false);
-                }}
-                onPlay={() => setVideoPlaying(true)}
-                onPause={() => setVideoPlaying(false)}
-                onError={() => {
-                  setVideoReady(false);
-                  setVideoPlaying(false);
-                  setVideoError(true);
-                  setVideoPlaybackError(false);
-                }}
-              >
-                <source
-                  src={THINKING_ENGINE_SRC}
-                  type="video/mp4"
-                />
-                Your browser does not support embedded video.
-              </video>
-
-              {!videoReady && !videoError && (
-                <div
-                  className="jiz-engine-state"
-                  role="status"
-                  aria-live="polite"
-                >
-                  <div className="jiz-engine-loader">
-                    <span>Preparing the visualization…</span>
-                  </div>
-                </div>
-              )}
-
-              {videoError && (
-                <div
-                  className="jiz-engine-state"
-                  role="alert"
-                >
-                  <span>
-                    The visualization could not load. Jonathan's operating
-                    model is described directly below.
-                  </span>
-                </div>
-              )}
-
-              {!videoError && (
-                <button
-                  className="jiz-engine-control"
-                  type="button"
-                  disabled={!videoReady}
-                  onClick={toggleThinkingEngine}
-                  aria-label={
-                    videoPlaying
-                      ? 'Pause strategic intelligence visualization'
-                      : 'Play strategic intelligence visualization'
-                  }
-                  aria-pressed={videoPlaying}
-                >
-                  {videoPlaying ? 'Pause' : 'Play'}
-                </button>
-              )}
-
-              {videoPlaybackError && !videoError && (
-                <p className="jiz-engine-playback-note" role="status">
-                  Playback was blocked by the browser. Select Play to try again.
-                </p>
-              )}
-            </div>
-          </div>
-
-          <div className="jiz-engine-caption jiz-reveal">
-            <strong>Operating System</strong>
-            <span>I begin by mapping the relationship between people, information, systems, and behavior. Before I design content, I design understanding—revealing what matters, where friction exists, and what will move people forward. My work brings together learning strategy, cinematic storytelling, digital experience design, and AI-enabled production to create solutions that are clear, useful, and built for adoption.</span>
-          </div>
-        </div>
-
-        <div className="jiz-movement">
-          <div className="jiz-movement-heading jiz-reveal">
-            <p className="jiz-eyebrow">THE METHOD</p>
-            <h3 className="jiz-movement-title">How thought becomes action.</h3>
-            <p className="jiz-movement-copy">
-              A connected practice for moving from ambiguity to experiences people can understand and use.
-            </p>
-          </div>
-
-          <div ref={methodRef} className="jiz-method-wrap jiz-reveal" data-method-autoplay="enabled" data-active-method-index={activeMethodIndex} onMouseEnter={() => setMethodPaused(true)} onMouseLeave={resumeMethodWhenEligible}>
-            <div className="jiz-method-progress" aria-hidden="true" style={{ width: (activeMethodIndex / (methodStages.length - 1)) * 92 + '%' }} />
-            <div className="jiz-method-path" aria-label="Jonathan's five-stage methodology">
-              {methodStages.map((stage, index) => (
-                <button key={stage.id} type="button" className="jiz-method-button" data-method-stage={stage.id} data-method-index={index} data-active={index === activeMethodIndex ? 'true' : 'false'} aria-pressed={index === activeMethodIndex} onClick={() => selectMethodStage(index)} onFocus={() => setMethodPaused(true)} onBlur={resumeMethodWhenEligible}>
-                  <div className="jiz-method-stage">
-                    <span className="jiz-method-node" aria-hidden="true" style={{ borderColor: index === activeMethodIndex ? 'var(--color-accent-primary)' : index < activeMethodIndex ? 'var(--color-accent-secondary)' : 'rgba(100,225,255,.3)', background: index === activeMethodIndex ? 'var(--color-accent-primary)' : index < activeMethodIndex ? 'var(--color-accent-secondary)' : '#0b0d10', boxShadow: index === activeMethodIndex ? '0 0 0 7px rgba(198,242,58,.09),0 0 28px rgba(198,242,58,.18)' : '0 0 0 5px rgba(100,225,255,.05)' }} />
-                    <p className="jiz-method-label jiz-meta">{stage.label}</p>
-                    <h4>{stage.title}</h4>
-                    <p>{stage.copy}</p>
-                  </div>
-                </button>
-              ))}
-            </div>
-            <span className="sr-only" role="status" aria-live="polite" data-method-status>{`Active method stage: ${methodStages[activeMethodIndex].title}`}</span>
-          </div>
-
-          <div className="jiz-capabilities jiz-reveal">
-            {capabilityGroups.map((group) => (
-              <section className="jiz-capability" key={group.title}>
-                <h4 className="jiz-meta">{group.title}</h4>
-                <p>{group.subtitle}</p>
-                <ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
-              </section>
-            ))}
-          </div>
-        </div>
-
         <div className="jiz-movement">
           <div className="jiz-career-header jiz-reveal">
             <div className="jiz-movement-heading" style={{ marginBottom: 0 }}>

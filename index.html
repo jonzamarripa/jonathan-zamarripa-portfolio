@@ -21,14 +21,15 @@
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <script src="./_ds_bundle.js"></script>
+<script src="image-slot.js?v=2"></script>
 <div id="root"></div>
-<script type="text/babel" src="About_v2.jsx"></script>
 <script type="text/babel" src="Homepage.jsx"></script>
 <script type="text/babel" src="CaseStudyShell.jsx"></script>
 <script type="text/babel" src="CaseStudy-Legacy.jsx"></script>
 <script type="text/babel" src="CaseStudy-HotelKey.jsx"></script>
 <script type="text/babel" src="CaseStudy-GuestCRM.jsx"></script>
 <script type="text/babel" src="CaseStudy-Workday.jsx"></script>
+<script type="text/babel" src="CaseStudy-BehindTheBuild.jsx"></script>
 <script type="text/babel">
 function App(){
   const initialView = (() => {
@@ -48,6 +49,22 @@ function App(){
     About: { view: 'home', section: 1 },
     'Featured Work': { view: 'home', section: 2 },
     Work: { view: 'home', section: 2 },
+    Capabilities: { view: 'home', section: 6 },
+    Method: { view: 'home', section: 7 },
+    Tools: { view: 'home', section: 9 },
+    Insight: { view: 'home', section: 4 },
+    Thinking: { view: 'home', section: 4 },
+    Stack: { view: 'home', section: 9 },
+    Journey: { view: 'home', section: 10 },
+    'The Journey': { view: 'home', section: 10 },
+    Foundation: { view: 'home', section: 11 },
+    'Modern Learning Stack': { view: 'home', section: 9 },
+    'Tools & Platforms': { view: 'home', section: 9 },
+    'The Method': { view: 'home', section: 7 },
+    Archive: { view: 'home', section: 8 },
+    'Extended Archive': { view: 'home', section: 8 },
+    'Thinking in Motion': { view: 'home', section: 4 },
+    'Core Capabilities': { view: 'home', section: 6 },
     'Creative Lab': { view: 'home', section: 3 },
     Film: { view: 'home', section: 3 },
     Insights: { view: 'home', section: 4 },
@@ -55,6 +72,7 @@ function App(){
     "Let's Build": { view: 'home', section: 5 },
     'case-study': { view: 'case-study', section: null },
     'Operation: Legacy Unlocked': { view: 'case-study', section: null },
+
     'HotelKey New Hire Onboarding': { view: 'hotelkey-onboarding', section: null },
     'Guest CRM Pilot': { view: 'guest-crm-pilot', section: null },
     'Workday Learn Launch': { view: 'workday-learn', section: null },
@@ -117,6 +135,7 @@ function App(){
     'hotelkey-onboarding': window.CaseStudyHotelKeyExports?.CaseStudyHotelKey,
     'guest-crm-pilot': window.CaseStudyGuestCRMExports?.CaseStudyGuestCRM,
     'workday-learn': window.CaseStudyWorkdayExports?.CaseStudyWorkday,
+
   };
   const PlaceholderComponent = placeholderViews[displayView];
 
@@ -135,7 +154,7 @@ function App(){
   );
 }
 function bootPortfolio(attempt = 0) {
-  const ready = Boolean(window.React && window.ReactDOM && window.AboutV2 && window.HomepageExports?.Homepage && window.CaseStudyLegacyExports?.CaseStudyLegacy && window.CaseStudyShellExports?.CaseStudyShell && window.CaseStudyHotelKeyExports?.CaseStudyHotelKey && window.CaseStudyGuestCRMExports?.CaseStudyGuestCRM && window.CaseStudyWorkdayExports?.CaseStudyWorkday);
+  const ready = Boolean(window.React && window.ReactDOM && window.HomepageExports?.Homepage && window.CaseStudyLegacyExports?.CaseStudyLegacy && window.CaseStudyShellExports?.CaseStudyShell && window.CaseStudyHotelKeyExports?.CaseStudyHotelKey && window.CaseStudyGuestCRMExports?.CaseStudyGuestCRM && window.CaseStudyWorkdayExports?.CaseStudyWorkday && window.CaseStudyBehindTheBuildExports?.CaseStudyBehindTheBuild);
   if (!ready) {
     if (attempt >= 200) {
       document.getElementById('root').innerHTML = '<div role="alert" style="padding:32px;color:#fff;background:#080D0B">The portfolio modules did not finish loading. Please refresh the page.</div>';
