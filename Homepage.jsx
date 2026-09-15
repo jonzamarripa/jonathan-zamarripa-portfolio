@@ -217,13 +217,6 @@ function LearningPathways() {
 function Hero({ onExploreWork, onConnect }) {
   const { Button, StatusPill } = window.JIZPortfolioSite_b3ba38;
   const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
-  const [glassesFlash, setGlassesFlash] = React.useState(false);
-  React.useEffect(() => {
-    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const onSignal = () => { if (reduced) return; setGlassesFlash(true); setTimeout(() => setGlassesFlash(false), 650); };
-    window.addEventListener('jiz-signal', onSignal);
-    return () => window.removeEventListener('jiz-signal', onSignal);
-  }, []);
   return (
     <section className="hero">
       <div className="hero-environment" aria-hidden="true">
@@ -239,9 +232,8 @@ function Hero({ onExploreWork, onConnect }) {
       </div>
 
       <div className="hero-content">
-        <div className="hero-text-scrim" aria-hidden="true" />
         <div className="hero-copy">
-          <h1 className="hero-title hero-fade hero-fade--2">Learning Experience Designer<br />for <span className="hero-title-accent">Enterprise Transformation</span></h1>
+          <h1 className="hero-title hero-fade hero-fade--2"><span className="hero-title-main">Learning Experience<br />Designer for<br /></span><span className="hero-title-accent">Enterprise<br />Transformation</span></h1>
           <p className="hero-lead hero-fade hero-fade--3">I turn complex technology, leadership, and business change into learning experiences people can understand, adopt, and act on.</p>
           <p className="hero-support hero-fade hero-fade--4">Senior LXD <span className="hero-dot">•</span> Product Enablement <span className="hero-dot">•</span> Leadership Development <span className="hero-dot">•</span> AI Strategy</p>
           <div className="hero-actions hero-fade hero-fade--5">
@@ -252,9 +244,8 @@ function Hero({ onExploreWork, onConnect }) {
       </div>
 
       <div className="hero-portrait-stage">
-        <ChromaKeyVideo src="./assets/video/hero-portrait-green.mp4?v=4" className="hero-portrait" style={{ WebkitMaskImage: 'linear-gradient(to bottom,#000 62%,rgba(0,0,0,.9) 80%,transparent 98%),linear-gradient(to right,transparent 0%,#000 30%),linear-gradient(to left,transparent 0%,#000 20%),radial-gradient(ellipse 55% 45% at 8% 100%,transparent 0%,transparent 20%,#000 75%)', WebkitMaskComposite: 'source-in,source-in,source-in', maskImage: 'linear-gradient(to bottom,#000 62%,rgba(0,0,0,.9) 80%,transparent 98%),linear-gradient(to right,transparent 0%,#000 30%),linear-gradient(to left,transparent 0%,#000 20%),radial-gradient(ellipse 55% 45% at 8% 100%,transparent 0%,transparent 20%,#000 75%)', maskComposite: 'intersect' }} />
-        <div aria-hidden="true" style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: '30%', background: 'linear-gradient(to top, rgba(198,242,58,0.26), rgba(198,242,58,0.07) 60%, transparent)', mixBlendMode: 'screen', pointerEvents: 'none' }} />
-        <div aria-hidden="true" style={{ position: 'absolute', right: '18%', top: '22%', width: '20%', height: '10%', background: 'radial-gradient(ellipse, rgba(198,242,58,0.9), transparent 70%)', mixBlendMode: 'screen', opacity: glassesFlash ? 0.85 : 0, transition: glassesFlash ? 'opacity 0.12s ease-out' : 'opacity 0.5s ease-in', pointerEvents: 'none' }} />
+        <ChromaKeyVideo src="./assets/video/hero-portrait-green.mp4?v=6" className="hero-portrait" style={{ WebkitMaskImage: 'linear-gradient(to bottom,#000 74%,rgba(0,0,0,.92) 88%,transparent 99%),linear-gradient(to right,transparent 0%,#000 30%),linear-gradient(to left,transparent 0%,#000 20%),radial-gradient(ellipse 55% 45% at 8% 100%,transparent 0%,transparent 20%,#000 75%)', WebkitMaskComposite: 'source-in,source-in,source-in', maskImage: 'linear-gradient(to bottom,#000 74%,rgba(0,0,0,.92) 88%,transparent 99%),linear-gradient(to right,transparent 0%,#000 30%),linear-gradient(to left,transparent 0%,#000 20%),radial-gradient(ellipse 55% 45% at 8% 100%,transparent 0%,transparent 20%,#000 75%)', maskComposite: 'intersect' }} />
+        <div aria-hidden="true" style={{ position: 'absolute', left: 0, right: 0, bottom: 0, height: '26%', background: 'linear-gradient(to top, rgba(198,242,58,0.15), rgba(198,242,58,0.04) 60%, transparent)', mixBlendMode: 'screen', pointerEvents: 'none' }} />
       </div>
       <div className="hero-portrait-vignette" aria-hidden="true" />
       <div className="hero-foreground-atmosphere" aria-hidden="true" />
@@ -262,26 +253,27 @@ function Hero({ onExploreWork, onConnect }) {
       <style>{`
 .hero{position:relative;isolation:isolate;overflow:hidden;width:100%;min-height:calc(100svh - 96px);background:radial-gradient(ellipse at 74% 42%,rgba(22,113,163,.16) 0%,rgba(20,74,91,.09) 30%,transparent 64%),radial-gradient(ellipse at 40% 54%,rgba(180,226,63,.055) 0%,transparent 52%)}
 .hero-environment{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:transparent}
-.hero-base-gradient{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,11,.96) 0%,rgba(10,18,15,.9) 42%,rgba(13,30,28,.84) 72%,rgba(8,18,17,.92) 100%)}
-.hero-signal-field{position:absolute;inset:-8%;opacity:.14;background-image:radial-gradient(circle at 18% 48%,rgba(115,224,255,.09) 0 1px,transparent 2px),radial-gradient(circle at 42% 64%,rgba(197,255,45,.06) 0 1px,transparent 2px),radial-gradient(circle at 78% 38%,rgba(115,224,255,.1) 0 1px,transparent 2px);background-size:160px 140px,220px 180px,190px 170px}
+.hero-base-gradient{position:absolute;inset:0;background:linear-gradient(90deg,rgba(8,13,11,.96) 0%,rgba(9,16,14,.88) 38%,rgba(10,19,17,.7) 62%,rgba(9,16,15,.5) 82%,rgba(8,14,13,.34) 100%)}
+.hero-signal-field{position:absolute;inset:-8%;opacity:.09;background-image:radial-gradient(circle at 18% 48%,rgba(115,224,255,.09) 0 1px,transparent 2px),radial-gradient(circle at 42% 64%,rgba(197,255,45,.06) 0 1px,transparent 2px),radial-gradient(circle at 78% 38%,rgba(115,224,255,.1) 0 1px,transparent 2px);background-size:160px 140px,220px 180px,190px 170px}
 .hero-ambient-glow{position:absolute;pointer-events:none;border-radius:50%;filter:blur(90px)}
 .hero-ambient-glow--blue{width:min(72vw,1200px);height:min(72vw,1200px);right:-18vw;top:-16%;background:radial-gradient(circle,rgba(29,132,196,.2) 0%,rgba(24,91,126,.1) 38%,transparent 72%)}
 .hero-ambient-glow--chartreuse{width:min(46vw,760px);height:min(38vw,640px);left:12%;bottom:-26%;background:radial-gradient(circle,rgba(197,255,45,.028) 0%,transparent 68%)}
-.hero-content{position:relative;z-index:5;display:grid;align-items:center;width:min(1440px,calc(100% - 2*clamp(28px,6vw,112px)));min-height:calc(100svh - 96px);margin-inline:auto;padding-block:clamp(64px,7vw,104px)}
-.hero-copy{position:relative;z-index:2;width:min(44vw,640px);margin-left:clamp(0px,1vw,20px)}
-.hero-text-scrim{position:absolute;z-index:1;left:-8vw;top:0;bottom:0;width:min(80vw,1080px);pointer-events:none;background:linear-gradient(90deg,rgba(5,9,8,.92) 0%,rgba(5,9,8,.82) 44%,rgba(5,9,8,.4) 74%,transparent 100%),radial-gradient(ellipse 52% 42% at 18% 40%,rgba(4,8,7,.5),transparent 72%)}
+.hero-content{position:relative;z-index:5;display:grid;grid-template-columns:52fr 48fr;column-gap:clamp(24px,3vw,56px);align-items:center;width:100%;max-width:1800px;min-height:calc(100svh - 96px);margin-inline:auto;padding-block:clamp(64px,7vw,104px);padding-inline:clamp(28px,7.9vw,152px)}
+.hero-copy{position:relative;z-index:2;grid-column:1;max-width:640px}
+.hero-text-scrim{position:absolute;z-index:1;left:clamp(-72px,-4vw,-24px);top:6%;bottom:6%;right:8%;pointer-events:none;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 30% 50%,#000 0%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 70% 60% at 30% 50%,#000 0%,#000 55%,transparent 100%);background:radial-gradient(ellipse 60% 55% at 24% 46%,rgba(5,9,8,.5),transparent 74%)}
 .hero-eyebrow{margin-bottom:22px}
-.hero-title{font:var(--text-display);font-weight:750;font-size:clamp(2.3rem,1.5rem + 2.3vw,4.05rem);line-height:1.02;letter-spacing:-.022em;text-wrap:balance;color:var(--color-text-primary);margin:0 0 30px}
-.hero-title-accent{color:var(--color-accent-primary);font-weight:550;letter-spacing:-.012em}
-.hero-lead{font:var(--text-body-lg);font-size:clamp(1.125rem,1rem + .45vw,1.4375rem);line-height:1.5;color:var(--color-text-primary);max-width:560px;margin:0 0 32px;text-wrap:pretty}
-.hero-support{font:var(--text-body);font-size:clamp(.75rem,.72rem + .13vw,.875rem);line-height:1.6;letter-spacing:.038em;text-transform:uppercase;color:var(--color-text-secondary);max-width:none;margin:0;text-wrap:pretty}
-.hero-dot{color:var(--color-accent-primary);opacity:.55;padding:0 5px}
+.hero-title{font:var(--text-display);font-weight:750;font-size:clamp(2.5rem,1.6rem + 2.6vw,4.4rem);line-height:1.01;letter-spacing:-.026em;text-wrap:balance;color:var(--color-text-primary);text-shadow:0 2px 28px rgba(0,0,0,.55),0 1px 2px rgba(0,0,0,.4);margin:0 0 30px}
+.hero-title-main{display:inline;font-size:1.22em}
+.hero-title-accent{color:var(--color-accent-primary);font-weight:300;letter-spacing:-.006em;text-shadow:0 0 34px rgba(198,242,58,.4),0 2px 24px rgba(0,0,0,.5)}
+.hero-lead{font:var(--text-body-lg);font-size:clamp(1.125rem,1rem + .45vw,1.4375rem);line-height:1.5;color:var(--color-text-primary);text-shadow:0 2px 16px rgba(0,0,0,.5);max-width:560px;margin:0 0 32px;text-wrap:pretty}
+.hero-support{font:var(--text-body);font-size:clamp(.75rem,.72rem + .13vw,.875rem);font-weight:650;line-height:1.6;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.88);text-shadow:0 2px 12px rgba(0,0,0,.55);max-width:none;margin:0;text-wrap:pretty}
+.hero-dot{color:var(--color-accent-primary);opacity:.8;padding:0 5px}
 @media(min-width:1180px){.hero-support{width:max-content;max-width:min(76vw,700px)}}
 @media(min-width:1024px) and (max-width:1179.98px){.hero-support{width:max-content;max-width:min(66vw,620px)}}
-.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:44px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:38px}
 .hero-mesh{position:absolute;inset:-10%;background:radial-gradient(ellipse 42% 38% at 22% 30%,rgba(29,132,196,.09) 0%,transparent 62%),radial-gradient(ellipse 36% 34% at 62% 74%,rgba(198,242,58,.04) 0%,transparent 64%),radial-gradient(ellipse 48% 40% at 84% 22%,rgba(115,224,255,.055) 0%,transparent 66%);filter:blur(36px);opacity:.7;animation:hero-mesh-drift 68s ease-in-out infinite alternate}
 @keyframes hero-mesh-drift{0%{transform:translate3d(0,0,0) scale(1)}50%{transform:translate3d(-1%,.7%,0) scale(1.02)}100%{transform:translate3d(.8%,-.6%,0) scale(1.01)}}
-.hero-pathways{position:absolute;inset:0;width:100%;height:100%;opacity:.27}
+.hero-pathways{position:absolute;inset:0;width:100%;height:100%;opacity:.18}
 .hero-path{stroke-dasharray:26 320;stroke-dashoffset:0;animation:hero-path-flow 48s linear infinite}
 .hero-path--2{animation-duration:62s;animation-delay:-14s;opacity:.7}
 .hero-path--3{animation-duration:76s;animation-delay:-28s;opacity:.45}
@@ -292,16 +284,16 @@ function Hero({ onExploreWork, onConnect }) {
 .hero-fade--1{animation-delay:.05s}.hero-fade--2{animation-delay:.2s}.hero-fade--3{animation-delay:.38s}.hero-fade--4{animation-delay:.54s}.hero-fade--5{animation-delay:.7s}.hero-fade--6{animation-delay:.86s}
 @keyframes hero-fade-in{from{opacity:0;transform:translate3d(0,14px,0)}to{opacity:1;transform:none}}
 .hero-portrait-stage{position:absolute;inset:0;z-index:3;overflow:visible;pointer-events:none;background:transparent;border:0;box-shadow:none}
-.hero-portrait{position:absolute;z-index:2;right:clamp(8px,2vw,64px);bottom:-7%;width:clamp(400px,33vw,640px);height:114%;max-width:none;max-height:114%;object-fit:contain;object-position:right bottom;transform:translate3d(0,0,0);transform-origin:right bottom;pointer-events:auto;cursor:pointer;opacity:.78;filter:drop-shadow(-30px 6px 52px rgba(27,128,194,.2)) drop-shadow(-10px 0 30px rgba(49,165,223,.12));-webkit-mask-image:linear-gradient(to bottom,#000 46%,rgba(0,0,0,.85) 66%,transparent 96%),linear-gradient(to right,transparent 0%,#000 26%),linear-gradient(to left,transparent 0%,#000 14%),linear-gradient(to top,transparent 0%,#000 8%);-webkit-mask-composite:source-in,source-in,source-in;mask-image:linear-gradient(to bottom,#000 46%,rgba(0,0,0,.85) 66%,transparent 96%),linear-gradient(to right,transparent 0%,#000 26%),linear-gradient(to left,transparent 0%,#000 14%),linear-gradient(to top,transparent 0%,#000 8%);mask-composite:intersect}
-.hero-portrait-backlight{position:absolute;right:-8vw;top:8%;width:min(68vw,1120px);height:min(72vw,1180px);border-radius:50%;background:radial-gradient(ellipse at 56% 46%,rgba(48,169,236,.23) 0%,rgba(26,111,162,.14) 26%,rgba(19,72,99,.07) 48%,transparent 74%);filter:blur(48px);opacity:.9}
+.hero-portrait{position:absolute;z-index:2;right:clamp(64px,9vw,150px);bottom:-7%;width:clamp(376px,31vw,600px);height:114%;max-width:none;max-height:114%;object-fit:cover;object-position:center 9%;transform:translate3d(0,0,0);transform-origin:right bottom;pointer-events:auto;cursor:pointer;opacity:.94;filter:drop-shadow(-30px 6px 52px rgba(27,128,194,.2)) drop-shadow(-10px 0 30px rgba(49,165,223,.12));-webkit-mask-image:linear-gradient(to bottom,#000 50%,rgba(0,0,0,.85) 72%,transparent 95%),linear-gradient(to right,transparent 0%,#000 34%),linear-gradient(to left,transparent 0%,#000 20%),linear-gradient(to top,transparent 0%,#000 12%);-webkit-mask-composite:source-in,source-in,source-in;mask-image:linear-gradient(to bottom,#000 50%,rgba(0,0,0,.85) 72%,transparent 95%),linear-gradient(to right,transparent 0%,#000 34%),linear-gradient(to left,transparent 0%,#000 20%),linear-gradient(to top,transparent 0%,#000 12%);mask-composite:intersect}
+.hero-portrait-backlight{position:absolute;right:-8vw;top:8%;width:min(50vw,840px);height:min(52vw,880px);border-radius:50%;background:radial-gradient(ellipse at 56% 46%,rgba(48,169,236,.15) 0%,rgba(26,111,162,.08) 26%,rgba(19,72,99,.04) 48%,transparent 74%);filter:blur(48px);opacity:.75}
 .hero-portrait-edge-glow{position:absolute;inset:0;z-index:3;pointer-events:none;background:radial-gradient(ellipse at 74% 48%,rgba(47,166,227,.11) 0%,rgba(31,110,159,.06) 30%,transparent 62%);mix-blend-mode:screen;filter:blur(14px)}
-.hero-portrait-vignette{position:absolute;z-index:5;right:0;bottom:0;width:52%;height:46%;pointer-events:none;background:radial-gradient(ellipse 78% 84% at 78% 96%,rgba(5,9,8,.62) 0%,rgba(5,9,8,.3) 46%,transparent 76%)}
+.hero-portrait-vignette{position:absolute;z-index:5;right:0;bottom:0;width:58%;height:52%;pointer-events:none;background:radial-gradient(ellipse 80% 86% at 76% 98%,rgba(5,9,8,.74) 0%,rgba(5,9,8,.4) 44%,transparent 76%)}
 .hero-portrait-haze{position:absolute;z-index:4;right:-2%;bottom:-3%;width:66%;height:58%;pointer-events:none;background:radial-gradient(ellipse at 68% 58%,rgba(54,160,204,.1) 0%,rgba(26,92,109,.06) 34%,transparent 70%),linear-gradient(90deg,transparent 10%,rgba(17,78,94,.04) 48%,transparent 92%);filter:blur(20px);mix-blend-mode:screen}
 .hero-foreground-atmosphere{position:absolute;inset:0;z-index:4;pointer-events:none;background:radial-gradient(ellipse at 70% 66%,rgba(52,154,198,.075) 0%,transparent 44%),linear-gradient(90deg,transparent 34%,rgba(18,72,83,.03) 56%,transparent 88%);mix-blend-mode:screen}
-@media(max-width:1180px){.hero-copy{width:min(50vw,520px);margin-left:clamp(24px,4vw,64px)}.hero-title{font-size:clamp(2.1rem,3.6vw,3rem)}.hero-lead{max-width:100%}.hero-text-scrim{left:-10vw;width:min(96vw,1120px);background:linear-gradient(90deg,rgba(6,10,9,.9) 0%,rgba(6,10,9,.84) 58%,rgba(6,10,9,.5) 82%,transparent 100%)}.hero-portrait{right:-150px;width:clamp(360px,44vw,700px);opacity:.62}}
+@media(max-width:1180px){.hero-content{grid-template-columns:1fr}.hero-copy{max-width:520px}.hero-title{font-size:clamp(2.1rem,3.6vw,3rem)}.hero-lead{max-width:100%}.hero-text-scrim{left:clamp(-48px,-3vw,-16px)}.hero-portrait{right:-40px;width:clamp(340px,40vw,620px);opacity:.94}}
 @media(max-width:1023.98px){.hero-support{width:auto;max-width:100%}}
-@media(max-width:900px){.hero{min-height:auto}.hero-content{min-height:auto;padding-top:92px;padding-bottom:520px}.hero-copy{width:min(100%,620px);margin-left:0}.hero-portrait{right:50%;bottom:-8px;width:min(640px,94vw);transform:translateX(50%)}.hero-portrait-backlight{right:50%;top:auto;bottom:-12%;width:100vw;height:640px;transform:translateX(50%)}.hero-portrait-haze{right:0;width:100%}}
-@media(max-width:768px){.hero{min-height:auto}.hero-content{min-height:auto;padding-top:48px;padding-bottom:480px;grid-template-columns:1fr}.hero-copy{width:100%;margin-left:0;margin-right:0;position:relative;z-index:6}.hero-eyebrow{margin-bottom:18px}.hero-title{font-size:clamp(1.85rem,5.4vw,2.6rem);margin:0 0 22px}.hero-lead{font-size:clamp(1rem,3.4vw,1.1875rem);margin:0 0 24px;max-width:100%}.hero-support{font-size:.8125rem;max-width:100%;margin:0}.hero-actions{margin-top:32px;gap:12px}.hero-text-scrim{left:-12vw;width:130vw;background:linear-gradient(180deg,rgba(6,10,9,.86) 0%,rgba(6,10,9,.6) 70%,transparent 100%)}.hero-portrait-stage{z-index:2}.hero-portrait{position:absolute;right:50%;bottom:auto;top:480px;width:min(420px,85vw);height:auto;max-height:none;transform:translateX(50%);opacity:.9;filter:drop-shadow(-20px 4px 36px rgba(27,128,194,.18));mask-image:linear-gradient(to top,#000 0%,#000 70%,rgba(0,0,0,.8) 85%,transparent 100%),linear-gradient(to right,transparent 5%,#000 20%),linear-gradient(to left,transparent 5%,#000 15%);mask-composite:intersect}.hero-portrait-backlight{right:50%;top:480px;bottom:auto;width:120vw;height:420px;transform:translateX(50%);opacity:.5;filter:blur(40px)}.hero-portrait-haze{display:none}.hero-foreground-atmosphere{opacity:.3}}
+@media(max-width:900px){.hero{min-height:auto}.hero-content{min-height:auto;padding-top:92px;padding-bottom:520px}.hero-copy{max-width:620px}.hero-portrait{right:50%;bottom:-8px;width:min(640px,94vw);transform:translateX(50%)}.hero-portrait-backlight{right:50%;top:auto;bottom:-12%;width:100vw;height:640px;transform:translateX(50%)}.hero-portrait-haze{right:0;width:100%}}
+@media(max-width:768px){.hero{min-height:auto}.hero-content{min-height:auto;padding-top:48px;padding-bottom:480px;grid-template-columns:1fr;padding-inline:24px}.hero-copy{max-width:100%;position:relative;z-index:6}.hero-eyebrow{margin-bottom:18px}.hero-title{font-size:clamp(1.85rem,5.4vw,2.6rem);margin:0 0 22px}.hero-lead{font-size:clamp(1rem,3.4vw,1.1875rem);margin:0 0 24px;max-width:100%}.hero-support{font-size:.8125rem;max-width:100%;margin:0}.hero-actions{margin-top:32px;gap:12px}.hero-text-scrim{left:-12vw;width:130vw;background:linear-gradient(180deg,rgba(6,10,9,.86) 0%,rgba(6,10,9,.6) 70%,transparent 100%)}.hero-portrait-stage{z-index:2}.hero-portrait{position:absolute;right:50%;bottom:auto;top:480px;width:min(420px,85vw);height:auto;max-height:none;transform:translateX(50%);opacity:.9;filter:drop-shadow(-20px 4px 36px rgba(27,128,194,.18));mask-image:linear-gradient(to top,#000 0%,#000 70%,rgba(0,0,0,.8) 85%,transparent 100%),linear-gradient(to right,transparent 5%,#000 20%),linear-gradient(to left,transparent 5%,#000 15%);mask-composite:intersect}.hero-portrait-backlight{right:50%;top:480px;bottom:auto;width:120vw;height:420px;transform:translateX(50%);opacity:.5;filter:blur(40px)}.hero-portrait-haze{display:none}.hero-foreground-atmosphere{opacity:.3}}
 @media(max-width:600px){.hero-content{padding-top:40px;padding-bottom:400px}.hero-title{font-size:clamp(1.7rem,6vw,2.25rem);margin:0 0 18px}.hero-lead{font-size:1.0625rem;margin:0 0 20px}.hero-support{font-size:.75rem}.hero-actions{margin-top:26px}.hero-eyebrow{margin-bottom:14px}.hero-portrait{top:400px;width:min(340px,80vw)}.hero-portrait-backlight{top:400px;height:340px}}
 @media(prefers-reduced-motion:reduce){.hero-portrait{transform:none;transition:none}.hero-fade{opacity:1;animation:none}.hero-mesh,.hero-path,.hero-nodes circle{animation:none}}
       `}</style>
@@ -309,35 +301,108 @@ function Hero({ onExploreWork, onConnect }) {
   );
 }
 
-function ImpactMetric({ value, suffix, prefix, label, active, delay }) {
-  const [shown, setShown] = React.useState(0);
+function useStagedProgress(target, active, delay, reduced) {
+  const [pct, setPct] = React.useState(reduced ? target : 0);
+  const [done, setDone] = React.useState(!!reduced);
   React.useEffect(() => {
-    if (!active) return;
-    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) { setShown(value); return; }
-    let raf = 0;
+    if (!active || reduced) return;
     const start = performance.now() + delay;
-    const dur = 1400;
-    const tick = (now) => {
-      const t = Math.min(1, Math.max(0, (now - start) / dur));
-      const eased = 1 - Math.pow(1 - t, 3);
-      setShown(Math.round(value * eased));
-      if (t < 1) raf = requestAnimationFrame(tick);
-    };
-    raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [active, value, delay]);
+    const T = { s1: 800, p1: 200, s2: 500, p2: 140, s3: 360 };
+    const b = { s1End: T.s1, p1End: T.s1 + T.p1, s2End: T.s1 + T.p1 + T.s2, p2End: T.s1 + T.p1 + T.s2 + T.p2, s3End: T.s1 + T.p1 + T.s2 + T.p2 + T.s3 };
+    const V = { a: target * 0.45, b: target * 0.78, c: target };
+    const easeOut = (t) => 1 - Math.pow(1 - t, 3);
+    const id = setInterval(() => {
+      const t = performance.now() - start;
+      let v;
+      if (t <= 0) v = 0;
+      else if (t < b.s1End) v = V.a * easeOut(t / T.s1);
+      else if (t < b.p1End) v = V.a;
+      else if (t < b.s2End) v = V.a + (V.b - V.a) * easeOut((t - b.p1End) / T.s2);
+      else if (t < b.p2End) v = V.b;
+      else if (t < b.s3End) v = V.b + (V.c - V.b) * easeOut((t - b.p2End) / T.s3);
+      else v = V.c;
+      setPct(v);
+      if (t >= b.s3End) { setDone(true); clearInterval(id); }
+    }, 40);
+    return () => clearInterval(id);
+  }, [active, target, delay, reduced]);
+  return [pct, done];
+}
+
+function PercentRing({ value, active, delay, reduced, size = 108, stroke = 7 }) {
+  const [pct, done] = useStagedProgress(value, active, delay, reduced);
+  const r = (size - stroke) / 2;
+  const c = 2 * Math.PI * r;
+  const shownPct = Math.min(100, pct);
+  const offset = c * (1 - shownPct / 100);
+  const angle = (shownPct / 100) * 360 - 90;
+  const dx = size / 2 + r * Math.cos((angle * Math.PI) / 180);
+  const dy = size / 2 + r * Math.sin((angle * Math.PI) / 180);
   return (
-    <div className="jiz-impact-card" style={{ transitionDelay: delay + 'ms' }}>
-      <div className="jiz-impact-value">{shown}{prefix}<span className="jiz-impact-suffix">{suffix}</span></div>
-      <p className="jiz-impact-label">{label}</p>
+    <div className="jiz-impact-ring-wrap" style={{ width: size, height: size }}>
+      <svg width={size} height={size} viewBox={'0 0 ' + size + ' ' + size} className={'jiz-impact-ring' + (done ? ' is-done' : '')}>
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="rgba(217,221,227,.14)" strokeWidth={stroke} />
+        <circle cx={size / 2} cy={size / 2} r={r} fill="none" stroke="var(--color-accent-primary)" strokeWidth={stroke} strokeLinecap="round" strokeDasharray={c} strokeDashoffset={offset} transform={'rotate(-90 ' + (size / 2) + ' ' + (size / 2) + ')'} className="jiz-impact-ring-arc" />
+        {shownPct > 1 && <circle cx={dx} cy={dy} r={stroke * 0.62} fill="var(--color-accent-primary)" className={'jiz-impact-ring-dot' + (done ? ' is-pulsing' : '')} />}
+      </svg>
+      <div className="jiz-impact-ring-value" aria-hidden="true"><span className="jiz-impact-ring-num">{Math.round(shownPct)}</span><span className="jiz-impact-ring-suffix">%</span></div>
     </div>
+  );
+}
+
+function YearsRing({ value, active, delay, reduced, size = 108, ticks = 16 }) {
+  const [pct, done] = useStagedProgress(value, active, delay, reduced);
+  const count = Math.min(ticks, Math.round(pct));
+  const r = size / 2 - 8;
+  const items = [];
+  for (let i = 0; i < ticks; i++) {
+    const a = (i / ticks) * 360 - 90;
+    const rad = (a * Math.PI) / 180;
+    const x1 = size / 2 + (r - 5) * Math.cos(rad), y1 = size / 2 + (r - 5) * Math.sin(rad);
+    const x2 = size / 2 + (r + 5) * Math.cos(rad), y2 = size / 2 + (r + 5) * Math.sin(rad);
+    items.push({ x1, y1, x2, y2, lit: i < count });
+  }
+  return (
+    <div className="jiz-impact-ring-wrap" style={{ width: size, height: size }}>
+      <svg width={size} height={size} viewBox={'0 0 ' + size + ' ' + size} className={'jiz-impact-ring' + (done ? ' is-done' : '')}>
+        {items.map((t, i) => (
+          <line key={i} x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2} stroke={t.lit ? 'var(--color-accent-primary)' : 'rgba(217,221,227,.14)'} strokeWidth="2.4" strokeLinecap="round" className={t.lit ? 'jiz-impact-tick is-lit' : 'jiz-impact-tick'} />
+        ))}
+      </svg>
+      <div className="jiz-impact-ring-value" aria-hidden="true"><span className="jiz-impact-ring-num">{count}</span><span className="jiz-impact-ring-suffix">{done ? '+' : ''}</span></div>
+    </div>
+  );
+}
+
+function ImpactMetric({ index, n, value, label, categoryLabel, active, delay, reduced, isLast, onDone }) {
+  const [doneLocal, setDoneLocal] = React.useState(!!reduced);
+  React.useEffect(() => {
+    if (reduced) { onDone && onDone(); return; }
+    if (!active) return;
+    const t = setTimeout(() => { setDoneLocal(true); onDone && onDone(); }, delay + 2000);
+    return () => clearTimeout(t);
+  }, [active, delay, reduced]);
+  return (
+    <article className="jiz-impact-card" style={{ transitionDelay: delay + 'ms' }} tabIndex={0}>
+      <span className="jiz-impact-scan" aria-hidden="true" />
+      <span className="jiz-impact-n" aria-hidden="true">{n}</span>
+      {value.suffix === 'years' ? (
+        <YearsRing value={16} active={active} delay={delay} reduced={reduced} />
+      ) : (
+        <PercentRing value={value.pct} active={active} delay={delay} reduced={reduced} />
+      )}
+      <p className="jiz-impact-category">{categoryLabel}</p>
+      <p className="jiz-impact-label">{label}</p>
+      {!isLast && <span className={'jiz-impact-link' + (doneLocal ? ' is-lit' : '')} aria-hidden="true" />}
+    </article>
   );
 }
 
 function ImpactSnapshot() {
   const ref = React.useRef(null);
   const [active, setActive] = React.useState(false);
+  const [reduced, setReduced] = React.useState(false);
+  React.useEffect(() => { setReduced(prefersReduced()); }, []);
   React.useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -345,46 +410,79 @@ function ImpactSnapshot() {
     const fallback = setTimeout(() => setActive(true), 1200);
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => { if (e.isIntersecting) { clearTimeout(fallback); setActive(true); io.disconnect(); } });
-    }, { threshold: 0.25 });
+    }, { threshold: 0.3 });
     io.observe(el);
     return () => { clearTimeout(fallback); io.disconnect(); };
   }, []);
+  const onGlow = React.useCallback((e) => {
+    if (reduced || matchMedia('(pointer: coarse)').matches) return;
+    const el = ref.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--imp-mx', (((e.clientX - r.left) / r.width) * 100).toFixed(1) + '%');
+    el.style.setProperty('--imp-my', (((e.clientY - r.top) / r.height) * 100).toFixed(1) + '%');
+  }, [reduced]);
   const metrics = [
-    { value: 98, suffix: '%', label: 'Platform adoption supported through targeted enablement' },
-    { value: 40, suffix: '%', label: 'Faster content delivery using AI-enabled production workflows' },
-    { value: 35, suffix: '%', label: 'Improvement in leadership capability outcomes contributed to through scenario-based design' },
-    { value: 50, suffix: '%', label: 'Increase in executive visibility supported through learning analytics dashboards' },
-    { value: 16, prefix: '+', suffix: ' Years', label: 'Designing learning experiences across corporate, technology, and education environments' }
+    { categoryLabel: 'ADOPTION', value: { pct: 98 }, label: 'Platform adoption supported through targeted enablement' },
+    { categoryLabel: 'PRODUCTION', value: { pct: 40 }, label: 'Faster content delivery using AI-enabled production workflows' },
+    { categoryLabel: 'LEADERSHIP', value: { pct: 35 }, label: 'Improvement in leadership capability outcomes contributed to through scenario-based design' },
+    { categoryLabel: 'VISIBILITY', value: { pct: 50 }, label: 'Increase in executive visibility supported through learning analytics dashboards' },
+    { categoryLabel: 'EXPERIENCE', value: { suffix: 'years' }, label: 'Designing learning experiences across corporate, technology, and education environments' }
   ];
   return (
-    <section className="jiz-impact" ref={ref} data-in={active ? 'true' : 'false'} aria-labelledby="jiz-impact-title">
+    <section className="jiz-impact" ref={ref} data-in={active ? 'true' : 'false'} aria-labelledby="jiz-impact-title" onMouseMove={onGlow}>
+      <span className="jiz-impact-cursor-glow" aria-hidden="true" />
+      <span className="jiz-impact-fine-grid" aria-hidden="true" />
       <div className="jiz-impact-inner">
         <div className="jiz-impact-head">
+          <p className="jiz-impact-eyebrow">IMPACT // QUANTIFIED</p>
           <h2 className="jiz-impact-title" id="jiz-impact-title">Selected Impact</h2>
           <p className="jiz-impact-sub">Enterprise learning outcomes across platform adoption, leadership development, digital transformation, and AI-enabled production.</p>
         </div>
         <div className="jiz-impact-grid">
-          {metrics.map((m, i) => <ImpactMetric key={m.label} {...m} active={active} delay={260 + i * 130} />)}
+          {metrics.map((m, i) => (
+            <ImpactMetric key={m.categoryLabel} n={String(i + 1).padStart(2, '0')} index={i} value={m.value} label={m.label} categoryLabel={m.categoryLabel} active={active} reduced={reduced} delay={260 + i * 120} isLast={i === metrics.length - 1} />
+          ))}
         </div>
       </div>
       <style>{`
-.jiz-impact{position:relative;background:linear-gradient(165deg,#CFF74A 0%,#C6F23A 46%,#B6E62C 100%);padding-block:clamp(60px,6vw,100px)}
-.jiz-impact-inner{width:min(1440px,calc(100% - 2*clamp(24px,6vw,112px)));margin-inline:auto}
-.jiz-impact-head{max-width:760px;margin-bottom:clamp(36px,3.6vw,56px);opacity:0;transform:translate3d(0,10px,0);transition:opacity 760ms cubic-bezier(.22,.61,.36,1),transform 760ms cubic-bezier(.22,.61,.36,1)}
+.jiz-impact{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(180deg,#0B0D10 0%,#0E1114 100%);padding-block:clamp(72px,7vw,116px)}
+.jiz-impact::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 50% 40% at 20% 8%,rgba(198,242,58,.05),transparent 68%),radial-gradient(ellipse 40% 34% at 88% 84%,rgba(100,225,255,.035),transparent 70%)}
+.jiz-impact-fine-grid{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.35;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%);mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%)}
+.jiz-impact-cursor-glow{position:absolute;z-index:0;left:0;top:0;width:100%;height:100%;pointer-events:none;background:radial-gradient(circle 380px at var(--imp-mx,50%) var(--imp-my,20%),rgba(198,242,58,.05),transparent 70%);transition:background 120ms linear}
+.jiz-impact-inner{position:relative;z-index:1;width:100%;max-width:1800px;margin-inline:auto;padding-inline:clamp(28px,7.9vw,152px)}
+.jiz-impact-head{max-width:740px;margin-bottom:clamp(46px,4.6vw,72px);opacity:0;transform:translate3d(0,10px,0);transition:opacity 760ms cubic-bezier(.22,.61,.36,1),transform 760ms cubic-bezier(.22,.61,.36,1)}
 .jiz-impact[data-in="true"] .jiz-impact-head{opacity:1;transform:none}
-.jiz-impact-title{font:var(--text-display);font-size:clamp(1.7rem,1.2rem + 1.3vw,2.5rem);line-height:1.1;letter-spacing:-.015em;color:#0A0F0D;margin:0 0 14px}
-.jiz-impact-sub{font:var(--text-body);font-size:clamp(.9375rem,.9rem + .2vw,1.0625rem);line-height:1.6;color:rgba(10,15,11,.74);margin:0;text-wrap:pretty}
-.jiz-impact-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(14px,1.4vw,22px)}
-.jiz-impact-card{padding:clamp(22px,1.9vw,30px);background:#0C1210;border:1px solid rgba(255,255,255,.07);border-radius:clamp(14px,1.2vw,20px);box-shadow:0 14px 34px -18px rgba(6,14,4,.55);opacity:0;transform:translate3d(0,18px,0);transition:opacity 720ms cubic-bezier(.22,.61,.36,1),transform 720ms cubic-bezier(.22,.61,.36,1),background 260ms ease,border-color 260ms ease,box-shadow 260ms ease}
+.jiz-impact-eyebrow{margin:0 0 16px;color:var(--color-accent-primary);font:var(--text-hud);font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.22em;text-transform:uppercase}
+.jiz-impact-title{font:var(--text-display);font-size:clamp(1.9rem,1.3rem + 1.6vw,2.6rem);line-height:1.1;letter-spacing:-.018em;color:var(--color-text-primary);margin:0 0 14px}
+.jiz-impact-sub{font:var(--text-body);font-size:clamp(.9375rem,.9rem + .2vw,1.0625rem);line-height:1.62;color:rgba(217,221,227,.72);margin:0;max-width:760px;text-wrap:pretty}
+.jiz-impact-grid{display:flex;flex-wrap:wrap;gap:clamp(14px,1.4vw,22px)}
+.jiz-impact-card{position:relative;overflow:hidden;flex:1 1 clamp(220px,18vw,280px);display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:clamp(26px,2.2vw,34px) clamp(18px,1.6vw,24px);background:#171A1F;border:1px solid rgba(217,221,227,.09);border-radius:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.03),0 14px 34px -20px rgba(0,0,0,.6);opacity:0;transform:translate3d(0,18px,0);transition:opacity 720ms cubic-bezier(.22,.61,.36,1),transform 720ms cubic-bezier(.22,.61,.36,1),border-color 260ms ease,box-shadow 260ms ease,background 260ms ease}
 .jiz-impact[data-in="true"] .jiz-impact-card{opacity:1;transform:none}
-.jiz-impact-card:hover{background:#101815;border-color:rgba(255,255,255,.14);box-shadow:0 20px 44px -18px rgba(6,14,4,.62),0 0 0 1px rgba(255,255,255,.06);transform:translate3d(0,-3px,0);transition-delay:0ms}
-.jiz-impact-value{font:var(--text-display);font-size:clamp(2.1rem,1.5rem + 1.7vw,3.15rem);line-height:1;letter-spacing:-.02em;color:#FFFFFF;font-variant-numeric:tabular-nums;margin-bottom:14px}
-.jiz-impact-suffix{font-size:.52em;letter-spacing:0;margin-left:1px;color:var(--color-accent-primary)}
-.jiz-impact-label{font:var(--text-body);font-size:.9375rem;line-height:1.5;color:rgba(240,244,238,.82);margin:0;text-wrap:pretty}
-@media(max-width:1180px){.jiz-impact-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:760px){.jiz-impact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.jiz-impact-label{font-size:.875rem}}
-@media(max-width:460px){.jiz-impact-grid{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){.jiz-impact-head,.jiz-impact-card{opacity:1;transform:none;transition:none}.jiz-impact-card:hover{transform:none}}
+.jiz-impact-card:hover,.jiz-impact-card:focus-visible{background:#1B1F26;border-color:rgba(198,242,58,.32);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 22px 44px -20px rgba(0,0,0,.7),0 0 0 1px rgba(198,242,58,.08);transform:translate3d(0,-4px,0);transition-delay:0ms}
+.jiz-impact-card:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:4px}
+.jiz-impact-card:hover .jiz-impact-scan{transform:translateX(220%)}
+.jiz-impact-scan{position:absolute;left:-40%;top:0;bottom:0;width:34%;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(198,242,58,.08),transparent);transform:translateX(-40%);transition:transform 900ms cubic-bezier(.22,.61,.36,1)}
+.jiz-impact-n{position:absolute;top:14px;right:16px;color:rgba(217,221,227,.42);font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.08em}
+.jiz-impact-ring-wrap{position:relative;display:grid;place-items:center;margin:2px 0 6px}
+.jiz-impact-ring-arc{filter:drop-shadow(0 0 4px rgba(198,242,58,.35))}
+.jiz-impact-ring.is-done .jiz-impact-ring-arc{filter:drop-shadow(0 0 9px rgba(198,242,58,.55))}
+.jiz-impact-ring-dot{filter:drop-shadow(0 0 5px rgba(198,242,58,.8))}
+.jiz-impact-ring-dot.is-pulsing{animation:jiz-impact-pulse-once 900ms cubic-bezier(.22,.61,.36,1) 1}
+@keyframes jiz-impact-pulse-once{0%{r:${'6'};opacity:1}40%{r:9;opacity:.55}100%{r:${'4.34'};opacity:1}}
+.jiz-impact-tick{transition:stroke 280ms ease}
+.jiz-impact-ring-value{position:absolute;display:flex;align-items:baseline;gap:1px}
+.jiz-impact-ring-num{font:var(--text-display);font-size:1.5rem;letter-spacing:-.02em;color:#FFFFFF;font-variant-numeric:tabular-nums}
+.jiz-impact-ring-suffix{font-size:.8125rem;color:var(--color-accent-primary);font-weight:600}
+.jiz-impact-category{margin:2px 0 0;color:var(--color-accent-primary);font-family:var(--font-mono);font-size:.6875rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase}
+.jiz-impact-label{flex:1;display:flex;align-items:center;font:var(--text-body);font-size:.875rem;line-height:1.5;color:rgba(217,221,227,.72);margin:0;max-width:34ch;text-wrap:pretty}
+.jiz-impact-link{position:absolute;top:50%;right:-1px;width:clamp(14px,1.4vw,22px);height:1px;background:rgba(217,221,227,.12);transform:translateY(-50%);z-index:2;transition:background 500ms ease,box-shadow 500ms ease}
+.jiz-impact-link.is-lit{background:var(--color-accent-primary);box-shadow:0 0 8px rgba(198,242,58,.6)}
+@media(min-width:1440px){.jiz-impact-card{flex-basis:0;flex-grow:1}}
+@media(max-width:1439.98px) and (min-width:1024px){.jiz-impact-grid{justify-content:center}.jiz-impact-card{flex:1 1 30%;max-width:32%}}
+@media(max-width:1023.98px) and (min-width:768px){.jiz-impact-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.jiz-impact-card{flex:none}.jiz-impact-link{display:none}}
+@media(max-width:767.98px){.jiz-impact-grid{display:flex;flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;-webkit-overflow-scrolling:touch}.jiz-impact-card{flex:0 0 82%;scroll-snap-align:start}.jiz-impact-link{display:none}.jiz-impact-inner::after{content:'';display:none}}
+@media(prefers-reduced-motion:reduce){.jiz-impact-head,.jiz-impact-card{opacity:1;transform:none;transition:none}.jiz-impact-card:hover,.jiz-impact-card:focus-visible{transform:none}.jiz-impact-scan{display:none}.jiz-impact-cursor-glow{display:none}}
       `}</style>
     </section>
   );
@@ -694,6 +792,28 @@ function FilmSection() {
     React.useState(false);
   const [loadTimeout, setLoadTimeout] =
     React.useState(false);
+  const artifactRef = React.useRef(null);
+  const [artifactIn, setArtifactIn] = React.useState(false);
+  const [artifactOpen, setArtifactOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    const el = artifactRef.current;
+    if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') { setArtifactIn(true); return; }
+    const fallback = setTimeout(() => setArtifactIn(true), 1200);
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { clearTimeout(fallback); setArtifactIn(true); io.disconnect(); } });
+    }, { threshold: 0.14, rootMargin: '160px 0px' });
+    io.observe(el);
+    return () => { clearTimeout(fallback); io.disconnect(); };
+  }, []);
+
+  React.useEffect(() => {
+    if (!artifactOpen) return;
+    const onKey = (e) => { if (e.key === 'Escape') setArtifactOpen(false); };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [artifactOpen]);
 
   React.useEffect(function () {
     if (
@@ -1815,6 +1935,71 @@ function FilmSection() {
               </span>
             </div>
           </div>
+        </div>
+
+        <div className="jiz-sysmap" ref={artifactRef} data-in={artifactIn ? 'true' : 'false'}>
+          <p className="jiz-sysmap-eyebrow"><span className="jiz-sysmap-eyebrow-line" aria-hidden="true" />Artifact / Systems Map</p>
+          <h3 className="jiz-sysmap-title">Cinematic Learning Systems Map</h3>
+          <p className="jiz-sysmap-sub">A time-based breakdown of how narrative architecture, visual world building, cinematography, audio, and learning integration interact across the sequence.</p>
+          <figure className="jiz-sysmap-frame">
+            <button type="button" className="jiz-sysmap-expand" onClick={() => setArtifactOpen(true)} aria-haspopup="dialog">
+              {artifactIn ? <img className="jiz-sysmap-img" src="./assets/imagery/train-story-systems-map.png" alt="Cinematic Learning Systems Map: a timeline breaking The Train Story into seven scenes from 0:00 to 1:05, each tagged with active narrative, visual, cinematography, audio, and learning-integration nodes, with a highlighted Threshold key moment at 0:54–0:57." loading="eager" decoding="async" /> : <span className="jiz-sysmap-img-ph" aria-hidden="true" />}
+              <span className="jiz-sysmap-expand-tag">
+                <span className="jiz-sysmap-expand-icon" aria-hidden="true">⤢</span>
+                Expand
+              </span>
+            </button>
+          </figure>
+          <div className="jiz-sysmap-threshold">
+            <p className="jiz-sysmap-threshold-label">Key Moment / Threshold</p>
+            <p className="jiz-sysmap-threshold-copy">The threshold moment visualizes the transition from disruption to decision. Through amber light, silence, and a single piano note, the sequence marks a deliberate shift in emotional and narrative direction — held for three seconds, 0:54–0:57.</p>
+          </div>
+          <ul className="jiz-sysmap-proof">
+            {['Narrative architecture', 'Systems thinking', 'Cinematic learning design', 'AI-directed production workflow'].map((p, i) => (
+              <li key={p} className="jiz-sysmap-proof-chip" style={{ transitionDelay: (140 + i * 110) + 'ms' }}>{p}</li>
+            ))}
+          </ul>
+          {artifactOpen && (
+            <div className="jiz-sysmap-modal" role="dialog" aria-modal="true" aria-label="Cinematic Learning Systems Map, expanded" onClick={() => setArtifactOpen(false)}>
+              <button type="button" className="jiz-sysmap-modal-close" onClick={() => setArtifactOpen(false)} aria-label="Close expanded systems map">✕</button>
+              <img className="jiz-sysmap-modal-img" src="./assets/imagery/train-story-systems-map.png" alt="" loading="eager" onClick={(e) => e.stopPropagation()} />
+            </div>
+          )}
+          <style>{`
+.jiz-sysmap{position:relative;margin:clamp(56px,5.6vw,88px) 0 0;padding-top:clamp(44px,4.4vw,68px);border-top:1px solid rgba(100,225,255,.14)}
+.jiz-sysmap-eyebrow,.jiz-sysmap-title,.jiz-sysmap-sub,.jiz-sysmap-frame,.jiz-sysmap-threshold{opacity:0;transform:translate3d(0,16px,0);transition:opacity 800ms cubic-bezier(.22,.61,.36,1),transform 800ms cubic-bezier(.22,.61,.36,1)}
+.jiz-sysmap[data-in="true"] .jiz-sysmap-eyebrow,.jiz-sysmap[data-in="true"] .jiz-sysmap-title,.jiz-sysmap[data-in="true"] .jiz-sysmap-sub,.jiz-sysmap[data-in="true"] .jiz-sysmap-frame,.jiz-sysmap[data-in="true"] .jiz-sysmap-threshold{opacity:1;transform:none}
+.jiz-sysmap-title{transition-delay:90ms}
+.jiz-sysmap-sub{transition-delay:170ms}
+.jiz-sysmap-frame{transition-delay:250ms}
+.jiz-sysmap-threshold{transition-delay:360ms}
+.jiz-sysmap-eyebrow{display:flex;align-items:center;gap:14px;margin:0 0 16px;color:var(--color-accent-secondary);font:var(--text-hud);font-size:.6875rem;letter-spacing:.22em;text-transform:uppercase}
+.jiz-sysmap-eyebrow-line{display:block;width:40px;height:1px;background:linear-gradient(90deg,var(--color-accent-secondary),rgba(100,225,255,.14))}
+.jiz-sysmap-title{margin:0 0 14px;color:var(--color-text-primary);font:var(--text-h2);font-size:clamp(1.65rem,1.2rem + 1.5vw,2.4rem);line-height:1.12;letter-spacing:-.02em;text-wrap:pretty}
+.jiz-sysmap-sub{margin:0 0 clamp(28px,3vw,42px);max-width:70ch;color:rgba(217,221,227,.72);font:var(--text-body);font-size:.9375rem;line-height:1.68;text-wrap:pretty}
+.jiz-sysmap-frame{position:relative;margin:0 0 clamp(26px,2.8vw,38px);border-radius:clamp(16px,1.6vw,26px);overflow:hidden;background:linear-gradient(160deg,#171A1F 0%,#0B0D10 100%);border:1px solid rgba(100,225,255,.2);box-shadow:0 24px 54px -32px rgba(0,0,0,.85),0 0 0 1px rgba(100,225,255,.05);transition:border-color 320ms ease,box-shadow 320ms ease,transform 320ms cubic-bezier(.22,.61,.36,1)}
+.jiz-sysmap-frame:hover{border-color:rgba(100,225,255,.42);box-shadow:0 32px 68px -32px rgba(0,0,0,.9),0 0 46px -14px rgba(100,225,255,.24);transform:translate3d(0,-3px,0)}
+.jiz-sysmap-expand{position:relative;display:block;width:100%;padding:0;border:0;background:none;cursor:zoom-in}
+.jiz-sysmap-img{display:block;width:100%;height:auto}
+.jiz-sysmap-img-ph{display:block;width:100%;aspect-ratio:1488/832;background:linear-gradient(160deg,#171A1F 0%,#0B0D10 100%)}
+.jiz-sysmap-expand-tag{position:absolute;right:16px;bottom:16px;display:inline-flex;align-items:center;gap:7px;padding:8px 14px;border-radius:var(--radius-pill);background:rgba(11,13,16,.72);border:1px solid rgba(100,225,255,.32);color:#EAF7FB;font:var(--text-body);font-size:.75rem;backdrop-filter:blur(6px);transition:background 240ms ease,border-color 240ms ease}
+.jiz-sysmap-frame:hover .jiz-sysmap-expand-tag{background:rgba(11,13,16,.85);border-color:rgba(100,225,255,.55)}
+.jiz-sysmap-expand-icon{font-size:.875rem;color:var(--color-accent-secondary)}
+.jiz-sysmap-expand:focus-visible{outline:2px solid var(--color-accent-secondary);outline-offset:4px}
+.jiz-sysmap-threshold{padding:clamp(18px,1.8vw,26px) clamp(20px,2vw,28px);border-radius:clamp(12px,1vw,16px);background:linear-gradient(180deg,rgba(255,176,64,.07) 0%,rgba(23,26,31,.4) 100%);border:1px solid rgba(255,176,64,.22);border-left:2px solid #FFB040}
+.jiz-sysmap-threshold-label{margin:0 0 8px;color:#FFB040;font:var(--text-hud);font-size:.625rem;letter-spacing:.18em;text-transform:uppercase}
+.jiz-sysmap-threshold-copy{margin:0;max-width:72ch;color:rgba(232,238,226,.82);font:var(--text-body);font-size:.875rem;line-height:1.62;text-wrap:pretty}
+.jiz-sysmap-proof{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:clamp(24px,2.6vw,34px) 0 0;padding:0}
+.jiz-sysmap-proof-chip{padding:9px 16px;border-radius:var(--radius-pill);background:rgba(198,242,58,.05);border:1px solid rgba(198,242,58,.2);color:#E4F5BE;font:var(--text-body);font-size:.8125rem;opacity:0;transform:translate3d(0,10px,0);transition:opacity 620ms cubic-bezier(.22,.61,.36,1),transform 620ms cubic-bezier(.22,.61,.36,1),border-color 240ms ease,background 240ms ease}
+.jiz-sysmap[data-in="true"] .jiz-sysmap-proof-chip{opacity:1;transform:none}
+.jiz-sysmap-proof-chip:hover{background:rgba(198,242,58,.12);border-color:rgba(198,242,58,.4)}
+.jiz-sysmap-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:clamp(20px,4vw,60px);background:rgba(5,7,9,.92);backdrop-filter:blur(6px);cursor:zoom-out}
+.jiz-sysmap-modal-img{max-width:100%;max-height:100%;border-radius:12px;box-shadow:0 40px 90px -30px rgba(0,0,0,.7);cursor:default}
+.jiz-sysmap-modal-close{position:absolute;top:clamp(16px,3vw,28px);right:clamp(16px,3vw,28px);width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.24);background:rgba(11,13,16,.6);color:#fff;font-size:1.125rem;cursor:pointer}
+.jiz-sysmap-modal-close:focus-visible,.jiz-sysmap-proof-chip:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:3px}
+@media(max-width:640px){.jiz-sysmap-frame{overflow-x:auto}.jiz-sysmap-img{width:640px;max-width:none}}
+@media(prefers-reduced-motion:reduce){.jiz-sysmap-eyebrow,.jiz-sysmap-title,.jiz-sysmap-sub,.jiz-sysmap-frame,.jiz-sysmap-threshold,.jiz-sysmap-proof-chip{opacity:1;transform:none;transition:none}.jiz-sysmap-frame:hover{transform:none}}
+          `}</style>
         </div>
 
         {reducedMotion && (
