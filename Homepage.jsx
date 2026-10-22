@@ -85,6 +85,34 @@ function ChromaKeyVideo({ src, className, style }) {
   );
 }
 
+// Site-wide "Pause motion" preference for the decorative portrait loops (kept for the visit).
+const jizMotion = (() => {
+  let paused = false;
+  try { paused = sessionStorage.getItem('jiz-motion-paused') === '1'; } catch (e) {}
+  const subs = new Set();
+  return {
+    paused: () => paused,
+    set(v) { paused = v; try { sessionStorage.setItem('jiz-motion-paused', v ? '1' : '0'); } catch (e) {} subs.forEach((f) => f(v)); },
+    subscribe(f) { subs.add(f); return () => subs.delete(f); }
+  };
+})();
+
+function MotionToggle({ className = '' }) {
+  const [paused, setPaused] = React.useState(jizMotion.paused());
+  React.useEffect(() => jizMotion.subscribe(setPaused), []);
+  return (
+    <button type="button" className={'jiz-motion-toggle ' + className} onClick={() => jizMotion.set(!paused)}>
+      <svg aria-hidden="true" width="10" height="10" viewBox="0 0 10 10">{paused ? <path d="M2 1l7 4-7 4z" fill="currentColor" /> : <path d="M2 1h2v8H2zM6 1h2v8H6z" fill="currentColor" />}</svg>
+      {paused ? 'Play motion' : 'Pause motion'}
+    </button>
+  );
+}
+
+const MOTION_TOGGLE_CSS = `.jiz-motion-toggle{position:absolute;z-index:7;display:inline-flex;align-items:center;gap:8px;min-height:32px;padding:0 12px;border:1px solid rgba(255,255,255,.16);border-radius:var(--radius-pill);background:rgba(8,13,11,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:rgba(238,242,236,.82);font:500 .75rem/1 var(--font-body);letter-spacing:.02em;cursor:pointer;transition:border-color var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard)}
+.jiz-motion-toggle:hover{border-color:rgba(198,242,58,.45);color:#fff}
+.jiz-motion-toggle:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:3px}
+.jiz-motion-toggle::before{content:'';position:absolute;inset:-6px}`;
+
 function InViewVideo({ eager = false, videoRef, children, ...rest }) {
   const local = React.useRef(null);
   const setRef = React.useCallback((el) => { local.current = el; if (videoRef) videoRef.current = el; }, [videoRef]);
@@ -93,15 +121,19 @@ function InViewVideo({ eager = false, videoRef, children, ...rest }) {
     if (!v) return undefined;
     v.muted = true;
     if (prefersReduced()) { v.preload = 'metadata'; return undefined; }
-    if (typeof IntersectionObserver === 'undefined') { v.play().catch(() => {}); return undefined; }
+    let inView = typeof IntersectionObserver === 'undefined';
+    const play = () => { if (inView && !jizMotion.paused()) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } };
+    const unsub = jizMotion.subscribe((paused) => { if (paused) v.pause(); else play(); });
+    if (inView) { play(); return unsub; }
     const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+      inView = e.isIntersecting;
+      if (inView) play();
       else if (!v.paused) v.pause();
     }, { rootMargin: '200px 0px' });
     io.observe(v);
-    return () => io.disconnect();
+    return () => { io.disconnect(); unsub(); };
   }, []);
-  return <video ref={setRef} muted loop playsInline autoPlay={eager} preload={eager ? 'auto' : 'none'} {...rest}>{children}</video>;
+  return <video ref={setRef} muted loop playsInline autoPlay={eager && !jizMotion.paused()} preload={eager ? 'auto' : 'none'} {...rest}>{children}</video>;
 }
 
 function Reveal({ children, style, delay = 0, highlight = false }) {
@@ -153,6 +185,8 @@ function LearningPathways() {
 function Hero({ onExploreWork, onConnect }) {
   const { Button, StatusPill } = window.JIZPortfolioSite_b3ba38;
   const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
+  // Phones and reduced motion get the still poster; the moving portrait is for wider screens.
+  const heroStill = prefersReduced() || !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
   return (
     <section className="hero">
       <div className="hero-environment" aria-hidden="true">
@@ -177,13 +211,14 @@ function Hero({ onExploreWork, onConnect }) {
       </div>
 
       <div className="hero-video-stage" aria-hidden="true">
-        {(window.matchMedia && window.matchMedia('(max-width: 768px)').matches)
-          ? <img className="hero-video" src="./assets/imagery/jonathan-hero-poster.webp" alt="" decoding="async" fetchpriority="high" />
-          : <InViewVideo eager={!prefersReduced()} className="hero-video" poster="./assets/imagery/jonathan-hero-poster.webp" disablePictureInPicture tabIndex={-1} onLoadedData={e => { e.target.muted = true; e.target.volume = 0; }}>
-              <source src="./assets/video/jonathan-hero.mp4" type="video/mp4" />
+        {heroStill
+          ? <img className="hero-video" src="./assets/imagery/jonathan-hero-loop-poster.webp" alt="" decoding="async" fetchpriority="high" />
+          : <InViewVideo eager className="hero-video" poster="./assets/imagery/jonathan-hero-loop-poster.webp" disablePictureInPicture tabIndex={-1} onLoadedData={e => { e.target.muted = true; e.target.volume = 0; }}>
+              <source src="./assets/video/jonathan-hero-loop.mp4" type="video/mp4" />
             </InViewVideo>}
         <div className="hero-video-blend" />
       </div>
+      {heroStill ? null : <MotionToggle className="hero-motion" />}
       <div className="hero-foreground-atmosphere" aria-hidden="true" />
 
       <style>{`
@@ -237,12 +272,17 @@ function Hero({ onExploreWork, onConnect }) {
 .hero-content{grid-template-columns:44fr 56fr}
 .hero-copy{grid-column:2}
 @media(max-width:1180px){.hero-content{grid-template-columns:40fr 60fr}}
+@media(min-width:901px) and (max-width:1180px){.hero-content{grid-template-columns:minmax(0,53fr) minmax(0,47fr)}.hero-support{width:auto;max-width:100%}}
+@media(min-width:1181px) and (max-width:1400px){.hero-content{grid-template-columns:minmax(0,47fr) minmax(0,53fr)}.hero-support{width:auto;max-width:100%}}
+@media(min-width:901px) and (max-height:820px){.hero-content{padding-block:clamp(36px,5vh,56px)}}
 @media(min-width:1181px){.hero-copy{margin-left:clamp(0px,calc((100vw - 1480px) * .32),140px)}}
 @media(max-width:900px){.hero-content{grid-template-columns:1fr}.hero-copy{grid-column:1}.hero-video-stage{top:auto;height:520px}.hero-video{object-position:8% 0%}.hero-video-blend{background:linear-gradient(180deg,#080D0B 0%,transparent 6%,transparent 80%,#080D0B 100%),linear-gradient(90deg,transparent 0%,transparent 55%,rgba(8,13,11,.6) 100%)}}
 @media(max-width:768px){.hero-video-stage{height:480px}.hero-video{object-position:0% 0%}}
 @media(max-width:600px){.hero-video-stage{height:400px}}
 @media(orientation:landscape) and (max-height:600px) and (min-width:560px){.hero{min-height:auto}.hero-content{grid-template-columns:40fr 60fr;min-height:calc(100svh - 96px);padding-top:clamp(20px,5vh,40px);padding-bottom:clamp(20px,5vh,40px);padding-inline:clamp(20px,4vw,48px)}.hero-copy{grid-column:2;max-width:100%}.hero-title{font-size:clamp(1.4rem,1rem + 2vw,2.1rem);margin:0 0 12px}.hero-lead{font-size:clamp(.875rem,.8rem + .4vw,1rem);line-height:1.45;margin:0 0 12px}.hero-support{font-size:.6875rem}.hero-actions{margin-top:16px;gap:10px}.hero-video-stage{top:0;height:auto}.hero-video{object-position:18% 0%}.hero-video-blend{background:linear-gradient(90deg,transparent 0%,transparent 34%,rgba(8,13,11,.55) 48%,rgba(8,13,11,.85) 64%,rgba(8,13,11,.92) 100%),linear-gradient(180deg,transparent 0%,transparent 75%,#080D0B 100%)}}
 @media(prefers-reduced-motion:reduce){.hero-portrait{transform:none;transition:none}.hero-fade{opacity:1;animation:none}.hero-mesh,.hero-path,.hero-nodes circle{animation:none}}
+${MOTION_TOGGLE_CSS}
+.hero-motion{left:clamp(16px,2vw,28px);bottom:clamp(16px,2vw,28px)}
       `}</style>
     </section>
   );
@@ -2125,16 +2165,17 @@ function AboutMind() {
         </div>
         <div className="jiz-am-col jiz-am-col--right">
           <figure className="jiz-am-card" ref={cardRef} onMouseMove={onMove} onMouseLeave={onLeave}>
-            <div className="jiz-am-stage" role="img" aria-label="Jonathan speaking in a futuristic studio environment representing learning strategy and systems thinking.">
-              <img className="jiz-am-poster" src="./assets/imagery/jonathan-about-poster.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1920" height="1080" />
+            <div className="jiz-am-stage" role="img" aria-label="Jonathan seated on a wooden desk in a warmly lit studio.">
+              <img className="jiz-am-poster" src="./assets/imagery/jonathan-closing-poster.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1920" height="1080" />
               {showVideo ? (
-                <InViewVideo videoRef={studioRef} className="jiz-am-video" poster="./assets/imagery/jonathan-about-poster.webp" preload="metadata" aria-hidden="true" tabIndex={-1} disablePictureInPicture>
-                  <source src="./assets/video/jonathan-about-loop.mp4" type="video/mp4" />
+                <InViewVideo videoRef={studioRef} className="jiz-am-video" poster="./assets/imagery/jonathan-closing-poster.webp" preload="metadata" aria-hidden="true" tabIndex={-1} disablePictureInPicture>
+                  <source src="./assets/video/jonathan-closing-loop.mp4" type="video/mp4" />
                 </InViewVideo>
               ) : null}
               <span className="jiz-am-rim" aria-hidden="true" />
               <span className="jiz-am-rule" aria-hidden="true" />
             </div>
+            {showVideo ? <MotionToggle className="jiz-am-motion" /> : null}
             <figcaption className="jiz-am-quote">
               <span className="jiz-am-quote-mark" aria-hidden="true" />
               <blockquote className="jiz-am-quote-text">“I translate complexity into learning people can use.”</blockquote>
@@ -2176,6 +2217,7 @@ function AboutMind() {
 .jiz-am-rim{position:absolute;inset:0;pointer-events:none;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(100,225,255,.14),inset 0 -40px 60px -50px rgba(100,225,255,.5)}
 .jiz-am-rule{position:absolute;left:clamp(18px,1.6vw,26px);bottom:clamp(18px,1.6vw,26px);width:36px;height:1px;background:var(--color-accent-primary);opacity:.65;transition:width 560ms cubic-bezier(.22,.61,.36,1),opacity 300ms ease}
 .jiz-am-card:hover .jiz-am-rule{width:68px;opacity:1}
+.jiz-am-motion{top:clamp(10px,1.2vw,16px);right:clamp(10px,1.2vw,16px)}
 .jiz-am-quote{display:flex;flex-direction:column;gap:10px;padding:clamp(20px,2vw,30px)}
 .jiz-am-quote-mark{width:30px;height:2px;background:linear-gradient(90deg,var(--color-accent-primary),rgba(198,242,58,.08))}
 .jiz-am-quote-text{font:var(--text-h3);font-size:clamp(1.05rem,.95rem + .45vw,1.3rem);line-height:1.4;letter-spacing:-.012em;color:var(--color-text-primary);margin:0;text-wrap:pretty}
