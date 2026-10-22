@@ -70,22 +70,27 @@ function PackageCarousel({ items }) {
 function CaseStudyShell({ config, onBack, onOpenProject }) {
   const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const [progress, setProgress] = React.useState(0);
+  const rootRef = React.useRef(null);
 
   React.useEffect(() => {
+    // Track the case-study overlay's own scroll when inside it; otherwise the page.
+    const box = rootRef.current && rootRef.current.closest('[data-cs-scroll]');
     const onScroll = () => {
-      const h = document.documentElement.scrollHeight - window.innerHeight;
-      setProgress(h > 0 ? Math.min(1, Math.max(0, window.scrollY / h)) : 0);
+      const h = box ? box.scrollHeight - box.clientHeight : document.documentElement.scrollHeight - window.innerHeight;
+      const y = box ? box.scrollTop : window.scrollY;
+      setProgress(h > 0 ? Math.min(1, Math.max(0, y / h)) : 0);
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
+    const target = box || window;
+    target.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-    return () => window.removeEventListener('scroll', onScroll);
+    return () => target.removeEventListener('scroll', onScroll);
   }, []);
 
   const has = (v) => Array.isArray(v) ? v.length > 0 : Boolean(v);
   const incomplete = !has(config.summary) || !has(config.process);
 
   return (
-    <article className="jiz-cs" data-case-study={config.slug}>
+    <article ref={rootRef} className="jiz-cs" data-case-study={config.slug}>
       <style>{`
         .jiz-cs{position:relative;min-height:100vh;background:var(--color-background-primary)}
         .jiz-cs-progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;background:rgba(255,255,255,.06)}
