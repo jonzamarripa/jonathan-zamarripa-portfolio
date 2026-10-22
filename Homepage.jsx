@@ -119,19 +119,28 @@ function InViewVideo({ eager = false, videoRef, children, ...rest }) {
   React.useEffect(() => {
     const v = local.current;
     if (!v) return undefined;
-    v.muted = true;
+    // iOS/Android only autoplay inline, muted video: set the attributes as well as the properties.
+    v.muted = true; v.defaultMuted = true; v.volume = 0;
+    v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', '');
     if (prefersReduced()) { v.preload = 'metadata'; return undefined; }
     let inView = typeof IntersectionObserver === 'undefined';
-    const play = () => { if (inView && !jizMotion.paused()) { const p = v.play(); if (p && p.catch) p.catch(() => {}); } };
+    // If playback is refused (e.g. iOS Low Power Mode), the poster simply stays up.
+    const play = () => { if (inView && !jizMotion.paused() && !document.hidden && v.paused) { v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); } };
     const unsub = jizMotion.subscribe((paused) => { if (paused) v.pause(); else play(); });
-    if (inView) { play(); return unsub; }
+    // Retry once data arrives, and after the tab or app returns to the foreground (mobile browsers pause it).
+    const onVisibility = () => { if (!document.hidden) play(); };
+    v.addEventListener('canplay', play);
+    document.addEventListener('visibilitychange', onVisibility);
+    window.addEventListener('pageshow', onVisibility);
+    const cleanup = () => { unsub(); v.removeEventListener('canplay', play); document.removeEventListener('visibilitychange', onVisibility); window.removeEventListener('pageshow', onVisibility); };
+    if (inView) { play(); return cleanup; }
     const io = new IntersectionObserver(([e]) => {
       inView = e.isIntersecting;
       if (inView) play();
       else if (!v.paused) v.pause();
     }, { rootMargin: '200px 0px' });
     io.observe(v);
-    return () => { io.disconnect(); unsub(); };
+    return () => { io.disconnect(); cleanup(); };
   }, []);
   return <video ref={setRef} muted loop playsInline autoPlay={eager && !jizMotion.paused()} preload={eager ? 'auto' : 'none'} {...rest}>{children}</video>;
 }
@@ -185,8 +194,8 @@ function LearningPathways() {
 function Hero({ onExploreWork, onConnect }) {
   const { Button, StatusPill } = window.JIZPortfolioSite_b3ba38;
   const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
-  // Phones and reduced motion get the still poster; the moving portrait is for wider screens.
-  const heroStill = prefersReduced() || !!(window.matchMedia && window.matchMedia('(max-width: 768px)').matches);
+  // Reduced motion and data-saver visitors get the still poster; every other device plays the loop.
+  const heroStill = prefersReduced() || !!(typeof navigator !== 'undefined' && navigator.connection && navigator.connection.saveData);
   return (
     <section className="hero">
       <div className="hero-environment" aria-hidden="true">
@@ -215,6 +224,7 @@ function Hero({ onExploreWork, onConnect }) {
           ? <img className="hero-video" src="./assets/imagery/jonathan-hero-final-poster.webp" alt="" decoding="async" fetchpriority="high" />
           : <InViewVideo eager className="hero-video" poster="./assets/imagery/jonathan-hero-final-poster.webp" disablePictureInPicture tabIndex={-1} onLoadedData={e => { e.target.muted = true; e.target.volume = 0; }}>
               <source src="./assets/video/jonathan-hero-final.mp4" type="video/mp4" />
+              <source src="./assets/video/jonathan-hero-final.webm" type="video/webm" />
             </InViewVideo>}
         <div className="hero-video-blend" />
       </div>
