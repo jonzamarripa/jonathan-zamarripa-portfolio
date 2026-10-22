@@ -29,6 +29,10 @@ const EDITORIAL_CSS = `
 .jz-link .jz-arrow{transition:transform 320ms cubic-bezier(.22,.61,.36,1)}
 .jz-link:hover .jz-arrow{transform:translateX(5px)}
 .jz-link:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:6px;border-radius:2px}
+
+/* Mobile menu: let the panel scroll on short screens (phones in landscape) now that the nav has seven items */
+.jiz-mobile-panel{max-height:100dvh;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.jz-visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 @media(prefers-reduced-motion:reduce){.jz-rise{opacity:1;transform:none;transition:none}.jz-link span:first-child,.jz-link .jz-arrow{transition:none}}
 `;
 function EditorialStyles() { return <style>{EDITORIAL_CSS}</style>; }
@@ -209,7 +213,7 @@ function ImpactEditorial() {
 }
 
 /* ---------- Practice: method + principles + capabilities + tools, consolidated ---------- */
-function Practice() {
+function Practice({ part = 'method' }) {
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref);
   const [openCap, setOpenCap] = React.useState(null);
@@ -229,7 +233,7 @@ function Practice() {
     { t: 'Accessibility & inclusive design', c: 'Designing for accessibility, representation, and learner variability, grounded in WCAG and UDL.', tools: 'WCAG, UDL, accessibility checkers, captioning and SRT workflows, screen-reader and contrast checks, QA checklists' }
   ];
   return (
-    <section className="jz-pr" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-pr-title">
+    <section className={'jz-pr jz-pr--' + part} ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby={part === 'capabilities' ? 'jz-cap-title' : 'jz-pr-title'}>
       <style>{`
 .jz-pr{background:#080D0B;padding-block:clamp(96px,11vw,176px) clamp(80px,9vw,140px)}
 .jz-pr-head{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;align-items:end;margin-bottom:clamp(56px,7vw,104px)}
@@ -245,7 +249,12 @@ function Practice() {
 .jz-pr-c{margin:0;font:400 .9375rem/1.55 var(--font-body);color:rgba(217,221,227,.82)}
 .jz-pr-rule{margin:6px 0 0;padding-top:12px;border-top:1px solid rgba(217,221,227,.08);font:400 .8125rem/1.55 var(--font-body);color:rgba(217,221,227,.62);font-style:italic}
 .jz-pr-caps-head{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;margin-top:clamp(96px,11vw,168px);margin-bottom:clamp(28px,3vw,44px)}
-.jz-pr-caps-head h3{grid-column:1 / span 6;margin:12px 0 0;font:600 clamp(1.5rem,1.1rem + 1.1vw,2.25rem)/1.08 var(--font-display);letter-spacing:-.025em;color:var(--color-text-primary)}
+.jz-pr--capabilities .jz-pr-caps-head{margin-top:0}
+.jz-pr--capabilities{padding-bottom:clamp(40px,4vw,64px)}
+.jz-pr--method{padding-top:clamp(64px,7vw,112px)}
+.jz-pr--capabilities .jz-pr-caps-head .jz-pr-caps-h{grid-column:1 / span 7;font:600 clamp(2.25rem,1.4rem + 3vw,4.5rem)/.98 var(--font-display);letter-spacing:-.04em;text-wrap:balance}
+@media(max-width:1024px){.jz-pr--capabilities .jz-pr-caps-head .jz-pr-caps-h,.jz-pr-caps-head p.jz-pr-sub{grid-column:1 / span 12}.jz-pr-caps-head p.jz-pr-sub{margin-top:18px}}
+.jz-pr-caps-head .jz-pr-caps-h,.jz-pr-caps-head h3{grid-column:1 / span 6;margin:12px 0 0;font:600 clamp(1.5rem,1.1rem + 1.1vw,2.25rem)/1.08 var(--font-display);letter-spacing:-.025em;color:var(--color-text-primary)}
 .jz-pr-caps-head p.jz-pr-sub{grid-column:8 / span 5;align-self:end;margin:0;font:400 .9375rem/1.55 var(--font-body);color:rgba(217,221,227,.72)}
 .jz-pr-caps{grid-column:1 / span 12;list-style:none;margin:0;padding:0}
 .jz-pr-cap{border-top:1px solid rgba(217,221,227,.1)}
@@ -267,8 +276,9 @@ function Practice() {
 @media(prefers-reduced-motion:reduce){.jz-pr-step::before{transition:none;width:32px}.jz-pr-cap-x{transition:none}}
       `}</style>
       <div className="jz-wrap jz-grid">
+        {part === 'method' && (<>
         <header className="jz-pr-head">
-          <div className="jz-rise"><p className="jz-label">Practice</p><h2 className="jz-pr-h2" id="jz-pr-title">How thought becomes action.</h2></div>
+          <div className="jz-rise"><p className="jz-label">Method</p><h2 className="jz-pr-h2" id="jz-pr-title">How thought becomes action.</h2></div>
           <p className="jz-pr-intro jz-rise">Five moves I run on every project, from a leadership simulation to a platform launch to an AI-assisted production run. Each carries a rule I don't break.</p>
         </header>
         <ol className="jz-pr-steps">
@@ -281,9 +291,12 @@ function Practice() {
             </li>
           ))}
         </ol>
+        <p className="jz-pr-close jz-rise">Every output is reviewed and owned. Nothing ships that I wouldn't defend in front of a stakeholder.</p>
+        </>)}
+        {part === 'capabilities' && (<>
         <div className="jz-pr-caps-head">
           <p className="jz-label" style={{ gridColumn: '1 / span 12' }}>Capabilities &amp; tools</p>
-          <h3>What I bring to a team.</h3>
+          <h2 className="jz-pr-caps-h" id="jz-cap-title">What I bring to a team.</h2>
           <p className="jz-pr-sub">Capability first. Open any row for the tools I use to deliver it; depth varies from daily practice to emerging workflows.</p>
         </div>
         <ul className="jz-pr-caps">
@@ -301,8 +314,174 @@ function Practice() {
             );
           })}
         </ul>
-        <p className="jz-pr-close jz-rise">Every output is reviewed and owned. Nothing ships that I wouldn't defend in front of a stakeholder.</p>
+        </>)}
       </div>
     </section>
   );
 }
+
+/* ---------- Career journey (restored from the original CareerArc; same four stages and copy) ---------- */
+function CareerJourney() {
+  const ref = React.useRef(null);
+  const inView = useInViewOnce(ref);
+  const stages = [
+    { n: '01', title: 'Education Innovation', copy: 'Led digital learning adoption with educators, where teaching me to design for real behavior change began.' },
+    { n: '02', title: 'Digital Transformation', copy: 'Guided communities through platform change, learning that adoption is a human problem before a technical one.' },
+    { n: '03', title: 'Enterprise L&D', copy: 'Designed leadership and enterprise learning for audiences from frontline teams to SVPs.' },
+    { n: '04', title: 'Product & Technology Enablement', copy: 'Turned evolving platforms into release-ready learning that keeps global teams operationally current.' }
+  ];
+  return (
+    <section className="jz-jr" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-jr-title">
+      <style>{`
+.jz-jr{background:#080D0B;padding-block:clamp(72px,8vw,128px)}
+.jz-jr-head{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;align-items:end;margin-bottom:clamp(40px,5vw,72px)}
+.jz-jr-head > div{grid-column:1 / span 7;display:flex;flex-direction:column;gap:14px}
+.jz-jr-h2{margin:0;font:600 clamp(2rem,1.3rem + 2.4vw,3.5rem)/1 var(--font-display);letter-spacing:-.035em;color:var(--color-text-primary)}
+.jz-jr-sub{grid-column:9 / span 4;margin:0;font:400 1rem/1.6 var(--font-body);color:rgba(217,221,227,.78)}
+.jz-jr-rail{grid-column:1 / span 12;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,2.4vw,40px);list-style:none;margin:0;padding:0}
+.jz-jr-stage{position:relative;display:flex;flex-direction:column;gap:12px;padding-top:24px;border-top:1px solid rgba(217,221,227,.14)}
+.jz-jr-stage::before{content:'';position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--color-accent-primary)}
+.jz-jr-t{margin:0;font:600 clamp(1.125rem,1rem + .5vw,1.5rem)/1.15 var(--font-display);letter-spacing:-.02em;color:var(--color-text-primary)}
+.jz-jr-c{margin:0;font:400 .9375rem/1.55 var(--font-body);color:rgba(217,221,227,.8)}
+@media(max-width:1024px){.jz-jr-head > div,.jz-jr-sub{grid-column:1 / span 12}.jz-jr-sub{margin-top:18px}.jz-jr-rail{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}}
+@media(max-width:560px){.jz-jr-rail{grid-template-columns:1fr;row-gap:32px}}
+      `}</style>
+      <div className="jz-wrap jz-grid">
+        <header className="jz-jr-head">
+          <div className="jz-rise"><p className="jz-label">The journey</p><h2 className="jz-jr-h2" id="jz-jr-title">Built through experience.</h2></div>
+          <p className="jz-jr-sub jz-rise">A practice shaped across learning, systems, technology, storytelling, and enterprise transformation.</p>
+        </header>
+        <ol className="jz-jr-rail">
+          {stages.map((s) => (
+            <li key={s.n} className="jz-jr-stage jz-rise">
+              <span className="jz-label">{s.n}</span>
+              <h3 className="jz-jr-t">{s.title}</h3>
+              <p className="jz-jr-c">{s.copy}</p>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Stack (restored from the original LearningStack; same eight categories, outcomes and tools) ---------- */
+function LearningStack() {
+  const ref = React.useRef(null);
+  const inView = useInViewOnce(ref);
+  const [open, setOpen] = React.useState({});
+  const SHOW = 4;
+  const groups = [
+    { n: '01', layer: 'Design', title: 'Learning Design & Authoring', label: 'Interactive learning, microlearning, simulations, branching, assessments, and performance support.', tools: ['Articulate Storyline 360', 'Rise 360', 'Genially', 'Canvas LMS', 'H5P', 'Camtasia interactive video', 'Scenario-based learning tools'] },
+    { n: '02', layer: 'AI Production', title: 'AI-Enabled Content & Workflow', label: 'Rapid ideation, content transformation, SME synthesis, scenario drafting, script development, learning architecture, and review acceleration.', tools: ['ChatGPT', 'Claude', 'Gemini', 'Microsoft Copilot', 'NotebookLM', 'Perplexity', 'Prompt systems', 'AI-assisted storyboarding', 'AI review workflows'] },
+    { n: '03', layer: 'Automation', title: 'Agentic AI & Learning Automation', label: 'Agentic workflow awareness across content intake, SME analysis, knowledge retrieval, QA checks, learner support, and scalable learning operations.', tools: ['Custom GPTs', 'Claude Projects', 'Zapier', 'Make', 'n8n', 'Airtable automations', 'MCP-enabled workflow concepts', 'RAG knowledge systems', 'AI agents for L&D operations'] },
+    { n: '04', layer: 'AI Production', title: 'AI Video, Voice & Localization', label: 'AI-assisted video production, voiceover, localization, multilingual enablement, explainer content, and scalable media production.', tools: ['Synthesia', 'ElevenLabs', 'HeyGen', 'Descript', 'Runway', 'Luma', 'VEED', 'Adobe Podcast', 'AI dubbing and subtitle workflows'] },
+    { n: '05', layer: 'Design', title: 'Multimedia & Visual Design', label: 'Visual systems, branded learning assets, motion design, storyboards, prototypes, job aids, decks, and digital learning interfaces.', tools: ['Adobe Creative Suite', 'Photoshop', 'Illustrator', 'Premiere Pro', 'After Effects', 'Canva', 'Figma', 'Miro', 'FigJam'] },
+    { n: '06', layer: 'Delivery', title: 'Learning Operations & Platforms', label: 'Learning delivery, stakeholder workflows, content governance, launch operations, versioning, and enterprise enablement.', tools: ['Workday Learn', 'SharePoint', 'Microsoft 365', 'Asana', 'Frame.io', 'LMS governance', 'Release workflows', 'Content intake systems'] },
+    { n: '07', layer: 'Measurement', title: 'Analytics, Skills & Measurement', label: 'Learning impact, adoption signals, performance evidence, executive visibility, and data-informed decisions.', tools: ['Tableau', 'Power BI', 'Excel', 'Learning dashboards', 'KPI tracking', 'Adoption metrics', 'Survey analysis', 'Skills intelligence concepts', 'xAPI / LRS awareness'] },
+    { n: '08', layer: 'Strategy', title: 'Accessibility & Quality Assurance', label: 'Accessible, inclusive, compliant learning experiences that support learner variability and enterprise quality standards.', tools: ['WCAG', 'UDL', 'Accessibility checkers', 'Captioning tools', 'SRT workflows', 'Screen reader considerations', 'Color contrast checks', 'QA checklists'] }
+  ];
+  return (
+    <section className="jz-st" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-st-title">
+      <style>{`
+.jz-st{background:#080D0B;padding-block:clamp(88px,10vw,160px) clamp(72px,8vw,128px);border-top:1px solid rgba(217,221,227,.06)}
+.jz-st-head{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;align-items:end;margin-bottom:clamp(48px,6vw,88px)}
+.jz-st-head > div{grid-column:1 / span 7;display:flex;flex-direction:column;gap:14px}
+.jz-st-h2{margin:0;font:600 clamp(2.25rem,1.4rem + 3vw,4.5rem)/.98 var(--font-display);letter-spacing:-.04em;color:var(--color-text-primary);text-wrap:balance}
+.jz-st-sub{grid-column:9 / span 4;margin:0;font:400 1.0625rem/1.6 var(--font-body);color:rgba(217,221,227,.78)}
+.jz-st-grid{grid-column:1 / span 12;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2vw,28px);list-style:none;margin:0;padding:0}
+.jz-st-card{display:flex;flex-direction:column;gap:12px;padding:clamp(22px,2.4vw,32px);background:var(--color-background-secondary);border:1px solid var(--color-border-subtle);border-radius:var(--radius-md)}
+.jz-st-top{display:flex;justify-content:space-between;gap:12px}
+.jz-st-layer{color:rgba(100,225,255,.8)}
+.jz-st-t{margin:0;font:600 clamp(1.125rem,1rem + .5vw,1.5rem)/1.15 var(--font-display);letter-spacing:-.02em;color:var(--color-text-primary)}
+.jz-st-l{margin:0;font:400 .9375rem/1.55 var(--font-body);color:rgba(217,221,227,.82)}
+.jz-st-tools{display:flex;flex-wrap:wrap;gap:6px 18px;list-style:none;margin:6px 0 0;padding:14px 0 0;border-top:1px solid rgba(217,221,227,.08)}
+.jz-st-tools li{font:400 .8125rem/1.5 var(--font-mono);color:rgba(217,221,227,.74)}
+.jz-st-more{align-self:flex-start;min-height:44px;padding:0;background:none;border:0;color:var(--color-accent-primary);font:600 .8125rem/1 var(--font-body);cursor:pointer}
+.jz-st-more:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:4px;border-radius:2px}
+.jz-st-note{grid-column:1 / span 12;margin:clamp(32px,4vw,56px) 0 0;max-width:60ch;font:400 .875rem/1.6 var(--font-body);color:rgba(217,221,227,.62)}
+@media(max-width:1024px){.jz-st-head > div,.jz-st-sub{grid-column:1 / span 12}.jz-st-sub{margin-top:18px}}
+@media(max-width:760px){.jz-st-grid{grid-template-columns:1fr}}
+      `}</style>
+      <div className="jz-wrap jz-grid">
+        <header className="jz-st-head">
+          <div className="jz-rise"><p className="jz-label">Tools &amp; platforms</p><h2 className="jz-st-h2" id="jz-st-title">A modern learning stack for strategy, design, production, and scale.</h2></div>
+          <p className="jz-st-sub jz-rise">Hands-on tools and emerging AI workflows used to design, build, localize, automate, and measure learning experiences across enterprise environments.</p>
+        </header>
+        <ul className="jz-st-grid">
+          {groups.map((g) => {
+            const expanded = !!open[g.n];
+            const shown = expanded ? g.tools : g.tools.slice(0, SHOW);
+            const rest = g.tools.length - SHOW;
+            const listId = 'jz-st-tools-' + g.n;
+            return (
+              <li key={g.n} className="jz-st-card jz-rise">
+                <div className="jz-st-top"><span className="jz-label">{g.n}</span><span className="jz-label jz-st-layer">{g.layer}</span></div>
+                <h3 className="jz-st-t">{g.title}</h3>
+                <p className="jz-st-l">{g.label}</p>
+                <ul className="jz-st-tools" id={listId} aria-label={g.title + ' tools'}>{shown.map((tool) => <li key={tool}>{tool}</li>)}</ul>
+                {rest > 0 && (
+                  <button type="button" className="jz-st-more" aria-expanded={expanded} aria-controls={listId} onClick={() => setOpen((o) => ({ ...o, [g.n]: !expanded }))}>
+                    {expanded ? 'Show fewer' : '+' + rest + ' more'}<span className="jz-visually-hidden">{expanded ? '' : ' ' + g.title + ' tools'}</span>
+                  </button>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+        <p className="jz-st-note jz-rise">Depth varies by tool. Some are daily practice; others are emerging workflows I actively explore and apply where they earn their place.</p>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- Principles (restored from the original FoundationManifesto; same eight principles) ---------- */
+function Principles() {
+  const ref = React.useRef(null);
+  const inView = useInViewOnce(ref);
+  const principles = [
+    { n: '01', t: 'Clarity over complexity', c: 'Every complex problem hides a simpler structure worth finding first.' },
+    { n: '02', t: 'People before platforms', c: 'Technology only matters once the people using it can succeed with it.' },
+    { n: '03', t: 'Design with evidence', c: 'Decisions hold up when grounded in data, feedback, and observed behavior.' },
+    { n: '04', t: 'Learning should move behavior', c: 'The measure of a learning experience is what people do differently after.' },
+    { n: '05', t: 'Technology should feel human', c: 'Systems earn adoption when they respect attention, context, and effort.' },
+    { n: '06', t: 'Direction, not delegation', c: 'AI expands what is possible; the point of view still has to be mine.' },
+    { n: '07', t: 'Speed for production, not decisions', c: 'Move fast on assets. Slow down on the choices that shape outcomes.' },
+    { n: '08', t: 'Every output is reviewed and owned', c: 'Nothing ships that I would not defend in front of a stakeholder.' }
+  ];
+  return (
+    <section className="jz-pp" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-pp-title">
+      <style>{`
+.jz-pp{background:#EEF0EA;color:#0B0D10;padding-block:clamp(88px,10vw,160px)}
+.jz-pp .jz-label{color:rgba(11,13,16,.6)}
+.jz-pp-head{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;align-items:end;margin-bottom:clamp(48px,6vw,88px)}
+.jz-pp-head > div{grid-column:1 / span 7;display:flex;flex-direction:column;gap:14px}
+.jz-pp-h2{margin:0;font:600 clamp(2.25rem,1.4rem + 3vw,4.5rem)/.98 var(--font-display);letter-spacing:-.04em;color:#0B0D10;text-wrap:balance}
+.jz-pp-sub{grid-column:9 / span 4;margin:0;font:400 1.0625rem/1.6 var(--font-body);color:rgba(11,13,16,.72)}
+.jz-pp-list{grid-column:1 / span 12;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,4vw,72px);list-style:none;margin:0;padding:0}
+.jz-pp-item{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:24px 0;border-top:1px solid rgba(11,13,16,.14)}
+.jz-pp-n{position:relative;padding-top:14px;font:500 .75rem/1.2 var(--font-mono);letter-spacing:.14em;color:rgba(11,13,16,.7)}
+.jz-pp-n::before{content:'';position:absolute;top:0;left:0;width:24px;height:3px;background:var(--color-accent-primary)}
+.jz-pp-t{margin:0 0 6px;font:600 clamp(1.125rem,1rem + .5vw,1.5rem)/1.2 var(--font-display);letter-spacing:-.02em;color:#0B0D10}
+.jz-pp-c{margin:0;font:400 .9375rem/1.55 var(--font-body);color:rgba(11,13,16,.74)}
+@media(max-width:1024px){.jz-pp-head > div,.jz-pp-sub{grid-column:1 / span 12}.jz-pp-sub{margin-top:18px}}
+@media(max-width:760px){.jz-pp-list{grid-template-columns:1fr}.jz-pp-item{grid-template-columns:44px 1fr}}
+      `}</style>
+      <div className="jz-wrap jz-grid">
+        <header className="jz-pp-head">
+          <div className="jz-rise"><p className="jz-label">Principles</p><h2 className="jz-pp-h2" id="jz-pp-title">The principles behind every decision.</h2></div>
+          <p className="jz-pp-sub jz-rise">Eight commitments that hold whether the work is a leadership simulation, a platform launch, or an AI-assisted production run.</p>
+        </header>
+        <ol className="jz-pp-list">
+          {principles.map((p) => (
+            <li key={p.n} className="jz-pp-item jz-rise">
+              <span className="jz-pp-n">{p.n}</span>
+              <div><h3 className="jz-pp-t">{p.t}</h3><p className="jz-pp-c">{p.c}</p></div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
+  );
+}
+

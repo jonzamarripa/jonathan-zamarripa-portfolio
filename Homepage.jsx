@@ -2209,7 +2209,7 @@ function Homepage({ onOpenCaseStudy }) {
   const sectionRefs = React.useRef({});
   const [activeSection, setActiveSection] = React.useState('hero');
   const reduced = prefersReduced();
-  const navItems = ['Work', 'Lab', 'Thinking', 'Practice', 'About'];
+  const navItems = ['Work', 'Capabilities', 'Method', 'Thinking', 'Stack', 'About', 'Archive'];
 
   const registerSection = React.useCallback((id) => (element) => { sectionRefs.current[id] = element; }, []);
   const scrollToSection = React.useCallback((id) => {
@@ -2257,7 +2257,7 @@ function Homepage({ onOpenCaseStudy }) {
     <div className="jiz-homepage" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#080D0B', position: 'relative', zIndex: 1 }}>
       <NavBar
         items={navItems}
-        secondaryItems={['Additional Work', 'Resume', 'LinkedIn']}
+        secondaryItems={['Creative Lab', 'Resume', 'LinkedIn']}
         active={activeNavLabel}
         onNavigate={(item) => {
           if (item === 'Resume') { window.open(SITE.links.resume, '_blank', 'noopener,noreferrer'); return; }
@@ -2273,11 +2273,15 @@ function Homepage({ onOpenCaseStudy }) {
         <div ref={registerSection('hero')}><Hero onExploreWork={() => scrollToSection('work')} onConnect={() => scrollToSection('contact')} /></div>
         <SelectedExperience />
         <div ref={registerSection('work')} data-section="featured-work"><FeaturedWorkEditorial onOpenWork={onOpenCaseStudy} /></div>
-        <div ref={registerSection('creative-lab')} data-section="creative-lab"><FilmSection /></div>
         <div ref={registerSection('impact')} data-section="impact"><ImpactEditorial /></div>
+        <div ref={registerSection('capabilities')} data-section="capabilities"><Practice part="capabilities" /></div>
+        <div ref={registerSection('method')} data-section="method"><Practice part="method" /></div>
         <div ref={registerSection('thinking')} data-section="thinking-in-motion"><ThinkingInMotion /></div>
-        <div ref={registerSection('practice')} data-section="practice"><Practice /></div>
+        <div ref={registerSection('creative-lab')} data-section="creative-lab"><FilmSection /></div>
         <div ref={registerSection('about')} data-section="about"><AboutMind /></div>
+        <div ref={registerSection('journey')} data-section="journey"><CareerJourney /></div>
+        <div ref={registerSection('stack')} data-section="stack"><LearningStack /></div>
+        <div ref={registerSection('principles')} data-section="principles"><Principles /></div>
         <div ref={registerSection('archive')} data-section="archive"><ArchiveBridge /></div>
         <div ref={registerSection('contact')} data-section="contact">
           <LetsBuild onExploreWork={() => scrollToSection('work')} />

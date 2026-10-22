@@ -10,12 +10,16 @@
   var sections = [
     { id: 'hero', nav: null, aliases: ['Home', 'Hero', 'home'] },
     { id: 'work', nav: 'Work', aliases: ['Work', 'Featured Work'] },
-    { id: 'creative-lab', nav: 'Lab', aliases: ['Lab', 'Creative Lab', 'Film'] },
     { id: 'impact', nav: null, aliases: ['Impact', 'Selected Impact'] },
+    { id: 'capabilities', nav: 'Capabilities', aliases: ['Capabilities', 'Core Capabilities', 'Practice'] },
+    { id: 'method', nav: 'Method', aliases: ['Method', 'The Method'] },
     { id: 'thinking', nav: 'Thinking', aliases: ['Thinking', 'Thinking in Motion', 'Insight', 'Insights'] },
-    { id: 'practice', nav: 'Practice', aliases: ['Practice', 'Capabilities', 'Core Capabilities', 'Method', 'The Method', 'Stack', 'Tools', 'Tools & Platforms', 'Modern Learning Stack', 'Foundation'] },
-    { id: 'about', nav: 'About', aliases: ['About', 'Journey', 'The Journey'] },
-    { id: 'archive', nav: null, aliases: ['Archive', 'Additional Work', 'Extended Archive', 'Selected Work'] },
+    { id: 'creative-lab', nav: null, aliases: ['Lab', 'Creative Lab', 'Film'] },
+    { id: 'about', nav: 'About', aliases: ['About'] },
+    { id: 'journey', nav: 'About', aliases: ['Journey', 'The Journey', 'Career Journey'] },
+    { id: 'stack', nav: 'Stack', aliases: ['Stack', 'Tools', 'Tools & Platforms', 'Modern Learning Stack'] },
+    { id: 'principles', nav: null, aliases: ['Principles', 'Foundation'] },
+    { id: 'archive', nav: 'Archive', aliases: ['Archive', 'Additional Work', 'Extended Archive', 'Selected Work'] },
     { id: 'contact', nav: null, aliases: ['Contact', "Let's Build"] }
   ];
   /* `featured: true` = Featured Work case study: opens in the overlay above the homepage. Others are full pages. */
