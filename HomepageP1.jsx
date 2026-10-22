@@ -68,72 +68,62 @@ function FeaturedWorkEditorial({ onOpenWork }) {
     { n: '05', layout: 'concept', org: 'Showcase prototype · Figma', role: 'AI workflow design, UX/UI prototyping', kicker: 'Systems design', title: 'Enterprise Learning Experience & AI Systems Hub', dek: 'One prototype that brings shipped work together: the Workday Learn launch, the AI production pipeline, Cox 20/20, and IHG product enablement.', href: 'https://jonathan-iker-zamarripa.webflow.io/project/enterprise-learning-experience-ai-systems-hub' }
   ];
   const open = (p) => { if (p.href) window.open(p.href, '_blank', 'noopener,noreferrer'); else if (p.route && onOpenWork) onOpenWork(p.route); };
-  const Cta = ({ p }) => p.href
-    ? <a className="jz-link" href={p.href} target="_blank" rel="noopener noreferrer"><span>View the prototype</span><span className="jz-arrow" aria-hidden="true">↗</span></a>
-    : <button type="button" className="jz-link" onClick={() => open(p)}><span>Read the case study</span><span className="jz-arrow" aria-hidden="true">→</span></button>;
-  const Meta = ({ p, big }) => (
-    <div className="jz-fw-meta">
-      <p className="jz-label jz-fw-kicker"><span className="jz-fw-n">{p.n}</span>{p.kicker}</p>
-      <h3 className={'jz-fw-title' + (big ? ' jz-fw-title--big' : '')}>{p.title}</h3>
-      <p className="jz-fw-dek">{p.dek}</p>
-      <dl className="jz-fw-dl"><div><dt>Organization</dt><dd>{p.org}</dd></div><div><dt>Role</dt><dd>{p.role}</dd></div></dl>
-      <Cta p={p} />
-    </div>
-  );
-  const Media = ({ p }) => (
-    <div className="jz-fw-media" onClick={() => open(p)} aria-hidden="true">
-      <img src={p.image} alt="" loading="lazy" decoding="async" width="1254" height="1254" />
-    </div>
-  );
-  const [lead, a, b, rev, concept] = projects;
+  const Card = ({ p }) => {
+    const external = Boolean(p.href);
+    const label = external ? 'View the prototype' : 'Read the case study';
+    return (
+      <article className={'jz-fw-card' + (p.image ? '' : ' jz-fw-card--text') + ' jz-rise'}>
+        {p.image && (
+          <div className="jz-fw-media" aria-hidden="true">
+            <img className="jz-fw-media-bg" src={p.image} alt="" loading="lazy" decoding="async" />
+            <img className="jz-fw-media-img" src={p.image} alt="" loading="lazy" decoding="async" width="1254" height="1254" />
+          </div>
+        )}
+        <div className="jz-fw-meta">
+          <p className="jz-label jz-fw-kicker"><span className="jz-fw-n">{p.n}</span><span>{p.kicker}</span><span className="jz-fw-org">{p.org}</span></p>
+          <h3 className="jz-fw-title">{p.title}</h3>
+          <p className="jz-fw-dek">{p.dek}</p>
+          {external
+            ? <a className="jz-link jz-fw-cta" href={p.href} target="_blank" rel="noopener noreferrer" aria-label={label + ': ' + p.title + ' (opens in a new tab)'}><span>{label}</span><span className="jz-arrow" aria-hidden="true">↗</span></a>
+            : <button type="button" className="jz-link jz-fw-cta" onClick={() => open(p)} aria-label={label + ': ' + p.title}><span>{label}</span><span className="jz-arrow" aria-hidden="true">→</span></button>}
+        </div>
+      </article>
+    );
+  };
   return (
     <section className="jz-fw" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-fw-title">
       <EditorialStyles />
       <style>{`
 .jz-fw{position:relative;background:#080D0B;padding-block:clamp(88px,10vw,168px) clamp(72px,8vw,128px)}
-.jz-fw-head{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;align-items:end;margin-bottom:clamp(48px,6vw,96px)}
+.jz-fw-head{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;align-items:end;margin-bottom:clamp(48px,6vw,88px)}
 .jz-fw-h2{grid-column:1 / span 7;margin:14px 0 0;font:600 clamp(2.75rem,1.6rem + 4.6vw,6.5rem)/.94 var(--font-display);letter-spacing:-.045em;color:var(--color-text-primary)}
 .jz-fw-intro{grid-column:9 / span 4;margin:0;font:400 1.0625rem/1.6 var(--font-body);color:rgba(217,221,227,.78);text-wrap:pretty}
-.jz-fw-item{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;align-items:end;padding-top:clamp(28px,3vw,40px);border-top:1px solid rgba(217,221,227,.1)}
-.jz-fw-item + .jz-fw-item,.jz-fw-pair,.jz-fw-pair + .jz-fw-item{margin-top:clamp(72px,9vw,152px)}
-.jz-fw-media{position:relative;overflow:hidden;cursor:pointer;background:#0D1412;border-radius:4px;aspect-ratio:16 / 10}
-.jz-fw-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.001);transition:transform 1100ms cubic-bezier(.22,.61,.36,1),filter 600ms ease;filter:saturate(.92)}
-.jz-fw-item:hover .jz-fw-media img,.jz-fw-item:focus-within .jz-fw-media img{transform:scale(1.035);filter:saturate(1)}
-.jz-fw-meta{display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-width:0}
-.jz-fw-kicker{display:flex;gap:14px;align-items:baseline}
+.jz-fw-cards{grid-column:1 / span 12;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(48px,5vw,80px) clamp(24px,3vw,48px)}
+.jz-fw-card{position:relative;display:flex;flex-direction:column;gap:clamp(20px,2vw,28px);min-width:0}
+.jz-fw-card--text{grid-column:1 / -1;padding-top:clamp(28px,3vw,40px);border-top:1px solid var(--color-border-default)}
+.jz-fw-media{position:relative;overflow:hidden;aspect-ratio:16 / 10;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--color-background-secondary) 0%,#1F4556 100%);border:1px solid var(--color-border-subtle);transition:border-color 220ms var(--ease-standard)}
+.jz-fw-media-bg{position:absolute;inset:-12%;width:124%;height:124%;object-fit:cover;filter:blur(28px) saturate(.9) brightness(.42);opacity:.9}
+.jz-fw-media-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:transform 220ms var(--ease-standard)}
+.jz-fw-meta{display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-width:0}
+.jz-fw-kicker{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;width:100%}
 .jz-fw-n{color:var(--color-text-primary)}
-.jz-fw-title{margin:0;font:600 clamp(1.5rem,1.1rem + 1.1vw,2.25rem)/1.08 var(--font-display);letter-spacing:-.025em;color:var(--color-text-primary);text-wrap:balance}
-.jz-fw-title--big{font-size:clamp(2rem,1.2rem + 2.4vw,3.5rem);letter-spacing:-.035em}
-.jz-fw-dek{margin:0;max-width:44ch;font:400 1rem/1.6 var(--font-body);color:rgba(217,221,227,.8);text-wrap:pretty}
-.jz-fw-dl{display:grid;gap:10px;margin:6px 0 4px;width:100%;max-width:44ch}
-.jz-fw-dl div{display:grid;grid-template-columns:104px 1fr;gap:12px;padding-top:10px;border-top:1px solid rgba(217,221,227,.08)}
-.jz-fw-dl dt{font:500 .6875rem/1.5 var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(217,221,227,.55)}
-.jz-fw-dl dd{margin:0;font:400 .875rem/1.45 var(--font-body);color:#E8ECEF}
-.jz-fw-item--lead .jz-fw-media{grid-column:1 / span 8;aspect-ratio:16 / 9.5}
-.jz-fw-item--lead .jz-fw-meta{grid-column:9 / span 4}
-.jz-fw-pair{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;align-items:start}
-.jz-fw-pair .jz-fw-item{margin-top:0;display:flex;flex-direction:column;align-items:stretch;gap:clamp(22px,2.4vw,32px)}
-.jz-fw-pair .jz-fw-item--a{grid-column:1 / span 7}
-.jz-fw-pair .jz-fw-item--b{grid-column:9 / span 4;margin-top:clamp(96px,14vw,240px)}
-.jz-fw-pair .jz-fw-item--b .jz-fw-media{aspect-ratio:4 / 5}
-.jz-fw-item--reverse .jz-fw-meta{grid-column:1 / span 4;grid-row:1}
-.jz-fw-item--reverse .jz-fw-media{grid-column:6 / span 7;grid-row:1}
-.jz-fw-item--concept{align-items:start}
-.jz-fw-item--concept .jz-fw-meta{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;row-gap:14px}
-.jz-fw-item--concept .jz-fw-kicker{grid-column:1 / span 3}
-.jz-fw-item--concept .jz-fw-title{grid-column:4 / span 6;font-size:clamp(1.5rem,1rem + 1.4vw,2.5rem)}
-.jz-fw-item--concept .jz-fw-dek{grid-column:4 / span 5}
-.jz-fw-item--concept .jz-fw-dl{grid-column:4 / span 5}
-.jz-fw-item--concept .jz-link{grid-column:4 / span 5}
-.jz-fw-item .jz-rise{transition-delay:120ms}
-@media(max-width:1024px){.jz-fw-h2{grid-column:1 / span 12}.jz-fw-intro{grid-column:1 / span 8;margin-top:22px}.jz-fw-head{align-items:start}
-.jz-fw-item--lead .jz-fw-media,.jz-fw-item--reverse .jz-fw-media{grid-column:1 / span 12;grid-row:1}.jz-fw-item--lead .jz-fw-meta,.jz-fw-item--reverse .jz-fw-meta{grid-column:1 / span 9;grid-row:2;margin-top:28px}
-.jz-fw-pair .jz-fw-item--a{grid-column:1 / span 7}.jz-fw-pair .jz-fw-item--b{grid-column:8 / span 5;margin-top:120px}
-.jz-fw-item--concept .jz-fw-kicker{grid-column:1 / span 12}.jz-fw-item--concept .jz-fw-title,.jz-fw-item--concept .jz-fw-dek,.jz-fw-item--concept .jz-fw-dl,.jz-fw-item--concept .jz-link{grid-column:1 / span 10}}
-@media(max-width:900px){.jz-fw-pair .jz-fw-item--a,.jz-fw-pair .jz-fw-item--b{grid-column:1 / span 12;margin-top:0}.jz-fw-pair .jz-fw-item--b{margin-top:72px}.jz-fw-pair .jz-fw-item--b .jz-fw-media{aspect-ratio:16 / 10}}
-@media(max-width:680px){.jz-fw-intro{grid-column:1 / span 12}.jz-fw-pair .jz-fw-item--a,.jz-fw-pair .jz-fw-item--b{grid-column:1 / span 12;margin-top:0}.jz-fw-pair .jz-fw-item--b{margin-top:72px}.jz-fw-pair .jz-fw-item--b .jz-fw-media{aspect-ratio:16 / 10}
-.jz-fw-item--lead .jz-fw-meta,.jz-fw-item--reverse .jz-fw-meta{grid-column:1 / span 12}.jz-fw-item--concept .jz-fw-title,.jz-fw-item--concept .jz-fw-dek,.jz-fw-item--concept .jz-fw-dl,.jz-fw-item--concept .jz-link{grid-column:1 / span 12}.jz-fw-dl div{grid-template-columns:92px 1fr}}
-@media(prefers-reduced-motion:reduce){.jz-fw-media img{transition:none}.jz-fw-item:hover .jz-fw-media img{transform:none}}
+.jz-fw-org{margin-left:auto;color:rgba(217,221,227,.5)}
+.jz-fw-title{margin:0;font:600 clamp(1.5rem,1.1rem + 1.1vw,2.25rem)/1.08 var(--font-display);letter-spacing:-.025em;color:var(--color-text-primary);text-wrap:balance;transition:color 220ms var(--ease-standard)}
+.jz-fw-dek{margin:0;max-width:52ch;font:400 1rem/1.6 var(--font-body);color:rgba(217,221,227,.8);text-wrap:pretty}
+.jz-fw-card--text .jz-fw-title{font-size:clamp(1.5rem,1rem + 1.4vw,2.5rem);max-width:28ch}
+.jz-fw-card--text .jz-fw-dek{max-width:68ch}
+.jz-fw-cta{margin-top:4px}
+.jz-fw-cta::after{content:"";position:absolute;inset:0;z-index:1}
+.jz-fw-cta:focus-visible{outline:none}
+.jz-fw-card:has(.jz-fw-cta:focus-visible){outline:2px solid var(--color-accent-primary);outline-offset:8px;border-radius:var(--radius-md)}
+.jz-fw-card:hover .jz-fw-media-img,.jz-fw-card:focus-within .jz-fw-media-img{transform:scale(1.02)}
+.jz-fw-card:hover .jz-fw-media,.jz-fw-card:focus-within .jz-fw-media{border-color:rgba(198,242,58,.28)}
+.jz-fw-card:hover .jz-fw-title{color:#fff}
+.jz-fw-card:hover .jz-arrow,.jz-fw-card:focus-within .jz-arrow{transform:translateX(5px)}
+.jz-fw-card .jz-arrow{transition:transform 220ms var(--ease-standard)}
+@media(max-width:1024px){.jz-fw-h2{grid-column:1 / span 12}.jz-fw-intro{grid-column:1 / span 8;margin-top:22px}.jz-fw-head{align-items:start}}
+@media(max-width:760px){.jz-fw-cards{grid-template-columns:1fr;gap:56px}.jz-fw-intro{grid-column:1 / span 12}.jz-fw-org{margin-left:0;width:100%}}
+@media(prefers-reduced-motion:reduce){.jz-fw-media,.jz-fw-media-img,.jz-fw-title,.jz-fw-card .jz-arrow{transition:none}.jz-fw-card:hover .jz-fw-media-img,.jz-fw-card:focus-within .jz-fw-media-img{transform:none}}
       `}</style>
       <div className="jz-wrap jz-grid">
         <header className="jz-fw-head">
@@ -141,13 +131,7 @@ function FeaturedWorkEditorial({ onOpenWork }) {
           <h2 className="jz-fw-h2 jz-rise" id="jz-fw-title">Featured work</h2>
           <p className="jz-fw-intro jz-rise">Leadership, product, and platform change for enterprise teams, each shown from the problem to the shipped experience.</p>
         </header>
-        <article className="jz-fw-item jz-fw-item--lead jz-rise"><Media p={lead} /><Meta p={lead} big /></article>
-        <div className="jz-fw-pair">
-          <article className="jz-fw-item jz-fw-item--a jz-rise"><Media p={a} /><Meta p={a} /></article>
-          <article className="jz-fw-item jz-fw-item--b jz-rise"><Media p={b} /><Meta p={b} /></article>
-        </div>
-        <article className="jz-fw-item jz-fw-item--reverse jz-rise"><Meta p={rev} /><Media p={rev} /></article>
-        <article className="jz-fw-item jz-fw-item--concept jz-rise"><Meta p={concept} /></article>
+        <div className="jz-fw-cards">{projects.map((p) => <Card key={p.n} p={p} />)}</div>
       </div>
     </section>
   );
