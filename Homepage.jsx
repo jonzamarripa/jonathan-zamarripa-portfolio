@@ -2081,7 +2081,17 @@ function AboutMind() {
     el.style.setProperty('--am-mx', '0');
     el.style.setProperty('--am-my', '0');
   }, []);
-  const showVideo = active && !reduced;
+  // Mount the About video only once the section approaches the viewport (no timer fallback), so it never competes with the hero.
+  const [near, setNear] = React.useState(false);
+  React.useEffect(() => {
+    const el = ref.current;
+    if (!el || reduced) return undefined;
+    if (typeof IntersectionObserver === 'undefined') { setNear(true); return undefined; }
+    const io = new IntersectionObserver((entries) => { if (entries.some((e) => e.isIntersecting)) { setNear(true); io.disconnect(); } }, { rootMargin: '600px 0px' });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
+  const showVideo = active && near && !reduced;
   return (
     <section className="jiz-am" ref={ref} data-in={active ? 'true' : 'false'} aria-labelledby="jiz-am-title">
       <div className="jiz-am-inner">
@@ -2116,16 +2126,12 @@ function AboutMind() {
         <div className="jiz-am-col jiz-am-col--right">
           <figure className="jiz-am-card" ref={cardRef} onMouseMove={onMove} onMouseLeave={onLeave}>
             <div className="jiz-am-stage" role="img" aria-label="Jonathan speaking in a futuristic studio environment representing learning strategy and systems thinking.">
-              <img className="jiz-am-poster" src="./assets/imagery/jonathan-portrait.webp" alt="" aria-hidden="true" loading="eager" decoding="async" data-hidden={showVideo ? 'true' : 'false'} />
+              <img className="jiz-am-poster" src="./assets/imagery/jonathan-about-poster.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1920" height="1080" />
               {showVideo ? (
-                <React.Fragment>
-                  <InViewVideo videoRef={studioRef} className="jiz-am-env" src="./assets/video/jiz-studio-ambient.mp4" aria-hidden="true" tabIndex={-1} />
-                  <span className="jiz-am-env-grade" aria-hidden="true" />
-                  <span className="jiz-am-contact" aria-hidden="true" />
-                  <ChromaKeyVideo src="./assets/video/jiz-subject-greenscreen.mp4" className="jiz-am-subject" />
-                </React.Fragment>
+                <InViewVideo videoRef={studioRef} className="jiz-am-video" poster="./assets/imagery/jonathan-about-poster.webp" preload="metadata" aria-hidden="true" tabIndex={-1} disablePictureInPicture>
+                  <source src="./assets/video/jonathan-about-loop.mp4" type="video/mp4" />
+                </InViewVideo>
               ) : null}
-              <span className="jiz-am-vignette" aria-hidden="true" />
               <span className="jiz-am-rim" aria-hidden="true" />
               <span className="jiz-am-rule" aria-hidden="true" />
             </div>
@@ -2159,9 +2165,9 @@ function AboutMind() {
 .jiz-am-close{margin:26px 0 0;padding-left:18px;border-left:1px solid rgba(198,242,58,.4);font:var(--text-body);font-size:.9375rem;line-height:1.7;color:rgba(238,242,236,.88);max-width:58ch;text-wrap:pretty}
 .jiz-am-card{position:relative;display:flex;flex-direction:column;margin:0;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.05) 0%,rgba(255,255,255,.015) 100%);border:1px solid rgba(100,225,255,.18);border-radius:clamp(16px,1.4vw,24px);box-shadow:0 30px 62px -34px rgba(0,0,0,.9),0 0 46px -22px rgba(100,225,255,.22);transition:opacity 840ms cubic-bezier(.22,.61,.36,1),transform 840ms cubic-bezier(.22,.61,.36,1),border-color 320ms ease,box-shadow 320ms ease}
 .jiz-am-card:hover{border-color:rgba(100,225,255,.32);box-shadow:0 38px 76px -34px rgba(0,0,0,.95),0 0 64px -20px rgba(100,225,255,.3)}
-.jiz-am-stage{position:relative;overflow:hidden;aspect-ratio:3 / 2;background:radial-gradient(ellipse 70% 60% at 50% 40%,#16201F,#0B0F12 78%)}
-.jiz-am-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;filter:saturate(.86) contrast(1.03)}
-.jiz-am-poster[data-hidden="true"]{opacity:0}
+.jiz-am-stage{position:relative;overflow:hidden;aspect-ratio:16 / 9;background:radial-gradient(ellipse 70% 60% at 50% 40%,#16201F,#0B0F12 78%)}
+.jiz-am-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.jiz-am-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;display:block}
 .jiz-am-env{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.72) brightness(.72) contrast(1.04);transform:scale(1.06) translate3d(calc(var(--am-mx,0)*-5px),calc(var(--am-my,0)*-4px),0);transition:transform 700ms cubic-bezier(.22,.61,.36,1)}
 .jiz-am-env-grade{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 60% 52% at 50% 46%,rgba(100,225,255,.1),transparent 72%),linear-gradient(180deg,rgba(11,15,18,.34) 0%,rgba(11,15,18,.06) 42%,rgba(11,15,18,.66) 100%)}
 .jiz-am-contact{position:absolute;left:50%;bottom:2%;width:56%;height:12%;transform:translateX(-50%);pointer-events:none;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.62),transparent 70%);filter:blur(10px)}
