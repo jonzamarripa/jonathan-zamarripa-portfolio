@@ -81,6 +81,8 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
+# The portfolio ships its precompiled build (dist/site.js, dist/ds-core.js): keep it tracked.
+!/dist/
 .output
 
 # Gatsby files
