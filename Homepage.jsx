@@ -85,23 +85,64 @@ function ChromaKeyVideo({ src, className, style }) {
   );
 }
 
+// Site-wide "Pause motion" preference for the decorative portrait loops (kept for the visit).
+const jizMotion = (() => {
+  let paused = false;
+  try { paused = sessionStorage.getItem('jiz-motion-paused') === '1'; } catch (e) {}
+  const subs = new Set();
+  return {
+    paused: () => paused,
+    set(v) { paused = v; try { sessionStorage.setItem('jiz-motion-paused', v ? '1' : '0'); } catch (e) {} subs.forEach((f) => f(v)); },
+    subscribe(f) { subs.add(f); return () => subs.delete(f); }
+  };
+})();
+
+function MotionToggle({ className = '' }) {
+  const [paused, setPaused] = React.useState(jizMotion.paused());
+  React.useEffect(() => jizMotion.subscribe(setPaused), []);
+  return (
+    <button type="button" className={'jiz-motion-toggle ' + className} onClick={() => jizMotion.set(!paused)}>
+      <svg aria-hidden="true" width="10" height="10" viewBox="0 0 10 10">{paused ? <path d="M2 1l7 4-7 4z" fill="currentColor" /> : <path d="M2 1h2v8H2zM6 1h2v8H6z" fill="currentColor" />}</svg>
+      {paused ? 'Play motion' : 'Pause motion'}
+    </button>
+  );
+}
+
+const MOTION_TOGGLE_CSS = `.jiz-motion-toggle{position:absolute;z-index:7;display:inline-flex;align-items:center;gap:8px;min-height:32px;padding:0 12px;border:1px solid rgba(255,255,255,.16);border-radius:var(--radius-pill);background:rgba(8,13,11,.55);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);color:rgba(238,242,236,.82);font:500 .75rem/1 var(--font-body);letter-spacing:.02em;cursor:pointer;transition:border-color var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard)}
+.jiz-motion-toggle:hover{border-color:rgba(198,242,58,.45);color:#fff}
+.jiz-motion-toggle:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:3px}
+.jiz-motion-toggle::before{content:'';position:absolute;inset:-6px}`;
+
 function InViewVideo({ eager = false, videoRef, children, ...rest }) {
   const local = React.useRef(null);
   const setRef = React.useCallback((el) => { local.current = el; if (videoRef) videoRef.current = el; }, [videoRef]);
   React.useEffect(() => {
     const v = local.current;
     if (!v) return undefined;
-    v.muted = true;
+    // iOS/Android only autoplay inline, muted video: set the attributes as well as the properties.
+    v.muted = true; v.defaultMuted = true; v.volume = 0;
+    v.setAttribute('muted', ''); v.setAttribute('playsinline', ''); v.setAttribute('webkit-playsinline', '');
     if (prefersReduced()) { v.preload = 'metadata'; return undefined; }
-    if (typeof IntersectionObserver === 'undefined') { v.play().catch(() => {}); return undefined; }
+    let inView = typeof IntersectionObserver === 'undefined';
+    // If playback is refused (e.g. iOS Low Power Mode), the poster simply stays up.
+    const play = () => { if (inView && !jizMotion.paused() && !document.hidden && v.paused) { v.muted = true; const p = v.play(); if (p && p.catch) p.catch(() => {}); } };
+    const unsub = jizMotion.subscribe((paused) => { if (paused) v.pause(); else play(); });
+    // Retry once data arrives, and after the tab or app returns to the foreground (mobile browsers pause it).
+    const onVisibility = () => { if (!document.hidden) play(); };
+    v.addEventListener('canplay', play);
+    document.addEventListener('visibilitychange', onVisibility);
+    window.addEventListener('pageshow', onVisibility);
+    const cleanup = () => { unsub(); v.removeEventListener('canplay', play); document.removeEventListener('visibilitychange', onVisibility); window.removeEventListener('pageshow', onVisibility); };
+    if (inView) { play(); return cleanup; }
     const io = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) { const p = v.play(); if (p && p.catch) p.catch(() => {}); }
+      inView = e.isIntersecting;
+      if (inView) play();
       else if (!v.paused) v.pause();
     }, { rootMargin: '200px 0px' });
     io.observe(v);
-    return () => io.disconnect();
+    return () => { io.disconnect(); cleanup(); };
   }, []);
-  return <video ref={setRef} muted loop playsInline autoPlay={eager} preload={eager ? 'auto' : 'none'} {...rest}>{children}</video>;
+  return <video ref={setRef} muted loop playsInline autoPlay={eager && !jizMotion.paused()} preload={eager ? 'auto' : 'none'} {...rest}>{children}</video>;
 }
 
 function Reveal({ children, style, delay = 0, highlight = false }) {
@@ -153,6 +194,8 @@ function LearningPathways() {
 function Hero({ onExploreWork, onConnect }) {
   const { Button, StatusPill } = window.JIZPortfolioSite_b3ba38;
   const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
+  // Reduced motion and data-saver visitors get the still poster; every other device plays the loop.
+  const heroStill = prefersReduced() || !!(typeof navigator !== 'undefined' && navigator.connection && navigator.connection.saveData);
   return (
     <section className="hero">
       <div className="hero-environment" aria-hidden="true">
@@ -166,9 +209,10 @@ function Hero({ onExploreWork, onConnect }) {
 
       <div className="hero-content">
         <div className="hero-copy">
+          <p className="jz-label hero-eyebrow hero-fade hero-fade--1">Senior Learning Experience Designer &amp; Learning Strategist</p>
           <h1 className="hero-title hero-fade hero-fade--2"><span className="hero-title-main">From complex change </span><span className="hero-title-accent">to finished experience.</span></h1>
           <p className="hero-lead hero-fade hero-fade--3">I turn complex business and learning challenges into experiences people can understand and use—from strategy and experience design to film, AI-enabled production, and the finished build.</p>
-          <p className="hero-support hero-fade hero-fade--4">Learning Strategy <span className="hero-dot">•</span> Experience Design <span className="hero-dot">•</span> Creative Technology <span className="hero-dot">•</span> Film &amp; Media</p>
+          <p className="hero-support hero-fade hero-fade--4">Learning Strategy &amp; Performance Consulting <span className="hero-dot">•</span> Leadership Development <span className="hero-dot">•</span> Product &amp; Technology Enablement <span className="hero-dot">•</span> AI-Enabled Learning <span className="hero-dot">•</span> Creative Technology &amp; Multimedia Production</p>
           <div className="hero-actions hero-fade hero-fade--5">
             <Button variant="primary" onClick={onExploreWork}>View Work</Button>
             <Button variant="secondary" icon={false} onClick={() => window.open(RESUME_URL, '_blank', 'noopener')}>View Resume</Button>
@@ -177,13 +221,15 @@ function Hero({ onExploreWork, onConnect }) {
       </div>
 
       <div className="hero-video-stage" aria-hidden="true">
-        {(window.matchMedia && window.matchMedia('(max-width: 768px)').matches)
-          ? <img className="hero-video" src="./assets/imagery/jonathan-hero-poster.webp" alt="" decoding="async" fetchpriority="high" />
-          : <InViewVideo eager={!prefersReduced()} className="hero-video" poster="./assets/imagery/jonathan-hero-poster.webp" disablePictureInPicture tabIndex={-1} onLoadedData={e => { e.target.muted = true; e.target.volume = 0; }}>
-              <source src="./assets/video/jonathan-hero.mp4" type="video/mp4" />
+        {heroStill
+          ? <img className="hero-video" src="./assets/imagery/jonathan-hero-final-poster.webp" alt="" decoding="async" fetchpriority="high" />
+          : <InViewVideo eager className="hero-video" poster="./assets/imagery/jonathan-hero-final-poster.webp" disablePictureInPicture tabIndex={-1} onLoadedData={e => { e.target.muted = true; e.target.volume = 0; }}>
+              <source src="./assets/video/jonathan-hero-final.mp4" type="video/mp4" />
+              <source src="./assets/video/jonathan-hero-final.webm" type="video/webm" />
             </InViewVideo>}
         <div className="hero-video-blend" />
       </div>
+      {heroStill ? null : <MotionToggle className="hero-motion" />}
       <div className="hero-foreground-atmosphere" aria-hidden="true" />
 
       <style>{`
@@ -231,18 +277,24 @@ function Hero({ onExploreWork, onConnect }) {
 @media(max-width:900px){.hero{min-height:auto}.hero-content{min-height:auto;padding-top:92px;padding-bottom:520px}.hero-copy{max-width:620px}.hero-portrait{right:50%;bottom:-8px;width:min(640px,94vw);transform:translateX(50%)}.hero-portrait-backlight{right:50%;top:auto;bottom:-12%;width:100vw;height:640px;transform:translateX(50%)}.hero-portrait-haze{right:0;width:100%}}
 @media(max-width:768px){.hero{min-height:auto}.hero-content{min-height:auto;padding-top:48px;padding-bottom:480px;grid-template-columns:1fr;padding-inline:24px}.hero-copy{max-width:100%;position:relative;z-index:6}.hero-eyebrow{margin-bottom:18px}.hero-title{font-size:clamp(1.85rem,5.4vw,2.6rem);margin:0 0 22px}.hero-lead{font-size:clamp(1rem,3.4vw,1.1875rem);margin:0 0 24px;max-width:100%}.hero-support{font-size:.8125rem;max-width:100%;margin:0}.hero-actions{margin-top:32px;gap:12px}.hero-text-scrim{left:-12vw;width:130vw;background:linear-gradient(180deg,rgba(6,10,9,.86) 0%,rgba(6,10,9,.6) 70%,transparent 100%)}.hero-portrait-stage{z-index:2}.hero-portrait{position:absolute;right:50%;bottom:auto;top:480px;width:min(420px,85vw);height:auto;max-height:none;transform:translateX(50%);opacity:.9;filter:drop-shadow(-20px 4px 36px rgba(27,128,194,.18));mask-image:linear-gradient(to top,#000 0%,#000 70%,rgba(0,0,0,.8) 85%,transparent 100%),linear-gradient(to right,transparent 5%,#000 20%),linear-gradient(to left,transparent 5%,#000 15%);mask-composite:intersect}.hero-portrait-backlight{right:50%;top:480px;bottom:auto;width:120vw;height:420px;transform:translateX(50%);opacity:.5;filter:blur(40px)}.hero-portrait-haze{display:none}.hero-foreground-atmosphere{opacity:.3}}
 @media(max-width:600px){.hero-content{padding-top:40px;padding-bottom:400px}.hero-title{font-size:clamp(1.95rem,7.6vw,2.4rem);line-height:1.02;margin:0 0 18px}.hero-lead{font-size:1.0625rem;margin:0 0 20px}.hero-support{font-size:.75rem}.hero-actions{margin-top:26px}.hero-eyebrow{margin-bottom:14px}.hero-portrait{top:400px;width:min(340px,80vw)}.hero-portrait-backlight{top:400px;height:340px}}
-.hero-video-stage{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;background:#080D0B}
+.hero-video-stage{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;background:#0B0D10}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:22% 0%;display:block}
-.hero-video-blend{position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,transparent 40%,rgba(8,13,11,.45) 54%,rgba(8,13,11,.78) 70%,rgba(8,13,11,.88) 100%),linear-gradient(180deg,transparent 0%,transparent 72%,#080D0B 100%)}
+.hero-video-blend{position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,transparent 38%,rgba(31,69,86,.14) 48%,rgba(11,13,16,.5) 57%,rgba(11,13,16,.78) 70%,rgba(11,13,16,.88) 100%),linear-gradient(180deg,transparent 0%,transparent 72%,#080D0B 100%)}
 .hero-content{grid-template-columns:44fr 56fr}
 .hero-copy{grid-column:2}
 @media(max-width:1180px){.hero-content{grid-template-columns:40fr 60fr}}
+@media(min-width:901px) and (max-width:1180px){.hero-content{grid-template-columns:minmax(0,53fr) minmax(0,47fr)}.hero-support{width:auto;max-width:100%}}
+@media(min-width:1181px) and (max-width:1400px){.hero-content{grid-template-columns:minmax(0,47fr) minmax(0,53fr)}.hero-support{width:auto;max-width:100%}}
+@media(min-width:901px) and (max-height:820px){.hero-content{padding-block:clamp(28px,4vh,48px)}.hero-title{margin-bottom:20px}.hero-lead{margin-bottom:20px}.hero-actions{margin-top:24px}}
 @media(min-width:1181px){.hero-copy{margin-left:clamp(0px,calc((100vw - 1480px) * .32),140px)}}
-@media(max-width:900px){.hero-content{grid-template-columns:1fr}.hero-copy{grid-column:1}.hero-video-stage{top:auto;height:520px}.hero-video{object-position:8% 0%}.hero-video-blend{background:linear-gradient(180deg,#080D0B 0%,transparent 6%,transparent 80%,#080D0B 100%),linear-gradient(90deg,transparent 0%,transparent 55%,rgba(8,13,11,.6) 100%)}}
+@media(max-width:900px){.hero-content{grid-template-columns:1fr}.hero-copy{grid-column:1}.hero-video-stage{top:auto;height:520px}.hero-video{object-position:8% 0%}.hero-video-blend{background:linear-gradient(180deg,#080D0B 0%,transparent 6%,transparent 80%,#080D0B 100%),linear-gradient(90deg,transparent 0%,transparent 50%,rgba(31,69,86,.14) 62%,rgba(11,13,16,.6) 100%)}}
 @media(max-width:768px){.hero-video-stage{height:480px}.hero-video{object-position:0% 0%}}
 @media(max-width:600px){.hero-video-stage{height:400px}}
-@media(orientation:landscape) and (max-height:600px) and (min-width:560px){.hero{min-height:auto}.hero-content{grid-template-columns:40fr 60fr;min-height:calc(100svh - 96px);padding-top:clamp(20px,5vh,40px);padding-bottom:clamp(20px,5vh,40px);padding-inline:clamp(20px,4vw,48px)}.hero-copy{grid-column:2;max-width:100%}.hero-title{font-size:clamp(1.4rem,1rem + 2vw,2.1rem);margin:0 0 12px}.hero-lead{font-size:clamp(.875rem,.8rem + .4vw,1rem);line-height:1.45;margin:0 0 12px}.hero-support{font-size:.6875rem}.hero-actions{margin-top:16px;gap:10px}.hero-video-stage{top:0;height:auto}.hero-video{object-position:18% 0%}.hero-video-blend{background:linear-gradient(90deg,transparent 0%,transparent 34%,rgba(8,13,11,.55) 48%,rgba(8,13,11,.85) 64%,rgba(8,13,11,.92) 100%),linear-gradient(180deg,transparent 0%,transparent 75%,#080D0B 100%)}}
+@media(orientation:landscape) and (max-height:600px) and (min-width:560px){.hero{min-height:auto}.hero-content{grid-template-columns:40fr 60fr;min-height:calc(100svh - 96px);padding-top:clamp(20px,5vh,40px);padding-bottom:clamp(20px,5vh,40px);padding-inline:clamp(20px,4vw,48px)}.hero-copy{grid-column:2;max-width:100%}.hero-title{font-size:clamp(1.4rem,1rem + 2vw,2.1rem);margin:0 0 12px}.hero-lead{font-size:clamp(.875rem,.8rem + .4vw,1rem);line-height:1.45;margin:0 0 12px}.hero-support{font-size:.6875rem}.hero-actions{margin-top:16px;gap:10px}.hero-video-stage{top:0;height:auto}.hero-video{object-position:18% 0%}.hero-video-blend{background:linear-gradient(90deg,transparent 0%,transparent 34%,rgba(31,69,86,.14) 42%,rgba(11,13,16,.55) 50%,rgba(11,13,16,.85) 64%,rgba(11,13,16,.92) 100%),linear-gradient(180deg,transparent 0%,transparent 75%,#080D0B 100%)}}
 @media(prefers-reduced-motion:reduce){.hero-portrait{transform:none;transition:none}.hero-fade{opacity:1;animation:none}.hero-mesh,.hero-path,.hero-nodes circle{animation:none}}
+${MOTION_TOGGLE_CSS}
+.hero-motion{left:clamp(16px,2vw,28px);bottom:clamp(16px,2vw,28px)}
+.hero-copy .hero-eyebrow{margin:0 0 clamp(14px,1.6vw,22px);color:rgba(238,242,236,.78);text-shadow:0 1px 12px rgba(0,0,0,.6)}
       `}</style>
     </section>
   );
@@ -1212,9 +1264,8 @@ function FilmSection() {
                 role="alert"
               >
                 <span>
-                  The Train Story could not load. Confirm
-                  that the video exists at
-                  assets/video/the-train-story.mp4.
+                  The Train Story couldn’t load right now.
+                  Please refresh the page to try again.
                 </span>
               </div>
             )}
@@ -1509,7 +1560,7 @@ function ArchiveBridge() {
           <h2 className="jiz-arch-title" id="jiz-arch-title">More work. More range.</h2>
           <p className="jiz-arch-sub">Projects that show range across interactive learning, multimedia, and AI production. Summarized here; the full archive holds more.</p>
           <a className="jiz-arch-cta" href={ARCHIVE_URL} target="_blank" rel="noopener noreferrer">
-            <span>View the Full Archive (older site)</span>
+            <span>View the full archive</span>
             <span className="jiz-arch-cta-arrow" aria-hidden="true">↗</span>
           </a>
         </div>
@@ -1577,11 +1628,38 @@ function ArchiveBridge() {
 }
 
 function LetsBuild({ onExploreWork }) {
-  const PROJECT_TYPES = ['Full-Time Role', 'Recruiting Conversation', 'Learning Experience', 'AI Strategy', 'Product Enablement', 'Consulting'];
+  // One choice routes the form; only the fields for that choice are shown and sent.
+  const INTENTS = [
+    { id: 'hiring', label: 'Hiring · full-time or contract', subject: 'Hiring inquiry', detail: 'Tell me about the role and the team.', hint: 'Scope, level, and what success looks like in the first year.' },
+    { id: 'project', label: 'Project or consulting', subject: 'Project inquiry', detail: 'What are you trying to make clearer, easier, or more effective?', hint: "The change you're after, the friction in the way, what success looks like." },
+    { id: 'speaking', label: 'Speaking or panel', subject: 'Speaking inquiry', detail: 'Tell me about the event and the audience.', hint: 'Theme, audience, and what you would like people to leave with.' },
+    { id: 'other', label: 'Something else', subject: 'General inquiry', detail: 'How can I help?', hint: 'A few lines are enough.' }
+  ];
+  const FOCUS = ['Learning Experience', 'Leadership Development', 'Product Enablement', 'AI-Enabled Learning'];
+  const FORMATS = ['Keynote', 'Panel', 'Workshop', 'Podcast or Interview'];
   const TIMELINES = ['Exploring', 'Within 30 Days', '1–3 Months', '3+ Months'];
   const BUDGETS = ['Not Established', 'Under $10k', '$10k–25k', '$25k–50k', '$50k+'];
   const REFERRALS = ['LinkedIn', 'Referral', 'Google Search', 'Previous Colleague', 'Conference or Event', 'Other'];
-  const [form, setForm] = React.useState({ name: '', email: '', org: '', types: [], detail: '', timeline: '', budget: '', referral: '' });
+  const EMPTY = { name: '', email: '', org: '', intent: '', detail: '', role: '', location: '', jobLink: '', focus: [], timeline: '', budget: '', eventName: '', eventDate: '', format: '', referral: '' };
+  const [form, setForm] = React.useState(EMPTY);
+  const intent = INTENTS.find((i) => i.id === form.intent) || null;
+  // Preselect the inquiry type when a visitor arrives from "Invite me to speak" (homepage event or /?intent=speaking).
+  React.useEffect(() => {
+    const apply = (id) => { if (INTENTS.some((i) => i.id === id)) setForm((f) => ({ ...f, intent: id })); };
+    let fromUrl = null;
+    try { fromUrl = new URLSearchParams(window.location.search).get('intent'); } catch (e) {}
+    if (fromUrl) {
+      apply(fromUrl);
+      try {
+        sessionStorage.setItem('jiz-target-section', 'contact');
+        const u = new URL(window.location.href); u.searchParams.delete('intent');
+        window.history.replaceState(window.history.state, '', u.pathname + u.search + u.hash);
+      } catch (e) {}
+    }
+    const onIntent = (e) => apply(e.detail);
+    window.addEventListener('jiz-contact-intent', onIntent);
+    return () => window.removeEventListener('jiz-contact-intent', onIntent);
+  }, []);
   const [formStatus, setFormStatus] = React.useState('idle');
   const [formMessage, setFormMessage] = React.useState('');
   const statusRef = React.useRef(null);
@@ -1592,14 +1670,15 @@ function LetsBuild({ onExploreWork }) {
     if ((formStatus === 'success' || formStatus === 'error') && statusRef.current) statusRef.current.focus();
   }, [formStatus]);
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
-  const toggleType = (t) => setForm((f) => ({ ...f, types: f.types.includes(t) ? f.types.filter((x) => x !== t) : f.types.concat(t) }));
+  const toggleFocus = (t) => setForm((f) => ({ ...f, focus: f.focus.includes(t) ? f.focus.filter((x) => x !== t) : f.focus.concat(t) }));
+  const pick = (k, v) => () => setForm((f) => ({ ...f, [k]: f[k] === v ? '' : v }));
   const handleSubmit = async function (event) {
     event.preventDefault();
     if (inFlightRef.current) return;
     const formEl = event.currentTarget;
-    if (form.types.length === 0) {
+    if (!intent) {
       setFormStatus('error');
-      setFormMessage('Select at least one inquiry type so I can route your message correctly.');
+      setFormMessage('Choose what you’re reaching out about so I can route your message correctly.');
       return;
     }
     const formData = new FormData(formEl);
@@ -1607,7 +1686,7 @@ function LetsBuild({ onExploreWork }) {
     setFormStatus('submitting');
     setFormMessage('');
     formData.append('access_key', 'be51b404-7cd3-43c5-afaf-5b52369eb150');
-    formData.append('subject', 'New Portfolio Project Inquiry');
+    formData.append('subject', 'Portfolio · ' + intent.subject);
     formData.append('from_name', 'Jonathan Zamarripa Portfolio');
     let ok = false;
     let notice = 'Something interrupted the submission. Please try again.';
@@ -1629,7 +1708,7 @@ function LetsBuild({ onExploreWork }) {
           setFormStatus('success');
           setFormMessage('Your inquiry is on its way. I’ll be in touch soon.');
           formEl.reset();
-          setForm({ name: '', email: '', org: '', types: [], detail: '', timeline: '', budget: '', referral: '' });
+          setForm(EMPTY);
         } else {
           setFormStatus('error');
           setFormMessage(notice);
@@ -1706,7 +1785,7 @@ function LetsBuild({ onExploreWork }) {
             <h2 className="jiz-build-title" id="jiz-build-title">Have something complex worth making clear?</h2>
           </div>
           <div className="jiz-build-head-right">
-            <p className="jiz-build-sub">A strategy that needs shape, an experience that needs building, a story that needs telling, or a new tool worth figuring out. Tell me what you’re working on. I’m currently open to senior full-time roles.</p>
+            <p className="jiz-build-sub">A strategy that needs shape, an experience that needs building, a story that needs telling, or a new tool worth figuring out. Tell me what you’re working on. I’m open to senior full-time and contract roles, consulting projects, and speaking or panel invitations.</p>
           </div>
         </header>
         <div className="jiz-build-stage">
@@ -1733,14 +1812,14 @@ function LetsBuild({ onExploreWork }) {
           </div>
           <form className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
             <h3>Start the Conversation</h3>
-            <p className="jiz-build-form-note">Hiring, recruiting, or scoping work — a few details are enough to begin.</p>
+            <p className="jiz-build-form-note">Hiring, projects, or speaking — a few details are enough to begin.</p>
             <div className="jiz-build-fields">
               <div className="jiz-build-field">
                 <label className="jiz-build-label" htmlFor="jiz-build-name">Name <span aria-hidden="true">*</span></label>
                 <input className="jiz-build-input" id="jiz-build-name" name="name" type="text" required value={form.name} onChange={set('name')} placeholder="Your name" autoComplete="name" />
               </div>
               <div className="jiz-build-field">
-                <label className="jiz-build-label" htmlFor="jiz-build-email">Work email <span aria-hidden="true">*</span></label>
+                <label className="jiz-build-label" htmlFor="jiz-build-email">Email <span aria-hidden="true">*</span></label>
                 <input className="jiz-build-input" id="jiz-build-email" name="email" type="email" required value={form.email} onChange={set('email')} placeholder="you@company.com" autoComplete="email" />
               </div>
               <div className="jiz-build-field jiz-span">
@@ -1748,33 +1827,83 @@ function LetsBuild({ onExploreWork }) {
                 <input className="jiz-build-input" id="jiz-build-org" name="organization" type="text" value={form.org} onChange={set('org')} placeholder="Company or team" autoComplete="organization" />
               </div>
               <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                <legend className="jiz-build-label">Inquiry type <span aria-hidden="true">*</span></legend>
+                <legend className="jiz-build-label">I’m reaching out about <span aria-hidden="true">*</span></legend>
                 <div className="jiz-build-chips">
-                  {PROJECT_TYPES.map((t) => (
-                    <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.types.indexOf(t) !== -1} onClick={() => toggleType(t)}>{t}</button>
+                  {INTENTS.map((i) => (
+                    <button key={i.id} type="button" className="jiz-build-chip" aria-pressed={form.intent === i.id} onClick={() => setForm((f) => ({ ...f, intent: i.id }))}>{i.label}</button>
                   ))}
                 </div>
               </fieldset>
+              {form.intent === 'hiring' ? (
+                <React.Fragment>
+                  <div className="jiz-build-field">
+                    <label className="jiz-build-label" htmlFor="jiz-build-role">Role title</label>
+                    <input className="jiz-build-input" id="jiz-build-role" name="role_title" type="text" value={form.role} onChange={set('role')} placeholder="e.g. Senior Learning Experience Designer" />
+                  </div>
+                  <div className="jiz-build-field">
+                    <label className="jiz-build-label" htmlFor="jiz-build-location">Location or remote</label>
+                    <input className="jiz-build-input" id="jiz-build-location" name="role_location" type="text" value={form.location} onChange={set('location')} placeholder="Atlanta hybrid, U.S. remote…" />
+                  </div>
+                  <div className="jiz-build-field jiz-span">
+                    <label className="jiz-build-label" htmlFor="jiz-build-joblink">Job posting link</label>
+                    <input className="jiz-build-input" id="jiz-build-joblink" name="job_link" type="text" inputMode="url" value={form.jobLink} onChange={set('jobLink')} placeholder="https://" />
+                  </div>
+                </React.Fragment>
+              ) : null}
+              {form.intent === 'speaking' ? (
+                <React.Fragment>
+                  <div className="jiz-build-field">
+                    <label className="jiz-build-label" htmlFor="jiz-build-event">Event or organization</label>
+                    <input className="jiz-build-input" id="jiz-build-event" name="event_name" type="text" value={form.eventName} onChange={set('eventName')} placeholder="Conference, panel, or podcast" />
+                  </div>
+                  <div className="jiz-build-field">
+                    <label className="jiz-build-label" htmlFor="jiz-build-eventdate">Date or timeframe</label>
+                    <input className="jiz-build-input" id="jiz-build-eventdate" name="event_date" type="text" value={form.eventDate} onChange={set('eventDate')} placeholder="e.g. Spring 2027" />
+                  </div>
+                  <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
+                    <legend className="jiz-build-label">Format</legend>
+                    <div className="jiz-build-chips">
+                      {FORMATS.map((t) => (
+                        <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.format === t} onClick={pick('format', t)}>{t}</button>
+                      ))}
+                    </div>
+                  </fieldset>
+                </React.Fragment>
+              ) : null}
+              {form.intent === 'project' ? (
+                <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
+                  <legend className="jiz-build-label">Focus</legend>
+                  <div className="jiz-build-chips">
+                    {FOCUS.map((t) => (
+                      <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.focus.indexOf(t) !== -1} onClick={() => toggleFocus(t)}>{t}</button>
+                    ))}
+                  </div>
+                </fieldset>
+              ) : null}
               <div className="jiz-build-field jiz-span">
-                <label className="jiz-build-label" htmlFor="jiz-build-detail">What are you trying to make clearer, easier, or more effective? <span aria-hidden="true">*</span></label>
-                <textarea className="jiz-build-area" id="jiz-build-detail" name="challenge" required value={form.detail} onChange={set('detail')} placeholder="The change you're after, the friction in the way, what success looks like." />
+                <label className="jiz-build-label" htmlFor="jiz-build-detail">{intent ? intent.detail : 'How can I help?'} <span aria-hidden="true">*</span></label>
+                <textarea className="jiz-build-area" id="jiz-build-detail" name="message" required value={form.detail} onChange={set('detail')} placeholder={intent ? intent.hint : 'Choose an option above, then add a few lines.'} />
               </div>
-              <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                <legend className="jiz-build-label">Timeline</legend>
-                <div className="jiz-build-chips">
-                  {TIMELINES.map((t) => (
-                    <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.timeline === t} onClick={() => setForm((f) => ({ ...f, timeline: f.timeline === t ? '' : t }))}>{t}</button>
-                  ))}
-                </div>
-              </fieldset>
-              <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                <legend className="jiz-build-label">Budget</legend>
-                <div className="jiz-build-chips">
-                  {BUDGETS.map((b) => (
-                    <button key={b} type="button" className="jiz-build-chip" aria-pressed={form.budget === b} onClick={() => setForm((f) => ({ ...f, budget: f.budget === b ? '' : b }))}>{b}</button>
-                  ))}
-                </div>
-              </fieldset>
+              {form.intent === 'project' ? (
+                <React.Fragment>
+                  <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
+                    <legend className="jiz-build-label">Timeline</legend>
+                    <div className="jiz-build-chips">
+                      {TIMELINES.map((t) => (
+                        <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.timeline === t} onClick={pick('timeline', t)}>{t}</button>
+                      ))}
+                    </div>
+                  </fieldset>
+                  <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
+                    <legend className="jiz-build-label">Budget</legend>
+                    <div className="jiz-build-chips">
+                      {BUDGETS.map((b) => (
+                        <button key={b} type="button" className="jiz-build-chip" aria-pressed={form.budget === b} onClick={pick('budget', b)}>{b}</button>
+                      ))}
+                    </div>
+                  </fieldset>
+                </React.Fragment>
+              ) : null}
               <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
                 <legend className="jiz-build-label">How did you hear about me?</legend>
                 <div className="jiz-build-chips">
@@ -1785,9 +1914,15 @@ function LetsBuild({ onExploreWork }) {
               </fieldset>
             </div>
 
-            <input type="hidden" name="project_type" value={form.types.join(', ')} />
-            <input type="hidden" name="timeline" value={form.timeline} />
-            <input type="hidden" name="budget" value={form.budget} />
+            <input type="hidden" name="inquiry_type" value={intent ? intent.label : ''} />
+            {form.intent === 'project' ? (
+              <React.Fragment>
+                <input type="hidden" name="project_focus" value={form.focus.join(', ')} />
+                <input type="hidden" name="timeline" value={form.timeline} />
+                <input type="hidden" name="budget" value={form.budget} />
+              </React.Fragment>
+            ) : null}
+            {form.intent === 'speaking' ? <input type="hidden" name="speaking_format" value={form.format} /> : null}
             <input type="hidden" name="referral_source" value={form.referral} />
 
             <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
@@ -1829,7 +1964,7 @@ function FinalMoment({ onNavigate }) {
   const [lit, setLit] = React.useState(false);
   const ref = React.useRef(null);
   const reduced = prefersReduced();
-  const NAV = [['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Behind the Build', 'btb'], ['Resume', 'resume'], ['LinkedIn', 'linkedin'], ['Email', 'email']];
+  const NAV = [['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Behind the Build', 'btb'], ['Resume', 'resume'], ['LinkedIn', 'linkedin']].concat(window.JIZ_SITE.links.newsletter ? [['Journal', 'journal'], ['Read the Newsletter', 'newsletter']] : [], [['Email', 'email']]);
   React.useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setLit(true); }, { threshold: 0.4 });
     if (ref.current) obs.observe(ref.current);
@@ -1869,7 +2004,7 @@ function FinalMoment({ onNavigate }) {
           <img className="jiz-footer-logo" src="./assets/logo/jiz-logo-white.svg" alt="Jonathan Iker Zamarripa logo" />
         </div>
         <p className="jiz-footer-name">Jonathan Iker Zamarripa</p>
-        <p className="jiz-footer-disciplines">Learning Strategy • Experience Design • Creative Technology • Film &amp; Media</p>
+        <p className="jiz-footer-disciplines">Learning Strategy &amp; Performance Consulting • Leadership Development • Product &amp; Technology Enablement • AI-Enabled Learning • Creative Technology &amp; Multimedia Production</p>
         <nav className="jiz-footer-nav" aria-label="Footer">
           {NAV.map(([label, index]) => (
             <button key={label} type="button" onClick={() => {
@@ -1879,6 +2014,10 @@ function FinalMoment({ onNavigate }) {
                 window.open('https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf', '_blank', 'noopener,noreferrer');
               } else if (index === 'linkedin') {
                 window.open('https://www.linkedin.com/in/jonathanzamarripa/', '_blank', 'noopener,noreferrer');
+              } else if (index === 'journal') {
+                window.location.href = './journal/';
+              } else if (index === 'newsletter') {
+                window.open(window.JIZ_SITE.links.newsletter, '_blank', 'noopener,noreferrer');
               } else if (index === 'email') {
                 window.location.href = 'mailto:jonathan.zamarripa@gmail.com';
               } else {
@@ -1899,154 +2038,108 @@ function FinalMoment({ onNavigate }) {
   );
 }
 
-function ThinkingInMotion() {
-  const ref = React.useRef(null);
-  const [active, setActive] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
-  React.useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === 'undefined') { setActive(true); return; }
-    const fallback = setTimeout(() => setActive(true), 1200);
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { clearTimeout(fallback); setActive(true); io.disconnect(); } });
-    }, { threshold: 0.16 });
-    io.observe(el);
-    return () => { clearTimeout(fallback); io.disconnect(); };
-  }, []);
-  const tags = ['Narrative Structure', 'Visual Pacing', 'Emotional Relevance', 'Scenario-Based Learning', 'AI-Enabled Production', 'Behavioral Clarity'];
-  const beats = [
-    { label: 'Context', copy: 'Establish the situation people are actually working inside.' },
-    { label: 'Tension', copy: 'Name the friction that makes the change hard.' },
-    { label: 'Clarity', copy: 'Resolve complexity into a decision people can hold.' },
-    { label: 'Action', copy: 'Move understanding into confident behavior.' }
-  ];
-  const notes = [
-    { label: 'AI + Practice', title: 'AI changes the workflow — not the responsibility.', copy: 'Speed expands the options. Judgment protects the outcome.' },
-    { label: 'Design Judgment', title: 'Scenarios should build judgment, not reward guessing.', copy: 'Practice should strengthen decisions — not test compliance.' },
-    { label: 'Systems Thinking', title: 'The experience is only one part of the system.', copy: 'Adoption succeeds when the whole environment supports the behavior.' }
-  ];
+function CinematicJournal({ onNavigate }) {
+  const J = window.JIZ_JOURNAL;
+  if (!J) return null;
+  const published = J.articles.filter((a) => a.status === 'published');
+  const lead = published.find((a) => a.featured === 'lead') || published[0];
+  const support = published.filter((a) => a !== lead && a.featured).slice(0, 2);
+  const linkProps = (a) => (a.onSite ? { href: './journal/' + a.slug + '/' } : { href: a.url, target: '_blank', rel: 'noopener noreferrer' });
+  const readLabel = (a) => (a.onSite ? 'Read on this site' : 'Read in the newsletter');
+  const invite = () => {
+    window.dispatchEvent(new CustomEvent('jiz-contact-intent', { detail: 'speaking' }));
+    if (onNavigate) onNavigate('contact');
+  };
   return (
-    <section className="jiz-tim" ref={ref} data-in={active ? 'true' : 'false'} aria-labelledby="jiz-tim-title">
-      <div className="jiz-tim-inner">
-        <div className="jiz-tim-col">
-          <p className="jiz-tim-eyebrow"><span className="jiz-tim-eyebrow-line" aria-hidden="true" />Thinking in Motion</p>
-          <h2 className="jiz-tim-title" id="jiz-tim-title">Cinematic learning for complex change.</h2>
-          <p className="jiz-tim-sub">A design perspective on how narrative structure, visual rhythm, emotional relevance, and multimedia storytelling can make learning more memorable, human, and actionable.</p>
-          <p className="jiz-tim-copy">I approach learning design like a narrative system. Every experience needs rhythm, tension, clarity, visual pacing, and a purposeful arc. Whether I am building an executive explainer, a leadership simulation, a product enablement toolkit, or an interactive eLearning module, I use cinematic principles to help learners move from attention to understanding — and from understanding to action.</p>
-          <ul className="jiz-tim-tags">
-            {tags.map((t, i) => <li key={t} className="jiz-tim-tag" style={{ transitionDelay: (420 + i * 90) + 'ms' }}>{t}</li>)}
-          </ul>
+    <section className="jz-cls" aria-label={J.name + ', an independent journal'}>
+      <style>{`
+.jz-cls{position:relative;background:linear-gradient(180deg,#0E1114 0%,#0E1114 38%,#11202A 100%);border-top:1px solid rgba(227,162,76,.32);padding-block:clamp(40px,4.4vw,64px) clamp(72px,8vw,128px);color:#E8E3D9}
+.jz-cls-mast{grid-column:1 / span 12;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;padding-bottom:16px;margin-bottom:clamp(40px,5vw,72px);border-bottom:1px solid rgba(232,227,217,.14)}
+.jz-cls-mast-name{margin:0;font:600 clamp(1rem,.9rem + .4vw,1.25rem)/1.2 var(--font-display);letter-spacing:.01em;color:#E8E3D9}
+.jz-cls-mast-name span{margin-left:12px;font:500 .75rem/1 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:#E3A24C}
+.jz-cls-intro{grid-column:1 / span 5;display:flex;flex-direction:column;gap:18px}
+.jz-cls-anchor{margin:4px 0 0;font:600 clamp(1.9rem,1.25rem + 2vw,3.1rem)/1.06 var(--font-display);letter-spacing:-.03em;color:#E8E3D9;text-wrap:balance}
+.jz-cls-anchor span{display:block}
+.jz-cls-anchor span:last-child{color:#E3A24C}
+.jz-cls-sub{margin:0;max-width:44ch;font:400 1rem/1.6 var(--font-body);color:rgba(232,227,217,.78)}
+.jz-cls-by{margin:0;font:500 .75rem/1.4 var(--font-mono);letter-spacing:.06em;color:rgba(232,227,217,.6)}
+.jz-cls-links{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:6px}
+.jz-cls-links a,.jz-cls-read,.jz-cls-invite{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:var(--text-button);font-size:.9375rem;color:var(--color-accent-primary);text-decoration:none;background:none;border:0;padding:0;cursor:pointer}
+.jz-cls-links a + a{color:#E8E3D9}
+.jz-cls-links a:hover,.jz-cls-read:hover,.jz-cls-invite:hover{text-decoration:underline;text-underline-offset:4px}
+.jz-cls-invite:focus-visible,.jz-cls a:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:4px;border-radius:2px}
+.jz-cls-feature{grid-column:7 / span 6;display:flex;flex-direction:column}
+.jz-cls-lead{position:relative;display:flex;flex-direction:column;gap:14px;padding:clamp(24px,2.6vw,36px);background:rgba(31,69,86,.38);border:1px solid rgba(86,184,180,.22);border-radius:16px}
+.jz-cls-lead::before{content:'';position:absolute;top:-1px;left:clamp(24px,2.6vw,36px);width:40px;height:2px;background:#E3A24C}
+.jz-cls-more{margin:clamp(28px,3vw,40px) 0 4px;color:rgba(232,227,217,.6)}
+.jz-cls-type{color:#56B8B4}
+.jz-cls-lead h3{margin:0;font:600 clamp(1.6rem,1.2rem + 1.4vw,2.5rem)/1.08 var(--font-display);letter-spacing:-.03em;color:#E8E3D9;text-wrap:balance}
+.jz-cls-dek{margin:0;max-width:52ch;font:400 clamp(1rem,.96rem + .2vw,1.125rem)/1.6 var(--font-body);color:rgba(232,227,217,.84)}
+.jz-cls-note{margin:0;font:400 .8125rem/1.5 var(--font-body);font-style:italic;color:rgba(232,227,217,.62)}
+.jz-cls-list{list-style:none;margin:0;padding:0}
+.jz-cls-list li{border-bottom:1px solid rgba(232,227,217,.12)}
+.jz-cls-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px;align-items:center;padding:20px 0;text-decoration:none;color:#E8E3D9}
+.jz-cls-list .jz-label{grid-column:1}
+.jz-cls-list-title{grid-column:1;font:500 clamp(1.0625rem,1rem + .3vw,1.25rem)/1.3 var(--font-display);letter-spacing:-.01em}
+.jz-cls-list-arrow{grid-column:2;grid-row:1 / span 2;color:rgba(232,227,217,.6);transition:transform 220ms cubic-bezier(.22,.61,.36,1),color 220ms ease}
+.jz-cls-list a:hover .jz-cls-list-title{text-decoration:underline;text-underline-offset:4px}
+.jz-cls-list a:hover .jz-cls-list-arrow{color:var(--color-accent-primary);transform:translate(2px,-2px)}
+.jz-cls-talk{grid-column:1 / span 12;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) auto;gap:12px clamp(20px,3vw,48px);align-items:center;margin-top:clamp(48px,5vw,80px);padding-top:clamp(24px,2.4vw,32px);border-top:1px solid rgba(232,227,217,.12)}
+.jz-cls-talk-t{margin:6px 0 0;font:600 clamp(1.125rem,1rem + .5vw,1.5rem)/1.2 var(--font-display);color:#E8E3D9}
+.jz-cls-talk-c{margin:0;font:400 .9375rem/1.6 var(--font-body);color:rgba(232,227,217,.78)}
+@media(max-width:1024px){.jz-cls-intro,.jz-cls-feature{grid-column:1 / span 12}.jz-cls-feature{margin-top:clamp(36px,6vw,56px)}.jz-cls-talk{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.jz-cls-list-arrow{transition:none}}
+      `}</style>
+      <div className="jz-wrap jz-grid">
+        <div className="jz-cls-mast">
+          <p className="jz-cls-mast-name">{J.name}<span>Independent journal</span></p>
+          <p className="jz-cls-by">By {J.author}</p>
         </div>
-        <div className="jiz-tim-col jiz-tim-col--right">
-          <div className="jiz-tim-board">
-            <p className="jiz-tim-board-label">Story arc</p>
-            <div className="jiz-tim-arc">
-              <svg className="jiz-tim-arc-svg" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-                <path className="jiz-tim-arc-path" d="M8 96 C 120 96, 150 30, 260 44 S 420 96, 592 18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
-              </svg>
-            </div>
-            <ol className="jiz-tim-beats">
-              {beats.map((b, i) => (
-                <li key={b.label} className="jiz-tim-beat" style={{ transitionDelay: (520 + i * 130) + 'ms' }}>
-                  <span className="jiz-tim-beat-node" aria-hidden="true" />
-                  <p className="jiz-tim-beat-label">{b.label}</p>
-                  <p className="jiz-tim-beat-copy">{b.copy}</p>
-                </li>
-              ))}
-            </ol>
+        <div className="jz-cls-intro">
+          <h2 className="jz-cls-anchor" id="jz-cls-title">{J.anchor.map((l) => <span key={l}>{l}</span>)}</h2>
+          <p className="jz-cls-sub">{J.subtitle}</p>
+          <div className="jz-cls-links">
+            <a href="./journal/">Read the journal <span aria-hidden="true">→</span></a>
+            <a href="./journal/#framework">The framework: CLPF {J.framework.version} <span aria-hidden="true">→</span></a>
           </div>
-          <article className="jiz-tim-card">
-            <div className="jiz-tim-visual" aria-hidden="true">
-              <span className="jiz-tim-frame" />
-              <span className="jiz-tim-frame jiz-tim-frame--2" />
-              <span className="jiz-tim-frame jiz-tim-frame--3" />
-              <span className="jiz-tim-scan" />
-            </div>
-            <div className="jiz-tim-body">
-              <p className="jiz-tim-kicker">Featured Insight</p>
-              <h3 className="jiz-tim-card-title">Thinking in Motion: Cinematic Learning for Enterprise Transformation</h3>
-              <p className="jiz-tim-card-copy">An emerging design perspective on how narrative structure, visual rhythm, emotion, AI-enabled production, and multimedia storytelling can help people understand complex change and act with confidence.</p>
-              <button type="button" className="jiz-tim-cta" onClick={() => setOpen((v) => !v)} aria-expanded={open} aria-controls="jiz-tim-panel">
-                <span className="jiz-tim-cta-label">{open ? 'Close the Insight' : 'Read the Insight'}</span>
-                <span className="jiz-tim-cta-arrow" aria-hidden="true">{open ? '\u2212' : '\u2192'}</span>
-              </button>
-              <div className="jiz-tim-panel" id="jiz-tim-panel" hidden={!open}>
-                <ul className="jiz-tim-notes">
-                  {notes.map((n) => (
-                    <li key={n.title} className="jiz-tim-note">
-                      <p className="jiz-tim-note-label">{n.label}</p>
-                      <h4 className="jiz-tim-note-title">{n.title}</h4>
-                      <p className="jiz-tim-note-copy">{n.copy}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </article>
+        </div>
+        {lead ? (
+          <div className="jz-cls-feature">
+            <article className="jz-cls-lead" aria-labelledby="jz-cls-lead-title">
+              <p className="jz-label jz-cls-type">{lead.type} · Issue {lead.issue}</p>
+              <h3 id="jz-cls-lead-title">{lead.title}</h3>
+              <p className="jz-cls-dek">{lead.standfirst}</p>
+              {lead.note ? <p className="jz-cls-note">{lead.note}</p> : null}
+              <a className="jz-cls-read" {...linkProps(lead)}>{readLabel(lead)} <span aria-hidden="true">{lead.onSite ? '→' : '↗'}</span><span className="jz-visually-hidden">: {lead.title}{lead.onSite ? '' : ' (LinkedIn, opens in a new tab)'}</span></a>
+            </article>
+            {support.length ? (
+              <React.Fragment>
+              <p className="jz-label jz-cls-more" id="jz-cls-more">More from the journal</p>
+              <ul className="jz-cls-list" aria-labelledby="jz-cls-more">
+                {support.map((a) => (
+                  <li key={a.slug}>
+                    <a {...linkProps(a)}>
+                      <span className="jz-label jz-cls-type">{a.type} · Issue {a.issue}</span>
+                      <span className="jz-cls-list-title">{a.title}</span>
+                      <span className="jz-cls-list-arrow" aria-hidden="true">{a.onSite ? '→' : '↗'}</span>
+                      {a.onSite ? null : <span className="jz-visually-hidden"> (LinkedIn, opens in a new tab)</span>}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              </React.Fragment>
+            ) : null}
+          </div>
+        ) : null}
+        <div className="jz-cls-talk">
+          <div>
+            <p className="jz-label">Speaking · {J.talk.status}</p>
+            <p className="jz-cls-talk-t">{J.talk.title}</p>
+          </div>
+          <p className="jz-cls-talk-c">{J.talk.about} {J.talk.formats}.</p>
+          <button type="button" className="jz-cls-invite" onClick={invite}>Invite me to speak <span aria-hidden="true">→</span></button>
         </div>
       </div>
-      <style>{`
-.jiz-tim{position:relative;isolation:isolate;background:#0E1413;border-top:1px solid rgba(255,255,255,.05);padding-block:clamp(72px,7vw,124px)}
-.jiz-tim::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 52% 44% at 80% 26%,rgba(95,201,192,.055),transparent 70%),radial-gradient(ellipse 46% 40% at 12% 84%,rgba(198,242,58,.03),transparent 72%)}
-.jiz-tim-inner{position:relative;z-index:1;width:min(1440px,calc(100% - 2*clamp(24px,6vw,112px)));margin-inline:auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,4vw,72px);align-items:start}
-.jiz-tim-col{display:flex;flex-direction:column;min-width:0}
-.jiz-tim-col--right{gap:clamp(18px,1.8vw,28px)}
-.jiz-tim-eyebrow,.jiz-tim-title,.jiz-tim-sub,.jiz-tim-copy,.jiz-tim-board,.jiz-tim-card{opacity:0;transform:translate3d(0,14px,0);transition:opacity 840ms cubic-bezier(.22,.61,.36,1),transform 840ms cubic-bezier(.22,.61,.36,1)}
-.jiz-tim[data-in="true"] .jiz-tim-eyebrow,.jiz-tim[data-in="true"] .jiz-tim-title,.jiz-tim[data-in="true"] .jiz-tim-sub,.jiz-tim[data-in="true"] .jiz-tim-copy,.jiz-tim[data-in="true"] .jiz-tim-board,.jiz-tim[data-in="true"] .jiz-tim-card{opacity:1;transform:none}
-.jiz-tim-title{transition-delay:100ms}
-.jiz-tim-sub{transition-delay:200ms}
-.jiz-tim-copy{transition-delay:300ms}
-.jiz-tim-board{transition-delay:240ms}
-.jiz-tim-card{transition-delay:400ms;transition-property:opacity,transform,border-color,box-shadow;transition-duration:840ms,840ms,300ms,300ms}
-.jiz-tim-eyebrow{display:flex;align-items:center;gap:14px;font:var(--text-hud);font-size:.6875rem;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-secondary);margin:0 0 20px}
-.jiz-tim-eyebrow-line{display:block;width:44px;height:1px;background:linear-gradient(90deg,var(--color-accent-secondary),rgba(95,201,192,.15))}
-.jiz-tim-title{font:var(--text-display);font-size:clamp(1.95rem,1.3rem + 1.9vw,3rem);line-height:1.08;letter-spacing:-.024em;color:var(--color-text-primary);margin:0 0 18px;text-wrap:pretty}
-.jiz-tim-sub{font:var(--text-body);font-size:clamp(.9375rem,.9rem + .22vw,1.0625rem);line-height:1.68;color:rgba(217,221,227,.72);margin:0 0 20px;max-width:52ch;text-wrap:pretty}
-.jiz-tim-copy{font:var(--text-body);font-size:.9375rem;line-height:1.75;color:rgba(217,221,227,.7);margin:0;max-width:56ch;padding-left:18px;border-left:1px solid rgba(95,201,192,.28);text-wrap:pretty}
-.jiz-tim-tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:clamp(24px,2.4vw,34px) 0 0;padding:0}
-.jiz-tim-tag{padding:6px 12px;border-radius:var(--radius-pill);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);font:var(--text-body);font-size:.6875rem;letter-spacing:.02em;color:rgba(232,238,226,.74);opacity:0;transform:translate3d(0,8px,0);transition:opacity 620ms cubic-bezier(.22,.61,.36,1),transform 620ms cubic-bezier(.22,.61,.36,1),background 260ms ease,border-color 260ms ease,color 260ms ease}
-.jiz-tim[data-in="true"] .jiz-tim-tag{opacity:1;transform:none}
-.jiz-tim-tag:hover{background:rgba(198,242,58,.12);border-color:rgba(198,242,58,.26);color:#EEFBD2}
-.jiz-tim-board{position:relative;padding:clamp(20px,2vw,30px);background:linear-gradient(180deg,rgba(255,255,255,.035) 0%,rgba(255,255,255,.012) 100%);border:1px solid rgba(255,255,255,.06);border-radius:clamp(14px,1.2vw,22px)}
-.jiz-tim-board-label{font:var(--text-hud);font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(217,221,227,.6);margin:0 0 12px}
-.jiz-tim-arc{height:clamp(72px,7vw,104px);color:var(--color-accent-primary)}
-.jiz-tim-arc-svg{width:100%;height:100%;display:block;overflow:visible}
-.jiz-tim-arc-path{stroke-dasharray:1000;stroke-dashoffset:1000;opacity:.72;transition:stroke-dashoffset 1800ms cubic-bezier(.22,.61,.36,1) 260ms}
-.jiz-tim[data-in="true"] .jiz-tim-arc-path{stroke-dashoffset:0}
-.jiz-tim-beats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.2vw,18px);list-style:none;margin:14px 0 0;padding:0}
-.jiz-tim-beat{position:relative;padding-top:16px;min-width:0;opacity:0;transform:translate3d(0,10px,0);transition:opacity 680ms cubic-bezier(.22,.61,.36,1),transform 680ms cubic-bezier(.22,.61,.36,1)}
-.jiz-tim[data-in="true"] .jiz-tim-beat{opacity:1;transform:none}
-.jiz-tim-beat-node{position:absolute;left:0;top:0;width:7px;height:7px;border-radius:50%;background:var(--color-accent-primary);opacity:.75}
-.jiz-tim-beat-label{font:var(--text-hud);font-size:.625rem;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-primary);margin:0 0 6px}
-.jiz-tim-beat-copy{font:var(--text-body);font-size:.8125rem;line-height:1.5;color:rgba(217,221,227,.62);margin:0;text-wrap:pretty}
-.jiz-tim-card{display:grid;grid-template-columns:minmax(0,34fr) minmax(0,66fr);overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.042) 0%,rgba(255,255,255,.014) 100%);border:1px solid rgba(255,255,255,.07);border-radius:clamp(16px,1.4vw,24px);box-shadow:0 20px 46px -30px rgba(0,0,0,.85)}
-.jiz-tim-card:hover,.jiz-tim-card:focus-within{border-color:rgba(95,201,192,.3);box-shadow:0 30px 62px -32px rgba(0,0,0,.9),0 0 0 1px rgba(95,201,192,.08)}
-.jiz-tim-visual{position:relative;overflow:hidden;min-height:clamp(180px,18vw,240px);background:linear-gradient(160deg,#0F1A19 0%,#0A100F 76%)}
-.jiz-tim-frame{position:absolute;left:14%;top:20%;width:58%;height:42%;border:1px solid rgba(95,201,192,.34);border-radius:4px}
-.jiz-tim-frame--2{left:22%;top:30%;border-color:rgba(198,242,58,.24)}
-.jiz-tim-frame--3{left:30%;top:40%;border-color:rgba(255,255,255,.11)}
-.jiz-tim-scan{position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(198,242,58,.5),transparent);transform:translateY(0);opacity:0;transition:transform 1700ms cubic-bezier(.22,.61,.36,1) 520ms,opacity 600ms ease 520ms}
-.jiz-tim[data-in="true"] .jiz-tim-scan{transform:translateY(clamp(180px,18vw,240px));opacity:.85}
-.jiz-tim-body{display:flex;flex-direction:column;align-items:flex-start;gap:13px;padding:clamp(22px,2.2vw,36px)}
-.jiz-tim-kicker{font:var(--text-hud);font-size:.625rem;letter-spacing:.2em;text-transform:uppercase;color:var(--color-accent-secondary);margin:0}
-.jiz-tim-card-title{font:var(--text-h3);font-size:clamp(1.1rem,.98rem + .5vw,1.45rem);line-height:1.3;letter-spacing:-.012em;color:var(--color-text-primary);margin:0;text-wrap:pretty}
-.jiz-tim-card-copy{font:var(--text-body);font-size:.9375rem;line-height:1.6;color:rgba(217,221,227,.7);margin:0;max-width:54ch;text-wrap:pretty}
-.jiz-tim-cta{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0;background:none;border:0;font:var(--text-button);font-size:.875rem;color:var(--color-accent-primary);cursor:pointer}
-.jiz-tim-cta-label{position:relative;padding-bottom:3px;border-bottom:1px solid rgba(198,242,58,.34);transition:border-color 260ms ease}
-.jiz-tim-cta:hover .jiz-tim-cta-label{border-color:var(--color-accent-primary)}
-.jiz-tim-cta-arrow{transition:transform 320ms cubic-bezier(.22,.61,.36,1)}
-.jiz-tim-cta:hover .jiz-tim-cta-arrow{transform:translateX(5px)}
-.jiz-tim-cta:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:5px;border-radius:4px}
-.jiz-tim-panel{width:100%;margin-top:2px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07)}
-.jiz-tim-notes{display:grid;gap:16px;list-style:none;margin:0;padding:0}
-.jiz-tim-note-label{font:var(--text-hud);font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(198,242,58,.72);margin:0 0 6px}
-.jiz-tim-note-title{font:var(--text-body);font-size:.9375rem;font-weight:650;line-height:1.4;color:var(--color-text-primary);margin:0 0 4px;text-wrap:pretty}
-.jiz-tim-note-copy{font:var(--text-body);font-size:.875rem;line-height:1.55;color:rgba(217,221,227,.66);margin:0;text-wrap:pretty}
-@media(max-width:1040px){.jiz-tim-inner{grid-template-columns:1fr}.jiz-tim-card{grid-template-columns:1fr}.jiz-tim-visual{min-height:150px}.jiz-tim[data-in="true"] .jiz-tim-scan{transform:translateY(150px)}}
-@media(max-width:620px){.jiz-tim-beats{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.jiz-tim-copy{padding-left:14px}}
-@media(prefers-reduced-motion:reduce){.jiz-tim-eyebrow,.jiz-tim-title,.jiz-tim-sub,.jiz-tim-copy,.jiz-tim-board,.jiz-tim-card,.jiz-tim-tag,.jiz-tim-beat{opacity:1;transform:none;transition:none}.jiz-tim-arc-path{stroke-dasharray:none;stroke-dashoffset:0;transition:none}.jiz-tim-scan{opacity:.5;transform:none;transition:none}.jiz-tim-cta-arrow{transition:none}}
-      `}</style>
     </section>
   );
 }
@@ -2101,13 +2194,7 @@ function AboutMind() {
 .jz-ab-copy{display:flex;flex-direction:column;gap:18px;margin:clamp(28px,3vw,40px) 0 0;max-width:52ch}
 .jz-ab-copy p{margin:0;font:400 clamp(1rem,.95rem + .25vw,1.1875rem)/1.65 var(--font-body);color:rgba(238,242,236,.86);text-wrap:pretty}
 .jz-ab-copy p:first-child{color:#EEF2EC}
-.jz-ab-path{list-style:none;margin:clamp(40px,4.4vw,64px) 0 0;padding:0;max-width:60ch}
-.jz-ab-path li{display:grid;grid-template-columns:minmax(0,15ch) minmax(0,1fr);gap:8px 24px;padding:16px 0;border-top:1px solid rgba(217,221,227,.1)}
-.jz-ab-path li:last-child{border-bottom:1px solid rgba(217,221,227,.1)}
-.jz-ab-path h3{margin:0;font:500 .9375rem/1.4 var(--font-display);color:#EEF2EC}
-.jz-ab-path p{margin:0;font:400 .875rem/1.55 var(--font-body);color:rgba(217,221,227,.74)}
 .jz-ab-close{margin:clamp(32px,3.4vw,48px) 0 0;max-width:40ch;font:400 clamp(1.0625rem,1rem + .3vw,1.25rem)/1.5 var(--font-display);font-style:italic;color:rgba(238,242,236,.9)}
-@media(max-width:560px){.jz-ab-path li{grid-template-columns:1fr}}
           `}</style>
           <p className="jz-label jiz-am-eyebrow-a">About</p>
           <h2 className="jz-ab-h2 jiz-am-title" id="jiz-am-title">Adoption is a human problem before a technical one.</h2>
@@ -2115,30 +2202,26 @@ function AboutMind() {
             <p>I learned that early, guiding educators and communities through digital learning and platform change. It still shapes everything I make, from leadership simulations to release-ready product training.</p>
             <p>The problems I'm handed rarely stay inside one discipline, so neither do I. I structure the ambiguity, design the experience, then film, prototype, and build it, using AI to move faster without handing it the judgment.</p>
           </div>
-          <ol className="jz-ab-path" aria-label="How the practice evolved">
-            <li><h3>Education innovation</h3><p>Digital learning adoption with educators, where designing for real behavior change began.</p></li>
-            <li><h3>Digital transformation</h3><p>Guiding communities through platform change.</p></li>
-            <li><h3>Enterprise L&amp;D</h3><p>Leadership and enterprise learning for audiences from frontline teams to SVPs.</p></li>
-            <li><h3>Product &amp; technology enablement</h3><p>Release-ready learning that keeps global teams operationally current.</p></li>
-          </ol>
           <p className="jz-ab-close jiz-am-close">Make the complex clear, make the learning useful, and make the experience worth remembering.</p>
         </div>
         <div className="jiz-am-col jiz-am-col--right">
           <figure className="jiz-am-card" ref={cardRef} onMouseMove={onMove} onMouseLeave={onLeave}>
-            <div className="jiz-am-stage" role="img" aria-label="Jonathan speaking in a futuristic studio environment representing learning strategy and systems thinking.">
-              <img className="jiz-am-poster" src="./assets/imagery/jonathan-about-poster.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1920" height="1080" />
+            <div className="jiz-am-stage" role="img" aria-label="Jonathan seated on a wooden desk in a warmly lit studio.">
+              <img className="jiz-am-poster" src="./assets/imagery/jonathan-closing-poster.webp" alt="" aria-hidden="true" loading="lazy" decoding="async" width="1920" height="1080" />
               {showVideo ? (
-                <InViewVideo videoRef={studioRef} className="jiz-am-video" poster="./assets/imagery/jonathan-about-poster.webp" preload="metadata" aria-hidden="true" tabIndex={-1} disablePictureInPicture>
-                  <source src="./assets/video/jonathan-about-loop.mp4" type="video/mp4" />
+                <InViewVideo videoRef={studioRef} className="jiz-am-video" poster="./assets/imagery/jonathan-closing-poster.webp" preload="metadata" aria-hidden="true" tabIndex={-1} disablePictureInPicture>
+                  <source src="./assets/video/jonathan-closing-loop.mp4" type="video/mp4" />
                 </InViewVideo>
               ) : null}
               <span className="jiz-am-rim" aria-hidden="true" />
               <span className="jiz-am-rule" aria-hidden="true" />
             </div>
+            {showVideo ? <MotionToggle className="jiz-am-motion" /> : null}
             <figcaption className="jiz-am-quote">
               <span className="jiz-am-quote-mark" aria-hidden="true" />
               <blockquote className="jiz-am-quote-text">“I translate complexity into learning people can use.”</blockquote>
               <p className="jiz-am-quote-by">Jonathan Iker Zamarripa · Learning Experience Design &amp; Strategy</p>
+              <p className="jiz-am-quote-by">M.Ed., Instructional Design &amp; Technology · Arizona State University</p>
             </figcaption>
           </figure>
         </div>
@@ -2176,6 +2259,7 @@ function AboutMind() {
 .jiz-am-rim{position:absolute;inset:0;pointer-events:none;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(100,225,255,.14),inset 0 -40px 60px -50px rgba(100,225,255,.5)}
 .jiz-am-rule{position:absolute;left:clamp(18px,1.6vw,26px);bottom:clamp(18px,1.6vw,26px);width:36px;height:1px;background:var(--color-accent-primary);opacity:.65;transition:width 560ms cubic-bezier(.22,.61,.36,1),opacity 300ms ease}
 .jiz-am-card:hover .jiz-am-rule{width:68px;opacity:1}
+.jiz-am-motion{top:clamp(10px,1.2vw,16px);right:clamp(10px,1.2vw,16px)}
 .jiz-am-quote{display:flex;flex-direction:column;gap:10px;padding:clamp(20px,2vw,30px)}
 .jiz-am-quote-mark{width:30px;height:2px;background:linear-gradient(90deg,var(--color-accent-primary),rgba(198,242,58,.08))}
 .jiz-am-quote-text{font:var(--text-h3);font-size:clamp(1.05rem,.95rem + .45vw,1.3rem);line-height:1.4;letter-spacing:-.012em;color:var(--color-text-primary);margin:0;text-wrap:pretty}
@@ -2283,7 +2367,7 @@ function Homepage({ onOpenCaseStudy }) {
         <div ref={registerSection('impact')} data-section="impact"><ImpactEditorial /></div>
         <div ref={registerSection('capabilities')} data-section="capabilities"><Practice part="capabilities" /></div>
         <div ref={registerSection('method')} data-section="method"><Practice part="method" /></div>
-        <div ref={registerSection('thinking')} data-section="thinking-in-motion"><ThinkingInMotion /></div>
+        <div ref={registerSection('thinking')} data-section="cinematic-learning-systems"><CinematicJournal onNavigate={scrollToSection} /></div>
         <div ref={registerSection('creative-lab')} data-section="creative-lab"><FilmSection /></div>
         <div ref={registerSection('about')} data-section="about"><AboutMind /></div>
         <div ref={registerSection('journey')} data-section="journey"><CareerJourney /></div>

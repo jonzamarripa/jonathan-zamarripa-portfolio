@@ -5,7 +5,9 @@
     resume: 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf',
     linkedin: 'https://www.linkedin.com/in/jonathanzamarripa/',
     email: 'mailto:jonathan.zamarripa@gmail.com',
-    archive: 'https://jonathan-iker-zamarripa.webflow.io/projects'
+    archive: 'https://jonathan-iker-zamarripa.webflow.io/projects',
+    // Cinematic Learning Systems newsletter on LinkedIn. Paste the URL here; the Thinking and footer links appear automatically.
+    newsletter: 'https://www.linkedin.com/newsletters/cinematic-learning-systems-7463584574371942400/'
   };
   var sections = [
     { id: 'hero', nav: null, aliases: ['Home', 'Hero', 'home'] },
@@ -13,7 +15,7 @@
     { id: 'impact', nav: null, aliases: ['Impact', 'Selected Impact'] },
     { id: 'capabilities', nav: 'Capabilities', aliases: ['Capabilities', 'Core Capabilities', 'Practice'] },
     { id: 'method', nav: 'Method', aliases: ['Method', 'The Method'] },
-    { id: 'thinking', nav: 'Thinking', aliases: ['Thinking', 'Thinking in Motion', 'Insight', 'Insights'] },
+    { id: 'thinking', nav: 'Thinking', aliases: ['Thinking', 'Thinking in Motion', 'Insight', 'Insights', 'Journal', 'Cinematic Learning Systems'] },
     { id: 'creative-lab', nav: null, aliases: ['Lab', 'Creative Lab', 'Film'] },
     { id: 'about', nav: 'About', aliases: ['About'] },
     { id: 'journey', nav: 'About', aliases: ['Journey', 'The Journey', 'Career Journey'] },
