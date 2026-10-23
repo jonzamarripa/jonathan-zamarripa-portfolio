@@ -76,3 +76,14 @@ main:has(.dx){width:min(1280px,calc(100% - 2*clamp(16px,5vw,64px)))}
   .dx-fig--diagram figcaption::after{content:' Scroll sideways to read the full diagram, or open it full size.';color:var(--jr-mute)}
 }
 @media(max-width:520px){.dx-toc ol{grid-template-columns:1fr}.dx-ledger{grid-template-columns:1fr}.dx-ledger dt{padding-bottom:0;border-bottom:0}}
+/* Photography: diptych and responsive crops */
+.dx-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(10px,1.4vw,18px)}
+.dx-pair img{aspect-ratio:4 / 5;object-fit:cover}
+.dx-pair-l{margin:10px 0 0;font:600 .75rem/1.3 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--jr-teal)}
+.dx-fig--wide img{aspect-ratio:2048 / 1143;object-fit:cover}
+.dx-fig--column{max-width:960px!important}
+@media(max-width:760px){
+  .dx-pair{grid-template-columns:1fr}
+  .dx-pair img{aspect-ratio:2048 / 1143}
+  .dx-fig--wide img{aspect-ratio:4 / 3}
+}

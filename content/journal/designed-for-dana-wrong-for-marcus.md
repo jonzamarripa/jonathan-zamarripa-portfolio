@@ -11,7 +11,14 @@
 @chapter 01 The Human Problem
 
 ::: figure wide
-alt: The original warehouse scene: night shift, Aisle 04
+src: 01_dana_marcus_aisle04_wide
+widths: 1024,2048
+w: 2048
+h: 1143
+ext: jpg
+pos: 50% 55%
+alt: Night shift in a warehouse aisle lined with tall pallet racks. Dana, in a yellow safety vest and holding a tablet, faces Marcus, in an orange safety vest, a few feet away.
+status: Editorial image · composite characters
 caption: Night shift, Aisle 04.
 :::
 
@@ -19,8 +26,19 @@ caption: Night shift, Aisle 04.
 The published opening scene, “The Same Three Seconds,” and The Question.
 :::
 
-::: figure artifact
-alt: Marcus portraits used as the diagnostic comparison
+::: figure pair
+src: 02_marcus_front_portrait
+alt: Marcus, straight-on portrait between warehouse racks, in an orange safety vest; his expression is guarded and unreadable.
+label: The surface read
+src2: 03_marcus_emotional_closeup
+alt2: Marcus in close-up, eyes lowered and wet, his expression strained.
+label2: What the surface doesn’t show
+widths: 1024,2048
+w: 2048
+h: 1143
+ext: jpg
+pos: 52% 40%
+status: Editorial image · composite character
 caption: The diagnostic comparison.
 :::
 
@@ -65,6 +83,17 @@ caption: The decision hub. A 50mm evidence shot, three approaches, and an openin
 2: Phone face-down, checked twice in a minute.
 3: Scanner held loose.
 4: Counterpart state — caregiving, skill gap, or disengaged — is hidden from the learner.
+:::
+
+::: figure column
+src: 04_benjamin_breakroom
+widths: 1024,2048
+w: 2048
+h: 1143
+ext: jpg
+alt: Benjamin, a peer coach in a worn work jacket and yellow safety vest, sits at a breakroom table; forklifts move on the warehouse floor through the window behind him.
+status: Editorial image · composite character
+caption: Benjamin, the peer coach — a person, not an AI.
 :::
 
 ::: figure artifact

@@ -59,16 +59,23 @@ function kv(buf) {
 const COMPONENTS = {
   // Figure: layout = wide | column | artifact (image + numbered annotations) | diagram (scrollable on small screens, full-size link)
   figure(o, opts) {
-    const layout = (opts.match(/\b(wide|column|artifact|diagram)\b/) || [0, 'column'])[1];
-    const n = ++FIG; const base = ASSET_BASE + o.src;
-    const img = o.src
-      ? `<img src="${base}-1600.webp" srcset="${base}-1600.webp 1600w, ${base}-2800.webp 2800w" sizes="(min-width: 1320px) 1280px, 100vw" alt="${esc(o.alt)}" loading="lazy" decoding="async" width="${esc(o.w || 3200)}" height="${esc(o.h || 2000)}">`
-      : `<div class="dx-missing" role="img" aria-label="Image pending: ${esc(o.alt)}"><span>Asset pending</span>${esc(o.alt)}</div>`;
+    const layout = (opts.match(/\b(wide|column|artifact|diagram|pair)\b/) || [0, 'column'])[1];
+    const n = ++FIG;
+    // Responsive image: `widths: 1024,2048` (photography) or the default 1600/2800 (screens and diagrams); `pos` sets the crop focus.
+    const pic = (src, alt, cls) => {
+      if (!src) return `<div class="dx-missing" role="img" aria-label="Image pending: ${esc(alt)}"><span>Asset pending</span>${esc(alt)}</div>`;
+      const base = ASSET_BASE + src; const ws = (o.widths || '1600,2800').split(',').map((x) => x.trim());
+      return `<img class="${cls || ''}" src="${base}-${ws[0]}.webp" srcset="${ws.map((w) => base + '-' + w + '.webp ' + w + 'w').join(', ')}" sizes="${layout === 'pair' ? '(min-width: 1320px) 630px, (min-width: 760px) 50vw, 100vw' : '(min-width: 1320px) 1280px, 100vw'}" alt="${esc(alt)}" loading="lazy" decoding="async" width="${esc(o.w || 3200)}" height="${esc(o.h || 2000)}"${o.pos ? ' style="object-position:' + esc(o.pos) + '"' : ''}>`;
+    };
+    const fullExt = o.ext || 'png';
+    const img = pic(o.src, o.alt);
     const media = layout === 'diagram'
       ? `<div class="dx-scroll" tabindex="0" role="region" aria-label="Figure ${n}, scrollable diagram">${img}</div>`
-      : `<div class="dx-media">${img}</div>`;
+      : layout === 'pair'
+        ? `<div class="dx-pair"><div class="dx-media">${img}${o.label ? '<p class="dx-pair-l">' + esc(o.label) + '</p>' : ''}</div><div class="dx-media">${pic(o.src2, o.alt2)}${o.label2 ? '<p class="dx-pair-l">' + esc(o.label2) + '</p>' : ''}</div></div>`
+        : `<div class="dx-media">${img}</div>`;
     const notes = o._notes.length ? `<ol class="dx-notes">${o._notes.map((t) => '<li>' + inline(t) + '</li>').join('')}</ol>` : '';
-    const full = o.src ? ` <a class="dx-full" href="${base}.png" target="_blank" rel="noopener noreferrer">Open full size<span class="vh"> (Figure ${n}, opens in a new tab)</span></a>` : '';
+    const full = o.src ? ` <a class="dx-full" href="${ASSET_BASE + o.src}.${fullExt}" target="_blank" rel="noopener noreferrer">Open full size<span class="vh"> (Figure ${n}, opens in a new tab)</span></a>` + (o.src2 ? ` <a class="dx-full" href="${ASSET_BASE + o.src2}.${fullExt}" target="_blank" rel="noopener noreferrer">Second image<span class="vh"> (Figure ${n}, opens in a new tab)</span></a>` : '') : '';
     return `<figure class="dx-fig dx-fig--${layout}" id="fig-${n}">
   ${media}${layout === 'artifact' ? notes : ''}
   <figcaption><span class="dx-fig-n">Fig. ${n}</span>${o.status ? ' <span class="dx-status">' + esc(o.status) + '</span>' : ''} ${inline(o.caption || '')}${o.note ? ' <span class="dx-fig-note">' + inline(o.note) + '</span>' : ''}${full}</figcaption>
