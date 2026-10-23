@@ -35,6 +35,7 @@ try {
   const ctx = vm.createContext(win);
   vm.runInContext(readFileSync('dist/ds-core.js', 'utf8'), ctx);
   vm.runInContext(readFileSync('site-config.js', 'utf8'), ctx);
+  vm.runInContext(readFileSync('content/journal.js', 'utf8'), ctx);
   vm.runInContext(code.replace(/ReactDOM\.createRoot\([^;]*\)\.render\([^;]*\);?\s*$/, ''), ctx);
   const html = ReactDOMServer.renderToString(React.createElement(win.HomepageExports.Homepage, { onOpenCaseStudy: noop })).replace(/<video\b[\s\S]*?<\/video>/g, '');
   const idx = readFileSync('index.html', 'utf8').replace(/<div id="root">[\s\S]*<\/div>\s*$/, '<div id="root"><div data-prerender="">' + html + '</div></div>\n');
@@ -42,3 +43,4 @@ try {
   console.log('prerendered homepage into index.html');
 } catch (e) { console.warn('prerender skipped:', e.message); }
 console.log('built dist/site.js' + (bundlePath ? ' + dist/ds-core.js' : ''));
+require('./build-journal.cjs');

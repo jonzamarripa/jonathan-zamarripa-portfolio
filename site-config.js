@@ -15,7 +15,7 @@
     { id: 'impact', nav: null, aliases: ['Impact', 'Selected Impact'] },
     { id: 'capabilities', nav: 'Capabilities', aliases: ['Capabilities', 'Core Capabilities', 'Practice'] },
     { id: 'method', nav: 'Method', aliases: ['Method', 'The Method'] },
-    { id: 'thinking', nav: 'Thinking', aliases: ['Thinking', 'Thinking in Motion', 'Insight', 'Insights'] },
+    { id: 'thinking', nav: 'Thinking', aliases: ['Thinking', 'Thinking in Motion', 'Insight', 'Insights', 'Journal', 'Cinematic Learning Systems'] },
     { id: 'creative-lab', nav: null, aliases: ['Lab', 'Creative Lab', 'Film'] },
     { id: 'about', nav: 'About', aliases: ['About'] },
     { id: 'journey', nav: 'About', aliases: ['Journey', 'The Journey', 'Career Journey'] },

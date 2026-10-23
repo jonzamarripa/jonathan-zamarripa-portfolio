@@ -1643,6 +1643,23 @@ function LetsBuild({ onExploreWork }) {
   const EMPTY = { name: '', email: '', org: '', intent: '', detail: '', role: '', location: '', jobLink: '', focus: [], timeline: '', budget: '', eventName: '', eventDate: '', format: '', referral: '' };
   const [form, setForm] = React.useState(EMPTY);
   const intent = INTENTS.find((i) => i.id === form.intent) || null;
+  // Preselect the inquiry type when a visitor arrives from "Invite me to speak" (homepage event or /?intent=speaking).
+  React.useEffect(() => {
+    const apply = (id) => { if (INTENTS.some((i) => i.id === id)) setForm((f) => ({ ...f, intent: id })); };
+    let fromUrl = null;
+    try { fromUrl = new URLSearchParams(window.location.search).get('intent'); } catch (e) {}
+    if (fromUrl) {
+      apply(fromUrl);
+      try {
+        sessionStorage.setItem('jiz-target-section', 'contact');
+        const u = new URL(window.location.href); u.searchParams.delete('intent');
+        window.history.replaceState(window.history.state, '', u.pathname + u.search + u.hash);
+      } catch (e) {}
+    }
+    const onIntent = (e) => apply(e.detail);
+    window.addEventListener('jiz-contact-intent', onIntent);
+    return () => window.removeEventListener('jiz-contact-intent', onIntent);
+  }, []);
   const [formStatus, setFormStatus] = React.useState('idle');
   const [formMessage, setFormMessage] = React.useState('');
   const statusRef = React.useRef(null);
@@ -1947,7 +1964,7 @@ function FinalMoment({ onNavigate }) {
   const [lit, setLit] = React.useState(false);
   const ref = React.useRef(null);
   const reduced = prefersReduced();
-  const NAV = [['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Behind the Build', 'btb'], ['Resume', 'resume'], ['LinkedIn', 'linkedin']].concat(window.JIZ_SITE.links.newsletter ? [['Read the Newsletter', 'newsletter']] : [], [['Email', 'email']]);
+  const NAV = [['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Behind the Build', 'btb'], ['Resume', 'resume'], ['LinkedIn', 'linkedin']].concat(window.JIZ_SITE.links.newsletter ? [['Journal', 'journal'], ['Read the Newsletter', 'newsletter']] : [], [['Email', 'email']]);
   React.useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setLit(true); }, { threshold: 0.4 });
     if (ref.current) obs.observe(ref.current);
@@ -1997,6 +2014,8 @@ function FinalMoment({ onNavigate }) {
                 window.open('https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf', '_blank', 'noopener,noreferrer');
               } else if (index === 'linkedin') {
                 window.open('https://www.linkedin.com/in/jonathanzamarripa/', '_blank', 'noopener,noreferrer');
+              } else if (index === 'journal') {
+                window.location.href = './journal/';
               } else if (index === 'newsletter') {
                 window.open(window.JIZ_SITE.links.newsletter, '_blank', 'noopener,noreferrer');
               } else if (index === 'email') {
@@ -2019,158 +2038,99 @@ function FinalMoment({ onNavigate }) {
   );
 }
 
-function ThinkingInMotion() {
-  const ref = React.useRef(null);
-  const [active, setActive] = React.useState(false);
-  const [open, setOpen] = React.useState(false);
-  React.useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    if (typeof IntersectionObserver === 'undefined') { setActive(true); return; }
-    const fallback = setTimeout(() => setActive(true), 1200);
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach((e) => { if (e.isIntersecting) { clearTimeout(fallback); setActive(true); io.disconnect(); } });
-    }, { threshold: 0.16 });
-    io.observe(el);
-    return () => { clearTimeout(fallback); io.disconnect(); };
-  }, []);
-  const tags = ['Narrative Structure', 'Visual Pacing', 'Emotional Relevance', 'Scenario-Based Learning', 'AI-Enabled Production', 'Behavioral Clarity'];
-  const beats = [
-    { label: 'Context', copy: 'Establish the situation people are actually working inside.' },
-    { label: 'Tension', copy: 'Name the friction that makes the change hard.' },
-    { label: 'Clarity', copy: 'Resolve complexity into a decision people can hold.' },
-    { label: 'Action', copy: 'Move understanding into confident behavior.' }
-  ];
-  const notes = [
-    { label: 'AI + Practice', title: 'AI changes the workflow — not the responsibility.', copy: 'Speed expands the options. Judgment protects the outcome.' },
-    { label: 'Design Judgment', title: 'Scenarios should build judgment, not reward guessing.', copy: 'Practice should strengthen decisions — not test compliance.' },
-    { label: 'Systems Thinking', title: 'The experience is only one part of the system.', copy: 'Adoption succeeds when the whole environment supports the behavior.' }
-  ];
+function CinematicJournal({ onNavigate }) {
+  const J = window.JIZ_JOURNAL;
+  if (!J) return null;
+  const published = J.articles.filter((a) => a.status === 'published');
+  const lead = published.find((a) => a.featured === 'lead') || published[0];
+  const support = published.filter((a) => a !== lead && a.featured).slice(0, 2);
+  const linkProps = (a) => (a.onSite ? { href: './journal/' + a.slug + '/' } : { href: a.url, target: '_blank', rel: 'noopener noreferrer' });
+  const readLabel = (a) => (a.onSite ? 'Read on this site' : 'Read in the newsletter');
+  const invite = () => {
+    window.dispatchEvent(new CustomEvent('jiz-contact-intent', { detail: 'speaking' }));
+    if (onNavigate) onNavigate('contact');
+  };
   return (
-    <section className="jiz-tim" ref={ref} data-in={active ? 'true' : 'false'} aria-labelledby="jiz-tim-title">
-      <div className="jiz-tim-inner">
-        <div className="jiz-tim-col">
-          <p className="jiz-tim-eyebrow"><span className="jiz-tim-eyebrow-line" aria-hidden="true" />Thinking in Motion</p>
-          <h2 className="jiz-tim-title" id="jiz-tim-title">Cinematic learning for complex change.</h2>
-          <p className="jiz-tim-sub">A design perspective on how narrative structure, visual rhythm, emotional relevance, and multimedia storytelling can make learning more memorable, human, and actionable.</p>
-          <p className="jiz-tim-copy">I approach learning design like a narrative system. Every experience needs rhythm, tension, clarity, visual pacing, and a purposeful arc. Whether I am building an executive explainer, a leadership simulation, a product enablement toolkit, or an interactive eLearning module, I use cinematic principles to help learners move from attention to understanding — and from understanding to action.</p>
-          <ul className="jiz-tim-tags">
-            {tags.map((t, i) => <li key={t} className="jiz-tim-tag" style={{ transitionDelay: (420 + i * 90) + 'ms' }}>{t}</li>)}
-          </ul>
-        </div>
-        <div className="jiz-tim-col jiz-tim-col--right">
-          <div className="jiz-tim-board">
-            <p className="jiz-tim-board-label">Story arc</p>
-            <div className="jiz-tim-arc">
-              <svg className="jiz-tim-arc-svg" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-                <path className="jiz-tim-arc-path" d="M8 96 C 120 96, 150 30, 260 44 S 420 96, 592 18" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" vectorEffect="non-scaling-stroke" />
-              </svg>
-            </div>
-            <ol className="jiz-tim-beats">
-              {beats.map((b, i) => (
-                <li key={b.label} className="jiz-tim-beat" style={{ transitionDelay: (520 + i * 130) + 'ms' }}>
-                  <span className="jiz-tim-beat-node" aria-hidden="true" />
-                  <p className="jiz-tim-beat-label">{b.label}</p>
-                  <p className="jiz-tim-beat-copy">{b.copy}</p>
-                </li>
-              ))}
-            </ol>
+    <section className="jz-cls" aria-labelledby="jz-cls-title">
+      <style>{`
+.jz-cls{position:relative;background:#0E1114;border-top:1px solid rgba(232,227,217,.08);padding-block:clamp(72px,8vw,128px);color:#E8E3D9}
+.jz-cls-intro{grid-column:1 / span 5;display:flex;flex-direction:column;gap:18px}
+.jz-cls-kicker{color:#E3A24C}
+.jz-cls-anchor{margin:4px 0 0;font:600 clamp(1.9rem,1.25rem + 2vw,3.1rem)/1.06 var(--font-display);letter-spacing:-.03em;color:#E8E3D9;text-wrap:balance}
+.jz-cls-anchor span{display:block}
+.jz-cls-anchor span:last-child{color:#E3A24C}
+.jz-cls-sub{margin:0;max-width:44ch;font:400 1rem/1.6 var(--font-body);color:rgba(232,227,217,.78)}
+.jz-cls-by{margin:0;font:500 .75rem/1.4 var(--font-mono);letter-spacing:.06em;color:rgba(232,227,217,.6)}
+.jz-cls-links{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:6px}
+.jz-cls-links a,.jz-cls-read,.jz-cls-invite{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:var(--text-button);font-size:.9375rem;color:var(--color-accent-primary);text-decoration:none;background:none;border:0;padding:0;cursor:pointer}
+.jz-cls-links a + a{color:#E8E3D9}
+.jz-cls-links a:hover,.jz-cls-read:hover,.jz-cls-invite:hover{text-decoration:underline;text-underline-offset:4px}
+.jz-cls-invite:focus-visible,.jz-cls a:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:4px;border-radius:2px}
+.jz-cls-feature{grid-column:7 / span 6;display:flex;flex-direction:column}
+.jz-cls-lead{display:flex;flex-direction:column;gap:14px;padding:0 0 clamp(26px,3vw,36px);border-bottom:1px solid rgba(232,227,217,.12)}
+.jz-cls-type{color:#56B8B4}
+.jz-cls-lead h3{margin:0;font:600 clamp(1.6rem,1.2rem + 1.4vw,2.5rem)/1.08 var(--font-display);letter-spacing:-.03em;color:#E8E3D9;text-wrap:balance}
+.jz-cls-dek{margin:0;max-width:52ch;font:400 clamp(1rem,.96rem + .2vw,1.125rem)/1.6 var(--font-body);color:rgba(232,227,217,.84)}
+.jz-cls-note{margin:0;font:400 .8125rem/1.5 var(--font-body);font-style:italic;color:rgba(232,227,217,.62)}
+.jz-cls-list{list-style:none;margin:0;padding:0}
+.jz-cls-list li{border-bottom:1px solid rgba(232,227,217,.12)}
+.jz-cls-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px;align-items:center;padding:20px 0;text-decoration:none;color:#E8E3D9}
+.jz-cls-list .jz-label{grid-column:1}
+.jz-cls-list-title{grid-column:1;font:500 clamp(1.0625rem,1rem + .3vw,1.25rem)/1.3 var(--font-display);letter-spacing:-.01em}
+.jz-cls-list-arrow{grid-column:2;grid-row:1 / span 2;color:rgba(232,227,217,.6);transition:transform 220ms cubic-bezier(.22,.61,.36,1),color 220ms ease}
+.jz-cls-list a:hover .jz-cls-list-title{text-decoration:underline;text-underline-offset:4px}
+.jz-cls-list a:hover .jz-cls-list-arrow{color:var(--color-accent-primary);transform:translate(2px,-2px)}
+.jz-cls-talk{grid-column:1 / span 12;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) auto;gap:12px clamp(20px,3vw,48px);align-items:center;margin-top:clamp(48px,5vw,80px);padding-top:clamp(24px,2.4vw,32px);border-top:1px solid rgba(232,227,217,.12)}
+.jz-cls-talk-t{margin:6px 0 0;font:600 clamp(1.125rem,1rem + .5vw,1.5rem)/1.2 var(--font-display);color:#E8E3D9}
+.jz-cls-talk-c{margin:0;font:400 .9375rem/1.6 var(--font-body);color:rgba(232,227,217,.78)}
+@media(max-width:1024px){.jz-cls-intro,.jz-cls-feature{grid-column:1 / span 12}.jz-cls-feature{margin-top:clamp(36px,6vw,56px)}.jz-cls-talk{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.jz-cls-list-arrow{transition:none}}
+      `}</style>
+      <div className="jz-wrap jz-grid">
+        <div className="jz-cls-intro">
+          <p className="jz-label jz-cls-kicker">{J.name} · Independent journal</p>
+          <h2 className="jz-cls-anchor" id="jz-cls-title">{J.anchor.map((l) => <span key={l}>{l}</span>)}</h2>
+          <p className="jz-cls-sub">{J.subtitle}</p>
+          <p className="jz-cls-by">By {J.author}</p>
+          <div className="jz-cls-links">
+            <a href="./journal/">Read the journal <span aria-hidden="true">→</span></a>
+            <a href="./journal/#framework">The framework: CLPF {J.framework.version} <span aria-hidden="true">→</span></a>
           </div>
-          <article className="jiz-tim-card">
-            <div className="jiz-tim-visual" aria-hidden="true">
-              <span className="jiz-tim-frame" />
-              <span className="jiz-tim-frame jiz-tim-frame--2" />
-              <span className="jiz-tim-frame jiz-tim-frame--3" />
-              <span className="jiz-tim-scan" />
-            </div>
-            <div className="jiz-tim-body">
-              <p className="jiz-tim-kicker">Featured Insight</p>
-              <h3 className="jiz-tim-card-title">Thinking in Motion: Cinematic Learning for Enterprise Transformation</h3>
-              <p className="jiz-tim-card-copy">An emerging design perspective on how narrative structure, visual rhythm, emotion, AI-enabled production, and multimedia storytelling can help people understand complex change and act with confidence.</p>
-              <button type="button" className="jiz-tim-cta" onClick={() => setOpen((v) => !v)} aria-expanded={open} aria-controls="jiz-tim-panel">
-                <span className="jiz-tim-cta-label">{open ? 'Close the Insight' : 'Read the Insight'}</span>
-                <span className="jiz-tim-cta-arrow" aria-hidden="true">{open ? '\u2212' : '\u2192'}</span>
-              </button>
-              {window.JIZ_SITE.links.newsletter ? (
-                <a className="jiz-tim-cta jiz-tim-news" href={window.JIZ_SITE.links.newsletter} target="_blank" rel="noopener noreferrer">Explore Cinematic Learning Systems <span aria-hidden="true">↗</span><span className="jz-visually-hidden"> (newsletter on LinkedIn, opens in a new tab)</span></a>
-              ) : null}
-              <div className="jiz-tim-panel" id="jiz-tim-panel" hidden={!open}>
-                <ul className="jiz-tim-notes">
-                  {notes.map((n) => (
-                    <li key={n.title} className="jiz-tim-note">
-                      <p className="jiz-tim-note-label">{n.label}</p>
-                      <h4 className="jiz-tim-note-title">{n.title}</h4>
-                      <p className="jiz-tim-note-copy">{n.copy}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </article>
+        </div>
+        {lead ? (
+          <div className="jz-cls-feature">
+            <article className="jz-cls-lead" aria-labelledby="jz-cls-lead-title">
+              <p className="jz-label jz-cls-type">{lead.type} · Issue {lead.issue}</p>
+              <h3 id="jz-cls-lead-title">{lead.title}</h3>
+              <p className="jz-cls-dek">{lead.standfirst}</p>
+              {lead.note ? <p className="jz-cls-note">{lead.note}</p> : null}
+              <a className="jz-cls-read" {...linkProps(lead)}>{readLabel(lead)} <span aria-hidden="true">{lead.onSite ? '→' : '↗'}</span><span className="jz-visually-hidden">: {lead.title}{lead.onSite ? '' : ' (LinkedIn, opens in a new tab)'}</span></a>
+            </article>
+            {support.length ? (
+              <ul className="jz-cls-list" aria-label="More from the journal">
+                {support.map((a) => (
+                  <li key={a.slug}>
+                    <a {...linkProps(a)}>
+                      <span className="jz-label jz-cls-type">{a.type} · Issue {a.issue}</span>
+                      <span className="jz-cls-list-title">{a.title}</span>
+                      <span className="jz-cls-list-arrow" aria-hidden="true">{a.onSite ? '→' : '↗'}</span>
+                      {a.onSite ? null : <span className="jz-visually-hidden"> (LinkedIn, opens in a new tab)</span>}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            ) : null}
+          </div>
+        ) : null}
+        <div className="jz-cls-talk">
+          <div>
+            <p className="jz-label">Speaking · {J.talk.status}</p>
+            <p className="jz-cls-talk-t">{J.talk.title}</p>
+          </div>
+          <p className="jz-cls-talk-c">{J.talk.about} {J.talk.formats}.</p>
+          <button type="button" className="jz-cls-invite" onClick={invite}>Invite me to speak <span aria-hidden="true">→</span></button>
         </div>
       </div>
-      <style>{`
-.jiz-tim{position:relative;isolation:isolate;background:#0E1413;border-top:1px solid rgba(255,255,255,.05);padding-block:clamp(72px,7vw,124px)}
-.jiz-tim::before{content:'';position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 52% 44% at 80% 26%,rgba(95,201,192,.055),transparent 70%),radial-gradient(ellipse 46% 40% at 12% 84%,rgba(198,242,58,.03),transparent 72%)}
-.jiz-tim-inner{position:relative;z-index:1;width:min(1440px,calc(100% - 2*clamp(24px,6vw,112px)));margin-inline:auto;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,4vw,72px);align-items:start}
-.jiz-tim-col{display:flex;flex-direction:column;min-width:0}
-.jiz-tim-col--right{gap:clamp(18px,1.8vw,28px)}
-.jiz-tim-eyebrow,.jiz-tim-title,.jiz-tim-sub,.jiz-tim-copy,.jiz-tim-board,.jiz-tim-card{opacity:0;transform:translate3d(0,14px,0);transition:opacity 840ms cubic-bezier(.22,.61,.36,1),transform 840ms cubic-bezier(.22,.61,.36,1)}
-.jiz-tim[data-in="true"] .jiz-tim-eyebrow,.jiz-tim[data-in="true"] .jiz-tim-title,.jiz-tim[data-in="true"] .jiz-tim-sub,.jiz-tim[data-in="true"] .jiz-tim-copy,.jiz-tim[data-in="true"] .jiz-tim-board,.jiz-tim[data-in="true"] .jiz-tim-card{opacity:1;transform:none}
-.jiz-tim-title{transition-delay:100ms}
-.jiz-tim-sub{transition-delay:200ms}
-.jiz-tim-copy{transition-delay:300ms}
-.jiz-tim-board{transition-delay:240ms}
-.jiz-tim-card{transition-delay:400ms;transition-property:opacity,transform,border-color,box-shadow;transition-duration:840ms,840ms,300ms,300ms}
-.jiz-tim-eyebrow{display:flex;align-items:center;gap:14px;font:var(--text-hud);font-size:.6875rem;letter-spacing:.22em;text-transform:uppercase;color:var(--color-accent-secondary);margin:0 0 20px}
-.jiz-tim-eyebrow-line{display:block;width:44px;height:1px;background:linear-gradient(90deg,var(--color-accent-secondary),rgba(95,201,192,.15))}
-.jiz-tim-title{font:var(--text-display);font-size:clamp(1.95rem,1.3rem + 1.9vw,3rem);line-height:1.08;letter-spacing:-.024em;color:var(--color-text-primary);margin:0 0 18px;text-wrap:pretty}
-.jiz-tim-sub{font:var(--text-body);font-size:clamp(.9375rem,.9rem + .22vw,1.0625rem);line-height:1.68;color:rgba(217,221,227,.72);margin:0 0 20px;max-width:52ch;text-wrap:pretty}
-.jiz-tim-copy{font:var(--text-body);font-size:.9375rem;line-height:1.75;color:rgba(217,221,227,.7);margin:0;max-width:56ch;padding-left:18px;border-left:1px solid rgba(95,201,192,.28);text-wrap:pretty}
-.jiz-tim-tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;margin:clamp(24px,2.4vw,34px) 0 0;padding:0}
-.jiz-tim-tag{padding:6px 12px;border-radius:var(--radius-pill);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);font:var(--text-body);font-size:.6875rem;letter-spacing:.02em;color:rgba(232,238,226,.74);opacity:0;transform:translate3d(0,8px,0);transition:opacity 620ms cubic-bezier(.22,.61,.36,1),transform 620ms cubic-bezier(.22,.61,.36,1),background 260ms ease,border-color 260ms ease,color 260ms ease}
-.jiz-tim[data-in="true"] .jiz-tim-tag{opacity:1;transform:none}
-.jiz-tim-tag:hover{background:rgba(198,242,58,.12);border-color:rgba(198,242,58,.26);color:#EEFBD2}
-.jiz-tim-board{position:relative;padding:clamp(20px,2vw,30px);background:linear-gradient(180deg,rgba(255,255,255,.035) 0%,rgba(255,255,255,.012) 100%);border:1px solid rgba(255,255,255,.06);border-radius:clamp(14px,1.2vw,22px)}
-.jiz-tim-board-label{font:var(--text-hud);font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(217,221,227,.6);margin:0 0 12px}
-.jiz-tim-arc{height:clamp(72px,7vw,104px);color:var(--color-accent-primary)}
-.jiz-tim-arc-svg{width:100%;height:100%;display:block;overflow:visible}
-.jiz-tim-arc-path{stroke-dasharray:1000;stroke-dashoffset:1000;opacity:.72;transition:stroke-dashoffset 1800ms cubic-bezier(.22,.61,.36,1) 260ms}
-.jiz-tim[data-in="true"] .jiz-tim-arc-path{stroke-dashoffset:0}
-.jiz-tim-beats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.2vw,18px);list-style:none;margin:14px 0 0;padding:0}
-.jiz-tim-beat{position:relative;padding-top:16px;min-width:0;opacity:0;transform:translate3d(0,10px,0);transition:opacity 680ms cubic-bezier(.22,.61,.36,1),transform 680ms cubic-bezier(.22,.61,.36,1)}
-.jiz-tim[data-in="true"] .jiz-tim-beat{opacity:1;transform:none}
-.jiz-tim-beat-node{position:absolute;left:0;top:0;width:7px;height:7px;border-radius:50%;background:var(--color-accent-primary);opacity:.75}
-.jiz-tim-beat-label{font:var(--text-hud);font-size:.625rem;letter-spacing:.16em;text-transform:uppercase;color:var(--color-accent-primary);margin:0 0 6px}
-.jiz-tim-beat-copy{font:var(--text-body);font-size:.8125rem;line-height:1.5;color:rgba(217,221,227,.62);margin:0;text-wrap:pretty}
-.jiz-tim-card{display:grid;grid-template-columns:minmax(0,34fr) minmax(0,66fr);overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,.042) 0%,rgba(255,255,255,.014) 100%);border:1px solid rgba(255,255,255,.07);border-radius:clamp(16px,1.4vw,24px);box-shadow:0 20px 46px -30px rgba(0,0,0,.85)}
-.jiz-tim-card:hover,.jiz-tim-card:focus-within{border-color:rgba(95,201,192,.3);box-shadow:0 30px 62px -32px rgba(0,0,0,.9),0 0 0 1px rgba(95,201,192,.08)}
-.jiz-tim-visual{position:relative;overflow:hidden;min-height:clamp(180px,18vw,240px);background:linear-gradient(160deg,#0F1A19 0%,#0A100F 76%)}
-.jiz-tim-frame{position:absolute;left:14%;top:20%;width:58%;height:42%;border:1px solid rgba(95,201,192,.34);border-radius:4px}
-.jiz-tim-frame--2{left:22%;top:30%;border-color:rgba(198,242,58,.24)}
-.jiz-tim-frame--3{left:30%;top:40%;border-color:rgba(255,255,255,.11)}
-.jiz-tim-scan{position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(198,242,58,.5),transparent);transform:translateY(0);opacity:0;transition:transform 1700ms cubic-bezier(.22,.61,.36,1) 520ms,opacity 600ms ease 520ms}
-.jiz-tim[data-in="true"] .jiz-tim-scan{transform:translateY(clamp(180px,18vw,240px));opacity:.85}
-.jiz-tim-body{display:flex;flex-direction:column;align-items:flex-start;gap:13px;padding:clamp(22px,2.2vw,36px)}
-.jiz-tim-kicker{font:var(--text-hud);font-size:.625rem;letter-spacing:.2em;text-transform:uppercase;color:var(--color-accent-secondary);margin:0}
-.jiz-tim-card-title{font:var(--text-h3);font-size:clamp(1.1rem,.98rem + .5vw,1.45rem);line-height:1.3;letter-spacing:-.012em;color:var(--color-text-primary);margin:0;text-wrap:pretty}
-.jiz-tim-card-copy{font:var(--text-body);font-size:.9375rem;line-height:1.6;color:rgba(217,221,227,.7);margin:0;max-width:54ch;text-wrap:pretty}
-.jiz-tim-news{display:flex;width:max-content;margin-top:2px;text-decoration:none}
-.jiz-tim-cta{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0;background:none;border:0;font:var(--text-button);font-size:.875rem;color:var(--color-accent-primary);cursor:pointer}
-.jiz-tim-cta-label{position:relative;padding-bottom:3px;border-bottom:1px solid rgba(198,242,58,.34);transition:border-color 260ms ease}
-.jiz-tim-cta:hover .jiz-tim-cta-label{border-color:var(--color-accent-primary)}
-.jiz-tim-cta-arrow{transition:transform 320ms cubic-bezier(.22,.61,.36,1)}
-.jiz-tim-cta:hover .jiz-tim-cta-arrow{transform:translateX(5px)}
-.jiz-tim-cta:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:5px;border-radius:4px}
-.jiz-tim-panel{width:100%;margin-top:2px;padding-top:18px;border-top:1px solid rgba(255,255,255,.07)}
-.jiz-tim-notes{display:grid;gap:16px;list-style:none;margin:0;padding:0}
-.jiz-tim-note-label{font:var(--text-hud);font-size:.5625rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(198,242,58,.72);margin:0 0 6px}
-.jiz-tim-note-title{font:var(--text-body);font-size:.9375rem;font-weight:650;line-height:1.4;color:var(--color-text-primary);margin:0 0 4px;text-wrap:pretty}
-.jiz-tim-note-copy{font:var(--text-body);font-size:.875rem;line-height:1.55;color:rgba(217,221,227,.66);margin:0;text-wrap:pretty}
-@media(max-width:1040px){.jiz-tim-inner{grid-template-columns:1fr}.jiz-tim-card{grid-template-columns:1fr}.jiz-tim-visual{min-height:150px}.jiz-tim[data-in="true"] .jiz-tim-scan{transform:translateY(150px)}}
-@media(max-width:620px){.jiz-tim-beats{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.jiz-tim-copy{padding-left:14px}}
-@media(prefers-reduced-motion:reduce){.jiz-tim-eyebrow,.jiz-tim-title,.jiz-tim-sub,.jiz-tim-copy,.jiz-tim-board,.jiz-tim-card,.jiz-tim-tag,.jiz-tim-beat{opacity:1;transform:none;transition:none}.jiz-tim-arc-path{stroke-dasharray:none;stroke-dashoffset:0;transition:none}.jiz-tim-scan{opacity:.5;transform:none;transition:none}.jiz-tim-cta-arrow{transition:none}}
-      `}</style>
     </section>
   );
 }
@@ -2398,7 +2358,7 @@ function Homepage({ onOpenCaseStudy }) {
         <div ref={registerSection('impact')} data-section="impact"><ImpactEditorial /></div>
         <div ref={registerSection('capabilities')} data-section="capabilities"><Practice part="capabilities" /></div>
         <div ref={registerSection('method')} data-section="method"><Practice part="method" /></div>
-        <div ref={registerSection('thinking')} data-section="thinking-in-motion"><ThinkingInMotion /></div>
+        <div ref={registerSection('thinking')} data-section="cinematic-learning-systems"><CinematicJournal onNavigate={scrollToSection} /></div>
         <div ref={registerSection('creative-lab')} data-section="creative-lab"><FilmSection /></div>
         <div ref={registerSection('about')} data-section="about"><AboutMind /></div>
         <div ref={registerSection('journey')} data-section="journey"><CareerJourney /></div>
