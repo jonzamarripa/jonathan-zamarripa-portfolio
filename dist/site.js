@@ -17,61 +17,98 @@ function _extends(){return _extends=Object.assign?Object.assign.bind():function(
 .jz-visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 @media(prefers-reduced-motion:reduce){.jz-rise{opacity:1;transform:none;transition:none}.jz-link span:first-child,.jz-link .jz-arrow{transition:none}}
 `;const RHYTHM_CSS=`
-/* Impact: carbon chapter; primary metric leads, supporting metrics sit in one contained group */
-.jiz-homepage .jz-im{background:#171A1F;border-top:1px solid rgba(217,221,227,.08);border-bottom:1px solid rgba(217,221,227,.08)}
-.jiz-homepage .jz-im-lead{padding-left:clamp(18px,2vw,32px);border-left:1px solid rgba(198,242,58,.45)}
-.jiz-homepage .jz-im-row{margin-top:clamp(48px,6vw,88px);padding:0 clamp(4px,1.4vw,20px);background:rgba(11,13,16,.42);border:1px solid rgba(217,221,227,.09);border-radius:clamp(14px,1.4vw,20px)}
+.jiz-homepage{--panel-gap:clamp(8px,1.4vw,20px);--panel-r:clamp(18px,2.4vw,32px)}
+.jiz-homepage .jz-im,.jiz-homepage .jz-pr,.jiz-homepage .jz-cls,.jiz-homepage .jiz-am,.jiz-homepage .jz-jr,.jiz-homepage .jz-st,.jiz-homepage .jz-pp{margin:var(--panel-gap);border-radius:var(--panel-r);overflow:hidden;border:0}
+
+/* Impact — Deep Navy architectural panel; primary metric marked, supporting metrics grouped */
+.jiz-homepage .jz-im{background:#1F4556}
+.jiz-homepage .jz-im .jz-label{color:rgba(232,240,245,.74)}
+.jiz-homepage .jz-im-note,.jiz-homepage .jz-im-label{color:rgba(240,245,248,.86)}
+.jiz-homepage .jz-im-src{color:rgba(225,235,240,.72)}
+.jiz-homepage .jz-im-lead{padding-left:clamp(18px,2vw,32px);border-left:2px solid var(--color-accent-primary)}
+.jiz-homepage .jz-im-row{margin-top:clamp(48px,6vw,88px);padding:0 clamp(4px,1.4vw,20px);background:rgba(11,13,16,.28);border:0;border-radius:clamp(12px,1.4vw,20px)}
 .jiz-homepage .jz-im-cell{padding-bottom:clamp(22px,2.4vw,32px)}
-.jiz-homepage .jz-im-note{color:rgba(217,221,227,.78)}
-/* Capabilities: clearer name / description hierarchy, comfortable measure */
-.jiz-homepage .jz-pr{background:#0B0D10}
+.jiz-homepage .jz-im-cell + .jz-im-cell{border-left-color:rgba(232,240,245,.14)}
+@media(max-width:1024px){.jiz-homepage .jz-im-cell:nth-child(n+3),.jiz-homepage .jz-im-cell + .jz-im-cell{border-top-color:rgba(232,240,245,.14)}}
+
+/* Capabilities — Mist light chapter, dark type */
+.jiz-homepage .jz-pr--capabilities{background:#D9DDE3;color:#0B0D10}
+.jiz-homepage .jz-pr--capabilities .jz-label{color:rgba(11,13,16,.66)}
+.jiz-homepage .jz-pr--capabilities .jz-pr-caps-h{color:#0B0D10}
+.jiz-homepage .jz-pr--capabilities .jz-pr-sub{color:rgba(11,13,16,.74)}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap{border-top-color:rgba(11,13,16,.16)}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap:last-child{border-bottom-color:rgba(11,13,16,.16)}
 .jiz-homepage .jz-pr-cap button{padding:26px 0}
-.jiz-homepage .jz-pr-cap-t{font-weight:600;color:#F7F8FA}
-.jiz-homepage .jz-pr-cap-c{max-width:60ch;color:rgba(217,221,227,.72)}
-.jiz-homepage .jz-pr-cap button:hover{background:linear-gradient(90deg,rgba(198,242,58,.035),transparent 60%)}
-.jiz-homepage .jz-pr-cap[data-open="true"] .jz-pr-cap-t{color:var(--color-accent-primary)}
-/* Method: same practice chapter, separated by a hairline; five stages joined by a rail with stage markers */
-.jiz-homepage .jz-pr--method{border-top:1px solid rgba(217,221,227,.07)}
-.jiz-homepage .jz-pr-steps{border-top-color:rgba(217,221,227,.2)}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap-t{font-weight:600;color:#0B0D10}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap-c{max-width:60ch;color:rgba(11,13,16,.74)}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap-x{color:rgba(11,13,16,.6)}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover{background:linear-gradient(90deg,rgba(31,69,86,.07),transparent 60%)}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover .jz-pr-cap-t,.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-t{color:#1F4556}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-x{color:#1F4556}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap button:focus-visible{outline-color:#0B0D10}
+.jiz-homepage .jz-pr--capabilities .jz-pr-tools p{color:rgba(11,13,16,.72)}
+
+/* Method — Slate panel; five stages on a connecting rail */
+.jiz-homepage .jz-pr--method{background:#2A2F37}
+.jiz-homepage .jz-pr--method .jz-pr-intro,.jiz-homepage .jz-pr--method .jz-pr-c{color:rgba(232,236,240,.86)}
+.jiz-homepage .jz-pr-steps{border-top-color:rgba(217,221,227,.26)}
 .jiz-homepage .jz-pr-step{padding-top:34px}
-.jiz-homepage .jz-pr-step::after{content:'';position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#0B0D10;border:1px solid var(--color-accent-primary);box-sizing:border-box}
+.jiz-homepage .jz-pr-step::after{content:'';position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#2A2F37;border:1px solid var(--color-accent-primary);box-sizing:border-box}
 .jiz-homepage .jz-pr-step:last-child::after{background:var(--color-accent-primary)}
-.jiz-homepage .jz-pr-step .jz-label{color:var(--color-accent-primary);opacity:.85}
+.jiz-homepage .jz-pr-step .jz-label{color:var(--color-accent-primary)}
 .jiz-homepage .jz-pr-c{max-width:30ch}
-.jiz-homepage .jz-pr-rule{color:rgba(217,221,227,.6)}
+.jiz-homepage .jz-pr-rule{padding-top:0;border-top:0;font-size:.875rem;color:rgba(217,221,227,.72)}
 @media(max-width:1024px){
   .jiz-homepage .jz-pr-steps{position:relative;padding-left:28px}
-  .jiz-homepage .jz-pr-steps::before{content:'';position:absolute;left:4px;top:34px;bottom:34px;width:1px;background:linear-gradient(180deg,rgba(198,242,58,.5),rgba(198,242,58,.18))}
-  .jiz-homepage .jz-pr-step{padding-top:26px}
+  .jiz-homepage .jz-pr-steps::before{content:'';position:absolute;left:4px;top:34px;bottom:34px;width:1px;background:linear-gradient(180deg,rgba(198,242,58,.6),rgba(198,242,58,.2))}
+  .jiz-homepage .jz-pr-step{padding-top:26px;border-top-color:rgba(217,221,227,.16)}
   .jiz-homepage .jz-pr-step::after{top:30px;left:-28px}
   .jiz-homepage .jz-pr-step::before{display:none}
   .jiz-homepage .jz-pr-c{max-width:60ch}
 }
-/* Journey: obsidian, with one continuous rail that brightens toward the present */
-.jiz-homepage .jz-jr{background:#0B0D10}
+
+/* Cinematic Learning Systems — the publication: Ink surface framed in Amber, Teal metadata */
+.jiz-homepage .jz-cls{background:#0E1114;box-shadow:inset 0 0 0 1px rgba(227,162,76,.38),inset 0 4px 0 #E3A24C}
+.jiz-homepage .jz-cls-mast{border-bottom-color:rgba(227,162,76,.4)}
+.jiz-homepage .jz-cls-mast-name{color:#E8E3D9}
+.jiz-homepage .jz-cls-lead{background:#132A35;border-color:rgba(86,184,180,.34)}
+.jiz-homepage .jz-cls-list li{border-bottom-color:rgba(86,184,180,.22)}
+.jiz-homepage .jz-cls-talk{border-top-color:rgba(227,162,76,.4)}
+
+/* About — coordinated navy surface (video untouched) */
+.jiz-homepage .jiz-am{background:linear-gradient(158deg,#173543 0%,#1F4556 55%,#24505F 100%)}
+.jiz-homepage .jiz-am-quote-by{font-size:.6875rem;color:rgba(232,240,245,.74)}
+.jiz-homepage .jiz-am .jz-label{color:rgba(232,240,245,.78)}
+
+/* Journey — Warm Paper light chapter, dark type, progression rail */
+.jiz-homepage .jz-jr{background:#E8E3D9;color:#0B0D10}
+.jiz-homepage .jz-jr .jz-label{color:rgba(11,13,16,.62)}
+.jiz-homepage .jz-jr-h2,.jiz-homepage .jz-jr-t{color:#0B0D10}
+.jiz-homepage .jz-jr-sub,.jiz-homepage .jz-jr-c{color:rgba(11,13,16,.76)}
+.jiz-homepage .jz-jr-x{color:#1F4556;opacity:1;font-weight:600}
+.jiz-homepage .jz-jr-m{color:rgba(11,13,16,.66)}
 .jiz-homepage .jz-jr-rail{position:relative}
-.jiz-homepage .jz-jr-rail::before{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,rgba(217,221,227,.16),rgba(198,242,58,.55))}
+.jiz-homepage .jz-jr-rail::before{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,rgba(11,13,16,.18),rgba(31,69,86,.7))}
 .jiz-homepage .jz-jr-stage{border-top-color:transparent}
-.jiz-homepage .jz-jr-stage::before{box-sizing:border-box;background:#0B0D10;border:1px solid var(--color-accent-primary)}
-.jiz-homepage .jz-jr-stage:last-child::before{background:var(--color-accent-primary)}
+.jiz-homepage .jz-jr-stage::before{box-sizing:border-box;width:9px;height:9px;top:-4px;background:#E8E3D9;border:1.5px solid #1F4556}
+.jiz-homepage .jz-jr-stage:last-child::before{background:var(--color-accent-primary);border-color:#0B0D10}
 @media(max-width:1024px){
   .jiz-homepage .jz-jr-rail::before{display:none}
-  .jiz-homepage .jz-jr-stage{border-top-color:rgba(217,221,227,.14)}
+  .jiz-homepage .jz-jr-stage{border-top-color:rgba(11,13,16,.16)}
 }
 @media(max-width:560px){
   .jiz-homepage .jz-jr-rail{padding-left:24px}
-  .jiz-homepage .jz-jr-rail::before{display:block;left:3px;right:auto;top:0;bottom:0;width:1px;height:auto;background:linear-gradient(180deg,rgba(217,221,227,.16),rgba(198,242,58,.55))}
+  .jiz-homepage .jz-jr-rail::before{display:block;left:4px;right:auto;top:0;bottom:0;width:1px;height:auto;background:linear-gradient(180deg,rgba(11,13,16,.18),rgba(31,69,86,.7))}
   .jiz-homepage .jz-jr-stage{border-top-color:transparent;padding-top:0}
   .jiz-homepage .jz-jr-stage::before{left:-24px;top:4px}
 }
-/* Stack: a raised dark surface; open groups instead of eight filled cards */
-.jiz-homepage .jz-st{background:#111418;border-top:1px solid rgba(217,221,227,.07)}
+
+/* Stack — Carbon technical panel; open groups */
+.jiz-homepage .jz-st{background:#171A1F}
 .jiz-homepage .jz-st-grid{column-gap:clamp(28px,4vw,72px);row-gap:clamp(8px,1.2vw,16px)}
-.jiz-homepage .jz-st-card{padding:clamp(22px,2.2vw,30px) 0 clamp(18px,2vw,26px);background:none;border:0;border-top:1px solid rgba(217,221,227,.14);border-radius:0}
-.jiz-homepage .jz-st-l{max-width:58ch;color:rgba(217,221,227,.76)}
+.jiz-homepage .jz-st-card{padding:clamp(22px,2.2vw,30px) 0 clamp(18px,2vw,26px);background:none;border:0;border-top:1px solid rgba(217,221,227,.16);border-radius:0}
+.jiz-homepage .jz-st-l{max-width:58ch;color:rgba(217,221,227,.8)}
 .jiz-homepage .jz-st-tools{border-top:0;padding-top:4px}
-/* Principles: an inset paper panel so the light surface reads as a deliberate interlude */
-.jiz-homepage .jz-pp{margin:clamp(10px,1.4vw,20px) clamp(10px,1.4vw,20px);border-radius:clamp(20px,2.4vw,32px)}
 `;function EditorialStyles(){return React.createElement("style",null,EDITORIAL_CSS+RHYTHM_CSS)}function SelectedExperience(){const orgs=["Cox Enterprises","IHG Hotels & Resorts","Atlanta International School"];return React.createElement("section",{className:"jz-exp","aria-label":"Selected experience"},React.createElement("style",null,`
 .jz-exp{background:#080D0B;border-top:1px solid rgba(217,221,227,.08);border-bottom:1px solid rgba(217,221,227,.08)}
 .jz-exp-in{display:flex;flex-wrap:wrap;align-items:center;gap:clamp(14px,2vw,28px) clamp(28px,4vw,64px);padding-block:clamp(22px,2.4vw,32px)}
