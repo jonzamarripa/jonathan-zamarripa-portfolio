@@ -17,8 +17,36 @@ function _extends(){return _extends=Object.assign?Object.assign.bind():function(
 .jz-visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 @media(prefers-reduced-motion:reduce){.jz-rise{opacity:1;transform:none;transition:none}.jz-link span:first-child,.jz-link .jz-arrow{transition:none}}
 `;const RHYTHM_CSS=`
-.jiz-homepage{--panel-gap:clamp(8px,1.4vw,20px);--panel-r:clamp(18px,2.4vw,32px)}
-.jiz-homepage .jz-im,.jiz-homepage .jz-pr,.jiz-homepage .jz-cls,.jiz-homepage .jiz-am,.jiz-homepage .jz-jr,.jiz-homepage .jz-st,.jiz-homepage .jz-pp{margin:var(--panel-gap);border-radius:var(--panel-r);overflow:hidden;border:0}
+.jiz-homepage{--panel-gap:clamp(10px,1.4vw,20px);--panel-r:clamp(18px,2.4vw,32px);--panel-gutter-surface:#171A1F;background:var(--panel-gutter-surface)!important}
+/* Every major chapter is a panel; the Carbon page shows through the gutters, so dark panels keep a visible curved edge. */
+.jiz-homepage .hero,.jiz-homepage .jz-fw,.jiz-homepage .jz-im,.jiz-homepage .jz-pr,.jiz-homepage .jz-cls,.jiz-homepage .jiz-creative-lab,.jiz-homepage .jiz-am,.jiz-homepage .jz-jr,.jiz-homepage .jz-st,.jiz-homepage .jz-pp,.jiz-homepage .jiz-arch,.jiz-homepage .jiz-build{width:auto;margin:var(--panel-gap);border-radius:var(--panel-r);overflow:hidden;border:0}
+
+/* Hero — cinematic dark panel; video, crop and copy untouched. Height trimmed by the gutters so the fold is unchanged. */
+.jiz-homepage .hero{background-color:#0B0D10;margin-top:0}
+@media(min-width:901px){.jiz-homepage .hero,.jiz-homepage .hero-content{min-height:calc(100svh - 96px - 2 * var(--panel-gap))}}
+/* Selected experience strip sits on the Carbon page between the hero and Featured Work */
+.jiz-homepage .jz-exp{background:transparent;border:0}
+
+/* Featured Work — Warm Paper editorial surface with dark cinematic media */
+.jiz-homepage .jz-fw{background:#E8E3D9;color:#0B0D10}
+.jiz-homepage .jz-fw .jz-label{color:rgba(11,13,16,.64)}
+.jiz-homepage .jz-fw-h2,.jiz-homepage .jz-fw-n,.jiz-homepage .jz-fw-title{color:#0B0D10}
+.jiz-homepage .jz-fw-intro,.jiz-homepage .jz-fw-dek{color:rgba(11,13,16,.76)}
+.jiz-homepage .jz-fw-org{color:rgba(11,13,16,.62)}
+.jiz-homepage .jz-fw-media{background:linear-gradient(135deg,#171A1F 0%,#1F4556 100%);border-color:rgba(11,13,16,.14)}
+.jiz-homepage .jz-fw-card:hover .jz-fw-title{color:#1F4556}
+.jiz-homepage .jz-fw-card:hover .jz-fw-media,.jiz-homepage .jz-fw-card:focus-within .jz-fw-media{border-color:#1F4556}
+.jiz-homepage .jz-fw-card:has(.jz-fw-cta:focus-visible){outline-color:#0B0D10}
+.jiz-homepage .jz-fw .jz-link{color:#0B0D10;font-weight:600}
+.jiz-homepage .jz-fw .jz-link:focus-visible{outline-color:#0B0D10}
+.jiz-homepage .jz-fw-card--text{border-top-color:rgba(11,13,16,.16)}
+
+/* Creative Lab — cinematic Obsidian panel (content and video untouched) */
+.jiz-homepage .jiz-creative-lab{background-color:#0B0D10}
+
+/* Archive — its own darkened film; Contact — Deep Navy */
+.jiz-homepage .jiz-build{background:linear-gradient(180deg,#1F4556 0%,#1A3B49 100%)}
+.jiz-homepage .jiz-build .jz-label,.jiz-homepage .jiz-build .jz-ct-note,.jiz-homepage .jiz-build .jiz-build-form-note,.jiz-homepage .jiz-build .jiz-build-privacy{color:rgba(232,240,245,.82)}
 
 /* Impact — Deep Navy architectural panel; primary metric marked, supporting metrics grouped */
 .jiz-homepage .jz-im{background:#1F4556}
@@ -104,7 +132,7 @@ function _extends(){return _extends=Object.assign?Object.assign.bind():function(
 }
 
 /* Stack — Carbon technical panel; open groups */
-.jiz-homepage .jz-st{background:#171A1F}
+.jiz-homepage .jz-st{background:#2A2F37}
 .jiz-homepage .jz-st-grid{column-gap:clamp(28px,4vw,72px);row-gap:clamp(8px,1.2vw,16px)}
 .jiz-homepage .jz-st-card{padding:clamp(22px,2.2vw,30px) 0 clamp(18px,2vw,26px);background:none;border:0;border-top:1px solid rgba(217,221,227,.16);border-radius:0}
 .jiz-homepage .jz-st-l{max-width:58ch;color:rgba(217,221,227,.8)}
