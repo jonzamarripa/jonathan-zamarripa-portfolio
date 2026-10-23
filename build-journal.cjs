@@ -29,7 +29,9 @@ function markdown(src) {
     const l = lines[i];
     if (!l.trim()) { i++; continue; }
     if (/^```/.test(l)) { const buf = []; i++; while (i < lines.length && !/^```/.test(lines[i])) buf.push(lines[i++]); i++; out.push('<pre><code>' + esc(buf.join('\n')) + '</code></pre>'); continue; }
-    let m = l.match(/^:::\s*(\w+)\s*$/);
+    let m = l.match(/^:::\s*(figure|pending|study|inquiry|sources|status)\b(.*)$/);
+    if (m) { const buf = []; i++; while (i < lines.length && !/^:::\s*$/.test(lines[i])) buf.push(lines[i++]); i++; out.push(COMPONENTS[m[1]](kv(buf), m[2].trim(), buf)); continue; }
+    m = l.match(/^:::\s*(\w+)\s*$/);
     if (m) { const buf = []; i++; while (i < lines.length && !/^:::\s*$/.test(lines[i])) buf.push(lines[i++]); i++; const k = m[1]; out.push('<aside class="box box-' + k + '"><p class="box-label">' + esc(ASIDES[k] || k) + '</p>' + markdown(buf.join('\n')) + '</aside>'); continue; }
     m = l.match(/^(#{2,4})\s+(.*)$/);
     if (m) { const n = m[1].length; const id = m[2].toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); out.push('<h' + n + ' id="' + id + '">' + inline(m[2]) + '</h' + n + '>'); i++; continue; }
@@ -42,6 +44,69 @@ function markdown(src) {
   }
   return out.join('\n');
 }
+// ---- Reusable editorial components (article pages). Blocks are `::: name options` … `:::` with `key: value` lines.
+let FIG = 0; let ASSET_BASE = 'assets/';
+function kv(buf) {
+  const o = { _notes: [], _items: [], _body: [] };
+  buf.forEach((l) => {
+    let m = l.match(/^(\d+):\s*(.*)$/); if (m) { o._notes.push(m[2]); return; }
+    m = l.match(/^-\s+(.*)$/); if (m) { o._items.push(m[1]); return; }
+    m = l.match(/^(\w+):\s*(.*)$/); if (m) { o[m[1]] = m[2]; return; }
+    if (l.trim()) o._body.push(l);
+  });
+  return o;
+}
+const COMPONENTS = {
+  // Figure: layout = wide | column | artifact (image + numbered annotations) | diagram (scrollable on small screens, full-size link)
+  figure(o, opts) {
+    const layout = (opts.match(/\b(wide|column|artifact|diagram)\b/) || [0, 'column'])[1];
+    const n = ++FIG; const base = ASSET_BASE + o.src;
+    const img = o.src
+      ? `<img src="${base}-1600.webp" srcset="${base}-1600.webp 1600w, ${base}-2800.webp 2800w" sizes="(min-width: 1320px) 1280px, 100vw" alt="${esc(o.alt)}" loading="lazy" decoding="async" width="${esc(o.w || 3200)}" height="${esc(o.h || 2000)}">`
+      : `<div class="dx-missing" role="img" aria-label="Image pending: ${esc(o.alt)}"><span>Asset pending</span>${esc(o.alt)}</div>`;
+    const media = layout === 'diagram'
+      ? `<div class="dx-scroll" tabindex="0" role="region" aria-label="Figure ${n}, scrollable diagram">${img}</div>`
+      : `<div class="dx-media">${img}</div>`;
+    const notes = o._notes.length ? `<ol class="dx-notes">${o._notes.map((t) => '<li>' + inline(t) + '</li>').join('')}</ol>` : '';
+    const full = o.src ? ` <a class="dx-full" href="${base}.png" target="_blank" rel="noopener noreferrer">Open full size<span class="vh"> (Figure ${n}, opens in a new tab)</span></a>` : '';
+    return `<figure class="dx-fig dx-fig--${layout}" id="fig-${n}">
+  ${media}${layout === 'artifact' ? notes : ''}
+  <figcaption><span class="dx-fig-n">Fig. ${n}</span>${o.status ? ' <span class="dx-status">' + esc(o.status) + '</span>' : ''} ${inline(o.caption || '')}${o.note ? ' <span class="dx-fig-note">' + inline(o.note) + '</span>' : ''}${full}</figcaption>
+  ${layout !== 'artifact' ? notes : ''}
+</figure>`;
+  },
+  // Pending: a visible editorial slot for verified published text that has not been supplied yet (preview builds only)
+  pending(o, opts, buf) {
+    return `<aside class="dx-pending" aria-label="Pending content"><p class="box-label">Awaiting verified published text</p><p>${inline(buf.join(' '))}</p></aside>`;
+  },
+  // Proposed study: name, status, summary, measures
+  study(o) {
+    return `<section class="dx-study" aria-labelledby="study-${esc((o.title || '').replace(/\W+/g, '-').toLowerCase())}"><p class="box-label">Proposed study · ${esc(o.status || '')}</p><h3 id="study-${esc((o.title || '').replace(/\W+/g, '-').toLowerCase())}">${inline(o.title || '')}</h3>${o.summary ? '<p>' + inline(o.summary) + '</p>' : ''}${o._items.length ? '<ul>' + o._items.map((t) => '<li>' + inline(t) + '</li>').join('') + '</ul>' : ''}</section>`;
+  },
+  // Closing inquiry / CTA: headline, body, primary action, secondary links
+  inquiry(o) {
+    return `<section class="dx-inquiry" aria-labelledby="dx-inq"><h2 id="dx-inq">${inline(o.headline || '')}</h2>${o.body ? '<p>' + inline(o.body) + '</p>' : ''}${o.button ? `<p><a class="dx-btn" href="${esc(o.href || '#')}">${esc(o.button)} <span aria-hidden="true">→</span></a></p>` : ''}${o._items.length ? '<ul class="dx-secondary">' + o._items.map((t) => '<li>' + inline(t) + '</li>').join('') + '</ul>' : ''}</section>`;
+  },
+  // Source references (verbatim from the published issue)
+  sources(o, opts, buf) {
+    return `<section class="dx-sources" aria-labelledby="dx-src"><h2 id="dx-src">Sources</h2>${o._items.length ? '<ol>' + o._items.map((t) => '<li>' + inline(t) + '</li>').join('') + '</ol>' : COMPONENTS.pending(o, opts, ['The published source list for this issue.'])}</section>`;
+  },
+  // Status ledger: what each artifact is (and is not)
+  status(o) {
+    return `<dl class="dx-ledger">${o._items.map((t) => { const m = t.match(/^\*\*(.+?)\*\*\s*(.*)$/); return m ? '<dt>' + esc(m[1]) + '</dt><dd>' + inline(m[2]) + '</dd>' : '<dd>' + inline(t) + '</dd>'; }).join('')}</dl>`;
+  }
+};
+function chapters(src) {
+  // `@chapter 01 Title` lines open numbered chapters; returns HTML + table of contents
+  const parts = src.split(/^@chapter\s+(\d+)\s+(.+)$/m);
+  let html = markdown(parts[0]); const toc = [];
+  for (let k = 1; k < parts.length; k += 3) {
+    const n = parts[k], title = parts[k + 1].trim(), id = 'ch-' + n;
+    toc.push(`<li><a href="#${id}"><span>${esc(n)}</span> ${esc(title)}</a></li>`);
+    html += `\n<section class="dx-ch" id="${id}" aria-labelledby="${id}-t"><header class="dx-ch-head"><p class="dx-ch-n">Chapter ${esc(n)}</p><h2 id="${id}-t">${esc(title)}</h2></header>\n${markdown(parts[k + 2])}\n</section>`;
+  }
+  return { html, toc };
+}
 function frontMatter(src) {
   const m = src.match(/^---\n([\s\S]*?)\n---\n?/);
   if (!m) return { meta: {}, body: src };
@@ -51,7 +116,7 @@ function frontMatter(src) {
 }
 
 // ---- Page shell
-function page({ title, description, canonical, depth, body, type }) {
+function page({ title, description, canonical, depth, body, type, noindex, image }) {
   const up = depth === 2 ? '../../' : '../';
   return `<!doctype html>
 <html lang="en">
@@ -65,13 +130,13 @@ function page({ title, description, canonical, depth, body, type }) {
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:type" content="${type || 'website'}">
 <meta property="og:url" content="${esc(canonical)}">
-<meta property="og:image" content="${SITE}/assets/og-image.jpg">
+<meta property="og:image" content="${image || SITE + '/assets/og-image.jpg'}">${noindex ? '\n<meta name="robots" content="noindex, nofollow">' : ''}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="${esc(J.author)}">
 <meta name="theme-color" content="#0E1114">
 <link rel="icon" href="${up}assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="${up}styles.css">
-<link rel="stylesheet" href="${up}journal/journal.css">
+<link rel="stylesheet" href="${up}journal/journal.css">${depth === 2 ? '\n<link rel="stylesheet" href="' + up + 'journal/dossier.css">' : ''}
 </head>
 <body class="jr">
 <a class="skip" href="#main">Skip to content</a>
@@ -185,32 +250,37 @@ function hub() {
   return page({ title: J.name + ' — ' + J.author, description: J.subtitle + ' ' + J.anchor.join(' '), canonical: SITE + '/journal/', depth: 1, body });
 }
 
-// ---- Article pages (only for articles marked onSite with a verbatim edition on file)
+// ---- Article pages (articles marked onSite, or `preview` drafts that are built but hidden and noindexed)
 function article(a) {
   const file = path.join('content', 'journal', a.slug + '.md');
-  if (!existsSync(file)) throw new Error('onSite article without text: ' + file);
+  if (!existsSync(file)) throw new Error('article without text: ' + file);
   const { meta, body } = frontMatter(readFileSync(file, 'utf8'));
-  const html = `
-<article class="jr-article" aria-labelledby="jr-a-title">
-  <header class="jr-a-head">
-    <p class="jr-kicker">${esc(a.type)} · Issue ${esc(a.issue)}${meta.date ? ' · <time datetime="' + esc(meta.date) + '">' + esc(meta.dateLabel || meta.date) + '</time>' : ''}</p>
+  FIG = 0; ASSET_BASE = 'assets/';
+  const { html, toc } = chapters(body);
+  const preview = !a.onSite;
+  const out = `
+${preview ? '<p class="dx-preview" role="note"><strong>Preview.</strong> Not published or listed. Text from the published issue is still to be added; slots marked “Awaiting verified published text” show where.</p>' : ''}
+<article class="dx" aria-labelledby="jr-a-title">
+  <header class="dx-mast">
+    <p class="jr-kicker">${esc(J.name)} · ${esc(a.type)} · Issue ${esc(a.issue)}${meta.date ? ' · <time datetime="' + esc(meta.date) + '">' + esc(meta.dateLabel || meta.date) + '</time>' : ''}</p>
     <h1 id="jr-a-title">${esc(a.title)}</h1>
     ${a.standfirst ? '<p class="jr-sub">' + esc(a.standfirst) + '</p>' : ''}
-    <p class="jr-meta">By ${esc(J.author)} · <a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">Originally published in the newsletter<span class="vh"> on LinkedIn (opens in a new tab)</span></a></p>
+    <p class="dx-byline">By ${esc(J.author)} · <a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">Originally published in the newsletter<span class="vh"> on LinkedIn (opens in a new tab)</span></a></p>
     ${a.note ? '<p class="jr-note">' + esc(a.note) + '</p>' : ''}
+    ${toc.length ? '<nav class="dx-toc" aria-label="Chapters"><ol>' + toc.join('') + '</ol></nav>' : ''}
   </header>
-  <div class="jr-prose">
-${markdown(body)}
+  <div class="dx-body">
+${html}
   </div>
-  <p class="jr-back"><a href="../">← All issues</a> · <a href="../#evidence">Corrections log</a></p>
+  <p class="jr-back"><a href="../">← ${esc(J.name)}</a> · <a href="../#evidence">Corrections log</a></p>
 </article>`;
-  return page({ title: a.title + ' — ' + J.name, description: a.standfirst || J.subtitle, canonical: SITE + '/journal/' + a.slug + '/', depth: 2, body: html, type: 'article' });
+  return page({ title: a.title + ' — ' + J.name, description: a.standfirst || J.subtitle, canonical: SITE + '/journal/' + a.slug + '/', depth: 2, body: out, type: 'article', noindex: preview, image: a.image ? SITE + '/journal/' + a.slug + '/assets/' + a.image : null });
 }
 
 mkdirSync('journal', { recursive: true });
 writeFileSync('journal/index.html', hub());
 let n = 0;
-J.articles.filter((a) => a.status === 'published' && a.onSite).forEach((a) => {
+J.articles.filter((a) => a.status === 'published' && (a.onSite || a.preview)).forEach((a) => {
   mkdirSync(path.join('journal', a.slug), { recursive: true });
   writeFileSync(path.join('journal', a.slug, 'index.html'), article(a));
   n++;
