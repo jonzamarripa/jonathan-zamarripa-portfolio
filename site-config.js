@@ -5,7 +5,9 @@
     resume: 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf',
     linkedin: 'https://www.linkedin.com/in/jonathanzamarripa/',
     email: 'mailto:jonathan.zamarripa@gmail.com',
-    archive: 'https://jonathan-iker-zamarripa.webflow.io/projects'
+    archive: 'https://jonathan-iker-zamarripa.webflow.io/projects',
+    // Cinematic Learning Systems newsletter on LinkedIn. Paste the URL here; the Thinking and footer links appear automatically.
+    newsletter: ''
   };
   var sections = [
     { id: 'hero', nav: null, aliases: ['Home', 'Hero', 'home'] },

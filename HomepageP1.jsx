@@ -142,16 +142,27 @@ function FeaturedWorkEditorial({ onOpenWork }) {
 }
 
 /* ---------- Impact ---------- */
-function CountUp({ to, run, suffix }) {
-  const [v, setV] = React.useState(prefersReduced() ? to : 0);
+function CountUp({ to, run, suffix, srSuffix }) {
+  // The final value is rendered by default (prerendered HTML, no-JS, crawlers, link previews).
+  // Once the page is interactive, the visible figure resets to 0 and counts up when seen; screen readers always get the real value.
+  const [v, setV] = React.useState(to);
+  const done = React.useRef(false);
+  React.useEffect(() => { if (!run && !prefersReduced()) setV(0); }, []);
   React.useEffect(() => {
-    if (!run || prefersReduced()) { if (run) setV(to); return undefined; }
+    if (!run || done.current) return undefined;
+    done.current = true;
+    if (prefersReduced()) { setV(to); return undefined; }
     let raf, start;
     const tick = (t) => { if (!start) start = t; const p = Math.min(1, (t - start) / 1100); setV(Math.round(to * (1 - Math.pow(1 - p, 3)))); if (p < 1) raf = requestAnimationFrame(tick); };
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
   }, [run, to]);
-  return <React.Fragment>{v}<span className="jz-im-unit">{suffix}</span></React.Fragment>;
+  return (
+    <React.Fragment>
+      <span aria-hidden="true">{v}<span className="jz-im-unit">{suffix}</span></span>
+      <span className="jz-visually-hidden">{String(to) + (srSuffix || suffix)}</span>
+    </React.Fragment>
+  );
 }
 
 function ImpactEditorial() {
@@ -162,7 +173,7 @@ function ImpactEditorial() {
     { to: 40, suffix: '%', label: 'Faster content development using an AI-assisted production pipeline, adopted team-wide', src: 'Learning production · Cox Enterprises', cat: 'Production' },
     { to: 35, suffix: '%', label: 'Lift in strategic knowledge retention versus presentation formats', src: 'Cox 20/20 executive simulation', cat: 'Leadership' },
     { to: 95, suffix: '%', label: 'Adoption and 4.9/5 satisfaction on an organization-wide LMS migration', src: 'Digital learning function · Atlanta International School', cat: 'Migration' },
-    { to: 16, suffix: '+ yrs', label: 'Designing learning across corporate, technology, and education environments', cat: 'Experience' }
+    { to: 16, suffix: '+ yrs', srSuffix: '+ years', label: 'In education and learning design, with recent years focused on enterprise instructional design', cat: 'Experience' }
   ];
   return (
     <section className="jz-im" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-im-title">
@@ -189,11 +200,11 @@ function ImpactEditorial() {
         <div className="jz-im-head jz-rise">
           <p className="jz-label">Selected impact</p>
           <h2 className="jz-im-h2" id="jz-im-title">What the work moved.</h2>
-          <p className="jz-im-note">Outcomes from enterprise programs I designed or contributed to. Detail sits in each case study.</p>
+          <p className="jz-im-note">Outcomes from programs I designed or contributed to, across enterprise and education settings.</p>
         </div>
         <div className="jz-im-lead jz-rise">
           <p className="jz-label">{lead.cat}</p>
-          <p className="jz-im-fig" aria-label={lead.to + lead.suffix}><CountUp to={lead.to} run={inView} suffix={lead.suffix} /></p>
+          <p className="jz-im-fig"><CountUp to={lead.to} run={inView} suffix={lead.suffix} srSuffix={lead.srSuffix} /></p>
           <p className="jz-im-label">{lead.label}</p>
           <p className="jz-im-src">{lead.src}</p>
         </div>
@@ -201,7 +212,7 @@ function ImpactEditorial() {
           {rest.map((m) => (
             <div key={m.cat} className="jz-im-cell jz-rise">
               <p className="jz-label">{m.cat}</p>
-              <p className="jz-im-fig" aria-label={m.to + m.suffix}><CountUp to={m.to} run={inView} suffix={m.suffix} /></p>
+              <p className="jz-im-fig"><CountUp to={m.to} run={inView} suffix={m.suffix} srSuffix={m.srSuffix} /></p>
               <p className="jz-im-label">{m.label}</p>
               {m.src ? <p className="jz-im-src">{m.src}</p> : null}
             </div>
@@ -225,12 +236,12 @@ function Practice({ part = 'method' }) {
     { n: '05', t: 'Measure', c: 'Use feedback, adoption signals, performance evidence, and stakeholder input to refine impact.', rule: 'Learning should move behavior. The measure is what people do differently after.' }
   ];
   const caps = [
-    { t: 'Learning strategy', c: 'Learning ecosystems that connect business goals, learner needs, stakeholder priorities, and measurable outcomes.', tools: 'Miro, FigJam, Tableau, Power BI, learning dashboards, KPI and adoption tracking, survey analysis' },
-    { t: 'Product & technology enablement', c: 'Complex platforms, workflows, and system changes turned into learning that supports adoption and operational readiness.', tools: 'Workday Learn, SharePoint, Microsoft 365, Asana, Frame.io, LMS governance, release workflows' },
+    { t: 'Learning strategy & performance consulting', c: 'Needs analysis and performance consulting that connect business goals, learner needs, and stakeholder priorities to measurable outcomes.', tools: 'Miro, FigJam, Tableau, Power BI, learning dashboards, KPI and adoption tracking, survey analysis' },
+    { t: 'Product & technology enablement', c: 'Complex platforms, workflows, and system changes turned into learning that supports adoption and operational readiness, built in partnership with product and business stakeholders.', tools: 'Workday Learn, SharePoint, Microsoft 365, Asana, Frame.io, LMS governance, release workflows' },
     { t: 'Leadership development', c: 'Leadership experiences that strengthen decision-making, alignment, emotional intelligence, and enterprise capability.', tools: 'Articulate Storyline 360, scenario and branching design, simulations, facilitation kits' },
-    { t: 'AI-enabled production', c: 'AI-supported workflows that accelerate content development, personalize learning, and scale multimedia.', tools: 'ChatGPT, Claude, Gemini, Copilot, NotebookLM, Custom GPTs, Zapier, Make, n8n, Synthesia, ElevenLabs, HeyGen, Descript, Runway' },
-    { t: 'Digital learning & multimedia', c: 'eLearning, explainer video, motion, job aids, and digital assets that make complex information easier to apply.', tools: 'Storyline 360, Rise 360, Camtasia, Genially, H5P, Canvas LMS, Premiere Pro, After Effects, Photoshop, Illustrator, Figma' },
-    { t: 'Accessibility & inclusive design', c: 'Designing for accessibility, representation, and learner variability, grounded in WCAG and UDL.', tools: 'WCAG, UDL, accessibility checkers, captioning and SRT workflows, screen-reader and contrast checks, QA checklists' }
+    { t: 'AI-enabled learning', c: 'AI-supported workflows that accelerate content development, personalize learning, and scale multimedia, with every output reviewed and owned.', tools: 'ChatGPT, Claude, Gemini, Copilot, NotebookLM, Custom GPTs, Zapier, Make, n8n, Synthesia, ElevenLabs, HeyGen, Descript, Runway' },
+    { t: 'Creative technology & multimedia production', c: 'eLearning, explainer video, motion, job aids, and digital assets that make complex information easier to apply.', tools: 'Storyline 360, Rise 360, Camtasia, Genially, H5P, Canvas LMS, Premiere Pro, After Effects, Photoshop, Illustrator, Figma' },
+    { t: 'Accessibility, evaluation & inclusive design', c: 'Accessible, inclusive learning grounded in WCAG and UDL, evaluated through learner feedback, adoption signals, and performance evidence.', tools: 'WCAG, UDL, accessibility checkers, captioning and SRT workflows, screen-reader and contrast checks, QA checklists' }
   ];
   return (
     <section className={'jz-pr jz-pr--' + part} ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby={part === 'capabilities' ? 'jz-cap-title' : 'jz-pr-title'}>
@@ -325,10 +336,11 @@ function CareerJourney() {
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref);
   const stages = [
-    { n: '01', title: 'Education Innovation', copy: 'Led digital learning adoption with educators, where teaching me to design for real behavior change began.' },
-    { n: '02', title: 'Digital Transformation', copy: 'Guided communities through platform change, learning that adoption is a human problem before a technical one.' },
-    { n: '03', title: 'Enterprise L&D', copy: 'Designed leadership and enterprise learning for audiences from frontline teams to SVPs.' },
-    { n: '04', title: 'Product & Technology Enablement', copy: 'Turned evolving platforms into release-ready learning that keeps global teams operationally current.' }
+    // ctx: organization · industry · engagement type. Engagement type is shown only where confirmed.
+    { n: '01', title: 'Education Innovation', ctx: 'K–12 education · Teaching', copy: 'Guided educators through digital learning adoption, where I learned to design for real behavior change.' },
+    { n: '02', title: 'Digital Transformation', ctx: 'Atlanta International School · International education', copy: 'Supported an organization-wide LMS migration, helping a school community move from hesitation to fluency.' },
+    { n: '03', title: 'Enterprise L&D', ctx: 'Cox Enterprises · Enterprise & corporate learning', copy: 'Designed leadership and enterprise learning for audiences from frontline teams to SVPs.' },
+    { n: '04', title: 'Product & Technology Enablement', ctx: 'IHG Hotels & Resorts · Hospitality technology · Contract', copy: 'Turned evolving platforms into release-ready learning that keeps global teams operationally current.' }
   ];
   return (
     <section className="jz-jr" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-jr-title">
@@ -343,6 +355,7 @@ function CareerJourney() {
 .jz-jr-stage::before{content:'';position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--color-accent-primary)}
 .jz-jr-t{margin:0;font:600 clamp(1.125rem,1rem + .5vw,1.5rem)/1.15 var(--font-display);letter-spacing:-.02em;color:var(--color-text-primary)}
 .jz-jr-c{margin:0;font:400 .9375rem/1.55 var(--font-body);color:rgba(217,221,227,.8)}
+.jz-jr-x{margin:0;font:500 .75rem/1.45 var(--font-mono);letter-spacing:.04em;color:var(--color-accent-primary);opacity:.85}
 @media(max-width:1024px){.jz-jr-head > div,.jz-jr-sub{grid-column:1 / span 12}.jz-jr-sub{margin-top:18px}.jz-jr-rail{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}}
 @media(max-width:560px){.jz-jr-rail{grid-template-columns:1fr;row-gap:32px}}
       `}</style>
@@ -356,6 +369,7 @@ function CareerJourney() {
             <li key={s.n} className="jz-jr-stage jz-rise">
               <span className="jz-label">{s.n}</span>
               <h3 className="jz-jr-t">{s.title}</h3>
+              {s.ctx ? <p className="jz-jr-x">{s.ctx}</p> : null}
               <p className="jz-jr-c">{s.copy}</p>
             </li>
           ))}

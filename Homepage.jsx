@@ -209,9 +209,10 @@ function Hero({ onExploreWork, onConnect }) {
 
       <div className="hero-content">
         <div className="hero-copy">
+          <p className="jz-label hero-eyebrow hero-fade hero-fade--1">Senior Learning Experience Designer &amp; Learning Strategist</p>
           <h1 className="hero-title hero-fade hero-fade--2"><span className="hero-title-main">From complex change </span><span className="hero-title-accent">to finished experience.</span></h1>
           <p className="hero-lead hero-fade hero-fade--3">I turn complex business and learning challenges into experiences people can understand and use—from strategy and experience design to film, AI-enabled production, and the finished build.</p>
-          <p className="hero-support hero-fade hero-fade--4">Learning Strategy <span className="hero-dot">•</span> Experience Design <span className="hero-dot">•</span> Creative Technology <span className="hero-dot">•</span> Film &amp; Media</p>
+          <p className="hero-support hero-fade hero-fade--4">Learning Strategy &amp; Performance Consulting <span className="hero-dot">•</span> Leadership Development <span className="hero-dot">•</span> Product &amp; Technology Enablement <span className="hero-dot">•</span> AI-Enabled Learning <span className="hero-dot">•</span> Creative Technology &amp; Multimedia Production</p>
           <div className="hero-actions hero-fade hero-fade--5">
             <Button variant="primary" onClick={onExploreWork}>View Work</Button>
             <Button variant="secondary" icon={false} onClick={() => window.open(RESUME_URL, '_blank', 'noopener')}>View Resume</Button>
@@ -284,7 +285,7 @@ function Hero({ onExploreWork, onConnect }) {
 @media(max-width:1180px){.hero-content{grid-template-columns:40fr 60fr}}
 @media(min-width:901px) and (max-width:1180px){.hero-content{grid-template-columns:minmax(0,53fr) minmax(0,47fr)}.hero-support{width:auto;max-width:100%}}
 @media(min-width:1181px) and (max-width:1400px){.hero-content{grid-template-columns:minmax(0,47fr) minmax(0,53fr)}.hero-support{width:auto;max-width:100%}}
-@media(min-width:901px) and (max-height:820px){.hero-content{padding-block:clamp(36px,5vh,56px)}}
+@media(min-width:901px) and (max-height:820px){.hero-content{padding-block:clamp(28px,4vh,48px)}.hero-title{margin-bottom:20px}.hero-lead{margin-bottom:20px}.hero-actions{margin-top:24px}}
 @media(min-width:1181px){.hero-copy{margin-left:clamp(0px,calc((100vw - 1480px) * .32),140px)}}
 @media(max-width:900px){.hero-content{grid-template-columns:1fr}.hero-copy{grid-column:1}.hero-video-stage{top:auto;height:520px}.hero-video{object-position:8% 0%}.hero-video-blend{background:linear-gradient(180deg,#080D0B 0%,transparent 6%,transparent 80%,#080D0B 100%),linear-gradient(90deg,transparent 0%,transparent 50%,rgba(31,69,86,.14) 62%,rgba(11,13,16,.6) 100%)}}
 @media(max-width:768px){.hero-video-stage{height:480px}.hero-video{object-position:0% 0%}}
@@ -293,6 +294,7 @@ function Hero({ onExploreWork, onConnect }) {
 @media(prefers-reduced-motion:reduce){.hero-portrait{transform:none;transition:none}.hero-fade{opacity:1;animation:none}.hero-mesh,.hero-path,.hero-nodes circle{animation:none}}
 ${MOTION_TOGGLE_CSS}
 .hero-motion{left:clamp(16px,2vw,28px);bottom:clamp(16px,2vw,28px)}
+.hero-copy .hero-eyebrow{margin:0 0 clamp(14px,1.6vw,22px);color:rgba(238,242,236,.78);text-shadow:0 1px 12px rgba(0,0,0,.6)}
       `}</style>
     </section>
   );
@@ -1262,9 +1264,8 @@ function FilmSection() {
                 role="alert"
               >
                 <span>
-                  The Train Story could not load. Confirm
-                  that the video exists at
-                  assets/video/the-train-story.mp4.
+                  The Train Story couldn’t load right now.
+                  Please refresh the page to try again.
                 </span>
               </div>
             )}
@@ -1559,7 +1560,7 @@ function ArchiveBridge() {
           <h2 className="jiz-arch-title" id="jiz-arch-title">More work. More range.</h2>
           <p className="jiz-arch-sub">Projects that show range across interactive learning, multimedia, and AI production. Summarized here; the full archive holds more.</p>
           <a className="jiz-arch-cta" href={ARCHIVE_URL} target="_blank" rel="noopener noreferrer">
-            <span>View the Full Archive (older site)</span>
+            <span>View the full archive</span>
             <span className="jiz-arch-cta-arrow" aria-hidden="true">↗</span>
           </a>
         </div>
@@ -1627,11 +1628,21 @@ function ArchiveBridge() {
 }
 
 function LetsBuild({ onExploreWork }) {
-  const PROJECT_TYPES = ['Full-Time Role', 'Recruiting Conversation', 'Learning Experience', 'AI Strategy', 'Product Enablement', 'Consulting'];
+  // One choice routes the form; only the fields for that choice are shown and sent.
+  const INTENTS = [
+    { id: 'hiring', label: 'Hiring · full-time or contract', subject: 'Hiring inquiry', detail: 'Tell me about the role and the team.', hint: 'Scope, level, and what success looks like in the first year.' },
+    { id: 'project', label: 'Project or consulting', subject: 'Project inquiry', detail: 'What are you trying to make clearer, easier, or more effective?', hint: "The change you're after, the friction in the way, what success looks like." },
+    { id: 'speaking', label: 'Speaking or panel', subject: 'Speaking inquiry', detail: 'Tell me about the event and the audience.', hint: 'Theme, audience, and what you would like people to leave with.' },
+    { id: 'other', label: 'Something else', subject: 'General inquiry', detail: 'How can I help?', hint: 'A few lines are enough.' }
+  ];
+  const FOCUS = ['Learning Experience', 'Leadership Development', 'Product Enablement', 'AI-Enabled Learning'];
+  const FORMATS = ['Keynote', 'Panel', 'Workshop', 'Podcast or Interview'];
   const TIMELINES = ['Exploring', 'Within 30 Days', '1–3 Months', '3+ Months'];
   const BUDGETS = ['Not Established', 'Under $10k', '$10k–25k', '$25k–50k', '$50k+'];
   const REFERRALS = ['LinkedIn', 'Referral', 'Google Search', 'Previous Colleague', 'Conference or Event', 'Other'];
-  const [form, setForm] = React.useState({ name: '', email: '', org: '', types: [], detail: '', timeline: '', budget: '', referral: '' });
+  const EMPTY = { name: '', email: '', org: '', intent: '', detail: '', role: '', location: '', jobLink: '', focus: [], timeline: '', budget: '', eventName: '', eventDate: '', format: '', referral: '' };
+  const [form, setForm] = React.useState(EMPTY);
+  const intent = INTENTS.find((i) => i.id === form.intent) || null;
   const [formStatus, setFormStatus] = React.useState('idle');
   const [formMessage, setFormMessage] = React.useState('');
   const statusRef = React.useRef(null);
@@ -1642,14 +1653,15 @@ function LetsBuild({ onExploreWork }) {
     if ((formStatus === 'success' || formStatus === 'error') && statusRef.current) statusRef.current.focus();
   }, [formStatus]);
   const set = (k) => (e) => setForm((f) => ({ ...f, [k]: e.target.value }));
-  const toggleType = (t) => setForm((f) => ({ ...f, types: f.types.includes(t) ? f.types.filter((x) => x !== t) : f.types.concat(t) }));
+  const toggleFocus = (t) => setForm((f) => ({ ...f, focus: f.focus.includes(t) ? f.focus.filter((x) => x !== t) : f.focus.concat(t) }));
+  const pick = (k, v) => () => setForm((f) => ({ ...f, [k]: f[k] === v ? '' : v }));
   const handleSubmit = async function (event) {
     event.preventDefault();
     if (inFlightRef.current) return;
     const formEl = event.currentTarget;
-    if (form.types.length === 0) {
+    if (!intent) {
       setFormStatus('error');
-      setFormMessage('Select at least one inquiry type so I can route your message correctly.');
+      setFormMessage('Choose what you’re reaching out about so I can route your message correctly.');
       return;
     }
     const formData = new FormData(formEl);
@@ -1657,7 +1669,7 @@ function LetsBuild({ onExploreWork }) {
     setFormStatus('submitting');
     setFormMessage('');
     formData.append('access_key', 'be51b404-7cd3-43c5-afaf-5b52369eb150');
-    formData.append('subject', 'New Portfolio Project Inquiry');
+    formData.append('subject', 'Portfolio · ' + intent.subject);
     formData.append('from_name', 'Jonathan Zamarripa Portfolio');
     let ok = false;
     let notice = 'Something interrupted the submission. Please try again.';
@@ -1679,7 +1691,7 @@ function LetsBuild({ onExploreWork }) {
           setFormStatus('success');
           setFormMessage('Your inquiry is on its way. I’ll be in touch soon.');
           formEl.reset();
-          setForm({ name: '', email: '', org: '', types: [], detail: '', timeline: '', budget: '', referral: '' });
+          setForm(EMPTY);
         } else {
           setFormStatus('error');
           setFormMessage(notice);
@@ -1756,7 +1768,7 @@ function LetsBuild({ onExploreWork }) {
             <h2 className="jiz-build-title" id="jiz-build-title">Have something complex worth making clear?</h2>
           </div>
           <div className="jiz-build-head-right">
-            <p className="jiz-build-sub">A strategy that needs shape, an experience that needs building, a story that needs telling, or a new tool worth figuring out. Tell me what you’re working on. I’m currently open to senior full-time roles.</p>
+            <p className="jiz-build-sub">A strategy that needs shape, an experience that needs building, a story that needs telling, or a new tool worth figuring out. Tell me what you’re working on. I’m open to senior full-time and contract roles, consulting projects, and speaking or panel invitations.</p>
           </div>
         </header>
         <div className="jiz-build-stage">
@@ -1783,14 +1795,14 @@ function LetsBuild({ onExploreWork }) {
           </div>
           <form className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
             <h3>Start the Conversation</h3>
-            <p className="jiz-build-form-note">Hiring, recruiting, or scoping work — a few details are enough to begin.</p>
+            <p className="jiz-build-form-note">Hiring, projects, or speaking — a few details are enough to begin.</p>
             <div className="jiz-build-fields">
               <div className="jiz-build-field">
                 <label className="jiz-build-label" htmlFor="jiz-build-name">Name <span aria-hidden="true">*</span></label>
                 <input className="jiz-build-input" id="jiz-build-name" name="name" type="text" required value={form.name} onChange={set('name')} placeholder="Your name" autoComplete="name" />
               </div>
               <div className="jiz-build-field">
-                <label className="jiz-build-label" htmlFor="jiz-build-email">Work email <span aria-hidden="true">*</span></label>
+                <label className="jiz-build-label" htmlFor="jiz-build-email">Email <span aria-hidden="true">*</span></label>
                 <input className="jiz-build-input" id="jiz-build-email" name="email" type="email" required value={form.email} onChange={set('email')} placeholder="you@company.com" autoComplete="email" />
               </div>
               <div className="jiz-build-field jiz-span">
@@ -1798,33 +1810,83 @@ function LetsBuild({ onExploreWork }) {
                 <input className="jiz-build-input" id="jiz-build-org" name="organization" type="text" value={form.org} onChange={set('org')} placeholder="Company or team" autoComplete="organization" />
               </div>
               <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                <legend className="jiz-build-label">Inquiry type <span aria-hidden="true">*</span></legend>
+                <legend className="jiz-build-label">I’m reaching out about <span aria-hidden="true">*</span></legend>
                 <div className="jiz-build-chips">
-                  {PROJECT_TYPES.map((t) => (
-                    <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.types.indexOf(t) !== -1} onClick={() => toggleType(t)}>{t}</button>
+                  {INTENTS.map((i) => (
+                    <button key={i.id} type="button" className="jiz-build-chip" aria-pressed={form.intent === i.id} onClick={() => setForm((f) => ({ ...f, intent: i.id }))}>{i.label}</button>
                   ))}
                 </div>
               </fieldset>
+              {form.intent === 'hiring' ? (
+                <React.Fragment>
+                  <div className="jiz-build-field">
+                    <label className="jiz-build-label" htmlFor="jiz-build-role">Role title</label>
+                    <input className="jiz-build-input" id="jiz-build-role" name="role_title" type="text" value={form.role} onChange={set('role')} placeholder="e.g. Senior Learning Experience Designer" />
+                  </div>
+                  <div className="jiz-build-field">
+                    <label className="jiz-build-label" htmlFor="jiz-build-location">Location or remote</label>
+                    <input className="jiz-build-input" id="jiz-build-location" name="role_location" type="text" value={form.location} onChange={set('location')} placeholder="Atlanta hybrid, U.S. remote…" />
+                  </div>
+                  <div className="jiz-build-field jiz-span">
+                    <label className="jiz-build-label" htmlFor="jiz-build-joblink">Job posting link</label>
+                    <input className="jiz-build-input" id="jiz-build-joblink" name="job_link" type="text" inputMode="url" value={form.jobLink} onChange={set('jobLink')} placeholder="https://" />
+                  </div>
+                </React.Fragment>
+              ) : null}
+              {form.intent === 'speaking' ? (
+                <React.Fragment>
+                  <div className="jiz-build-field">
+                    <label className="jiz-build-label" htmlFor="jiz-build-event">Event or organization</label>
+                    <input className="jiz-build-input" id="jiz-build-event" name="event_name" type="text" value={form.eventName} onChange={set('eventName')} placeholder="Conference, panel, or podcast" />
+                  </div>
+                  <div className="jiz-build-field">
+                    <label className="jiz-build-label" htmlFor="jiz-build-eventdate">Date or timeframe</label>
+                    <input className="jiz-build-input" id="jiz-build-eventdate" name="event_date" type="text" value={form.eventDate} onChange={set('eventDate')} placeholder="e.g. Spring 2027" />
+                  </div>
+                  <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
+                    <legend className="jiz-build-label">Format</legend>
+                    <div className="jiz-build-chips">
+                      {FORMATS.map((t) => (
+                        <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.format === t} onClick={pick('format', t)}>{t}</button>
+                      ))}
+                    </div>
+                  </fieldset>
+                </React.Fragment>
+              ) : null}
+              {form.intent === 'project' ? (
+                <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
+                  <legend className="jiz-build-label">Focus</legend>
+                  <div className="jiz-build-chips">
+                    {FOCUS.map((t) => (
+                      <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.focus.indexOf(t) !== -1} onClick={() => toggleFocus(t)}>{t}</button>
+                    ))}
+                  </div>
+                </fieldset>
+              ) : null}
               <div className="jiz-build-field jiz-span">
-                <label className="jiz-build-label" htmlFor="jiz-build-detail">What are you trying to make clearer, easier, or more effective? <span aria-hidden="true">*</span></label>
-                <textarea className="jiz-build-area" id="jiz-build-detail" name="challenge" required value={form.detail} onChange={set('detail')} placeholder="The change you're after, the friction in the way, what success looks like." />
+                <label className="jiz-build-label" htmlFor="jiz-build-detail">{intent ? intent.detail : 'How can I help?'} <span aria-hidden="true">*</span></label>
+                <textarea className="jiz-build-area" id="jiz-build-detail" name="message" required value={form.detail} onChange={set('detail')} placeholder={intent ? intent.hint : 'Choose an option above, then add a few lines.'} />
               </div>
-              <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                <legend className="jiz-build-label">Timeline</legend>
-                <div className="jiz-build-chips">
-                  {TIMELINES.map((t) => (
-                    <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.timeline === t} onClick={() => setForm((f) => ({ ...f, timeline: f.timeline === t ? '' : t }))}>{t}</button>
-                  ))}
-                </div>
-              </fieldset>
-              <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                <legend className="jiz-build-label">Budget</legend>
-                <div className="jiz-build-chips">
-                  {BUDGETS.map((b) => (
-                    <button key={b} type="button" className="jiz-build-chip" aria-pressed={form.budget === b} onClick={() => setForm((f) => ({ ...f, budget: f.budget === b ? '' : b }))}>{b}</button>
-                  ))}
-                </div>
-              </fieldset>
+              {form.intent === 'project' ? (
+                <React.Fragment>
+                  <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
+                    <legend className="jiz-build-label">Timeline</legend>
+                    <div className="jiz-build-chips">
+                      {TIMELINES.map((t) => (
+                        <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.timeline === t} onClick={pick('timeline', t)}>{t}</button>
+                      ))}
+                    </div>
+                  </fieldset>
+                  <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
+                    <legend className="jiz-build-label">Budget</legend>
+                    <div className="jiz-build-chips">
+                      {BUDGETS.map((b) => (
+                        <button key={b} type="button" className="jiz-build-chip" aria-pressed={form.budget === b} onClick={pick('budget', b)}>{b}</button>
+                      ))}
+                    </div>
+                  </fieldset>
+                </React.Fragment>
+              ) : null}
               <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
                 <legend className="jiz-build-label">How did you hear about me?</legend>
                 <div className="jiz-build-chips">
@@ -1835,9 +1897,15 @@ function LetsBuild({ onExploreWork }) {
               </fieldset>
             </div>
 
-            <input type="hidden" name="project_type" value={form.types.join(', ')} />
-            <input type="hidden" name="timeline" value={form.timeline} />
-            <input type="hidden" name="budget" value={form.budget} />
+            <input type="hidden" name="inquiry_type" value={intent ? intent.label : ''} />
+            {form.intent === 'project' ? (
+              <React.Fragment>
+                <input type="hidden" name="project_focus" value={form.focus.join(', ')} />
+                <input type="hidden" name="timeline" value={form.timeline} />
+                <input type="hidden" name="budget" value={form.budget} />
+              </React.Fragment>
+            ) : null}
+            {form.intent === 'speaking' ? <input type="hidden" name="speaking_format" value={form.format} /> : null}
             <input type="hidden" name="referral_source" value={form.referral} />
 
             <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
@@ -1879,7 +1947,7 @@ function FinalMoment({ onNavigate }) {
   const [lit, setLit] = React.useState(false);
   const ref = React.useRef(null);
   const reduced = prefersReduced();
-  const NAV = [['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Behind the Build', 'btb'], ['Resume', 'resume'], ['LinkedIn', 'linkedin'], ['Email', 'email']];
+  const NAV = [['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Behind the Build', 'btb'], ['Resume', 'resume'], ['LinkedIn', 'linkedin']].concat(window.JIZ_SITE.links.newsletter ? [['Newsletter', 'newsletter']] : [], [['Email', 'email']]);
   React.useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setLit(true); }, { threshold: 0.4 });
     if (ref.current) obs.observe(ref.current);
@@ -1919,7 +1987,7 @@ function FinalMoment({ onNavigate }) {
           <img className="jiz-footer-logo" src="./assets/logo/jiz-logo-white.svg" alt="Jonathan Iker Zamarripa logo" />
         </div>
         <p className="jiz-footer-name">Jonathan Iker Zamarripa</p>
-        <p className="jiz-footer-disciplines">Learning Strategy • Experience Design • Creative Technology • Film &amp; Media</p>
+        <p className="jiz-footer-disciplines">Learning Strategy &amp; Performance Consulting • Leadership Development • Product &amp; Technology Enablement • AI-Enabled Learning • Creative Technology &amp; Multimedia Production</p>
         <nav className="jiz-footer-nav" aria-label="Footer">
           {NAV.map(([label, index]) => (
             <button key={label} type="button" onClick={() => {
@@ -1929,6 +1997,8 @@ function FinalMoment({ onNavigate }) {
                 window.open('https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf', '_blank', 'noopener,noreferrer');
               } else if (index === 'linkedin') {
                 window.open('https://www.linkedin.com/in/jonathanzamarripa/', '_blank', 'noopener,noreferrer');
+              } else if (index === 'newsletter') {
+                window.open(window.JIZ_SITE.links.newsletter, '_blank', 'noopener,noreferrer');
               } else if (index === 'email') {
                 window.location.href = 'mailto:jonathan.zamarripa@gmail.com';
               } else {
@@ -2021,6 +2091,9 @@ function ThinkingInMotion() {
                 <span className="jiz-tim-cta-label">{open ? 'Close the Insight' : 'Read the Insight'}</span>
                 <span className="jiz-tim-cta-arrow" aria-hidden="true">{open ? '\u2212' : '\u2192'}</span>
               </button>
+              {window.JIZ_SITE.links.newsletter ? (
+                <a className="jiz-tim-cta jiz-tim-news" href={window.JIZ_SITE.links.newsletter} target="_blank" rel="noopener noreferrer">Read the newsletter on LinkedIn <span aria-hidden="true">↗</span></a>
+              ) : null}
               <div className="jiz-tim-panel" id="jiz-tim-panel" hidden={!open}>
                 <ul className="jiz-tim-notes">
                   {notes.map((n) => (
@@ -2082,6 +2155,7 @@ function ThinkingInMotion() {
 .jiz-tim-kicker{font:var(--text-hud);font-size:.625rem;letter-spacing:.2em;text-transform:uppercase;color:var(--color-accent-secondary);margin:0}
 .jiz-tim-card-title{font:var(--text-h3);font-size:clamp(1.1rem,.98rem + .5vw,1.45rem);line-height:1.3;letter-spacing:-.012em;color:var(--color-text-primary);margin:0;text-wrap:pretty}
 .jiz-tim-card-copy{font:var(--text-body);font-size:.9375rem;line-height:1.6;color:rgba(217,221,227,.7);margin:0;max-width:54ch;text-wrap:pretty}
+.jiz-tim-news{margin-left:clamp(16px,2vw,28px);text-decoration:none}
 .jiz-tim-cta{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0;background:none;border:0;font:var(--text-button);font-size:.875rem;color:var(--color-accent-primary);cursor:pointer}
 .jiz-tim-cta-label{position:relative;padding-bottom:3px;border-bottom:1px solid rgba(198,242,58,.34);transition:border-color 260ms ease}
 .jiz-tim-cta:hover .jiz-tim-cta-label{border-color:var(--color-accent-primary)}
@@ -2151,13 +2225,7 @@ function AboutMind() {
 .jz-ab-copy{display:flex;flex-direction:column;gap:18px;margin:clamp(28px,3vw,40px) 0 0;max-width:52ch}
 .jz-ab-copy p{margin:0;font:400 clamp(1rem,.95rem + .25vw,1.1875rem)/1.65 var(--font-body);color:rgba(238,242,236,.86);text-wrap:pretty}
 .jz-ab-copy p:first-child{color:#EEF2EC}
-.jz-ab-path{list-style:none;margin:clamp(40px,4.4vw,64px) 0 0;padding:0;max-width:60ch}
-.jz-ab-path li{display:grid;grid-template-columns:minmax(0,15ch) minmax(0,1fr);gap:8px 24px;padding:16px 0;border-top:1px solid rgba(217,221,227,.1)}
-.jz-ab-path li:last-child{border-bottom:1px solid rgba(217,221,227,.1)}
-.jz-ab-path h3{margin:0;font:500 .9375rem/1.4 var(--font-display);color:#EEF2EC}
-.jz-ab-path p{margin:0;font:400 .875rem/1.55 var(--font-body);color:rgba(217,221,227,.74)}
 .jz-ab-close{margin:clamp(32px,3.4vw,48px) 0 0;max-width:40ch;font:400 clamp(1.0625rem,1rem + .3vw,1.25rem)/1.5 var(--font-display);font-style:italic;color:rgba(238,242,236,.9)}
-@media(max-width:560px){.jz-ab-path li{grid-template-columns:1fr}}
           `}</style>
           <p className="jz-label jiz-am-eyebrow-a">About</p>
           <h2 className="jz-ab-h2 jiz-am-title" id="jiz-am-title">Adoption is a human problem before a technical one.</h2>
@@ -2165,12 +2233,6 @@ function AboutMind() {
             <p>I learned that early, guiding educators and communities through digital learning and platform change. It still shapes everything I make, from leadership simulations to release-ready product training.</p>
             <p>The problems I'm handed rarely stay inside one discipline, so neither do I. I structure the ambiguity, design the experience, then film, prototype, and build it, using AI to move faster without handing it the judgment.</p>
           </div>
-          <ol className="jz-ab-path" aria-label="How the practice evolved">
-            <li><h3>Education innovation</h3><p>Digital learning adoption with educators, where designing for real behavior change began.</p></li>
-            <li><h3>Digital transformation</h3><p>Guiding communities through platform change.</p></li>
-            <li><h3>Enterprise L&amp;D</h3><p>Leadership and enterprise learning for audiences from frontline teams to SVPs.</p></li>
-            <li><h3>Product &amp; technology enablement</h3><p>Release-ready learning that keeps global teams operationally current.</p></li>
-          </ol>
           <p className="jz-ab-close jiz-am-close">Make the complex clear, make the learning useful, and make the experience worth remembering.</p>
         </div>
         <div className="jiz-am-col jiz-am-col--right">
@@ -2190,6 +2252,7 @@ function AboutMind() {
               <span className="jiz-am-quote-mark" aria-hidden="true" />
               <blockquote className="jiz-am-quote-text">“I translate complexity into learning people can use.”</blockquote>
               <p className="jiz-am-quote-by">Jonathan Iker Zamarripa · Learning Experience Design &amp; Strategy</p>
+              <p className="jiz-am-quote-by">M.Ed., Instructional Design &amp; Technology · Arizona State University</p>
             </figcaption>
           </figure>
         </div>
