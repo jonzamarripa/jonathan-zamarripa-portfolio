@@ -173,7 +173,8 @@ function ImpactEditorial() {
     { to: 40, suffix: '%', label: 'Faster content development using an AI-assisted production pipeline, adopted team-wide', src: 'Learning production · Cox Enterprises', cat: 'Production' },
     { to: 35, suffix: '%', label: 'Lift in strategic knowledge retention versus presentation formats', src: 'Cox 20/20 executive simulation', cat: 'Leadership' },
     { to: 95, suffix: '%', label: 'Adoption and 4.9/5 satisfaction on an organization-wide LMS migration', src: 'Digital learning function · Atlanta International School', cat: 'Migration' },
-    { to: 16, suffix: '+ yrs', srSuffix: '+ years', label: 'In education and learning design, with recent years focused on enterprise instructional design', cat: 'Experience' }
+    // Non-numeric until a verified duration is confirmed.
+    { text: 'Education to enterprise', label: 'Experience across education, enterprise learning, technology enablement, and creative production', cat: 'Experience' }
   ];
   return (
     <section className="jz-im" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-im-title">
@@ -190,6 +191,7 @@ function ImpactEditorial() {
 .jz-im-cell{display:flex;flex-direction:column;gap:12px;padding:clamp(22px,2.4vw,32px) clamp(16px,2vw,28px) 0 0}
 .jz-im-cell + .jz-im-cell{padding-left:clamp(16px,2vw,28px);border-left:1px solid rgba(217,221,227,.08)}
 .jz-im-cell .jz-im-fig{font-size:clamp(3rem,2rem + 3vw,5.25rem);color:var(--color-text-primary);letter-spacing:-.05em}
+.jz-im-cell .jz-im-fig--text{min-height:clamp(2.4rem,1.6rem + 2.4vw,4.2rem);display:flex;align-items:flex-end;font-size:clamp(1.5rem,1.1rem + 1.1vw,2.125rem);line-height:1.02;letter-spacing:-.03em;max-width:11ch;text-wrap:balance}
 .jz-im-label{margin:0;font:400 .9375rem/1.5 var(--font-body);color:rgba(217,221,227,.8);text-wrap:pretty}
 .jz-im-src{margin:0;font:500 .75rem/1.4 var(--font-mono);letter-spacing:.06em;color:rgba(217,221,227,.62)}
 .jz-im .jz-rise:nth-child(2){transition-delay:90ms}.jz-im .jz-rise:nth-child(3){transition-delay:180ms}.jz-im .jz-rise:nth-child(4){transition-delay:270ms}
@@ -212,7 +214,9 @@ function ImpactEditorial() {
           {rest.map((m) => (
             <div key={m.cat} className="jz-im-cell jz-rise">
               <p className="jz-label">{m.cat}</p>
-              <p className="jz-im-fig"><CountUp to={m.to} run={inView} suffix={m.suffix} srSuffix={m.srSuffix} /></p>
+              {m.text
+                ? <p className="jz-im-fig jz-im-fig--text">{m.text}</p>
+                : <p className="jz-im-fig"><CountUp to={m.to} run={inView} suffix={m.suffix} srSuffix={m.srSuffix} /></p>}
               <p className="jz-im-label">{m.label}</p>
               {m.src ? <p className="jz-im-src">{m.src}</p> : null}
             </div>
