@@ -35,7 +35,68 @@ const EDITORIAL_CSS = `
 .jz-visually-hidden{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 @media(prefers-reduced-motion:reduce){.jz-rise{opacity:1;transform:none;transition:none}.jz-link span:first-child,.jz-link .jz-arrow{transition:none}}
 `;
-function EditorialStyles() { return <style>{EDITORIAL_CSS}</style>; }
+/* Visual rhythm pass: deliberate chapters through the middle of the page. Scoped to .jiz-homepage so it layers over
+   the section styles without touching them. Order: Work (obsidian) → Impact (carbon) → Capabilities + Method (obsidian,
+   one "practice" chapter) → Cinematic Learning Systems (ink/navy journal) → Creative Lab → About (carbon) → Journey (obsidian)
+   → Stack (raised dark) → Principles (inset paper) → Archive (obsidian). */
+const RHYTHM_CSS = `
+/* Impact: carbon chapter; primary metric leads, supporting metrics sit in one contained group */
+.jiz-homepage .jz-im{background:#171A1F;border-top:1px solid rgba(217,221,227,.08);border-bottom:1px solid rgba(217,221,227,.08)}
+.jiz-homepage .jz-im-lead{padding-left:clamp(18px,2vw,32px);border-left:1px solid rgba(198,242,58,.45)}
+.jiz-homepage .jz-im-row{margin-top:clamp(48px,6vw,88px);padding:0 clamp(4px,1.4vw,20px);background:rgba(11,13,16,.42);border:1px solid rgba(217,221,227,.09);border-radius:clamp(14px,1.4vw,20px)}
+.jiz-homepage .jz-im-cell{padding-bottom:clamp(22px,2.4vw,32px)}
+.jiz-homepage .jz-im-note{color:rgba(217,221,227,.78)}
+/* Capabilities: clearer name / description hierarchy, comfortable measure */
+.jiz-homepage .jz-pr{background:#0B0D10}
+.jiz-homepage .jz-pr-cap button{padding:26px 0}
+.jiz-homepage .jz-pr-cap-t{font-weight:600;color:#F7F8FA}
+.jiz-homepage .jz-pr-cap-c{max-width:60ch;color:rgba(217,221,227,.72)}
+.jiz-homepage .jz-pr-cap button:hover{background:linear-gradient(90deg,rgba(198,242,58,.035),transparent 60%)}
+.jiz-homepage .jz-pr-cap[data-open="true"] .jz-pr-cap-t{color:var(--color-accent-primary)}
+/* Method: same practice chapter, separated by a hairline; five stages joined by a rail with stage markers */
+.jiz-homepage .jz-pr--method{border-top:1px solid rgba(217,221,227,.07)}
+.jiz-homepage .jz-pr-steps{border-top-color:rgba(217,221,227,.2)}
+.jiz-homepage .jz-pr-step{padding-top:34px}
+.jiz-homepage .jz-pr-step::after{content:'';position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#0B0D10;border:1px solid var(--color-accent-primary);box-sizing:border-box}
+.jiz-homepage .jz-pr-step:last-child::after{background:var(--color-accent-primary)}
+.jiz-homepage .jz-pr-step .jz-label{color:var(--color-accent-primary);opacity:.85}
+.jiz-homepage .jz-pr-c{max-width:30ch}
+.jiz-homepage .jz-pr-rule{color:rgba(217,221,227,.6)}
+@media(max-width:1024px){
+  .jiz-homepage .jz-pr-steps{position:relative;padding-left:28px}
+  .jiz-homepage .jz-pr-steps::before{content:'';position:absolute;left:4px;top:34px;bottom:34px;width:1px;background:linear-gradient(180deg,rgba(198,242,58,.5),rgba(198,242,58,.18))}
+  .jiz-homepage .jz-pr-step{padding-top:26px}
+  .jiz-homepage .jz-pr-step::after{top:30px;left:-28px}
+  .jiz-homepage .jz-pr-step::before{display:none}
+  .jiz-homepage .jz-pr-c{max-width:60ch}
+}
+/* Journey: obsidian, with one continuous rail that brightens toward the present */
+.jiz-homepage .jz-jr{background:#0B0D10}
+.jiz-homepage .jz-jr-rail{position:relative}
+.jiz-homepage .jz-jr-rail::before{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,rgba(217,221,227,.16),rgba(198,242,58,.55))}
+.jiz-homepage .jz-jr-stage{border-top-color:transparent}
+.jiz-homepage .jz-jr-stage::before{box-sizing:border-box;background:#0B0D10;border:1px solid var(--color-accent-primary)}
+.jiz-homepage .jz-jr-stage:last-child::before{background:var(--color-accent-primary)}
+@media(max-width:1024px){
+  .jiz-homepage .jz-jr-rail::before{display:none}
+  .jiz-homepage .jz-jr-stage{border-top-color:rgba(217,221,227,.14)}
+}
+@media(max-width:560px){
+  .jiz-homepage .jz-jr-rail{padding-left:24px}
+  .jiz-homepage .jz-jr-rail::before{display:block;left:3px;right:auto;top:0;bottom:0;width:1px;height:auto;background:linear-gradient(180deg,rgba(217,221,227,.16),rgba(198,242,58,.55))}
+  .jiz-homepage .jz-jr-stage{border-top-color:transparent;padding-top:0}
+  .jiz-homepage .jz-jr-stage::before{left:-24px;top:4px}
+}
+/* Stack: a raised dark surface; open groups instead of eight filled cards */
+.jiz-homepage .jz-st{background:#111418;border-top:1px solid rgba(217,221,227,.07)}
+.jiz-homepage .jz-st-grid{column-gap:clamp(28px,4vw,72px);row-gap:clamp(8px,1.2vw,16px)}
+.jiz-homepage .jz-st-card{padding:clamp(22px,2.2vw,30px) 0 clamp(18px,2vw,26px);background:none;border:0;border-top:1px solid rgba(217,221,227,.14);border-radius:0}
+.jiz-homepage .jz-st-l{max-width:58ch;color:rgba(217,221,227,.76)}
+.jiz-homepage .jz-st-tools{border-top:0;padding-top:4px}
+/* Principles: an inset paper panel so the light surface reads as a deliberate interlude */
+.jiz-homepage .jz-pp{margin:clamp(10px,1.4vw,20px) clamp(10px,1.4vw,20px);border-radius:clamp(20px,2.4vw,32px)}
+`;
+function EditorialStyles() { return <style>{EDITORIAL_CSS + RHYTHM_CSS}</style>; }
 
 /* ---------- Selected experience ---------- */
 function SelectedExperience() {

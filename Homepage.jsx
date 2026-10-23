@@ -2051,11 +2051,13 @@ function CinematicJournal({ onNavigate }) {
     if (onNavigate) onNavigate('contact');
   };
   return (
-    <section className="jz-cls" aria-labelledby="jz-cls-title">
+    <section className="jz-cls" aria-label={J.name + ', an independent journal'}>
       <style>{`
-.jz-cls{position:relative;background:#0E1114;border-top:1px solid rgba(232,227,217,.08);padding-block:clamp(72px,8vw,128px);color:#E8E3D9}
+.jz-cls{position:relative;background:linear-gradient(180deg,#0E1114 0%,#0E1114 38%,#11202A 100%);border-top:1px solid rgba(227,162,76,.32);padding-block:clamp(40px,4.4vw,64px) clamp(72px,8vw,128px);color:#E8E3D9}
+.jz-cls-mast{grid-column:1 / span 12;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;padding-bottom:16px;margin-bottom:clamp(40px,5vw,72px);border-bottom:1px solid rgba(232,227,217,.14)}
+.jz-cls-mast-name{margin:0;font:600 clamp(1rem,.9rem + .4vw,1.25rem)/1.2 var(--font-display);letter-spacing:.01em;color:#E8E3D9}
+.jz-cls-mast-name span{margin-left:12px;font:500 .75rem/1 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:#E3A24C}
 .jz-cls-intro{grid-column:1 / span 5;display:flex;flex-direction:column;gap:18px}
-.jz-cls-kicker{color:#E3A24C}
 .jz-cls-anchor{margin:4px 0 0;font:600 clamp(1.9rem,1.25rem + 2vw,3.1rem)/1.06 var(--font-display);letter-spacing:-.03em;color:#E8E3D9;text-wrap:balance}
 .jz-cls-anchor span{display:block}
 .jz-cls-anchor span:last-child{color:#E3A24C}
@@ -2067,7 +2069,9 @@ function CinematicJournal({ onNavigate }) {
 .jz-cls-links a:hover,.jz-cls-read:hover,.jz-cls-invite:hover{text-decoration:underline;text-underline-offset:4px}
 .jz-cls-invite:focus-visible,.jz-cls a:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:4px;border-radius:2px}
 .jz-cls-feature{grid-column:7 / span 6;display:flex;flex-direction:column}
-.jz-cls-lead{display:flex;flex-direction:column;gap:14px;padding:0 0 clamp(26px,3vw,36px);border-bottom:1px solid rgba(232,227,217,.12)}
+.jz-cls-lead{position:relative;display:flex;flex-direction:column;gap:14px;padding:clamp(24px,2.6vw,36px);background:rgba(31,69,86,.38);border:1px solid rgba(86,184,180,.22);border-radius:16px}
+.jz-cls-lead::before{content:'';position:absolute;top:-1px;left:clamp(24px,2.6vw,36px);width:40px;height:2px;background:#E3A24C}
+.jz-cls-more{margin:clamp(28px,3vw,40px) 0 4px;color:rgba(232,227,217,.6)}
 .jz-cls-type{color:#56B8B4}
 .jz-cls-lead h3{margin:0;font:600 clamp(1.6rem,1.2rem + 1.4vw,2.5rem)/1.08 var(--font-display);letter-spacing:-.03em;color:#E8E3D9;text-wrap:balance}
 .jz-cls-dek{margin:0;max-width:52ch;font:400 clamp(1rem,.96rem + .2vw,1.125rem)/1.6 var(--font-body);color:rgba(232,227,217,.84)}
@@ -2087,11 +2091,13 @@ function CinematicJournal({ onNavigate }) {
 @media(prefers-reduced-motion:reduce){.jz-cls-list-arrow{transition:none}}
       `}</style>
       <div className="jz-wrap jz-grid">
+        <div className="jz-cls-mast">
+          <p className="jz-cls-mast-name">{J.name}<span>Independent journal</span></p>
+          <p className="jz-cls-by">By {J.author}</p>
+        </div>
         <div className="jz-cls-intro">
-          <p className="jz-label jz-cls-kicker">{J.name} · Independent journal</p>
           <h2 className="jz-cls-anchor" id="jz-cls-title">{J.anchor.map((l) => <span key={l}>{l}</span>)}</h2>
           <p className="jz-cls-sub">{J.subtitle}</p>
-          <p className="jz-cls-by">By {J.author}</p>
           <div className="jz-cls-links">
             <a href="./journal/">Read the journal <span aria-hidden="true">→</span></a>
             <a href="./journal/#framework">The framework: CLPF {J.framework.version} <span aria-hidden="true">→</span></a>
@@ -2107,7 +2113,9 @@ function CinematicJournal({ onNavigate }) {
               <a className="jz-cls-read" {...linkProps(lead)}>{readLabel(lead)} <span aria-hidden="true">{lead.onSite ? '→' : '↗'}</span><span className="jz-visually-hidden">: {lead.title}{lead.onSite ? '' : ' (LinkedIn, opens in a new tab)'}</span></a>
             </article>
             {support.length ? (
-              <ul className="jz-cls-list" aria-label="More from the journal">
+              <React.Fragment>
+              <p className="jz-label jz-cls-more" id="jz-cls-more">More from the journal</p>
+              <ul className="jz-cls-list" aria-labelledby="jz-cls-more">
                 {support.map((a) => (
                   <li key={a.slug}>
                     <a {...linkProps(a)}>
@@ -2119,6 +2127,7 @@ function CinematicJournal({ onNavigate }) {
                   </li>
                 ))}
               </ul>
+              </React.Fragment>
             ) : null}
           </div>
         ) : null}
