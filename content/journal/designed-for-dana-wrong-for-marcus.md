@@ -1,5 +1,6 @@
 ::: status
 - **Composite scenario** Dana, Marcus, Sarah, and Benjamin are composite characters.
+- **AI-generated imagery** The photographs are AI-generated editorial images of these fictional characters.
 - **Concept mockups** The redesigned screens are concepts, not a shipped product.
 - **Design pseudocode** The state engine describes intended logic, not production code.
 - **First-pass heuristic** The evaluation rubric is preliminary; a human double-codes diagnosis.
@@ -18,7 +19,7 @@ h: 1143
 ext: jpg
 pos: 50% 55%
 alt: Night shift in a warehouse aisle lined with tall pallet racks. Dana, in a yellow safety vest and holding a tablet, faces Marcus, in an orange safety vest, a few feet away.
-status: Editorial image · composite characters
+status: AI-generated editorial image · Composite characters
 caption: Night shift, Aisle 04.
 :::
 
@@ -38,7 +39,7 @@ w: 2048
 h: 1143
 ext: jpg
 pos: 52% 40%
-status: Editorial image · composite character
+status: AI-generated editorial image · Composite character
 caption: The diagnostic comparison.
 :::
 
@@ -92,8 +93,8 @@ w: 2048
 h: 1143
 ext: jpg
 alt: Benjamin, a peer coach in a worn work jacket and yellow safety vest, sits at a breakroom table; forklifts move on the warehouse floor through the window behind him.
-status: Editorial image · composite character
-caption: Benjamin, the peer coach — a person, not an AI.
+status: AI-generated editorial image · Composite character
+caption: Benjamin, the scenario’s peer coach — a fictional human character, shown in an AI-generated image.
 :::
 
 ::: figure artifact
