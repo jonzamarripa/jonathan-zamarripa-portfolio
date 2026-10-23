@@ -1947,7 +1947,7 @@ function FinalMoment({ onNavigate }) {
   const [lit, setLit] = React.useState(false);
   const ref = React.useRef(null);
   const reduced = prefersReduced();
-  const NAV = [['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Behind the Build', 'btb'], ['Resume', 'resume'], ['LinkedIn', 'linkedin']].concat(window.JIZ_SITE.links.newsletter ? [['Newsletter', 'newsletter']] : [], [['Email', 'email']]);
+  const NAV = [['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Behind the Build', 'btb'], ['Resume', 'resume'], ['LinkedIn', 'linkedin']].concat(window.JIZ_SITE.links.newsletter ? [['Read the Newsletter', 'newsletter']] : [], [['Email', 'email']]);
   React.useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setLit(true); }, { threshold: 0.4 });
     if (ref.current) obs.observe(ref.current);
@@ -2092,7 +2092,7 @@ function ThinkingInMotion() {
                 <span className="jiz-tim-cta-arrow" aria-hidden="true">{open ? '\u2212' : '\u2192'}</span>
               </button>
               {window.JIZ_SITE.links.newsletter ? (
-                <a className="jiz-tim-cta jiz-tim-news" href={window.JIZ_SITE.links.newsletter} target="_blank" rel="noopener noreferrer">Read the newsletter on LinkedIn <span aria-hidden="true">↗</span></a>
+                <a className="jiz-tim-cta jiz-tim-news" href={window.JIZ_SITE.links.newsletter} target="_blank" rel="noopener noreferrer">Explore Cinematic Learning Systems <span aria-hidden="true">↗</span><span className="jz-visually-hidden"> (newsletter on LinkedIn, opens in a new tab)</span></a>
               ) : null}
               <div className="jiz-tim-panel" id="jiz-tim-panel" hidden={!open}>
                 <ul className="jiz-tim-notes">
@@ -2155,7 +2155,7 @@ function ThinkingInMotion() {
 .jiz-tim-kicker{font:var(--text-hud);font-size:.625rem;letter-spacing:.2em;text-transform:uppercase;color:var(--color-accent-secondary);margin:0}
 .jiz-tim-card-title{font:var(--text-h3);font-size:clamp(1.1rem,.98rem + .5vw,1.45rem);line-height:1.3;letter-spacing:-.012em;color:var(--color-text-primary);margin:0;text-wrap:pretty}
 .jiz-tim-card-copy{font:var(--text-body);font-size:.9375rem;line-height:1.6;color:rgba(217,221,227,.7);margin:0;max-width:54ch;text-wrap:pretty}
-.jiz-tim-news{margin-left:clamp(16px,2vw,28px);text-decoration:none}
+.jiz-tim-news{display:flex;width:max-content;margin-top:2px;text-decoration:none}
 .jiz-tim-cta{display:inline-flex;align-items:center;gap:9px;min-height:44px;padding:0;background:none;border:0;font:var(--text-button);font-size:.875rem;color:var(--color-accent-primary);cursor:pointer}
 .jiz-tim-cta-label{position:relative;padding-bottom:3px;border-bottom:1px solid rgba(198,242,58,.34);transition:border-color 260ms ease}
 .jiz-tim-cta:hover .jiz-tim-cta-label{border-color:var(--color-accent-primary)}

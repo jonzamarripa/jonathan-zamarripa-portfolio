@@ -336,11 +336,11 @@ function CareerJourney() {
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref);
   const stages = [
-    // ctx: organization · industry · engagement type. Engagement type is shown only where confirmed.
+    // ctx: organization · industry. meta: title · engagement type · dates, exactly as confirmed by Jonathan.
     { n: '01', title: 'Education Innovation', ctx: 'K–12 education · Teaching', copy: 'Guided educators through digital learning adoption, where I learned to design for real behavior change.' },
-    { n: '02', title: 'Digital Transformation', ctx: 'Atlanta International School · International education', copy: 'Supported an organization-wide LMS migration, helping a school community move from hesitation to fluency.' },
-    { n: '03', title: 'Enterprise L&D', ctx: 'Cox Enterprises · Enterprise & corporate learning', copy: 'Designed leadership and enterprise learning for audiences from frontline teams to SVPs.' },
-    { n: '04', title: 'Product & Technology Enablement', ctx: 'IHG Hotels & Resorts · Hospitality technology · Contract', copy: 'Turned evolving platforms into release-ready learning that keeps global teams operationally current.' }
+    { n: '02', title: 'Digital Transformation', ctx: 'Atlanta International School · International education', meta: 'EdTech & Innovation Coach / Strategist · Employee · 2019\u2060–\u20602024', copy: 'Supported an organization-wide LMS migration, helping a school community move from hesitation to fluency.' },
+    { n: '03', title: 'Enterprise L&D', ctx: 'Cox Enterprises · Enterprise & corporate learning', meta: 'Learning Experience Designer · Contract · Feb\u2060–\u2060Sep 2025', copy: 'Designed leadership and enterprise learning for audiences from frontline teams to SVPs.' },
+    { n: '04', title: 'Product & Technology Enablement', ctx: 'IHG Hotels & Resorts · Hospitality technology', meta: 'Creative Content Specialist / Producer · Contract · Sep 2025\u2060–\u2060Aug 2026', copy: 'Turned evolving platforms into release-ready learning that keeps global teams operationally current.' }
   ];
   return (
     <section className="jz-jr" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-jr-title">
@@ -355,6 +355,7 @@ function CareerJourney() {
 .jz-jr-stage::before{content:'';position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--color-accent-primary)}
 .jz-jr-t{margin:0;font:600 clamp(1.125rem,1rem + .5vw,1.5rem)/1.15 var(--font-display);letter-spacing:-.02em;color:var(--color-text-primary)}
 .jz-jr-c{margin:0;font:400 .9375rem/1.55 var(--font-body);color:rgba(217,221,227,.8)}
+.jz-jr-m{margin:-6px 0 0;font:400 .75rem/1.45 var(--font-mono);letter-spacing:.02em;color:rgba(217,221,227,.66)}
 .jz-jr-x{margin:0;font:500 .75rem/1.45 var(--font-mono);letter-spacing:.04em;color:var(--color-accent-primary);opacity:.85}
 @media(max-width:1024px){.jz-jr-head > div,.jz-jr-sub{grid-column:1 / span 12}.jz-jr-sub{margin-top:18px}.jz-jr-rail{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px}}
 @media(max-width:560px){.jz-jr-rail{grid-template-columns:1fr;row-gap:32px}}
@@ -370,6 +371,7 @@ function CareerJourney() {
               <span className="jz-label">{s.n}</span>
               <h3 className="jz-jr-t">{s.title}</h3>
               {s.ctx ? <p className="jz-jr-x">{s.ctx}</p> : null}
+              {s.meta ? <p className="jz-jr-m">{s.meta}</p> : null}
               <p className="jz-jr-c">{s.copy}</p>
             </li>
           ))}

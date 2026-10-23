@@ -7,7 +7,7 @@
     email: 'mailto:jonathan.zamarripa@gmail.com',
     archive: 'https://jonathan-iker-zamarripa.webflow.io/projects',
     // Cinematic Learning Systems newsletter on LinkedIn. Paste the URL here; the Thinking and footer links appear automatically.
-    newsletter: ''
+    newsletter: 'https://www.linkedin.com/newsletters/cinematic-learning-systems-7463584574371942400/'
   };
   var sections = [
     { id: 'hero', nav: null, aliases: ['Home', 'Hero', 'home'] },
