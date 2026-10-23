@@ -3,6 +3,7 @@
    - Only list an article as `published` once its publication is confirmed.
    - Set `onSite: true` only when a verified, verbatim edition exists in content/journal/<slug>.md.
    - `preview: true` builds the article page for review only: unlisted, marked noindex, with pending slots visible.
+   - `dossier: true` links that page from the homepage and journal (artifacts on site; full text still on LinkedIn).
    - Proposals stay in `framework.proposed` until the release that adopts them has actually shipped. */
 (function (root) {
   var NEWSLETTER = 'https://www.linkedin.com/newsletters/cinematic-learning-systems-7463584574371942400/';
@@ -14,7 +15,7 @@
     newsletter: NEWSLETTER,
     // Newest first. `url` = the issue's own LinkedIn URL when known; otherwise the newsletter page is used.
     articles: [
-      { slug: 'designed-for-dana-wrong-for-marcus', issue: '07', type: 'Audit', title: 'Designed for Dana. Wrong for Marcus.', standfirst: 'An audit of last week’s worked example, the production artifacts behind the fix, and the pilot designed to test it.', note: 'Dana and Marcus are composite characters.', status: 'published', featured: 'lead', url: '', onSite: false, preview: true, image: 'dana-01-opening-state-1600.webp' },
+      { slug: 'designed-for-dana-wrong-for-marcus', issue: '07', type: 'Audit', title: 'Designed for Dana. Wrong for Marcus.', standfirst: 'An audit of last week’s worked example, the production artifacts behind the fix, and the pilot designed to test it.', note: 'Dana and Marcus are composite characters.', status: 'published', featured: 'lead', url: '', onSite: false, preview: true, dossier: true, image: 'dana-01-opening-state-1600.webp' },
       { slug: 'every-shot-you-choose', issue: '03', type: 'Framework', title: 'Every Shot You Choose Is a Learning Design Decision', standfirst: 'A close-up isn’t prettier. It’s attentional narrowing. We just never called it that in learning design.', status: 'published', featured: 'support', url: '', onSite: false }
     ],
     framework: {

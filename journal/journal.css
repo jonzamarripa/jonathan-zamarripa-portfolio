@@ -34,6 +34,7 @@ main{width:min(1120px,calc(100% - 2*clamp(16px,5vw,64px)));margin-inline:auto}
 .jr-issues p{margin:0;max-width:var(--jr-measure);color:var(--jr-soft)}
 .jr-read,.jr-cta{display:inline-flex;align-items:center;gap:8px;min-height:44px;margin-top:6px;font:600 .9375rem/1 var(--font-body);text-decoration:none!important;color:var(--jr-amber)!important}
 .jr-read:hover,.jr-cta:hover{text-decoration:underline!important}
+.jr-orig{margin-left:20px;color:var(--jr-ink)!important}
 .jr-method{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,44px);margin-top:clamp(40px,5vw,64px)}
 .jr-method h3{margin-top:0}
 .jr-method ol{margin:0;padding-left:1.25em;color:var(--jr-soft)}

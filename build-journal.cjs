@@ -45,7 +45,7 @@ function markdown(src) {
   return out.join('\n');
 }
 // ---- Reusable editorial components (article pages). Blocks are `::: name options` … `:::` with `key: value` lines.
-let FIG = 0; let ASSET_BASE = 'assets/';
+let FIG = 0; let ASSET_BASE = 'assets/'; let CURRENT = null;
 function kv(buf) {
   const o = { _notes: [], _items: [], _body: [] };
   buf.forEach((l) => {
@@ -84,6 +84,7 @@ const COMPONENTS = {
   },
   // Pending: a visible editorial slot for verified published text that has not been supplied yet (preview builds only)
   pending(o, opts, buf) {
+    if (CURRENT && CURRENT.dossier && !CURRENT.onSite) return `<aside class="dx-pending dx-pending--orig" aria-label="In the original issue"><p class="box-label">In the original issue</p><p>${inline(buf.join(' '))} <a href="${esc(CURRENT.url)}" target="_blank" rel="noopener noreferrer">Read it on LinkedIn<span class="vh"> (opens in a new tab)</span></a>.</p></aside>`;
     return `<aside class="dx-pending" aria-label="Pending content"><p class="box-label">Awaiting verified published text</p><p>${inline(buf.join(' '))}</p></aside>`;
   },
   // Proposed study: name, status, summary, measures
@@ -166,8 +167,8 @@ ${body}
 `;
 }
 
-const readLink = (a, up) => (a.onSite
-  ? `<a class="jr-read" href="${up}journal/${esc(a.slug)}/">Read on this site <span aria-hidden="true">→</span><span class="vh">: ${esc(a.title)}</span></a>`
+const readLink = (a, up) => (a.onSite || a.dossier
+  ? `<a class="jr-read" href="${up}journal/${esc(a.slug)}/">${a.onSite ? 'Read on this site' : 'Read the dossier'} <span aria-hidden="true">→</span><span class="vh">: ${esc(a.title)}</span></a>${a.onSite ? '' : ` <a class="jr-read jr-orig" href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">Original on LinkedIn <span aria-hidden="true">↗</span><span class="vh"> (opens in a new tab)</span></a>`}`
   : `<a class="jr-read" href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">Read in the newsletter <span aria-hidden="true">↗</span><span class="vh">: ${esc(a.title)} (LinkedIn, opens in a new tab)</span></a>`);
 
 // ---- Hub
@@ -262,11 +263,11 @@ function article(a) {
   const file = path.join('content', 'journal', a.slug + '.md');
   if (!existsSync(file)) throw new Error('article without text: ' + file);
   const { meta, body } = frontMatter(readFileSync(file, 'utf8'));
-  FIG = 0; ASSET_BASE = 'assets/';
+  FIG = 0; ASSET_BASE = 'assets/'; CURRENT = a;
   const { html, toc } = chapters(body);
   const preview = !a.onSite;
   const out = `
-${preview ? '<p class="dx-preview" role="note"><strong>Preview.</strong> Not published or listed. Text from the published issue is still to be added; slots marked “Awaiting verified published text” show where.</p>' : ''}
+${preview && a.dossier ? `<p class="dx-preview" role="note">This dossier presents the issue’s scenes, concept screens, and diagrams. The complete text is in <a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">the original issue on LinkedIn<span class="vh"> (opens in a new tab)</span></a>.</p>` : preview ? '<p class="dx-preview" role="note"><strong>Preview.</strong> Not published or listed. Text from the published issue is still to be added; slots marked “Awaiting verified published text” show where.</p>' : ''}
 <article class="dx" aria-labelledby="jr-a-title">
   <header class="dx-mast">
     <p class="jr-kicker">${esc(J.name)} · ${esc(a.type)} · Issue ${esc(a.issue)}${meta.date ? ' · <time datetime="' + esc(meta.date) + '">' + esc(meta.dateLabel || meta.date) + '</time>' : ''}</p>
