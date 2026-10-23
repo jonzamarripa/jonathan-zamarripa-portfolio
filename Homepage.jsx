@@ -2044,8 +2044,9 @@ function CinematicJournal({ onNavigate }) {
   const published = J.articles.filter((a) => a.status === 'published');
   const lead = published.find((a) => a.featured === 'lead') || published[0];
   const support = published.filter((a) => a !== lead && a.featured).slice(0, 2);
-  const linkProps = (a) => (a.onSite ? { href: './journal/' + a.slug + '/' } : { href: a.url, target: '_blank', rel: 'noopener noreferrer' });
-  const readLabel = (a) => (a.onSite ? 'Read on this site' : 'Read in the newsletter');
+  const onPage = (a) => a.onSite || a.dossier;
+  const linkProps = (a) => (onPage(a) ? { href: './journal/' + a.slug + '/' } : { href: a.url, target: '_blank', rel: 'noopener noreferrer' });
+  const readLabel = (a) => (a.onSite ? 'Read on this site' : a.dossier ? 'Read the dossier' : 'Read in the newsletter');
   const invite = () => {
     window.dispatchEvent(new CustomEvent('jiz-contact-intent', { detail: 'speaking' }));
     if (onNavigate) onNavigate('contact');
@@ -2066,6 +2067,8 @@ function CinematicJournal({ onNavigate }) {
 .jz-cls-links{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:6px}
 .jz-cls-links a,.jz-cls-read,.jz-cls-invite{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:var(--text-button);font-size:.9375rem;color:var(--color-accent-primary);text-decoration:none;background:none;border:0;padding:0;cursor:pointer}
 .jz-cls-links a + a{color:#E8E3D9}
+.jz-cls-actions{display:flex;flex-wrap:wrap;gap:4px 24px;margin:0}
+.jiz-homepage .jz-cls .jz-cls-orig{color:#E8E3D9}
 .jz-cls-links a:hover,.jz-cls-read:hover,.jz-cls-invite:hover{text-decoration:underline;text-underline-offset:4px}
 .jz-cls-invite:focus-visible,.jz-cls a:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:4px;border-radius:2px}
 .jz-cls-feature{grid-column:7 / span 6;display:flex;flex-direction:column}
@@ -2110,7 +2113,10 @@ function CinematicJournal({ onNavigate }) {
               <h3 id="jz-cls-lead-title">{lead.title}</h3>
               <p className="jz-cls-dek">{lead.standfirst}</p>
               {lead.note ? <p className="jz-cls-note">{lead.note}</p> : null}
-              <a className="jz-cls-read" {...linkProps(lead)}>{readLabel(lead)} <span aria-hidden="true">{lead.onSite ? '→' : '↗'}</span><span className="jz-visually-hidden">: {lead.title}{lead.onSite ? '' : ' (LinkedIn, opens in a new tab)'}</span></a>
+              <p className="jz-cls-actions">
+                <a className="jz-cls-read" {...linkProps(lead)}>{readLabel(lead)} <span aria-hidden="true">{onPage(lead) ? '→' : '↗'}</span><span className="jz-visually-hidden">: {lead.title}{onPage(lead) ? '' : ' (LinkedIn, opens in a new tab)'}</span></a>
+                {lead.dossier && !lead.onSite ? <a className="jz-cls-read jz-cls-orig" href={lead.url} target="_blank" rel="noopener noreferrer">Original on LinkedIn <span aria-hidden="true">↗</span><span className="jz-visually-hidden"> (opens in a new tab)</span></a> : null}
+              </p>
             </article>
             {support.length ? (
               <React.Fragment>
@@ -2121,8 +2127,8 @@ function CinematicJournal({ onNavigate }) {
                     <a {...linkProps(a)}>
                       <span className="jz-label jz-cls-type">{a.type} · Issue {a.issue}</span>
                       <span className="jz-cls-list-title">{a.title}</span>
-                      <span className="jz-cls-list-arrow" aria-hidden="true">{a.onSite ? '→' : '↗'}</span>
-                      {a.onSite ? null : <span className="jz-visually-hidden"> (LinkedIn, opens in a new tab)</span>}
+                      <span className="jz-cls-list-arrow" aria-hidden="true">{onPage(a) ? '→' : '↗'}</span>
+                      {onPage(a) ? null : <span className="jz-visually-hidden"> (LinkedIn, opens in a new tab)</span>}
                     </a>
                   </li>
                 ))}
