@@ -3,7 +3,7 @@
 const { readFileSync, writeFileSync, mkdirSync, existsSync } = require('fs');
 const path = require('path');
 
-const SITE = 'https://jonathanzamarripa.com';
+const SITE = 'https://www.jonathanzamarripa.com';
 const J = require('./content/journal.js');
 
 const esc = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');

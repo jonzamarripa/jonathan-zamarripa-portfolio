@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://jonathanzamarripa.com/sitemap.xml
+Sitemap: https://www.jonathanzamarripa.com/sitemap.xml
