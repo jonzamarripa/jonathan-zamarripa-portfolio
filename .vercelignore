@@ -1,0 +1,46 @@
+# Files kept in the repository but not published to the website.
+# The live site runs from index.html, dist/, site-config.js, content/journal.js, styles.css, tokens/, journal/ and the assets it references.
+
+# Source and build tooling
+*.jsx
+_ds_bundle.js
+build.cjs
+build-journal.cjs
+node_modules/
+
+# Drafts, test pages and internal documentation
+Homepage.html
+test-behind-the-build.html
+image-slot.js
+behind-the-build.css
+*.md
+DEPLOYMENT-INSTRUCTIONS.txt
+/hero-portrait-green.mp4
+
+# Media not referenced by the live site (originals stay in the repo)
+assets/video/Jonathan_Planning.mp4
+assets/video/jiz-subject-greenscreen.mp4
+assets/video/hero-portrait-green.mp4
+assets/video/jiz-studio-ambient.mp4
+assets/video/hero-bg.mp4
+assets/video/capabilities-bg.mp4
+assets/video/hero-portrait.mp4
+assets/video/Man_thinking_strategic_intellige*
+assets/video/Man_thinking_strategic_intelligent.mp4
+assets/video/jonathan-thinking-engine.mp4
+assets/video/about-me-thinking-engine.mp4
+assets/video/Jonathan_Smiling.mp4
+assets/imagery/jonathan-portrait-transparent.png
+assets/imagery/jonathan-portrait.png
+assets/imagery/jonathan-portrait.webp
+assets/imagery/olu-featured-work-cover.png
+assets/imagery/learn-cox-launch-promo.png
+assets/imagery/workday-featured-work-cover.png
+assets/imagery/guestcrm-featured-work-cover.png
+assets/imagery/operation-legacy-unlocked.png
+assets/imagery/hotelkey-featured-work-cover.png
+assets/imagery/train-story-systems-map.png
+assets/imagery/hero-portrait-new.svg
+assets/logo/jiz-monogram.png
+assets/icons/linkedin-icon.png
+assets/favicon-white.svg

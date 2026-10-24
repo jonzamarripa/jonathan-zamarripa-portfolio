@@ -196,6 +196,8 @@ function Hero({ onExploreWork, onConnect }) {
   const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
   // Reduced motion and data-saver visitors get the still poster; every other device plays the loop.
   const heroStill = prefersReduced() || !!(typeof navigator !== 'undefined' && navigator.connection && navigator.connection.saveData);
+  // Phones and narrow tablets get a lighter encode of the same 1080p master (same frames, about a third of the size).
+  const heroCompact = !!(typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 900px)').matches);
   return (
     <section className="hero">
       <div className="hero-environment" aria-hidden="true">
@@ -224,7 +226,9 @@ function Hero({ onExploreWork, onConnect }) {
         {heroStill
           ? <img className="hero-video" src="./assets/imagery/jonathan-hero-final-poster.webp" alt="" decoding="async" fetchpriority="high" />
           : <InViewVideo eager className="hero-video" poster="./assets/imagery/jonathan-hero-final-poster.webp" disablePictureInPicture tabIndex={-1} onLoadedData={e => { e.target.muted = true; e.target.volume = 0; }}>
-              <source src="./assets/video/jonathan-hero-final.mp4" type="video/mp4" />
+              {heroCompact
+                ? <source src="./assets/video/jonathan-hero-final-mobile.mp4" type="video/mp4" />
+                : <source src="./assets/video/jonathan-hero-final.mp4" type="video/mp4" />}
               <source src="./assets/video/jonathan-hero-final.webm" type="video/webm" />
             </InViewVideo>}
         <div className="hero-video-blend" />
@@ -2366,7 +2370,7 @@ function Homepage({ onOpenCaseStudy }) {
         }}
         onConnect={() => scrollToSection('contact')}
       />
-      <main style={{ flex: 1, position: 'relative', zIndex: 1, overflow: 'visible' }}>
+      <main id="main-content" tabIndex={-1} style={{ flex: 1, position: 'relative', zIndex: 1, overflow: 'visible', outline: 'none' }}>
         <div ref={registerSection('hero')}><Hero onExploreWork={() => scrollToSection('work')} onConnect={() => scrollToSection('contact')} /></div>
         <SelectedExperience />
         <div ref={registerSection('work')} data-section="featured-work"><FeaturedWorkEditorial onOpenWork={onOpenCaseStudy} /></div>

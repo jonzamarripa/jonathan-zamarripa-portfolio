@@ -32,7 +32,7 @@ function markdown(src) {
     let m = l.match(/^:::\s*(figure|pending|study|inquiry|sources|status)\b(.*)$/);
     if (m) { const buf = []; i++; while (i < lines.length && !/^:::\s*$/.test(lines[i])) buf.push(lines[i++]); i++; out.push(COMPONENTS[m[1]](kv(buf), m[2].trim(), buf)); continue; }
     m = l.match(/^:::\s*(\w+)\s*$/);
-    if (m) { const buf = []; i++; while (i < lines.length && !/^:::\s*$/.test(lines[i])) buf.push(lines[i++]); i++; const k = m[1]; out.push('<aside class="box box-' + k + '"><p class="box-label">' + esc(ASIDES[k] || k) + '</p>' + markdown(buf.join('\n')) + '</aside>'); continue; }
+    if (m) { const buf = []; i++; while (i < lines.length && !/^:::\s*$/.test(lines[i])) buf.push(lines[i++]); i++; const k = m[1]; out.push('<div class="box box-' + k + '" role="note"><p class="box-label">' + esc(ASIDES[k] || k) + '</p>' + markdown(buf.join('\n')) + '</div>'); continue; }
     m = l.match(/^(#{2,4})\s+(.*)$/);
     if (m) { const n = m[1].length; const id = m[2].toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); out.push('<h' + n + ' id="' + id + '">' + inline(m[2]) + '</h' + n + '>'); i++; continue; }
     if (/^---+\s*$/.test(l)) { out.push('<hr>'); i++; continue; }
@@ -84,8 +84,8 @@ const COMPONENTS = {
   },
   // Pending: a visible editorial slot for verified published text that has not been supplied yet (preview builds only)
   pending(o, opts, buf) {
-    if (CURRENT && CURRENT.dossier && !CURRENT.onSite) return `<aside class="dx-pending dx-pending--orig" aria-label="In the original issue"><p class="box-label">In the original issue</p><p>${inline(buf.join(' '))} <a href="${esc(CURRENT.url)}" target="_blank" rel="noopener noreferrer">Read it on LinkedIn<span class="vh"> (opens in a new tab)</span></a>.</p></aside>`;
-    return `<aside class="dx-pending" aria-label="Pending content"><p class="box-label">Awaiting verified published text</p><p>${inline(buf.join(' '))}</p></aside>`;
+    if (CURRENT && CURRENT.dossier && !CURRENT.onSite) return `<div class="dx-pending dx-pending--orig" role="note"><p class="box-label">In the original issue</p><p>${inline(buf.join(' '))} <a href="${esc(CURRENT.url)}" target="_blank" rel="noopener noreferrer">Read it on LinkedIn<span class="vh"> (opens in a new tab)</span></a>.</p></div>`;
+    return `<div class="dx-pending" role="note"><p class="box-label">Awaiting verified published text</p><p>${inline(buf.join(' '))}</p></div>`;
   },
   // Proposed study: name, status, summary, measures
   study(o) {
@@ -124,7 +124,7 @@ function frontMatter(src) {
 }
 
 // ---- Page shell
-function page({ title, description, canonical, depth, body, type, noindex, image }) {
+function page({ title, description, canonical, depth, body, type, noindex, image, ld }) {
   const up = depth === 2 ? '../../' : '../';
   return `<!doctype html>
 <html lang="en">
@@ -141,8 +141,11 @@ function page({ title, description, canonical, depth, body, type, noindex, image
 <meta property="og:image" content="${image || SITE + '/assets/og-image.jpg'}">${noindex ? '\n<meta name="robots" content="noindex, nofollow">' : ''}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="${esc(J.author)}">
-<meta name="theme-color" content="#0E1114">
+<meta name="theme-color" content="#0E1114">${ld ? '\n<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>' : ''}
 <link rel="icon" href="${up}assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="${up}styles.css">
 <link rel="stylesheet" href="${up}journal/journal.css">${depth === 2 ? '\n<link rel="stylesheet" href="' + up + 'journal/dossier.css">' : ''}
 </head>
@@ -215,11 +218,11 @@ function hub() {
   <p class="jr-note">Status reflects the author’s own review of each axiom.</p>
   <h3>Named gaps</h3>
   <ul class="jr-gaps">${F.gaps.map((g, i) => `<li><span>Gap ${i + 1}</span> ${esc(g.name)} <em>${esc(g.level)}</em></li>`).join('')}</ul>
-  <aside class="box box-proposed" aria-labelledby="jr-prop">
+  <div class="box box-proposed" role="note" aria-labelledby="jr-prop">
     <p class="box-label" id="jr-prop">Proposed for ${esc(F.nextRelease.version)} · not released</p>
     <p>${esc(F.nextRelease.when)}. These changes are not part of CLPF until ${esc(F.nextRelease.version)} is released.</p>
     <ul>${F.proposed.map((p) => '<li>' + esc(p) + '</li>').join('')}</ul>
-  </aside>
+  </div>
   <h3>The Master Question</h3>
   <blockquote class="jr-quote">${esc(F.masterQuestion)}</blockquote>
 </section>
@@ -255,7 +258,9 @@ function hub() {
   <p class="jr-lede">${esc(J.talk.about)} ${esc(J.talk.formats)}.</p>
   <p><a class="jr-cta" href="../?intent=speaking">Invite me to speak <span aria-hidden="true">→</span></a></p>
 </section>`;
-  return page({ title: J.name + ' — ' + J.author, description: J.subtitle + ' ' + J.anchor.join(' '), canonical: SITE + '/journal/', depth: 1, body });
+  const ld = { '@context': 'https://schema.org', '@type': 'Blog', '@id': SITE + '/journal/#blog', name: J.name, description: J.subtitle, url: SITE + '/journal/', inLanguage: 'en',
+    author: { '@type': 'Person', '@id': SITE + '/#person', name: J.author, url: SITE + '/' } };
+  return page({ title: J.name + ' — ' + J.author, description: J.subtitle + ' ' + J.anchor.join(' '), canonical: SITE + '/journal/', depth: 1, body, ld });
 }
 
 // ---- Article pages (articles marked onSite, or `preview` drafts that are built but hidden and noindexed)
@@ -293,5 +298,9 @@ J.articles.filter((a) => a.status === 'published' && (a.onSite || a.preview)).fo
   writeFileSync(path.join('journal', a.slug, 'index.html'), article(a));
   n++;
 });
-console.log('built journal/index.html + ' + n + ' article page(s)');
+// Sitemap: only public, indexable pages (preview / dossier-only articles are noindex and left out).
+const today = new Date().toISOString().slice(0, 10);
+const urls = [SITE + '/', SITE + '/journal/'].concat(J.articles.filter((x) => x.status === 'published' && x.onSite).map((x) => SITE + '/journal/' + x.slug + '/'));
+writeFileSync('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls.map((u) => '  <url><loc>' + u + '</loc><lastmod>' + today + '</lastmod></url>').join('\n') + '\n</urlset>\n');
+console.log('built journal/index.html + ' + n + ' article page(s) + sitemap.xml (' + urls.length + ' URLs)');
 module.exports = { markdown, frontMatter, article };
