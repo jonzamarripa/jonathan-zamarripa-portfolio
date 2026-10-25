@@ -196,12 +196,18 @@ function FeaturedWorkEditorial({ onOpenWork }) {
     { n: '02', layout: 'pair-a', org: 'IHG Hotels & Resorts', role: 'Learning Experience Designer / Producer', kicker: 'Product enablement', title: 'Global product readiness for hotel technology', dek: 'New-hire onboarding, release communications, and reusable learning workflows for evolving hotel platforms.', image: './assets/imagery/hotelkey-featured-work-cover.webp', alt: 'HotelKey hotel technology enablement cover', route: 'HotelKey New Hire Onboarding' },
     { n: '03', layout: 'pair-b', org: 'Cox Enterprises', role: 'Creative Lead / Learning Experience Designer', kicker: 'Platform launch', title: 'Workday Learn, launched as a growth ecosystem', dek: 'A launch campaign that led with organizational purpose before platform features.', image: './assets/imagery/workday-featured-work-cover.webp', alt: 'Workday Learn launch at Cox Enterprises cover', route: 'Workday Learn Launch' },
     { n: '04', layout: 'reverse', org: 'IHG Hotels & Resorts', role: 'Learning Strategist / Creative Producer', kicker: 'Change enablement', title: 'Guest CRM adoption across pilot hotels', dek: 'Teaching pilot hotel teams the reasoning behind new guest-relationship workflows, not just where to click.', image: './assets/imagery/guestcrm-featured-work-cover.webp', alt: 'Guest CRM pilot change enablement cover', route: 'Guest CRM Pilot' },
-    { n: '05', layout: 'concept', org: 'Showcase prototype · Figma', role: 'AI workflow design, UX/UI prototyping', kicker: 'Systems design', title: 'Enterprise Learning Experience & AI Systems Hub', dek: 'One prototype that brings shipped work together: the Workday Learn launch, the AI production pipeline, Cox 20/20, and IHG product enablement.', href: 'https://jonathan-iker-zamarripa.webflow.io/project/enterprise-learning-experience-ai-systems-hub' }
+    { n: '05', layout: 'concept', org: 'Showcase prototype · Figma', role: 'AI workflow design, UX/UI prototyping', kicker: 'Systems design', title: 'Enterprise Learning Experience & AI Systems Hub', dek: 'One prototype that brings shipped work together: the Workday Learn launch, the AI production pipeline, Cox 20/20, and IHG product enablement.' }
   ];
-  const open = (p) => { if (p.href) window.open(p.href, '_blank', 'noopener,noreferrer'); else if (p.route && onOpenWork) onOpenWork(p.route); };
+  // Each case study has its own URL (shareable, opens in a new tab with Cmd/Ctrl-click); a plain click opens it in the overlay.
+  const pathOf = (route) => { const S = window.JIZ_SITE; const t = S && S.resolve(route); const r = t && S.route && S.route(t.view); return r && r.path; };
+  const open = (e, p) => {
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0) return;
+    e.preventDefault();
+    if (p.route && onOpenWork) onOpenWork(p.route);
+  };
   const Card = ({ p }) => {
-    const external = Boolean(p.href);
-    const label = external ? 'View the prototype' : 'Read the case study';
+    const href = p.route ? pathOf(p.route) : null;
+    const label = 'Read the case study';
     return (
       <article className={'jz-fw-card' + (p.image ? '' : ' jz-fw-card--text') + ' jz-rise'}>
         {p.image && (
@@ -214,9 +220,9 @@ function FeaturedWorkEditorial({ onOpenWork }) {
           <p className="jz-label jz-fw-kicker"><span className="jz-fw-n">{p.n}</span><span>{p.kicker}</span><span className="jz-fw-org">{p.org}</span></p>
           <h3 className="jz-fw-title">{p.title}</h3>
           <p className="jz-fw-dek">{p.dek}</p>
-          {external
-            ? <a className="jz-link jz-fw-cta" href={p.href} target="_blank" rel="noopener noreferrer" aria-label={label + ': ' + p.title + ' (opens in a new tab)'}><span>{label}</span><span className="jz-arrow" aria-hidden="true">↗</span></a>
-            : <button type="button" className="jz-link jz-fw-cta" onClick={() => open(p)} aria-label={label + ': ' + p.title}><span>{label}</span><span className="jz-arrow" aria-hidden="true">→</span></button>}
+          {href
+            ? <a className="jz-link jz-fw-cta" href={href} onClick={(e) => open(e, p)} aria-label={label + ': ' + p.title}><span>{label}</span><span className="jz-arrow" aria-hidden="true">→</span></a>
+            : null}
         </div>
       </article>
     );

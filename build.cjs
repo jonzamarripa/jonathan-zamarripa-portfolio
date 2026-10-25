@@ -42,6 +42,63 @@ try {
   if (!idx.includes('data-prerender') || !/<\/body>\s*<\/html>\s*$/.test(idx)) throw new Error('index.html shell not found');
   writeFileSync('index.html', idx);
   console.log('prerendered homepage into index.html');
+  buildWorkPages(win, ctx, idx);
 } catch (e) { console.warn('prerender skipped:', e.message); }
 console.log('built dist/site.js' + (bundlePath ? ' + dist/ds-core.js' : ''));
+
+// Case-study pages: /work/<slug>/index.html for every featured route with a `path`.
+// Same shell, scripts and styles as the homepage; <base href="/"> keeps every relative asset URL working one level down.
+// Title, description, social preview and structured data come from the case study's own approved config.
+function buildWorkPages(win, ctx, homeHtml) {
+  const React = win.React;
+  const SITE_URL = 'https://www.jonathanzamarripa.com';
+  const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  const clip = (s, n) => { s = String(s).replace(/\s+/g, ' ').trim(); if (s.length <= n) return s; const c = s.slice(0, n - 1); return c.slice(0, c.lastIndexOf(' ')).replace(/[,;:—–-]\s*$/, '') + '…'; };
+  const shell = win.CaseStudyShellExports.CaseStudyShell;
+  const written = [];
+  for (const r of win.JIZ_SITE.routes.filter((x) => x.featured && x.path)) {
+    let config = null;
+    win.CaseStudyShellExports = { CaseStudyShell: (props) => { config = props.config; return shell(props); } };
+    const body = ReactDOMServer_render(win, React.createElement(win.JIZCaseStudyPage, { view: r.view }));
+    win.CaseStudyShellExports = { CaseStudyShell: shell };
+    if (!config) throw new Error('no config captured for ' + r.view);
+    const url = SITE_URL + r.path;
+    const title = config.projectName + ' — Case Study · Jonathan Zamarripa';
+    const desc = clip(config.statement, 158);
+    const org = (config.facts.find((f) => f.label === 'Organization') || {}).value;
+    const img = SITE_URL + '/' + r.og;
+    const alt = config.projectName + (config.gallery && config.gallery[0] ? ' — ' + config.gallery[0].caption.replace(/^\d+\s+/, '') : '');
+    const ld = { '@context': 'https://schema.org', '@graph': [
+      { '@type': 'CreativeWork', '@id': url + '#work', name: config.projectName, headline: config.projectName, description: desc, url, image: img,
+        author: { '@type': 'Person', '@id': SITE_URL + '/#person', name: 'Jonathan Iker Zamarripa' },
+        isPartOf: { '@id': SITE_URL + '/#website' }, ...(org ? { sourceOrganization: { '@type': 'Organization', name: org } } : {}) },
+      { '@type': 'BreadcrumbList', itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Portfolio', item: SITE_URL + '/' },
+        { '@type': 'ListItem', position: 2, name: 'Featured work', item: SITE_URL + '/#work' },
+        { '@type': 'ListItem', position: 3, name: config.projectName, item: url }] }] };
+    let html = homeHtml
+      .replace(/<!-- @dsCard[^>]*-->\n?/, '')
+      .replace(/<meta charset="utf-8">/, '<meta charset="utf-8">\n<base href="/">')
+      .replace(/<title>[^<]*<\/title>/, '<title>' + esc(title) + '</title>')
+      .replace(/<meta name="description" content="[^"]*">/, '<meta name="description" content="' + esc(desc) + '">')
+      .replace(/<link rel="canonical" href="[^"]*">/, '<link rel="canonical" href="' + url + '">')
+      .replace(/<meta property="og:title" content="[^"]*">/, '<meta property="og:title" content="' + esc(config.projectName + ' — Case Study') + '">')
+      .replace(/<meta property="og:description" content="[^"]*">/, '<meta property="og:description" content="' + esc(desc) + '">')
+      .replace(/<meta property="og:type" content="[^"]*">/, '<meta property="og:type" content="article">')
+      .replace(/<meta property="og:url" content="[^"]*">/, '<meta property="og:url" content="' + url + '">')
+      .replace(/<meta property="og:image" content="[^"]*">/, '<meta property="og:image" content="' + img + '">')
+      .replace(/<meta property="og:image:alt" content="[^"]*">/, '<meta property="og:image:alt" content="' + esc(alt) + '">')
+      .replace(/<meta name="twitter:image" content="[^"]*">/, '<meta name="twitter:image" content="' + img + '">\n<meta name="twitter:title" content="' + esc(config.projectName + ' — Case Study') + '">\n<meta name="twitter:description" content="' + esc(desc) + '">')
+      .replace(/<link rel="preload" as="image" href="[^"]*" fetchpriority="high">/, '<link rel="preload" as="image" href="/' + r.hero + '" fetchpriority="high">')
+      .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>')
+      .replace(/<div id="root">[\s\S]*<\/div>(\s*<\/body>)/, (m, end) => '<div id="root"><div data-prerender="">' + body + '</div></div>' + end);
+    for (const must of ['<base href="/">', 'rel="canonical" href="' + url, 'og:url" content="' + url, 'data-prerender', '"CreativeWork"', '/' + r.hero]) if (!html.includes(must)) throw new Error(r.path + ': missing ' + must);
+    if (/<script type="application\/ld\+json">[\s\S]*?"ProfilePage"/.test(html)) throw new Error(r.path + ': homepage JSON-LD leaked');
+    mkdirSync('.' + r.path, { recursive: true });
+    writeFileSync('.' + r.path + 'index.html', html);
+    written.push(r.path);
+  }
+  console.log('prerendered case-study pages: ' + written.join(' '));
+}
+function ReactDOMServer_render(win, el) { return win.ReactDOMServer.renderToString(el).replace(/<video\b[\s\S]*?<\/video>/g, ''); }
 require('./build-journal.cjs');

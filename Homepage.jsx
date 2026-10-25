@@ -2321,7 +2321,9 @@ function Homepage({ onOpenCaseStudy }) {
   }, []);
 
   React.useEffect(() => {
-    const id = sessionStorage.getItem('jiz-target-section');
+    // A section requested by another view, or by a link such as /#work or /#contact from a case-study page.
+    const hashId = window.location.hash.slice(1);
+    const id = sessionStorage.getItem('jiz-target-section') ?? (SITE.section(hashId) ? hashId : null);
     if (id === null) return undefined;
     sessionStorage.removeItem('jiz-target-section');
     if (!SITE.section(id)) return undefined;

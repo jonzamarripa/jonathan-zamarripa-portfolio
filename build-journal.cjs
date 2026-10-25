@@ -300,7 +300,10 @@ J.articles.filter((a) => a.status === 'published' && (a.onSite || a.preview)).fo
 });
 // Sitemap: only public, indexable pages (preview / dossier-only articles are noindex and left out).
 const today = new Date().toISOString().slice(0, 10);
-const urls = [SITE + '/', SITE + '/journal/'].concat(J.articles.filter((x) => x.status === 'published' && x.onSite).map((x) => SITE + '/journal/' + x.slug + '/'));
+// Case-study pages written by build.cjs (/work/<slug>/index.html); each one indexable, so each one listed.
+const workDir = require('path').join(__dirname, 'work');
+const work = require('fs').existsSync(workDir) ? require('fs').readdirSync(workDir).filter((d) => require('fs').existsSync(require('path').join(workDir, d, 'index.html'))).sort().map((d) => SITE + '/work/' + d + '/') : [];
+const urls = [SITE + '/'].concat(work, [SITE + '/journal/']).concat(J.articles.filter((x) => x.status === 'published' && x.onSite).map((x) => SITE + '/journal/' + x.slug + '/'));
 writeFileSync('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls.map((u) => '  <url><loc>' + u + '</loc><lastmod>' + today + '</lastmod></url>').join('\n') + '\n</urlset>\n');
 console.log('built journal/index.html + ' + n + ' article page(s) + sitemap.xml (' + urls.length + ' URLs)');
 module.exports = { markdown, frontMatter, article };

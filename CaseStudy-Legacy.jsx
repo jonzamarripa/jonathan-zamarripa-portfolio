@@ -1,4 +1,4 @@
-function CaseStudyLegacy({ onBack, onOpenProject }) {
+function CaseStudyLegacy({ onBack, onOpenProject, standalone }) {
   const { CaseStudyShell } = window.CaseStudyShellExports;
   const config = {
     slug: "operation-legacy-unlocked",
@@ -115,6 +115,6 @@ function CaseStudyLegacy({ onBack, onOpenProject }) {
       { direction: "Next project", title: "HotelKey New Hire Onboarding", route: "HotelKey New Hire Onboarding" }
     ]
   };
-  return <CaseStudyShell config={config} onBack={onBack} onOpenProject={onOpenProject} />;
+  return <CaseStudyShell config={config} onBack={onBack} onOpenProject={onOpenProject} standalone={standalone} />;
 }
 window.CaseStudyLegacyExports = { CaseStudyLegacy };

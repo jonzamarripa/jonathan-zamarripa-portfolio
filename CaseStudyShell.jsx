@@ -67,7 +67,22 @@ function PackageCarousel({ items }) {
   );
 }
 
-function CaseStudyShell({ config, onBack, onOpenProject }) {
+function has0(v) { return Array.isArray(v) && v.length > 0; }
+
+function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
+  const SITE = window.JIZ_SITE;
+  // Every project link is a real URL (shareable, opens in a new tab); inside the homepage overlay a plain click stays in the overlay.
+  const pathFor = (name) => { const t = SITE && SITE.resolve(name); const r = t && SITE.route(t.view); return (r && r.path) || '/'; };
+  const plain = (e) => !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0);
+  const own = SITE && SITE.resolve(config.projectName);
+  const here = own && SITE.route(own.view);
+  const hero = standalone && here && here.hero && has0(config.gallery) ? { src: '/' + here.hero, caption: config.gallery[0].caption } : null;
+  const goContact = (e) => {
+    if (standalone || !plain(e)) return;
+    e.preventDefault();
+    onBack && onBack();
+    window.setTimeout(() => { const el = document.querySelector('[data-section="contact"]'); if (el) window.scrollTo(0, el.getBoundingClientRect().top + window.scrollY - 80); }, 360);
+  };
   const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const [progress, setProgress] = React.useState(0);
   const rootRef = React.useRef(null);
@@ -97,7 +112,7 @@ function CaseStudyShell({ config, onBack, onOpenProject }) {
         .jiz-cs-progress span{display:block;height:100%;background:var(--color-accent-primary);transition:width 90ms linear}
         .jiz-cs-wrap{width:min(100%,1180px);margin-inline:auto;padding:32px var(--container-pad) clamp(72px,8vw,112px);box-sizing:border-box}
         .jiz-cs-crumb{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:clamp(28px,3.4vw,44px);font:var(--text-caption);color:var(--color-text-muted)}
-        .jiz-cs-back{min-height:44px;padding:0 16px;border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-pill);background:rgba(255,255,255,.03);color:var(--color-text-secondary);font:var(--text-caption);cursor:pointer;transition:all 200ms var(--ease-standard)}
+        .jiz-cs-back{display:inline-flex;align-items:center;flex-shrink:0;white-space:nowrap;text-decoration:none;box-sizing:border-box;min-height:44px;padding:0 16px;border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-pill);background:rgba(255,255,255,.03);color:var(--color-text-secondary);font:var(--text-caption);cursor:pointer;transition:all 200ms var(--ease-standard)}
         .jiz-cs-back:hover{border-color:rgba(198,242,58,.4);color:var(--color-text-primary)}
         .jiz-cs-eyebrow{margin:0 0 14px;color:var(--color-accent-secondary);font:var(--text-eyebrow);letter-spacing:var(--tracking-eyebrow);text-transform:uppercase}
         .jiz-cs-title{margin:0 0 20px;max-width:18ch;color:var(--color-text-primary);font:var(--text-h1);font-size:clamp(2.2rem,4.4vw,3.6rem);line-height:1.04;letter-spacing:-.04em}
@@ -154,28 +169,38 @@ function CaseStudyShell({ config, onBack, onOpenProject }) {
         .jiz-cs-notice{padding:clamp(24px,3vw,36px);border:1px solid rgba(198,242,58,.22);border-radius:var(--radius-lg);background:rgba(198,242,58,.04);text-align:center}
         .jiz-cs-notice h2{margin:0 0 12px;color:var(--color-text-primary);font:var(--text-h3);font-size:clamp(1.3rem,2vw,1.6rem)}
         .jiz-cs-notice p{margin:0 auto;max-width:62ch;color:var(--color-text-secondary);font:var(--text-body);line-height:1.66}
+        .jiz-cs-home{color:var(--color-text-secondary);text-decoration:underline;text-decoration-color:rgba(255,255,255,.28);text-underline-offset:3px}
+        .jiz-cs-home:hover{color:var(--color-text-primary)}
+        .jiz-cs-home:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:3px;border-radius:2px}
+        .jiz-cs-hero{margin:0 0 clamp(40px,5vw,68px);border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-md);overflow:hidden;background:#06090b}
+        .jiz-cs-hero img{display:block;width:100%;height:auto;aspect-ratio:16 / 9;object-fit:cover}
+        .jiz-cs-hero figcaption{padding:10px 14px;color:var(--color-text-muted);font:var(--text-caption);font-size:.8125rem}
         .jiz-cs-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(14px,1.8vw,20px)}
         .jiz-cs-gallery figure{margin:0;border:1px solid rgba(255,255,255,.08);border-radius:var(--radius-md);overflow:hidden;background:rgba(255,255,255,.02)}
         .jiz-cs-gallery img{display:block;width:100%;height:auto}
         .jiz-cs-gallery figcaption{padding:10px 14px;color:var(--color-text-muted);font:var(--text-caption);font-size:.8125rem}
         @media(max-width:720px){.jiz-cs-gallery{grid-template-columns:1fr}}
         .jiz-cs-next{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;padding-top:clamp(32px,4vw,48px);border-top:1px solid rgba(255,255,255,.075)}
-        .jiz-cs-next button{display:flex;flex-direction:column;gap:6px;min-height:76px;padding:18px 20px;border:1px solid rgba(255,255,255,.09);border-radius:var(--radius-md);background:rgba(255,255,255,.022);text-align:left;cursor:pointer;transition:all 200ms var(--ease-standard)}
-        .jiz-cs-next button:hover{transform:translateY(-2px);border-color:rgba(198,242,58,.36);background:rgba(198,242,58,.035)}
+        .jiz-cs-next a{text-decoration:none;box-sizing:border-box;display:flex;flex-direction:column;gap:6px;min-height:76px;padding:18px 20px;border:1px solid rgba(255,255,255,.09);border-radius:var(--radius-md);background:rgba(255,255,255,.022);text-align:left;cursor:pointer;transition:all 200ms var(--ease-standard)}
+        .jiz-cs-next a:hover{transform:translateY(-2px);border-color:rgba(198,242,58,.36);background:rgba(198,242,58,.035)}
         .jiz-cs-next-k{color:var(--color-text-muted);font:var(--text-hud);font-size:.5625rem;letter-spacing:.12em;text-transform:uppercase}
         .jiz-cs-next-v{color:var(--color-text-primary);font:var(--text-body);font-size:.9375rem;font-weight:600}
-        .jiz-cs-back:focus-visible,.jiz-cs-next button:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:3px}
+        .jiz-cs-back:focus-visible,.jiz-cs-next a:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:3px}
         @media(max-width:880px){.jiz-cs-split{grid-template-columns:1fr}.jiz-cs-role{grid-template-columns:1fr;gap:6px}}
         @media(max-width:560px){.jiz-cs-step{grid-template-columns:1fr;gap:10px}}
-        @media(prefers-reduced-motion:reduce){.jiz-cs-progress span,.jiz-cs-next button,.jiz-cs-back,.jiz-cs-decision,.jiz-cs-outcome{transition:none}.jiz-cs-next button:hover,.jiz-cs-decision:hover,.jiz-cs-outcome:hover{transform:none}}
+        @media(prefers-reduced-motion:reduce){.jiz-cs-progress span,.jiz-cs-next a,.jiz-cs-back,.jiz-cs-decision,.jiz-cs-outcome{transition:none}.jiz-cs-next a:hover,.jiz-cs-decision:hover,.jiz-cs-outcome:hover{transform:none}}
       `}</style>
 
       <div className="jiz-cs-progress" aria-hidden="true"><span style={{ width: (progress * 100) + '%' }} /></div>
 
       <div className="jiz-cs-wrap">
         <nav className="jiz-cs-crumb" aria-label="Case study">
-          <span>Work → {config.projectName}</span>
-          <button className="jiz-cs-back" type="button" onClick={onBack}>← All Featured Work</button>
+          {standalone
+            ? <span><a className="jiz-cs-home" href="/">Jonathan Zamarripa</a> / <a className="jiz-cs-home" href="/#work">Work</a> / <span aria-current="page">{config.projectName}</span></span>
+            : <span>Work → {config.projectName}</span>}
+          {standalone
+            ? <a className="jiz-cs-back" href="/#work">← All Featured Work</a>
+            : <button className="jiz-cs-back" type="button" onClick={onBack}>← All Featured Work</button>}
         </nav>
 
         {/* 1 — Hero */}
@@ -191,6 +216,11 @@ function CaseStudyShell({ config, onBack, onOpenProject }) {
               </div>
             ))}
           </dl>
+          {hero && (
+            <figure className="jiz-cs-hero">
+              <img src={hero.src} alt={config.projectName + ' — ' + hero.caption.replace(/^\d+\s+/, '')} width="1600" height="900" fetchpriority="high" decoding="async" />
+            </figure>
+          )}
         </header>
 
         {/* Project snapshot — documented facts only */}
@@ -379,15 +409,19 @@ function CaseStudyShell({ config, onBack, onOpenProject }) {
         {has(config.related) && (
           <nav className="jiz-cs-next" aria-label="Related projects">
             {config.related.map((r) => (
-              <button type="button" key={r.route} onClick={() => onOpenProject && onOpenProject(r.route)}>
+              <a key={r.route} href={pathFor(r.route)} onClick={(e) => { if (standalone || !plain(e)) return; e.preventDefault(); onOpenProject && onOpenProject(r.route); }}>
                 <span className="jiz-cs-next-k">{r.direction}</span>
                 <span className="jiz-cs-next-v">{r.title}</span>
-              </button>
+              </a>
             ))}
-            <button type="button" onClick={onBack}>
+            <a href="/#work" onClick={(e) => { if (standalone || !plain(e)) return; e.preventDefault(); onBack && onBack(); }}>
               <span className="jiz-cs-next-k">Index</span>
               <span className="jiz-cs-next-v">Back to Featured Work</span>
-            </button>
+            </a>
+            <a href="/#contact" onClick={goContact}>
+              <span className="jiz-cs-next-k">Contact</span>
+              <span className="jiz-cs-next-v">Start a conversation</span>
+            </a>
           </nav>
         )}
       </div>

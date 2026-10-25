@@ -32,6 +32,29 @@ function CaseStudyOverlay({ view, onClose, children }) {
   );
 }
 
+function caseStudyViews() {
+  return {
+    'case-study': window.CaseStudyLegacyExports?.CaseStudyLegacy,
+    'hotelkey-onboarding': window.CaseStudyHotelKeyExports?.CaseStudyHotelKey,
+    'guest-crm-pilot': window.CaseStudyGuestCRMExports?.CaseStudyGuestCRM,
+    'workday-learn': window.CaseStudyWorkdayExports?.CaseStudyWorkday,
+    'behind-the-build': window.CaseStudyBehindTheBuildExports?.CaseStudyBehindTheBuild
+  };
+}
+
+// A case study's own page (/work/<slug>/): the same case study, standing on its own so it can be shared.
+function CaseStudyPage({ view }) {
+  const SITE = window.JIZ_SITE;
+  const Page = caseStudyViews()[view];
+  if (!Page) return <div role="alert" style={{ padding: 32, color: '#fff', background: '#080D0B' }}>This case study could not load. <a href="/" style={{ color: '#C6F23A' }}>Return to the portfolio</a>.</div>;
+  const goTo = (name) => { const t = SITE.resolve(name); const r = t && SITE.route(t.view); window.location.assign((r && r.path) || '/'); };
+  return (
+    <main id="main-content" tabIndex={-1} style={{ outline: 'none' }}>
+      <Page standalone onBack={() => window.location.assign('/#work')} onOpenProject={goTo} />
+    </main>
+  );
+}
+
 function App() {
   const SITE = window.JIZ_SITE;
   const isOverlay = (v) => SITE.routes.some((r) => r.featured && r.view === v);
@@ -100,6 +123,7 @@ function App() {
   React.useEffect(() => {
     const nextHash = displayView === 'home' ? '' : '#' + displayView;
     if (window.location.hash === nextHash) return;
+    if (displayView === 'home' && SITE.section(window.location.hash.slice(1))) return;
     const depth = isOverlay(displayView) ? ((window.history.state && window.history.state.jizDepth) || 0) + 1 : 0;
     window.history.pushState({ jizDepth: depth }, '', window.location.pathname + window.location.search + nextHash);
   }, [displayView]);
@@ -141,13 +165,7 @@ function App() {
   const HomepageComponent = window.HomepageExports?.Homepage;
   const openProject = React.useCallback((route) => { window.jizNavigate?.(route); }, []);
   const backToWork = React.useCallback(() => { window.jizNavigate?.('Featured Work'); }, []);
-  const views = {
-    'case-study': window.CaseStudyLegacyExports?.CaseStudyLegacy,
-    'hotelkey-onboarding': window.CaseStudyHotelKeyExports?.CaseStudyHotelKey,
-    'guest-crm-pilot': window.CaseStudyGuestCRMExports?.CaseStudyGuestCRM,
-    'workday-learn': window.CaseStudyWorkdayExports?.CaseStudyWorkday,
-    'behind-the-build': window.CaseStudyBehindTheBuildExports?.CaseStudyBehindTheBuild
-  };
+  const views = caseStudyViews();
   const PageComponent = views[pageOf(displayView)];
   const OverlayComponent = overlayOpen ? views[displayView] : null;
 
@@ -171,4 +189,10 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+function Root() {
+  const view = window.JIZ_SITE.viewForPath(window.location.pathname);
+  return view ? <CaseStudyPage view={view} /> : <App />;
+}
+window.JIZCaseStudyPage = CaseStudyPage;
+
+ReactDOM.createRoot(document.getElementById('root')).render(<Root />);
