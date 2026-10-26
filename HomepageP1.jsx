@@ -192,7 +192,7 @@ function FeaturedWorkEditorial({ onOpenWork }) {
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref);
   const projects = [
-    { n: '01', layout: 'flagship', org: 'Independent project', role: 'Designed, written and produced by Jonathan Zamarripa', kicker: 'Interactive Experience', title: 'The First Sentence', dek: 'Yesterday, you were a teammate. Today, you\u2019re their supervisor. A cinematic branching simulation for newly promoted frontline supervisors.', chips: ['About 7 min', 'Branching paths', 'Speak or type'], image: './assets/imagery/the-first-sentence/first-sentence-hero.webp', alt: 'Dana, a newly promoted shift lead, faces Marcus, a veteran picker, between warehouse racks', route: 'The First Sentence', cta: 'Explore the interactive experience' },
+    { n: '01', layout: 'flagship', org: 'Independent project', role: 'Designed, written and produced by Jonathan Zamarripa', kicker: 'Interactive Experience', title: 'The First Sentence', dek: 'Yesterday, you were a teammate. Today, you\u2019re their supervisor. A cinematic branching simulation for newly promoted frontline supervisors.', chips: ['About 7 min', 'Branching paths', 'Speak or type'], image: './assets/imagery/the-first-sentence/screens/01-threshold.webp', alt: 'The First Sentence start screen: “The first sentence.” title, scenario details and the Begin experience button', route: 'The First Sentence', cta: 'Explore the interactive experience' },
     { n: '02', layout: 'lead', org: 'Cox Enterprises', role: 'Lead Learning Experience Designer & Creative Strategist', kicker: 'Leadership development', title: 'Operation: Legacy Unlocked', dek: 'An immersive leadership simulation that casts employees as intelligence agents and turns organizational history into a mission, built for audiences up to VP and SVP.', image: './assets/imagery/olu-featured-work-cover.webp', alt: 'Operation: Legacy Unlocked leadership simulation cover', route: 'Operation: Legacy Unlocked' },
     { n: '03', layout: 'pair-a', org: 'IHG Hotels & Resorts', role: 'Learning Experience Designer / Producer', kicker: 'Product enablement', title: 'Global product readiness for hotel technology', dek: 'New-hire onboarding, release communications, and reusable learning workflows for evolving hotel platforms.', image: './assets/imagery/hotelkey-featured-work-cover.webp', alt: 'HotelKey hotel technology enablement cover', route: 'HotelKey New Hire Onboarding' },
     { n: '04', layout: 'pair-b', org: 'Cox Enterprises', role: 'Creative Lead / Learning Experience Designer', kicker: 'Platform launch', title: 'Workday Learn, launched as a growth ecosystem', dek: 'A launch campaign that led with organizational purpose before platform features.', image: './assets/imagery/workday-featured-work-cover.webp', alt: 'Workday Learn launch at Cox Enterprises cover', route: 'Workday Learn Launch' },
@@ -212,7 +212,7 @@ function FeaturedWorkEditorial({ onOpenWork }) {
     if (p.layout === 'flagship') return (
       <article className="jz-fw-card jz-fw-flag jz-rise">
         <div className="jz-fw-flag-media">
-          <img src={p.image} alt={p.alt} loading="lazy" decoding="async" width="1600" height="893" />
+          <img src={p.image} alt={p.alt} loading="lazy" decoding="async" width="1600" height="799" />
         </div>
         <div className="jz-fw-meta">
           <p className="jz-label jz-fw-kicker"><span className="jz-fw-n">{p.n}</span><span className="jz-fw-badge">{p.kicker}</span><span className="jz-fw-org">{p.org}</span></p>
@@ -256,7 +256,7 @@ function FeaturedWorkEditorial({ onOpenWork }) {
 .jz-fw-secondary .jz-fw-dek{font-size:.9375rem}
 /* Flagship: The First Sentence — 16:19 poster; Industrial Orange only as a restrained marker */
 .jz-fw-flag-media{position:relative;overflow:hidden;aspect-ratio:16 / 19;border-radius:var(--panel-r-inner);background:#0B0D10;box-shadow:inset 0 -3px 0 var(--accent-first-sentence)}
-.jz-fw-flag-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% 50%;transition:transform 220ms var(--ease-standard)}
+.jz-fw-flag-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:4% 50%;transition:transform 220ms var(--ease-standard)}
 .jz-fw-flag:hover .jz-fw-flag-media img,.jz-fw-flag:focus-within .jz-fw-flag-media img{transform:scale(1.02)}
 .jz-fw-flag .jz-fw-title{font-size:clamp(1.875rem,1.2rem + 2vw,3rem)}
 .jz-fw-badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;background:var(--accent-first-sentence);color:#0B0D10;letter-spacing:.12em}
