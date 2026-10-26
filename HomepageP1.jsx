@@ -192,22 +192,37 @@ function FeaturedWorkEditorial({ onOpenWork }) {
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref);
   const projects = [
-    { n: '01', layout: 'lead', org: 'Cox Enterprises', role: 'Lead Learning Experience Designer & Creative Strategist', kicker: 'Leadership development', title: 'Operation: Legacy Unlocked', dek: 'An immersive leadership simulation that casts employees as intelligence agents and turns organizational history into a mission, built for audiences up to VP and SVP.', image: './assets/imagery/olu-featured-work-cover.webp', alt: 'Operation: Legacy Unlocked leadership simulation cover', route: 'Operation: Legacy Unlocked' },
-    { n: '02', layout: 'pair-a', org: 'IHG Hotels & Resorts', role: 'Learning Experience Designer / Producer', kicker: 'Product enablement', title: 'Global product readiness for hotel technology', dek: 'New-hire onboarding, release communications, and reusable learning workflows for evolving hotel platforms.', image: './assets/imagery/hotelkey-featured-work-cover.webp', alt: 'HotelKey hotel technology enablement cover', route: 'HotelKey New Hire Onboarding' },
-    { n: '03', layout: 'pair-b', org: 'Cox Enterprises', role: 'Creative Lead / Learning Experience Designer', kicker: 'Platform launch', title: 'Workday Learn, launched as a growth ecosystem', dek: 'A launch campaign that led with organizational purpose before platform features.', image: './assets/imagery/workday-featured-work-cover.webp', alt: 'Workday Learn launch at Cox Enterprises cover', route: 'Workday Learn Launch' },
-    { n: '04', layout: 'reverse', org: 'IHG Hotels & Resorts', role: 'Learning Strategist / Creative Producer', kicker: 'Change enablement', title: 'Guest CRM adoption across pilot hotels', dek: 'Teaching pilot hotel teams the reasoning behind new guest-relationship workflows, not just where to click.', image: './assets/imagery/guestcrm-featured-work-cover.webp', alt: 'Guest CRM pilot change enablement cover', route: 'Guest CRM Pilot' },
-    { n: '05', layout: 'concept', org: 'Showcase prototype · Figma', role: 'AI workflow design, UX/UI prototyping', kicker: 'Systems design', title: 'Enterprise Learning Experience & AI Systems Hub', dek: 'One prototype that brings shipped work together: the Workday Learn launch, the AI production pipeline, Cox 20/20, and IHG product enablement.' }
+    { n: '01', layout: 'flagship', org: 'Independent project', role: 'Designed, written and produced by Jonathan Zamarripa', kicker: 'Interactive Experience', title: 'The First Sentence', dek: 'Yesterday, you were a teammate. Today, you\u2019re their supervisor. A cinematic branching simulation for newly promoted frontline supervisors.', chips: ['About 7 min', 'Branching paths', 'Speak or type'], image: './assets/imagery/the-first-sentence/first-sentence-hero.webp', alt: 'Dana, a newly promoted shift lead, faces Marcus, a veteran picker, between warehouse racks', route: 'The First Sentence', cta: 'Explore the interactive experience' },
+    { n: '02', layout: 'lead', org: 'Cox Enterprises', role: 'Lead Learning Experience Designer & Creative Strategist', kicker: 'Leadership development', title: 'Operation: Legacy Unlocked', dek: 'An immersive leadership simulation that casts employees as intelligence agents and turns organizational history into a mission, built for audiences up to VP and SVP.', image: './assets/imagery/olu-featured-work-cover.webp', alt: 'Operation: Legacy Unlocked leadership simulation cover', route: 'Operation: Legacy Unlocked' },
+    { n: '03', layout: 'pair-a', org: 'IHG Hotels & Resorts', role: 'Learning Experience Designer / Producer', kicker: 'Product enablement', title: 'Global product readiness for hotel technology', dek: 'New-hire onboarding, release communications, and reusable learning workflows for evolving hotel platforms.', image: './assets/imagery/hotelkey-featured-work-cover.webp', alt: 'HotelKey hotel technology enablement cover', route: 'HotelKey New Hire Onboarding' },
+    { n: '04', layout: 'pair-b', org: 'Cox Enterprises', role: 'Creative Lead / Learning Experience Designer', kicker: 'Platform launch', title: 'Workday Learn, launched as a growth ecosystem', dek: 'A launch campaign that led with organizational purpose before platform features.', image: './assets/imagery/workday-featured-work-cover.webp', alt: 'Workday Learn launch at Cox Enterprises cover', route: 'Workday Learn Launch' },
+    { n: '05', layout: 'reverse', org: 'IHG Hotels & Resorts', role: 'Learning Strategist / Creative Producer', kicker: 'Change enablement', title: 'Guest CRM adoption across pilot hotels', dek: 'Teaching pilot hotel teams the reasoning behind new guest-relationship workflows, not just where to click.', image: './assets/imagery/guestcrm-featured-work-cover.webp', alt: 'Guest CRM pilot change enablement cover', route: 'Guest CRM Pilot' },
   ];
   // Each case study has its own URL (shareable, opens in a new tab with Cmd/Ctrl-click); a plain click opens it in the overlay.
   const pathOf = (route) => { const S = window.JIZ_SITE; const t = S && S.resolve(route); const r = t && S.route && S.route(t.view); return r && r.path; };
+  const overlayRoute = (route) => { const S = window.JIZ_SITE; const t = S && S.resolve(route); const r = t && S.route && S.route(t.view); return !!(r && r.featured); };
   const open = (e, p) => {
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0) return;
+    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0 || !overlayRoute(p.route)) return;
     e.preventDefault();
     if (p.route && onOpenWork) onOpenWork(p.route);
   };
   const Card = ({ p }) => {
     const href = p.route ? pathOf(p.route) : null;
-    const label = 'Read the case study';
+    const label = p.cta || 'Read the case study';
+    if (p.layout === 'flagship') return (
+      <article className="jz-fw-card jz-fw-flag jz-rise">
+        <div className="jz-fw-flag-media">
+          <img src={p.image} alt={p.alt} loading="lazy" decoding="async" width="1600" height="893" />
+        </div>
+        <div className="jz-fw-meta">
+          <p className="jz-label jz-fw-kicker"><span className="jz-fw-n">{p.n}</span><span className="jz-fw-badge">{p.kicker}</span><span className="jz-fw-org">{p.org}</span></p>
+          <h3 className="jz-fw-title">{p.title}</h3>
+          <p className="jz-fw-dek">{p.dek}</p>
+          <ul className="jz-fw-chips" aria-label="Experience details">{p.chips.map((c) => <li key={c}>{c}</li>)}</ul>
+          {href ? <a className="jz-link jz-fw-cta" href={href} onClick={(e) => open(e, p)} aria-label={label + ': ' + p.title}><span>{label}</span><span className="jz-arrow" aria-hidden="true">→</span></a> : null}
+        </div>
+      </article>
+    );
     return (
       <article className={'jz-fw-card' + (p.image ? '' : ' jz-fw-card--text') + ' jz-rise'}>
         {p.image && (
@@ -235,7 +250,18 @@ function FeaturedWorkEditorial({ onOpenWork }) {
 .jz-fw-head{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;align-items:end;margin-bottom:clamp(48px,6vw,88px)}
 .jz-fw-h2{grid-column:1 / span 7;margin:14px 0 0;font:600 clamp(2.75rem,1.6rem + 4.6vw,6.5rem)/.94 var(--font-display);letter-spacing:-.045em;color:var(--color-text-primary)}
 .jz-fw-intro{grid-column:9 / span 4;margin:0;font:400 1.0625rem/1.6 var(--font-body);color:rgba(217,221,227,.78);text-wrap:pretty}
-.jz-fw-cards{grid-column:1 / span 12;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(48px,5vw,80px) clamp(24px,3vw,48px)}
+.jz-fw-cards{grid-column:1 / span 12;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,3vw,48px);align-items:start}
+.jz-fw-secondary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,3.4vw,52px) clamp(20px,2.4vw,36px)}
+.jz-fw-secondary .jz-fw-title{font-size:clamp(1.25rem,1rem + .7vw,1.625rem)}
+.jz-fw-secondary .jz-fw-dek{font-size:.9375rem}
+/* Flagship: The First Sentence — 16:19 poster; Industrial Orange only as a restrained marker */
+.jz-fw-flag-media{position:relative;overflow:hidden;aspect-ratio:16 / 19;border-radius:var(--panel-r-inner);background:#0B0D10;box-shadow:inset 0 -3px 0 var(--accent-first-sentence)}
+.jz-fw-flag-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:58% 50%;transition:transform 220ms var(--ease-standard)}
+.jz-fw-flag:hover .jz-fw-flag-media img,.jz-fw-flag:focus-within .jz-fw-flag-media img{transform:scale(1.02)}
+.jz-fw-flag .jz-fw-title{font-size:clamp(1.875rem,1.2rem + 2vw,3rem)}
+.jz-fw-badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;background:var(--accent-first-sentence);color:#0B0D10;letter-spacing:.12em}
+.jz-fw-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.jz-fw-chips li{padding:5px 12px;border:1px solid rgba(11,13,16,.2);border-radius:999px;font:500 .75rem/1.2 var(--font-mono);letter-spacing:.04em;color:rgba(11,13,16,.78)}
 .jz-fw-card{position:relative;display:flex;flex-direction:column;gap:clamp(20px,2vw,28px);min-width:0}
 .jz-fw-card--text{grid-column:1 / -1;padding-top:clamp(28px,3vw,40px);border-top:1px solid var(--color-border-default)}
 .jz-fw-media{position:relative;overflow:hidden;aspect-ratio:16 / 10;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--color-background-secondary) 0%,#1F4556 100%);border:1px solid var(--color-border-subtle);transition:border-color 220ms var(--ease-standard)}
@@ -258,9 +284,9 @@ function FeaturedWorkEditorial({ onOpenWork }) {
 .jz-fw-card:hover .jz-fw-title{color:#fff}
 .jz-fw-card:hover .jz-arrow,.jz-fw-card:focus-within .jz-arrow{transform:translateX(5px)}
 .jz-fw-card .jz-arrow{transition:transform 220ms var(--ease-standard)}
-@media(max-width:1024px){.jz-fw-h2{grid-column:1 / span 12}.jz-fw-intro{grid-column:1 / span 8;margin-top:22px}.jz-fw-head{align-items:start}}
-@media(max-width:760px){.jz-fw-cards{grid-template-columns:1fr;gap:56px}.jz-fw-intro{grid-column:1 / span 12}.jz-fw-org{margin-left:0;width:100%}}
-@media(prefers-reduced-motion:reduce){.jz-fw-media,.jz-fw-media-img,.jz-fw-title,.jz-fw-card .jz-arrow{transition:none}.jz-fw-card:hover .jz-fw-media-img,.jz-fw-card:focus-within .jz-fw-media-img{transform:none}}
+@media(max-width:1024px){.jz-fw-cards{grid-template-columns:1fr}.jz-fw-flag{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,3vw,36px);align-items:center}.jz-fw-h2{grid-column:1 / span 12}.jz-fw-intro{grid-column:1 / span 8;margin-top:22px}.jz-fw-head{align-items:start}}
+@media(max-width:760px){.jz-fw-cards{grid-template-columns:1fr;gap:56px}.jz-fw-flag{display:flex;align-items:stretch}.jz-fw-secondary{grid-template-columns:1fr;gap:48px}.jz-fw-intro{grid-column:1 / span 12}.jz-fw-org{margin-left:0;width:100%}}
+@media(prefers-reduced-motion:reduce){.jz-fw-flag-media img{transition:none}.jz-fw-flag:hover .jz-fw-flag-media img,.jz-fw-flag:focus-within .jz-fw-flag-media img{transform:none}.jz-fw-media,.jz-fw-media-img,.jz-fw-title,.jz-fw-card .jz-arrow{transition:none}.jz-fw-card:hover .jz-fw-media-img,.jz-fw-card:focus-within .jz-fw-media-img{transform:none}}
       `}</style>
       <div className="jz-wrap jz-grid">
         <header className="jz-fw-head">
@@ -268,7 +294,10 @@ function FeaturedWorkEditorial({ onOpenWork }) {
           <h2 className="jz-fw-h2 jz-rise" id="jz-fw-title">Featured work</h2>
           <p className="jz-fw-intro jz-rise">Leadership, product, and platform change for enterprise teams, each shown from the problem to the shipped experience.</p>
         </header>
-        <div className="jz-fw-cards">{projects.map((p) => <Card key={p.n} p={p} />)}</div>
+        <div className="jz-fw-cards">
+          <Card p={projects[0]} />
+          <div className="jz-fw-secondary">{projects.slice(1).map((p) => <Card key={p.n} p={p} />)}</div>
+        </div>
       </div>
     </section>
   );

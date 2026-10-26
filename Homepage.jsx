@@ -1549,6 +1549,7 @@ function ArchiveBridge() {
     { title: 'Canvas LMS Adoption at an International School', cat: 'Education Innovation', copy: 'Professional learning and adoption strategy that moved faculty from hesitation to fluency.', tags: ['Canvas LMS', 'Change Management'] },
     { title: 'Explainer Video Library', cat: 'Multimedia', copy: 'Short-form motion pieces that compress dense process into minutes.', tags: ['Video', 'Motion Design'] },
     { title: 'AI Production Experiments', cat: 'AI Experiments', copy: 'Prompt systems and agentic drafts tested against real production work.', tags: ['AI Workflow', 'Prototyping'] },
+    { title: 'Enterprise Learning Experience & AI Systems Hub', cat: 'Systems design', copy: 'One prototype that brings shipped work together: the Workday Learn launch, the AI production pipeline, Cox 20/20, and IHG product enablement.', tags: ['Figma prototype', 'AI workflow design'] },
     { title: 'Leadership Toolkit Series', cat: 'Enterprise Learning', copy: 'Job aids and facilitation kits supporting manager capability at scale.', tags: ['Job Aids', 'Facilitation'] }
   ];
   return (
