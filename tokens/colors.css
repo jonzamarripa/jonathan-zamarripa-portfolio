@@ -8,6 +8,23 @@
 --electric-moss:#A5D62E;
 --accent-cyan:#64E1FF;
 --black-pure:#000000;
+--deep-navy:#1F4556;
+--warm-paper:#E8E3D9;
+
+/* Chapter surfaces: panels sit on the Carbon gutter; never place two near-identical darks side by side. */
+--panel-gutter-surface:var(--carbon);
+--surface-obsidian:var(--obsidian);
+--surface-carbon:var(--carbon);
+--surface-slate:var(--slate);
+--surface-navy:var(--deep-navy);
+--surface-mist:var(--mist);
+--surface-paper:var(--warm-paper);
+
+/* Sub-brand accents (each experience keeps its own) */
+--accent-portfolio:var(--signal-lime);
+--accent-journal-amber:#E3A24C;
+--accent-journal-teal:#56B8B4;
+--accent-first-sentence:#F36F21;
 
 --color-background-primary:var(--obsidian);
 --color-background-secondary:var(--carbon);
