@@ -104,16 +104,22 @@ const COMPONENTS = {
     return `<dl class="dx-ledger">${o._items.map((t) => { const m = t.match(/^\*\*(.+?)\*\*\s*(.*)$/); return m ? '<dt>' + esc(m[1]) + '</dt><dd>' + inline(m[2]) + '</dd>' : '<dd>' + inline(t) + '</dd>'; }).join('')}</dl>`;
   }
 };
+// Dossier articles use the shared chapter architecture (styles.css .jiz-chapter): each chapter is an inset
+// rounded panel, with neighbouring surfaces always different. The masthead is obsidian.
+const DX_SURFACES = ['slate', 'paper', 'navy', 'mist', 'obsidian', 'slate'];
+const dxChapter = (i) => CURRENT && CURRENT.dossier ? ` jiz-chapter" data-surface="${DX_SURFACES[i % DX_SURFACES.length]}" data-accent="journal-amber` : '';
 function chapters(src) {
   // `@chapter 01 Title` lines open numbered chapters; returns HTML + table of contents
   const parts = src.split(/^@chapter\s+(\d+)\s+(.+)$/m);
-  let html = markdown(parts[0]); const toc = [];
+  // In a dossier the material before the first chapter (status ledger) closes the masthead panel instead.
+  const pre = markdown(parts[0]); const inMast = CURRENT && CURRENT.dossier;
+  let html = inMast ? '' : pre; const toc = [];
   for (let k = 1; k < parts.length; k += 3) {
     const n = parts[k], title = parts[k + 1].trim(), id = 'ch-' + n;
     toc.push(`<li><a href="#${id}"><span>${esc(n)}</span> ${esc(title)}</a></li>`);
-    html += `\n<section class="dx-ch" id="${id}" aria-labelledby="${id}-t"><header class="dx-ch-head"><p class="dx-ch-n">Chapter ${esc(n)}</p><h2 id="${id}-t">${esc(title)}</h2></header>\n${markdown(parts[k + 2])}\n</section>`;
+    html += `\n<section class="dx-ch${dxChapter(toc.length - 1)}" id="${id}" aria-labelledby="${id}-t"><header class="dx-ch-head"><p class="dx-ch-n">Chapter ${esc(n)}</p><h2 id="${id}-t">${esc(title)}</h2></header>\n${markdown(parts[k + 2])}\n</section>`;
   }
-  return { html, toc };
+  return { html, toc, pre: inMast ? pre : '' };
 }
 function frontMatter(src) {
   const m = src.match(/^---\n([\s\S]*?)\n---\n?/);
@@ -269,18 +275,19 @@ function article(a) {
   if (!existsSync(file)) throw new Error('article without text: ' + file);
   const { meta, body } = frontMatter(readFileSync(file, 'utf8'));
   FIG = 0; ASSET_BASE = 'assets/'; CURRENT = a;
-  const { html, toc } = chapters(body);
+  const { html, toc, pre } = chapters(body);
   const preview = !a.onSite;
   const out = `
 ${preview && a.dossier ? `<p class="dx-preview" role="note">This dossier presents the issue’s scenes, concept screens, and diagrams. The complete text is in <a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">the original issue on LinkedIn<span class="vh"> (opens in a new tab)</span></a>.</p>` : preview ? '<p class="dx-preview" role="note"><strong>Preview.</strong> Not published or listed. Text from the published issue is still to be added; slots marked “Awaiting verified published text” show where.</p>' : ''}
 <article class="dx" aria-labelledby="jr-a-title">
-  <header class="dx-mast">
+  <header class="dx-mast${a.dossier ? ' jiz-chapter" data-surface="obsidian" data-accent="journal-amber' : ''}">
     <p class="jr-kicker">${esc(J.name)} · ${esc(a.type)} · Issue ${esc(a.issue)}${meta.date ? ' · <time datetime="' + esc(meta.date) + '">' + esc(meta.dateLabel || meta.date) + '</time>' : ''}</p>
     <h1 id="jr-a-title">${esc(a.title)}</h1>
     ${a.standfirst ? '<p class="jr-sub">' + esc(a.standfirst) + '</p>' : ''}
     <p class="dx-byline">By ${esc(J.author)} · <a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">Originally published in the newsletter<span class="vh"> on LinkedIn (opens in a new tab)</span></a></p>
     ${a.note ? '<p class="jr-note">' + esc(a.note) + '</p>' : ''}
     ${toc.length ? '<nav class="dx-toc" aria-label="Chapters"><ol>' + toc.join('') + '</ol></nav>' : ''}
+    ${pre ? '<div class="dx-mast-pre">' + pre + '</div>' : ''}
   </header>
   <div class="dx-body">
 ${html}

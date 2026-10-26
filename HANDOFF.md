@@ -11,7 +11,7 @@ Not deployed (`*.md` is in `.vercelignore`). Update only when project state chan
 - Pass 1 hardening: standards mode, a11y, robots/sitemap/JSON-LD, `.vercelignore`, `vercel.json` headers (CSP report-only), mobile hero MP4.
 - 2A: shareable case studies at `/work/<slug>/` (legacy-unlocked, hotelkey-onboarding, guest-crm-pilot, workday-learn-launch); Featured Work CTAs are real links; obsolete Webflow link removed from card 05.
 - 2A ext. checkpoint 1: `/work/the-first-sentence/` with on-demand embed of https://drums-plant-63973620.figma.site/.
-- 2.1: shared chapter tokens. 2.2: `Chapter` wrapper. 2.3: First Sentence page migrated to `Chapter` + tokens (other pages not yet).
+- 2.1: shared chapter tokens. 2.2: `Chapter` wrapper. 2.3: First Sentence page migrated to `Chapter` + tokens. 2.4: Issue 07 dossier uses `.jiz-chapter` panels (masthead + 6 chapters; surfaces in `build-journal.cjs` `DX_SURFACES`; light/mid-surface ink overrides in `journal/dossier.css`). Journal hub and case-study shell pages not yet migrated.
 
 ## Shared paths
 - Build: `node build.cjs` (needs node_modules with @babel/core, @babel/preset-react, react, react-dom 18.3.1) → `dist/site.js`, prerendered `index.html`, `work/*/index.html`, journal pages, `sitemap.xml`.
@@ -35,4 +35,4 @@ Not deployed (`*.md` is in `.vercelignore`). Update only when project state chan
 - Issue 07 stays unlisted/noindex; don't publish or reconstruct its text.
 
 ## Next authorized task
-None. Waiting for Jonathan's next task (remaining migrations: case-study shell pages, journal).
+None. Waiting for Jonathan's next task (remaining migrations: case-study shell pages, journal hub).
