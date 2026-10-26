@@ -204,6 +204,7 @@ function TfsExplorer() {
 }
 
 function CaseStudyFirstSentence({ standalone }) {
+  const { Chapter } = window.JIZChapter;
   const SITE = window.JIZ_SITE;
   const pathFor = (name) => { const t = SITE && SITE.resolve(name); const r = t && SITE.route(t.view); return (r && r.path) || '/'; };
   return (
@@ -217,8 +218,7 @@ function CaseStudyFirstSentence({ standalone }) {
       </div>
 
       {/* Chapter 01 — The Premise */}
-      <section className="tfs-ch tfs-ch--obsidian" aria-labelledby="tfs-h1">
-        <div className="tfs-in">
+      <Chapter surface="obsidian" accent="first-sentence" labelledBy="tfs-h1">
           <p className="tfs-chn">Chapter 01 · The premise</p>
           <p className="tfs-eyebrow">Independent project · Cinematic branching learning simulation</p>
           <h1 id="tfs-h1" className="tfs-title">The First Sentence</h1>
@@ -241,22 +241,18 @@ function CaseStudyFirstSentence({ standalone }) {
               <div><dt>Built with</dt><dd>Figma Make, with AI-assisted video and voice production</dd></div>
             </dl>
           </div>
-        </div>
-      </section>
+      </Chapter>
 
       {/* Chapter 02 — Experience the scenario */}
-      <section className="tfs-ch tfs-ch--slate" aria-labelledby="tfs-h-exp" id="experience">
-        <div className="tfs-in">
+      <Chapter surface="slate" accent="first-sentence" labelledBy="tfs-h-exp" id="experience">
           <p className="tfs-chn">Chapter 02 · Experience the scenario</p>
           <h2 id="tfs-h-exp" className="tfs-h2">Play it before you read about it.</h2>
           <p className="tfs-lede">The live prototype runs below. Choose an opening line, watch what it sets in motion, and see the coaching that follows.</p>
           <TfsLauncher />
-        </div>
-      </section>
+      </Chapter>
 
       {/* Chapter 03 — Inside the decision */}
-      <section className="tfs-ch tfs-ch--obsidian" aria-labelledby="tfs-h-dec">
-        <div className="tfs-in">
+      <Chapter surface="obsidian" accent="first-sentence" labelledBy="tfs-h-dec">
           <p className="tfs-chn">Chapter 03 · Inside the decision</p>
           <h2 id="tfs-h-dec" className="tfs-h2">Six moments that make the decision.</h2>
           <p className="tfs-lede">Explore each part of the experience without playing it through.</p>
@@ -289,12 +285,10 @@ function CaseStudyFirstSentence({ standalone }) {
               <figcaption>After a missed line: “Here’s the line that opens the door,” taken apart anchor by anchor.</figcaption>
             </figure>
           </div>
-        </div>
-      </section>
+      </Chapter>
 
       {/* Chapter 04 — Creative production */}
-      <section className="tfs-ch tfs-ch--paper" aria-labelledby="tfs-h-prod">
-        <div className="tfs-in">
+      <Chapter surface="paper" accent="first-sentence" labelledBy="tfs-h-prod">
           <p className="tfs-chn">Chapter 04 · Creative production</p>
           <h2 id="tfs-h-prod" className="tfs-h2">One person, one pipeline: design, film and build.</h2>
           <p className="tfs-lede">Instructional design, cinematic production and AI-native development were handled in one pipeline by one designer, then implemented in Figma Make.</p>
@@ -324,12 +318,10 @@ function CaseStudyFirstSentence({ standalone }) {
               <figcaption>“How this experience works”: flow, captions, audio and input settings.</figcaption>
             </figure>
           </div>
-        </div>
-      </section>
+      </Chapter>
 
       {/* Chapter 05 — What the project demonstrates */}
-      <section className="tfs-ch tfs-ch--slate" aria-labelledby="tfs-h-dem">
-        <div className="tfs-in">
+      <Chapter surface="slate" accent="first-sentence" labelledBy="tfs-h-dem">
           <p className="tfs-chn">Chapter 05 · What the project demonstrates</p>
           <h2 id="tfs-h-dem" className="tfs-h2">Design hypotheses, not proven results.</h2>
           <p className="tfs-lede">No learner outcome data is reported for this prototype. These are the bets it makes, the research each bet leans on, and what is still open.</p>
@@ -376,12 +368,10 @@ function CaseStudyFirstSentence({ standalone }) {
             </ul>
           </div>
           <p className="tfs-disclose">Disclosures: Northstar Distribution is fictional. Dana, Marcus, Benjamin and Alex are fictional, composite characters. Video, voice and character imagery were produced with AI tools. The prototype is an independent project, not client work.</p>
-        </div>
-      </section>
+      </Chapter>
 
       {/* Chapter 06 — Explore more */}
-      <section className="tfs-ch tfs-ch--obsidian" aria-labelledby="tfs-h-more">
-        <div className="tfs-in">
+      <Chapter surface="obsidian" accent="first-sentence" labelledBy="tfs-h-more">
           <p className="tfs-chn">Chapter 06 · Explore more</p>
           <h2 id="tfs-h-more" className="tfs-h2">Keep going.</h2>
           <nav className="tfs-more" aria-label="Related">
@@ -390,14 +380,13 @@ function CaseStudyFirstSentence({ standalone }) {
             <a href="/journal/"><span className="tfs-more-k">Journal</span><span className="tfs-more-v">Cinematic Learning Systems</span></a>
             <a href="/#contact"><span className="tfs-more-k">Contact</span><span className="tfs-more-v">Start a conversation</span></a>
           </nav>
-        </div>
-      </section>
+      </Chapter>
     </article>
   );
 }
 
 const TFS_CSS = `
-.tfs{--panel-gap:clamp(10px,1.4vw,20px);--panel-r:clamp(18px,2.4vw,32px);--inner-r:clamp(12px,1.4vw,20px);--tfs-orange:#F07A3A;--tfs-orange-deep:#C4471B;--tfs-ink:#ECEEF1;--tfs-soft:rgba(236,238,241,.78);--tfs-mute:rgba(236,238,241,.6);--tfs-line:rgba(236,238,241,.12);background:#171A1F;color:var(--tfs-ink);padding:0 0 var(--panel-gap);font-family:var(--font-body)}
+.tfs{--inner-r:var(--panel-r-inner);--tfs-orange:var(--accent-first-sentence);--tfs-ink:#ECEEF1;--tfs-soft:rgba(236,238,241,.78);--tfs-mute:rgba(236,238,241,.6);--tfs-line:rgba(236,238,241,.12);background:var(--panel-gutter-surface);color:var(--tfs-ink);padding:0 0 1px;font-family:var(--font-body)}
 .tfs *{box-sizing:border-box}
 .tfs a{color:inherit}
 .tfs-mono{font-family:var(--font-mono)}
@@ -408,11 +397,7 @@ const TFS_CSS = `
 .tfs-pill{flex-shrink:0;white-space:nowrap;display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid rgba(236,238,241,.16);border-radius:999px;text-decoration:none;color:var(--tfs-soft)}
 .tfs-pill:hover{border-color:var(--tfs-orange);color:var(--tfs-ink)}
 .tfs a:focus-visible,.tfs button:focus-visible,.tfs [tabindex]:focus-visible{outline:2px solid var(--tfs-orange);outline-offset:3px;border-radius:4px}
-.tfs-ch{margin:0 var(--panel-gap) var(--panel-gap);border-radius:var(--panel-r);overflow:hidden;padding:clamp(48px,7vw,104px) 0}
-.tfs-ch--obsidian{background:#0B0D10}
-.tfs-ch--slate{background:#2A2F37}
-.tfs-ch--paper{background:#E8E3D9;color:#0B0D10;--tfs-ink:#0B0D10;--tfs-soft:rgba(11,13,16,.78);--tfs-mute:rgba(11,13,16,.64);--tfs-line:rgba(11,13,16,.14);--tfs-orange:#A63A12}
-.tfs-in{width:min(1180px,calc(100% - 2*clamp(16px,4vw,56px)));margin-inline:auto}
+.tfs .jiz-chapter{--tfs-ink:var(--chapter-ink);--tfs-soft:var(--chapter-ink-soft);--tfs-mute:var(--chapter-ink-mute);--tfs-line:var(--chapter-line);--tfs-orange:var(--chapter-accent-ink)}
 .tfs-chn{margin:0 0 18px;font:500 .75rem/1.3 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--tfs-orange)}
 .tfs-eyebrow{margin:0 0 14px;font:500 .8125rem/1.4 var(--font-mono);letter-spacing:.06em;color:var(--tfs-mute)}
 .tfs-title{margin:0;font:600 clamp(2.75rem,1.4rem + 6vw,6.5rem)/.94 var(--font-display);letter-spacing:-.045em}
@@ -433,16 +418,16 @@ const TFS_CSS = `
 .tfs-sub{margin:0 0 24px;color:var(--tfs-soft)}
 .tfs-kicker{margin:0 0 10px;font:500 .75rem/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tfs-orange)}
 /* Launcher */
-.tfs-launch{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:center;gap:clamp(20px,3vw,48px);padding:clamp(16px,2vw,24px);border-radius:var(--inner-r);background:#0B0D10;border:1px solid rgba(240,122,58,.35)}
+.tfs-launch{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:center;gap:clamp(20px,3vw,48px);padding:clamp(16px,2vw,24px);border-radius:var(--inner-r);background:var(--obsidian);border:1px solid color-mix(in srgb,var(--accent-first-sentence) 35%,transparent)}
 .tfs-launch-img{display:block;width:100%;height:auto;border-radius:calc(var(--inner-r) - 6px)}
 .tfs-launch-title{margin:0 0 20px;font:600 clamp(1.5rem,1.1rem + 1.2vw,2.25rem)/1.12 var(--font-display);letter-spacing:-.02em}
 .tfs-launch-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
-.tfs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border:1px solid var(--tfs-orange-deep);border-radius:999px;background:var(--tfs-orange-deep);color:#fff!important;font:600 1rem/1 var(--font-body);text-decoration:none;cursor:pointer}
-.tfs-btn:hover{background:#D9551F;border-color:#D9551F}
+.tfs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border:1px solid var(--accent-first-sentence);border-radius:999px;background:var(--accent-first-sentence);color:var(--obsidian)!important;font:600 1rem/1 var(--font-body);text-decoration:none;cursor:pointer}
+.tfs-btn:hover{background:color-mix(in srgb,var(--accent-first-sentence) 85%,#fff);border-color:color-mix(in srgb,var(--accent-first-sentence) 85%,#fff)}
 .tfs-btn--ghost{background:transparent;color:var(--tfs-ink)!important;border-color:rgba(236,238,241,.28)}
-.tfs-btn--ghost:hover{background:rgba(240,122,58,.1);border-color:var(--tfs-orange)}
+.tfs-btn--ghost:hover{background:color-mix(in srgb,var(--accent-first-sentence) 10%,transparent);border-color:var(--tfs-orange)}
 .tfs-launch-note{margin:0;font-size:.875rem;line-height:1.6;color:var(--tfs-mute)}
-.tfs-stage{border-radius:var(--inner-r);overflow:hidden;background:#0B0D10;border:1px solid rgba(240,122,58,.35)}
+.tfs-stage{border-radius:var(--inner-r);overflow:hidden;background:var(--obsidian);border:1px solid color-mix(in srgb,var(--accent-first-sentence) 35%,transparent)}
 .tfs-stage:fullscreen{border-radius:0;display:flex;flex-direction:column}
 .tfs-stage:fullscreen .tfs-frame{flex:1;height:auto}
 .tfs-stage-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 16px;padding:8px 10px;border-bottom:1px solid var(--tfs-line);background:#12151A}
@@ -450,7 +435,7 @@ const TFS_CSS = `
 .tfs-stage-tools{display:flex;flex-wrap:wrap;gap:8px}
 .tfs-bar-btn{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border:1px solid rgba(236,238,241,.2);border-radius:999px;background:transparent;color:var(--tfs-ink);font:500 .875rem/1 var(--font-body);text-decoration:none;cursor:pointer}
 .tfs-bar-btn:hover{border-color:var(--tfs-orange)}
-.tfs-frame{position:relative;height:clamp(600px,82vh,920px);background:#0B0D10}
+.tfs-frame{position:relative;height:clamp(600px,82vh,920px);background:var(--obsidian)}
 .tfs-frame iframe{display:block;width:100%;height:100%;border:0;transition:opacity 300ms ease}
 .tfs-frame-loading{position:absolute;inset:0;display:grid;place-content:center;gap:10px;padding:24px;text-align:center;color:var(--tfs-soft)}
 .tfs-frame-loading p{margin:0}
@@ -460,8 +445,8 @@ const TFS_CSS = `
 /* Explorer */
 .tfs-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
 .tfs-tab{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0 16px;border:1px solid var(--tfs-line);border-radius:999px;background:transparent;color:var(--tfs-soft);font:500 .9375rem/1 var(--font-body);cursor:pointer}
-.tfs-tab:hover{color:var(--tfs-ink);border-color:rgba(240,122,58,.6)}
-.tfs-tab[aria-selected="true"]{background:rgba(240,122,58,.14);border-color:var(--tfs-orange);color:var(--tfs-ink)}
+.tfs-tab:hover{color:var(--tfs-ink);border-color:color-mix(in srgb,var(--accent-first-sentence) 60%,transparent)}
+.tfs-tab[aria-selected="true"]{background:color-mix(in srgb,var(--accent-first-sentence) 14%,transparent);border-color:var(--tfs-orange);color:var(--tfs-ink)}
 .tfs-tab-n{font:500 .6875rem/1 var(--font-mono);color:var(--tfs-orange)}
 .tfs-panel{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(20px,3vw,48px);align-items:start;padding:clamp(16px,2vw,24px);border-radius:var(--inner-r);background:#12151A;border:1px solid var(--tfs-line)}
 .tfs-panel[hidden]{display:none}
@@ -490,15 +475,15 @@ const TFS_CSS = `
 .tfs-prod-item p{margin:0;font-size:.9375rem;line-height:1.65;color:var(--tfs-soft)}
 .tfs-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.6vw,20px);margin-top:clamp(36px,4vw,56px)}
 .tfs-photo{margin:0}
-.tfs-photo img{display:block;width:100%;height:auto;aspect-ratio:16 / 10;object-fit:cover;border-radius:calc(var(--inner-r) - 6px);background:#0B0D10}
+.tfs-photo img{display:block;width:100%;height:auto;aspect-ratio:16 / 10;object-fit:cover;border-radius:calc(var(--inner-r) - 6px);background:var(--obsidian)}
 /* Demonstrates */
 .tfs-hyp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(12px,1.6vw,20px)}
 .tfs-hyp > div{padding:clamp(18px,2vw,24px);border-radius:var(--inner-r);background:rgba(11,13,16,.4);border:1px solid var(--tfs-line)}
 .tfs-hyp h3{margin:0 0 8px;font:600 1.0625rem/1.3 var(--font-display)}
 .tfs-hyp p{margin:0;font-size:.9375rem;line-height:1.6;color:var(--tfs-soft)}
 .tfs-status{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,1.6vw,20px);margin-top:clamp(28px,3vw,40px)}
-.tfs-status-col{padding:clamp(18px,2vw,26px);border-radius:var(--inner-r);background:#0B0D10;border:1px solid var(--tfs-line)}
-.tfs-status-col--concept{border-style:dashed;border-color:rgba(240,122,58,.5)}
+.tfs-status-col{padding:clamp(18px,2vw,26px);border-radius:var(--inner-r);background:var(--obsidian);border:1px solid var(--tfs-line)}
+.tfs-status-col--concept{border-style:dashed;border-color:color-mix(in srgb,var(--accent-first-sentence) 50%,transparent)}
 .tfs-status h3,.tfs-open h3{margin:0 0 12px;font:600 1.0625rem/1.3 var(--font-display)}
 .tfs-status ul,.tfs-open ul{margin:0;padding-left:1.15em;display:grid;gap:8px;font-size:.9375rem;line-height:1.55;color:var(--tfs-soft)}
 .tfs-open{margin:clamp(28px,3vw,40px) 0 24px}
