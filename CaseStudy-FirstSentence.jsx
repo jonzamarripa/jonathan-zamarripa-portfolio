@@ -15,6 +15,13 @@ const TFS_META = {
   organization: null
 };
 
+const TFS_STEPS = [
+  ['Enter as Dana', 'Day one as shift lead. Aisle 04, 06:42 AM.'],
+  ['Observe', 'Watch the scene as timed cards surface the facts.'],
+  ['Choose', 'Preview three opening lines, then commit to one.'],
+  ['Reflect', 'See the consequence, debrief with Benjamin, try your own line.']
+];
+
 const TFS_APPROACHES = [
   { key: 'soften', title: 'Soften', direction: 'Nervous half-smile · softened posture',
     line: 'No, no. You’re fine Marcus. You’ve been here forever. Just try to speed it up if you can, okay?',
@@ -37,10 +44,10 @@ const TFS_APPROACHES = [
 ];
 
 const TFS_ELEMENTS = [
-  { id: 'confidence', label: 'Confidence check', img: '02-confidence-check', alt: 'Confidence check screen asking how ready the learner feels to start a tough conversation with a teammate, rated 1 to 5',
+  { id: 'confidence', label: 'Confidence check', img: '02-confidence-check', w: 1600, h: 587, alt: 'Confidence check screen asking how ready the learner feels to start a tough conversation with a teammate, rated 1 to 5',
     title: 'A self-rating before and after',
     body: ['Before the scene, learners rate how ready they feel to start a tough conversation with a teammate (1 = Not ready, 5 = Very ready). The same question returns at the end, so the experience can record a before-and-after self-report.', 'It can be skipped. It is a self-rating, not a measure of skill.'] },
-  { id: 'dossier', label: 'Context dossier', img: '03-the-moment-dossier', alt: 'The Moment screen: the opening warehouse video beside a live "Aisle 04 Stoppage" panel of timed context cards',
+  { id: 'dossier', label: 'Context dossier', img: '03-the-moment-dossier', w: 1600, h: 821, alt: 'The Moment screen: the opening warehouse video beside a live "Aisle 04 Stoppage" panel of timed context cards',
     title: 'The facts on cards, the emotion on screen',
     body: ['The opening scene plays beside a live “What’s happening” panel. Its cards are timed to the video and highlight as each beat plays: 01 The Metric Gap, 02 The Peer-to-Lead Line, 03 The Preemptive Deflection.', 'The designer’s note for this screen: “Context cards carry the facts so the video can carry the emotion.”'],
     cues: [
@@ -106,18 +113,23 @@ function TfsLauncher() {
   if (state === 'idle') {
     return (
       <div className="tfs-launch">
-        <img className="tfs-launch-img" src={TFS_IMG + 'screens/01-threshold.webp'} alt="" width="800" height="500" loading="lazy" decoding="async" />
+        {/* The poster shows the prototype's own start screen, so a pointer click on it starts too (buttons below remain the keyboard path). */}
+        <img className="tfs-launch-img" src={TFS_IMG + 'screens/01-threshold.webp'} alt="" width="1600" height="799" loading="lazy" decoding="async"
+          onClick={narrow ? () => window.open(TFS_URL, '_blank', 'noopener') : begin} />
         <div className="tfs-launch-copy">
-          <p className="tfs-kicker">Live prototype · About 7 min · Branching paths · Speak or type</p>
+          <p className="tfs-kicker">Live prototype · About 7 min · Speak or type</p>
           <h3 className="tfs-launch-title">Step into Dana’s first difficult conversation.</h3>
+          <ol className="tfs-steps" aria-label="How it plays">
+            {TFS_STEPS.map((st, i) => <li key={st[0]}><span className="tfs-steps-n" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><strong>{st[0]}</strong><span>{st[1]}</span></li>)}
+          </ol>
           <div className="tfs-launch-actions">
             {narrow
               ? <>
-                  <a className="tfs-btn" href={TFS_URL} target="_blank" rel="noopener" ref={beginRef}>Open full experience<span aria-hidden="true"> ↗</span><span className="tfs-vh"> (opens {TFS_HOST} in a new tab)</span></a>
+                  <a className="tfs-btn tfs-btn--hero" href={TFS_URL} target="_blank" rel="noopener" ref={beginRef}>Open full experience<span aria-hidden="true"> ↗</span><span className="tfs-vh"> (opens {TFS_HOST} in a new tab)</span></a>
                   <button type="button" className="tfs-btn tfs-btn--ghost" onClick={begin}>Play on this page</button>
                 </>
               : <>
-                  <button type="button" className="tfs-btn" onClick={begin} ref={beginRef}>Begin experience<span aria-hidden="true"> →</span></button>
+                  <button type="button" className="tfs-btn tfs-btn--hero" onClick={begin} ref={beginRef}><span className="tfs-play" aria-hidden="true">▶</span>Begin experience</button>
                   <a className="tfs-btn tfs-btn--ghost" href={TFS_URL} target="_blank" rel="noopener">Open full experience<span aria-hidden="true"> ↗</span><span className="tfs-vh"> (opens {TFS_HOST} in a new tab)</span></a>
                 </>}
           </div>
@@ -185,7 +197,7 @@ function TfsExplorer() {
       {TFS_ELEMENTS.map((el, i) => (
         <div key={el.id} role="tabpanel" id={'tfs-panel-' + el.id} aria-labelledby={'tfs-tab-' + el.id} hidden={i !== active} className="tfs-panel" tabIndex={0}>
           <figure className="tfs-shot">
-            <img src={TFS_IMG + 'screens/' + el.img + '.webp'} alt={el.alt} width="800" height="500" loading="lazy" decoding="async" />
+            <img src={TFS_IMG + 'screens/' + el.img + '.webp'} alt={el.alt} width={el.w || 800} height={el.h || 500} loading="lazy" decoding="async" />
             <figcaption>Screenshot of the live prototype.</figcaption>
           </figure>
           <div className="tfs-panel-copy">
@@ -247,7 +259,7 @@ function CaseStudyFirstSentence({ standalone }) {
       <Chapter surface="slate" accent="first-sentence" labelledBy="tfs-h-exp" id="experience">
           <p className="tfs-chn">Chapter 02 · Experience the scenario</p>
           <h2 id="tfs-h-exp" className="tfs-h2">Play it before you read about it.</h2>
-          <p className="tfs-lede">The live prototype runs below. Choose an opening line, watch what it sets in motion, and see the coaching that follows.</p>
+          <p className="tfs-lede">The live prototype, playable on this page. Nothing loads until you begin.</p>
           <TfsLauncher />
       </Chapter>
 
@@ -418,10 +430,16 @@ const TFS_CSS = `
 .tfs-sub{margin:0 0 24px;color:var(--tfs-soft)}
 .tfs-kicker{margin:0 0 10px;font:500 .75rem/1.4 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--tfs-orange)}
 /* Launcher */
-.tfs-launch{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:center;gap:clamp(20px,3vw,48px);padding:clamp(16px,2vw,24px);border-radius:var(--inner-r);background:var(--obsidian);border:1px solid color-mix(in srgb,var(--accent-first-sentence) 35%,transparent)}
-.tfs-launch-img{display:block;width:100%;height:auto;border-radius:calc(var(--inner-r) - 6px)}
+.tfs-launch{position:relative;display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);align-items:center;gap:clamp(20px,3vw,48px);padding:clamp(16px,2vw,24px);border-radius:var(--inner-r);background:var(--obsidian);border:1px solid color-mix(in srgb,var(--accent-first-sentence) 35%,transparent)}
+.tfs-launch-img{display:block;width:100%;height:auto;cursor:pointer;border-radius:calc(var(--inner-r) - 6px)}
 .tfs-launch-title{margin:0 0 20px;font:600 clamp(1.5rem,1.1rem + 1.2vw,2.25rem)/1.12 var(--font-display);letter-spacing:-.02em}
-.tfs-launch-actions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+.tfs-launch-actions{display:flex;flex-wrap:wrap;align-items:center;gap:12px;margin-bottom:18px}
+.tfs-steps{list-style:none;margin:0 0 24px;padding:0;display:grid;gap:0;border-top:1px solid var(--tfs-line)}
+.tfs-steps li{display:grid;grid-template-columns:2.2em minmax(0,7.5em) minmax(0,1fr);gap:4px 10px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--tfs-line);font-size:.9375rem;line-height:1.45;color:var(--tfs-soft)}
+.tfs-steps-n{font:500 .75rem/1 var(--font-mono);color:var(--tfs-orange)}
+.tfs-steps strong{color:var(--tfs-ink);font-weight:600}
+.tfs-btn--hero{min-height:56px;padding:0 28px;font-size:1.125rem;gap:12px;box-shadow:0 0 0 6px color-mix(in srgb,var(--accent-first-sentence) 18%,transparent)}
+.tfs-play{font-size:.75em;line-height:1}
 .tfs-btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 22px;border:1px solid var(--accent-first-sentence);border-radius:999px;background:var(--accent-first-sentence);color:var(--obsidian)!important;font:600 1rem/1 var(--font-body);text-decoration:none;cursor:pointer}
 .tfs-btn:hover{background:color-mix(in srgb,var(--accent-first-sentence) 85%,#fff);border-color:color-mix(in srgb,var(--accent-first-sentence) 85%,#fff)}
 .tfs-btn--ghost{background:transparent;color:var(--tfs-ink)!important;border-color:rgba(236,238,241,.28)}
@@ -494,6 +512,16 @@ const TFS_CSS = `
 .tfs-more-k{font:500 .6875rem/1.3 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--tfs-mute)}
 .tfs-more-v{font:600 1rem/1.3 var(--font-body)}
 @media(max-width:1024px){.tfs-prod,.tfs-hyp{grid-template-columns:repeat(2,minmax(0,1fr))}.tfs-more{grid-template-columns:repeat(2,minmax(0,1fr))}.tfs-approaches{grid-template-columns:1fr}}
+.tfs-launch-copy{min-width:0}
+/* Desktop: poster spans the panel; title, call to action and the four steps sit beneath it */
+@media(min-width:861px){
+  .tfs-launch{grid-template-columns:1fr;gap:clamp(20px,2.4vw,32px)}
+  .tfs-launch-copy{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-areas:"kick steps" "title steps" "actions steps" "note steps";column-gap:clamp(24px,4vw,64px);align-content:start;padding:0 clamp(4px,1vw,12px) clamp(4px,1vw,12px)}
+  .tfs-launch-copy > .tfs-kicker{grid-area:kick}.tfs-launch-copy > .tfs-launch-title{grid-area:title}
+  .tfs-launch-copy > .tfs-launch-actions{grid-area:actions}.tfs-launch-copy > .tfs-launch-note{grid-area:note}
+  .tfs-launch-copy > .tfs-steps{grid-area:steps;margin:0;align-self:start}
+}
+@media(max-width:600px){.tfs-steps li{grid-template-columns:2.2em minmax(0,1fr)}.tfs-steps li > span:last-child{grid-column:2}.tfs-btn--hero{width:100%}}
 @media(max-width:860px){.tfs-premise,.tfs-launch,.tfs-panel,.tfs-status,.tfs-pair{grid-template-columns:1fr}}
 @media(max-width:760px){.tfs-frame{height:min(78vh,720px)}}
 @media(max-width:600px){.tfs-prod,.tfs-hyp,.tfs-gallery,.tfs-more{grid-template-columns:1fr}.tfs-top{flex-wrap:wrap}.tfs-tabs{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}.tfs-tab{flex-shrink:0}}
