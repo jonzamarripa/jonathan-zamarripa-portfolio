@@ -38,6 +38,7 @@ function caseStudyViews() {
     'hotelkey-onboarding': window.CaseStudyHotelKeyExports?.CaseStudyHotelKey,
     'guest-crm-pilot': window.CaseStudyGuestCRMExports?.CaseStudyGuestCRM,
     'workday-learn': window.CaseStudyWorkdayExports?.CaseStudyWorkday,
+    'the-first-sentence': window.CaseStudyFirstSentenceExports?.CaseStudyFirstSentence,
     'behind-the-build': window.CaseStudyBehindTheBuildExports?.CaseStudyBehindTheBuild
   };
 }

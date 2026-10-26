@@ -4,7 +4,7 @@
 const { readFileSync, writeFileSync, mkdirSync } = require('fs');
 const { transformSync } = require('@babel/' + 'core');
 
-const SITE_FILES = ['HomepageP1.jsx', 'Homepage.jsx', 'CaseStudyShell.jsx', 'CaseStudy-Legacy.jsx', 'CaseStudy-HotelKey.jsx', 'CaseStudy-GuestCRM.jsx', 'CaseStudy-Workday.jsx', 'CaseStudy-BehindTheBuild.jsx', 'App.jsx'];
+const SITE_FILES = ['HomepageP1.jsx', 'Homepage.jsx', 'CaseStudyShell.jsx', 'CaseStudy-Legacy.jsx', 'CaseStudy-HotelKey.jsx', 'CaseStudy-GuestCRM.jsx', 'CaseStudy-Workday.jsx', 'CaseStudy-FirstSentence.jsx', 'CaseStudy-BehindTheBuild.jsx', 'App.jsx'];
 const opts = { minified: true, comments: false, babelrc: false, configFile: false };
 mkdirSync('dist', { recursive: true });
 
@@ -56,18 +56,21 @@ function buildWorkPages(win, ctx, homeHtml) {
   const clip = (s, n) => { s = String(s).replace(/\s+/g, ' ').trim(); if (s.length <= n) return s; const c = s.slice(0, n - 1); return c.slice(0, c.lastIndexOf(' ')).replace(/[,;:—–-]\s*$/, '') + '…'; };
   const shell = win.CaseStudyShellExports.CaseStudyShell;
   const written = [];
-  for (const r of win.JIZ_SITE.routes.filter((x) => x.featured && x.path)) {
+  for (const r of win.JIZ_SITE.routes.filter((x) => x.path)) {
     let config = null;
     win.CaseStudyShellExports = { CaseStudyShell: (props) => { config = props.config; return shell(props); } };
     const body = ReactDOMServer_render(win, React.createElement(win.JIZCaseStudyPage, { view: r.view }));
     win.CaseStudyShellExports = { CaseStudyShell: shell };
+    // Pages not built on CaseStudyShell export their own `meta` (same fields).
+    const own = Object.values(win).find((v) => v && typeof v === 'object' && v.meta && v.meta.slug && ('/work/' + v.meta.slug + '/') === r.path);
+    if (own) config = { ...own.meta, facts: [], gallery: [] };
     if (!config) throw new Error('no config captured for ' + r.view);
     const url = SITE_URL + r.path;
     const title = config.projectName + ' — Case Study · Jonathan Zamarripa';
     const desc = clip(config.statement, 158);
     const org = (config.facts.find((f) => f.label === 'Organization') || {}).value;
     const img = SITE_URL + '/' + r.og;
-    const alt = config.projectName + (config.gallery && config.gallery[0] ? ' — ' + config.gallery[0].caption.replace(/^\d+\s+/, '') : '');
+    const alt = config.ogAlt || (config.projectName + (config.gallery && config.gallery[0] ? ' — ' + config.gallery[0].caption.replace(/^\d+\s+/, '') : ''));
     const ld = { '@context': 'https://schema.org', '@graph': [
       { '@type': 'CreativeWork', '@id': url + '#work', name: config.projectName, headline: config.projectName, description: desc, url, image: img,
         author: { '@type': 'Person', '@id': SITE_URL + '/#person', name: 'Jonathan Iker Zamarripa' },
