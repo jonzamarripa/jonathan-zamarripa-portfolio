@@ -7,3 +7,32 @@
 a{color:var(--color-accent-secondary);text-underline-offset:3px;transition:color 200ms ease}
 a:hover{color:var(--color-accent-primary)}
 a:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:3px;border-radius:3px}
+
+/* ---- Chapter architecture (Chapter.jsx, or the same classes in static HTML) ----
+   Inset rounded panels on the Carbon gutter; all values are shared tokens. */
+.jiz-chapter-stack{background:var(--panel-gutter-surface);padding-top:var(--panel-gap);display:flow-root}
+.jiz-chapter{
+  --chapter-surface:var(--surface-obsidian);--chapter-ink:var(--white);--chapter-ink-soft:rgba(247,248,250,.8);
+  --chapter-ink-mute:rgba(247,248,250,.64);--chapter-line:rgba(217,221,227,.12);--chapter-accent:var(--accent-portfolio);
+  display:block;margin:0 var(--panel-gap) var(--panel-gap);padding-block:var(--chapter-pad-y);
+  border-radius:var(--panel-r);overflow:hidden;background:var(--chapter-surface);color:var(--chapter-ink)}
+.jiz-chapter__inner{width:min(var(--chapter-max),calc(100% - 2 * var(--chapter-pad-x)));margin-inline:auto}
+.jiz-chapter[data-width="wide"] .jiz-chapter__inner{width:min(var(--chapter-max-wide),calc(100% - 2 * var(--chapter-pad-x)))}
+.jiz-chapter[data-width="full"] .jiz-chapter__inner{width:calc(100% - 2 * var(--chapter-pad-x))}
+.jiz-chapter[data-surface="carbon"]{--chapter-surface:var(--surface-carbon)}
+.jiz-chapter[data-surface="slate"]{--chapter-surface:var(--surface-slate)}
+.jiz-chapter[data-surface="navy"]{--chapter-surface:var(--surface-navy)}
+.jiz-chapter[data-surface="mist"],.jiz-chapter[data-surface="paper"]{--chapter-ink:var(--obsidian);--chapter-ink-soft:rgba(11,13,16,.78);--chapter-ink-mute:rgba(11,13,16,.64);--chapter-line:rgba(11,13,16,.14)}
+.jiz-chapter[data-surface="mist"]{--chapter-surface:var(--surface-mist)}
+.jiz-chapter[data-surface="paper"]{--chapter-surface:var(--surface-paper)}
+.jiz-chapter[data-accent="journal-amber"]{--chapter-accent:var(--accent-journal-amber)}
+.jiz-chapter[data-accent="journal-teal"]{--chapter-accent:var(--accent-journal-teal)}
+.jiz-chapter[data-accent="first-sentence"]{--chapter-accent:var(--accent-first-sentence)}
+/* On a carbon chapter the gutter would vanish: keep the boundary visible without decoration. */
+.jiz-chapter-stack > .jiz-chapter[data-surface="carbon"]{box-shadow:inset 0 0 0 1px var(--chapter-line)}
+.jiz-chapter :focus-visible{outline-color:var(--chapter-accent-ink)}
+/* --chapter-accent-ink: the accent adjusted to stay ≥4.5:1 as text on the current surface (works for custom accents too). */
+.jiz-chapter{--chapter-accent-ink:var(--chapter-accent)}
+.jiz-chapter[data-surface="slate"]{--chapter-accent-ink:color-mix(in srgb,var(--chapter-accent) 85%,#fff)}
+.jiz-chapter[data-surface="navy"]{--chapter-accent-ink:color-mix(in srgb,var(--chapter-accent) 80%,#fff)}
+.jiz-chapter[data-surface="mist"],.jiz-chapter[data-surface="paper"]{--chapter-accent-ink:color-mix(in srgb,var(--chapter-accent) 40%,#0B0D10)}
