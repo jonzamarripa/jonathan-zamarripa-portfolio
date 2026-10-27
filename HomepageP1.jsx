@@ -58,7 +58,7 @@ const RHYTHM_CSS = `
 .jiz-homepage .jz-fw-n,.jiz-homepage .jz-fw-title{color:var(--white)}
 .jiz-homepage .jz-fw-card .jz-label{color:var(--mist)}
 .jiz-homepage .jz-fw-intro{color:rgba(11,13,16,.8)}
-.jiz-homepage .jz-fw-dek{color:var(--mist)}
+.jiz-homepage .jz-fw-dek{color:var(--portfolio-muted)}
 .jiz-homepage .jz-fw-org{color:var(--mist)}
 .jiz-homepage .jz-fw-media{background:linear-gradient(135deg,var(--carbon) 0%,var(--slate) 100%);border-color:rgba(11,13,16,.14)}
 .jiz-homepage .jz-fw-card:hover .jz-fw-title{color:var(--white);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
@@ -255,14 +255,14 @@ function FeaturedWorkEditorial({ onOpenWork }) {
 .jz-fw-intro{grid-column:9 / span 4;margin:0;font:400 1.0625rem/1.6 var(--font-body);color:rgba(217,221,227,.78);text-wrap:pretty}
 .jz-fw-cards{grid-column:1 / span 12;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,3vw,48px);align-items:start}
 .jz-fw-secondary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(24px,2.4vw,36px)}
-.jz-fw-secondary .jz-fw-title{font-size:clamp(1.25rem,1rem + .7vw,1.625rem)}
+.jz-fw-secondary .jz-fw-title{font-size:clamp(1.375rem,1.1rem + .7vw,1.75rem)}
 .jz-fw-secondary .jz-fw-dek{font-size:.9375rem}
-/* Flagship: The First Sentence — 16:19 poster; Industrial Orange only as a restrained marker */
-.jz-fw-flag-media{position:relative;overflow:hidden;aspect-ratio:16 / 19;border-radius:0;background:#0B0D10;box-shadow:inset 0 -3px 0 var(--accent-first-sentence)}
+/* Flagship: The First Sentence — original 16:19 poster with portfolio Lime accents. */
+.jz-fw-flag-media{position:relative;overflow:hidden;aspect-ratio:16 / 19;border-radius:0;background:#0B0D10;box-shadow:inset 0 -3px 0 var(--signal-lime)}
 .jz-fw-flag-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transition:transform 220ms var(--ease-standard)}
 .jz-fw-flag:hover .jz-fw-flag-media img,.jz-fw-flag:focus-within .jz-fw-flag-media img{transform:scale(1.02)}
-.jz-fw-flag .jz-fw-title{font-size:clamp(1.875rem,1.2rem + 2vw,3rem)}
-.jz-fw-badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;background:var(--accent-first-sentence);color:#0B0D10;letter-spacing:.12em}
+.jz-fw-flag .jz-fw-title{font-size:clamp(2rem,1.3rem + 2vw,3.125rem)}
+.jz-fw-badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;background:var(--signal-lime);color:#0B0D10;letter-spacing:.12em}
 .jz-fw-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
 .jz-fw-chips li{padding:5px 12px;border:1px solid var(--portfolio-control-line);border-radius:999px;font:500 .75rem/1.2 var(--font-mono);letter-spacing:.04em;color:var(--mist)}
 .jz-fw-card{position:relative;display:flex;flex-direction:column;gap:var(--space-md);min-width:0;overflow:hidden;background:var(--carbon);border-radius:var(--panel-r-inner)}
@@ -271,10 +271,10 @@ function FeaturedWorkEditorial({ onOpenWork }) {
 .jz-fw-media-bg{position:absolute;inset:-12%;width:124%;height:124%;object-fit:cover;filter:blur(28px) saturate(.9) brightness(.42);opacity:.9}
 .jz-fw-media-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:transform 220ms var(--ease-standard)}
 .jz-fw-meta{display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-sm);min-width:0;padding:0 clamp(16px,2vw,24px) var(--space-lg)}
-.jz-fw-kicker{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;width:100%}
+.jz-fw-kicker{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;width:100%;margin-bottom:var(--space-sm)}
 .jz-fw-n{color:var(--color-text-primary)}
 .jz-fw-org{margin-left:auto;color:rgba(217,221,227,.5)}
-.jz-fw-title{margin:0;font:600 clamp(1.5rem,1.1rem + 1.1vw,2.25rem)/1.08 var(--font-display);letter-spacing:-.025em;color:var(--color-text-primary);text-wrap:balance;transition:color 220ms var(--ease-standard)}
+.jz-fw-title{margin:0;font:700 clamp(1.5rem,1.1rem + 1.1vw,2.25rem)/1.08 var(--font-display);letter-spacing:-.025em;color:var(--color-text-primary);text-wrap:balance;transition:color 220ms var(--ease-standard)}
 .jz-fw-dek{margin:0;max-width:52ch;font:400 1rem/1.6 var(--font-body);color:rgba(217,221,227,.8);text-wrap:pretty}
 .jz-fw-card--text .jz-fw-title{font-size:clamp(1.5rem,1rem + 1.4vw,2.5rem);max-width:28ch}
 .jz-fw-card--text .jz-fw-dek{max-width:68ch}

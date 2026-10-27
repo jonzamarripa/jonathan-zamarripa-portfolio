@@ -81,3 +81,8 @@ Approved PR #10 visual-fidelity corrections completed for branch preview. No mer
 
 ## Archive CTA spacing — 2026-10-27
 - Jonathan requested more separation below the View featured case studies pill. Added margin-bottom:var(--space-xl) to the existing archive header (32px); no button styling, copy, destinations or effects changed. Build passed with existing SSR warning. Local browser checks confirm exactly 32px gap to the project grid and no overflow at 375/768/1440px. Production deployment authorized by the ongoing task.
+
+
+## Featured Work title hierarchy — 2026-10-27
+- Jonathan approved stronger card-title hierarchy and replacing the orange homepage marker with Signal Lime. HomepageP1.jsx uses slightly larger flagship/secondary titles, weight 700, an extra 8px below metadata, and the existing muted-copy token for descriptions. Homepage badge and existing media accent now use Lime; First Sentence case-study Orange, copy, assets/crops, five-tile hierarchy and interactions unchanged. No new shadow or effects.
+- Build passed with existing SSR warning. Rendered local checks at 375/768/1440: all five titles fit, no page overflow, Lime marker confirmed. Before/after captures in this chat outputs/featured-titles/. Production release authorized by the ongoing task.
