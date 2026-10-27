@@ -22,7 +22,7 @@
         },
         {
           "key": "Content-Security-Policy-Report-Only",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://elearningportfolio-jz.s3.us-east-1.amazonaws.com; media-src 'self' https://elearningportfolio-jz.s3.us-east-1.amazonaws.com; connect-src 'self' https://api.web3forms.com; frame-src https://drums-plant-63973620.figma.site; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'"
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://elearningportfolio-jz.s3.us-east-1.amazonaws.com; media-src 'self' https://elearningportfolio-jz.s3.us-east-1.amazonaws.com; connect-src 'self' https://api.web3forms.com; frame-src https://drums-plant-63973620.figma.site https://coach-line-18168657.figma.site; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'"
         }
       ]
     }

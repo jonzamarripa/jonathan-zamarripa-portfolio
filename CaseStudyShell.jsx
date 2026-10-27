@@ -1,6 +1,29 @@
 // Shared case-study shell — RC4 master architecture.
 // Renders only the sections a project supplies; missing sections surface an
 // honest "in development" notice rather than invented content.
+function PortfolioScenario({ scenario }) {
+  const [active, setActive] = React.useState(false);
+  const [loaded, setLoaded] = React.useState(false);
+  const launchRef = React.useRef(null);
+  const exitRef = React.useRef(null);
+  const panelRef = React.useRef(null);
+  React.useEffect(() => { if (active && exitRef.current) exitRef.current.focus(); }, [active]);
+  const close = () => { setActive(false); setLoaded(false); requestAnimationFrame(() => launchRef.current && launchRef.current.focus()); };
+  return <div className="jiz-scenario" ref={panelRef}>
+    <div className="jiz-scenario-controls">
+      {!active ? <button type="button" ref={launchRef} onClick={() => setActive(true)}>Begin experience ↗</button> : <React.Fragment>
+        <button type="button" ref={exitRef} onClick={close}>Close experience</button>
+        <button type="button" onClick={() => { const panel = panelRef.current; if (document.fullscreenElement) document.exitFullscreen().catch(() => {}); else if (panel.requestFullscreen) panel.requestFullscreen().catch(() => {}); }}>Full screen</button>
+      </React.Fragment>}
+      <a href={scenario.url} target="_blank" rel="noopener noreferrer">Open full experience ↗<span className="jiz-scenario-sr"> (opens in a new tab)</span></a>
+    </div>
+    {active ? <React.Fragment>
+      {!loaded && <p role="status">Loading the scenario… If it does not appear, use “Open full experience.”</p>}
+      <iframe src={scenario.url} title={scenario.title + ' — interactive scenario'} onLoad={() => setLoaded(true)} allow="autoplay; fullscreen" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" />
+    </React.Fragment> : <img src={scenario.poster} alt="Preview of the fictional customer scenario, showing Marisol beside her pickup truck." width="1280" height="720" loading="lazy" />}
+  </div>;
+}
+
 function PackageCarousel({ items }) {
   const [index, setIndex] = React.useState(0);
   const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -77,7 +100,7 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
   const plain = (e) => !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0);
   const own = SITE && SITE.resolve(config.projectName);
   const here = own && SITE.route(own.view);
-  const hero = standalone && here && here.hero && has0(config.gallery) ? { src: '/' + here.hero, caption: config.gallery[0].caption } : null;
+  const hero = standalone && here && here.hero && has0(config.gallery) ? { src: '/' + here.hero, caption: config.heroCaption || config.gallery[0].caption } : null;
   const goContact = (e) => {
     if (standalone || !plain(e)) return;
     e.preventDefault();
@@ -220,12 +243,26 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
               </div>
             ))}
           </dl>
+          {has(config.resources) && (
+            <nav aria-label="Project resources" style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-md)', marginBottom: 'var(--space-lg)' }}>
+              {config.resources.map((resource) => (
+                <a key={resource.href} className="jiz-cs-back" href={resource.href} target="_blank" rel="noopener noreferrer">{resource.label}<span className="sr-only"> (opens in a new tab)</span></a>
+              ))}
+            </nav>
+          )}
           {hero && (
             <figure className="jiz-cs-hero">
               <img src={hero.src} alt={config.projectName + ' — ' + hero.caption.replace(/^\d+\s+/, '')} width="1600" height="900" fetchpriority="high" decoding="async" />
             </figure>
           )}
         </Chapter>
+
+        {config.scenario && <Chapter surface="obsidian" className="jiz-cs-section" labelledBy={config.slug + '-scenario-title'}>
+          <p className="jiz-cs-kicker">Interactive experience</p>
+          <h2 className="jiz-cs-h2" id={config.slug + '-scenario-title'}>Take Marisol’s call.</h2>
+          <p className="jiz-cs-body">Play the cold open and explore the available prototype interactions. This candidate work sample demonstrates selected parts of the proposed learning experience.</p>
+          <PortfolioScenario scenario={config.scenario} />
+        </Chapter>}
 
         {/* Project snapshot — documented facts only */}
         {has(config.snapshot) && (

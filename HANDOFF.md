@@ -91,3 +91,25 @@ Approved PR #10 visual-fidelity corrections completed for branch preview. No mer
 ## Featured Work tile alignment — 2026-10-27
 - Jonathan approved aligning the flagship with the full two-row supporting group. HomepageP1.jsx stretches the desktop grid, gives supporting rows equal fractions, reuses one gap for both grids, and lets metadata grow so CTAs anchor at the bottom. Media cannot shrink: original 16:19 flagship and 16:10 supporting frames/crops retained. Mobile rows reset to natural heights, preserving the existing stack.
 - Build passed with existing SSR warning. Browser checks at 375/768/1024/1280/1440/1920 show no page overflow; at desktop flagship/supporting top and bottom deltas are exactly zero, all four secondary heights equal, CTA baselines aligned by row. Tablet rows remain equal; mobile stack preserved. Evidence outputs/featured-alignment/. Production release authorized under ongoing task.
+
+
+## Local six-project preview — 2026-10-27
+- Jonathan supplied the Intuit assessment storyboard and five visual assets, and explicitly chose a local six-project preview. Added Drafted by AI. Sent by You. as a candidate work sample, not commissioned/deployed Intuit work. No learner/business outcomes claimed. Produced prototype scope and planned rollout/evaluation are distinguished.
+- New CaseStudy-DraftedByAI.jsx reuses CaseStudyShell; optional resource links and optional hero caption preserve existing pages. App.jsx, site-config.js and build.cjs register /work/drafted-by-ai/. Five supplied PNGs are optimized WebPs under assets/imagery/drafted-by-ai/; supplied 26-page PDF copied under assets/documents/. No synthetic replacement imagery.
+- HomepageP1.jsx preview: full-width horizontal First Sentence feature; five equal supporting cards (desktop 3 + centered 2, tablet 2 + centered 1, mobile natural stack). Existing five projects, relative order, images, copy and destinations retained; new project is number 06, labeled Candidate work sample.
+- Build passed with existing React useLayoutEffect SSR warning. Homepage and new case study at 375/768/1440: no page overflow or clipped titles; six cards and correct new href. Case gallery Next updates progress. PDF serves HTTP 200; prototype URL reaches the correctly titled sample with candidate/concept disclosure. Prototype gameplay not fully verified.
+- Browser screenshots and verification are in this chat outputs/six-project-preview/. Local server: http://127.0.0.1:8771/. Current production remains unchanged at 9247abf. No commit, push, merge or deployment for this preview. Await visual approval.
+
+
+## Neutral Featured Work redesign — local preview, 2026-10-27
+- Jonathan requested replacing the cyan canvas, latest Intuit work first, and a more balanced gallery informed by online references. Reviewed Pentagram /work and Work & Co homepage in-browser; retrieved Instrument /work as another image-led reference (its grid media did not reliably render here).
+- HomepageP1.jsx now isolates warm-white (#F7F8FA) gallery colors with Obsidian titles, quieter dark copy, a Lime Latest work marker, six equal editorial tiles in a two-column desktop/tablet grid and natural mobile stack. Drafted by AI. Sent by You. is first, First Sentence second; remaining project relative order unchanged. Existing asset files, copy, chips, disclosures and link destinations retained; common 16:10 frames recrop imagery for consistency. Removed the oversized feature and centered orphan row.
+- Build passed with existing React useLayoutEffect SSR warning. Widths 375/768/1024/1280/1440/1920: no overflow or clipped titles; all six tiles equal in height and width in multi-column layouts. Latest-first order, six links, successful legacy overlay/Escape and keyboard entry into the new sample verified. Production unchanged; no commit, push or deploy. Await visual approval.
+- Evidence: this chat outputs/neutral-work-preview/; local preview http://127.0.0.1:8772/#work. Previous new-project case study remains intact.
+
+## Scenario interaction, links, header and impact loop — local preview, 2026-10-27
+- Added on-demand Figma scenario to Drafted by AI case study, with close/unmount, focus return, full-screen action and external fallback. No frame loads before launch; iframe excludes microphone. Added specific Figma origin to report-only frame-src.
+- Featured Work intro now follows heading in one column, once. Deep teal underlined gallery CTAs darken on hover/focus; case resource links use cyan/lime.
+- Metrics count to existing verified figures in 1.1s, hold 5.5s, repeat. Individual visibility observers and document visibility pause work; reduced-motion listeners present; final values stay static for assistive technology. Pause/resume control verified.
+- Build and git diff --check pass (existing SSR useLayoutEffect warning). Browser checked homepage 375/768/1440 with no overflow; live iframe loads, mobile frame fits, close removes it and restores focus. Repeating count and pause tested. Full prototype completion and OS reduced-motion emulation were not tested.
+- Local only, no deployment. Preview http://127.0.0.1:8773/#work; evidence in chat outputs/interaction-preview/.

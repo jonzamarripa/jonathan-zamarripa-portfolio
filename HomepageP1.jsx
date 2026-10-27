@@ -51,22 +51,16 @@ const RHYTHM_CSS = `
 /* Selected experience strip sits on the Carbon page between the hero and Featured Work */
 .jiz-homepage .jz-exp{background:transparent;border:0}
 
-/* Featured Work — Electric Cyan canvas with dark project cards. */
-.jiz-homepage .jz-fw{background:var(--accent-cyan);color:var(--obsidian)}
-.jiz-homepage .jz-fw .jz-label{color:rgba(11,13,16,.64)}
-.jiz-homepage .jz-fw-h2{color:var(--obsidian)}
-.jiz-homepage .jz-fw-n,.jiz-homepage .jz-fw-title{color:var(--white)}
-.jiz-homepage .jz-fw-card .jz-label{color:var(--mist)}
-.jiz-homepage .jz-fw-intro{color:rgba(11,13,16,.8)}
-.jiz-homepage .jz-fw-dek{color:var(--portfolio-muted)}
-.jiz-homepage .jz-fw-org{color:var(--mist)}
-.jiz-homepage .jz-fw-media{background:linear-gradient(135deg,var(--carbon) 0%,var(--slate) 100%);border-color:rgba(11,13,16,.14)}
-.jiz-homepage .jz-fw-card:hover .jz-fw-title{color:var(--white);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
-.jiz-homepage .jz-fw-card:hover .jz-fw-media,.jiz-homepage .jz-fw-card:focus-within .jz-fw-media{border-color:var(--accent-cyan)}
+/* Featured Work — warm-white editorial gallery, isolated from dark chapters. */
+.jiz-homepage .jz-fw{background:var(--white);color:var(--obsidian)}
+.jiz-homepage .jz-fw :is(.jz-label,.jz-fw-org){color:var(--slate)}
+.jiz-homepage .jz-fw :is(.jz-fw-h2,.jz-fw-n,.jz-fw-title,.jz-link){color:var(--obsidian)}
+.jiz-homepage .jz-fw :is(.jz-fw-intro,.jz-fw-dek){color:color-mix(in srgb,var(--obsidian) 76%,var(--white))}
+.jiz-homepage .jz-fw-card:hover .jz-fw-title{color:var(--obsidian);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
 .jiz-homepage .jz-fw-card:has(.jz-fw-cta:focus-visible){outline:2px solid var(--obsidian);outline-offset:8px;border-radius:var(--panel-r-inner)}
-.jiz-homepage .jz-fw .jz-link{color:var(--accent-cyan);font-weight:600}
-.jiz-homepage .jz-fw .jz-link:focus-visible{outline-color:var(--accent-cyan)}
-.jiz-homepage .jz-fw-card--text{border-top-color:rgba(11,13,16,.16)}
+.jiz-homepage .jz-fw .jz-link{font-weight:600;color:#286579;transition:color 240ms ease}
+.jiz-homepage .jz-fw-card:hover .jz-link,.jiz-homepage .jz-fw .jz-link:focus-visible{color:var(--obsidian)}
+.jiz-homepage .jz-fw .jz-link:focus-visible{outline-color:var(--obsidian)}
 
 /* Creative Lab — cinematic Obsidian panel (content and video untouched) */
 .jiz-homepage .jiz-creative-lab{background-color:#0B0D10}
@@ -195,11 +189,12 @@ function FeaturedWorkEditorial({ onOpenWork }) {
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref);
   const projects = [
-    { n: '01', layout: 'flagship', org: 'Independent project', role: 'Designed, written and produced by Jonathan Zamarripa', kicker: 'Interactive Experience', title: 'The First Sentence', dek: 'Yesterday, you were a teammate. Today, you\u2019re their supervisor. A cinematic branching simulation for newly promoted frontline supervisors.', chips: ['About 7 min', 'Branching paths', 'Speak or type'], image: './assets/imagery/the-first-sentence-featured-work-illustration.webp', alt: 'AI-generated illustration of Dana and Marcus talking in a warehouse aisle', route: 'The First Sentence', cta: 'Explore the interactive experience' },
-    { n: '02', layout: 'lead', org: 'Cox Enterprises', role: 'Lead Learning Experience Designer & Creative Strategist', kicker: 'Leadership development', title: 'Operation: Legacy Unlocked', dek: 'An immersive leadership simulation that casts employees as intelligence agents and turns organizational history into a mission, built for audiences up to VP and SVP.', image: './assets/imagery/olu-featured-work-illustration.webp', alt: 'Operation: Legacy Unlocked leadership simulation cover', route: 'Operation: Legacy Unlocked' },
-    { n: '03', layout: 'pair-a', org: 'IHG Hotels & Resorts', role: 'Learning Experience Designer / Producer', kicker: 'Product enablement', title: 'Global product readiness for hotel technology', dek: 'New-hire onboarding, release communications, and reusable learning workflows for evolving hotel platforms.', image: './assets/imagery/hotelkey-featured-work-illustration.webp', alt: 'HotelKey hotel technology enablement cover', route: 'HotelKey New Hire Onboarding' },
-    { n: '04', layout: 'pair-b', org: 'Cox Enterprises', role: 'Creative Lead / Learning Experience Designer', kicker: 'Platform launch', title: 'Workday Learn, launched as a growth ecosystem', dek: 'A launch campaign that led with organizational purpose before platform features.', image: './assets/imagery/workday-featured-work-illustration.webp', alt: 'AI-generated learning platform concept on a laptop and phone, illustrating the Workday Learn launch', route: 'Workday Learn Launch' },
-    { n: '05', layout: 'reverse', org: 'IHG Hotels & Resorts', role: 'Learning Strategist / Creative Producer', kicker: 'Change enablement', title: 'Guest CRM adoption across pilot hotels', dek: 'Teaching pilot hotel teams the reasoning behind new guest-relationship workflows, not just where to click.', image: './assets/imagery/guestcrm-featured-work-illustration.webp', alt: 'Guest CRM pilot change enablement cover', route: 'Guest CRM Pilot' },
+    { n: '01', layout: 'sample', latest: true, org: 'Candidate work sample', kicker: 'AI feature readiness', title: 'Drafted by AI. Sent by You.', dek: 'A cinematic, scenario-based readiness design for QuickBooks Online support Experts—practice product accuracy and customer trust as separate skills.', image: './assets/imagery/drafted-by-ai/cold-open-poster.webp', alt: 'AI-generated scene of a fictional small-business owner reviewing her phone beside a pickup truck', route: 'Drafted by AI. Sent by You.', cta: 'Explore the work sample' },
+    { n: '02', layout: 'flagship', org: 'Independent project', role: 'Designed, written and produced by Jonathan Zamarripa', kicker: 'Interactive Experience', title: 'The First Sentence', dek: 'Yesterday, you were a teammate. Today, you\u2019re their supervisor. A cinematic branching simulation for newly promoted frontline supervisors.', chips: ['About 7 min', 'Branching paths', 'Speak or type'], image: './assets/imagery/the-first-sentence-featured-work-illustration.webp', alt: 'AI-generated illustration of Dana and Marcus talking in a warehouse aisle', route: 'The First Sentence', cta: 'Explore the interactive experience' },
+    { n: '03', layout: 'lead', org: 'Cox Enterprises', role: 'Lead Learning Experience Designer & Creative Strategist', kicker: 'Leadership development', title: 'Operation: Legacy Unlocked', dek: 'An immersive leadership simulation that casts employees as intelligence agents and turns organizational history into a mission, built for audiences up to VP and SVP.', image: './assets/imagery/olu-featured-work-illustration.webp', alt: 'Operation: Legacy Unlocked leadership simulation cover', route: 'Operation: Legacy Unlocked' },
+    { n: '04', layout: 'pair-a', org: 'IHG Hotels & Resorts', role: 'Learning Experience Designer / Producer', kicker: 'Product enablement', title: 'Global product readiness for hotel technology', dek: 'New-hire onboarding, release communications, and reusable learning workflows for evolving hotel platforms.', image: './assets/imagery/hotelkey-featured-work-illustration.webp', alt: 'HotelKey hotel technology enablement cover', route: 'HotelKey New Hire Onboarding' },
+    { n: '05', layout: 'pair-b', org: 'Cox Enterprises', role: 'Creative Lead / Learning Experience Designer', kicker: 'Platform launch', title: 'Workday Learn, launched as a growth ecosystem', dek: 'A launch campaign that led with organizational purpose before platform features.', image: './assets/imagery/workday-featured-work-illustration.webp', alt: 'AI-generated learning platform concept on a laptop and phone, illustrating the Workday Learn launch', route: 'Workday Learn Launch' },
+    { n: '06', layout: 'reverse', org: 'IHG Hotels & Resorts', role: 'Learning Strategist / Creative Producer', kicker: 'Change enablement', title: 'Guest CRM adoption across pilot hotels', dek: 'Teaching pilot hotel teams the reasoning behind new guest-relationship workflows, not just where to click.', image: './assets/imagery/guestcrm-featured-work-illustration.webp', alt: 'Guest CRM pilot change enablement cover', route: 'Guest CRM Pilot' },
   ];
   // Each case study has its own URL (shareable, opens in a new tab with Cmd/Ctrl-click); a plain click opens it in the overlay.
   const pathOf = (route) => { const S = window.JIZ_SITE; const t = S && S.resolve(route); const r = t && S.route && S.route(t.view); return r && r.path; };
@@ -212,35 +207,18 @@ function FeaturedWorkEditorial({ onOpenWork }) {
   const Card = ({ p }) => {
     const href = p.route ? pathOf(p.route) : null;
     const label = p.cta || 'Read the case study';
-    if (p.layout === 'flagship') return (
-      <article className="jz-fw-card jz-fw-flag jz-rise">
-        <div className="jz-fw-flag-media">
-          <img src={p.image} alt={p.alt} loading="lazy" decoding="async" width="1122" height="1402" />
-        </div>
-        <div className="jz-fw-meta">
-          <p className="jz-label jz-fw-kicker"><span className="jz-fw-n">{p.n}</span><span className="jz-fw-badge">{p.kicker}</span><span className="jz-fw-org">{p.org}</span></p>
-          <h3 className="jz-fw-title">{p.title}</h3>
-          <p className="jz-fw-dek">{p.dek}</p>
-          <ul className="jz-fw-chips" aria-label="Experience details">{p.chips.map((c) => <li key={c}>{c}</li>)}</ul>
-          {href ? <a className="jz-link jz-fw-cta" href={href} onClick={(e) => open(e, p)} aria-label={label + ': ' + p.title}><span>{label}</span><span className="jz-arrow" aria-hidden="true">→</span></a> : null}
-        </div>
-      </article>
-    );
     return (
-      <article className={'jz-fw-card' + (p.image ? '' : ' jz-fw-card--text') + ' jz-rise'}>
-        {p.image && (
-          <div className="jz-fw-media" aria-hidden="true">
-            <img className="jz-fw-media-bg" src={p.image} alt="" loading="lazy" decoding="async" />
-            <img className="jz-fw-media-img" src={p.image} alt="" loading="lazy" decoding="async" width="1254" height="1254" />
-          </div>
-        )}
+      <article className="jz-fw-card jz-rise">
+        <div className="jz-fw-media">
+          <img className="jz-fw-media-img" src={p.image} alt={p.alt} loading="lazy" decoding="async" />
+          {p.latest && <span className="jz-fw-latest">Latest work</span>}
+        </div>
         <div className="jz-fw-meta">
-          <p className="jz-label jz-fw-kicker"><span className="jz-fw-n">{p.n}</span><span>{p.kicker}</span><span className="jz-fw-org">{p.org}</span></p>
+          <p className="jz-label jz-fw-kicker"><span>{p.n} / {p.kicker}</span><span className="jz-fw-org">{p.org}</span></p>
           <h3 className="jz-fw-title">{p.title}</h3>
           <p className="jz-fw-dek">{p.dek}</p>
-          {href
-            ? <a className="jz-link jz-fw-cta" href={href} onClick={(e) => open(e, p)} aria-label={label + ': ' + p.title}><span>{label}</span><span className="jz-arrow" aria-hidden="true">→</span></a>
-            : null}
+          {p.chips && <ul className="jz-fw-chips" aria-label="Experience details">{p.chips.map((c) => <li key={c}>{c}</li>)}</ul>}
+          {href && <a className="jz-link jz-fw-cta" href={href} onClick={(e) => open(e, p)} aria-label={label + ': ' + p.title}><span>{label}</span><span className="jz-arrow" aria-hidden="true">↗</span></a>}
         </div>
       </article>
     );
@@ -249,57 +227,36 @@ function FeaturedWorkEditorial({ onOpenWork }) {
     <section className="jz-fw" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-fw-title">
       <EditorialStyles />
       <style>{`
-.jz-fw{position:relative;background:var(--accent-cyan);padding-block:var(--chapter-pad-y)}
-.jz-fw-head{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;align-items:end;margin-bottom:clamp(24px,3vw,48px)}
-.jz-fw-h2{grid-column:1 / span 7;margin:14px 0 0;font:600 clamp(2.75rem,1.6rem + 4.6vw,6.5rem)/.94 var(--font-display);letter-spacing:-.045em;color:var(--color-text-primary)}
-.jz-fw-intro{grid-column:9 / span 4;margin:0;font:400 1.0625rem/1.6 var(--font-body);color:rgba(217,221,227,.78);text-wrap:pretty}
-.jz-fw-cards{grid-column:1 / span 12;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,2.4vw,36px);align-items:stretch}
-.jz-fw-secondary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:clamp(24px,2.4vw,36px)}
-.jz-fw-secondary .jz-fw-title{font-size:clamp(1.375rem,1.1rem + .7vw,1.75rem)}
-.jz-fw-secondary .jz-fw-dek{font-size:.9375rem}
-/* Flagship: The First Sentence — original 16:19 poster with portfolio Lime accents. */
-.jz-fw-flag-media{position:relative;overflow:hidden;flex-shrink:0;aspect-ratio:16 / 19;border-radius:0;background:#0B0D10;box-shadow:inset 0 -3px 0 var(--signal-lime)}
-.jz-fw-flag-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transition:transform 220ms var(--ease-standard)}
-.jz-fw-flag:hover .jz-fw-flag-media img,.jz-fw-flag:focus-within .jz-fw-flag-media img{transform:scale(1.02)}
-.jz-fw-flag .jz-fw-title{font-size:clamp(2rem,1.3rem + 2vw,3.125rem)}
-.jz-fw-badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;background:var(--signal-lime);color:#0B0D10;letter-spacing:.12em}
-.jz-fw-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
-.jz-fw-chips li{padding:5px 12px;border:1px solid var(--portfolio-control-line);border-radius:999px;font:500 .75rem/1.2 var(--font-mono);letter-spacing:.04em;color:var(--mist)}
-.jz-fw-card{position:relative;display:flex;flex-direction:column;gap:var(--space-md);min-width:0;overflow:hidden;background:var(--carbon);border-radius:var(--panel-r-inner)}
-.jz-fw-card--text{grid-column:1 / -1;padding-top:clamp(28px,3vw,40px);border-top:1px solid var(--color-border-default)}
-.jz-fw-media{position:relative;overflow:hidden;flex-shrink:0;aspect-ratio:16 / 10;border-radius:0;background:linear-gradient(135deg,var(--color-background-secondary) 0%,var(--slate) 100%);border:1px solid var(--color-border-subtle);transition:border-color 220ms var(--ease-standard)}
-.jz-fw-media-bg{position:absolute;inset:-12%;width:124%;height:124%;object-fit:cover;filter:blur(28px) saturate(.9) brightness(.42);opacity:.9}
-.jz-fw-media-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:transform 220ms var(--ease-standard)}
-.jz-fw-meta{display:flex;flex:1;flex-direction:column;align-items:flex-start;gap:var(--space-sm);min-width:0;padding:0 clamp(16px,2vw,24px) var(--space-lg)}
-.jz-fw-kicker{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;width:100%;margin-bottom:var(--space-sm)}
-.jz-fw-n{color:var(--color-text-primary)}
-.jz-fw-org{margin-left:auto;color:rgba(217,221,227,.5)}
-.jz-fw-title{margin:0;font:700 clamp(1.5rem,1.1rem + 1.1vw,2.25rem)/1.08 var(--font-display);letter-spacing:-.025em;color:var(--color-text-primary);text-wrap:balance;transition:color 220ms var(--ease-standard)}
-.jz-fw-dek{margin:0;max-width:52ch;font:400 1rem/1.6 var(--font-body);color:rgba(217,221,227,.8);text-wrap:pretty}
-.jz-fw-card--text .jz-fw-title{font-size:clamp(1.5rem,1rem + 1.4vw,2.5rem);max-width:28ch}
-.jz-fw-card--text .jz-fw-dek{max-width:68ch}
-.jz-fw-cta{margin-top:auto}
+.jz-fw{position:relative;background:var(--white);padding-block:var(--chapter-pad-y)}
+.jz-fw-head{grid-column:1 / -1;display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-lg);margin-bottom:var(--space-2xl)}
+.jz-fw-h2{margin:0;font:600 clamp(2.75rem,1.6rem + 4.6vw,6.5rem)/.98 var(--font-display);letter-spacing:-.04em}
+.jz-fw-intro{margin:0;font:400 1.0625rem/1.6 var(--font-body);max-width:62ch;text-wrap:pretty}
+.jz-fw-cards{grid-column:1 / -1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:var(--space-2xl) var(--space-xl);min-width:0}
+.jz-fw-card{position:relative;display:flex;flex-direction:column;min-width:0;gap:var(--space-lg)}
+.jz-fw-media{position:relative;flex-shrink:0;aspect-ratio:16 / 10;overflow:hidden;background:var(--carbon);border-radius:var(--panel-r-inner);border:1px solid rgba(11,13,16,.12)}
+.jz-fw-media-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.jz-fw-latest{position:absolute;left:var(--space-md);top:var(--space-md);padding:8px 12px;border-radius:var(--radius-pill);background:var(--signal-lime);color:var(--obsidian);font:600 .75rem/1.2 var(--font-body)}
+.jz-fw-meta{display:flex;flex:1;flex-direction:column;align-items:flex-start;gap:var(--space-md);min-width:0}
+.jz-fw-kicker{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--space-sm) var(--space-md);width:100%;margin:0;font-size:.6875rem;line-height:1.5;letter-spacing:.1em}
+.jz-fw-title{margin:0;font:700 clamp(1.5rem,1rem + 1.35vw,2.25rem)/1.08 var(--font-display);letter-spacing:-.025em;text-wrap:balance}
+.jz-fw-dek{margin:0;font:400 1rem/1.65 var(--font-body);max-width:56ch;text-wrap:pretty}
+.jz-fw-chips{display:flex;flex-wrap:wrap;gap:var(--space-sm);list-style:none;padding:0;margin:0}
+.jz-fw-chips li{padding:5px 10px;border:1px solid rgba(11,13,16,.24);border-radius:var(--radius-pill);font:500 .6875rem/1.2 var(--font-mono);color:var(--slate)}
+.jz-fw-cta{display:inline-flex;align-items:center;gap:var(--space-md);min-height:44px;margin-top:auto;text-decoration:underline;text-underline-offset:5px}
 .jz-fw-cta::after{content:"";position:absolute;inset:0;z-index:1}
 .jz-fw-cta:focus-visible{outline:none}
-.jz-fw-card:has(.jz-fw-cta:focus-visible){outline:2px solid var(--color-accent-primary);outline-offset:8px;border-radius:var(--radius-md)}
-.jz-fw-card:hover .jz-fw-media-img,.jz-fw-card:focus-within .jz-fw-media-img{transform:scale(1.02)}
-.jz-fw-card:hover .jz-fw-media,.jz-fw-card:focus-within .jz-fw-media{border-color:rgba(198,242,58,.28)}
-.jz-fw-card:hover .jz-fw-title{color:#fff}
-.jz-fw-card:hover .jz-arrow,.jz-fw-card:focus-within .jz-arrow{transform:translateX(5px)}
-.jz-fw-card .jz-arrow{transition:transform 220ms var(--ease-standard)}
-@media(max-width:1024px){.jz-fw-cards{grid-template-columns:1fr}.jz-fw-flag{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,3vw,36px);align-items:center}.jz-fw-h2{grid-column:1 / span 12}.jz-fw-intro{grid-column:1 / span 8;margin-top:22px}.jz-fw-head{align-items:start}}
-@media(max-width:760px){.jz-fw-cards{grid-template-columns:1fr;gap:var(--space-lg)}.jz-fw-flag{display:flex;align-items:stretch}.jz-fw-secondary{grid-template-columns:1fr;grid-auto-rows:auto;gap:var(--space-lg)}.jz-fw-intro{grid-column:1 / span 12}.jz-fw-org{margin-left:0;width:100%}}
-@media(prefers-reduced-motion:reduce){.jz-fw-flag-media img{transition:none}.jz-fw-flag:hover .jz-fw-flag-media img,.jz-fw-flag:focus-within .jz-fw-flag-media img{transform:none}.jz-fw-media,.jz-fw-media-img,.jz-fw-title,.jz-fw-card .jz-arrow{transition:none}.jz-fw-card:hover .jz-fw-media-img,.jz-fw-card:focus-within .jz-fw-media-img{transform:none}}
+.jz-fw .jz-arrow{font-size:1.25rem}
+@media(max-width:900px){.jz-fw-head{grid-template-columns:1fr;gap:var(--space-lg)}.jz-fw-intro{max-width:56ch}.jz-fw-title{font-size:1.625rem}.jz-fw-cards{column-gap:var(--space-lg)}}
+@media(max-width:600px){.jz-fw-cards{grid-template-columns:1fr;grid-auto-rows:auto;gap:var(--space-2xl)}.jz-fw-title{min-height:0;font-size:1.75rem}.jz-fw-kicker{justify-content:flex-start}.jz-fw-org{width:100%}.jz-fw-card{gap:var(--space-md)}.jz-fw-head{margin-bottom:var(--space-xl)}}
+
       `}</style>
       <div className="jz-wrap jz-grid">
         <header className="jz-fw-head">
-          <div style={{ gridColumn: '1 / span 12' }}><p className="jz-label jz-rise">Selected case studies · 05</p></div>
           <h2 className="jz-fw-h2 jz-rise" id="jz-fw-title">Featured work</h2>
-          <p className="jz-fw-intro jz-rise">Leadership, product, and platform change for enterprise teams, each shown from the problem to the shipped experience.</p>
+          <p className="jz-fw-intro jz-rise">Leadership, product, and AI-enabled learning—from enterprise programs to independent work samples.</p>
         </header>
         <div className="jz-fw-cards">
-          <Card p={projects[0]} />
-          <div className="jz-fw-secondary">{projects.slice(1).map((p) => <Card key={p.n} p={p} />)}</div>
+          {projects.map((p) => <Card key={p.route} p={p} />)}
         </div>
       </div>
     </section>
@@ -308,29 +265,45 @@ function FeaturedWorkEditorial({ onOpenWork }) {
 
 /* ---------- Impact ---------- */
 function CountUp({ to, run, suffix, srSuffix }) {
-  // The final value is rendered by default (prerendered HTML, no-JS, crawlers, link previews).
-  // Once the page is interactive, the visible figure resets to 0 and counts up when seen; screen readers always get the real value.
   const [v, setV] = React.useState(to);
-  const done = React.useRef(false);
-  React.useEffect(() => { if (!run && !prefersReduced()) setV(0); }, []);
+  const numberRef = React.useRef(null);
+  const [visible, setVisible] = React.useState(false);
   React.useEffect(() => {
-    if (!run || done.current) return undefined;
-    done.current = true;
-    if (prefersReduced()) { setV(to); return undefined; }
-    let raf, start;
-    const tick = (t) => { if (!start) start = t; const p = Math.min(1, (t - start) / 1100); setV(Math.round(to * (1 - Math.pow(1 - p, 3)))); if (p < 1) raf = requestAnimationFrame(tick); };
+    if (typeof IntersectionObserver === 'undefined') { setVisible(true); return; }
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting), { threshold: .4 });
+    if (numberRef.current) observer.observe(numberRef.current);
+    return () => observer.disconnect();
+  }, []);
+  React.useEffect(() => {
+    if (!run || !visible) { setV(to); return; }
+    let raf, timer, start;
+    const tick = (time) => {
+      if (start === undefined) start = time;
+      const progress = Math.min(1, (time - start) / 1100);
+      setV(Math.round(to * (1 - Math.pow(1 - progress, 3))));
+      if (progress < 1) raf = requestAnimationFrame(tick);
+      else timer = setTimeout(() => { start = undefined; raf = requestAnimationFrame(tick); }, 5500);
+    };
     raf = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(raf);
-  }, [run, to]);
-  return (
-    <React.Fragment>
-      <span aria-hidden="true">{v}<span className="jz-im-unit">{suffix}</span></span>
-      <span className="jz-visually-hidden">{String(to) + (srSuffix || suffix)}</span>
-    </React.Fragment>
-  );
+    return () => { cancelAnimationFrame(raf); clearTimeout(timer); };
+  }, [run, visible, to]);
+  return <React.Fragment>
+    <span ref={numberRef} aria-hidden="true">{v}<span className="jz-im-unit">{suffix}</span></span>
+    <span className="jz-visually-hidden">{String(to) + (srSuffix || suffix)}</span>
+  </React.Fragment>;
 }
 
 function ImpactEditorial() {
+  const [animate, setAnimate] = React.useState(true);
+  const [reduced, setReduced] = React.useState(false);
+  const [pageVisible, setPageVisible] = React.useState(true);
+  React.useEffect(() => {
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const sync = () => { setReduced(preference.matches); setPageVisible(!document.hidden); };
+    sync(); preference.addEventListener('change', sync); document.addEventListener('visibilitychange', sync);
+    return () => { preference.removeEventListener('change', sync); document.removeEventListener('visibilitychange', sync); };
+  }, []);
+  const run = animate && !reduced && pageVisible;
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref, { threshold: 0.3 });
   const lead = { to: 98, suffix: '%', label: 'Platform adoption in Q1, supported through targeted enablement', src: 'Workday Learn launch · Cox Enterprises', cat: 'Adoption' };
@@ -347,6 +320,7 @@ function ImpactEditorial() {
 .jz-im{background:#0B0F0D;padding-block:clamp(80px,9vw,148px)}
 .jz-im-head{grid-column:1 / span 4;display:flex;flex-direction:column;gap:16px}
 .jz-im-h2{margin:0;font:600 clamp(1.75rem,1.3rem + 1.4vw,2.75rem)/1.05 var(--font-display);letter-spacing:-.03em;color:var(--color-text-primary)}
+.jz-im-toggle{align-self:flex-start;min-height:44px;padding:10px 16px;border:1px solid currentColor;border-radius:999px;background:transparent;color:var(--accent-cyan);font:500 .8125rem var(--font-body);cursor:pointer}.jz-im-toggle:hover{color:var(--signal-lime)}.jz-im-toggle:focus-visible{outline:2px solid var(--signal-lime);outline-offset:4px}
 .jz-im-note{margin:0;max-width:34ch;font:400 .9375rem/1.6 var(--font-body);color:rgba(217,221,227,.72)}
 .jz-im-lead{grid-column:6 / span 7;display:flex;flex-direction:column;gap:14px}
 .jz-im-fig{margin:0;font:600 clamp(5.5rem,3rem + 10vw,13.5rem)/.8 var(--font-display);letter-spacing:-.06em;font-variant-numeric:tabular-nums;color:var(--color-accent-primary)}
@@ -368,10 +342,11 @@ function ImpactEditorial() {
           <p className="jz-label">Selected impact</p>
           <h2 className="jz-im-h2" id="jz-im-title">What the work moved.</h2>
           <p className="jz-im-note">Outcomes from programs I designed or contributed to, across enterprise and education settings.</p>
+          {!reduced && <button type="button" className="jz-im-toggle" onClick={() => setAnimate(value => !value)}>{animate ? "Pause number animation" : "Resume number animation"}</button>}
         </div>
         <div className="jz-im-lead jz-rise">
           <p className="jz-label">{lead.cat}</p>
-          <p className="jz-im-fig"><CountUp to={lead.to} run={inView} suffix={lead.suffix} srSuffix={lead.srSuffix} /></p>
+          <p className="jz-im-fig"><CountUp to={lead.to} run={run} suffix={lead.suffix} srSuffix={lead.srSuffix} /></p>
           <p className="jz-im-label">{lead.label}</p>
           <p className="jz-im-src">{lead.src}</p>
         </div>
@@ -381,7 +356,7 @@ function ImpactEditorial() {
               <p className="jz-label">{m.cat}</p>
               {m.text
                 ? <p className="jz-im-fig jz-im-fig--text">{m.text}</p>
-                : <p className="jz-im-fig"><CountUp to={m.to} run={inView} suffix={m.suffix} srSuffix={m.srSuffix} /></p>}
+                : <p className="jz-im-fig"><CountUp to={m.to} run={run} suffix={m.suffix} srSuffix={m.srSuffix} /></p>}
               <p className="jz-im-label">{m.label}</p>
               {m.src ? <p className="jz-im-src">{m.src}</p> : null}
             </div>
