@@ -33,14 +33,10 @@ function CaseStudyDraftedByAI({ onBack, onOpenProject, standalone }) {
       "accent": "cyan"
     }
   ],
-  "summaryHeading": "Start with the person, then design the learning.",
+  "summaryHeading": "A readiness strategy tied to the work.",
   "summary": [
-    "I started with the human consequence of an AI-assisted mistake: a customer needs practical help and reassurance. That gave the experience a purpose beyond explaining a feature.",
-    "My design question was how to help an Expert bring product knowledge and empathy into the same conversation. I used a realistic situation to connect the instruction to a decision someone might actually face."
-  ],
-  "challengeHeading": "Correct information is only part of a helpful conversation.",
-  "challenge": [
-    "I wanted the experience to make room for both problem-solving and the way a customer feels. That tension guided the story, the interaction, and the feedback."
+    "I framed the business goal around resolving AI-invoicing questions and helping customers keep using the feature with confidence. That meant designing for Expert judgment and customer communication together.",
+    "I used the customer problem to determine what belonged in practice, what needed support during a call, and what would need reinforcement after launch. The working sample demonstrates selected parts of that strategy."
   ],
   "roleHeading": "Learning design, visual direction, and prototyping.",
   "roles": [
@@ -57,19 +53,22 @@ function CaseStudyDraftedByAI({ onBack, onOpenProject, standalone }) {
       "detail": "I brought the story and interface together in Figma Make to make the learning approach tangible."
     }
   ],
-  "decisionsHeading": "The decisions behind the experience.",
+  "decisionsHeading": "The strategic choices behind the design.",
   "decisions": [
     {
-      "question": "Why lead with a customer story?",
-      "rationale": "A human situation gives the instruction a purpose. It helps the learner understand why the next decision matters."
+      "question": "Protect operational capacity.",
+      "constraint": "Experts learn between customer contacts, with limited time away from their queues.",
+      "rationale": "I chose short, modular learning and support available during the work, so every format had a distinct purpose."
     },
     {
-      "question": "Why make it interactive?",
-      "rationale": "A choice reveals how someone is thinking. I wanted learners to apply judgment, rather than only watch an explanation."
+      "question": "Build capability beyond launch.",
+      "constraint": "A feature demonstration alone cannot establish consistent behavior on a customer call.",
+      "rationale": "I connected demonstration, realistic practice, performance support, and reinforcement. I treated product correctness and customer trust as separate dimensions of readiness."
     },
     {
-      "question": "Why use a cinematic opening?",
-      "rationale": "The opening establishes context and tone quickly. Every visual choice needed to support that learning purpose."
+      "question": "Design for the next feature.",
+      "constraint": "A custom course for every release would repeat design and production effort.",
+      "rationale": "I separated reusable learning structures from feature-specific content. The intent was to make future updates easier without compromising the customer context."
     }
   ],
   "aiToolsHeading": "AI-assisted production, human-owned decisions.",
@@ -85,21 +84,6 @@ function CaseStudyDraftedByAI({ onBack, onOpenProject, standalone }) {
     {
       "tool": "Figma Make",
       "detail": "Helped turn the design into a clickable sample. Interface concepts are for training and do not represent verified internal Intuit applications."
-    }
-  ],
-  "outcomesHeading": "What this sample demonstrates.",
-  "outcomes": [
-    {
-      "label": "Design thinking",
-      "detail": "Connecting a customer problem to a clear learning purpose."
-    },
-    {
-      "label": "Creative execution",
-      "detail": "Bringing narrative, visual direction, and interaction into one coherent experience."
-    },
-    {
-      "label": "Working prototype",
-      "detail": "A selected demonstration of the approach, rather than a published learning program."
     }
   ],
   "outcomesNote": "Independent candidate work sample with fictional customer data and AI-generated imagery. No rollout, learner-performance, adoption, or business outcomes are claimed.",
@@ -148,7 +132,88 @@ function CaseStudyDraftedByAI({ onBack, onOpenProject, standalone }) {
       }
     ],
     "caption": "The review feeds back into the story, visuals, and interaction. This map shows my design approach; product accuracy remains subject to SME validation."
-  }
+  },
+  "strategy": [
+    {
+      "label": "Business need",
+      "title": "Resolve the issue. Preserve confidence.",
+      "detail": "Support customers through an AI-assisted mistake without defaulting to abandoning the feature."
+    },
+    {
+      "label": "Learning response",
+      "title": "Practice judgment in context.",
+      "detail": "Connect product accuracy, customer communication, and support at the moment of need."
+    },
+    {
+      "label": "Success to evaluate",
+      "title": "Look beyond completion.",
+      "detail": "Examine demonstrated skill, workplace behavior, and the quality of customer resolution."
+    }
+  ],
+  "governance": {
+    "heading": "How I would coordinate delivery.",
+    "intro": "The storyboard proposes responsibilities and review points across product, readiness, and quality for a production rollout. SME sign-off, QA, and pilot review remain pending.",
+    "rows": [
+      {
+        "role": "Product SME",
+        "contribution": "Validate product behavior, terminology, and escalation boundaries.",
+        "gate": "Accuracy review"
+      },
+      {
+        "role": "Readiness lead",
+        "contribution": "Confirm audience needs, learning priorities, and delivery fit.",
+        "gate": "Design alignment"
+      },
+      {
+        "role": "QA and pilot Experts",
+        "contribution": "Check usability, accessibility, technical delivery, and clarity in realistic use.",
+        "gate": "Pilot and quality review"
+      },
+      {
+        "role": "Facilitators and team leads",
+        "contribution": "Support the shared launch experience, coaching, and observation during the work.",
+        "gate": "Launch and transfer"
+      }
+    ]
+  },
+  "measurement": {
+    "heading": "How I would know the strategy is working.",
+    "intro": "Proposed evaluation pathway. Measures would be established before launch and interpreted against a baseline; no learner or business results are claimed for this work sample.",
+    "stages": [
+      {
+        "title": "Demonstrated skill",
+        "measure": "Practice and assessment evidence by learning objective.",
+        "decision": "Use gaps to refine practice and feedback."
+      },
+      {
+        "title": "Workplace behavior",
+        "measure": "QA observation of product explanations, customer coaching, and appropriate escalation.",
+        "decision": "Use patterns to target coaching and performance support."
+      },
+      {
+        "title": "Business signals",
+        "measure": "Repeat contacts, handling time, customer satisfaction, and avoidable transfers.",
+        "decision": "Review these together to prioritize improvements; faster handling alone would not establish success."
+      }
+    ]
+  },
+  "validation": {
+    "heading": "What I built. What I would validate next.",
+    "built": [
+      "Produced the cinematic cold open and a working interaction prototype.",
+      "Connected the customer situation, visual direction, interface, and feedback in a selected demonstration."
+    ],
+    "next": [
+      "Confirm product accuracy and open questions with the SME.",
+      "Complete accessibility and technical QA, then pilot with representative Experts.",
+      "Use pilot findings to revise the experience before launch and establish the evaluation baseline."
+    ]
+  },
+  "reflectionHeading": "The next investment should follow the evidence.",
+  "reflection": [
+    "The prototype makes the design approach tangible. It does not yet establish workplace transfer or business impact. My next priority would be to validate the product assumptions and observe how representative Experts use the experience.",
+    "Those findings would guide what to refine in practice, what belongs in performance support, and whether the reusable structure is ready for another feature. AI accelerated drafting and production; I retained ownership of the learning decisions and editorial review."
+  ]
 };
   return <CaseStudyShell config={config} onBack={onBack} onOpenProject={onOpenProject} standalone={standalone} />;
 }

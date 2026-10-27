@@ -321,6 +321,9 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
             <p className="jiz-cs-kicker">Executive summary</p>
             <h2 className="jiz-cs-h2" id={config.slug + '-summary'}>{config.summaryHeading || 'What this work accomplished.'}</h2>
             {config.summary.map((p, i) => <p className="jiz-cs-body" key={i}>{p}</p>)}
+            {has(config.strategy) && <ol className="jiz-lead-path" aria-label="Business and learning alignment">
+              {config.strategy.map((item) => <li key={item.label}><span className="jiz-lead-label">{item.label}</span><h3>{item.title}</h3><p>{item.detail}</p></li>)}
+            </ol>}
           </Chapter>
         )}
 
@@ -393,16 +396,24 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
           <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-decisions'}>
             <p className="jiz-cs-kicker">Strategic design decisions</p>
             <h2 className="jiz-cs-h2" id={config.slug + '-decisions'}>{config.decisionsHeading || 'The choices that shaped the outcome.'}</h2>
-            <div className="jiz-cs-decisions">
+            <div className={config.decisions.some(d => d.constraint) ? "jiz-lead-decisions" : "jiz-cs-decisions"}>
               {config.decisions.map((d) => (
                 <div className="jiz-cs-decision" key={d.question}>
                   <h3>{d.question}</h3>
-                  <p>{d.rationale}</p>
+                  {d.constraint ? <div><p className="jiz-lead-constraint">{d.constraint}</p><p>{d.rationale}</p></div> : <p>{d.rationale}</p>}
                 </div>
               ))}
             </div>
           </Chapter>
         )}
+
+        {config.governance && <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-governance'}>
+          <h2 className="jiz-cs-h2" id={config.slug + '-governance'}>{config.governance.heading}</h2>
+          <p className="jiz-cs-body">{config.governance.intro}</p>
+          <div className="jiz-lead-governance" role="list" aria-label="Proposed stakeholder contributions">
+            {config.governance.rows.map(row => <div role="listitem" className="jiz-lead-lane" key={row.role}><h3>{row.role}</h3><p>{row.contribution}</p><span className="jiz-lead-gate"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3 20 6v6c0 4-8 9-8 9s-8-5-8-9V6Z"/><path d="m8 12 3 3 5-6"/></svg>{row.gate}<small>Planned</small></span></div>)}
+          </div>
+        </Chapter>}
 
         {/* AI-assisted production */}
         {has(config.aiTools) && (
@@ -429,6 +440,23 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
             <div className="jiz-cs-chips">{config.deliverables.map((d) => <span className="jiz-cs-chip" key={d}>{d}</span>)}</div>
           </Chapter>
         )}
+
+        {config.measurement && <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-measurement'}>
+          <h2 className="jiz-cs-h2" id={config.slug + '-measurement'}>{config.measurement.heading}</h2>
+          <p className="jiz-cs-body">{config.measurement.intro}</p>
+          <ol className="jiz-lead-measures" aria-label="Proposed evaluation pathway">
+            {config.measurement.stages.map((stage, i) => <li key={stage.title}><span className="jiz-lead-measure-index" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span><h3>{stage.title}</h3><p>{stage.measure}</p><div className="jiz-lead-use"><span>Decision it informs</span><p>{stage.decision}</p></div></li>)}
+          </ol>
+        </Chapter>}
+
+        {config.validation && <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-validation'}>
+          <h2 className="jiz-cs-h2" id={config.slug + '-validation'}>{config.validation.heading}</h2>
+          <div className="jiz-lead-validation">
+            <div><span className="jiz-lead-status">Built</span><h3>A working demonstration</h3><ul>{config.validation.built.map(item => <li key={item}>{item}</li>)}</ul></div>
+            <div><span className="jiz-lead-status jiz-lead-status--pending">Pending validation</span><h3>The next release decisions</h3><ul>{config.validation.next.map(item => <li key={item}>{item}</li>)}</ul></div>
+          </div>
+          <p className="jiz-cs-body jiz-lead-note">{config.outcomesNote}</p>
+        </Chapter>}
 
         {/* 9 — Evidence available */}
         {has(config.outcomes) && (
