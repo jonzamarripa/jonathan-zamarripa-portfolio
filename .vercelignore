@@ -44,3 +44,13 @@ assets/imagery/hero-portrait-new.svg
 assets/logo/jiz-monogram.png
 assets/icons/linkedin-icon.png
 assets/favicon-white.svg
+
+# QA scripts, workflows, and reports are source-only; keep only qa-monitoring.js public.
+.github/
+tests/
+playwright.config.cjs
+lighthouserc.js
+playwright-report/
+test-results/
+.lighthouseci/
+.lighthouseci-reports/
