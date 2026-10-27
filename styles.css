@@ -34,3 +34,11 @@ a:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:3px
 .jiz-chapter{--chapter-accent-ink:var(--chapter-accent)}
 .jiz-chapter[data-surface="slate"]{--chapter-accent-ink:color-mix(in srgb,var(--chapter-accent) 85%,#fff)}
 .jiz-chapter[data-surface="mist"],.jiz-chapter[data-surface="paper"]{--chapter-accent-ink:color-mix(in srgb,var(--chapter-accent) 40%,#0B0D10)}
+
+/* Closing chapters share the architectural radius and Carbon gutter across rendering paths. */
+:is(.jiz-footer,footer.jr-foot){position:relative;isolation:isolate;overflow:hidden;width:calc(100% - 2 * var(--panel-gap));margin:var(--panel-gap);border-radius:var(--panel-r);background:var(--obsidian);color:var(--mist);box-shadow:0 0 0 var(--panel-gap) var(--panel-gutter-surface)}
+footer.jr-foot{padding:clamp(36px,4vw,56px) var(--chapter-pad-x);font-size:.875rem}
+footer.jr-foot p{margin-inline:auto}
+footer.jr-foot a{color:var(--accent-cyan);text-decoration-color:currentColor}
+footer.jr-foot a:hover{color:var(--signal-lime)}
+footer.jr-foot a:focus-visible{outline-color:var(--accent-cyan)}
