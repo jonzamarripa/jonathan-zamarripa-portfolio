@@ -8,7 +8,7 @@ module.exports = {
         'http://127.0.0.1:4173/',
         'http://127.0.0.1:4173/work/the-first-sentence/'
       ],
-      numberOfRuns: 1,
+      numberOfRuns: 3,
       settings: {
         chromeFlags: '--headless --no-sandbox'
       }
