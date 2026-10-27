@@ -153,3 +153,6 @@ body:has(.jiz-footer){display:flow-root;background:var(--portfolio-canvas)}
 .jiz-cs .jiz-lead-note{margin-top:28px;font-size:.8125rem}
 @media(max-width:800px){.jiz-lead-path{grid-template-columns:1fr;gap:24px}.jiz-lead-path h3{margin-top:10px}.jiz-lead-lane{grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:16px 24px}.jiz-lead-gate{grid-column:2}.jiz-lead-decisions .jiz-cs-decision{gap:24px}.jiz-lead-measures{grid-template-columns:1fr}.jiz-lead-measures>li,.jiz-lead-measures>li+li{padding:28px 0;border-left:0;border-bottom:1px solid var(--portfolio-line)}.jiz-lead-use{margin-top:20px}}
 @media(max-width:560px){.jiz-lead-lane,.jiz-lead-decisions .jiz-cs-decision,.jiz-lead-validation{grid-template-columns:1fr;gap:20px}.jiz-lead-gate{grid-column:1}.jiz-lead-validation{gap:32px}}
+
+/* Workflow step markers: brand color with readable dark numerals. */
+.jiz-workflow .jiz-workflow-number{background:var(--signal-lime);border-color:var(--signal-lime);color:var(--obsidian)}
