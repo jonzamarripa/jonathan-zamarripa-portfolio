@@ -100,7 +100,7 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
   const plain = (e) => !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0);
   const own = SITE && SITE.resolve(config.projectName);
   const here = own && SITE.route(own.view);
-  const hero = standalone && here && here.hero && has0(config.gallery) ? { src: '/' + here.hero, caption: config.heroCaption || config.gallery[0].caption } : null;
+  const hero = standalone && here && here.hero && (config.heroCaption || has0(config.gallery)) ? { src: '/' + here.hero, caption: config.heroCaption || config.gallery[0].caption } : null;
   const goContact = (e) => {
     if (standalone || !plain(e)) return;
     e.preventDefault();

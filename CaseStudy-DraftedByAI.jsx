@@ -2,11 +2,15 @@ function CaseStudyDraftedByAI({ onBack, onOpenProject, standalone }) {
   const { CaseStudyShell } = window.CaseStudyShellExports;
   const config = {
   "slug": "drafted-by-ai",
-  "scenario": { "url": "https://coach-line-18168657.figma.site/", "title": "Drafted by AI. Sent by You.", "poster": "./assets/imagery/drafted-by-ai/cold-open-poster.webp" },
+  "scenario": {
+    "url": "https://coach-line-18168657.figma.site/",
+    "title": "Drafted by AI. Sent by You.",
+    "poster": "./assets/imagery/drafted-by-ai/cold-open-poster.webp"
+  },
   "heroCaption": "AI-generated cold-open scene: a fictional business owner reviews her phone beside a pickup truck.",
   "projectName": "Drafted by AI. Sent by You.",
   "eyebrow": "Candidate work sample · Expert readiness",
-  "statement": "A blended learning design for QuickBooks Online AI invoicing: help support Experts coach the review, resolve the mistake, and rebuild customer trust. Created for an instructional design craft assessment; not a commissioned or deployed Intuit program.",
+  "statement": "An independent candidate work sample exploring how support Experts can help people use AI with confidence. I shaped the learning approach, directed the visual storytelling, and built an interactive prototype. Not a commissioned or deployed Intuit program.",
   "facts": [
     {
       "label": "Context",
@@ -29,142 +33,95 @@ function CaseStudyDraftedByAI({ onBack, onOpenProject, standalone }) {
       "accent": "cyan"
     }
   ],
-  "resources": [
-    {
-      "label": "Explore the clickable prototype",
-      "href": "https://coach-line-18168657.figma.site/"
-    },
-    {
-      "label": "Read the storyboard (PDF, 26 pages)",
-      "href": "/assets/documents/drafted-by-ai-storyboard.pdf"
-    }
-  ],
-  "summaryHeading": "AI drafts. People still need judgment.",
+  "summaryHeading": "Start with the person, then design the learning.",
   "summary": [
-    "The design starts with a customer consequence: Marisol, a small-business owner, photographs handwritten job notes and sends an invoice without catching an incorrect amount. The Expert must address both the invoice and her confidence in the feature.",
-    "The storyboard connects a live demo huddle, scenario-based practice, an unscaffolded Final Call, a one-page job aid, and two spaced follow-ups. The supplied prototype implements the cold open, slides 1, 6 and 7, and a Results screen. The full learning program remains a design proposal."
+    "I started with the human consequence of an AI-assisted mistake: a customer needs practical help and reassurance. That gave the experience a purpose beyond explaining a feature.",
+    "My design question was how to help an Expert bring product knowledge and empathy into the same conversation. I used a realistic situation to connect the instruction to a decision someone might actually face."
   ],
-  "challengeHeading": "Product accuracy and customer trust are different skills.",
+  "challengeHeading": "Correct information is only part of a helpful conversation.",
   "challenge": [
-    "The scenario asks Experts to explain the boundary between an AI draft and a customer decision, coach a four-point review, diagnose reminder settings, and recognize escalation boundaries. A technically correct answer can still leave the customer feeling dismissed."
+    "I wanted the experience to make room for both problem-solving and the way a customer feels. That tension guided the story, the interaction, and the feedback."
   ],
-  "objectives": [
-    "Explain the draft–review–send mental model in plain language.",
-    "Coach the review: Who, What, How much, When.",
-    "Diagnose the cause before selecting a fix.",
-    "Practice reminder timing and tone within the scenario.",
-    "Recognize escalation boundaries without making unsupported promises."
-  ],
-  "roleHeading": "From learning architecture to cinematic direction.",
+  "roleHeading": "Learning design, visual direction, and prototyping.",
   "roles": [
     {
       "area": "Learning design",
-      "detail": "Structured the business goal, observable behaviors, scenario decisions, scoring, feedback and remediation in the storyboard."
+      "detail": "I translated the customer problem into a focused learning direction and shaped the experience around decisions rather than a feature tour."
     },
     {
-      "area": "Creative production",
-      "detail": "Directed the 52-second AI-generated cold open using a shot list, character/style references and continuity rules."
+      "area": "Creative direction",
+      "detail": "I directed the AI-generated cold open and reviewed the imagery for tone, continuity, and its connection to the learning purpose."
     },
     {
-      "area": "Prototype",
-      "detail": "Built the documented interaction sample in Figma Make, including an Expert workspace concept, interface sound, glossary and resources."
+      "area": "Interactive build",
+      "detail": "I brought the story and interface together in Figma Make to make the learning approach tangible."
     }
   ],
-  "processHeading": "See it. Try it. Prove it. Keep it.",
+  "processHeading": "How I moved from a problem to a working sample.",
   "process": [
     {
-      "stage": "See it · planned 20-minute huddle",
-      "detail": "A shared first look, live demonstration, questions and a peer-scored teach-back."
+      "stage": "Frame the problem",
+      "detail": "I identified the human stakes and the behavior the experience needed to support before choosing the format."
     },
     {
-      "stage": "Try it · planned 18-minute simulation",
-      "detail": "Worked examples and scaffolded decisions on one realistic customer call, with Accuracy and Trust tracked separately."
+      "stage": "Shape the story",
+      "detail": "I developed the customer situation and dialogue to give the learning a clear context and a reason to care."
     },
     {
-      "stage": "Prove it · Final Call design",
-      "detail": "Remove coaching, introduce a new customer situation, and require at least 6 of 8 points with zero critical errors."
+      "stage": "Build the experience",
+      "detail": "I connected visual storytelling with interactive practice, using the prototype to make the design decisions visible."
     },
     {
-      "stage": "Keep it · transfer plan",
-      "detail": "A mid-call job aid, retrieval lessons on days 3 and 10, and a proposed on-the-job observation checklist."
+      "stage": "Review the details",
+      "detail": "I reviewed language, visual continuity, and the relationship between the interface and the learning intent. Product accuracy remains subject to SME validation."
     }
   ],
   "decisionsHeading": "The decisions behind the experience.",
   "decisions": [
     {
-      "question": "Why open with the mistake?",
-      "rationale": "The cold open establishes customer stakes before feature instruction. The practice then answers the problem learners have already seen."
+      "question": "Why lead with a customer story?",
+      "rationale": "A human situation gives the instruction a purpose. It helps the learner understand why the next decision matters."
     },
     {
-      "question": "Why two meters?",
-      "rationale": "Accuracy measures product correctness; Trust measures how the conversation lands. Consequences arrive in the customer’s voice before the coaching note."
+      "question": "Why make it interactive?",
+      "rationale": "A choice reveals how someone is thinking. I wanted learners to apply judgment, rather than only watch an explanation."
     },
     {
-      "question": "Why separate practice from proof?",
-      "rationale": "The Final Call removes scaffolding and uses a different customer situation, so the assessment tests transfer rather than recall of Marisol’s answers."
+      "question": "Why use a cinematic opening?",
+      "rationale": "The opening establishes context and tone quickly. Every visual choice needed to support that learning purpose."
     }
   ],
   "aiToolsHeading": "AI-assisted production, human-owned decisions.",
   "aiTools": [
     {
       "tool": "Claude",
-      "detail": "Used for source-grounded script and dialogue drafting, with the designer editing for voice and accuracy."
+      "detail": "Supported script and dialogue drafts. I owned the framing, voice, and final editorial decisions."
     },
     {
       "tool": "Google Gemini Omni",
-      "detail": "Used for the shot-by-shot cold open, directed through visual references and continuity rules."
+      "detail": "Supported visual production under my creative direction and review."
     },
     {
       "tool": "Figma Make",
-      "detail": "Used to build the clickable interaction sample. Concept screens are for training and do not represent verified internal Intuit applications."
+      "detail": "Helped turn the design into a clickable sample. Interface concepts are for training and do not represent verified internal Intuit applications."
     }
   ],
-  "deliverablesHeading": "Produced artifacts and documented build plans.",
-  "deliverables": [
-    "26-page storyboard",
-    "52-second cold open within the prototype",
-    "Clickable Figma sample",
-    "Branching and scoring specification",
-    "Facilitator run-of-show",
-    "Job-aid content",
-    "Spaced reinforcement plan",
-    "Evaluation and accessibility specifications"
-  ],
-  "outcomesHeading": "What is available to review.",
+  "outcomesHeading": "What this sample demonstrates.",
   "outcomes": [
     {
-      "label": "Working sample",
-      "detail": "The prototype exposes the cold open and selected interaction screens; it is not the complete proposed Storyline course."
+      "label": "Design thinking",
+      "detail": "Connecting a customer problem to a clear learning purpose."
     },
     {
-      "label": "Production evidence",
-      "detail": "The supplied scene references and note frames document the visual direction and the source artifact used in the error-review scenario."
+      "label": "Creative execution",
+      "detail": "Bringing narrative, visual direction, and interaction into one coherent experience."
     },
     {
-      "label": "Evaluation plan",
-      "detail": "The storyboard proposes learning checks and later workplace measures. These are planned measures, not observed results."
+      "label": "Working prototype",
+      "detail": "A selected demonstration of the approach, rather than a published learning program."
     }
   ],
-  "outcomesNote": "Candidate work sample with fictional customer data and AI-generated imagery. No rollout, learner performance, adoption, or business outcomes are claimed. Product behavior and availability require SME validation before use in a live training program.",
-  "galleryHeading": "From customer consequence to Expert responsibility.",
-  "gallery": [
-    {
-      "src": "./assets/imagery/drafted-by-ai/note-frame-wide.webp",
-      "caption": "Source artifact in the fictional scenario: handwritten job notes for the invoice review."
-    },
-    {
-      "src": "./assets/imagery/drafted-by-ai/ref-expert-workspace.webp",
-      "caption": "Expert workspace production reference: a training concept, not a verified internal Intuit application."
-    },
-    {
-      "src": "./assets/imagery/drafted-by-ai/ref-closing-scene.webp",
-      "caption": "Closing-scene production reference: the transition from watching to taking the call."
-    },
-    {
-      "src": "./assets/imagery/drafted-by-ai/note-frame.webp",
-      "caption": "Detail view of the handwritten note used in the scenario."
-    }
-  ],
+  "outcomesNote": "Independent candidate work sample with fictional customer data and AI-generated imagery. No rollout, learner-performance, adoption, or business outcomes are claimed.",
   "related": [
     {
       "direction": "Related experience",
