@@ -18,6 +18,7 @@ function PackageCarousel({ items }) {
     <div>
       <div
         tabIndex={0}
+        className="jiz-cs-package"
         role="region"
         aria-roledescription="carousel"
         aria-label="Portfolio package assets"
@@ -101,6 +102,9 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
     return () => target.removeEventListener('scroll', onScroll);
   }, []);
 
+  const Chapter = window.JIZChapter.Chapter;
+  let chapterIndex = 0;
+  const nextSurface = () => ['obsidian', 'slate', 'obsidian', 'mist'][chapterIndex++ % 4];
   const has = (v) => Array.isArray(v) ? v.length > 0 : Boolean(v);
   const incomplete = !has(config.summary) || !has(config.process);
 
@@ -204,9 +208,9 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
         </nav>
 
         {/* 1 — Hero */}
-        <header className="jiz-cs-section">
+        <Chapter as="header" surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-title'}>
           <p className="jiz-cs-eyebrow">{config.eyebrow || 'Case Study'}</p>
-          <h1 className="jiz-cs-title">{config.projectName}</h1>
+          <h1 id={config.slug + '-title'} className="jiz-cs-title">{config.projectName}</h1>
           <p className="jiz-cs-lede">{config.statement}</p>
           <dl className="jiz-cs-facts">
             {config.facts.map((f) => (
@@ -221,11 +225,11 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
               <img src={hero.src} alt={config.projectName + ' — ' + hero.caption.replace(/^\d+\s+/, '')} width="1600" height="900" fetchpriority="high" decoding="async" />
             </figure>
           )}
-        </header>
+        </Chapter>
 
         {/* Project snapshot — documented facts only */}
         {has(config.snapshot) && (
-          <section className="jiz-cs-section" aria-label="Project snapshot">
+          <Chapter surface={nextSurface()} className="jiz-cs-section" label="Project snapshot">
             <p className="jiz-cs-kicker">Project snapshot</p>
             <div className="jiz-cs-snapshot">
               {config.snapshot.map((s) => (
@@ -235,12 +239,12 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
                 </div>
               ))}
             </div>
-          </section>
+          </Chapter>
         )}
 
         {/* Visual asset gallery + production video — unified carousel, matches Operation: Legacy Unlocked */}
         {(has(config.gallery) || has(config.videos)) && (
-          <section className="jiz-cs-section" aria-labelledby={config.slug + '-gallery'}>
+          <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-gallery'}>
             <p className="jiz-cs-kicker">Portfolio package</p>
             <h2 className="jiz-cs-h2" id={config.slug + '-gallery'}>{config.galleryHeading || config.videosHeading || 'Full asset package.'}</h2>
             <PackageCarousel
@@ -249,44 +253,44 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
                 ...(config.videos || []).map((v) => ({ type: 'video', src: v.src, caption: v.caption || '' })),
               ]}
             />
-          </section>
+          </Chapter>
         )}
 
         {/* 2 — Executive summary */}
         {has(config.summary) && (
-          <section className="jiz-cs-section" aria-labelledby={config.slug + '-summary'}>
+          <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-summary'}>
             <p className="jiz-cs-kicker">Executive summary</p>
             <h2 className="jiz-cs-h2" id={config.slug + '-summary'}>{config.summaryHeading || 'What this work accomplished.'}</h2>
             {config.summary.map((p, i) => <p className="jiz-cs-body" key={i}>{p}</p>)}
-          </section>
+          </Chapter>
         )}
 
         {/* 3 — Business challenge */}
         {has(config.challenge) && (
-          <section className="jiz-cs-section" aria-labelledby={config.slug + '-challenge'}>
+          <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-challenge'}>
             <p className="jiz-cs-kicker">Business challenge</p>
             <h2 className="jiz-cs-h2" id={config.slug + '-challenge'}>{config.challengeHeading || 'Why this work deserved investment.'}</h2>
             <div className="jiz-cs-split">
               <div>{config.challenge.map((p, i) => <p className="jiz-cs-body" key={i}>{p}</p>)}</div>
             </div>
-          </section>
+          </Chapter>
         )}
 
         {/* 4 — Opportunity */}
         {has(config.objectives) && (
-          <section className="jiz-cs-section" aria-labelledby={config.slug + '-opportunity'}>
+          <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-opportunity'}>
             <p className="jiz-cs-kicker">Opportunity</p>
             <h2 className="jiz-cs-h2" id={config.slug + '-opportunity'}>{config.opportunityHeading || 'Why this was worth solving.'}</h2>
             <div className="jiz-cs-panel">
               <h3>What became possible</h3>
               <ul className="jiz-cs-list">{config.objectives.map((o) => <li key={o}>{o}</li>)}</ul>
             </div>
-          </section>
+          </Chapter>
         )}
 
         {/* 5 — My role */}
         {has(config.roles) && (
-          <section className="jiz-cs-section" aria-labelledby={config.slug + '-role'}>
+          <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-role'}>
             <p className="jiz-cs-kicker">My role</p>
             <h2 className="jiz-cs-h2" id={config.slug + '-role'}>{config.roleHeading || 'Where I owned the outcome.'}</h2>
             <dl className="jiz-cs-roles">
@@ -297,12 +301,12 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
                 </div>
               ))}
             </dl>
-          </section>
+          </Chapter>
         )}
 
         {/* 6 — Process */}
         {has(config.process) && (
-          <section className="jiz-cs-section" aria-labelledby={config.slug + '-process'}>
+          <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-process'}>
             <p className="jiz-cs-kicker">{config.processKicker || 'Process'}</p>
             <h2 className="jiz-cs-h2" id={config.slug + '-process'}>{config.processHeading || 'How the work took shape.'}</h2>
             <div className="jiz-cs-steps">
@@ -316,12 +320,12 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
                 </div>
               ))}
             </div>
-          </section>
+          </Chapter>
         )}
 
         {/* 6 — Strategic design decisions */}
         {has(config.decisions) && (
-          <section className="jiz-cs-section" aria-labelledby={config.slug + '-decisions'}>
+          <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-decisions'}>
             <p className="jiz-cs-kicker">Strategic design decisions</p>
             <h2 className="jiz-cs-h2" id={config.slug + '-decisions'}>{config.decisionsHeading || 'The choices that shaped the outcome.'}</h2>
             <div className="jiz-cs-decisions">
@@ -332,12 +336,12 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
                 </div>
               ))}
             </div>
-          </section>
+          </Chapter>
         )}
 
         {/* AI-assisted production */}
         {has(config.aiTools) && (
-          <section className="jiz-cs-section" aria-labelledby={config.slug + '-ai'}>
+          <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-ai'}>
             <p className="jiz-cs-kicker">AI-assisted production</p>
             <h2 className="jiz-cs-h2" id={config.slug + '-ai'}>{config.aiToolsHeading || 'Where AI accelerated the work — and where it didn\'t.'}</h2>
             {config.aiToolsIntro ? <p className="jiz-cs-body" style={{ maxWidth: '68ch', marginBottom: 24 }}>{config.aiToolsIntro}</p> : null}
@@ -349,21 +353,21 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
                 </div>
               ))}
             </div>
-          </section>
+          </Chapter>
         )}
 
         {/* 8 — Deliverables */}
         {has(config.deliverables) && (
-          <section className="jiz-cs-section" aria-labelledby={config.slug + '-deliverables'}>
+          <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-deliverables'}>
             <p className="jiz-cs-kicker">Deliverables</p>
             <h2 className="jiz-cs-h2" id={config.slug + '-deliverables'}>{config.deliverablesHeading || 'What shipped.'}</h2>
             <div className="jiz-cs-chips">{config.deliverables.map((d) => <span className="jiz-cs-chip" key={d}>{d}</span>)}</div>
-          </section>
+          </Chapter>
         )}
 
         {/* 9 — Evidence available */}
         {has(config.outcomes) && (
-          <section className="jiz-cs-section" aria-labelledby={config.slug + '-outcomes'}>
+          <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-outcomes'}>
             <p className="jiz-cs-kicker">Evidence available</p>
             <h2 className="jiz-cs-h2" id={config.slug + '-outcomes'}>{config.outcomesHeading || 'What this work demonstrates.'}</h2>
             <div className="jiz-cs-outcomes">
@@ -375,12 +379,12 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
               ))}
             </div>
             {config.outcomesNote ? <p className="jiz-cs-body" style={{ marginTop: 18, fontSize: '.8125rem', color: 'var(--color-text-muted)' }}>{config.outcomesNote}</p> : null}
-          </section>
+          </Chapter>
         )}
 
         {/* 10 — Reflection */}
         {has(config.reflection) && (
-          <section className="jiz-cs-section" aria-labelledby={config.slug + '-reflection'}>
+          <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-reflection'}>
             <div className="jiz-cs-reflect">
               <p className="jiz-cs-kicker">Reflection</p>
               <h2 className="jiz-cs-h2" id={config.slug + '-reflection'}>{config.reflectionHeading || 'What this taught me.'}</h2>
@@ -392,22 +396,22 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
                 </div>
               )}
             </div>
-          </section>
+          </Chapter>
         )}
 
         {/* Honest placeholder when documentation is still in progress */}
         {incomplete && (
-          <section className="jiz-cs-section">
+          <Chapter surface={nextSurface()} className="jiz-cs-section">
             <div className="jiz-cs-notice">
               <h2>Documentation in progress</h2>
               <p>This case study is currently being expanded with additional process documentation, visuals, and project outcomes.</p>
             </div>
-          </section>
+          </Chapter>
         )}
 
         {/* 11 — Related projects */}
         {has(config.related) && (
-          <nav className="jiz-cs-next" aria-label="Related projects">
+          <Chapter as="nav" surface={nextSurface()} className="jiz-cs-next" label="Related projects">
             {config.related.map((r) => (
               <a key={r.route} href={pathFor(r.route)} onClick={(e) => { if (standalone || !plain(e)) return; e.preventDefault(); onOpenProject && onOpenProject(r.route); }}>
                 <span className="jiz-cs-next-k">{r.direction}</span>
@@ -422,7 +426,7 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
               <span className="jiz-cs-next-k">Contact</span>
               <span className="jiz-cs-next-v">Start a conversation</span>
             </a>
-          </nav>
+          </Chapter>
         )}
       </div>
     </article>
