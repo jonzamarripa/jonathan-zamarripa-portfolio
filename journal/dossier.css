@@ -99,8 +99,7 @@ main:has(.dx .jiz-chapter){width:auto;margin:0}
 .dx:has(.jiz-chapter) > .jr-back{width:min(var(--chapter-max),calc(100% - 2 * var(--chapter-pad-x)));margin:clamp(24px,3vw,40px) auto var(--panel-gap)}
 .dx-preview:has(+ .dx .jiz-chapter){margin-bottom:var(--panel-gap)}
 /* Mid-tone surfaces: lift secondary text so it stays ≥4.5:1 */
-.dx .jiz-chapter:is([data-surface="slate"],[data-surface="navy"]){--jr-soft:rgba(232,227,217,.88);--jr-mute:rgba(232,227,217,.78)}
-.dx .jiz-chapter[data-surface="navy"]{--jr-teal:color-mix(in srgb,var(--accent-journal-teal) 75%,#fff)}
+.dx .jiz-chapter[data-surface="slate"]{--jr-soft:rgba(232,227,217,.88);--jr-mute:rgba(232,227,217,.78)}
 /* Light surfaces: dark ink, deepened amber/teal, same hierarchy */
 .dx .jiz-chapter:is([data-surface="paper"],[data-surface="mist"]){--jr-ink:var(--obsidian);--jr-soft:rgba(11,13,16,.8);--jr-mute:rgba(11,13,16,.68);--jr-line:rgba(11,13,16,.16);--jr-amber:color-mix(in srgb,var(--accent-journal-amber) 45%,var(--obsidian));--jr-teal:color-mix(in srgb,var(--accent-journal-teal) 45%,var(--obsidian))}
 .dx .jiz-chapter:is([data-surface="paper"],[data-surface="mist"]) :is(p,li){color:var(--jr-ink)}

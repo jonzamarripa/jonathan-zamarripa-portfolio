@@ -106,7 +106,7 @@ const COMPONENTS = {
 };
 // Dossier articles use the shared chapter architecture (styles.css .jiz-chapter): each chapter is an inset
 // rounded panel, with neighbouring surfaces always different. The masthead is obsidian.
-const DX_SURFACES = ['slate', 'paper', 'navy', 'mist', 'obsidian', 'slate'];
+const DX_SURFACES = ['slate', 'paper', 'obsidian', 'mist', 'obsidian', 'slate'];
 const dxChapter = (i) => CURRENT && CURRENT.dossier ? ` jiz-chapter" data-surface="${DX_SURFACES[i % DX_SURFACES.length]}" data-accent="journal-amber` : '';
 function chapters(src) {
   // `@chapter 01 Title` lines open numbered chapters; returns HTML + table of contents

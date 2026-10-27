@@ -21,7 +21,6 @@ a:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:3px
 .jiz-chapter[data-width="full"] .jiz-chapter__inner{width:calc(100% - 2 * var(--chapter-pad-x))}
 .jiz-chapter[data-surface="carbon"]{--chapter-surface:var(--surface-carbon)}
 .jiz-chapter[data-surface="slate"]{--chapter-surface:var(--surface-slate)}
-.jiz-chapter[data-surface="navy"]{--chapter-surface:var(--surface-navy)}
 .jiz-chapter[data-surface="mist"],.jiz-chapter[data-surface="paper"]{--chapter-ink:var(--obsidian);--chapter-ink-soft:rgba(11,13,16,.78);--chapter-ink-mute:rgba(11,13,16,.64);--chapter-line:rgba(11,13,16,.14)}
 .jiz-chapter[data-surface="mist"]{--chapter-surface:var(--surface-mist)}
 .jiz-chapter[data-surface="paper"]{--chapter-surface:var(--surface-paper)}
@@ -34,5 +33,4 @@ a:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:3px
 /* --chapter-accent-ink: the accent adjusted to stay ≥4.5:1 as text on the current surface (works for custom accents too). */
 .jiz-chapter{--chapter-accent-ink:var(--chapter-accent)}
 .jiz-chapter[data-surface="slate"]{--chapter-accent-ink:color-mix(in srgb,var(--chapter-accent) 85%,#fff)}
-.jiz-chapter[data-surface="navy"]{--chapter-accent-ink:color-mix(in srgb,var(--chapter-accent) 80%,#fff)}
 .jiz-chapter[data-surface="mist"],.jiz-chapter[data-surface="paper"]{--chapter-accent-ink:color-mix(in srgb,var(--chapter-accent) 40%,#0B0D10)}

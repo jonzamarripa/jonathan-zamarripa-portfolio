@@ -3,12 +3,12 @@
 // styles.css (.jiz-chapter), so static pages such as the journal can use the same classes without React.
 //
 // <Chapter surface="obsidian" accent="first-sentence" width="default" labelledBy="h-id">…</Chapter>
-//   surface: obsidian | carbon | slate | navy | mist | paper      (default obsidian)
+//   surface: obsidian | carbon | slate | mist | paper      (default obsidian)
 //   accent:  portfolio | journal-amber | journal-teal | first-sentence, or any CSS colour (default portfolio)
 //   width:   default (--chapter-max) | wide (--chapter-max-wide) | full (no inner width limit)
 //   as:      element to render (default 'section'); id, className, labelledBy, label pass through.
 // Inside, use var(--chapter-accent) for fills and var(--chapter-accent-ink) for accent text, var(--chapter-ink), var(--chapter-ink-soft), var(--chapter-ink-mute), var(--chapter-line).
-const CHAPTER_SURFACES = ['obsidian', 'carbon', 'slate', 'navy', 'mist', 'paper'];
+const CHAPTER_SURFACES = ['obsidian', 'carbon', 'slate', 'mist', 'paper'];
 const CHAPTER_ACCENTS = ['portfolio', 'journal-amber', 'journal-teal', 'first-sentence'];
 
 function Chapter({ as = 'section', surface = 'obsidian', accent = 'portfolio', width = 'default', id, className, labelledBy, label, children }) {

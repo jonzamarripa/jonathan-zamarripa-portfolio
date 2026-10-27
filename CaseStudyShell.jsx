@@ -155,8 +155,8 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
         .jiz-cs-chips{display:flex;flex-wrap:wrap;gap:8px}
         .jiz-cs-chip{padding:7px 14px;border:1px solid rgba(255,255,255,.11);border-radius:var(--radius-pill);color:var(--color-text-secondary);font:var(--text-caption);font-size:.8125rem}
         .jiz-cs-outcomes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(14px,1.8vw,20px)}
-        .jiz-cs-outcome{position:relative;padding:clamp(20px,2.2vw,26px);border:1px solid rgba(100,225,255,.16);border-radius:var(--radius-md);background:radial-gradient(circle at 88% 8%,rgba(100,225,255,.09),transparent 44%),rgba(255,255,255,.02);transition:transform 220ms var(--ease-standard),border-color 220ms var(--ease-standard)}
-        .jiz-cs-outcome:hover{transform:translateY(-2px);border-color:rgba(100,225,255,.32)}
+        .jiz-cs-outcome{position:relative;padding:clamp(20px,2.2vw,26px);border:1px solid rgba(var(--accent-cyan-rgb),.16);border-radius:var(--radius-md);background:radial-gradient(circle at 88% 8%,rgba(var(--accent-cyan-rgb),.09),transparent 44%),rgba(255,255,255,.02);transition:transform 220ms var(--ease-standard),border-color 220ms var(--ease-standard)}
+        .jiz-cs-outcome:hover{transform:translateY(-2px);border-color:rgba(var(--accent-cyan-rgb),.32)}
         .jiz-cs-outcome-k{display:block;margin-bottom:8px;color:var(--accent-cyan);font:var(--text-hud);font-size:.625rem;letter-spacing:.1em;text-transform:uppercase}
         .jiz-cs-outcome p{margin:0;color:var(--color-text-secondary);font:var(--text-body);font-size:.9375rem;line-height:1.62}
         .jiz-cs-reflect{padding:clamp(26px,3.2vw,40px);border:1px solid rgba(198,242,58,.2);border-radius:var(--radius-lg);background:radial-gradient(circle at 12% 0%,rgba(198,242,58,.055),transparent 46%),rgba(255,255,255,.018)}

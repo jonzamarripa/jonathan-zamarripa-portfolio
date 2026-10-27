@@ -6,9 +6,9 @@
 --white:#F7F8FA;
 --signal-lime:#C6F23A;
 --electric-moss:#A5D62E;
---accent-cyan:#64E1FF;
+--accent-cyan:#60D9FD;
+--accent-cyan-rgb:96,217,253;
 --black-pure:#000000;
---deep-navy:#1F4556;
 --warm-paper:#E8E3D9;
 
 /* Chapter surfaces: panels sit on the Carbon gutter; never place two near-identical darks side by side. */
@@ -16,7 +16,6 @@
 --surface-obsidian:var(--obsidian);
 --surface-carbon:var(--carbon);
 --surface-slate:var(--slate);
---surface-navy:var(--deep-navy);
 --surface-mist:var(--mist);
 --surface-paper:var(--warm-paper);
 
@@ -45,7 +44,7 @@
 --color-info:var(--accent-cyan);
 
 --glow-lime: 0 0 32px rgba(198,242,58,0.28);
---glow-cyan: 0 0 32px rgba(100,225,255,0.24);
+--glow-cyan: 0 0 32px rgba(var(--accent-cyan-rgb),0.24);
 --selection-bg:var(--signal-lime);
 --selection-fg:var(--obsidian);
 
@@ -56,6 +55,6 @@
 --muted:var(--color-text-muted);
 --panel:var(--carbon);
 --line:var(--color-border-default);
---teal-haze:rgba(100,225,255,0.16);
+--teal-haze:rgba(var(--accent-cyan-rgb),0.16);
 --gold-haze:rgba(198,242,58,0.14);
 }
