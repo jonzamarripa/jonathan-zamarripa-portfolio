@@ -86,3 +86,8 @@ Approved PR #10 visual-fidelity corrections completed for branch preview. No mer
 ## Featured Work title hierarchy — 2026-10-27
 - Jonathan approved stronger card-title hierarchy and replacing the orange homepage marker with Signal Lime. HomepageP1.jsx uses slightly larger flagship/secondary titles, weight 700, an extra 8px below metadata, and the existing muted-copy token for descriptions. Homepage badge and existing media accent now use Lime; First Sentence case-study Orange, copy, assets/crops, five-tile hierarchy and interactions unchanged. No new shadow or effects.
 - Build passed with existing SSR warning. Rendered local checks at 375/768/1440: all five titles fit, no page overflow, Lime marker confirmed. Before/after captures in this chat outputs/featured-titles/. Production release authorized by the ongoing task.
+
+
+## Featured Work tile alignment — 2026-10-27
+- Jonathan approved aligning the flagship with the full two-row supporting group. HomepageP1.jsx stretches the desktop grid, gives supporting rows equal fractions, reuses one gap for both grids, and lets metadata grow so CTAs anchor at the bottom. Media cannot shrink: original 16:19 flagship and 16:10 supporting frames/crops retained. Mobile rows reset to natural heights, preserving the existing stack.
+- Build passed with existing SSR warning. Browser checks at 375/768/1024/1280/1440/1920 show no page overflow; at desktop flagship/supporting top and bottom deltas are exactly zero, all four secondary heights equal, CTA baselines aligned by row. Tablet rows remain equal; mobile stack preserved. Evidence outputs/featured-alignment/. Production release authorized under ongoing task.
