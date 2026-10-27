@@ -7,7 +7,7 @@ function CaseStudyDraftedByAI({ onBack, onOpenProject, standalone }) {
     "title": "Drafted by AI. Sent by You.",
     "poster": "./assets/imagery/drafted-by-ai/cold-open-poster.webp"
   },
-  "heroCaption": "AI-generated cold-open scene: a fictional business owner reviews her phone beside a pickup truck.",
+  "heroCaption": "AI-generated scene: a fictional business owner checks her phone while seated on a pickup truck tailgate at sunset.",
   "projectName": "Drafted by AI. Sent by You.",
   "eyebrow": "Candidate work sample · Expert readiness",
   "statement": "An independent candidate work sample exploring how support Experts can help people use AI with confidence. I shaped the learning approach, directed the visual storytelling, and built an interactive prototype. Not a commissioned or deployed Intuit program.",
