@@ -1979,30 +1979,26 @@ function FinalMoment({ onNavigate, standalone = false }) {
   return (
     <footer ref={ref} className="jiz-footer" data-footer="ready">
       <style>{`
-        .jiz-footer{position:relative;isolation:isolate;overflow:hidden;padding:clamp(64px,7vw,104px) var(--container-pad) clamp(36px,4vw,56px);background:var(--obsidian);color:var(--mist)}
-        .jiz-footer::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.16;background-image:linear-gradient(rgba(217,221,227,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(217,221,227,.12) 1px,transparent 1px);background-size:72px 72px;-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000,transparent 78%);mask-image:radial-gradient(ellipse at 50% 40%,#000,transparent 78%)}
-        .jiz-footer-inner{max-width:1360px;position:relative;z-index:1;width:min(100%,1240px);margin-inline:auto;text-align:center}
-        .jiz-footer-mark{display:grid;place-items:center;margin:0 auto clamp(24px,3vw,34px)}
-        .jiz-footer-logo{width:96px;height:96px;object-fit:contain;filter:none}
-
-        .jiz-footer-name{margin:0 0 8px;color:var(--white);font:var(--text-h3);font-size:clamp(1.55rem,2.6vw,2.35rem);letter-spacing:-.035em}
-        .jiz-footer-disciplines{margin:0 0 clamp(30px,3.4vw,44px);color:rgba(217,221,227,.8);font:var(--text-body);font-size:clamp(.9rem,1.1vw,1.02rem);letter-spacing:.01em}
-
-
-
-        .jiz-footer-top{min-height:48px;padding:0 22px;border:1px solid var(--signal-lime);border-radius:var(--radius-pill);background:var(--signal-lime);color:var(--obsidian);font:var(--text-button);cursor:pointer;transition:all var(--motion-fast) var(--ease-standard)}
-        .jiz-footer-top:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(var(--accent-cyan-rgb),.4)}
-        .jiz-footer-rule{height:1px;margin:clamp(32px,3.6vw,46px) auto 0;background:linear-gradient(90deg,transparent,rgba(217,221,227,.18),transparent)}
-        .jiz-footer-meta{display:flex;flex-direction:column;gap:6px;margin-top:clamp(22px,2.4vw,30px)}
-        .jiz-footer-copy{color:rgba(217,221,227,.85);font:var(--text-caption)}
-        .jiz-footer-credit{color:rgba(217,221,227,.75);font:var(--text-caption);font-style:italic}
-        .jiz-footer-tech{color:rgba(217,221,227,.65);font:var(--text-hud);font-size:.625rem;letter-spacing:.14em;text-transform:uppercase}
-        .jiz-footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(6px,1vw,12px);margin-bottom:clamp(26px,3vw,38px)}
-        .jiz-footer-nav button{min-height:44px;padding:0 16px;border:1px solid transparent;border-radius:var(--radius-pill);background:transparent;color:var(--mist);font:var(--text-body);font-size:.9375rem;cursor:pointer;transition:border-color var(--motion-fast) var(--ease-standard),background var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard)}
-        .jiz-footer-nav button:hover{border-color:rgba(var(--accent-cyan-rgb),.4);background:rgba(var(--accent-cyan-rgb),.08);color:var(--accent-cyan)}
-        .jiz-footer-nav button:focus-visible,.jiz-footer-top:focus-visible{outline:2px solid var(--accent-cyan);outline-offset:3px}
-
-        @media(prefers-reduced-motion:reduce){.jiz-footer-top,.jiz-footer-nav button{transition:none}.jiz-footer-top:hover{transform:none}}
+        footer.jiz-footer{position:relative;isolation:isolate;overflow:hidden;padding:var(--space-xl) var(--chapter-pad-x);background:var(--portfolio-footer,var(--signal-lime));color:var(--obsidian);box-shadow:none}
+        .jiz-footer::before{display:none}
+        .jiz-footer-inner{display:grid;grid-template-columns:48px minmax(0,1fr) auto;grid-template-areas:"mark name name" "disciplines disciplines disciplines" "nav nav top" "rule rule rule" "meta meta meta";align-items:center;gap:var(--space-md) var(--space-lg);width:min(var(--chapter-max),100%);margin-inline:auto;text-align:left}
+        .jiz-footer-mark{grid-area:mark;display:grid;place-items:center;margin:0}
+        .jiz-footer-logo{width:48px;height:48px;object-fit:contain;filter:brightness(0)}
+        .jiz-footer-name{grid-area:name;margin:0;color:var(--obsidian);font:var(--text-h3);font-size:clamp(1.125rem,1.4vw,1.375rem);letter-spacing:-.025em}
+        .jiz-footer-disciplines{grid-area:disciplines;margin:0;color:rgba(11,13,16,.8);font:var(--text-body);font-size:.875rem;line-height:1.6}
+        .jiz-footer-top{grid-area:top;justify-self:end;min-height:44px;padding:0 var(--space-md);border:1px solid var(--obsidian);border-radius:var(--radius-pill);background:var(--obsidian);color:var(--signal-lime);font:var(--text-button);font-size:.875rem;cursor:pointer;transition:background var(--motion-fast) var(--ease-standard)}
+        .jiz-footer-top:hover{background:var(--carbon)}
+        .jiz-footer-rule{grid-area:rule;height:1px;margin:0;background:rgba(11,13,16,.24)}
+        .jiz-footer-meta{grid-area:meta;display:flex;flex-wrap:wrap;gap:var(--space-xs) var(--space-md);margin:0}
+        .jiz-footer-copy,.jiz-footer-credit{color:rgba(11,13,16,.8);font:var(--text-caption);font-size:.75rem}
+        .jiz-footer-credit{font-style:italic}
+        .jiz-footer-tech{color:rgba(11,13,16,.8);font:var(--text-hud);font-size:.625rem;line-height:1.5;letter-spacing:.12em;text-transform:uppercase}
+        .jiz-footer-nav{grid-area:nav;display:flex;flex-wrap:wrap;justify-content:flex-start;gap:var(--space-xs) var(--space-sm);margin:0}
+        .jiz-footer-nav button{min-height:44px;padding:0 var(--space-sm);border:1px solid transparent;border-radius:var(--radius-pill);background:transparent;color:var(--obsidian);font:var(--text-body);font-size:.875rem;cursor:pointer;transition:border-color var(--motion-fast) var(--ease-standard)}
+        .jiz-footer-nav button:hover{border-color:var(--obsidian);text-decoration:underline;text-underline-offset:4px}
+        .jiz-footer-nav button:focus-visible,.jiz-footer-top:focus-visible{outline:2px solid var(--obsidian);outline-offset:4px}
+        @media(max-width:640px){footer.jiz-footer{padding-block:var(--space-lg)}.jiz-footer-inner{grid-template-columns:48px minmax(0,1fr);grid-template-areas:"mark name" "disciplines disciplines" "nav nav" "top top" "rule rule" "meta meta";column-gap:var(--space-md)}.jiz-footer-top{justify-self:start}}
+        @media(prefers-reduced-motion:reduce){.jiz-footer-top,.jiz-footer-nav button{transition:none}}
       `}</style>
       <div className="jiz-footer-inner">
         <div className="jiz-footer-mark">

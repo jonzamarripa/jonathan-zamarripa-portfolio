@@ -23,6 +23,8 @@ Not deployed (`*.md` is in `.vercelignore`). Update only when project state chan
 
 - Portfolio refinement (approved for branch preview): `portfolio.css` / `tokens/portfolio.css` isolate semantic presentation from the protected journal. Enterprise shell and Behind the Build reuse existing `Chapter` with neutral dark/light rhythm; shared reading widths, metadata/media framing, focus/controls and card surfaces are consolidated; the portfolio footer is chartreuse with dark ink. Five-tile assets/order, copy, media, First Sentence Orange/prototype and journal branding are unchanged. Behind the Build example toggles are keyboard buttons with expanded state. Build, sampled contrast, screenshots, all seven views at desktop/mobile, and 320/768/1024px overflow checks passed. Journal hub/Issue 07 screenshots match HEAD exactly. First Sentence keyboard launcher/iframe URL verified; external Figma gameplay is blocked by the environment proxy (`ERR_TUNNEL_CONNECTION_FAILED`). Approved for branch preview; production promotion remains unauthorized.
 
+- Visual fidelity corrections (approved for PR #10 preview): Featured Work now uses Electric Cyan with cohesive Carbon cards; original five-tile hierarchy, copy, images and crop rules remain. Existing NavBar source now provides the inset rounded frame, Cyan active location and restrained shadow-free treatment; FinalMoment owns the compact chartreuse grid footer (all copy/links retained), and superseded portfolio overrides were removed. First Sentence uses an explicit shared display-title variant while retaining Orange. Content/media/link comparisons, 35 viewport/view regression checks, sampled text contrast, menu/focus/overlay/carousel checks, build and screenshot reviews passed; journal/Issue 07 screenshots remain pixel-identical. Browser access needs writable `/home/agent/.pki/nssdb` in this sandbox; no certificate bypass. Webfont/Figma access remains restricted. No merge or production promotion authorized.
+
 ## Shared paths
 - Build: `node build.cjs` (needs node_modules with @babel/core, @babel/preset-react, react, react-dom 18.3.1) → `dist/site.js`, prerendered `index.html`, `work/*/index.html`, journal pages, `sitemap.xml`.
 - Routes, paths, hero/OG images: `site-config.js`. Routing: `App.jsx` (`Root` → `CaseStudyPage` for `/work/` paths).
@@ -45,4 +47,4 @@ Not deployed (`*.md` is in `.vercelignore`). Update only when project state chan
 - Issue 07 stays unlisted/noindex; don't publish or reconstruct its text.
 
 ## Next authorized task
-Portfolio-wide refinement approved for commit and branch preview. No merge, production promotion or journal redesign authorized. External Figma gameplay still needs verification from a browser that can access Figma Sites.
+Approved PR #10 visual-fidelity corrections completed for branch preview. No merge, production promotion or journal redesign authorized. External Figma gameplay still needs verification from a browser that can access Figma Sites.

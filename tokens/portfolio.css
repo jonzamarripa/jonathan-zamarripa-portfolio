@@ -11,6 +11,7 @@
 --portfolio-accent-ink:var(--accent-cyan);
 --portfolio-on-bright:var(--obsidian);
 --portfolio-footer:var(--signal-lime);
---portfolio-title:clamp(2.25rem,1.8rem + 2vw,4.5rem);
+--portfolio-title:var(--size-h1);
+--portfolio-display-title:clamp(2.75rem,2rem + 3vw,5rem);
 --portfolio-section-title:clamp(1.75rem,1.5rem + 1vw,3rem);
 }

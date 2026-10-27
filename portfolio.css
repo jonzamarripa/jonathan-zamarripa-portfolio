@@ -8,12 +8,9 @@ body:has(.jiz-footer){display:flow-root;background:var(--portfolio-canvas)}
 .jiz-homepage .jiz-nav-link:focus-visible,.jiz-homepage .jiz-nav-cta:focus-visible{outline-color:var(--accent-cyan)}
 .jiz-homepage .jiz-nav-link:hover{text-decoration:underline;text-underline-offset:6px}
 .jiz-homepage .jz-wrap{width:min(var(--portfolio-content-max),calc(100% - 2 * var(--chapter-pad-x)))}
-.jiz-homepage .jz-fw-card:hover .jz-fw-title{background:transparent;color:var(--obsidian);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
-.jiz-homepage .jz-fw-card:has(.jz-fw-cta:focus-visible){outline:2px solid var(--obsidian);outline-offset:8px}
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover .jz-pr-cap-t,.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-t,.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-x{background:transparent;color:var(--obsidian)}
 .jiz-homepage .jz-pr-cap button:hover .jz-pr-cap-t{text-decoration:underline;text-underline-offset:5px}
 .jiz-homepage .jz-jr-x{background:transparent;color:var(--obsidian)}
-.jiz-homepage .jz-fw-media,.jiz-homepage .jz-fw-flag-media{border-radius:var(--panel-r-inner)}
 .jiz-homepage .jz-st-layer{color:var(--accent-cyan)}
 .jiz-homepage .jiz-build :is(input,select,textarea){border-color:var(--portfolio-control-line)}
 .jiz-homepage .jiz-build :is(input,select,textarea):focus-visible{outline:2px solid var(--accent-cyan);outline-offset:3px}
@@ -72,20 +69,6 @@ body:has(.jiz-footer){display:flow-root;background:var(--portfolio-canvas)}
 .tfs .tfs-top{max-width:calc(var(--portfolio-content-max) + 2 * (var(--chapter-pad-x) + var(--panel-gap)));margin-inline:auto;flex-wrap:wrap}
 .tfs .tfs-pill{border-color:var(--portfolio-control-line)}
 .tfs .tfs-crumb{min-width:0;overflow-wrap:anywhere}
-
-/* The approved chartreuse signature is a portfolio variant, never a journal redesign. */
-footer.jiz-footer{background:var(--portfolio-footer);color:var(--portfolio-on-bright);padding-inline:var(--chapter-pad-x);box-shadow:none}
-.jiz-footer::before{display:none}
-.jiz-footer .jiz-footer-inner{width:min(var(--portfolio-content-max),100%);max-width:none}
-.jiz-footer .jiz-footer-logo{filter:brightness(0)}
-.jiz-footer .jiz-footer-name{color:var(--portfolio-on-bright)}
-.jiz-footer :is(.jiz-footer-disciplines,.jiz-footer-copy,.jiz-footer-credit,.jiz-footer-tech){color:rgba(11,13,16,.8)}
-.jiz-footer .jiz-footer-nav button{color:var(--portfolio-on-bright)}
-.jiz-footer .jiz-footer-nav button:hover{background:transparent;border-color:var(--portfolio-on-bright);color:var(--portfolio-on-bright);text-decoration:underline;text-underline-offset:4px}
-.jiz-footer .jiz-footer-top{background:var(--portfolio-on-bright);border-color:var(--portfolio-on-bright);color:var(--signal-lime)}
-.jiz-footer .jiz-footer-top:hover{background:var(--carbon);box-shadow:none;transform:none}
-.jiz-footer .jiz-footer-rule{background:rgba(11,13,16,.24)}
-.jiz-footer :is(.jiz-footer-nav button,.jiz-footer-top):focus-visible{outline:2px solid var(--portfolio-on-bright);outline-offset:4px}
 
 @media(prefers-reduced-motion:reduce){
 :is(.jiz-homepage,.jiz-cs,.jiz-btb-detail,.tfs,.jiz-footer) *{scroll-behavior:auto!important;animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
