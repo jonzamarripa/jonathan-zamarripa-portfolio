@@ -1,14 +1,11 @@
-
-media:
-  input: assets
-  output: /assets
-
 content:
   - name: journal
     label: Journal — Markdown Pilot
     type: collection
     path: content/journal
     format: raw
+    extension: md
+    subfolders: false
     exclude:
       - README.md
     operations:
