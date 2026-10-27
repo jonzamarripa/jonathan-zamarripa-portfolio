@@ -1780,7 +1780,7 @@ function LetsBuild({ onExploreWork }) {
         
         
         @media(max-width:1040px){.jiz-build-stage{grid-template-columns:1fr}.jiz-build-film{min-height:clamp(300px,52vw,460px)}}
-                @media(max-width:520px){.jiz-build-fields{grid-template-columns:1fr}}
+        @media(max-width:520px){.jiz-build-head,.jiz-build-fields{grid-template-columns:1fr}}
         @media(prefers-reduced-motion:reduce){.jiz-build-submit,.jiz-build-chip{transition:none}}
       `}</style>
       <div className="jiz-build-inner">

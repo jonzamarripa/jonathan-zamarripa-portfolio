@@ -1153,7 +1153,7 @@ ${MOTION_TOGGLE_CSS}
         
         
         @media(max-width:1040px){.jiz-build-stage{grid-template-columns:1fr}.jiz-build-film{min-height:clamp(300px,52vw,460px)}}
-                @media(max-width:520px){.jiz-build-fields{grid-template-columns:1fr}}
+        @media(max-width:520px){.jiz-build-head,.jiz-build-fields{grid-template-columns:1fr}}
         @media(prefers-reduced-motion:reduce){.jiz-build-submit,.jiz-build-chip{transition:none}}
       `),React.createElement("div",{className:"jiz-build-inner"},React.createElement("header",{className:"jiz-build-head"},React.createElement("div",{className:"jiz-build-head-left"},React.createElement("p",{className:"jiz-build-eyebrow"},"Contact"),React.createElement("h2",{className:"jiz-build-title",id:"jiz-build-title"},"Have something complex worth making clear?")),React.createElement("div",{className:"jiz-build-head-right"},React.createElement("p",{className:"jiz-build-sub"},"A strategy that needs shape, an experience that needs building, a story that needs telling, or a new tool worth figuring out. Tell me what you\u2019re working on. I\u2019m open to senior full-time and contract roles, consulting projects, and speaking or panel invitations."))),React.createElement("div",{className:"jiz-build-stage"},React.createElement("div",{className:"jz-ct-direct"},React.createElement("style",null,`
 .jz-ct-direct{display:flex;flex-direction:column;gap:clamp(28px,3vw,44px);padding-top:8px;min-width:0}

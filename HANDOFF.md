@@ -4,7 +4,7 @@ Not deployed (`*.md` is in `.vercelignore`). Update only when project state chan
 
 ## Branch / PR
 - Working branch: `pass1-hardening`; PR #6 merged as `7b4f950`, and footer PR #9 merged as `6568270`, each after explicit authorization. Jonathan approved committing the portfolio-wide refinement and publishing its branch preview; no merge or production promotion authorized.
-- Production: `main`, served at https://www.jonathanzamarripa.com (apex redirects to www).
+- Production verified 2026-10-27: https://www.jonathanzamarripa.com serves Vercel deployment `dpl_2diT3hFFNo3okXv2BXoWXAVkZ7w8`, source `qa/monitoring-regression-gates-20261027` at `acf2893c0e3e5fdc8ef9266886a680a700d133e8` (READY, production). This differs from Git main and PR #10; see current verification below.
 - Vercel previews sit behind Vercel login; Claude can't open them until Jonathan signs in to Vercel in the built-in browser.
 
 ## Milestones (PR #6 merged; current local work noted below)
@@ -48,3 +48,12 @@ Not deployed (`*.md` is in `.vercelignore`). Update only when project state chan
 
 ## Next authorized task
 Approved PR #10 visual-fidelity corrections completed for branch preview. No merge, production promotion or journal redesign authorized. External Figma gameplay still needs verification from a browser that can access Figma Sites.
+
+
+## Production smoke check — 2026-10-27
+- Jonathan visually approved the local Contact correction, then reported a production promotion. Live verification shows the approved correction is **not deployed**: at 375px Contact still has two 147.5px columns; heading client width 148px versus scroll width 159px. Live footer is rounded Obsidian, not the approved chartreuse.
+- Vercel production source is `acf2893c0e3e5fdc8ef9266886a680a700d133e8` on `qa/monitoring-regression-gates-20261027`, deployment `dpl_2diT3hFFNo3okXv2BXoWXAVkZ7w8`. Refetch confirms origin/main remains `65682706d3b149fc2c173873233a2a78042d32d9`; PR #10 remains open/draft, head `pass1-hardening` at `10fb99f591fbd1be41300e6ddbafd3aedb3e512f`.
+- Local approved patch remains uncommitted in Homepage.jsx and generated dist/site.js/index.html: add `.jiz-build-head` to the existing <=520px one-column rule. Preserve these edits; do not reset or overwrite them. This fixes an inherited mobile layout defect without changing copy, assets, typography, interactions, or other surfaces.
+- Live smoke checks at 375/768/1440: homepage has no page overflow; all five distinct case-study destinations and journal hub render their expected H1/title with no page overflow (18 route/width checks). Mobile Work navigation and Back to Top work; journal link click-through reaches /journal/. Footer radius remains responsive, but its color is the older Obsidian treatment. No forms submitted.
+- Evidence: this chat's outputs/production-check/ contains Contact captures at all three widths, mobile footer capture, and live-homepage.json/routes.json. The prior outputs/review.html records the approved local result.
+- No deployment, promotion, merge, push, or commit performed during this check. Next step is to publish the approved local patch through the intended branch/review flow and select the correct production revision after explicit authorization; do not treat the current deployment as the approved visual result.
