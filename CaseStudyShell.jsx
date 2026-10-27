@@ -24,6 +24,28 @@ function PortfolioScenario({ scenario }) {
   </div>;
 }
 
+function DesignWorkflow({ workflow, id }) {
+  const connector = <svg className="jiz-workflow-connector" viewBox="0 0 24 32" aria-hidden="true" focusable="false"><path d="M12 0v26m-5-5 5 5 5-5" /></svg>;
+  const node = (step, number, kind) => <div className={'jiz-workflow-node ' + (kind || '')}>
+    <span className="jiz-workflow-number" aria-hidden="true">{number}</span>
+    <div><h3>{step.title}</h3><p>{step.detail}</p></div>
+  </div>;
+  return <figure className="jiz-workflow" aria-labelledby={id + '-heading'} aria-describedby={id + '-caption'}>
+    <ol className="jiz-workflow-flow" aria-label="Design workflow">
+      {workflow.foundation.map((step, i) => <li className="jiz-workflow-stage" key={step.title}>{node(step, String(i + 1).padStart(2, '0'))}{connector}</li>)}
+      <li className="jiz-workflow-stage jiz-workflow-fork">
+        <p className="jiz-workflow-branch-label">Two connected design tracks</p>
+        <ul className="jiz-workflow-tracks" aria-label="Visual and interaction design">
+          {workflow.branches.map((step, i) => <li key={step.title}>{node(step, i === 0 ? '04A' : '04B', 'jiz-workflow-node--track')}</li>)}
+        </ul>
+        {connector}
+      </li>
+      {workflow.finish.map((step, i) => <li className="jiz-workflow-stage" key={step.title}>{node(step, String(i + 5).padStart(2, '0'), i === 1 ? 'jiz-workflow-node--review' : '')}{i === 0 && connector}</li>)}
+    </ol>
+    <figcaption id={id + '-caption'} className="jiz-workflow-return"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M8 5 3 10l5 5M3 10h12a6 6 0 0 1 0 12" /></svg><p>{workflow.caption}</p></figcaption>
+  </figure>;
+}
+
 function PackageCarousel({ items }) {
   const [index, setIndex] = React.useState(0);
   const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -129,7 +151,7 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
   let chapterIndex = 0;
   const nextSurface = () => ['obsidian', 'slate', 'obsidian', 'mist'][chapterIndex++ % 4];
   const has = (v) => Array.isArray(v) ? v.length > 0 : Boolean(v);
-  const incomplete = !has(config.summary) || !has(config.process);
+  const incomplete = !has(config.summary) || (!has(config.process) && !config.workflow);
 
   return (
     <article ref={rootRef} className="jiz-cs" data-case-study={config.slug}>
@@ -359,6 +381,12 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
             </div>
           </Chapter>
         )}
+
+        {config.workflow && <Chapter surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-workflow-heading'}>
+          <h2 className="jiz-cs-h2 jiz-workflow-heading" id={config.slug + '-workflow-heading'}>{config.workflow.heading}</h2>
+          <p className="jiz-cs-body">{config.workflow.intro}</p>
+          <DesignWorkflow workflow={config.workflow} id={config.slug + '-workflow'} />
+        </Chapter>}
 
         {/* 6 — Strategic design decisions */}
         {has(config.decisions) && (

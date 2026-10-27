@@ -57,25 +57,6 @@ function CaseStudyDraftedByAI({ onBack, onOpenProject, standalone }) {
       "detail": "I brought the story and interface together in Figma Make to make the learning approach tangible."
     }
   ],
-  "processHeading": "How I moved from a problem to a working sample.",
-  "process": [
-    {
-      "stage": "Frame the problem",
-      "detail": "I identified the human stakes and the behavior the experience needed to support before choosing the format."
-    },
-    {
-      "stage": "Shape the story",
-      "detail": "I developed the customer situation and dialogue to give the learning a clear context and a reason to care."
-    },
-    {
-      "stage": "Build the experience",
-      "detail": "I connected visual storytelling with interactive practice, using the prototype to make the design decisions visible."
-    },
-    {
-      "stage": "Review the details",
-      "detail": "I reviewed language, visual continuity, and the relationship between the interface and the learning intent. Product accuracy remains subject to SME validation."
-    }
-  ],
   "decisionsHeading": "The decisions behind the experience.",
   "decisions": [
     {
@@ -128,7 +109,46 @@ function CaseStudyDraftedByAI({ onBack, onOpenProject, standalone }) {
       "title": "The First Sentence",
       "route": "The First Sentence"
     }
-  ]
+  ],
+  "workflow": {
+    "heading": "How I plotted the experience.",
+    "intro": "I connected the customer problem to the learning intent, then used that foundation to shape the story, the visuals, and the interaction.",
+    "foundation": [
+      {
+        "title": "Start with the customer problem",
+        "detail": "What happened, who is affected, and why does this moment matter?"
+      },
+      {
+        "title": "Define the learning intent",
+        "detail": "What judgment does the Expert need to bring to the conversation?"
+      },
+      {
+        "title": "Plot the story",
+        "detail": "Connect the situation, dialogue, and decisions into a purposeful experience."
+      }
+    ],
+    "branches": [
+      {
+        "title": "Direct the visuals",
+        "detail": "Shape the scenes, tone, and continuity so the imagery supports the learning."
+      },
+      {
+        "title": "Design the interaction",
+        "detail": "Connect the learner’s choices with consequences and useful feedback."
+      }
+    ],
+    "finish": [
+      {
+        "title": "Bring it together in the prototype",
+        "detail": "Combine the narrative, media, and interface in a working sample."
+      },
+      {
+        "title": "Review and refine",
+        "detail": "Check the language, visual continuity, and alignment with the learning intent."
+      }
+    ],
+    "caption": "The review feeds back into the story, visuals, and interaction. This map shows my design approach; product accuracy remains subject to SME validation."
+  }
 };
   return <CaseStudyShell config={config} onBack={onBack} onOpenProject={onOpenProject} standalone={standalone} />;
 }
