@@ -87,3 +87,23 @@ main:has(.dx){width:min(1280px,calc(100% - 2*clamp(16px,5vw,64px)))}
   .dx-pair img{aspect-ratio:2048 / 1143}
   .dx-fig--wide img{aspect-ratio:4 / 3}
 }
+/* Shared chapter architecture (tokens + .jiz-chapter in styles.css): dossier chapters are inset rounded
+   panels on the Carbon gutter. Journal type, amber/teal identity and inner widths are unchanged. */
+main:has(.dx .jiz-chapter){width:auto;margin:0}
+.dx:has(.jiz-chapter){padding:var(--panel-gap) 0 1px;background:var(--panel-gutter-surface)}
+.dx .jiz-chapter{padding:var(--chapter-pad-y) var(--chapter-pad-x);color:var(--jr-ink)}
+.dx-mast.jiz-chapter{max-width:none;margin:0 var(--panel-gap) var(--panel-gap);border-bottom:0}
+.dx-mast.jiz-chapter > *{max-width:900px;margin-left:auto;margin-right:auto}
+.dx-body:has(.jiz-chapter) > .dx-ch{max-width:none}
+.dx .dx-ch.jiz-chapter{margin:0 var(--panel-gap) var(--panel-gap);scroll-margin-top:72px}
+.dx:has(.jiz-chapter) > .jr-back{width:min(var(--chapter-max),calc(100% - 2 * var(--chapter-pad-x)));margin:clamp(24px,3vw,40px) auto var(--panel-gap)}
+.dx-preview:has(+ .dx .jiz-chapter){margin-bottom:var(--panel-gap)}
+/* Mid-tone surfaces: lift secondary text so it stays ≥4.5:1 */
+.dx .jiz-chapter[data-surface="slate"]{--jr-soft:rgba(232,227,217,.88);--jr-mute:rgba(232,227,217,.78)}
+/* Light surfaces: dark ink, deepened amber/teal, same hierarchy */
+.dx .jiz-chapter:is([data-surface="paper"],[data-surface="mist"]){--jr-ink:var(--obsidian);--jr-soft:rgba(11,13,16,.8);--jr-mute:rgba(11,13,16,.68);--jr-line:rgba(11,13,16,.16);--jr-amber:color-mix(in srgb,var(--accent-journal-amber) 45%,var(--obsidian));--jr-teal:color-mix(in srgb,var(--accent-journal-teal) 45%,var(--obsidian))}
+.dx .jiz-chapter:is([data-surface="paper"],[data-surface="mist"]) :is(p,li){color:var(--jr-ink)}
+.dx .jiz-chapter:is([data-surface="paper"],[data-surface="mist"]) .jr-a,.dx .jiz-chapter:is([data-surface="paper"],[data-surface="mist"]) a{text-decoration-color:rgba(11,13,16,.4)}
+.dx .jiz-chapter:is([data-surface="paper"],[data-surface="mist"]) :is(.dx-missing span,.box-corrections .box-label,.dx-gaps em,.pill-warn){color:#9A3324}
+.dx .jiz-chapter:is([data-surface="paper"],[data-surface="mist"]) .dx-btn{color:var(--obsidian)!important;background:var(--accent-journal-amber)}
+.dx-mast-pre{margin-top:clamp(28px,4vw,44px)}

@@ -1,4 +1,4 @@
-function CaseStudyHotelKey({ onBack, onOpenProject }) {
+function CaseStudyHotelKey({ onBack, onOpenProject, standalone }) {
   const { CaseStudyShell } = window.CaseStudyShellExports;
   const config = {
     slug: "hotelkey-onboarding",
@@ -96,6 +96,6 @@ function CaseStudyHotelKey({ onBack, onOpenProject }) {
       { direction: "Previous project", title: "Operation: Legacy Unlocked", route: "Operation: Legacy Unlocked" }
     ]
   };
-  return <CaseStudyShell config={config} onBack={onBack} onOpenProject={onOpenProject} />;
+  return <CaseStudyShell config={config} onBack={onBack} onOpenProject={onOpenProject} standalone={standalone} />;
 }
 window.CaseStudyHotelKeyExports = { CaseStudyHotelKey };

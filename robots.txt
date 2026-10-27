@@ -1,0 +1,5 @@
+# Unpublished drafts are kept out of search with a noindex tag on the page itself (they are not blocked here, so crawlers can see that tag).
+User-agent: *
+Allow: /
+
+Sitemap: https://www.jonathanzamarripa.com/sitemap.xml

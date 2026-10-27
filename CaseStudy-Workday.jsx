@@ -1,4 +1,4 @@
-function CaseStudyWorkday({ onBack, onOpenProject }) {
+function CaseStudyWorkday({ onBack, onOpenProject, standalone }) {
   const { CaseStudyShell } = window.CaseStudyShellExports;
   const config = {
     slug: "workday-learn",
@@ -102,6 +102,6 @@ function CaseStudyWorkday({ onBack, onOpenProject }) {
       { direction: "Previous project", title: "Guest CRM Pilot", route: "Guest CRM Pilot" }
     ]
   };
-  return <CaseStudyShell config={config} onBack={onBack} onOpenProject={onOpenProject} />;
+  return <CaseStudyShell config={config} onBack={onBack} onOpenProject={onOpenProject} standalone={standalone} />;
 }
 window.CaseStudyWorkdayExports = { CaseStudyWorkday };

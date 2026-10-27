@@ -15,4 +15,14 @@
 
 --container-max: 1280px;
 --container-pad: clamp(20px, 5vw, 80px);
+
+/* Chapter architecture — one geometry for homepage, case studies, journal and project pages.
+   Values match the homepage Principles panel (HomepageP1.jsx RHYTHM_CSS), which stays the reference. */
+--panel-gap: clamp(10px, 1.4vw, 20px);      /* gutter between and around chapter panels */
+--panel-r: clamp(18px, 2.4vw, 32px);        /* outer chapter radius: 18px mobile → 32px desktop */
+--panel-r-inner: clamp(12px, 1.4vw, 20px);  /* cards and media inside a chapter */
+--chapter-pad-y: clamp(48px, 7vw, 104px);   /* vertical padding inside a chapter */
+--chapter-pad-x: clamp(16px, 4vw, 56px);    /* inline padding of chapter content */
+--chapter-max: 1180px;                      /* reading/case-study content width */
+--chapter-max-wide: 1440px;                 /* homepage editorial width */
 }

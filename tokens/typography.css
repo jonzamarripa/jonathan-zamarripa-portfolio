@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* Fonts (Geist, JetBrains Mono) are linked directly in each page <head> with preconnect, not @imported here. */
 :root{
 --font-display: 'Geist', 'Helvetica Neue', Arial, sans-serif;
 --font-body: 'Geist', 'Helvetica Neue', Arial, sans-serif;

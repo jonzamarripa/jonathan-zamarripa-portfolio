@@ -3,7 +3,7 @@
 const { readFileSync, writeFileSync, mkdirSync, existsSync } = require('fs');
 const path = require('path');
 
-const SITE = 'https://jonathanzamarripa.com';
+const SITE = 'https://www.jonathanzamarripa.com';
 const J = require('./content/journal.js');
 
 const esc = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -32,7 +32,7 @@ function markdown(src) {
     let m = l.match(/^:::\s*(figure|pending|study|inquiry|sources|status)\b(.*)$/);
     if (m) { const buf = []; i++; while (i < lines.length && !/^:::\s*$/.test(lines[i])) buf.push(lines[i++]); i++; out.push(COMPONENTS[m[1]](kv(buf), m[2].trim(), buf)); continue; }
     m = l.match(/^:::\s*(\w+)\s*$/);
-    if (m) { const buf = []; i++; while (i < lines.length && !/^:::\s*$/.test(lines[i])) buf.push(lines[i++]); i++; const k = m[1]; out.push('<aside class="box box-' + k + '"><p class="box-label">' + esc(ASIDES[k] || k) + '</p>' + markdown(buf.join('\n')) + '</aside>'); continue; }
+    if (m) { const buf = []; i++; while (i < lines.length && !/^:::\s*$/.test(lines[i])) buf.push(lines[i++]); i++; const k = m[1]; out.push('<div class="box box-' + k + '" role="note"><p class="box-label">' + esc(ASIDES[k] || k) + '</p>' + markdown(buf.join('\n')) + '</div>'); continue; }
     m = l.match(/^(#{2,4})\s+(.*)$/);
     if (m) { const n = m[1].length; const id = m[2].toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''); out.push('<h' + n + ' id="' + id + '">' + inline(m[2]) + '</h' + n + '>'); i++; continue; }
     if (/^---+\s*$/.test(l)) { out.push('<hr>'); i++; continue; }
@@ -84,8 +84,8 @@ const COMPONENTS = {
   },
   // Pending: a visible editorial slot for verified published text that has not been supplied yet (preview builds only)
   pending(o, opts, buf) {
-    if (CURRENT && CURRENT.dossier && !CURRENT.onSite) return `<aside class="dx-pending dx-pending--orig" aria-label="In the original issue"><p class="box-label">In the original issue</p><p>${inline(buf.join(' '))} <a href="${esc(CURRENT.url)}" target="_blank" rel="noopener noreferrer">Read it on LinkedIn<span class="vh"> (opens in a new tab)</span></a>.</p></aside>`;
-    return `<aside class="dx-pending" aria-label="Pending content"><p class="box-label">Awaiting verified published text</p><p>${inline(buf.join(' '))}</p></aside>`;
+    if (CURRENT && CURRENT.dossier && !CURRENT.onSite) return `<div class="dx-pending dx-pending--orig" role="note"><p class="box-label">In the original issue</p><p>${inline(buf.join(' '))} <a href="${esc(CURRENT.url)}" target="_blank" rel="noopener noreferrer">Read it on LinkedIn<span class="vh"> (opens in a new tab)</span></a>.</p></div>`;
+    return `<div class="dx-pending" role="note"><p class="box-label">Awaiting verified published text</p><p>${inline(buf.join(' '))}</p></div>`;
   },
   // Proposed study: name, status, summary, measures
   study(o) {
@@ -104,16 +104,22 @@ const COMPONENTS = {
     return `<dl class="dx-ledger">${o._items.map((t) => { const m = t.match(/^\*\*(.+?)\*\*\s*(.*)$/); return m ? '<dt>' + esc(m[1]) + '</dt><dd>' + inline(m[2]) + '</dd>' : '<dd>' + inline(t) + '</dd>'; }).join('')}</dl>`;
   }
 };
+// Dossier articles use the shared chapter architecture (styles.css .jiz-chapter): each chapter is an inset
+// rounded panel, with neighbouring surfaces always different. The masthead is obsidian.
+const DX_SURFACES = ['slate', 'paper', 'obsidian', 'mist', 'obsidian', 'slate'];
+const dxChapter = (i) => CURRENT && CURRENT.dossier ? ` jiz-chapter" data-surface="${DX_SURFACES[i % DX_SURFACES.length]}" data-accent="journal-amber` : '';
 function chapters(src) {
   // `@chapter 01 Title` lines open numbered chapters; returns HTML + table of contents
   const parts = src.split(/^@chapter\s+(\d+)\s+(.+)$/m);
-  let html = markdown(parts[0]); const toc = [];
+  // In a dossier the material before the first chapter (status ledger) closes the masthead panel instead.
+  const pre = markdown(parts[0]); const inMast = CURRENT && CURRENT.dossier;
+  let html = inMast ? '' : pre; const toc = [];
   for (let k = 1; k < parts.length; k += 3) {
     const n = parts[k], title = parts[k + 1].trim(), id = 'ch-' + n;
     toc.push(`<li><a href="#${id}"><span>${esc(n)}</span> ${esc(title)}</a></li>`);
-    html += `\n<section class="dx-ch" id="${id}" aria-labelledby="${id}-t"><header class="dx-ch-head"><p class="dx-ch-n">Chapter ${esc(n)}</p><h2 id="${id}-t">${esc(title)}</h2></header>\n${markdown(parts[k + 2])}\n</section>`;
+    html += `\n<section class="dx-ch${dxChapter(toc.length - 1)}" id="${id}" aria-labelledby="${id}-t"><header class="dx-ch-head"><p class="dx-ch-n">Chapter ${esc(n)}</p><h2 id="${id}-t">${esc(title)}</h2></header>\n${markdown(parts[k + 2])}\n</section>`;
   }
-  return { html, toc };
+  return { html, toc, pre: inMast ? pre : '' };
 }
 function frontMatter(src) {
   const m = src.match(/^---\n([\s\S]*?)\n---\n?/);
@@ -124,7 +130,7 @@ function frontMatter(src) {
 }
 
 // ---- Page shell
-function page({ title, description, canonical, depth, body, type, noindex, image }) {
+function page({ title, description, canonical, depth, body, type, noindex, image, ld }) {
   const up = depth === 2 ? '../../' : '../';
   return `<!doctype html>
 <html lang="en">
@@ -141,8 +147,11 @@ function page({ title, description, canonical, depth, body, type, noindex, image
 <meta property="og:image" content="${image || SITE + '/assets/og-image.jpg'}">${noindex ? '\n<meta name="robots" content="noindex, nofollow">' : ''}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="${esc(J.author)}">
-<meta name="theme-color" content="#0E1114">
+<meta name="theme-color" content="#0E1114">${ld ? '\n<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>' : ''}
 <link rel="icon" href="${up}assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="${up}styles.css">
 <link rel="stylesheet" href="${up}journal/journal.css">${depth === 2 ? '\n<link rel="stylesheet" href="' + up + 'journal/dossier.css">' : ''}
 </head>
@@ -215,11 +224,11 @@ function hub() {
   <p class="jr-note">Status reflects the author’s own review of each axiom.</p>
   <h3>Named gaps</h3>
   <ul class="jr-gaps">${F.gaps.map((g, i) => `<li><span>Gap ${i + 1}</span> ${esc(g.name)} <em>${esc(g.level)}</em></li>`).join('')}</ul>
-  <aside class="box box-proposed" aria-labelledby="jr-prop">
+  <div class="box box-proposed" role="note" aria-labelledby="jr-prop">
     <p class="box-label" id="jr-prop">Proposed for ${esc(F.nextRelease.version)} · not released</p>
     <p>${esc(F.nextRelease.when)}. These changes are not part of CLPF until ${esc(F.nextRelease.version)} is released.</p>
     <ul>${F.proposed.map((p) => '<li>' + esc(p) + '</li>').join('')}</ul>
-  </aside>
+  </div>
   <h3>The Master Question</h3>
   <blockquote class="jr-quote">${esc(F.masterQuestion)}</blockquote>
 </section>
@@ -255,7 +264,9 @@ function hub() {
   <p class="jr-lede">${esc(J.talk.about)} ${esc(J.talk.formats)}.</p>
   <p><a class="jr-cta" href="../?intent=speaking">Invite me to speak <span aria-hidden="true">→</span></a></p>
 </section>`;
-  return page({ title: J.name + ' — ' + J.author, description: J.subtitle + ' ' + J.anchor.join(' '), canonical: SITE + '/journal/', depth: 1, body });
+  const ld = { '@context': 'https://schema.org', '@type': 'Blog', '@id': SITE + '/journal/#blog', name: J.name, description: J.subtitle, url: SITE + '/journal/', inLanguage: 'en',
+    author: { '@type': 'Person', '@id': SITE + '/#person', name: J.author, url: SITE + '/' } };
+  return page({ title: J.name + ' — ' + J.author, description: J.subtitle + ' ' + J.anchor.join(' '), canonical: SITE + '/journal/', depth: 1, body, ld });
 }
 
 // ---- Article pages (articles marked onSite, or `preview` drafts that are built but hidden and noindexed)
@@ -264,18 +275,19 @@ function article(a) {
   if (!existsSync(file)) throw new Error('article without text: ' + file);
   const { meta, body } = frontMatter(readFileSync(file, 'utf8'));
   FIG = 0; ASSET_BASE = 'assets/'; CURRENT = a;
-  const { html, toc } = chapters(body);
+  const { html, toc, pre } = chapters(body);
   const preview = !a.onSite;
   const out = `
 ${preview && a.dossier ? `<p class="dx-preview" role="note">This dossier presents the issue’s scenes, concept screens, and diagrams. The complete text is in <a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">the original issue on LinkedIn<span class="vh"> (opens in a new tab)</span></a>.</p>` : preview ? '<p class="dx-preview" role="note"><strong>Preview.</strong> Not published or listed. Text from the published issue is still to be added; slots marked “Awaiting verified published text” show where.</p>' : ''}
 <article class="dx" aria-labelledby="jr-a-title">
-  <header class="dx-mast">
+  <header class="dx-mast${a.dossier ? ' jiz-chapter" data-surface="obsidian" data-accent="journal-amber' : ''}">
     <p class="jr-kicker">${esc(J.name)} · ${esc(a.type)} · Issue ${esc(a.issue)}${meta.date ? ' · <time datetime="' + esc(meta.date) + '">' + esc(meta.dateLabel || meta.date) + '</time>' : ''}</p>
     <h1 id="jr-a-title">${esc(a.title)}</h1>
     ${a.standfirst ? '<p class="jr-sub">' + esc(a.standfirst) + '</p>' : ''}
     <p class="dx-byline">By ${esc(J.author)} · <a href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">Originally published in the newsletter<span class="vh"> on LinkedIn (opens in a new tab)</span></a></p>
     ${a.note ? '<p class="jr-note">' + esc(a.note) + '</p>' : ''}
     ${toc.length ? '<nav class="dx-toc" aria-label="Chapters"><ol>' + toc.join('') + '</ol></nav>' : ''}
+    ${pre ? '<div class="dx-mast-pre">' + pre + '</div>' : ''}
   </header>
   <div class="dx-body">
 ${html}
@@ -293,5 +305,12 @@ J.articles.filter((a) => a.status === 'published' && (a.onSite || a.preview)).fo
   writeFileSync(path.join('journal', a.slug, 'index.html'), article(a));
   n++;
 });
-console.log('built journal/index.html + ' + n + ' article page(s)');
+// Sitemap: only public, indexable pages (preview / dossier-only articles are noindex and left out).
+const today = new Date().toISOString().slice(0, 10);
+// Case-study pages written by build.cjs (/work/<slug>/index.html); each one indexable, so each one listed.
+const workDir = require('path').join(__dirname, 'work');
+const work = require('fs').existsSync(workDir) ? require('fs').readdirSync(workDir).filter((d) => require('fs').existsSync(require('path').join(workDir, d, 'index.html'))).sort().map((d) => SITE + '/work/' + d + '/') : [];
+const urls = [SITE + '/'].concat(work, [SITE + '/journal/']).concat(J.articles.filter((x) => x.status === 'published' && x.onSite).map((x) => SITE + '/journal/' + x.slug + '/'));
+writeFileSync('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls.map((u) => '  <url><loc>' + u + '</loc><lastmod>' + today + '</lastmod></url>').join('\n') + '\n</urlset>\n');
+console.log('built journal/index.html + ' + n + ' article page(s) + sitemap.xml (' + urls.length + ' URLs)');
 module.exports = { markdown, frontMatter, article };

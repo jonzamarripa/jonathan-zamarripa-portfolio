@@ -1,4 +1,4 @@
-function CaseStudyGuestCRM({ onBack, onOpenProject }) {
+function CaseStudyGuestCRM({ onBack, onOpenProject, standalone }) {
   const { CaseStudyShell } = window.CaseStudyShellExports;
   const config = {
     slug: "guest-crm-pilot",
@@ -98,6 +98,6 @@ function CaseStudyGuestCRM({ onBack, onOpenProject }) {
       { direction: "Previous project", title: "HotelKey New Hire Onboarding", route: "HotelKey New Hire Onboarding" }
     ]
   };
-  return <CaseStudyShell config={config} onBack={onBack} onOpenProject={onOpenProject} />;
+  return <CaseStudyShell config={config} onBack={onBack} onOpenProject={onOpenProject} standalone={standalone} />;
 }
 window.CaseStudyGuestCRMExports = { CaseStudyGuestCRM };

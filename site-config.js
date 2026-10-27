@@ -24,12 +24,15 @@
     { id: 'archive', nav: 'Archive', aliases: ['Archive', 'Additional Work', 'Extended Archive', 'Selected Work'] },
     { id: 'contact', nav: null, aliases: ['Contact', "Let's Build"] }
   ];
-  /* `featured: true` = Featured Work case study: opens in the overlay above the homepage. Others are full pages. */
+  /* `featured: true` = Featured Work case study: opens in the overlay above the homepage. Others are full pages.
+     `path` = the case study's own shareable page (prerendered by build.cjs). `hero` = its hero image on that page;
+     `og` = its 1200×630 social preview. Both are resized copies of the case study's approved first image. */
   var routes = [
-    { view: 'case-study', featured: true, aliases: ['Operation: Legacy Unlocked'] },
-    { view: 'hotelkey-onboarding', featured: true, aliases: ['HotelKey New Hire Onboarding'] },
-    { view: 'guest-crm-pilot', featured: true, aliases: ['Guest CRM Pilot'] },
-    { view: 'workday-learn', featured: true, aliases: ['Workday Learn Launch'] },
+    { view: 'case-study', featured: true, path: '/work/legacy-unlocked/', hero: 'assets/imagery/olu-01-cover-1600.webp', og: 'assets/og/legacy-unlocked.jpg', aliases: ['Operation: Legacy Unlocked'] },
+    { view: 'hotelkey-onboarding', featured: true, path: '/work/hotelkey-onboarding/', hero: 'assets/imagery/hotelkey-01-hero-1600.webp', og: 'assets/og/hotelkey-onboarding.jpg', aliases: ['HotelKey New Hire Onboarding'] },
+    { view: 'guest-crm-pilot', featured: true, path: '/work/guest-crm-pilot/', hero: 'assets/imagery/guestcrm-01-cover-1600.webp', og: 'assets/og/guest-crm-pilot.jpg', aliases: ['Guest CRM Pilot'] },
+    { view: 'workday-learn', featured: true, path: '/work/workday-learn-launch/', hero: 'assets/imagery/workday-01-cover-1600.webp', og: 'assets/og/workday-learn-launch.jpg', aliases: ['Workday Learn Launch'] },
+    { view: 'the-first-sentence', path: '/work/the-first-sentence/', hero: 'assets/imagery/the-first-sentence/first-sentence-hero.webp', og: 'assets/og/the-first-sentence.jpg', aliases: ['The First Sentence'] },
     { view: 'behind-the-build', aliases: ['Behind the Build'] }
   ];
   function section(id) { for (var i = 0; i < sections.length; i++) if (sections[i].id === id) return sections[i]; return null; }
@@ -49,5 +52,12 @@
     for (var j = 0; j < routes.length; j++) if (routes[j].view === raw) return raw;
     return 'home';
   }
-  window.JIZ_SITE = { links: links, sections: sections, routes: routes, section: section, resolve: resolve, viewForHash: viewForHash };
+  function route(view) { for (var j = 0; j < routes.length; j++) if (routes[j].view === view) return routes[j]; return null; }
+  function viewForPath(pathname) {
+    var p = String(pathname || '').replace(/\/index\.html$/, '/');
+    if (p.charAt(p.length - 1) !== '/') p += '/';
+    for (var j = 0; j < routes.length; j++) if (routes[j].path === p) return routes[j].view;
+    return null;
+  }
+  window.JIZ_SITE = { links: links, sections: sections, routes: routes, section: section, resolve: resolve, viewForHash: viewForHash, viewForPath: viewForPath, route: route };
 })();
