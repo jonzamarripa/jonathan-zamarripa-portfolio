@@ -4,7 +4,7 @@ Not deployed (`*.md` is in `.vercelignore`). Update only when project state chan
 
 ## Branch / PR
 - Working branch: `pass1-hardening`; PR #6 merged as `7b4f950`, and footer PR #9 merged as `6568270`, each after explicit authorization. Jonathan approved committing the portfolio-wide refinement and publishing its branch preview; no merge or production promotion authorized.
-- Production verified 2026-10-27: https://www.jonathanzamarripa.com serves Vercel deployment `dpl_2diT3hFFNo3okXv2BXoWXAVkZ7w8`, source `qa/monitoring-regression-gates-20261027` at `acf2893c0e3e5fdc8ef9266886a680a700d133e8` (READY, production). This differs from Git main and PR #10; see current verification below.
+- Production released and verified 2026-10-27 after Jonathan explicitly requested deployment: https://www.jonathanzamarripa.com serves `723fe34af819b06b17909b1e92c354f514813633`, Vercel deployment `dpl_28MDoBwrRzMzz5Lif1NfkqBKbJgp` (READY, production). Source is published on `pass1-hardening`; no merge to main occurred. Earlier QA deployment mismatch below is historical and resolved.
 - Vercel previews sit behind Vercel login; Claude can't open them until Jonathan signs in to Vercel in the built-in browser.
 
 ## Milestones (PR #6 merged; current local work noted below)
@@ -41,7 +41,7 @@ Not deployed (`*.md` is in `.vercelignore`). Update only when project state chan
 ## Unresolved
 - First Sentence: prototype says Marcus's *mom* is in hospice; Issue 07 corrections say *father*. Interface screenshots 04, 06, 08–10, 12, 13, 16, 17 are still 800px (01–03 now hi-res). Hero labelled "AI-generated imagery" (unconfirmed). Prototype cites Kapur (2016).
 - Image text conflicts: Legacy cover says "compliance training / 12 weeks · Jan–Mar 2024"; Guest CRM cover role/status differ from its card.
-- Archive "View the full archive" still links to the old Webflow site (it shows unverified metrics).
+- Archive Webflow outbound link resolved: Additional Work now links to existing Featured Work with an accurate CTA; shared archive URL is /#archive.
 - Case-study pages: hero image repeats as the first carousel item.
 - CSP is report-only; no long-lived caching (assets unversioned).
 - Issue 07 stays unlisted/noindex; don't publish or reconstruct its text.
@@ -57,3 +57,16 @@ Approved PR #10 visual-fidelity corrections completed for branch preview. No mer
 - Live smoke checks at 375/768/1440: homepage has no page overflow; all five distinct case-study destinations and journal hub render their expected H1/title with no page overflow (18 route/width checks). Mobile Work navigation and Back to Top work; journal link click-through reaches /journal/. Footer radius remains responsive, but its color is the older Obsidian treatment. No forms submitted.
 - Evidence: this chat's outputs/production-check/ contains Contact captures at all three widths, mobile footer capture, and live-homepage.json/routes.json. The prior outputs/review.html records the approved local result.
 - No deployment, promotion, merge, push, or commit performed during this check. Next step is to publish the approved local patch through the intended branch/review flow and select the correct production revision after explicit authorization; do not treat the current deployment as the approved visual result.
+
+
+## Approved production release — 2026-10-27
+- Jonathan explicitly authorized committing, publishing and deploying the approved changes. Published commit `723fe34af819b06b17909b1e92c354f514813633` on `pass1-hardening` and deployed that exact SHA to existing team portfolio-0e91/project prj_kc4HtEaW8FMbXoHpilevb3963FRX, target production. Deployment `dpl_28MDoBwrRzMzz5Lif1NfkqBKbJgp` reached READY and owns www/apex aliases.
+- Command-line Git push lacked credentials, so the connected GitHub account published identical file blobs/tree (tree SHA `75bef892a39549c66844991f5156237aa3f71de1`). Original local commit bf24fe9 is preserved on `pass1-hardening-local-checkpoint-bf24fe9`; active local pass1-hardening tracks origin at 723fe34. No reset, force-push or merge.
+- Production browser verification: 375px Contact now stacks (heading client/scroll width both 315px); desktop/tablet remain two columns. Footer is rounded Signal Lime rgb(198,242,58) at all 375/768/1440 widths. All five project links retained; no homepage overflow. Five case studies and journal hub passed 18 route/width smoke checks (expected H1, no page overflow). Forms were not submitted.
+- Evidence in this chat: outputs/release/ contact captures at 375/768/1440, footer-375.jpg, verified.json and routes.json. This release record is a local documentation update after deployment; production source remains 723fe34.
+- Current next task: none. Approved visual release complete. PR #10 remains unmerged; any later merge or new deployment requires its own scope/authorization.
+
+
+## Archive navigation correction — 2026-10-27
+- Jonathan authorized this fix and production deployment. Replaced the old Webflow CTA with View featured case studies (/#work), using existing parent-controlled section navigation for ordinary activation and preserving native modified-click behavior. Removed the unsupported promise of a fuller archive; retained all six project summaries and imagery. Shared links.archive now points to /#archive. No new page, effects or unrelated project claims.
+- Build passed with existing useLayoutEffect SSR warning. Local 375/768/1440 keyboard/pointer activation reaches Work; no page overflow, six archive cards, no Webflow anchors, chartreuse footer preserved. Production deployment verification follows publication of this revision.

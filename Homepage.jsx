@@ -1528,7 +1528,7 @@ function FilmSection() {
   );
 }
 
-function ArchiveBridge() {
+function ArchiveBridge({ onNavigate }) {
   const videoRef = React.useRef(null);
   const ref = React.useRef(null);
   const [active, setActive] = React.useState(false);
@@ -1543,7 +1543,6 @@ function ArchiveBridge() {
     io.observe(el);
     return () => { clearTimeout(fallback); io.disconnect(); };
   }, []);
-  const ARCHIVE_URL = 'https://jonathan-iker-zamarripa.webflow.io/projects';
   const items = [
     { title: 'Bilingual Scenario-Based eLearning', cat: 'Interactive eLearning', copy: 'Branching practice built for bilingual learners, grounded in accessibility practice and learner-centered storytelling.', tags: ['Storyline 360', 'Accessibility'] },
     { title: 'Canvas LMS Adoption at an International School', cat: 'Education Innovation', copy: 'Professional learning and adoption strategy that moved faculty from hesitation to fluency.', tags: ['Canvas LMS', 'Change Management'] },
@@ -1563,10 +1562,10 @@ function ArchiveBridge() {
         <div className="jiz-arch-head">
           <p className="jiz-arch-eyebrow"><span className="jiz-arch-eyebrow-line" aria-hidden="true" />Selected Additional Work</p>
           <h2 className="jiz-arch-title" id="jiz-arch-title">More work. More range.</h2>
-          <p className="jiz-arch-sub">Projects that show range across interactive learning, multimedia, and AI production. Summarized here; the full archive holds more.</p>
-          <a className="jiz-arch-cta" href={ARCHIVE_URL} target="_blank" rel="noopener noreferrer">
-            <span>View the full archive</span>
-            <span className="jiz-arch-cta-arrow" aria-hidden="true">↗</span>
+          <p className="jiz-arch-sub">Projects that show range across interactive learning, multimedia, and AI production.</p>
+          <a className="jiz-arch-cta" href="/#work" onClick={(event) => { if (event.button === 0 && !event.metaKey && !event.ctrlKey && !event.shiftKey && !event.altKey && onNavigate) { event.preventDefault(); onNavigate('work'); } }}>
+            <span>View featured case studies</span>
+            <span className="jiz-arch-cta-arrow" aria-hidden="true">→</span>
           </a>
         </div>
         <ul className="jiz-arch-grid">
@@ -2383,7 +2382,7 @@ function Homepage({ onOpenCaseStudy }) {
         <div ref={registerSection('journey')} data-section="journey"><CareerJourney /></div>
         <div ref={registerSection('stack')} data-section="stack"><LearningStack /></div>
         <div ref={registerSection('principles')} data-section="principles"><Principles /></div>
-        <div ref={registerSection('archive')} data-section="archive"><ArchiveBridge /></div>
+        <div ref={registerSection('archive')} data-section="archive"><ArchiveBridge onNavigate={scrollToSection} /></div>
         <div ref={registerSection('contact')} data-section="contact">
           <LetsBuild onExploreWork={() => scrollToSection('work')} />
           <FinalMoment onNavigate={scrollToSection} />
