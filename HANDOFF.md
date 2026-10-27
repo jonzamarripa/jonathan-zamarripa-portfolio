@@ -70,3 +70,14 @@ Approved PR #10 visual-fidelity corrections completed for branch preview. No mer
 ## Archive navigation correction — 2026-10-27
 - Jonathan authorized this fix and production deployment. Replaced the old Webflow CTA with View featured case studies (/#work), using existing parent-controlled section navigation for ordinary activation and preserving native modified-click behavior. Removed the unsupported promise of a fuller archive; retained all six project summaries and imagery. Shared links.archive now points to /#archive. No new page, effects or unrelated project claims.
 - Build passed with existing useLayoutEffect SSR warning. Local 375/768/1440 keyboard/pointer activation reaches Work; no page overflow, six archive cards, no Webflow anchors, chartreuse footer preserved. Production deployment verification follows publication of this revision.
+
+
+## Archive fix production verification — 2026-10-27
+- Published source commit ac82f23c56f46d6aa1a3359db2c6940c5217d239 on pass1-hardening; exact tree 2c6d12f1f91bc55d64f2fad5596ef466edac0414 matches local verified checkpoint b1d8818 (preserved on pass1-hardening-local-checkpoint-b1d8818). No reset, merge or force-push.
+- Production deployment dpl_BvhoTqUnZSzvrCGACKU35VXgKhgR is READY and owns www/apex aliases, superseding 723fe34 deployment.
+- Live keyboard/pointer checks at 375/768/1440: View featured case studies reaches Work; no Webflow links; six archive summaries and five featured projects preserved; no page overflow; Signal Lime footer preserved. Screenshots and JSON evidence in this chat's outputs/archive-fix/.
+- Source changes: Homepage.jsx and site-config.js, generated dist/site.js/index.html, and handoff documentation. Build passed with existing SSR useLayoutEffect warning. No new effects, assets, pages or factual claims. Release complete; remaining cover-image inconsistencies and repeated carousel imagery remain separate tasks.
+
+
+## Archive CTA spacing — 2026-10-27
+- Jonathan requested more separation below the View featured case studies pill. Added margin-bottom:var(--space-xl) to the existing archive header (32px); no button styling, copy, destinations or effects changed. Build passed with existing SSR warning. Local browser checks confirm exactly 32px gap to the project grid and no overflow at 375/768/1440px. Production deployment authorized by the ongoing task.
