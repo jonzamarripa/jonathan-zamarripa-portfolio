@@ -1,0 +1,57 @@
+name: Portfolio Preview QA
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: portfolio-qa-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  portfolio-qa:
+    name: Browser smoke + Lighthouse
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      # This repo intentionally has no package.json; the deployed site
+      # includes precompiled assets. Install transient QA/build tools only.
+      - name: Install build and test tooling
+        run: |
+          npm install --no-save --package-lock=false \
+            @babel/core@7 @babel/preset-react@7 react@18.3.1 react-dom@18.3.1 \
+            @playwright/test@1.64.1 @lhci/cli@0.15.1
+
+      - name: Rebuild and prerender from source
+        run: node build.cjs
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Desktop and mobile regression suite
+        run: npx playwright test
+
+      - name: Lighthouse performance, accessibility and SEO
+        run: npx lhci autorun
+
+      - name: Upload private QA artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: portfolio-preview-qa
+          path: |
+            playwright-report/
+            test-results/
+            .lighthouseci-reports/
+          if-no-files-found: ignore
+          include-hidden-files: true
+          retention-days: 7

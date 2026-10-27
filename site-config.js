@@ -61,3 +61,16 @@
   }
   window.JIZ_SITE = { links: links, sections: sections, routes: routes, section: section, resolve: resolve, viewForHash: viewForHash, viewForPath: viewForPath, route: route };
 })();
+
+/* Preview deployments load error monitoring; production and local builds stay unchanged.
+   The guard also prevents the prerender VM (which has no hostname) from loading it. */
+(function () {
+  var hostname = String((window.location && window.location.hostname) || '');
+  if (!hostname.endsWith('.vercel.app') || hostname.indexOf('jonathan-zamarripa-portfolio-') !== 0) return;
+  if (hostname === 'jonathan-zamarripa-portfolio-portfolio-0e91.vercel.app') return;
+  if (typeof document === 'undefined' || !document.createElement || !document.head) return;
+  var script = document.createElement('script');
+  script.src = '/qa-monitoring.js';
+  script.async = true;
+  document.head.appendChild(script);
+})();

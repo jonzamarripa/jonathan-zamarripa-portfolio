@@ -144,3 +144,9 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 .vite/
 .DS_Store
+
+# Browser and performance QA output
+playwright-report/
+test-results/
+.lighthouseci/
+.lighthouseci-reports/
