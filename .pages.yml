@@ -4,7 +4,7 @@ content:
     type: collection
     path: content/journal
     format: raw
-    extension: md
+    filename: "{primary}.md"
     subfolders: false
     exclude:
       - README.md
