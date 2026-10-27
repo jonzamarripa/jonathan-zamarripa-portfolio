@@ -1,0 +1,14 @@
+content:
+  - name: journal
+    label: Journal — Markdown Pilot
+    type: collection
+    path: content/journal
+    format: raw
+    filename: "{primary}.md"
+    subfolders: false
+    exclude:
+      - README.md
+    operations:
+      create: false
+      rename: false
+      delete: false
