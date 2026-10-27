@@ -49,10 +49,14 @@ function CaseStudyPage({ view }) {
   const Page = caseStudyViews()[view];
   if (!Page) return <div role="alert" style={{ padding: 32, color: '#fff', background: '#080D0B' }}>This case study could not load. <a href="/" style={{ color: '#C6F23A' }}>Return to the portfolio</a>.</div>;
   const goTo = (name) => { const t = SITE.resolve(name); const r = t && SITE.route(t.view); window.location.assign((r && r.path) || '/'); };
+  const Footer = window.HomepageExports.FinalMoment;
   return (
-    <main id="main-content" tabIndex={-1} style={{ outline: 'none' }}>
-      <Page standalone onBack={() => window.location.assign('/#work')} onOpenProject={goTo} />
-    </main>
+    <>
+      <main id="main-content" tabIndex={-1} style={{ outline: 'none' }}>
+        <Page standalone onBack={() => window.location.assign('/#work')} onOpenProject={goTo} />
+      </main>
+      <Footer standalone onNavigate={(section) => window.location.assign('/#' + section)} />
+    </>
   );
 }
 

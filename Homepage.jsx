@@ -1965,7 +1965,7 @@ function LetsBuild({ onExploreWork }) {
   );
 }
 
-function FinalMoment({ onNavigate }) {
+function FinalMoment({ onNavigate, standalone = false }) {
   const [lit, setLit] = React.useState(false);
   const ref = React.useRef(null);
   const reduced = prefersReduced();
@@ -1979,29 +1979,29 @@ function FinalMoment({ onNavigate }) {
   return (
     <footer ref={ref} className="jiz-footer" data-footer="ready">
       <style>{`
-        .jiz-footer{position:relative;isolation:isolate;overflow:hidden;padding:clamp(64px,7vw,104px) var(--container-pad) clamp(36px,4vw,56px);background:radial-gradient(ellipse at 14% 6%,rgba(var(--accent-cyan-rgb),.32),transparent 46%),radial-gradient(ellipse at 88% 88%,rgba(255,255,255,.28),transparent 42%),linear-gradient(165deg,#d4f24a 0%,#c6f23a 46%,#aade34 100%);color:#0d1410}
-        .jiz-footer::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.16;background-image:linear-gradient(rgba(13,20,16,.4) 1px,transparent 1px),linear-gradient(90deg,rgba(13,20,16,.4) 1px,transparent 1px);background-size:72px 72px;-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000,transparent 78%);mask-image:radial-gradient(ellipse at 50% 40%,#000,transparent 78%)}
+        .jiz-footer{position:relative;isolation:isolate;overflow:hidden;padding:clamp(64px,7vw,104px) var(--container-pad) clamp(36px,4vw,56px);background:var(--obsidian);color:var(--mist)}
+        .jiz-footer::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.16;background-image:linear-gradient(rgba(217,221,227,.12) 1px,transparent 1px),linear-gradient(90deg,rgba(217,221,227,.12) 1px,transparent 1px);background-size:72px 72px;-webkit-mask-image:radial-gradient(ellipse at 50% 40%,#000,transparent 78%);mask-image:radial-gradient(ellipse at 50% 40%,#000,transparent 78%)}
         .jiz-footer-inner{max-width:1360px;position:relative;z-index:1;width:min(100%,1240px);margin-inline:auto;text-align:center}
         .jiz-footer-mark{display:grid;place-items:center;margin:0 auto clamp(24px,3vw,34px)}
-        .jiz-footer-logo{width:96px;height:96px;object-fit:contain;filter:brightness(0)}
-        
-        .jiz-footer-name{margin:0 0 8px;color:#0d1410;font:var(--text-h3);font-size:clamp(1.55rem,2.6vw,2.35rem);letter-spacing:-.035em}
-        .jiz-footer-disciplines{margin:0 0 clamp(30px,3.4vw,44px);color:rgba(13,20,16,.72);font:var(--text-body);font-size:clamp(.9rem,1.1vw,1.02rem);letter-spacing:.01em}
-        
-        
-        
-        .jiz-footer-top{min-height:48px;padding:0 22px;border:1px solid rgba(13,20,16,.24);border-radius:var(--radius-pill);background:rgba(13,20,16,.9);color:#e8f7c4;font:var(--text-button);cursor:pointer;transition:all var(--motion-fast) var(--ease-standard)}
-        .jiz-footer-top:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(13,20,16,.26)}
-        .jiz-footer-rule{height:1px;margin:clamp(32px,3.6vw,46px) auto 0;background:linear-gradient(90deg,transparent,rgba(13,20,16,.24),transparent)}
+        .jiz-footer-logo{width:96px;height:96px;object-fit:contain;filter:none}
+
+        .jiz-footer-name{margin:0 0 8px;color:var(--white);font:var(--text-h3);font-size:clamp(1.55rem,2.6vw,2.35rem);letter-spacing:-.035em}
+        .jiz-footer-disciplines{margin:0 0 clamp(30px,3.4vw,44px);color:rgba(217,221,227,.8);font:var(--text-body);font-size:clamp(.9rem,1.1vw,1.02rem);letter-spacing:.01em}
+
+
+
+        .jiz-footer-top{min-height:48px;padding:0 22px;border:1px solid var(--signal-lime);border-radius:var(--radius-pill);background:var(--signal-lime);color:var(--obsidian);font:var(--text-button);cursor:pointer;transition:all var(--motion-fast) var(--ease-standard)}
+        .jiz-footer-top:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(var(--accent-cyan-rgb),.4)}
+        .jiz-footer-rule{height:1px;margin:clamp(32px,3.6vw,46px) auto 0;background:linear-gradient(90deg,transparent,rgba(217,221,227,.18),transparent)}
         .jiz-footer-meta{display:flex;flex-direction:column;gap:6px;margin-top:clamp(22px,2.4vw,30px)}
-        .jiz-footer-copy{color:rgba(13,20,16,.78);font:var(--text-caption)}
-        .jiz-footer-credit{color:rgba(13,20,16,.6);font:var(--text-caption);font-style:italic}
-        .jiz-footer-tech{color:rgba(13,20,16,.48);font:var(--text-hud);font-size:.625rem;letter-spacing:.14em;text-transform:uppercase}
+        .jiz-footer-copy{color:rgba(217,221,227,.85);font:var(--text-caption)}
+        .jiz-footer-credit{color:rgba(217,221,227,.75);font:var(--text-caption);font-style:italic}
+        .jiz-footer-tech{color:rgba(217,221,227,.65);font:var(--text-hud);font-size:.625rem;letter-spacing:.14em;text-transform:uppercase}
         .jiz-footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(6px,1vw,12px);margin-bottom:clamp(26px,3vw,38px)}
-        .jiz-footer-nav button{min-height:44px;padding:0 16px;border:1px solid transparent;border-radius:var(--radius-pill);background:transparent;color:rgba(13,20,16,.82);font:var(--text-body);font-size:.9375rem;cursor:pointer;transition:border-color var(--motion-fast) var(--ease-standard),background var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard)}
-        .jiz-footer-nav button:hover{border-color:rgba(13,20,16,.26);background:rgba(13,20,16,.07);color:#0d1410}
-        .jiz-footer-nav button:focus-visible,.jiz-footer-top:focus-visible{outline:2px solid #0d1410;outline-offset:3px}
-        
+        .jiz-footer-nav button{min-height:44px;padding:0 16px;border:1px solid transparent;border-radius:var(--radius-pill);background:transparent;color:var(--mist);font:var(--text-body);font-size:.9375rem;cursor:pointer;transition:border-color var(--motion-fast) var(--ease-standard),background var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard)}
+        .jiz-footer-nav button:hover{border-color:rgba(var(--accent-cyan-rgb),.4);background:rgba(var(--accent-cyan-rgb),.08);color:var(--accent-cyan)}
+        .jiz-footer-nav button:focus-visible,.jiz-footer-top:focus-visible{outline:2px solid var(--accent-cyan);outline-offset:3px}
+
         @media(prefers-reduced-motion:reduce){.jiz-footer-top,.jiz-footer-nav button{transition:none}.jiz-footer-top:hover{transform:none}}
       `}</style>
       <div className="jiz-footer-inner">
@@ -2014,7 +2014,8 @@ function FinalMoment({ onNavigate }) {
           {NAV.map(([label, index]) => (
             <button key={label} type="button" onClick={() => {
               if (index === 'btb') {
-                window.jizNavigate && window.jizNavigate('Behind the Build');
+                if (standalone) window.location.assign('/#behind-the-build');
+                else window.jizNavigate && window.jizNavigate('Behind the Build');
               } else if (index === 'resume') {
                 window.open('https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf', '_blank', 'noopener,noreferrer');
               } else if (index === 'linkedin') {
@@ -2396,4 +2397,4 @@ function Homepage({ onOpenCaseStudy }) {
   );
 }
 
-window.HomepageExports = { Homepage };
+window.HomepageExports = { Homepage, FinalMoment };
