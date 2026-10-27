@@ -1,0 +1,17 @@
+
+media:
+  input: assets
+  output: /assets
+
+content:
+  - name: journal
+    label: Journal — Markdown Pilot
+    type: collection
+    path: content/journal
+    format: raw
+    exclude:
+      - README.md
+    operations:
+      create: false
+      rename: false
+      delete: false
