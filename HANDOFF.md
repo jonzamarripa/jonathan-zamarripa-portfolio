@@ -113,3 +113,9 @@ Approved PR #10 visual-fidelity corrections completed for branch preview. No mer
 - Metrics count to existing verified figures in 1.1s, hold 5.5s, repeat. Individual visibility observers and document visibility pause work; reduced-motion listeners present; final values stay static for assistive technology. Pause/resume control verified.
 - Build and git diff --check pass (existing SSR useLayoutEffect warning). Browser checked homepage 375/768/1440 with no overflow; live iframe loads, mobile frame fits, close removes it and restores focus. Repeating count and pause tested. Full prototype completion and OS reduced-motion emulation were not tested.
 - Local only, no deployment. Preview http://127.0.0.1:8773/#work; evidence in chat outputs/interaction-preview/.
+
+## Unsung Heroes preview feature — 2026-10-28
+- Isolated worktree/branch `unsung-heroes-case-study` from production commit `ab9788f`; primary pass1-hardening checkout and dirty work preserved.
+- Added native eight-chapter case study, evidence-aware Colvin reconstruction, on-demand audio studio, optional learning stages and nine reusable/editable artifacts. Existing case-study source files, journal and portfolio identity unchanged.
+- Source attachment: Unsung Heroes Case Study.html; no separate kit supplied. Treat the attached HTML as build reference as clarified by Jonathan. Names/branding/student media and actual audio remain pending; no fabricated metrics or playback.
+- Media/content contract and tests: docs/unsung-heroes.md and tests/unsung-heroes.test.cjs. Build passes with existing useLayoutEffect SSR warning. Preview PR only; no merge or production deployment authorized. Stop for preview approval.

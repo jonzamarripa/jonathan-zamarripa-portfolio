@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "title": "The Girl Who Wouldn't Move",
+  "status": "pending-approved-media",
+  "disclosure": "2026 reconstructed educational demonstration. Not original AIS student work or archival testimony.",
+  "cover": {"src": null, "status": "Pending approved artwork or licensed image", "alt": ""},
+  "lanes": [
+    {"id":"narration","label":"Narration","src":null,"gain":1,"rights":"Pending narrator consent and recording","required":true},
+    {"id":"music","label":"Music","src":null,"gain":0.15,"rights":"Pending license; optional","required":false},
+    {"id":"ambience","label":"Ambience","src":null,"gain":0.1,"rights":"Pending license; optional reconstruction only","required":false},
+    {"id":"effects","label":"Sound effects","src":null,"gain":0.2,"rights":"Pending license; optional reconstruction only","required":false}
+  ],
+  "cues": [
+    {"id":"opening","start":null,"end":null},
+    {"id":"context","start":null,"end":null},
+    {"id":"case","start":null,"end":null},
+    {"id":"decision","start":null,"end":null},
+    {"id":"reflection","start":null,"end":null}
+  ]
+}

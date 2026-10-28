@@ -4,7 +4,7 @@
 const { readFileSync, writeFileSync, mkdirSync } = require('fs');
 const { transformSync } = require('@babel/' + 'core');
 
-const SITE_FILES = ['Chapter.jsx', 'HomepageP1.jsx', 'Homepage.jsx', 'CaseStudyShell.jsx', 'CaseStudy-Legacy.jsx', 'CaseStudy-HotelKey.jsx', 'CaseStudy-GuestCRM.jsx', 'CaseStudy-Workday.jsx', 'CaseStudy-FirstSentence.jsx', 'CaseStudy-DraftedByAI.jsx', 'CaseStudy-BehindTheBuild.jsx', 'App.jsx'];
+const SITE_FILES = ['Chapter.jsx', 'HomepageP1.jsx', 'Homepage.jsx', 'CaseStudyShell.jsx', 'CaseStudy-Legacy.jsx', 'CaseStudy-HotelKey.jsx', 'CaseStudy-GuestCRM.jsx', 'CaseStudy-Workday.jsx', 'CaseStudy-FirstSentence.jsx', 'CaseStudy-DraftedByAI.jsx', 'CaseStudy-BehindTheBuild.jsx', 'content/unsung-heroes.js', 'CaseStudy-UnsungHeroes.jsx', 'App.jsx'];
 const opts = { minified: true, comments: false, babelrc: false, configFile: false };
 mkdirSync('dist', { recursive: true });
 
@@ -97,6 +97,7 @@ function buildWorkPages(win, ctx, homeHtml) {
       .replace(/<div id="root">[\s\S]*<\/div>(\s*<\/body>)/, (m, end) => '<div id="root"><div data-prerender="">' + body + '</div></div>' + end);
     for (const must of ['<base href="/">', 'rel="canonical" href="' + url, 'og:url" content="' + url, 'data-prerender', '"CreativeWork"', '/' + r.hero]) if (!html.includes(must)) throw new Error(r.path + ': missing ' + must);
     if (/<script type="application\/ld\+json">[\s\S]*?"ProfilePage"/.test(html)) throw new Error(r.path + ': homepage JSON-LD leaked');
+    if (r.view === 'unsung-heroes') html = html.replace('href="#main-content"', 'href="/work/unsung-heroes/#main-content"');
     mkdirSync('.' + r.path, { recursive: true });
     writeFileSync('.' + r.path + 'index.html', html);
     written.push(r.path);
