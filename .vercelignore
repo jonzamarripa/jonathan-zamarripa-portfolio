@@ -44,3 +44,6 @@ assets/imagery/hero-portrait-new.svg
 assets/logo/jiz-monogram.png
 assets/icons/linkedin-icon.png
 assets/favicon-white.svg
+
+# Local verification scripts are not runtime site assets
+/tests/

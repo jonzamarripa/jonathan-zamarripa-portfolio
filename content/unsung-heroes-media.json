@@ -1,0 +1,94 @@
+{
+  "version": 2,
+  "title": "The Girl Who Wouldn't Move",
+  "status": "approved-stereo-mix",
+  "disclosure": "2026 reconstructed educational demonstration. Not original AIS student work or archival testimony.",
+  "cover": {
+    "src": null,
+    "status": "Pending approved artwork or licensed image",
+    "alt": ""
+  },
+  "lanes": [
+    {
+      "id": "narration",
+      "label": "Episode mix",
+      "src": "/assets/unsung-heroes/audio/unsung-heroes-ep01-the-girl-who-wouldnt-move-final-mix.mp3",
+      "gain": 1,
+      "rights": "User-approved 2026 stereo episode mix supplied October 29, 2026; not an archival recording.",
+      "required": true
+    },
+    {
+      "id": "music",
+      "label": "Music",
+      "src": null,
+      "gain": 0.15,
+      "rights": "No synchronized stem supplied; included elements cannot be isolated from the stereo mix.",
+      "required": false
+    },
+    {
+      "id": "ambience",
+      "label": "Ambience",
+      "src": null,
+      "gain": 0.1,
+      "rights": "No synchronized stem supplied; included elements cannot be isolated from the stereo mix.",
+      "required": false
+    },
+    {
+      "id": "effects",
+      "label": "Sound effects",
+      "src": null,
+      "gain": 0.2,
+      "rights": "No synchronized stem supplied; included elements cannot be isolated from the stereo mix.",
+      "required": false
+    }
+  ],
+  "cues": [
+    {
+      "id": "opening",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "context",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "case",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "decision",
+      "start": null,
+      "end": null
+    },
+    {
+      "id": "reflection",
+      "start": null,
+      "end": null
+    }
+  ],
+  "playbackMode": "stereo-mix",
+  "durationSeconds": 119.823673,
+  "sha256": "3f0acdd3ea96919b1b1a0d6bec992f3def0cdc429e478a1967b92c2214f3a795",
+  "transcriptStatus": "editorial-script-unverified-against-final-mix",
+  "images": [
+    {
+      "src": "/assets/unsung-heroes/02-podcast-studio.webp",
+      "width": 364,
+      "height": 357,
+      "alt": "Illustrative two-microphone recording setup with headphones in a softly lit studio.",
+      "chapter": "uh-studio",
+      "provenance": "AI-generated concept illustration, 2026. Not archival evidence or an AIS classroom photograph."
+    },
+    {
+      "src": "/assets/unsung-heroes/11-audio-editing.webp",
+      "width": 290,
+      "height": 212,
+      "alt": "Illustrative headphones resting beside an audio mixing console.",
+      "chapter": "uh-toolkit",
+      "provenance": "AI-generated concept illustration, 2026. Not archival evidence or an AIS classroom photograph."
+    }
+  ]
+}

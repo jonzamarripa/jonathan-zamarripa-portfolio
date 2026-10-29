@@ -40,6 +40,7 @@ function caseStudyViews() {
     'workday-learn': window.CaseStudyWorkdayExports?.CaseStudyWorkday,
     'the-first-sentence': window.CaseStudyFirstSentenceExports?.CaseStudyFirstSentence,
     'drafted-by-ai': window.CaseStudyDraftedByAIExports?.CaseStudyDraftedByAI,
+    'unsung-heroes': window.CaseStudyUnsungHeroesExports?.CaseStudyUnsungHeroes,
     'behind-the-build': window.CaseStudyBehindTheBuildExports?.CaseStudyBehindTheBuild
   };
 }
