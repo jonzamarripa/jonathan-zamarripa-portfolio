@@ -715,3 +715,138 @@ html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-jr-head > div.jz-rise {
   opacity:1!important;
   transition:none!important;
 }
+
+
+/* FINISHING PASS / EDITORIAL CUT + MEANINGFUL MOTION.
+   Complete cuts earlier in the viewport; the type remains on its baseline.
+   This chapter has no new media, metrics, words, tools or dependencies. */
+
+/* Masked titles settle before the visitor needs to read them. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage [data-jz-hybrid-title="true"] {
+  transition:clip-path 70ms linear!important;
+  will-change:auto;
+}
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls .jz-cls-anchor span {
+  transition:clip-path 70ms linear!important;
+  will-change:auto;
+}
+
+/* Impact / a traveling evidence rule, not another numeric animation. */
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-lead {
+  position:relative;
+  isolation:isolate;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-lead::before {
+  content:"";
+  position:absolute;
+  top:-14px;left:-12px;
+  width:min(30vw,290px);
+  aspect-ratio:1;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(100,225,255,.095),transparent 70%);
+  opacity:calc(.18 + var(--jz-evidence-p,1) * .82);
+  transform:scale(calc(.85 + var(--jz-evidence-p,1) * .15));
+  pointer-events:none;
+  z-index:-1;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-row {
+  position:relative;
+  isolation:isolate;
+}
+@media(min-width:1025px) {
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-row::before {
+    content:"";
+    position:absolute;
+    top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,var(--signal-lime),var(--accent-cyan));
+    transform:scaleX(var(--jz-evidence-p,1));
+    transform-origin:left center;
+    pointer-events:none;
+  }
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-cell {
+  transition:background-color 320ms ease;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-cell[data-jz-evidence-active="true"] {
+  background:linear-gradient(130deg,rgba(100,225,255,.07),transparent 70%);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-cell[data-jz-evidence-active="true"] > .jz-label {
+  color:var(--accent-cyan);
+}
+@media(max-width:560px) {
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-lead::before {
+    width:180px;
+  }
+}
+
+/* Career / use the existing horizontal and mobile vertical chronology. */
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-rail {
+  position:relative;
+  isolation:isolate;
+}
+@media(min-width:1025px) {
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-rail::after {
+    content:"";
+    position:absolute;
+    top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,#226D80,var(--accent-cyan),var(--signal-lime));
+    transform-origin:left center;
+    transform:scaleX(var(--jz-journey-p,1));
+    pointer-events:none;
+  }
+}
+@media(max-width:560px) {
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-rail::after {
+    content:"";
+    position:absolute;
+    top:0;bottom:0;left:3px;width:2px;
+    background:linear-gradient(180deg,#226D80,var(--accent-cyan),var(--signal-lime));
+    transform-origin:top center;
+    transform:scaleY(var(--jz-journey-p,1));
+    pointer-events:none;
+  }
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-stage::before {
+  transition:transform 280ms ease,background-color 280ms ease,box-shadow 280ms ease;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-stage[data-jz-journey-active="true"]::before {
+  background:var(--accent-cyan);
+  box-shadow:0 0 0 6px rgba(100,225,255,.14);
+  transform:scale(1.18);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-stage[data-jz-journey-active="true"] .jz-jr-t {
+  text-decoration:underline;
+  text-decoration-color:#226D80;
+  text-underline-offset:6px;
+  text-decoration-thickness:2px;
+}
+
+/* Preserve every evidence label and career milestone in static mode. */
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-im .jz-im-row::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-im .jz-im-lead::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-jr .jz-jr-rail::after,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-jr .jz-jr-stage::before {
+  transform:none!important;
+  transition:none!important;
+}
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-im .jz-im-cell {
+  transition:none!important;
+}
+@media(prefers-reduced-motion:reduce) {
+  .jiz-homepage .jz-im .jz-im-row::before,
+  .jiz-homepage .jz-im .jz-im-lead::before,
+  .jiz-homepage .jz-jr .jz-jr-rail::after,
+  .jiz-homepage .jz-jr .jz-jr-stage::before {
+    transform:none!important;
+    transition:none!important;
+  }
+  .jiz-homepage .jz-im .jz-im-cell {
+    transition:none!important;
+  }
+}
+@media print {
+  .jiz-homepage .jz-im .jz-im-row::before,
+  .jiz-homepage .jz-jr .jz-jr-rail::after {
+    transform:none!important;
+  }
+}
