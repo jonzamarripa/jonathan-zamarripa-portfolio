@@ -251,7 +251,7 @@
         // editorial cut while its original baseline stays fixed.
         var top = heading.getBoundingClientRect().top;
         var raw = titleMotionOn
-          ? clamp((viewport * .9 - top) / (viewport * .52)) : 1;
+          ? clamp((viewport * .9 - top) / (viewport * .32)) : 1;
         var progress = raw * raw * (3 - 2 * raw);
         value(heading, '--jz-hybrid-title-progress', progress);
         var cut = (Math.round((1 - progress) * 1000) / 10) + '%';
@@ -294,21 +294,13 @@
       if (journal) {
         var journalTitle = journal.querySelector('.jz-cls-anchor');
         if (journalTitle) {
-          // The parent H2 already rises via the universal title system.
-          // Its two existing child spans counter-travel as an editorial duet.
+          // The anchored parent H2 retains its baseline. Three existing
+          // child spans reveal in sequence; their DOM/text stays unchanged.
           var journalTop = journalTitle.getBoundingClientRect().top;
           var journalRaw = titleMotionOn
-            ? clamp((viewport * .96 - journalTop) / (viewport * .68)) : 1;
+            ? clamp((viewport * .94 - journalTop) / (viewport * .46)) : 1;
           var journalProgress = journalRaw * journalRaw * (3 - 2 * journalRaw);
           value(journal, '--jz-story-journal-p', journalProgress);
-          var leftShift = Math.round((1 - journalProgress) * -42) + 'px';
-          var rightShift = Math.round((1 - journalProgress) * 36) + 'px';
-          if (journal.style.getPropertyValue('--jz-story-left') !== leftShift) {
-            journal.style.setProperty('--jz-story-left', leftShift);
-          }
-          if (journal.style.getPropertyValue('--jz-story-right') !== rightShift) {
-            journal.style.setProperty('--jz-story-right', rightShift);
-          }
           // Each of the three actual journal lines prints in a measured
           // sequence, without splitting text nodes or changing React DOM.
           var journalCuts = [
@@ -333,6 +325,46 @@
       var workAngle = (on ? Math.round((1 - filmProgress) * -850) / 100 : 0) + 'deg';
       if (work.style.getPropertyValue('--jz-story-work-angle') !== workAngle) {
         work.style.setProperty('--jz-story-work-angle', workAngle);
+      }
+
+      /* FINISHING ACT / Evidence and Career Journey.
+         Existing published metrics, employers, dates and captions remain
+         untouched. Only a visual highlight/rail follows scroll position.
+         No new timers, listeners, duplicate text or dependent libraries. */
+      var impact = document.querySelector('.jiz-homepage .jz-im');
+      if (impact) {
+        var ir = impact.getBoundingClientRect();
+        var iRange = Math.max(1, ir.height - viewport * .2);
+        var ip = on ? clamp((viewport * .8 - ir.top) / iRange) : 1;
+        value(impact, '--jz-evidence-p', ip * ip * (3 - 2 * ip));
+        var iActive = on && ir.bottom > viewport * .15 && ir.top < viewport * .85
+          ? Math.min(3, Math.floor(ip * 4)) : -1;
+        if (impact.getAttribute('data-jz-evidence-index') !== String(iActive)) {
+          impact.setAttribute('data-jz-evidence-index', String(iActive));
+          var cells = impact.querySelectorAll('.jz-im-cell');
+          for (var u = 0; u < cells.length; u++) {
+            if (u === iActive) cells[u].setAttribute('data-jz-evidence-active', 'true');
+            else cells[u].removeAttribute('data-jz-evidence-active');
+          }
+        }
+      }
+
+      var journey = document.querySelector('.jiz-homepage .jz-jr');
+      if (journey) {
+        var jr = journey.getBoundingClientRect();
+        var jRange = Math.max(1, jr.height - viewport * .18);
+        var jp = titleMotionOn ? clamp((viewport * .8 - jr.top) / jRange) : 1;
+        value(journey, '--jz-journey-p', jp * jp * (3 - 2 * jp));
+        var jActive = titleMotionOn && jr.bottom > viewport * .12 && jr.top < viewport * .86
+          ? Math.min(3, Math.floor(jp * 4)) : -1;
+        if (journey.getAttribute('data-jz-journey-index') !== String(jActive)) {
+          journey.setAttribute('data-jz-journey-index', String(jActive));
+          var milestones = journey.querySelectorAll('.jz-jr-stage');
+          for (var v = 0; v < milestones.length; v++) {
+            if (v === jActive) milestones[v].setAttribute('data-jz-journey-active', 'true');
+            else milestones[v].removeAttribute('data-jz-journey-active');
+          }
+        }
       }
     }
     function schedule() {
