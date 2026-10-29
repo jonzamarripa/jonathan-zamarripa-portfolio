@@ -2,6 +2,17 @@
 
 Not deployed (`*.md` is in `.vercelignore`). Update only when project state changes.
 
+
+## Current verified state — October 29, 2026
+
+- **Production:** https://www.jonathanzamarripa.com/ serves commit `d197bdd5d5371cfc823c784ab01360a1e7f81c88` on `pass1-hardening`, Vercel production deployment `dpl_AviNWUBSnRnU8KqA3t8T5V8Gpyqr` (READY). The user published cinematic motion PR #22, then explicitly selected **The Editorial Cut** and published PR #24. Older production statements below are historical.
+- **Live type system:** anchored cinematic clip-mask reveals for five signature section H2 headings and a three-line journal cascade. Hero film, site copy, six projects, and the Selected Experience/ASU strip are retained.
+- **Finishing branch:** `finish/editorial-cut-qa-impact-journey` starts from current production. Refines reveal timing and adds scroll-linked evidence and chronological career rails without changing facts or copy. Open an isolated draft PR. **Do not merge old PR #23 unchanged**; it predates The Editorial Cut.
+- **Desktop QA:** a public browser run at 1920px found page scrollWidth 1905px, no console errors, hero video playing, and The Train Story local MP4 at readyState=4. Public page HTTP 200 includes six Featured Work entries and the ASU education listing. The fallback message surfaced by a static scraper is not itself evidence that the video failed to play.
+- **Remaining QA:** authenticated cross-device browser regression at 390/768/1440px, keyboard/focus, scroll cuts, case-study overlays, toggles, OS reduced motion, CLS/FPS/performance. Protected previews require signed-in Vercel access or permitted OIDC. Never describe missing checks as passed.
+- **Editorial holds (unchanged):** First Sentence prototype depicts Marcus's *mother* in hospice versus Issue 07 *father*; Issue 07 remains unlisted/noindex; imagery provenance and case-study attribution still require verification. Do not infer or rewrite disputed facts.
+- **Release gate:** only deploy the finishing branch after preview review and quality checks. Previous production deployment remains available for rollback.
+
 ## Branch / PR
 - Working branch: `pass1-hardening`; PR #6 merged as `7b4f950`, and footer PR #9 merged as `6568270`, each after explicit authorization. Jonathan approved committing the portfolio-wide refinement and publishing its branch preview; no merge or production promotion authorized.
 - Production released and verified 2026-10-27 after Jonathan explicitly requested deployment: https://www.jonathanzamarripa.com serves `723fe34af819b06b17909b1e92c354f514813633`, Vercel deployment `dpl_28MDoBwrRzMzz5Lif1NfkqBKbJgp` (READY, production). Source is published on `pass1-hardening`; no merge to main occurred. Earlier QA deployment mismatch below is historical and resolved.
