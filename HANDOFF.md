@@ -119,3 +119,9 @@ Approved PR #10 visual-fidelity corrections completed for branch preview. No mer
 - Added native eight-chapter case study, evidence-aware Colvin reconstruction, on-demand audio studio, optional learning stages and nine reusable/editable artifacts. Existing case-study source files, journal and portfolio identity unchanged.
 - Source attachment: Unsung Heroes Case Study.html; no separate kit supplied. Treat the attached HTML as build reference as clarified by Jonathan. Names/branding/student media and actual audio remain pending; no fabricated metrics or playback.
 - Media/content contract and tests: docs/unsung-heroes.md and tests/unsung-heroes.test.cjs. Build passes with existing useLayoutEffect SSR warning. Preview PR only; no merge or production deployment authorized. Stop for preview approval.
+
+## Unsung Heroes approved-media preview — 2026-10-29
+- Continuing draft PR #13 on existing unsung-heroes-case-study; baseline and other pages preserved. Supplied stereo mix copied without re-encoding; existing studio transport retained. Individual lane mute disabled for stereo-mix mode; no synchronized stems supplied.
+- Two neutral production concepts optimized to WebP, lazy loaded and visibly labeled AI-generated. Historical-looking portraits/documents withheld. All five original script segments preserved, null cue timings retained, highlighting/line seeking gated on verified transcript status.
+- Build/focused tests/diff checks pass; real MP3 loads and advances; keyboard playback/seek, pause/restart, speed/volume controls, disabled lanes/cues, close/unmount/focus return, missing-source fallback and chapter history verified. Responsive 375/768/1440 no overflow; home/two existing case studies/journal at mobile/desktop pass.
+- Pending: reviewed verbatim episode transcript and verified timing; full assistive-technology listening review. No merge or production deployment. See docs/unsung-heroes.md for approved asset inventory and contract.
