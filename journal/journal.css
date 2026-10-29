@@ -86,3 +86,50 @@ main{width:min(1120px,calc(100% - 2*clamp(16px,5vw,64px)));margin-inline:auto}
 @media(max-width:860px){.jr-pillars,.jr-systems{grid-template-columns:repeat(2,minmax(0,1fr))}.jr-method{grid-template-columns:1fr}}
 @media(max-width:520px){.jr-top{flex-wrap:wrap}.jr-home span{font-size:.875rem}}
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+
+/* Phase 4 — cinematic editorial navigation: intentional, not distracting. */
+.jr-pillars a{
+  border-bottom:2px solid transparent;
+  transition:color 240ms ease,border-color 240ms ease;
+}
+.jr-pillars a:hover,.jr-pillars a:focus-visible{
+  border-bottom-color:var(--jr-amber);
+}
+body.jr:has(#journal:target) .jr-pillars a[href="#journal"],
+body.jr:has(#framework:target) .jr-pillars a[href="#framework"],
+body.jr:has(#studio:target) .jr-pillars a[href="#studio"],
+body.jr:has(#evidence:target) .jr-pillars a[href="#evidence"]{
+  border-bottom-color:var(--jr-teal);
+  color:var(--jr-ink);
+}
+.jr-issues li{
+  transition:background-color 300ms ease;
+}
+.jr-issues li:hover,.jr-issues li:focus-within{
+  background:linear-gradient(90deg,rgba(227,162,76,.055),transparent 70%);
+}
+/* Progressive enhancement: native CSS reading progress tracks actual document
+   scroll without JavaScript, requests, layout shifts or editorial changes.
+   Browsers without scroll-driven animation support simply omit the line. */
+@supports (animation-timeline:scroll()){
+  body.jr:has(.dx)::after{
+    content:"";
+    position:fixed;z-index:8;top:0;left:0;right:0;height:3px;
+    background:var(--jr-amber);
+    transform:scaleX(0);transform-origin:left center;
+    pointer-events:none;
+    animation:jr-reading-progress linear both;
+    animation-timeline:scroll(root block);
+  }
+  @keyframes jr-reading-progress{
+    to{transform:scaleX(1)}
+  }
+}
+@media(prefers-reduced-motion:reduce){
+  .jr-pillars a,.jr-issues li{transition:none!important}
+  body.jr:has(.dx)::after{animation:none!important;display:none!important}
+}
+@media print{
+  body.jr:has(.dx)::after{display:none!important}
+}
