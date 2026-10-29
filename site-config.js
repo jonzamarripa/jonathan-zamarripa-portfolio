@@ -270,6 +270,47 @@
       if (strip.style.getPropertyValue('--jz-hybrid-bridge-rise') !== stripRise) {
         strip.style.setProperty('--jz-hybrid-bridge-rise', stripRise);
       }
+
+      /* CINEMATIC TYPOGRAPHY 2.0 — three different scene grammars.
+         The same single RAF drives all three; no heading/text duplication,
+         no scroll-jacking, no DOM rewrites, no new media requests. */
+      var method = document.querySelector('.jiz-homepage .jz-pr--method');
+      if (method) {
+        var methodRect = method.getBoundingClientRect();
+        var methodTravel = Math.max(1, methodRect.height - viewport * .18);
+        var methodLinear = on
+          ? clamp((viewport * .78 - methodRect.top) / methodTravel) : 1;
+        var methodProgress = methodLinear * methodLinear * (3 - 2 * methodLinear);
+        value(method, '--jz-story-method-p', methodProgress);
+        var methodIndex = on ? Math.min(4, Math.floor(methodLinear * 5)) : -1;
+        if (method.getAttribute('data-jz-story-current') !== String(methodIndex)) {
+          method.setAttribute('data-jz-story-current', String(methodIndex));
+          var steps = method.querySelectorAll('.jz-pr-step');
+          for (var k = 0; k < steps.length; k++) {
+            if (k === methodIndex) steps[k].setAttribute('data-jz-story-active', 'true');
+            else steps[k].removeAttribute('data-jz-story-active');
+          }
+        }
+      }
+
+      var journal = document.querySelector('.jiz-homepage .jz-cls');
+      if (journal) {
+        var journalTitle = journal.querySelector('.jz-cls-anchor');
+        if (journalTitle) {
+          // The parent H2 already rises via the universal title system.
+          // Its two existing child spans counter-travel as an editorial duet.
+          var oldRise = parseFloat(journalTitle.style.getPropertyValue('--jz-hybrid-title-rise')) || 0;
+          var journalTop = journalTitle.getBoundingClientRect().top - oldRise;
+          var journalRaw = titleMotionOn
+            ? clamp((viewport * .96 - journalTop) / (viewport * .68)) : 1;
+          var journalProgress = journalRaw * journalRaw * (3 - 2 * journalRaw);
+          value(journal, '--jz-story-journal-p', journalProgress);
+        }
+      }
+
+      /* Film-title progress is already computed above as wp. Export an
+         eased version for the Featured Work heading / image matte. */
+      value(work, '--jz-story-work-p', wp * wp * (3 - 2 * wp));
     }
     function schedule() {
       if (frame) return;
