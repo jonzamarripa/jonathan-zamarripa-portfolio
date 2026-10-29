@@ -704,3 +704,14 @@ html[data-jz-type-direction="ink-cut"][data-jz-motion-paused="true"] .jiz-homepa
     transition:none!important;
   }
 }
+
+
+/* The original reveal class also lived on some heading containers.
+   Disable that parent translation so the ink cut is the only movement. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-im-head.jz-rise,
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-pr--method .jz-pr-head > div.jz-rise,
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-jr-head > div.jz-rise {
+  transform:none!important;
+  opacity:1!important;
+  transition:none!important;
+}
