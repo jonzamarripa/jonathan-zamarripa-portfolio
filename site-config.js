@@ -211,6 +211,7 @@
       var work = document.querySelector('.jiz-homepage .jz-fw');
       if (!hero || !strip || !work) return;
       document.documentElement.setAttribute('data-jz-hybrid-home', 'true');
+      document.documentElement.setAttribute('data-jz-type-direction', 'ink-cut');
 
       /* The existing React Pause Motion button remains authoritative.
          Still content is rendered even when CSS decoration is disabled. */
@@ -234,11 +235,11 @@
       /* CHAPTER TITLES / scroll-directed typography.
          Only real homepage section titles; preserve heading text, semantic
          order, existing React reveal states and media. Single shared RAF. */
+      // Five signature chapter cuts; the other headings stay still to give
+      // the editorial rhythm contrast and resting space.
       var chapterTitleIds = [
-        'jz-fw-title', 'jz-im-title', 'jz-cap-title', 'jz-pr-title',
-        'jz-cls-title', 'creative-lab-title', 'jiz-am-title',
-        'jz-jr-title', 'jz-st-title', 'jz-pp-title',
-        'jiz-arch-title', 'jiz-build-title'
+        'jz-fw-title', 'jz-im-title', 'jz-pr-title',
+        'jz-cls-title', 'jz-jr-title'
       ];
       for (var i = 0; i < chapterTitleIds.length; i++) {
         var heading = document.getElementById(chapterTitleIds[i]);
@@ -246,20 +247,16 @@
         if (!heading.hasAttribute('data-jz-hybrid-title')) {
           heading.setAttribute('data-jz-hybrid-title', 'true');
         }
-        // Enter at 92% of the viewport, settle by 30%. Scrolling backward
-        // reverses naturally. Never hide text, even before it is reached.
-        // getBoundingClientRect includes our prior translateY: remove that
-        // offset so successive frames do not oscillate or jitter.
-        var previousRise = parseFloat(heading.style.getPropertyValue('--jz-hybrid-title-rise')) || 0;
-        var top = heading.getBoundingClientRect().top - previousRise;
-        var raw = titleMotionOn ? clamp((viewport * .92 - top) / (viewport * .62)) : 1;
+        // The type no longer changes position. It is uncovered by an
+        // editorial cut while its original baseline stays fixed.
+        var top = heading.getBoundingClientRect().top;
+        var raw = titleMotionOn
+          ? clamp((viewport * .9 - top) / (viewport * .52)) : 1;
         var progress = raw * raw * (3 - 2 * raw);
         value(heading, '--jz-hybrid-title-progress', progress);
-        var travel = wide.matches ? ((i === 0 || i === 4 || i === 5) ? 64 : 48) : 18;
-        var rise = Math.round((1 - progress) * travel);
-        var nextRise = rise + 'px';
-        if (heading.style.getPropertyValue('--jz-hybrid-title-rise') !== nextRise) {
-          heading.style.setProperty('--jz-hybrid-title-rise', nextRise);
+        var cut = (Math.round((1 - progress) * 1000) / 10) + '%';
+        if (heading.style.getPropertyValue('--jz-type-cut') !== cut) {
+          heading.style.setProperty('--jz-type-cut', cut);
         }
       }
       /* Extend the editorial rhythm of the Cox / IHG / AIS / ASU
@@ -299,8 +296,7 @@
         if (journalTitle) {
           // The parent H2 already rises via the universal title system.
           // Its two existing child spans counter-travel as an editorial duet.
-          var oldRise = parseFloat(journalTitle.style.getPropertyValue('--jz-hybrid-title-rise')) || 0;
-          var journalTop = journalTitle.getBoundingClientRect().top - oldRise;
+          var journalTop = journalTitle.getBoundingClientRect().top;
           var journalRaw = titleMotionOn
             ? clamp((viewport * .96 - journalTop) / (viewport * .68)) : 1;
           var journalProgress = journalRaw * journalRaw * (3 - 2 * journalRaw);
@@ -312,6 +308,20 @@
           }
           if (journal.style.getPropertyValue('--jz-story-right') !== rightShift) {
             journal.style.setProperty('--jz-story-right', rightShift);
+          }
+          // Each of the three actual journal lines prints in a measured
+          // sequence, without splitting text nodes or changing React DOM.
+          var journalCuts = [
+            1 - clamp(journalProgress * 1.65),
+            1 - clamp((journalProgress - .13) * 1.65),
+            1 - clamp((journalProgress - .28) * 1.65)
+          ];
+          for (var ci = 0; ci < journalCuts.length; ci++) {
+            var name = '--jz-ink-line-' + (ci + 1);
+            var nextCut = (Math.round(journalCuts[ci] * 1000) / 10) + '%';
+            if (journal.style.getPropertyValue(name) !== nextCut) {
+              journal.style.setProperty(name, nextCut);
+            }
           }
         }
       }

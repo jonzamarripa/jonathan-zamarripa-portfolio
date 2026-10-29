@@ -606,3 +606,112 @@ html[data-jz-motion-paused="true"] .jiz-homepage .jz-pr--method .jz-pr-step{
     transform:none!important;
   }
 }
+
+
+/* THE EDITORIAL CUT / replacement motion direction.
+   A still typographic baseline, revealed by an ink-like matte. Five
+   signature section headlines only; the rest deliberately remain still.
+   No duplicate text, no word splitting, no additional assets or fonts. */
+
+/* The hero is already visually alive through the real portrait film.
+   Stop moving the letters around the face; let the existing media and
+   signal rules do their work. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .hero .hero-title-main,
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .hero .hero-title-accent {
+  transform:none!important;
+  will-change:auto!important;
+  transition:none!important;
+}
+
+/* All new heading cuts happen at the original layout position. Avoid
+   interpolation of letter spacing, font size, or text width (no CLS). */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage [data-jz-hybrid-title="true"] {
+  transform:none!important;
+  opacity:1!important;
+  clip-path:inset(0 var(--jz-type-cut,0%) 0 0);
+  transition:clip-path 90ms linear!important;
+  will-change:clip-path;
+}
+
+/* 01 / PROJECTOR SHUTTER: first reveal rises through a stationary
+   Featured Work title, like opening a horizontal cinematic matte. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-fw .jz-fw-h2[data-jz-hybrid-title="true"] {
+  clip-path:inset(var(--jz-type-cut,0%) 0 0 0);
+  transform:none!important;
+  transform-origin:center!important;
+}
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-fw-head::before {
+  background:linear-gradient(105deg,rgba(100,225,255,.025),transparent 72%);
+  border-top-color:rgba(34,109,128,.23);
+}
+
+/* 02 / THE EVIDENCE CUT: impact and the career chronology enter
+   from the right; surrounding section headings serve as quiet rests. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-im #jz-im-title[data-jz-hybrid-title="true"],
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-jr #jz-jr-title[data-jz-hybrid-title="true"] {
+  clip-path:inset(0 0 0 var(--jz-type-cut,0%));
+}
+
+/* 03 / THE METHOD: a precise left-to-right ink reveal, paired with the
+   existing active-stage progression. Never translate the method words. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-pr--method .jz-pr-step[data-jz-story-active="true"] .jz-pr-word {
+  transform:none!important;
+}
+
+/* 04 / JOURNAL EDITION: three lines print in a timed editorial cascade
+   using the spans already rendered by React. No splitting DOM nodes. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls #jz-cls-title[data-jz-hybrid-title="true"] {
+  clip-path:none!important;
+}
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls .jz-cls-anchor span {
+  transform:none!important;
+  transition:clip-path 90ms linear!important;
+  will-change:clip-path;
+}
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls .jz-cls-anchor span:first-child {
+  clip-path:inset(0 var(--jz-ink-line-1,0%) 0 0);
+}
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls .jz-cls-anchor span:nth-child(2) {
+  clip-path:inset(0 var(--jz-ink-line-2,0%) 0 0);
+}
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls .jz-cls-anchor span:nth-child(3) {
+  clip-path:inset(0 var(--jz-ink-line-3,0%) 0 0);
+}
+
+/* The intro chapter never depends on the cut to become readable:
+   reduced motion, Pause Motion, no-JS and printing are plain text. */
+html[data-jz-type-direction="ink-cut"][data-jz-motion-paused="true"] .jiz-homepage [data-jz-hybrid-title="true"],
+html[data-jz-type-direction="ink-cut"][data-jz-motion-paused="true"] .jiz-homepage .jz-cls .jz-cls-anchor span {
+  clip-path:none!important;
+  transform:none!important;
+  transition:none!important;
+  will-change:auto!important;
+}
+@media(prefers-reduced-motion:reduce) {
+  html[data-jz-type-direction="ink-cut"] .jiz-homepage [data-jz-hybrid-title="true"],
+  html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls .jz-cls-anchor span {
+    clip-path:none!important;
+    transform:none!important;
+    transition:none!important;
+    will-change:auto!important;
+  }
+}
+@media print {
+  html[data-jz-type-direction="ink-cut"] .jiz-homepage [data-jz-hybrid-title="true"],
+  html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls .jz-cls-anchor span {
+    clip-path:none!important;
+    transform:none!important;
+    transition:none!important;
+  }
+}
+
+
+/* The original reveal class also lived on some heading containers.
+   Disable that parent translation so the ink cut is the only movement. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-im-head.jz-rise,
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-pr--method .jz-pr-head > div.jz-rise,
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-jr-head > div.jz-rise {
+  transform:none!important;
+  opacity:1!important;
+  transition:none!important;
+}
