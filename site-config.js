@@ -247,7 +247,10 @@
         }
         // Enter at 92% of the viewport, settle by 30%. Scrolling backward
         // reverses naturally. Never hide text, even before it is reached.
-        var top = heading.getBoundingClientRect().top;
+        // getBoundingClientRect includes our prior translateY: remove that
+        // offset so successive frames do not oscillate or jitter.
+        var previousRise = parseFloat(heading.style.getPropertyValue('--jz-hybrid-title-rise')) || 0;
+        var top = heading.getBoundingClientRect().top - previousRise;
         var raw = on ? clamp((viewport * .92 - top) / (viewport * .62)) : 1;
         var progress = raw * raw * (3 - 2 * raw);
         value(heading, '--jz-hybrid-title-progress', progress);
