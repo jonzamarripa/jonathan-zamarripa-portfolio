@@ -606,3 +606,115 @@ html[data-jz-motion-paused="true"] .jiz-homepage .jz-pr--method .jz-pr-step{
     transform:none!important;
   }
 }
+
+
+/* NEXT ACT — EVIDENCE & JOURNEY.
+   Motion is grounded in existing verified data and career milestones.
+   Figures, sources, job titles, and descriptions stay as-authored. */
+
+/* Impact: a thin evidence line conducts the existing metrics across the
+   page. The numeric CountUp and its Pause button remain independently
+   accessible and are not replaced by a decorative duplicate. */
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-lead{
+  position:relative;isolation:isolate;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-lead::before{
+  content:"";
+  position:absolute;inset:-10px auto auto -18px;
+  width:clamp(120px,20vw,320px);height:clamp(120px,20vw,320px);
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(100,225,255,.095),transparent 70%);
+  opacity:calc(.25 + var(--jz-story-impact-p,1) * .75);
+  transform:scale(calc(.82 + var(--jz-story-impact-p,1) * .18));
+  pointer-events:none;z-index:-1;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-row{
+  position:relative;isolation:isolate;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-row::before{
+  content:"";
+  position:absolute;top:-2px;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--signal-lime),var(--accent-cyan));
+  transform-origin:left center;
+  transform:scaleX(var(--jz-story-impact-p,1));
+  pointer-events:none;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-cell{
+  transition:background-color 340ms ease,border-color 340ms ease;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-cell[data-jz-evidence-active="true"]{
+  background:linear-gradient(125deg,rgba(100,225,255,.075),transparent 70%);
+  border-top-color:rgba(100,225,255,.4);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-cell[data-jz-evidence-active="true"] > .jz-label{
+  color:var(--accent-cyan);
+}
+
+/* Journey: animate the existing connecting rail in the actual four-stage
+   chronology, not a new overlay of invented career milestones. */
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-rail{
+  position:relative;isolation:isolate;
+}
+@media(min-width:1025px){
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-rail::after{
+    content:"";
+    position:absolute;top:-1px;left:0;right:0;height:3px;z-index:2;
+    background:linear-gradient(90deg,#226D80,var(--accent-cyan),var(--signal-lime));
+    transform-origin:left center;
+    transform:scaleX(var(--jz-story-journey-p,1));
+    pointer-events:none;
+  }
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-stage{
+  transition:background-color 340ms ease;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-stage::before{
+  transition:box-shadow 360ms ease,background-color 360ms ease,transform 360ms ease;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-stage[data-jz-journey-active="true"]::before{
+  background:var(--accent-cyan);
+  box-shadow:0 0 0 6px rgba(100,225,255,.14);
+  transform:scale(1.18);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-stage[data-jz-journey-active="true"] .jz-jr-t{
+  text-decoration:underline;
+  text-decoration-color:var(--accent-cyan);
+  text-underline-offset:7px;
+  text-decoration-thickness:2px;
+}
+@media(max-width:560px){
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-rail::after{
+    content:"";
+    position:absolute;left:3px;top:0;bottom:0;width:3px;z-index:2;
+    background:linear-gradient(180deg,#226D80,var(--accent-cyan),var(--signal-lime));
+    transform-origin:top center;
+    transform:scaleY(var(--jz-story-journey-p,1));
+    pointer-events:none;
+  }
+}
+/* Keep editorial evidence static if motion is paused; don't remove the
+   information, baseline track or source labels. */
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-im .jz-im-row::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-im .jz-im-lead::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-jr .jz-jr-rail::after,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-jr .jz-jr-stage::before{
+  transform:none!important;transition:none!important;
+}
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-im .jz-im-cell,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-jr .jz-jr-stage{
+  transition:none!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .jiz-homepage .jz-im .jz-im-row::before,
+  .jiz-homepage .jz-im .jz-im-lead::before,
+  .jiz-homepage .jz-jr .jz-jr-rail::after,
+  .jiz-homepage .jz-jr .jz-jr-stage::before{
+    transform:none!important;transition:none!important;
+  }
+  .jiz-homepage .jz-im .jz-im-cell,
+  .jiz-homepage .jz-jr .jz-jr-stage{transition:none!important}
+}
+@media print{
+  .jiz-homepage .jz-im .jz-im-row::before,
+  .jiz-homepage .jz-jr .jz-jr-rail::after{transform:none!important}
+}

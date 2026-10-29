@@ -324,6 +324,48 @@
       if (work.style.getPropertyValue('--jz-story-work-angle') !== workAngle) {
         work.style.setProperty('--jz-story-work-angle', workAngle);
       }
+
+      /* NEXT ACT — EVIDENCE & CAREER JOURNEY.
+         Show evidence as a connected reveal and illuminate actual career
+         stages as the reader moves through the section. No new metrics,
+         no rewritten chronology, no extra event loops or timers. */
+      var impact = document.querySelector('.jiz-homepage .jz-im');
+      if (impact) {
+        var ir = impact.getBoundingClientRect();
+        var iStart = viewport * .82;
+        var iRange = Math.max(1, ir.height - viewport * .14);
+        var ip = on ? clamp((iStart - ir.top) / iRange) : 1;
+        value(impact, '--jz-story-impact-p', ip * ip * (3 - 2 * ip));
+        var iActive = on && ir.bottom > viewport * .15 && ir.top < viewport * .85
+          ? Math.min(3, Math.floor(ip * 4)) : -1;
+        if (impact.getAttribute('data-jz-story-index') !== String(iActive)) {
+          impact.setAttribute('data-jz-story-index', String(iActive));
+          var cells = impact.querySelectorAll('.jz-im-cell');
+          for (var u = 0; u < cells.length; u++) {
+            if (u === iActive) cells[u].setAttribute('data-jz-evidence-active', 'true');
+            else cells[u].removeAttribute('data-jz-evidence-active');
+          }
+        }
+      }
+
+      var journey = document.querySelector('.jiz-homepage .jz-jr');
+      if (journey) {
+        var jr = journey.getBoundingClientRect();
+        var jStart = viewport * .82;
+        var jRange = Math.max(1, jr.height - viewport * .18);
+        var jp = titleMotionOn ? clamp((jStart - jr.top) / jRange) : 1;
+        value(journey, '--jz-story-journey-p', jp * jp * (3 - 2 * jp));
+        var jActive = titleMotionOn && jr.bottom > viewport * .12 && jr.top < viewport * .86
+          ? Math.min(3, Math.floor(jp * 4)) : -1;
+        if (journey.getAttribute('data-jz-journey-index') !== String(jActive)) {
+          journey.setAttribute('data-jz-journey-index', String(jActive));
+          var milestones = journey.querySelectorAll('.jz-jr-stage');
+          for (var v = 0; v < milestones.length; v++) {
+            if (v === jActive) milestones[v].setAttribute('data-jz-journey-active', 'true');
+            else milestones[v].removeAttribute('data-jz-journey-active');
+          }
+        }
+      }
     }
     function schedule() {
       if (frame) return;
