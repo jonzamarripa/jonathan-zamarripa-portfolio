@@ -183,3 +183,38 @@ html[data-jz-motion-paused="true"] :where(.jiz-cs,.tfs) .jz-cinema-reveal{
     transform:none!important;
   }
 }
+
+
+/* Phase 4 — methodology: progress is visible on the existing five-stage rail.
+   This only decorates stages after IntersectionObserver has seen them; no
+   hidden text, DOM reflow, new controls, or new animation dependencies. */
+.jiz-homepage .jz-pr--method .jz-pr-step::after{
+  transition:background-color var(--jz-motion-cue-duration,380ms) ease,
+             box-shadow var(--jz-motion-cue-duration,380ms) ease;
+}
+.jiz-homepage .jz-pr--method[data-in="true"] .jz-pr-step[data-jz-method-seen="true"]::before{
+  width:min(88%,180px);
+  transition-duration:var(--jz-motion-media-duration,720ms);
+}
+.jiz-homepage .jz-pr--method .jz-pr-step[data-jz-method-seen="true"]::after{
+  background:var(--signal-lime);
+  box-shadow:0 0 0 4px rgba(198,242,58,.12);
+}
+.jiz-homepage .jz-pr--method .jz-pr-step .jz-pr-rule{
+  transition:border-color var(--jz-motion-overlay-duration,480ms) ease;
+}
+.jiz-homepage .jz-pr--method .jz-pr-step[data-jz-method-seen="true"] .jz-pr-rule{
+  border-top-color:rgba(198,242,58,.28);
+}
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-pr--method .jz-pr-step::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-pr--method .jz-pr-step::after,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-pr--method .jz-pr-step .jz-pr-rule{
+  transition:none!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .jiz-homepage .jz-pr--method .jz-pr-step::before,
+  .jiz-homepage .jz-pr--method .jz-pr-step::after,
+  .jiz-homepage .jz-pr--method .jz-pr-step .jz-pr-rule{
+    transition:none!important;
+  }
+}
