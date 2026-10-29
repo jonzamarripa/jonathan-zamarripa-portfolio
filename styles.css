@@ -466,3 +466,143 @@ html[data-jz-motion-paused="true"] .jiz-homepage .jz-exp :is(.jz-exp-in > .jz-la
     transform:none!important;opacity:1!important;
   }
 }
+
+
+/* CINEMATIC TYPOGRAPHY 2.0 — three original scene grammars.
+   Identity, imagery, editorial copy and project semantics remain untouched.
+   Choreography uses the existing scroll director; effects require opt-in root. */
+
+/* 01 / FEATURED WORK — a film-title perspective and controlled matte. */
+@media(min-width:901px){
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw-head{
+    position:relative;
+    perspective:1200px;
+    isolation:isolate;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw-head::before{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    top:clamp(-18px,-1.2vw,-8px);
+    left:-12px;
+    width:min(68vw,820px);
+    max-width:calc(100% + 24px);
+    height:clamp(90px,12vw,176px);
+    border-left:2px solid rgba(34,109,128,.38);
+    border-top:1px solid rgba(34,109,128,.14);
+    background:linear-gradient(105deg,rgba(100,225,255,.045),transparent 68%);
+    transform-origin:left center;
+    transform:scaleX(var(--jz-story-work-p,1));
+    pointer-events:none;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw[data-in="true"] .jz-fw-h2[data-jz-hybrid-title="true"]{
+    transform:translate3d(
+      calc((1 - var(--jz-hybrid-work-progress,1)) * -32px),
+      var(--jz-hybrid-title-rise,0px),0
+    ) rotateX(var(--jz-story-work-angle,0deg));
+    transform-origin:15% 68%;
+    transition:transform 110ms linear,opacity 120ms linear;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw .jz-fw-card:first-child .jz-fw-media{
+    box-shadow:0 0 0 1px rgba(11,13,16,.12),0 16px 44px rgba(11,13,16,.06);
+  }
+}
+
+/* 02 / METHOD — a connected reading journey, not five detached cards. */
+@media(min-width:1025px){
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-steps{
+    position:relative;
+    isolation:isolate;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-steps::before{
+    content:"";
+    position:absolute;
+    top:-2px;left:0;right:0;height:3px;z-index:2;
+    background:linear-gradient(90deg,var(--signal-lime),var(--accent-cyan));
+    transform-origin:left center;
+    transform:scaleX(var(--jz-story-method-p,1));
+    pointer-events:none;
+  }
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-step{
+  transition:background-color 340ms ease;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-word{
+  transition:color 420ms ease,transform 480ms cubic-bezier(.19,1,.22,1);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-step[data-jz-story-active="true"] .jz-pr-word{
+  color:var(--signal-lime);
+  transform:translate3d(0,-3px,0);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-step[data-jz-story-active="true"]::after{
+  background:var(--signal-lime);
+  box-shadow:0 0 0 7px rgba(198,242,58,.14),0 0 20px rgba(198,242,58,.22);
+  border-color:var(--signal-lime);
+  transition:background-color 400ms ease,box-shadow 400ms ease;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-step[data-jz-story-active="true"] .jz-pr-rule{
+  border-top-color:rgba(100,225,255,.45);
+}
+@media(max-width:1024px){
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-step[data-jz-story-active="true"]{
+    background:linear-gradient(90deg,rgba(198,242,58,.055),transparent 72%);
+  }
+}
+
+/* 03 / CINEMATIC LEARNING SYSTEMS — independent editorial typographic duet. */
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-intro{
+  position:relative;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-intro::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;width:2px;height:clamp(65px,7vw,118px);
+  background:linear-gradient(180deg,#E3A24C,#56B8B4,transparent);
+  transform-origin:top center;
+  transform:scaleY(var(--jz-story-journal-p,1));
+  pointer-events:none;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-anchor span{
+  position:relative;
+  transition:transform 105ms linear;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-anchor span:first-child{
+  transform:translate3d(var(--jz-story-left,0px),0,0);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-anchor span:last-child{
+  transform:translate3d(var(--jz-story-right,0px),0,0);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-anchor::after{
+  background:linear-gradient(90deg,#E3A24C,#56B8B4,transparent);
+}
+
+/* Decorative transforms are never required to see content or use controls. */
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-fw-head::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-pr--method .jz-pr-steps::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-cls-intro::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-cls-anchor span{
+  transform:none!important;
+  transition:none!important;
+}
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-pr--method .jz-pr-word,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-pr--method .jz-pr-step{
+  transform:none!important;
+  transition:none!important;
+}
+@media(prefers-reduced-motion:reduce){
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw-head::before,
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-steps::before,
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-intro::before,
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-anchor span,
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-word,
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-step{
+    transform:none!important;transition:none!important;
+  }
+}
+@media print{
+  .jiz-homepage .jz-cls-anchor span,
+  .jiz-homepage .jz-pr--method .jz-pr-word,
+  .jiz-homepage .jz-fw-h2{
+    transform:none!important;
+  }
+}
