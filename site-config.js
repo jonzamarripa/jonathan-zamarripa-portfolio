@@ -186,5 +186,78 @@
     initMethodProgression();
   }
 
+
+  /* HYBRID CINEMATIC HOME — an intentionally isolated homepage experiment.
+     Animates existing hero headline + section boundaries; does not replace
+     portrait video, accessible text, buttons, project cards or React nodes.
+     Only decorative CSS custom properties are updated on scroll. */
+  function initHybridCinematicHome() {
+    if (!window.requestAnimationFrame || !window.matchMedia) return;
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
+    var wide = window.matchMedia('(min-width: 901px)');
+    var frame = 0;
+    var rootNode = document.getElementById('root');
+
+    function clamp(x) { return Math.max(0, Math.min(1, x)); }
+    function value(el, name, amount) {
+      if (!el) return;
+      var next = String(Math.round(amount * 1000) / 1000);
+      if (el.style.getPropertyValue(name) !== next) el.style.setProperty(name, next);
+    }
+    function render() {
+      frame = 0;
+      var hero = document.querySelector('.jiz-homepage .hero');
+      var strip = document.querySelector('.jiz-homepage .jz-exp');
+      var work = document.querySelector('.jiz-homepage .jz-fw');
+      if (!hero || !strip || !work) return;
+      document.documentElement.setAttribute('data-jz-hybrid-home', 'true');
+
+      /* The existing React Pause Motion button remains authoritative.
+         Still content is rendered even when CSS decoration is disabled. */
+      var paused = document.documentElement.getAttribute('data-jz-motion-paused') === 'true';
+      var on = wide.matches && !reduced.matches && !paused;
+      var viewport = Math.max(1, window.innerHeight);
+      var heroRect = hero.getBoundingClientRect();
+      var stripRect = strip.getBoundingClientRect();
+      var workRect = work.getBoundingClientRect();
+
+      var hp = on ? clamp((Math.max(0, -heroRect.top) / Math.max(1, heroRect.height * .77))) : 0;
+      var bp = on ? clamp((viewport * .78 - stripRect.top) / Math.max(1, viewport * .6)) : 1;
+      var wp = on ? clamp((viewport * .84 - workRect.top) / Math.max(1, viewport * .72)) : 1;
+
+      value(hero, '--jz-hybrid-hero-progress', hp);
+      value(strip, '--jz-hybrid-bridge-progress', bp);
+      value(work, '--jz-hybrid-work-progress', wp);
+    }
+    function schedule() {
+      if (frame) return;
+      frame = window.requestAnimationFrame(render);
+    }
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule, { passive: true });
+    window.addEventListener('pageshow', schedule);
+    document.addEventListener('click', function (event) {
+      if (event.target && event.target.closest && event.target.closest('.jiz-motion-toggle')) {
+        window.queueMicrotask(schedule);
+      }
+    });
+    if (reduced.addEventListener) reduced.addEventListener('change', schedule);
+    if (wide.addEventListener) wide.addEventListener('change', schedule);
+
+    /* React replaces the prerendered root on boot and when returning from
+       standalone routes. Rescan after direct children change. */
+    if (rootNode && typeof MutationObserver !== 'undefined') {
+      new MutationObserver(function (records) {
+        if (records.some(function (record) { return record.addedNodes.length > 0; })) schedule();
+      }).observe(rootNode, { childList: true });
+    }
+    schedule();
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHybridCinematicHome, { once: true });
+  } else {
+    initHybridCinematicHome();
+  }
+
   window.JIZ_SITE = { links: links, sections: sections, routes: routes, section: section, resolve: resolve, viewForHash: viewForHash, viewForPath: viewForPath, route: route };
 })();
