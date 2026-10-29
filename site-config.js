@@ -60,5 +60,25 @@
     for (var j = 0; j < routes.length; j++) if (routes[j].path === p) return routes[j].view;
     return null;
   }
+
+  /* Keep CSS-only decorative interactions in sync with the existing React
+     Pause Motion control, without introducing another preference store.
+     The React control writes jiz-motion-paused to sessionStorage. */
+  function syncDecorativeMotion() {
+    var paused = false;
+    try { paused = sessionStorage.getItem('jiz-motion-paused') === '1'; } catch (e) {}
+    document.documentElement.setAttribute('data-jz-motion-paused', paused ? 'true' : 'false');
+  }
+  syncDecorativeMotion();
+  document.addEventListener('click', function (event) {
+    var el = event.target && event.target.closest && event.target.closest('.jiz-motion-toggle');
+    if (el) {
+      // React's delegated onClick updates the preference during the same event.
+      // Read its final persisted value after that event finishes.
+      queueMicrotask(syncDecorativeMotion);
+    }
+  });
+  window.addEventListener('pageshow', syncDecorativeMotion);
+
   window.JIZ_SITE = { links: links, sections: sections, routes: routes, section: section, resolve: resolve, viewForHash: viewForHash, viewForPath: viewForPath, route: route };
 })();
