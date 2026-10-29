@@ -305,12 +305,25 @@
             ? clamp((viewport * .96 - journalTop) / (viewport * .68)) : 1;
           var journalProgress = journalRaw * journalRaw * (3 - 2 * journalRaw);
           value(journal, '--jz-story-journal-p', journalProgress);
+          var leftShift = Math.round((1 - journalProgress) * -42) + 'px';
+          var rightShift = Math.round((1 - journalProgress) * 36) + 'px';
+          if (journal.style.getPropertyValue('--jz-story-left') !== leftShift) {
+            journal.style.setProperty('--jz-story-left', leftShift);
+          }
+          if (journal.style.getPropertyValue('--jz-story-right') !== rightShift) {
+            journal.style.setProperty('--jz-story-right', rightShift);
+          }
         }
       }
 
       /* Film-title progress is already computed above as wp. Export an
          eased version for the Featured Work heading / image matte. */
-      value(work, '--jz-story-work-p', wp * wp * (3 - 2 * wp));
+      var filmProgress = wp * wp * (3 - 2 * wp);
+      value(work, '--jz-story-work-p', filmProgress);
+      var workAngle = (on ? Math.round((1 - filmProgress) * -850) / 100 : 0) + 'deg';
+      if (work.style.getPropertyValue('--jz-story-work-angle') !== workAngle) {
+        work.style.setProperty('--jz-story-work-angle', workAngle);
+      }
     }
     function schedule() {
       if (frame) return;
