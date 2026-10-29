@@ -216,6 +216,7 @@
          Still content is rendered even when CSS decoration is disabled. */
       var paused = document.documentElement.getAttribute('data-jz-motion-paused') === 'true';
       var on = wide.matches && !reduced.matches && !paused;
+      var titleMotionOn = !reduced.matches && !paused;
       var viewport = Math.max(1, window.innerHeight);
       var heroRect = hero.getBoundingClientRect();
       var stripRect = strip.getBoundingClientRect();
@@ -251,10 +252,10 @@
         // offset so successive frames do not oscillate or jitter.
         var previousRise = parseFloat(heading.style.getPropertyValue('--jz-hybrid-title-rise')) || 0;
         var top = heading.getBoundingClientRect().top - previousRise;
-        var raw = on ? clamp((viewport * .92 - top) / (viewport * .62)) : 1;
+        var raw = titleMotionOn ? clamp((viewport * .92 - top) / (viewport * .62)) : 1;
         var progress = raw * raw * (3 - 2 * raw);
         value(heading, '--jz-hybrid-title-progress', progress);
-        var travel = (i === 0 || i === 4 || i === 5) ? 64 : 48;
+        var travel = wide.matches ? ((i === 0 || i === 4 || i === 5) ? 64 : 48) : 18;
         var rise = Math.round((1 - progress) * travel);
         var nextRise = rise + 'px';
         if (heading.style.getPropertyValue('--jz-hybrid-title-rise') !== nextRise) {
@@ -263,7 +264,9 @@
       }
       /* Extend the editorial rhythm of the Cox / IHG / AIS / ASU
          credibility strip rather than introducing a new component. */
-      var stripRise = Math.round((1 - bp) * 20) + 'px';
+      var stripEntry = titleMotionOn ? clamp((viewport * .82 - stripRect.top) / (viewport * .62)) : 1;
+      var stripRise = Math.round((1 - stripEntry) * (wide.matches ? 20 : 12)) + 'px';
+      value(strip, '--jz-hybrid-strip-entry', stripEntry);
       if (strip.style.getPropertyValue('--jz-hybrid-bridge-rise') !== stripRise) {
         strip.style.setProperty('--jz-hybrid-bridge-rise', stripRise);
       }
