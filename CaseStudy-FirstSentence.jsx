@@ -412,7 +412,7 @@ const TFS_CSS = `
 .tfs .jiz-chapter{--tfs-ink:var(--chapter-ink);--tfs-soft:var(--chapter-ink-soft);--tfs-mute:var(--chapter-ink-mute);--tfs-line:var(--chapter-line);--tfs-orange:var(--chapter-accent-ink)}
 .tfs-chn{margin:0 0 18px;font:500 .75rem/1.3 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:var(--tfs-orange)}
 .tfs-eyebrow{margin:0 0 14px;font:500 .8125rem/1.4 var(--font-mono);letter-spacing:.06em;color:var(--tfs-mute)}
-.tfs-title{margin:0;font:600 clamp(2.75rem,1.4rem + 6vw,6.5rem)/.94 var(--font-display);letter-spacing:-.045em}
+.tfs-title{margin:0;font:600 var(--portfolio-display-title,var(--size-h1))/1.02 var(--font-display);letter-spacing:-.045em}
 .tfs-tension{margin:clamp(18px,2.4vw,28px) 0 0;max-width:32ch;font:500 clamp(1.25rem,1rem + 1vw,1.875rem)/1.3 var(--font-display);color:var(--tfs-orange)}
 .tfs-hero{margin:clamp(32px,4vw,56px) 0 0}
 .tfs-hero img{display:block;width:100%;height:auto;border-radius:var(--inner-r);background:#06080a}

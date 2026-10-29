@@ -26,6 +26,10 @@ function CaseStudyBehindTheBuild({ onBack, onOpenProject }) {
   const toggleExample = (id) => setExpandedExample(expandedExample === id ? null : id);
   const togglePhase = (id) => setExpandedPhase(expandedPhase === id ? null : id);
 
+  const Chapter = window.JIZChapter.Chapter;
+  let chapterIndex = 0;
+  const nextSurface = () => ['obsidian', 'slate', 'obsidian', 'mist'][chapterIndex++ % 4];
+
   const styles = `
     .jiz-btb-cover {
       position: relative;
@@ -207,12 +211,12 @@ function CaseStudyBehindTheBuild({ onBack, onOpenProject }) {
 
   return React.createElement(
     'div',
-    { ref: contentRef, style: { width: '100%', color: 'var(--color-text-primary)', background: 'var(--color-bg-primary)' } },
+    { ref: contentRef, className: 'jiz-btb-detail' },
     React.createElement('style', null, styles),
     React.createElement('div', { style: { position: 'fixed', top: 0, left: 0, right: 0, height: 3, background: 'linear-gradient(90deg, var(--color-accent-secondary), var(--color-accent-primary))', width: `${scrollProgress}%`, zIndex: 100, transition: reduced ? 'none' : 'width 0.1s ease' } }),
     React.createElement(
-      'div',
-      { className: 'jiz-btb-cover' },
+      Chapter,
+      { as: 'header', surface: nextSurface(), className: 'jiz-btb-cover' },
       React.createElement('div', { className: 'jiz-btb-eyebrow' }, 'CASE STUDY / CREATIVE TECHNOLOGY'),
       React.createElement('h1', { className: 'jiz-btb-headline' }, 'Behind the Build'),
       React.createElement('p', { className: 'jiz-btb-subheadline' }, 'Designing, engineering, and shipping my digital portfolio'),
@@ -225,14 +229,14 @@ function CaseStudyBehindTheBuild({ onBack, onOpenProject }) {
       )
     ),
     React.createElement(
-      'div',
-      { className: 'jiz-btb-section' },
+      Chapter,
+      { as: 'section', surface: nextSurface(), className: 'jiz-btb-section' },
       React.createElement('h2', { className: 'jiz-btb-section-title' }, 'Executive Summary'),
       React.createElement('p', { className: 'jiz-btb-section-subtitle' }, 'I set out to redesign my portfolio but discovered the real work was building a complete digital product. The final experience required experience strategy, narrative architecture, a responsive front-end, AI-orchestrated production, version control, automated deployment, domain migration, and meticulous QA. The project demonstrated that a portfolio platform—not just a visual design—is the most credible evidence of how I think and what I can deliver.')
     ),
     React.createElement(
-      'div',
-      { className: 'jiz-btb-section' },
+      Chapter,
+      { as: 'section', surface: nextSurface(), className: 'jiz-btb-section' },
       React.createElement('h2', { className: 'jiz-btb-section-title' }, 'Project Snapshot'),
       React.createElement(
         'div',
@@ -264,8 +268,8 @@ function CaseStudyBehindTheBuild({ onBack, onOpenProject }) {
       )
     ),
     React.createElement(
-      'div',
-      { className: 'jiz-btb-section' },
+      Chapter,
+      { as: 'section', surface: nextSurface(), className: 'jiz-btb-section' },
       React.createElement('h2', { className: 'jiz-btb-section-title' }, 'The Challenge'),
       React.createElement(
         'div',
@@ -291,15 +295,15 @@ function CaseStudyBehindTheBuild({ onBack, onOpenProject }) {
       )
     ),
     React.createElement(
-      'div',
-      { className: 'jiz-btb-section' },
+      Chapter,
+      { as: 'section', surface: nextSurface(), className: 'jiz-btb-section' },
       React.createElement('h2', { className: 'jiz-btb-section-title' }, 'The Opportunity'),
       React.createElement('p', { className: 'jiz-btb-section-subtitle' }, 'The portfolio itself became evidence of the work.'),
       React.createElement('p', { style: { fontSize: '1rem', color: 'rgba(255,255,255,0.65)', lineHeight: '1.6', maxWidth: '800px' } }, 'The project became an opportunity to demonstrate systems thinking, learning-experience strategy, product judgment, creative direction, AI orchestration, front-end production, deployment literacy, and iterative QA. Every decision—from narrative architecture to mobile optimization to production debugging—would be visible in the final product.')
     ),
     React.createElement(
-      'div',
-      { className: 'jiz-btb-section' },
+      Chapter,
+      { as: 'section', surface: nextSurface(), className: 'jiz-btb-section' },
       React.createElement('h2', { className: 'jiz-btb-section-title' }, 'Human-Directed AI Workflow'),
       React.createElement('p', { className: 'jiz-btb-section-subtitle' }, 'AI accelerated production. It did not own the decisions.'),
       React.createElement(
@@ -327,16 +331,16 @@ function CaseStudyBehindTheBuild({ onBack, onOpenProject }) {
       React.createElement('h3', { style: { fontSize: '1.1rem', fontWeight: '600', color: 'var(--color-text-primary)', marginBottom: 'var(--space-4)' } }, 'Documented Examples'),
       React.createElement(
         'div',
-        { className: 'jiz-btb-example', onClick: () => toggleExample('ex1') },
+        { className: 'jiz-btb-example' },
         React.createElement(
-          'div',
-          { className: 'jiz-btb-example-header' },
+          'button',
+          { type: 'button', className: 'jiz-btb-example-header', onClick: () => toggleExample('ex1'), 'aria-expanded': expandedExample === 'ex1', 'aria-controls': 'btb-ex1' },
           React.createElement('span', null, 'Example 1: Missing Production Media'),
           React.createElement('span', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem' } }, expandedExample === 'ex1' ? '−' : '+')
         ),
         React.createElement(
           'div',
-          { className: `jiz-btb-example-content ${expandedExample === 'ex1' ? 'expanded' : ''}` },
+          { id: 'btb-ex1', hidden: expandedExample !== 'ex1', className: `jiz-btb-example-content ${expandedExample === 'ex1' ? 'expanded' : ''}` },
           React.createElement('p', { className: 'jiz-btb-example-text' }, React.createElement('strong', null, 'Problem: '), 'Logo, hero video, and case-study imagery were missing from the production site.'),
           React.createElement('p', { className: 'jiz-btb-example-text' }, React.createElement('strong', null, 'Diagnosis: '), 'Asset references were written for the original nested project structure, not the deployment environment.'),
           React.createElement('p', { className: 'jiz-btb-example-text' }, React.createElement('strong', null, 'Decision: '), 'Rebased all paths for the production repository and validated local requests.'),
@@ -345,16 +349,16 @@ function CaseStudyBehindTheBuild({ onBack, onOpenProject }) {
       ),
       React.createElement(
         'div',
-        { className: 'jiz-btb-example', onClick: () => toggleExample('ex2') },
+        { className: 'jiz-btb-example' },
         React.createElement(
-          'div',
-          { className: 'jiz-btb-example-header' },
+          'button',
+          { type: 'button', className: 'jiz-btb-example-header', onClick: () => toggleExample('ex2'), 'aria-expanded': expandedExample === 'ex2', 'aria-controls': 'btb-ex2' },
           React.createElement('span', null, 'Example 2: Visual System Regression'),
           React.createElement('span', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem' } }, expandedExample === 'ex2' ? '−' : '+')
         ),
         React.createElement(
           'div',
-          { className: `jiz-btb-example-content ${expandedExample === 'ex2' ? 'expanded' : ''}` },
+          { id: 'btb-ex2', hidden: expandedExample !== 'ex2', className: `jiz-btb-example-content ${expandedExample === 'ex2' ? 'expanded' : ''}` },
           React.createElement('p', { className: 'jiz-btb-example-text' }, React.createElement('strong', null, 'Problem: '), 'After updating asset paths, the site rendered with black text on a dark background and missing typography styles.'),
           React.createElement('p', { className: 'jiz-btb-example-text' }, React.createElement('strong', null, 'Diagnosis: '), 'The CSS bundle was overwritten with an incomplete version during the deployment update.'),
           React.createElement('p', { className: 'jiz-btb-example-text' }, React.createElement('strong', null, 'Decision: '), 'Restored the correct _ds_bundle.js and styles.css from the design-system source.'),
@@ -363,16 +367,16 @@ function CaseStudyBehindTheBuild({ onBack, onOpenProject }) {
       ),
       React.createElement(
         'div',
-        { className: 'jiz-btb-example', onClick: () => toggleExample('ex3') },
+        { className: 'jiz-btb-example' },
         React.createElement(
-          'div',
-          { className: 'jiz-btb-example-header' },
+          'button',
+          { type: 'button', className: 'jiz-btb-example-header', onClick: () => toggleExample('ex3'), 'aria-expanded': expandedExample === 'ex3', 'aria-controls': 'btb-ex3' },
           React.createElement('span', null, 'Example 3: Mobile Hero Layout'),
           React.createElement('span', { style: { color: 'rgba(255,255,255,0.5)', fontSize: '0.9rem' } }, expandedExample === 'ex3' ? '−' : '+')
         ),
         React.createElement(
           'div',
-          { className: `jiz-btb-example-content ${expandedExample === 'ex3' ? 'expanded' : ''}` },
+          { id: 'btb-ex3', hidden: expandedExample !== 'ex3', className: `jiz-btb-example-content ${expandedExample === 'ex3' ? 'expanded' : ''}` },
           React.createElement('p', { className: 'jiz-btb-example-text' }, React.createElement('strong', null, 'Problem: '), 'On mobile, the hero portrait overlapped the CTA, and the headline sat much higher than the supporting copy.'),
           React.createElement('p', { className: 'jiz-btb-example-text' }, React.createElement('strong', null, 'Diagnosis: '), 'No responsive breakpoints existed for screens ≤768px; the desktop layout was uncontrolled on small screens.'),
           React.createElement('p', { className: 'jiz-btb-example-text' }, React.createElement('strong', null, 'Decision: '), 'Added @media breakpoints to reduce hero height, scale portrait down, reposition CTA, and tighten spacing.'),
@@ -381,8 +385,8 @@ function CaseStudyBehindTheBuild({ onBack, onOpenProject }) {
       )
     ),
     React.createElement(
-      'div',
-      { className: 'jiz-btb-section' },
+      Chapter,
+      { as: 'section', surface: nextSurface(), className: 'jiz-btb-section' },
       React.createElement('h2', { className: 'jiz-btb-section-title' }, 'Key Decisions'),
       React.createElement(
         'div',
@@ -414,8 +418,8 @@ function CaseStudyBehindTheBuild({ onBack, onOpenProject }) {
       )
     ),
     React.createElement(
-      'div',
-      { className: 'jiz-btb-section' },
+      Chapter,
+      { as: 'section', surface: nextSurface(), className: 'jiz-btb-section' },
       React.createElement('h2', { className: 'jiz-btb-section-title' }, 'Deployment & QA'),
       React.createElement(
         'div',
@@ -447,17 +451,17 @@ function CaseStudyBehindTheBuild({ onBack, onOpenProject }) {
       )
     ),
     React.createElement(
-      'div',
-      { className: 'jiz-btb-section' },
+      Chapter,
+      { as: 'section', surface: nextSurface(), className: 'jiz-btb-section' },
       React.createElement('h2', { className: 'jiz-btb-section-title' }, 'Outcome'),
       React.createElement('p', { className: 'jiz-btb-section-subtitle' }, 'A portfolio that demonstrates production literacy, creative thinking, and human-directed AI collaboration.'),
       React.createElement('p', { style: { fontSize: '1rem', color: 'rgba(255,255,255,0.65)', lineHeight: '1.6', maxWidth: '800px' } }, 'The final site serves as evidence that I can design strategically, implement responsively, debug methodically, and ship with confidence. It is not a design gallery—it is a working digital product that every hiring leader, collaborator, and visitor can interact with and learn from.')
     ),
     React.createElement(
-      'div',
-      { style: { padding: 'var(--space-8) var(--space-5)', borderTop: '1px solid rgba(120,200,180,0.1)', textAlign: 'center' } },
+      Chapter,
+      { as: 'nav', surface: nextSurface(), className: 'jiz-btb-next', label: 'Next project' },
       React.createElement('h2', { style: { fontSize: '1.5rem', fontWeight: '600', color: 'var(--color-text-primary)', margin: '0 0 var(--space-3) 0' } }, 'Next Project'),
-      React.createElement('button', { onClick: () => onOpenProject('Operation: Legacy Unlocked'), style: { padding: 'var(--space-3) var(--space-4)', background: 'var(--color-accent-secondary)', color: 'var(--color-bg-primary)', border: 'none', borderRadius: 'var(--radius-sm)', fontSize: '1rem', fontWeight: '600', cursor: 'pointer', transition: 'background 0.2s ease' } }, 'Explore Operation: Legacy Unlocked')
+      React.createElement('button', { onClick: () => onOpenProject('Operation: Legacy Unlocked'), style: { padding: 'var(--space-3) var(--space-4)', background: 'var(--signal-lime)', color: 'var(--obsidian)', border: 'none', borderRadius: 'var(--radius-sm)', fontSize: '1rem', fontWeight: '600', cursor: 'pointer', transition: 'background 0.2s ease' } }, 'Explore Operation: Legacy Unlocked')
     )
   );
 }

@@ -42,3 +42,817 @@ footer.jr-foot p{margin-inline:auto}
 footer.jr-foot a{color:var(--accent-cyan);text-decoration-color:currentColor}
 footer.jr-foot a:hover{color:var(--signal-lime)}
 footer.jr-foot a:focus-visible{outline-color:var(--accent-cyan)}
+
+/* Shared motion tokens for existing Featured Work and future chapter refinements. */
+.jz-fw{
+  --jz-motion-media-duration:720ms;
+  --jz-motion-overlay-duration:480ms;
+  --jz-motion-cue-duration:380ms;
+  --jz-motion-cue-reveal-duration:560ms;
+  --jz-motion-ease:cubic-bezier(.19,1,.22,1);
+  --jz-motion-media-scale:1.055;
+}
+
+/* Motion experiment — reusable Featured Work cinematic focus treatment.
+   Scope: existing Featured Work cards only. Original CSS, no libraries/media.
+   The existing Pause Motion preference is mirrored via site-config.js. */
+.jz-fw .jz-fw-card .jz-fw-media{
+  isolation:isolate;
+}
+.jz-fw .jz-fw-card .jz-fw-media-img{
+  transform:scale(1);
+  transform-origin:50% 42%;
+  transition:transform var(--jz-motion-media-duration) var(--jz-motion-ease),filter var(--jz-motion-media-duration) ease;
+}
+.jz-fw .jz-fw-card .jz-fw-media::before{
+  content:"";
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(180deg,transparent 35%,rgba(11,13,16,.66) 100%);
+  opacity:0;transition:opacity var(--jz-motion-overlay-duration) ease;
+}
+.jz-fw .jz-fw-card .jz-fw-media::after{
+  content:"EXPLORE THE CASE STUDY ↗";
+  position:absolute;z-index:2;right:clamp(12px,2vw,24px);bottom:clamp(12px,2vw,24px);
+  max-width:calc(100% - 24px);box-sizing:border-box;pointer-events:none;
+  padding:10px 14px;border-radius:var(--radius-pill);
+  border:1px solid rgba(247,248,250,.4);
+  background:rgba(11,13,16,.84);color:var(--white);
+  font:600 .6875rem/1.25 var(--font-mono);letter-spacing:.065em;
+  opacity:0;transform:translate3d(0,12px,0);
+  transition:opacity var(--jz-motion-cue-duration) ease,transform var(--jz-motion-cue-reveal-duration) var(--jz-motion-ease);
+}
+/* Use existing card semantics for appropriate copy; default remains useful
+   if the browser lacks support for :has(). */
+.jz-fw .jz-fw-card:has(.jz-fw-latest) .jz-fw-media::after{
+  content:"EXPLORE THE WORK SAMPLE ↗";
+}
+.jz-fw .jz-fw-card:has(.jz-fw-chips) .jz-fw-media::after{
+  content:"EXPLORE THE EXPERIENCE ↗";
+}
+/* The "Latest work" flag stays above the atmospheric overlay, without
+   intercepting the existing full-card link click target. */
+.jz-fw .jz-fw-card .jz-fw-latest{
+  z-index:3;pointer-events:none;
+}
+@media (hover:hover) and (pointer:fine){
+  .jz-fw .jz-fw-card:hover .jz-fw-media-img{
+    transform:scale(var(--jz-motion-media-scale));filter:saturate(1.06);
+  }
+  .jz-fw .jz-fw-card:hover .jz-fw-media::before,
+  .jz-fw .jz-fw-card:hover .jz-fw-media::after{
+    opacity:1;transform:none;
+  }
+}
+/* Actual navigation stays on the existing <a>, including its full-card
+   click target and modified-click behavior. */
+.jz-fw .jz-fw-card:focus-within .jz-fw-media-img{
+  transform:scale(var(--jz-motion-media-scale));filter:saturate(1.06);
+}
+.jz-fw .jz-fw-card:focus-within .jz-fw-media::before,
+.jz-fw .jz-fw-card:focus-within .jz-fw-media::after{
+  opacity:1;transform:none;
+}
+.jz-fw .jz-fw-card:focus-within .jz-fw-media{
+  outline:3px solid var(--signal-lime);outline-offset:4px;
+}
+@media (prefers-reduced-motion:reduce){
+  .jz-fw .jz-fw-card .jz-fw-media-img,
+  .jz-fw .jz-fw-card .jz-fw-media::before,
+  .jz-fw .jz-fw-card .jz-fw-media::after{
+    transition:none;transform:none!important;filter:none!important;
+  }
+}
+
+/* Pause Motion cancels decorative movement and fades; static hover/focus
+   prompts can still appear instantly and remain accessible. */
+html[data-jz-motion-paused="true"] .jz-fw .jz-fw-card .jz-fw-media-img,
+html[data-jz-motion-paused="true"] .jz-fw .jz-fw-card .jz-fw-media::before,
+html[data-jz-motion-paused="true"] .jz-fw .jz-fw-card .jz-fw-media::after{
+  transition:none!important;transform:none!important;filter:none!important;
+}
+
+
+/* Phase 3 — case-study chapter and artifact reveal system.
+   Non-JS and unsupported browsers retain fully visible content. Only elements
+   explicitly registered by the case-study observer receive entry transitions. */
+:where(.jiz-cs,.tfs){
+  --jz-cinema-heading-rise:18px;
+  --jz-cinema-artifact-rise:24px;
+  --jz-cinema-heading-duration:680ms;
+  --jz-cinema-artifact-duration:780ms;
+  --jz-cinema-ease:cubic-bezier(.19,1,.22,1);
+}
+:where(.jiz-cs,.tfs) .jz-cinema-reveal{
+  opacity:0;
+  transform:translate3d(0,var(--jz-cinema-heading-rise),0);
+  transition:opacity var(--jz-cinema-heading-duration) ease-out,
+             transform var(--jz-cinema-heading-duration) var(--jz-cinema-ease);
+}
+:where(.jiz-cs,.tfs) .jz-cinema-reveal[data-jz-cinema-kind="artifact"]{
+  transform:translate3d(0,var(--jz-cinema-artifact-rise),0) scale(.992);
+  transition-duration:var(--jz-cinema-artifact-duration);
+}
+:where(.jiz-cs,.tfs) .jz-cinema-reveal[data-jz-cinema-visible="true"],
+:where(.jiz-cs,.tfs) .jz-cinema-reveal:focus-within{
+  opacity:1;
+  transform:none;
+}
+/* Both the site-level Pause Motion button and OS reduced-motion setting
+   override pending reveals so no content can remain concealed. */
+html[data-jz-motion-paused="true"] :where(.jiz-cs,.tfs) .jz-cinema-reveal{
+  opacity:1!important;
+  transform:none!important;
+  transition:none!important;
+}
+@media (prefers-reduced-motion:reduce){
+  :where(.jiz-cs,.tfs) .jz-cinema-reveal{
+    opacity:1!important;
+    transform:none!important;
+    transition:none!important;
+  }
+}
+@media (max-width:600px){
+  :where(.jiz-cs,.tfs){
+    --jz-cinema-heading-rise:10px;
+    --jz-cinema-artifact-rise:14px;
+  }
+}
+@media print {
+  :where(.jiz-cs,.tfs) .jz-cinema-reveal{
+    opacity:1!important;
+    transform:none!important;
+  }
+}
+
+
+/* Phase 4 — methodology: progress is visible on the existing five-stage rail.
+   This only decorates stages after IntersectionObserver has seen them; no
+   hidden text, DOM reflow, new controls, or new animation dependencies. */
+.jiz-homepage .jz-pr--method .jz-pr-step::after{
+  transition:background-color var(--jz-motion-cue-duration,380ms) ease,
+             box-shadow var(--jz-motion-cue-duration,380ms) ease;
+}
+.jiz-homepage .jz-pr--method[data-in="true"] .jz-pr-step[data-jz-method-seen="true"]::before{
+  width:min(88%,180px);
+  transition-duration:var(--jz-motion-media-duration,720ms);
+}
+.jiz-homepage .jz-pr--method .jz-pr-step[data-jz-method-seen="true"]::after{
+  background:var(--signal-lime);
+  box-shadow:0 0 0 4px rgba(198,242,58,.12);
+}
+.jiz-homepage .jz-pr--method .jz-pr-step .jz-pr-rule{
+  transition:border-color var(--jz-motion-overlay-duration,480ms) ease;
+}
+.jiz-homepage .jz-pr--method .jz-pr-step[data-jz-method-seen="true"] .jz-pr-rule{
+  border-top-color:rgba(198,242,58,.28);
+}
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-pr--method .jz-pr-step::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-pr--method .jz-pr-step::after,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-pr--method .jz-pr-step .jz-pr-rule{
+  transition:none!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .jiz-homepage .jz-pr--method .jz-pr-step::before,
+  .jiz-homepage .jz-pr--method .jz-pr-step::after,
+  .jiz-homepage .jz-pr--method .jz-pr-step .jz-pr-rule{
+    transition:none!important;
+  }
+}
+
+
+/* HYBRID CINEMATIC HOME — real video + real identity + kinetic transitions.
+   Preview-only experiment. The React hero and Featured Work content stay
+   unchanged; site-config.js supplies decorative progress variables only.
+   Preserves original portrait video crop and all click/focus targets. */
+@media (min-width:901px) {
+  html[data-jz-hybrid-home="true"] .jiz-homepage .hero{
+    --jz-hybrid-hero-progress:0;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .hero .hero-title-main{
+    position:relative;
+    transform:translate3d(calc(var(--jz-hybrid-hero-progress) * 38px),calc(var(--jz-hybrid-hero-progress) * -30px),0) rotate(calc(var(--jz-hybrid-hero-progress) * -1.2deg));
+    transform-origin:15% 65%;
+    will-change:transform;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .hero .hero-title-accent{
+    position:relative;
+    transform:translate3d(calc(var(--jz-hybrid-hero-progress) * -26px),calc(var(--jz-hybrid-hero-progress) * 23px),0) rotate(calc(var(--jz-hybrid-hero-progress) * .8deg));
+    transform-origin:10% 35%;
+    will-change:transform;
+  }
+  /* A fine art-directed line writes itself under the live headline instead
+     of generating duplicate words or altering accessible title text. */
+  html[data-jz-hybrid-home="true"] .jiz-homepage .hero .hero-title-accent::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-.22em;
+    width:min(74%,320px);
+    height:2px;
+    border-radius:2px;
+    background:linear-gradient(90deg,var(--signal-lime),var(--accent-cyan),transparent);
+    transform-origin:left;
+    transform:scaleX(calc(.08 + var(--jz-hybrid-hero-progress) * .92));
+    opacity:calc(.35 + var(--jz-hybrid-hero-progress) * .65);
+    pointer-events:none;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .hero::before{
+    content:"";
+    position:absolute;
+    z-index:7;
+    bottom:0;left:0;right:0;
+    height:3px;
+    pointer-events:none;
+    background:linear-gradient(90deg,var(--signal-lime),var(--accent-cyan) 66%,transparent);
+    transform-origin:left;
+    transform:scaleX(calc(.06 + var(--jz-hybrid-hero-progress) * .94));
+    opacity:.85;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .hero::after{
+    content:"01 / PRESENCE → 02 / PROOF";
+    position:absolute;
+    bottom:clamp(20px,2.6vw,38px);
+    right:clamp(18px,3.2vw,54px);
+    z-index:7;
+    color:rgba(232,240,245,.86);
+    font:500 .625rem/1.3 var(--font-mono);
+    letter-spacing:.12em;
+    text-shadow:0 1px 12px rgba(11,13,16,.85);
+    pointer-events:none;
+    opacity:calc(.45 + var(--jz-hybrid-hero-progress) * .55);
+  }
+  /* The existing Selected Experience strip acts as a deliberate match-cut.
+     Its connecting stroke flows into the first light editorial chapter. */
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-exp{
+    position:relative;
+    isolation:isolate;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-exp::after{
+    content:"";
+    position:absolute;
+    z-index:2;
+    left:clamp(24px,5.5vw,104px);
+    right:clamp(24px,5.5vw,104px);
+    bottom:0;
+    height:2px;
+    background:linear-gradient(90deg,var(--signal-lime),var(--accent-cyan) 85%);
+    transform:scaleX(var(--jz-hybrid-bridge-progress,0));
+    transform-origin:left;
+    pointer-events:none;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw::before{
+    content:"";
+    position:absolute;
+    z-index:2;
+    left:0;top:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--obsidian),var(--accent-cyan) 68%,transparent 100%);
+    transform-origin:left;
+    transform:scaleX(var(--jz-hybrid-work-progress,0));
+    pointer-events:none;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw[data-in="true"] .jz-fw-h2{
+    transform:translate3d(calc((1 - var(--jz-hybrid-work-progress,1)) * -42px),0,0);
+    transition:transform 160ms linear,opacity 900ms cubic-bezier(.22,.61,.36,1);
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw .jz-fw-cards > .jz-fw-card:first-child .jz-fw-media{
+    clip-path:inset(calc((1 - var(--jz-hybrid-work-progress,1)) * 6%) round var(--panel-r-inner));
+  }
+  /* Existing Featured Work hover and full-card link behavior remain intact. */
+}
+@media (max-width:900px) {
+  html[data-jz-hybrid-home="true"] .jiz-homepage .hero::before,
+  html[data-jz-hybrid-home="true"] .jiz-homepage .hero::after{
+    content:none;
+  }
+}
+html[data-jz-motion-paused="true"] .jiz-homepage .hero .hero-title-main,
+html[data-jz-motion-paused="true"] .jiz-homepage .hero .hero-title-accent,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-fw[data-in="true"] .jz-fw-h2{
+  transform:none!important;
+  transition:none!important;
+}
+html[data-jz-motion-paused="true"] .jiz-homepage .hero .hero-title-accent::after,
+html[data-jz-motion-paused="true"] .jiz-homepage .hero::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-exp::after,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-fw::before{
+  transform:none!important;
+  transition:none!important;
+}
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-fw .jz-fw-cards > .jz-fw-card:first-child .jz-fw-media{
+  clip-path:none!important;
+}
+@media(prefers-reduced-motion:reduce) {
+  .jiz-homepage .hero .hero-title-main,
+  .jiz-homepage .hero .hero-title-accent,
+  .jiz-homepage .jz-fw[data-in="true"] .jz-fw-h2{
+    transform:none!important;transition:none!important;
+  }
+  .jiz-homepage .hero .hero-title-accent::after,
+  .jiz-homepage .hero::before,
+  .jiz-homepage .jz-exp::after,
+  .jiz-homepage .jz-fw::before{
+    transform:none!important;transition:none!important;
+  }
+  .jiz-homepage .jz-fw .jz-fw-cards > .jz-fw-card:first-child .jz-fw-media{
+    clip-path:none!important;
+  }
+}
+@media print{
+  .jiz-homepage .hero .hero-title-main,.jiz-homepage .hero .hero-title-accent,.jiz-homepage .jz-fw-h2{transform:none!important}
+  .jiz-homepage .jz-fw .jz-fw-media{clip-path:none!important}
+}
+
+
+/* HYBRID CHAPTER TITLES — SCROLL-DIRECTED EDITORIAL MOTION.
+   One restrained movement language across all 12 true homepage H2 titles.
+   The text is never duplicated or initially hidden; progress is set by the
+   existing rAF-throttled site-config.js scroll director. */
+html[data-jz-hybrid-home="true"] .jiz-homepage [data-jz-hybrid-title="true"]{
+  --jz-hybrid-title-progress:1;
+  --jz-hybrid-title-rise:0px;
+  --jz-hybrid-rule-color:var(--signal-lime);
+  position:relative;
+  transform:translate3d(0,var(--jz-hybrid-title-rise),0);
+  opacity:calc(.78 + var(--jz-hybrid-title-progress) * .22);
+  transition:transform 110ms linear,opacity 120ms linear;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage [data-jz-hybrid-title="true"]::after{
+  content:"";
+  display:block;
+  position:absolute;
+  left:0;
+  bottom:-12px;
+  width:clamp(56px,10vw,156px);
+  height:2px;
+  border-radius:2px;
+  background:linear-gradient(90deg,var(--jz-hybrid-rule-color),transparent);
+  transform:scaleX(var(--jz-hybrid-title-progress));
+  transform-origin:left;
+  opacity:calc(.45 + var(--jz-hybrid-title-progress) * .55);
+  pointer-events:none;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage :is(
+  .jz-fw,.jz-pr--capabilities,.jz-jr,.jz-pp
+) [data-jz-hybrid-title="true"]{
+  --jz-hybrid-rule-color:#226D80;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls [data-jz-hybrid-title="true"]{
+  --jz-hybrid-rule-color:#E3A24C;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage :is(
+  .jiz-creative-lab,.jiz-am,.jz-st,.jiz-arch
+) [data-jz-hybrid-title="true"]{
+  --jz-hybrid-rule-color:var(--accent-cyan);
+}
+/* Keep the previously approved horizontal work-title movement, add the
+   shared upward rise so the two motions work together rather than compete. */
+@media(min-width:901px){
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw[data-in="true"] .jz-fw-h2[data-jz-hybrid-title="true"]{
+    transform:translate3d(calc((1 - var(--jz-hybrid-work-progress,1)) * -32px),var(--jz-hybrid-title-rise),0);
+    transition:transform 110ms linear,opacity 900ms cubic-bezier(.22,.61,.36,1);
+  }
+}
+/* Selected Experience: the organization names and ASU degree join the same
+   traveling editorial motif with tiny distinct vertical offsets. */
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-exp .jz-exp-in > .jz-label{
+  transform:translate3d(0,var(--jz-hybrid-bridge-rise,0px),0);
+  opacity:calc(.75 + var(--jz-hybrid-strip-entry,1) * .25);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-exp .jz-exp-list li{
+  transform:translate3d(0,calc(var(--jz-hybrid-bridge-rise,0px) * .7),0);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-exp .jz-exp-list li:nth-child(2){
+  transform:translate3d(0,calc(var(--jz-hybrid-bridge-rise,0px) * .9),0);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-exp .jz-exp-list li:nth-child(3){
+  transform:translate3d(0,var(--jz-hybrid-bridge-rise,0px),0);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-exp .jz-exp-edu{
+  transform:translate3d(0,calc(var(--jz-hybrid-bridge-rise,0px) * 1.15),0);
+  opacity:calc(.8 + var(--jz-hybrid-strip-entry,1) * .2);
+}
+/* All animations stop when the site motion toggle or OS preference says so.
+   Decorative rules are allowed to remain visible as static editorial lines. */
+html[data-jz-motion-paused="true"] .jiz-homepage [data-jz-hybrid-title="true"]{
+  transform:none!important;
+  opacity:1!important;
+  transition:none!important;
+}
+html[data-jz-motion-paused="true"] .jiz-homepage [data-jz-hybrid-title="true"]::after{
+  transform:none!important;
+  transition:none!important;
+}
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-exp :is(.jz-exp-in > .jz-label,.jz-exp-list li,.jz-exp-edu){
+  transform:none!important;
+  opacity:1!important;
+  transition:none!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .jiz-homepage [data-jz-hybrid-title="true"]{
+    transform:none!important;opacity:1!important;transition:none!important;
+  }
+  .jiz-homepage [data-jz-hybrid-title="true"]::after{
+    transform:none!important;transition:none!important;
+  }
+  .jiz-homepage .jz-exp :is(.jz-exp-in > .jz-label,.jz-exp-list li,.jz-exp-edu){
+    transform:none!important;opacity:1!important;transition:none!important;
+  }
+}
+@media print{
+  .jiz-homepage [data-jz-hybrid-title="true"]{
+    transform:none!important;opacity:1!important;transition:none!important;
+  }
+  .jiz-homepage .jz-exp :is(.jz-exp-in > .jz-label,.jz-exp-list li,.jz-exp-edu){
+    transform:none!important;opacity:1!important;
+  }
+}
+
+
+/* CINEMATIC TYPOGRAPHY 2.0 — three original scene grammars.
+   Identity, imagery, editorial copy and project semantics remain untouched.
+   Choreography uses the existing scroll director; effects require opt-in root. */
+
+/* 01 / FEATURED WORK — a film-title perspective and controlled matte. */
+@media(min-width:901px){
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw-head{
+    position:relative;
+    perspective:1200px;
+    isolation:isolate;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw-head::before{
+    content:"";
+    position:absolute;
+    z-index:-1;
+    top:clamp(-18px,-1.2vw,-8px);
+    left:-12px;
+    width:min(68vw,820px);
+    max-width:calc(100% + 24px);
+    height:clamp(90px,12vw,176px);
+    border-left:2px solid rgba(34,109,128,.38);
+    border-top:1px solid rgba(34,109,128,.14);
+    background:linear-gradient(105deg,rgba(100,225,255,.045),transparent 68%);
+    transform-origin:left center;
+    transform:scaleX(var(--jz-story-work-p,1));
+    pointer-events:none;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw[data-in="true"] .jz-fw-h2[data-jz-hybrid-title="true"]{
+    transform:translate3d(
+      calc((1 - var(--jz-hybrid-work-progress,1)) * -32px),
+      var(--jz-hybrid-title-rise,0px),0
+    ) rotateX(var(--jz-story-work-angle,0deg));
+    transform-origin:15% 68%;
+    transition:transform 110ms linear,opacity 120ms linear;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw .jz-fw-card:first-child .jz-fw-media{
+    box-shadow:0 0 0 1px rgba(11,13,16,.12),0 16px 44px rgba(11,13,16,.06);
+  }
+}
+
+/* 02 / METHOD — a connected reading journey, not five detached cards. */
+@media(min-width:1025px){
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-steps{
+    position:relative;
+    isolation:isolate;
+  }
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-steps::before{
+    content:"";
+    position:absolute;
+    top:-2px;left:0;right:0;height:3px;z-index:2;
+    background:linear-gradient(90deg,var(--signal-lime),var(--accent-cyan));
+    transform-origin:left center;
+    transform:scaleX(var(--jz-story-method-p,1));
+    pointer-events:none;
+  }
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-step{
+  transition:background-color 340ms ease;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-word{
+  transition:color 420ms ease,transform 480ms cubic-bezier(.19,1,.22,1);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-step[data-jz-story-active="true"] .jz-pr-word{
+  color:var(--signal-lime);
+  transform:translate3d(0,-3px,0);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-step[data-jz-story-active="true"]::after{
+  background:var(--signal-lime);
+  box-shadow:0 0 0 7px rgba(198,242,58,.14),0 0 20px rgba(198,242,58,.22);
+  border-color:var(--signal-lime);
+  transition:background-color 400ms ease,box-shadow 400ms ease;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-step[data-jz-story-active="true"] .jz-pr-rule{
+  border-top-color:rgba(100,225,255,.45);
+}
+@media(max-width:1024px){
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-step[data-jz-story-active="true"]{
+    background:linear-gradient(90deg,rgba(198,242,58,.055),transparent 72%);
+  }
+}
+
+/* 03 / CINEMATIC LEARNING SYSTEMS — independent editorial typographic duet. */
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-intro{
+  position:relative;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-intro::before{
+  content:"";
+  position:absolute;
+  top:0;left:0;width:2px;height:clamp(65px,7vw,118px);
+  background:linear-gradient(180deg,#E3A24C,#56B8B4,transparent);
+  transform-origin:top center;
+  transform:scaleY(var(--jz-story-journal-p,1));
+  pointer-events:none;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-anchor span{
+  position:relative;
+  transition:transform 105ms linear;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-anchor span:first-child{
+  transform:translate3d(var(--jz-story-left,0px),0,0);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-anchor span:last-child{
+  transform:translate3d(var(--jz-story-right,0px),0,0);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-anchor::after{
+  background:linear-gradient(90deg,#E3A24C,#56B8B4,transparent);
+}
+
+/* Decorative transforms are never required to see content or use controls. */
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-fw-head::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-pr--method .jz-pr-steps::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-cls-intro::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-cls-anchor span{
+  transform:none!important;
+  transition:none!important;
+}
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-pr--method .jz-pr-word,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-pr--method .jz-pr-step{
+  transform:none!important;
+  transition:none!important;
+}
+@media(prefers-reduced-motion:reduce){
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw-head::before,
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-steps::before,
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-intro::before,
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls-anchor span,
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-word,
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-pr--method .jz-pr-step{
+    transform:none!important;transition:none!important;
+  }
+}
+@media print{
+  .jiz-homepage .jz-cls-anchor span,
+  .jiz-homepage .jz-pr--method .jz-pr-word,
+  .jiz-homepage .jz-fw-h2{
+    transform:none!important;
+  }
+}
+
+
+/* THE EDITORIAL CUT / replacement motion direction.
+   A still typographic baseline, revealed by an ink-like matte. Five
+   signature section headlines only; the rest deliberately remain still.
+   No duplicate text, no word splitting, no additional assets or fonts. */
+
+/* The hero is already visually alive through the real portrait film.
+   Stop moving the letters around the face; let the existing media and
+   signal rules do their work. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .hero .hero-title-main,
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .hero .hero-title-accent {
+  transform:none!important;
+  will-change:auto!important;
+  transition:none!important;
+}
+
+/* All new heading cuts happen at the original layout position. Avoid
+   interpolation of letter spacing, font size, or text width (no CLS). */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage [data-jz-hybrid-title="true"] {
+  transform:none!important;
+  opacity:1!important;
+  clip-path:inset(0 var(--jz-type-cut,0%) 0 0);
+  transition:clip-path 90ms linear!important;
+  will-change:clip-path;
+}
+
+/* 01 / PROJECTOR SHUTTER: first reveal rises through a stationary
+   Featured Work title, like opening a horizontal cinematic matte. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-fw .jz-fw-h2[data-jz-hybrid-title="true"] {
+  clip-path:inset(var(--jz-type-cut,0%) 0 0 0);
+  transform:none!important;
+  transform-origin:center!important;
+}
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-fw-head::before {
+  background:linear-gradient(105deg,rgba(100,225,255,.025),transparent 72%);
+  border-top-color:rgba(34,109,128,.23);
+}
+
+/* 02 / THE EVIDENCE CUT: impact and the career chronology enter
+   from the right; surrounding section headings serve as quiet rests. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-im #jz-im-title[data-jz-hybrid-title="true"],
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-jr #jz-jr-title[data-jz-hybrid-title="true"] {
+  clip-path:inset(0 0 0 var(--jz-type-cut,0%));
+}
+
+/* 03 / THE METHOD: a precise left-to-right ink reveal, paired with the
+   existing active-stage progression. Never translate the method words. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-pr--method .jz-pr-step[data-jz-story-active="true"] .jz-pr-word {
+  transform:none!important;
+}
+
+/* 04 / JOURNAL EDITION: three lines print in a timed editorial cascade
+   using the spans already rendered by React. No splitting DOM nodes. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls #jz-cls-title[data-jz-hybrid-title="true"] {
+  clip-path:none!important;
+}
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls .jz-cls-anchor span {
+  transform:none!important;
+  transition:clip-path 90ms linear!important;
+  will-change:clip-path;
+}
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls .jz-cls-anchor span:first-child {
+  clip-path:inset(0 var(--jz-ink-line-1,0%) 0 0);
+}
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls .jz-cls-anchor span:nth-child(2) {
+  clip-path:inset(0 var(--jz-ink-line-2,0%) 0 0);
+}
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls .jz-cls-anchor span:nth-child(3) {
+  clip-path:inset(0 var(--jz-ink-line-3,0%) 0 0);
+}
+
+/* The intro chapter never depends on the cut to become readable:
+   reduced motion, Pause Motion, no-JS and printing are plain text. */
+html[data-jz-type-direction="ink-cut"][data-jz-motion-paused="true"] .jiz-homepage [data-jz-hybrid-title="true"],
+html[data-jz-type-direction="ink-cut"][data-jz-motion-paused="true"] .jiz-homepage .jz-cls .jz-cls-anchor span {
+  clip-path:none!important;
+  transform:none!important;
+  transition:none!important;
+  will-change:auto!important;
+}
+@media(prefers-reduced-motion:reduce) {
+  html[data-jz-type-direction="ink-cut"] .jiz-homepage [data-jz-hybrid-title="true"],
+  html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls .jz-cls-anchor span {
+    clip-path:none!important;
+    transform:none!important;
+    transition:none!important;
+    will-change:auto!important;
+  }
+}
+@media print {
+  html[data-jz-type-direction="ink-cut"] .jiz-homepage [data-jz-hybrid-title="true"],
+  html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls .jz-cls-anchor span {
+    clip-path:none!important;
+    transform:none!important;
+    transition:none!important;
+  }
+}
+
+
+/* The original reveal class also lived on some heading containers.
+   Disable that parent translation so the ink cut is the only movement. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-im-head.jz-rise,
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-pr--method .jz-pr-head > div.jz-rise,
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-jr-head > div.jz-rise {
+  transform:none!important;
+  opacity:1!important;
+  transition:none!important;
+}
+
+
+/* FINISHING PASS / EDITORIAL CUT + MEANINGFUL MOTION.
+   Complete cuts earlier in the viewport; the type remains on its baseline.
+   This chapter has no new media, metrics, words, tools or dependencies. */
+
+/* Masked titles settle before the visitor needs to read them. */
+html[data-jz-type-direction="ink-cut"] .jiz-homepage [data-jz-hybrid-title="true"] {
+  transition:clip-path 70ms linear!important;
+  will-change:auto;
+}
+html[data-jz-type-direction="ink-cut"] .jiz-homepage .jz-cls .jz-cls-anchor span {
+  transition:clip-path 70ms linear!important;
+  will-change:auto;
+}
+
+/* Impact / a traveling evidence rule, not another numeric animation. */
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-lead {
+  position:relative;
+  isolation:isolate;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-lead::before {
+  content:"";
+  position:absolute;
+  top:-14px;left:-12px;
+  width:min(30vw,290px);
+  aspect-ratio:1;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(100,225,255,.095),transparent 70%);
+  opacity:calc(.18 + var(--jz-evidence-p,1) * .82);
+  transform:scale(calc(.85 + var(--jz-evidence-p,1) * .15));
+  pointer-events:none;
+  z-index:-1;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-row {
+  position:relative;
+  isolation:isolate;
+}
+@media(min-width:1025px) {
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-row::before {
+    content:"";
+    position:absolute;
+    top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,var(--signal-lime),var(--accent-cyan));
+    transform:scaleX(var(--jz-evidence-p,1));
+    transform-origin:left center;
+    pointer-events:none;
+  }
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-cell {
+  transition:background-color 320ms ease;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-cell[data-jz-evidence-active="true"] {
+  background:linear-gradient(130deg,rgba(100,225,255,.07),transparent 70%);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-cell[data-jz-evidence-active="true"] > .jz-label {
+  color:var(--accent-cyan);
+}
+@media(max-width:560px) {
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-im .jz-im-lead::before {
+    width:180px;
+  }
+}
+
+/* Career / use the existing horizontal and mobile vertical chronology. */
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-rail {
+  position:relative;
+  isolation:isolate;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-stage {
+  position:relative;
+  z-index:1;
+}
+@media(min-width:1025px) {
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-rail::after {
+    content:"";
+    position:absolute;
+    top:0;left:0;right:0;height:2px;
+    background:linear-gradient(90deg,#226D80,var(--accent-cyan),var(--signal-lime));
+    transform-origin:left center;
+    transform:scaleX(var(--jz-journey-p,1));
+    z-index:0;
+    pointer-events:none;
+  }
+}
+@media(max-width:560px) {
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-rail::after {
+    content:"";
+    position:absolute;
+    top:0;bottom:0;left:3px;width:2px;
+    background:linear-gradient(180deg,#226D80,var(--accent-cyan),var(--signal-lime));
+    transform-origin:top center;
+    transform:scaleY(var(--jz-journey-p,1));
+    z-index:0;
+    pointer-events:none;
+  }
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-stage::before {
+  transition:transform 280ms ease,background-color 280ms ease,box-shadow 280ms ease;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-stage[data-jz-journey-active="true"]::before {
+  background:var(--accent-cyan);
+  box-shadow:0 0 0 6px rgba(100,225,255,.14);
+  transform:scale(1.18);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-jr .jz-jr-stage[data-jz-journey-active="true"] .jz-jr-t {
+  text-decoration:underline;
+  text-decoration-color:#226D80;
+  text-underline-offset:6px;
+  text-decoration-thickness:2px;
+}
+
+/* Preserve every evidence label and career milestone in static mode. */
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-im .jz-im-row::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-im .jz-im-lead::before,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-jr .jz-jr-rail::after,
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-jr .jz-jr-stage::before {
+  transform:none!important;
+  transition:none!important;
+}
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-im .jz-im-cell {
+  transition:none!important;
+}
+@media(prefers-reduced-motion:reduce) {
+  .jiz-homepage .jz-im .jz-im-row::before,
+  .jiz-homepage .jz-im .jz-im-lead::before,
+  .jiz-homepage .jz-jr .jz-jr-rail::after,
+  .jiz-homepage .jz-jr .jz-jr-stage::before {
+    transform:none!important;
+    transition:none!important;
+  }
+  .jiz-homepage .jz-im .jz-im-cell {
+    transition:none!important;
+  }
+}
+@media print {
+  .jiz-homepage .jz-im .jz-im-row::before,
+  .jiz-homepage .jz-jr .jz-jr-rail::after {
+    transform:none!important;
+  }
+}

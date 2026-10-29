@@ -4,7 +4,7 @@
 const { readFileSync, writeFileSync, mkdirSync } = require('fs');
 const { transformSync } = require('@babel/' + 'core');
 
-const SITE_FILES = ['Chapter.jsx', 'HomepageP1.jsx', 'Homepage.jsx', 'CaseStudyShell.jsx', 'CaseStudy-Legacy.jsx', 'CaseStudy-HotelKey.jsx', 'CaseStudy-GuestCRM.jsx', 'CaseStudy-Workday.jsx', 'CaseStudy-FirstSentence.jsx', 'CaseStudy-BehindTheBuild.jsx', 'App.jsx'];
+const SITE_FILES = ['Chapter.jsx', 'HomepageP1.jsx', 'Homepage.jsx', 'CaseStudyShell.jsx', 'CaseStudy-Legacy.jsx', 'CaseStudy-HotelKey.jsx', 'CaseStudy-GuestCRM.jsx', 'CaseStudy-Workday.jsx', 'CaseStudy-FirstSentence.jsx', 'CaseStudy-DraftedByAI.jsx', 'CaseStudy-BehindTheBuild.jsx', 'App.jsx'];
 const opts = { minified: true, comments: false, babelrc: false, configFile: false };
 mkdirSync('dist', { recursive: true });
 

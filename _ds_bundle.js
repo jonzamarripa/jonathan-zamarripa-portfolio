@@ -6538,31 +6538,32 @@ function NavBar({
         .jiz-global-nav {
           --nav-pad-x: clamp(24px, 3vw, 56px);
           position: sticky;
-          top: 0;
+          top: var(--panel-gap);
           z-index: 100;
           display: grid;
           grid-template-columns: minmax(300px, .9fr) auto minmax(132px, .9fr);
           align-items: center;
           column-gap: clamp(28px, 3vw, 52px);
-          width: 100%;
-          min-height: 98px;
+          width: calc(100% - 2 * var(--panel-gap));
+          margin: var(--panel-gap) var(--panel-gap) 0;
+          border-radius: var(--panel-r) var(--panel-r) 0 0;
+          min-height: 84px;
           padding: 12px var(--nav-pad-x);
           box-sizing: border-box;
-          background: rgba(8, 10, 12, .58);
+          background: var(--obsidian);
           border-bottom: 1px solid rgba(255, 255, 255, .045);
           -webkit-backdrop-filter: blur(22px) saturate(125%);
           backdrop-filter: blur(22px) saturate(125%);
           transition: min-height 300ms var(--ease-standard), padding 300ms var(--ease-standard), background 300ms var(--ease-standard), border-color 300ms var(--ease-standard);
         }
         .jiz-global-nav.is-scrolled {
-          min-height: 86px;
+          min-height: 72px;
+          border-radius: var(--panel-r);
           padding-top: 9px;
           padding-bottom: 9px;
-          background:
-            radial-gradient(120% 180% at 50% -60%, rgba(100, 225, 255, .10), transparent 62%),
-            rgba(8, 10, 12, .88);
+          background: rgba(11, 13, 16, .96);
           border-bottom-color: rgba(255, 255, 255, .085);
-          box-shadow: 0 18px 44px rgba(0, 0, 0, .28);
+          box-shadow: none;
         }
         .jiz-brand {
           justify-self: start;
@@ -6578,15 +6579,15 @@ function NavBar({
           text-align: left;
         }
         .jiz-brand__logo {
-          width: 72px;
-          height: 72px;
+          width: 56px;
+          height: 56px;
           flex: 0 0 auto;
           object-fit: contain;
           transition: width 300ms var(--ease-standard), height 300ms var(--ease-standard);
         }
         .is-scrolled .jiz-brand__logo {
-          width: 62px;
-          height: 62px;
+          width: 48px;
+          height: 48px;
         }
         .jiz-brand__name {
           display: inline-flex;
@@ -6630,9 +6631,9 @@ function NavBar({
           background: rgba(255, 255, 255, .045);
         }
         .jiz-nav-link[data-active="true"] {
-          color: var(--color-accent-primary);
+          color: var(--accent-cyan);
           font-weight: 650;
-          background: rgba(198, 242, 58, .075);
+          background: transparent;
         }
         .jiz-nav-indicator {
           position: absolute;
@@ -6640,7 +6641,7 @@ function NavBar({
           bottom: -2px;
           height: 2px;
           border-radius: 2px;
-          background: var(--color-accent-primary);
+          background: var(--accent-cyan);
           transform-origin: left center;
           transition: transform 350ms cubic-bezier(.25,.46,.45,.94), width 350ms cubic-bezier(.25,.46,.45,.94), opacity 180ms ease;
           pointer-events: none;
@@ -6650,7 +6651,7 @@ function NavBar({
           min-height: 46px;
           padding: 10px 24px;
           border: 1px solid var(--color-accent-primary);
-          border-radius: 8px;
+          border-radius: var(--radius-pill);
           background: transparent;
           color: var(--color-accent-primary);
           font: var(--text-body);
@@ -6804,8 +6805,8 @@ function NavBar({
             grid-template-columns: minmax(250px, .8fr) auto minmax(120px, .8fr);
             column-gap: 24px;
           }
-          .jiz-brand__logo { width: 64px; height: 64px; }
-          .is-scrolled .jiz-brand__logo { width: 58px; height: 58px; }
+          .jiz-brand__logo { width: 52px; height: 52px; }
+          .is-scrolled .jiz-brand__logo { width: 48px; height: 48px; }
           .jiz-brand__name { font-size: .92rem; }
           .jiz-nav-links { gap: 20px; }
           .jiz-nav-link { font-size: .88rem; padding-inline: 9px; }
@@ -6820,11 +6821,11 @@ function NavBar({
           .jiz-global-nav { --nav-pad-x: 18px; min-height: 78px; }
           .jiz-brand { gap: 12px; }
           .jiz-brand__logo,
-          .is-scrolled .jiz-brand__logo { width: 52px; height: 52px; }
+          .is-scrolled .jiz-brand__logo { width: 48px; height: 48px; }
           .jiz-brand__name { font-size: .76rem; gap: .26em; letter-spacing: .012em; }
         }
         @media (max-width: 430px) {
-          .jiz-brand__name span:last-child { display: none; }
+          .jiz-brand__name .jiz-brand__accent { display: none; }
         }
         @media (prefers-reduced-motion: reduce) {
           .jiz-global-nav,
