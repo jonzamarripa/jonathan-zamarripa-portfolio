@@ -144,5 +144,47 @@
     initCinematicCaseStudyReveals();
   }
 
+
+  /* Phase 4 — methodology progression. Each stage marks itself as visited
+     when it enters view; every stage stays readable without JavaScript.
+     React mounts the homepage after this script, so observe added DOM nodes. */
+  function initMethodProgression() {
+    if (!('IntersectionObserver' in window)) return;
+    var tracked = new WeakSet();
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.setAttribute('data-jz-method-seen', 'true');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -10% 0px' });
+    var scheduled = false;
+    function scan() {
+      scheduled = false;
+      document.querySelectorAll('.jz-pr--method .jz-pr-step').forEach(function (step) {
+        if (tracked.has(step)) return;
+        tracked.add(step);
+        observer.observe(step);
+      });
+    }
+    function scheduleScan() {
+      if (scheduled) return;
+      scheduled = true;
+      window.requestAnimationFrame(scan);
+    }
+    scan();
+    var root = document.getElementById('root');
+    if (root && typeof MutationObserver !== 'undefined') {
+      new MutationObserver(function (records) {
+        if (records.some(function (record) { return record.addedNodes.length > 0; })) scheduleScan();
+      }).observe(root, { childList: true, subtree: true });
+    }
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMethodProgression, { once: true });
+  } else {
+    initMethodProgression();
+  }
+
   window.JIZ_SITE = { links: links, sections: sections, routes: routes, section: section, resolve: resolve, viewForHash: viewForHash, viewForPath: viewForPath, route: route };
 })();
