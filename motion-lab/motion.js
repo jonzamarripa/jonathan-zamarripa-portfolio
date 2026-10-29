@@ -91,7 +91,6 @@
   }
   function sync() {
     root.setAttribute('data-motion', enabled() ? 'on' : 'off');
-    button.setAttribute('aria-pressed', String(paused));
     button.textContent = paused ? 'PLAY MOTION' : (media.matches ? 'SYSTEM MOTION OFF' : 'PAUSE MOTION');
     schedule();
   }
