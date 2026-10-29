@@ -80,5 +80,69 @@
   });
   window.addEventListener('pageshow', syncDecorativeMotion);
 
+
+  /* Phase 3 — case-study-only scroll reveals.
+     The HTML is fully visible by default: JS and IntersectionObserver are
+     optional enhancements. Works in standalone routes and nested overlays. */
+  function initCinematicCaseStudyReveals() {
+    if (!('IntersectionObserver' in window)) return;
+    var selectors = [
+      '.jiz-cs .jiz-cs-section .jiz-cs-kicker',
+      '.jiz-cs .jiz-cs-section .jiz-cs-h2',
+      '.jiz-cs .jiz-cs-gallery figure',
+      '.jiz-cs .jiz-cs-decision',
+      '.jiz-cs .jiz-cs-outcome',
+      '.tfs .jiz-chapter .tfs-chn',
+      '.tfs .jiz-chapter .tfs-h2',
+      '.tfs .tfs-gallery figure',
+      '.tfs .tfs-pair figure',
+      '.tfs .tfs-prod-item',
+      '.tfs .tfs-status-col'
+    ].join(',');
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.setAttribute('data-jz-cinema-visible', 'true');
+        observer.unobserve(entry.target);
+      });
+    }, { root: null, threshold: 0.08, rootMargin: '0px 0px -7% 0px' });
+    var scheduled = false;
+    function scan() {
+      scheduled = false;
+      document.querySelectorAll(selectors).forEach(function (element) {
+        if (element.hasAttribute('data-jz-cinema-init')) return;
+        element.setAttribute('data-jz-cinema-init', 'true');
+        var article = element.closest('article[data-case-study]');
+        if (!article) return;
+        // Keep the opening chapter instantly readable on navigation.
+        var firstChapter = article.querySelector('.jiz-chapter');
+        if (element.closest('.jiz-chapter') === firstChapter) return;
+        var bounds = element.getBoundingClientRect();
+        // Never hide content already in view, or content scrolled past.
+        if (bounds.top < window.innerHeight * 0.88) return;
+        var artifact = element.matches('figure, .jiz-cs-decision, .jiz-cs-outcome, .tfs-prod-item, .tfs-status-col');
+        element.setAttribute('data-jz-cinema-kind', artifact ? 'artifact' : 'heading');
+        element.classList.add('jz-cinema-reveal');
+        observer.observe(element);
+      });
+    }
+    function scheduleScan() {
+      if (scheduled) return;
+      scheduled = true;
+      window.requestAnimationFrame(scan);
+    }
+    scan();
+    // New React case studies and overlays mount after this file is loaded.
+    var target = document.getElementById('root') || document.body;
+    new MutationObserver(function (records) {
+      if (records.some(function (record) { return record.addedNodes.length > 0; })) scheduleScan();
+    }).observe(target, { childList: true, subtree: true });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCinematicCaseStudyReveals, { once: true });
+  } else {
+    initCinematicCaseStudyReveals();
+  }
+
   window.JIZ_SITE = { links: links, sections: sections, routes: routes, section: section, resolve: resolve, viewForHash: viewForHash, viewForPath: viewForPath, route: route };
 })();
