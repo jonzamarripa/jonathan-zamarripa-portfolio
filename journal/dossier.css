@@ -107,3 +107,30 @@ main:has(.dx .jiz-chapter){width:auto;margin:0}
 .dx .jiz-chapter:is([data-surface="paper"],[data-surface="mist"]) :is(.dx-missing span,.box-corrections .box-label,.dx-gaps em,.pill-warn){color:#9A3324}
 .dx .jiz-chapter:is([data-surface="paper"],[data-surface="mist"]) .dx-btn{color:var(--obsidian)!important;background:var(--accent-journal-amber)}
 .dx-mast-pre{margin-top:clamp(28px,4vw,44px)}
+
+
+/* Phase 4 — journal table-of-contents interaction.
+   Static anchor navigation remains authoritative. Only the explicitly
+   selected chapter is accented; this is not a claim of live scroll tracking. */
+.dx-toc a{
+  transition:color 240ms ease,border-color 240ms ease;
+}
+.dx-toc a:hover,.dx-toc a:focus-visible{
+  color:var(--jr-ink);
+  border-bottom-color:var(--jr-amber);
+}
+body.jr:has(#ch-01:target) .dx-toc a[href="#ch-01"],
+body.jr:has(#ch-02:target) .dx-toc a[href="#ch-02"],
+body.jr:has(#ch-03:target) .dx-toc a[href="#ch-03"],
+body.jr:has(#ch-04:target) .dx-toc a[href="#ch-04"],
+body.jr:has(#ch-05:target) .dx-toc a[href="#ch-05"],
+body.jr:has(#ch-06:target) .dx-toc a[href="#ch-06"]{
+  color:var(--jr-ink);
+  border-bottom-color:var(--jr-teal);
+}
+.dx-ch:target .dx-ch-head{
+  border-top-color:var(--jr-teal);
+}
+@media(prefers-reduced-motion:reduce){
+  .dx-toc a{transition:none!important}
+}
