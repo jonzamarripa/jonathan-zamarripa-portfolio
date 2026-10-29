@@ -130,3 +130,56 @@ html[data-jz-motion-paused="true"] .jz-fw .jz-fw-card .jz-fw-media::before,
 html[data-jz-motion-paused="true"] .jz-fw .jz-fw-card .jz-fw-media::after{
   transition:none!important;transform:none!important;filter:none!important;
 }
+
+
+/* Phase 3 — case-study chapter and artifact reveal system.
+   Non-JS and unsupported browsers retain fully visible content. Only elements
+   explicitly registered by the case-study observer receive entry transitions. */
+:where(.jiz-cs,.tfs){
+  --jz-cinema-heading-rise:18px;
+  --jz-cinema-artifact-rise:24px;
+  --jz-cinema-heading-duration:680ms;
+  --jz-cinema-artifact-duration:780ms;
+  --jz-cinema-ease:cubic-bezier(.19,1,.22,1);
+}
+:where(.jiz-cs,.tfs) .jz-cinema-reveal{
+  opacity:0;
+  transform:translate3d(0,var(--jz-cinema-heading-rise),0);
+  transition:opacity var(--jz-cinema-heading-duration) ease-out,
+             transform var(--jz-cinema-heading-duration) var(--jz-cinema-ease);
+}
+:where(.jiz-cs,.tfs) .jz-cinema-reveal[data-jz-cinema-kind="artifact"]{
+  transform:translate3d(0,var(--jz-cinema-artifact-rise),0) scale(.992);
+  transition-duration:var(--jz-cinema-artifact-duration);
+}
+:where(.jiz-cs,.tfs) .jz-cinema-reveal[data-jz-cinema-visible="true"],
+:where(.jiz-cs,.tfs) .jz-cinema-reveal:focus-within{
+  opacity:1;
+  transform:none;
+}
+/* Both the site-level Pause Motion button and OS reduced-motion setting
+   override pending reveals so no content can remain concealed. */
+html[data-jz-motion-paused="true"] :where(.jiz-cs,.tfs) .jz-cinema-reveal{
+  opacity:1!important;
+  transform:none!important;
+  transition:none!important;
+}
+@media (prefers-reduced-motion:reduce){
+  :where(.jiz-cs,.tfs) .jz-cinema-reveal{
+    opacity:1!important;
+    transform:none!important;
+    transition:none!important;
+  }
+}
+@media (max-width:600px){
+  :where(.jiz-cs,.tfs){
+    --jz-cinema-heading-rise:10px;
+    --jz-cinema-artifact-rise:14px;
+  }
+}
+@media print {
+  :where(.jiz-cs,.tfs) .jz-cinema-reveal{
+    opacity:1!important;
+    transform:none!important;
+  }
+}
