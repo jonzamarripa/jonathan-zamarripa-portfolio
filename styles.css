@@ -361,3 +361,108 @@ html[data-jz-motion-paused="true"] .jiz-homepage .jz-fw .jz-fw-cards > .jz-fw-ca
   .jiz-homepage .hero .hero-title-main,.jiz-homepage .hero .hero-title-accent,.jiz-homepage .jz-fw-h2{transform:none!important}
   .jiz-homepage .jz-fw .jz-fw-media{clip-path:none!important}
 }
+
+
+/* HYBRID CHAPTER TITLES — SCROLL-DIRECTED EDITORIAL MOTION.
+   One restrained movement language across all 12 true homepage H2 titles.
+   The text is never duplicated or initially hidden; progress is set by the
+   existing rAF-throttled site-config.js scroll director. */
+html[data-jz-hybrid-home="true"] .jiz-homepage [data-jz-hybrid-title="true"]{
+  --jz-hybrid-title-progress:1;
+  --jz-hybrid-title-rise:0px;
+  --jz-hybrid-rule-color:var(--signal-lime);
+  position:relative;
+  transform:translate3d(0,var(--jz-hybrid-title-rise),0);
+  opacity:calc(.78 + var(--jz-hybrid-title-progress) * .22);
+  transition:transform 110ms linear,opacity 120ms linear;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage [data-jz-hybrid-title="true"]::after{
+  content:"";
+  display:block;
+  position:absolute;
+  left:0;
+  bottom:-12px;
+  width:clamp(56px,10vw,156px);
+  height:2px;
+  border-radius:2px;
+  background:linear-gradient(90deg,var(--jz-hybrid-rule-color),transparent);
+  transform:scaleX(var(--jz-hybrid-title-progress));
+  transform-origin:left;
+  opacity:calc(.45 + var(--jz-hybrid-title-progress) * .55);
+  pointer-events:none;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage :is(
+  .jz-fw,.jz-pr--capabilities,.jz-jr,.jz-pp
+) [data-jz-hybrid-title="true"]{
+  --jz-hybrid-rule-color:#226D80;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-cls [data-jz-hybrid-title="true"]{
+  --jz-hybrid-rule-color:#E3A24C;
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage :is(
+  .jiz-creative-lab,.jiz-am,.jz-st,.jiz-arch
+) [data-jz-hybrid-title="true"]{
+  --jz-hybrid-rule-color:var(--accent-cyan);
+}
+/* Keep the previously approved horizontal work-title movement, add the
+   shared upward rise so the two motions work together rather than compete. */
+@media(min-width:901px){
+  html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw[data-in="true"] .jz-fw-h2[data-jz-hybrid-title="true"]{
+    transform:translate3d(calc((1 - var(--jz-hybrid-work-progress,1)) * -32px),var(--jz-hybrid-title-rise),0);
+    transition:transform 110ms linear,opacity 900ms cubic-bezier(.22,.61,.36,1);
+  }
+}
+/* Selected Experience: the organization names and ASU degree join the same
+   traveling editorial motif with tiny distinct vertical offsets. */
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-exp .jz-exp-in > .jz-label{
+  transform:translate3d(0,var(--jz-hybrid-bridge-rise,0px),0);
+  opacity:calc(.75 + var(--jz-hybrid-strip-entry,1) * .25);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-exp .jz-exp-list li{
+  transform:translate3d(0,calc(var(--jz-hybrid-bridge-rise,0px) * .7),0);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-exp .jz-exp-list li:nth-child(2){
+  transform:translate3d(0,calc(var(--jz-hybrid-bridge-rise,0px) * .9),0);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-exp .jz-exp-list li:nth-child(3){
+  transform:translate3d(0,var(--jz-hybrid-bridge-rise,0px),0);
+}
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-exp .jz-exp-edu{
+  transform:translate3d(0,calc(var(--jz-hybrid-bridge-rise,0px) * 1.15),0);
+  opacity:calc(.8 + var(--jz-hybrid-strip-entry,1) * .2);
+}
+/* All animations stop when the site motion toggle or OS preference says so.
+   Decorative rules are allowed to remain visible as static editorial lines. */
+html[data-jz-motion-paused="true"] .jiz-homepage [data-jz-hybrid-title="true"]{
+  transform:none!important;
+  opacity:1!important;
+  transition:none!important;
+}
+html[data-jz-motion-paused="true"] .jiz-homepage [data-jz-hybrid-title="true"]::after{
+  transform:none!important;
+  transition:none!important;
+}
+html[data-jz-motion-paused="true"] .jiz-homepage .jz-exp :is(.jz-exp-in > .jz-label,.jz-exp-list li,.jz-exp-edu){
+  transform:none!important;
+  opacity:1!important;
+  transition:none!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .jiz-homepage [data-jz-hybrid-title="true"]{
+    transform:none!important;opacity:1!important;transition:none!important;
+  }
+  .jiz-homepage [data-jz-hybrid-title="true"]::after{
+    transform:none!important;transition:none!important;
+  }
+  .jiz-homepage .jz-exp :is(.jz-exp-in > .jz-label,.jz-exp-list li,.jz-exp-edu){
+    transform:none!important;opacity:1!important;transition:none!important;
+  }
+}
+@media print{
+  .jiz-homepage [data-jz-hybrid-title="true"]{
+    transform:none!important;opacity:1!important;transition:none!important;
+  }
+  .jiz-homepage .jz-exp :is(.jz-exp-in > .jz-label,.jz-exp-list li,.jz-exp-edu){
+    transform:none!important;opacity:1!important;
+  }
+}
