@@ -228,6 +228,42 @@
       value(hero, '--jz-hybrid-hero-progress', hp);
       value(strip, '--jz-hybrid-bridge-progress', bp);
       value(work, '--jz-hybrid-work-progress', wp);
+
+
+      /* CHAPTER TITLES / scroll-directed typography.
+         Only real homepage section titles; preserve heading text, semantic
+         order, existing React reveal states and media. Single shared RAF. */
+      var chapterTitleIds = [
+        'jz-fw-title', 'jz-im-title', 'jz-cap-title', 'jz-pr-title',
+        'jz-cls-title', 'creative-lab-title', 'jiz-am-title',
+        'jz-jr-title', 'jz-st-title', 'jz-pp-title',
+        'jiz-arch-title', 'jiz-build-title'
+      ];
+      for (var i = 0; i < chapterTitleIds.length; i++) {
+        var heading = document.getElementById(chapterTitleIds[i]);
+        if (!heading || !heading.closest('.jiz-homepage')) continue;
+        if (!heading.hasAttribute('data-jz-hybrid-title')) {
+          heading.setAttribute('data-jz-hybrid-title', 'true');
+        }
+        // Enter at 92% of the viewport, settle by 30%. Scrolling backward
+        // reverses naturally. Never hide text, even before it is reached.
+        var top = heading.getBoundingClientRect().top;
+        var raw = on ? clamp((viewport * .92 - top) / (viewport * .62)) : 1;
+        var progress = raw * raw * (3 - 2 * raw);
+        value(heading, '--jz-hybrid-title-progress', progress);
+        var travel = (i === 0 || i === 4 || i === 5) ? 64 : 48;
+        var rise = Math.round((1 - progress) * travel);
+        var nextRise = rise + 'px';
+        if (heading.style.getPropertyValue('--jz-hybrid-title-rise') !== nextRise) {
+          heading.style.setProperty('--jz-hybrid-title-rise', nextRise);
+        }
+      }
+      /* Extend the editorial rhythm of the Cox / IHG / AIS / ASU
+         credibility strip rather than introducing a new component. */
+      var stripRise = Math.round((1 - bp) * 20) + 'px';
+      if (strip.style.getPropertyValue('--jz-hybrid-bridge-rise') !== stripRise) {
+        strip.style.setProperty('--jz-hybrid-bridge-rise', stripRise);
+      }
     }
     function schedule() {
       if (frame) return;
