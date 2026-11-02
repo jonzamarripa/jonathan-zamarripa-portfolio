@@ -143,3 +143,12 @@ Approved PR #10 visual-fidelity corrections completed for branch preview. No mer
 - Archive.zip provided the three actual originals: workplace-practice concept, Marcus portrait and Tavus screenshot. Converted to verified PNGs with original proportions retained; upload copies are sized so their combined base64 payload stays below 4 MiB. Original files retained in task workspace.
 - Homepage Marcus thumbnail and case-study hero now use the supplied workplace-practice image. The case study also shows the portrait and static interface screenshot with appropriate captions, PNG download links, and a dedicated social-preview image. Efficient WebP display derivatives preserve sharper images without making the PNG downloads larger.
 - Production image update authorized by the existing task; no Tavus settings or conversation behavior changed.
+
+## Marcus artwork production verification — 2026-11-02
+- Source `3f53ca22afd66d8a0c9271eb421a13edf0b60245` deployed as `dpl_Gr5iAwaB9VPmRx5PRXe5bcVLm44b`, READY, owning www/apex production aliases. Main remains unchanged.
+- Protected preview and production case-study page returned HTTP 200 with the new practice image, three PNG download links and dedicated social image. Local Chromium checked actual PNG signatures/MIME/sizes plus all image loads and mobile/desktop rendering.
+- Upload-ready PNGs: practice 790803 bytes, portrait 780461 bytes, interface 802527 bytes; total 2373791 bytes. PNG copies preserve proportions with size reductions; source originals and higher-resolution working conversions remain in work/. No generative redraw performed.
+- This is local post-release documentation; production code remains 3f53ca2.
+
+## Public pilot-status edit — 2026-11-02
+- User approved replacing the public Implementation and current status engineering note with the concise Pilot status explanation. Technical details retained in MARCUS-LIVE.md, excluded from deployment. AI/privacy notice and all embed behavior preserved.

@@ -76,3 +76,11 @@ User authorized deployment. Source `942a2af2de53bd1cf0bbeb532bc20b3b2dcd4a0e` on
 The user provided Archive.zip with all three source images. The new practice image replaces the temporary homepage thumbnail and is also the case-study hero. The character portrait and interface screenshot appear in the practice chapter, with captions distinguishing generated concept/character imagery from the static screenshot. PNG download copies are 790,803, 780,461 and 802,527 bytes (2,373,791 total); combined base64 size is 3,165,056 bytes, below the reported 4,194,304-byte limit. Each file was reopened and verified as PNG. WebP website derivatives preserve higher resolution for display; originals are retained in the task workspace. A dedicated Marcus social image replaces the reused First Sentence image.
 
 Build and diff checks passed. Chromium verified new image loading, three PNG download URLs/signatures/MIME types, desktop/mobile overflow, updated social metadata and no premature Tavus request. Desktop thumbnail and case-study hero captures were inspected. Existing NavBar SSR warning remains.
+
+## Public pilot-status edit — November 2, 2026
+
+Replaced the engineering handoff on the public case study with the approved two-sentence Pilot status note. The AI/privacy notice beside the practice controls remains. This editorial change does not resolve or modify the account-side checks.
+
+Technical handoff preserved from the removed public section:
+
+Official `@tavus/embed@latest`; deployment `98977e08-afca-4db4-bd21-cb961f9902ce`; inline desktop/portrait mobile stage; no automatic conversation creation; no system-prompt replacement; no additional learner context or persistent memory tag supplied. Page configuration disables unique visitor memory and starts the camera off. The greeting is explicitly set to “Hey, Dana. You wanted to talk?” pending inspection of the saved greeting. The deployment memory toggle, allowed origins, retention, media permissions, live greeting and natural endings still require account-side verification. A fresh embed instance is not proof of memory isolation. No learner recording or transcript has been collected by this portfolio implementation.

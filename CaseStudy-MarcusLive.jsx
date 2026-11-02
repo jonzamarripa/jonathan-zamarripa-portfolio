@@ -236,7 +236,10 @@ function CaseStudyMarcusLive() {
         <li><h3>Verify what can actually be observed.</h3><p>The build and fixture-based browser checks passed for delayed loading, error handling, reflection, fresh embed instances and mobile layout. A public configuration lookup returned an origin restriction, so account settings and live-call behavior remain a separate verification step.</p></li>
       </ol>
       <div className="ml-prose"><p>The ease worth highlighting is architectural: a documented managed embed and AI-assisted implementation made a bounded experiment feasible within the existing site. The strategic work is deciding what deserves that experiment, what evidence would change the decision, and which responsibilities must remain visible as the prototype becomes a service.</p></div>
-      <details className="ml-details"><summary>Implementation and current status</summary><p>Official <code>@tavus/embed@latest</code>; deployment <code>98977e08-afca-4db4-bd21-cb961f9902ce</code>; inline desktop/portrait mobile stage; no automatic conversation creation; no system-prompt replacement; no additional learner context or persistent memory tag supplied. Page configuration disables unique visitor memory and starts the camera off. The greeting is explicitly set to “Hey, Dana. You wanted to talk?” pending inspection of the saved greeting. The deployment memory toggle, allowed origins, retention, media permissions, live greeting and natural endings still require account-side verification. A fresh embed instance is not proof of memory isolation. No learner recording or transcript has been collected by this portfolio implementation.</p></details>
+      <section className="ml-status" aria-labelledby="ml-pilot-status">
+        <h3 id="ml-pilot-status">Pilot status</h3>
+        <p>Marcus, Live explores conversational AI as a practice environment for difficult workplace conversations. This independent prototype includes optional reflection; its effect on learning and workplace performance has not yet been evaluated.</p>
+      </section>
     </Chapter>
 
     <Chapter surface="carbon" accent="first-sentence" labelledBy="ml-practice-title" id="ml-practice">
@@ -327,16 +330,16 @@ const MARCUS_CSS = `
 .ml-process{max-width:78ch;padding-left:1.5em;line-height:1.8;display:grid;gap:12px}
 .ml-process h3{font:600 1.125rem/1.4 var(--font-display);margin:12px 0 4px}
 .ml-process p{color:var(--tfs-soft);margin-top:0}
-.ml-details{border:1px solid var(--tfs-line);padding:20px;border-radius:var(--inner-r);line-height:1.8;margin-top:28px;color:var(--tfs-soft)}
-.ml-details summary{cursor:pointer;min-height:32px;font-weight:600;color:var(--tfs-ink)}
-.ml-details code{overflow-wrap:anywhere}
+.ml-status{border:1px solid var(--tfs-line);padding:20px;border-radius:var(--inner-r);line-height:1.8;margin-top:28px;color:var(--tfs-soft)}
+.ml-status h3{margin:0 0 12px;font:600 1.125rem/1.4 var(--font-display);color:var(--tfs-ink)}
+.ml-status p{margin:0}
 .ml-sources{padding-left:1.5em;display:grid;gap:24px;margin:32px 0;max-width:90ch;line-height:1.7}
 .ml-sources a{overflow-wrap:anywhere;font-weight:600;text-underline-offset:4px}
 .ml-sources p{margin:6px 0 0;color:var(--tfs-soft);font-size:.9375rem}
 .ml-sources .ml-source-type{font:.75rem/1.5 var(--font-mono);color:var(--tfs-orange)}
 .ml [id]{scroll-margin-top:24px}
 @media(max-width:700px){.ml-grid{grid-template-columns:1fr}.ml-table{min-width:660px}.ml .tfs-title{font-size:clamp(2.75rem,12vw,4rem)}}
-@media print{.ml{background:white!important;color:black!important}.ml .jiz-chapter{background:white!important;color:black!important;--tfs-ink:#111;--tfs-soft:#222;--tfs-mute:#444;--tfs-line:#bbb;--tfs-orange:#873100;border:0;border-radius:0;margin:0;padding:16px 0;box-shadow:none}.ml .jiz-chapter__inner{max-width:none;padding:0}.ml .tfs-top,.ml .tfs-build-nav,.ml-actions,.ml-contents,#ml-practice,.ml-details,footer{display:none!important}.ml .tfs-h2{font-size:24pt}.ml .tfs-title{font-size:40pt}.ml-grid{display:block}.ml-card{break-inside:avoid;margin:12px 0}.ml-table{min-width:0}.ml-table-wrap{overflow:visible}.ml-table th,.ml-table td{padding:8px}.ml a{color:inherit}.ml-sources a:after{content:' (' attr(href) ')';font-size:9pt;font-weight:400}.ml-cite a{font-size:8pt}}
+@media print{.ml{background:white!important;color:black!important}.ml .jiz-chapter{background:white!important;color:black!important;--tfs-ink:#111;--tfs-soft:#222;--tfs-mute:#444;--tfs-line:#bbb;--tfs-orange:#873100;border:0;border-radius:0;margin:0;padding:16px 0;box-shadow:none}.ml .jiz-chapter__inner{max-width:none;padding:0}.ml .tfs-top,.ml .tfs-build-nav,.ml-actions,.ml-contents,#ml-practice,footer{display:none!important}.ml .tfs-h2{font-size:24pt}.ml .tfs-title{font-size:40pt}.ml-grid{display:block}.ml-card{break-inside:avoid;margin:12px 0}.ml-table{min-width:0}.ml-table-wrap{overflow:visible}.ml-table th,.ml-table td{padding:8px}.ml a{color:inherit}.ml-sources a:after{content:' (' attr(href) ')';font-size:9pt;font-weight:400}.ml-cite a{font-size:8pt}}
 `;
 
 window.CaseStudyMarcusLiveExports = { CaseStudyMarcusLive, meta: MARCUS_META };
