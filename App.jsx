@@ -39,6 +39,7 @@ function caseStudyViews() {
     'guest-crm-pilot': window.CaseStudyGuestCRMExports?.CaseStudyGuestCRM,
     'workday-learn': window.CaseStudyWorkdayExports?.CaseStudyWorkday,
     'the-first-sentence': window.CaseStudyFirstSentenceExports?.CaseStudyFirstSentence,
+    'marcus-live': window.CaseStudyMarcusLiveExports?.CaseStudyMarcusLive,
     'behind-the-build': window.CaseStudyBehindTheBuildExports?.CaseStudyBehindTheBuild
   };
 }

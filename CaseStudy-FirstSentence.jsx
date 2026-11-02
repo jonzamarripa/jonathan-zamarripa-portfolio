@@ -229,6 +229,8 @@ function CaseStudyFirstSentence({ standalone }) {
         <a className="tfs-pill" href="/#work">← All work</a>
       </div>
 
+      <TfsBuildNavigation active="branching" />
+
       {/* Chapter 01 — The Premise */}
       <Chapter surface="obsidian" accent="first-sentence" labelledBy="tfs-h1">
           <p className="tfs-chn">Chapter 01 · The premise</p>
@@ -261,6 +263,7 @@ function CaseStudyFirstSentence({ standalone }) {
           <h2 id="tfs-h-exp" className="tfs-h2">Play it before you read about it.</h2>
           <p className="tfs-lede">The live prototype, playable on this page. Nothing loads until you begin.</p>
           <TfsLauncher />
+          <p className="tfs-launch-note">Continue with the companion build: <a href="/work/marcus-live/">Marcus, Live — conversational practice and the research behind it →</a></p>
       </Chapter>
 
       {/* Chapter 03 — Inside the decision */}
@@ -505,6 +508,16 @@ const TFS_CSS = `
 .tfs-status h3,.tfs-open h3{margin:0 0 12px;font:600 1.0625rem/1.3 var(--font-display)}
 .tfs-status ul,.tfs-open ul{margin:0;padding-left:1.15em;display:grid;gap:8px;font-size:.9375rem;line-height:1.55;color:var(--tfs-soft)}
 .tfs-open{margin:clamp(28px,3vw,40px) 0 24px}
+/* Optional live practice follows the existing chapter tokens. */
+.tfs-live-brief,.tfs-live-reflection{margin:28px 0;padding:clamp(18px,3vw,32px);border:1px solid var(--tfs-line);border-radius:var(--inner-r)}
+.tfs-live p,.tfs-live li{line-height:1.65;color:var(--tfs-soft)}
+.tfs-live ul,.tfs-live ol{padding-left:1.4em;display:grid;gap:8px}
+.tfs-live-stage{width:100%;aspect-ratio:16/9;margin-top:20px;background:var(--surface-obsidian);border-radius:var(--inner-r);overflow:hidden}
+.tfs-live-stage tavus-embed{display:block;width:100%;height:100%}
+@media(max-width:900px){.tfs-live-stage{aspect-ratio:9/16}}
+.tfs-build-nav{display:flex;gap:8px;flex-wrap:wrap;padding:0 calc(var(--panel-gap) + clamp(16px,3vw,44px)) 20px}
+.tfs-build-nav a{padding:12px 18px;min-height:44px;border-radius:999px;border:1px solid var(--tfs-line);text-decoration:none;font-size:.875rem}
+.tfs-build-nav a[aria-current="page"]{color:var(--tfs-orange);border-color:var(--tfs-orange)}
 /* More */
 .tfs-more{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:clamp(24px,3vw,36px)}
 .tfs-more a{display:flex;flex-direction:column;gap:6px;min-height:84px;padding:18px 20px;border:1px solid var(--tfs-line);border-radius:var(--inner-r);text-decoration:none;background:rgba(236,238,241,.02)}

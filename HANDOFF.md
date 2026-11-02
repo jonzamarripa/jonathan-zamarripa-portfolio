@@ -44,3 +44,20 @@ Not deployed (`*.md` is in `.vercelignore`). Update only when project state chan
 
 ## Next authorized task
 None. Waiting for Jonathan's next task (remaining migrations: case-study shell pages, journal hub).
+
+## Marcus, Live pilot (2026-11-02)
+- Review branch: `feature/marcus-live-tavus`; not merged, pushed or deployed.
+- Chapter 02B uses official CDN `@tavus/embed@latest` after explicit action, lifecycle cleanup, optional reflection, and a new embed per retry. Existing build/routes/Figma preserved.
+- Page override disables unique visitor memory and starts camera off; saved deployment settings still need verification. Greeting explicitly supplied because account access is unavailable.
+- Build and fixture-based browser checks passed. Actual configuration lookup returned `403 origin_forbidden`; live media, greeting, ending, retention and memory isolation remain unverified. See `MARCUS-LIVE.md` before release.
+
+## Marcus, Live sibling showcase (2026-11-02 revision)
+- User requested a distinct research-backed build showcase. `/work/marcus-live/` now contains the strategic paper and optional live practice, paired with the original case study through navigation tabs. Chapter 02B is removed from the original page.
+- Added `CaseStudy-MarcusLive.jsx`; registered it in existing App/routes/build. Five DOI studies, industry context, platform trade-offs, AI-assisted process, proposed evaluation and future use cases included. No measured efficacy or time savings claimed.
+- Six case studies prerender successfully; fixture-based navigation, lifecycle, original Figma launcher, print and mobile checks passed. Live-call/account verification requirements are unchanged. See `MARCUS-LIVE.md`.
+- Changes remain local on `feature/marcus-live-tavus`; no push, merge or deployment.
+
+## Marcus, Live Featured Work entry (2026-11-02)
+- Added a distinct homepage Featured Work card as entry 02, leading the secondary grid, linking to `/work/marcus-live/`. Original flagship remains entry 01; four enterprise cards remain present. Count now derives from the project list.
+- Uses existing Northstar scenario artwork until a dedicated thumbnail is produced. Description identifies an independent Tavus pilot with research and evaluation, without efficacy claims. No production deployment authorized or performed in this update.
+- Verification: build and diff checks passed; Chromium confirmed six cards, correct link/count, loaded artwork, mobile overflow, navigation and no Tavus load before opt-in. Existing NavBar SSR warning remains.
