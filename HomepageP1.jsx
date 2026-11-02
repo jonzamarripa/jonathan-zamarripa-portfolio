@@ -188,117 +188,111 @@ function SelectedExperience() {
 }
 
 /* ---------- Featured work ---------- */
-function FeaturedWorkEditorial({ onOpenWork }) {
-  const ref = React.useRef(null);
-  const inView = useInViewOnce(ref);
-  const projects = [
-    { n: '01', layout: 'flagship', org: 'Independent project', role: 'Designed, written and produced by Jonathan Zamarripa', kicker: 'Interactive Experience', title: 'The First Sentence', dek: 'Yesterday, you were a teammate. Today, you\u2019re their supervisor. A cinematic branching simulation for newly promoted frontline supervisors.', chips: ['About 7 min', 'Branching paths', 'Speak or type'], image: './assets/imagery/the-first-sentence-featured-work-illustration.webp', alt: 'AI-generated illustration of Dana and Marcus talking in a warehouse aisle', route: 'The First Sentence', cta: 'Explore the interactive experience' },
-    { n: '02', layout: 'lead', org: 'Cox Enterprises', role: 'Lead Learning Experience Designer & Creative Strategist', kicker: 'Leadership development', title: 'Operation: Legacy Unlocked', dek: 'An immersive leadership simulation that casts employees as intelligence agents and turns organizational history into a mission, built for audiences up to VP and SVP.', image: './assets/imagery/olu-featured-work-illustration.webp', alt: 'Operation: Legacy Unlocked leadership simulation cover', route: 'Operation: Legacy Unlocked' },
-    { n: '03', layout: 'pair-a', org: 'IHG Hotels & Resorts', role: 'Learning Experience Designer / Producer', kicker: 'Product enablement', title: 'Global product readiness for hotel technology', dek: 'New-hire onboarding, release communications, and reusable learning workflows for evolving hotel platforms.', image: './assets/imagery/hotelkey-featured-work-illustration.webp', alt: 'HotelKey hotel technology enablement cover', route: 'HotelKey New Hire Onboarding' },
-    { n: '04', layout: 'pair-b', org: 'Cox Enterprises', role: 'Creative Lead / Learning Experience Designer', kicker: 'Platform launch', title: 'Workday Learn, launched as a growth ecosystem', dek: 'A launch campaign that led with organizational purpose before platform features.', image: './assets/imagery/workday-featured-work-illustration.webp', alt: 'AI-generated learning platform concept on a laptop and phone, illustrating the Workday Learn launch', route: 'Workday Learn Launch' },
-    { n: '05', layout: 'reverse', org: 'IHG Hotels & Resorts', role: 'Learning Strategist / Creative Producer', kicker: 'Change enablement', title: 'Guest CRM adoption across pilot hotels', dek: 'Teaching pilot hotel teams the reasoning behind new guest-relationship workflows, not just where to click.', image: './assets/imagery/guestcrm-featured-work-illustration.webp', alt: 'Guest CRM pilot change enablement cover', route: 'Guest CRM Pilot' },
+const FEATURED_PROJECTS = [
+    { n: '01', layout: 'flagship', org: 'Independent project', role: 'Designed, written and produced by Jonathan Zamarripa', kicker: 'Interactive Experience', title: 'The First Sentence', value: 'Practice the first difficult conversation as a newly promoted supervisor.', dek: 'Yesterday, you were a teammate. Today, you\u2019re their supervisor. A cinematic branching simulation for newly promoted frontline supervisors.', chips: ['About 7 min', 'Branching paths', 'Speak or type'], image: './assets/imagery/the-first-sentence-featured-work-illustration.webp', alt: 'AI-generated illustration of Dana and Marcus talking in a warehouse aisle', route: 'The First Sentence', cta: 'Explore the interactive experience' },
+    { n: '02', layout: 'lead', org: 'Cox Enterprises', role: 'Lead Learning Experience Designer & Creative Strategist', kicker: 'Leadership development', title: 'Operation: Legacy Unlocked', value: 'Turn organizational history into an immersive leadership mission.', dek: 'An immersive leadership simulation that casts employees as intelligence agents and turns organizational history into a mission, built for audiences up to VP and SVP.', image: './assets/imagery/olu-featured-work-illustration.webp', alt: 'Operation: Legacy Unlocked leadership simulation cover', route: 'Operation: Legacy Unlocked' },
+    { n: '03', layout: 'pair-a', org: 'IHG Hotels & Resorts', role: 'Learning Experience Designer / Producer', kicker: 'Product enablement', title: 'Global product readiness for hotel technology', value: 'Prepare hotel teams for evolving technology with reusable learning workflows.', dek: 'New-hire onboarding, release communications, and reusable learning workflows for evolving hotel platforms.', image: './assets/imagery/hotelkey-featured-work-illustration.webp', alt: 'HotelKey hotel technology enablement cover', route: 'HotelKey New Hire Onboarding' },
+    { n: '04', layout: 'pair-b', org: 'Cox Enterprises', role: 'Creative Lead / Learning Experience Designer', kicker: 'Platform launch', title: 'Workday Learn, launched as a growth ecosystem', value: 'Introduce a learning platform through organizational purpose.', dek: 'A launch campaign that led with organizational purpose before platform features.', image: './assets/imagery/workday-featured-work-illustration.webp', alt: 'AI-generated learning platform concept on a laptop and phone, illustrating the Workday Learn launch', route: 'Workday Learn Launch' },
+    { n: '05', layout: 'reverse', org: 'IHG Hotels & Resorts', role: 'Learning Strategist / Creative Producer', kicker: 'Change enablement', title: 'Guest CRM adoption across pilot hotels', value: 'Help pilot hotel teams understand the reasoning behind new guest workflows.', dek: 'Teaching pilot hotel teams the reasoning behind new guest-relationship workflows, not just where to click.', image: './assets/imagery/guestcrm-featured-work-illustration.webp', alt: 'Guest CRM pilot change enablement cover', route: 'Guest CRM Pilot' },
   ];
-  // Each case study has its own URL (shareable, opens in a new tab with Cmd/Ctrl-click); a plain click opens it in the overlay.
-  const pathOf = (route) => { const S = window.JIZ_SITE; const t = S && S.resolve(route); const r = t && S.route && S.route(t.view); return r && r.path; };
-  const overlayRoute = (route) => { const S = window.JIZ_SITE; const t = S && S.resolve(route); const r = t && S.route && S.route(t.view); return !!(r && r.featured); };
+
+function FeaturedWorkEditorial({ onOpenWork }) {
+  const track = React.useRef(null);
+  const [active, setActive] = React.useState(0);
+  const projects = FEATURED_PROJECTS;
+  const pathOf = (name) => { const S = window.JIZ_SITE; return S.route(S.resolve(name).view).path; };
   const open = (e, p) => {
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0 || !overlayRoute(p.route)) return;
-    e.preventDefault();
-    if (p.route && onOpenWork) onOpenWork(p.route);
+    const S = window.JIZ_SITE;
+    if (!onOpenWork || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0 || !S.route(S.resolve(p.route).view).featured) return;
+    e.preventDefault(); onOpenWork(p.route);
   };
-  const Card = ({ p }) => {
-    const href = p.route ? pathOf(p.route) : null;
-    const label = p.cta || 'Read the case study';
-    if (p.layout === 'flagship') return (
-      <article className="jz-fw-card jz-fw-flag jz-rise">
-        <div className="jz-fw-flag-media">
-          <img src={p.image} alt={p.alt} loading="lazy" decoding="async" width="1122" height="1402" />
-        </div>
-        <div className="jz-fw-meta">
-          <p className="jz-label jz-fw-kicker"><span className="jz-fw-n">{p.n}</span><span className="jz-fw-badge">{p.kicker}</span><span className="jz-fw-org">{p.org}</span></p>
-          <h3 className="jz-fw-title">{p.title}</h3>
-          <p className="jz-fw-dek">{p.dek}</p>
-          <ul className="jz-fw-chips" aria-label="Experience details">{p.chips.map((c) => <li key={c}>{c}</li>)}</ul>
-          {href ? <a className="jz-link jz-fw-cta" href={href} onClick={(e) => open(e, p)} aria-label={label + ': ' + p.title}><span>{label}</span><span className="jz-arrow" aria-hidden="true">→</span></a> : null}
-        </div>
-      </article>
-    );
-    return (
-      <article className={'jz-fw-card' + (p.image ? '' : ' jz-fw-card--text') + ' jz-rise'}>
-        {p.image && (
-          <div className="jz-fw-media" aria-hidden="true">
-            <img className="jz-fw-media-bg" src={p.image} alt="" loading="lazy" decoding="async" />
-            <img className="jz-fw-media-img" src={p.image} alt="" loading="lazy" decoding="async" width="1254" height="1254" />
-          </div>
-        )}
-        <div className="jz-fw-meta">
-          <p className="jz-label jz-fw-kicker"><span className="jz-fw-n">{p.n}</span><span>{p.kicker}</span><span className="jz-fw-org">{p.org}</span></p>
-          <h3 className="jz-fw-title">{p.title}</h3>
-          <p className="jz-fw-dek">{p.dek}</p>
-          {href
-            ? <a className="jz-link jz-fw-cta" href={href} onClick={(e) => open(e, p)} aria-label={label + ': ' + p.title}><span>{label}</span><span className="jz-arrow" aria-hidden="true">→</span></a>
-            : null}
-        </div>
-      </article>
-    );
+  const go = (index) => {
+    const el = track.current;
+    const card = el.children[Math.max(0, Math.min(index, projects.length - 1))];
+    el.scrollTo({ left: card.offsetLeft - el.children[0].offsetLeft, behavior: prefersReduced() ? 'auto' : 'smooth' });
   };
+  React.useEffect(() => {
+    const el = track.current;
+    let frame;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const origin = el.children[0].offsetLeft;
+        let nearest = 0;
+        Array.from(el.children).forEach((card, i) => {
+          if (Math.abs(card.offsetLeft - origin - el.scrollLeft) < Math.abs(el.children[nearest].offsetLeft - origin - el.scrollLeft)) nearest = i;
+        });
+        setActive(nearest);
+      });
+    };
+    el.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => { cancelAnimationFrame(frame); el.removeEventListener('scroll', update); window.removeEventListener('resize', update); };
+  }, []);
   return (
-    <section className="jz-fw" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-fw-title">
+    <section className="jz-fw" aria-labelledby="jz-fw-title">
       <EditorialStyles />
       <style>{`
-.jz-fw{position:relative;background:#080D0B;padding-block:clamp(88px,10vw,168px) clamp(72px,8vw,128px)}
-.jz-fw-head{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;align-items:end;margin-bottom:clamp(48px,6vw,88px)}
-.jz-fw-h2{grid-column:1 / span 7;margin:14px 0 0;font:600 clamp(2.75rem,1.6rem + 4.6vw,6.5rem)/.94 var(--font-display);letter-spacing:-.045em;color:var(--color-text-primary)}
-.jz-fw-intro{grid-column:9 / span 4;margin:0;font:400 1.0625rem/1.6 var(--font-body);color:rgba(217,221,227,.78);text-wrap:pretty}
-.jz-fw-cards{grid-column:1 / span 12;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,3vw,48px);align-items:start}
-.jz-fw-secondary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(32px,3.4vw,52px) clamp(20px,2.4vw,36px)}
-.jz-fw-secondary .jz-fw-title{font-size:clamp(1.25rem,1rem + .7vw,1.625rem)}
-.jz-fw-secondary .jz-fw-dek{font-size:.9375rem}
-/* Flagship: The First Sentence — 16:19 poster; Industrial Orange only as a restrained marker */
-.jz-fw-flag-media{position:relative;overflow:hidden;aspect-ratio:16 / 19;border-radius:var(--panel-r-inner);background:#0B0D10;box-shadow:inset 0 -3px 0 var(--accent-first-sentence)}
-.jz-fw-flag-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;transition:transform 220ms var(--ease-standard)}
-.jz-fw-flag:hover .jz-fw-flag-media img,.jz-fw-flag:focus-within .jz-fw-flag-media img{transform:scale(1.02)}
-.jz-fw-flag .jz-fw-title{font-size:clamp(1.875rem,1.2rem + 2vw,3rem)}
-.jz-fw-badge{display:inline-flex;align-items:center;padding:4px 10px;border-radius:999px;background:var(--accent-first-sentence);color:#0B0D10;letter-spacing:.12em}
-.jz-fw-chips{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
-.jz-fw-chips li{padding:5px 12px;border:1px solid rgba(11,13,16,.2);border-radius:999px;font:500 .75rem/1.2 var(--font-mono);letter-spacing:.04em;color:rgba(11,13,16,.78)}
-.jz-fw-card{position:relative;display:flex;flex-direction:column;gap:clamp(20px,2vw,28px);min-width:0}
-.jz-fw-card--text{grid-column:1 / -1;padding-top:clamp(28px,3vw,40px);border-top:1px solid var(--color-border-default)}
-.jz-fw-media{position:relative;overflow:hidden;aspect-ratio:16 / 10;border-radius:var(--radius-md);background:linear-gradient(135deg,var(--color-background-secondary) 0%,var(--slate) 100%);border:1px solid var(--color-border-subtle);transition:border-color 220ms var(--ease-standard)}
-.jz-fw-media-bg{position:absolute;inset:-12%;width:124%;height:124%;object-fit:cover;filter:blur(28px) saturate(.9) brightness(.42);opacity:.9}
-.jz-fw-media-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:transform 220ms var(--ease-standard)}
-.jz-fw-meta{display:flex;flex-direction:column;align-items:flex-start;gap:12px;min-width:0}
-.jz-fw-kicker{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;width:100%}
-.jz-fw-n{color:var(--color-text-primary)}
-.jz-fw-org{margin-left:auto;color:rgba(217,221,227,.5)}
-.jz-fw-title{margin:0;font:600 clamp(1.5rem,1.1rem + 1.1vw,2.25rem)/1.08 var(--font-display);letter-spacing:-.025em;color:var(--color-text-primary);text-wrap:balance;transition:color 220ms var(--ease-standard)}
-.jz-fw-dek{margin:0;max-width:52ch;font:400 1rem/1.6 var(--font-body);color:rgba(217,221,227,.8);text-wrap:pretty}
-.jz-fw-card--text .jz-fw-title{font-size:clamp(1.5rem,1rem + 1.4vw,2.5rem);max-width:28ch}
-.jz-fw-card--text .jz-fw-dek{max-width:68ch}
-.jz-fw-cta{margin-top:4px}
-.jz-fw-cta::after{content:"";position:absolute;inset:0;z-index:1}
-.jz-fw-cta:focus-visible{outline:none}
-.jz-fw-card:has(.jz-fw-cta:focus-visible){outline:2px solid var(--color-accent-primary);outline-offset:8px;border-radius:var(--radius-md)}
-.jz-fw-card:hover .jz-fw-media-img,.jz-fw-card:focus-within .jz-fw-media-img{transform:scale(1.02)}
-.jz-fw-card:hover .jz-fw-media,.jz-fw-card:focus-within .jz-fw-media{border-color:rgba(198,242,58,.28)}
-.jz-fw-card:hover .jz-fw-title{color:#fff}
-.jz-fw-card:hover .jz-arrow,.jz-fw-card:focus-within .jz-arrow{transform:translateX(5px)}
-.jz-fw-card .jz-arrow{transition:transform 220ms var(--ease-standard)}
-@media(max-width:1024px){.jz-fw-cards{grid-template-columns:1fr}.jz-fw-flag{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(20px,3vw,36px);align-items:center}.jz-fw-h2{grid-column:1 / span 12}.jz-fw-intro{grid-column:1 / span 8;margin-top:22px}.jz-fw-head{align-items:start}}
-@media(max-width:760px){.jz-fw-cards{grid-template-columns:1fr;gap:56px}.jz-fw-flag{display:flex;align-items:stretch}.jz-fw-secondary{grid-template-columns:1fr;gap:48px}.jz-fw-intro{grid-column:1 / span 12}.jz-fw-org{margin-left:0;width:100%}}
-@media(prefers-reduced-motion:reduce){.jz-fw-flag-media img{transition:none}.jz-fw-flag:hover .jz-fw-flag-media img,.jz-fw-flag:focus-within .jz-fw-flag-media img{transform:none}.jz-fw-media,.jz-fw-media-img,.jz-fw-title,.jz-fw-card .jz-arrow{transition:none}.jz-fw-card:hover .jz-fw-media-img,.jz-fw-card:focus-within .jz-fw-media-img{transform:none}}
+.jz-fw{--gallery-gutter:clamp(20px,5.5vw,104px);padding-block:clamp(56px,7vw,104px);background:var(--warm-paper);color:var(--obsidian)}
+.jz-fw-heading,.jz-fw-controls,.jz-fw-index{margin-inline:var(--gallery-gutter)}
+.jz-fw-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px}
+.jz-fw-h2{margin:16px 0 0;font:600 clamp(2.75rem,5.6vw,6rem)/1 var(--font-display);letter-spacing:-.045em}
+.jz-fw-heading>p{max-width:25ch;margin:0;font:400 1rem/1.6 var(--font-body);color:var(--obsidian)}
+.jz-fw-track{display:flex;gap:clamp(18px,2.5vw,36px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gallery-gutter);padding:8px var(--gallery-gutter) 24px;position:relative;scrollbar-width:thin;scrollbar-color:var(--obsidian) transparent}
+.jz-fw-track::after{content:'';flex:0 0 calc(15% - var(--gallery-gutter))}
+.jz-fw-slide{flex:0 0 85%;min-width:0;scroll-snap-align:start;scroll-snap-stop:normal}
+.jz-fw-frame{height:clamp(300px,36vw,520px);display:flex;justify-content:center;background:var(--obsidian);border:1px solid var(--slate);padding:clamp(10px,1.5vw,22px);border-radius:var(--panel-r-inner);box-shadow:0 12px 24px rgba(11,13,16,.12);perspective:1400px}
+.jz-fw-frame img{display:block;width:100%;height:100%;object-fit:contain}
+.jz-fw-slide .jz-fw-frame{transition:border-color 200ms,box-shadow 200ms}
+.jz-fw-slide[data-active="true"] .jz-fw-frame{border-color:var(--accent-cyan);box-shadow:0 12px 24px rgba(11,13,16,.18)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.jz-fw-slide:focus-within .jz-fw-frame img{transform:translateZ(3px)}}
+.jz-fw-copy{padding-top:26px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 32px;align-items:start}
+.jz-fw-copy .jz-label{grid-column:1/-1}
+.jz-fw-project-title{margin:0;font:600 clamp(1.65rem,2.7vw,3rem)/1.12 var(--font-display);letter-spacing:-.025em;overflow-wrap:break-word}
+.jz-fw-value{grid-column:1;max-width:52ch;margin:0;font:400 1rem/1.6 var(--font-body)}
+.jz-fw-copy .jz-link{grid-column:2;grid-row:2/4;align-self:end;white-space:nowrap}
+.jz-fw-controls{display:flex;align-items:center;gap:18px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(11,13,16,.2)}
+.jz-fw-count{font:500 .8125rem/1.5 var(--font-mono);font-variant-numeric:tabular-nums}
+.jz-fw-meter{height:3px;flex:1;background:rgba(11,13,16,.18)}
+.jz-fw-meter span{display:block;height:100%;background:var(--obsidian)}
+.jz-fw-buttons{display:flex;gap:8px}
+.jz-fw-buttons button{width:48px;height:48px;border:1px solid var(--obsidian);border-radius:50%;background:transparent;color:var(--obsidian);font-size:24px;cursor:pointer}
+.jz-fw-buttons button:hover:enabled{background:var(--signal-lime)}
+.jz-fw-buttons button:disabled{opacity:.35;cursor:default}
+.jz-fw button:focus-visible,.jz-fw-track:focus-visible,.jz-fw summary:focus-visible,.jz-fw-index a:focus-visible{outline:2px solid var(--obsidian);outline-offset:4px}
+.jz-fw-index{margin-top:28px;font:500 .9375rem/1.5 var(--font-body)}
+.jz-fw-index summary{cursor:pointer;padding-block:12px;width:fit-content;min-height:44px}
+.jz-fw-index ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+.jz-fw-index li{border-top:1px solid rgba(11,13,16,.18)}
+.jz-fw-index a{display:block;padding:14px 0;color:var(--obsidian);text-underline-offset:4px}
+@media(max-width:760px){.jz-fw-heading{display:block;margin-bottom:28px}.jz-fw-heading>p{margin-top:20px;max-width:32ch}.jz-fw-slide{flex-basis:90%}.jz-fw-track::after{flex-basis:calc(10% - var(--gallery-gutter))}.jz-fw-copy{display:flex;flex-direction:column;gap:12px}.jz-fw-copy .jz-link{align-self:start;margin-top:4px}.jz-fw-frame{height:320px}.jz-fw-index ul{grid-template-columns:1fr}.jz-fw-controls{gap:12px}}
+@media(prefers-reduced-motion:reduce){.jz-fw-slide .jz-fw-frame{transition:none}}
       `}</style>
-      <div className="jz-wrap jz-grid">
-        <header className="jz-fw-head">
-          <div style={{ gridColumn: '1 / span 12' }}><p className="jz-label jz-rise">Selected case studies · 05</p></div>
-          <h2 className="jz-fw-h2 jz-rise" id="jz-fw-title">Featured work</h2>
-          <p className="jz-fw-intro jz-rise">Leadership, product, and platform change for enterprise teams, each shown from the problem to the shipped experience.</p>
-        </header>
-        <div className="jz-fw-cards">
-          <Card p={projects[0]} />
-          <div className="jz-fw-secondary">{projects.slice(1).map((p) => <Card key={p.n} p={p} />)}</div>
-        </div>
+      <header className="jz-fw-heading">
+        <div><p className="jz-label">Selected case studies · {String(projects.length).padStart(2, '0')}</p><h2 className="jz-fw-h2" id="jz-fw-title">Featured work</h2></div>
+        <p>Learning experiences for leadership, product, and platform change.</p>
+      </header>
+      <p id="jz-fw-help" className="jz-visually-hidden">Swipe or scroll horizontally to browse. With the gallery focused, use Left and Right arrows, Home or End. Tab to each case-study link.</p>
+      <div className="jz-fw-track" id="jz-fw-gallery" ref={track} tabIndex="0" role="region" aria-label="Featured projects" aria-describedby="jz-fw-help" onKeyDown={(e) => {
+        if (e.target !== e.currentTarget || !['ArrowLeft','ArrowRight','Home','End'].includes(e.key)) return;
+        e.preventDefault(); go(e.key === 'Home' ? 0 : e.key === 'End' ? projects.length - 1 : active + (e.key === 'ArrowRight' ? 1 : -1));
+      }}>
+        {projects.map((p, i) => <article className="jz-fw-slide" key={p.route} onFocusCapture={() => go(i)} data-active={i === active} aria-labelledby={'jz-fw-project-' + i}>
+          <div className="jz-fw-frame"><img src={p.image} alt={p.alt} loading="lazy" decoding="async" width="1254" height="1254" /></div>
+          <div className="jz-fw-copy">
+            <p className="jz-label">{p.kicker}</p>
+            <h3 className="jz-fw-project-title" id={'jz-fw-project-' + i}>{p.title}</h3>
+            <p className="jz-fw-value">{p.value}</p>
+            <a className="jz-link" href={pathOf(p.route)} onClick={(e) => open(e,p)} aria-label={'View case study: ' + p.title}><span>View case study</span><span aria-hidden="true">→</span></a>
+          </div>
+        </article>)}
       </div>
+      <div className="jz-fw-controls">
+        <span className="jz-fw-count" role="status" aria-live="polite" aria-atomic="true"><span className="jz-visually-hidden">Project </span>{String(active + 1).padStart(2,'0')} / {String(projects.length).padStart(2,'0')}</span>
+        <div className="jz-fw-meter" aria-hidden="true"><span style={{width: ((active + 1) / projects.length * 100) + '%'}} /></div>
+        <div className="jz-fw-buttons"><button type="button" aria-label="Previous project" aria-controls="jz-fw-gallery" disabled={active === 0} onClick={() => go(active - 1)}>←</button><button type="button" aria-label="Next project" aria-controls="jz-fw-gallery" disabled={active === projects.length - 1} onClick={() => go(active + 1)}>→</button></div>
+      </div>
+      <details className="jz-fw-index"><summary>View all projects</summary><ul>{projects.map((p) => <li key={p.route}><a href={pathOf(p.route)} onClick={(e) => open(e,p)}>{p.title}</a></li>)}<li><a href="#archive" onClick={(e) => { if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && window.jizNavigate) { e.preventDefault(); window.jizNavigate('Archive'); } }}>Explore additional work →</a></li></ul></details>
     </section>
   );
 }

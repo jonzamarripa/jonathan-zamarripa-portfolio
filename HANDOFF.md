@@ -21,6 +21,8 @@ Not deployed (`*.md` is in `.vercelignore`). Update only when project state chan
 
 - Footer: existing homepage/journal footers now share Obsidian closing-panel geometry via `--panel-r`/`--panel-gap`, Carbon gutters and restrained Cyan/Lime interactions. Jonathan approved mounting the existing `FinalMoment` footer after standalone case-study content; the same navigation/copy are reused with homepage destinations. No new footer is added inside overlays. Build and desktop/mobile checks passed for all five case-study pages, homepage and journal (rounding, gutters, contrast, navigation/focus and overflow); Jonathan authorized production promotion.
 
+- Featured Work gallery preview: `preview/featured-work-editorial-gallery` replaces the grid with native scroll snap, concise value statements, progress/arrows, focus reveal and an expandable project index. Existing project order, route flags and detailed source records preserved. Build and Chromium checks at 375/768/1440 passed, including touch, keyboard, wheel, standalone routes and overlay. Screenshots/report in `work/gallery-review/`. Not merged or deployed.
+
 ## Shared paths
 - Build: `node build.cjs` (needs node_modules with @babel/core, @babel/preset-react, react, react-dom 18.3.1) → `dist/site.js`, prerendered `index.html`, `work/*/index.html`, journal pages, `sitemap.xml`.
 - Routes, paths, hero/OG images: `site-config.js`. Routing: `App.jsx` (`Root` → `CaseStudyPage` for `/work/` paths).
