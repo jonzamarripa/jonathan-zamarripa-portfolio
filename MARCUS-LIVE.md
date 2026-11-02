@@ -66,3 +66,13 @@ Account-side settings were not changed. No real conversations were created or re
 ## Research retrieval limits
 
 The 2026 LinkedIn Talent Velocity report was located, but its landing page/full PDF could not be reliably retrieved. No statistics from its search excerpts are used. The paper dates the directly inspected 2025 industry sources rather than calling them the newest available report. Newer indexed AI-study records were not used where full methods/publication context were not inspected. The selected trial, simulation meta-analysis and cautionary AI experiment were read in full; the debrief and transfer reviews are explicitly supported at abstract level.
+
+## Production release, November 2, 2026
+
+User authorized deployment. Source `942a2af2de53bd1cf0bbeb532bc20b3b2dcd4a0e` on `feature/marcus-live-tavus` is deployed as `dpl_8e7uZs5ybNCV36W7EmwHKjo1tKoY` (READY) to https://www.jonathanzamarripa.com/. Integrated the current production release 4edeca0 before publication. Featured Work now contains seven projects, including the previously published Drafted by AI work sample, with contextual summaries, contributions, case-study expectations and 21 L&D tags. Marcus, Live is the first standalone featured case study. Production homepage and three case-study pages were checked via authenticated Vercel fetch. All seven case-study routes and mobile/tablet/desktop layouts passed local Chromium checks. Exact new images could not be installed because inline previews were not available as downloadable files; existing scenario artwork remains pending uploaded originals. Live Tavus and account-side validation limitations above remain unchanged.
+
+## Supplied artwork update
+
+The user provided Archive.zip with all three source images. The new practice image replaces the temporary homepage thumbnail and is also the case-study hero. The character portrait and interface screenshot appear in the practice chapter, with captions distinguishing generated concept/character imagery from the static screenshot. PNG download copies are 790,803, 780,461 and 802,527 bytes (2,373,791 total); combined base64 size is 3,165,056 bytes, below the reported 4,194,304-byte limit. Each file was reopened and verified as PNG. WebP website derivatives preserve higher resolution for display; originals are retained in the task workspace. A dedicated Marcus social image replaces the reused First Sentence image.
+
+Build and diff checks passed. Chromium verified new image loading, three PNG download URLs/signatures/MIME types, desktop/mobile overflow, updated social metadata and no premature Tavus request. Desktop thumbnail and case-study hero captures were inspected. Existing NavBar SSR warning remains.

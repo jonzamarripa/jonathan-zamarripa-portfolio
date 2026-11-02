@@ -131,3 +131,15 @@ Approved PR #10 visual-fidelity corrections completed for branch preview. No mer
 - Exact two user-supplied images are visible in chat but not yet available as downloadable files; requested file attachments. Existing scenario artwork remains pending those source files.
 - Tavus account-side memory, retention, origin and actual call checks remain outstanding; fixture tests must not be described as live-call validation.
 - Build and browser checks passed at 375/768/1440: seven cards, 21 L&D tags, seven contribution/preview briefs, all seven case-study routes, no page overflow or premature Tavus calls. Fixture lifecycle/print/retry regression passed; desktop/mobile captures inspected. Build shim now accepts production motion initialization during prerender.
+
+## Production release verification — 2026-11-02
+- Owner-authorized production deployment is READY: `dpl_8e7uZs5ybNCV36W7EmwHKjo1tKoY`, source `942a2af2de53bd1cf0bbeb532bc20b3b2dcd4a0e` on `feature/marcus-live-tavus`. Production aliases include www/apex jonathanzamarripa.com. Main was not merged or modified.
+- Protected preview verified HTTP 200 before production deployment. Published homepage returns HTTP 200, includes Marcus, Live, seven contribution briefs and L&D tag groups. Published Marcus, Live, Drafted by AI and First Sentence pages return HTTP 200 with correct titles and prerendered content. All seven routes passed local browser checks.
+- Preserved current production source 4edeca0 and its gallery, motion, typography and newer candidate case study. Original SSR useLayoutEffect warning remains; motion-related prerender shim corrected.
+- New user images remain pending file attachments; existing scenario art is temporarily displayed. Do not claim the inline image originals were installed. No real Tavus call, retention review or account-settings verification performed.
+- This paragraph is local post-release documentation; the deployed source remains 942a2af.
+
+## Marcus artwork supplied as ZIP — 2026-11-02
+- Archive.zip provided the three actual originals: workplace-practice concept, Marcus portrait and Tavus screenshot. Converted to verified PNGs with original proportions retained; upload copies are sized so their combined base64 payload stays below 4 MiB. Original files retained in task workspace.
+- Homepage Marcus thumbnail and case-study hero now use the supplied workplace-practice image. The case study also shows the portrait and static interface screenshot with appropriate captions, PNG download links, and a dedicated social-preview image. Efficient WebP display derivatives preserve sharper images without making the PNG downloads larger.
+- Production image update authorized by the existing task; no Tavus settings or conversation behavior changed.

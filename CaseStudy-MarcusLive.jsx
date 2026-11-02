@@ -3,7 +3,7 @@ const MARCUS_META = {
   slug: 'marcus-live',
   projectName: 'Marcus, Live',
   statement: 'A research-informed L&D strategy and conversational AI pilot: moving from choosing an opening line to rehearsing an accountability conversation with Tavus.',
-  ogAlt: 'Dana and Marcus in the fictional Northstar Distribution scenario that underpins Marcus, Live'
+  ogAlt: 'A warehouse supervisor rehearses a conversation with Marcus on a laptop — AI-generated concept image'
 };
 
 const MARCUS_SOURCES = [
@@ -154,6 +154,10 @@ function CaseStudyMarcusLive() {
       <h1 id="ml-title" className="tfs-title">Marcus, Live</h1>
       <p className="tfs-tension">From choosing the words to finding your own.</p>
       <p className="tfs-lede">What conversational AI makes possible for leadership practice—and what it still has to prove.</p>
+      <figure className="ml-hero-image" id="ml-images">
+        <img src="/assets/imagery/marcus-live/marcus-live-practice.webp" alt="AI-generated concept image of a warehouse supervisor practicing a conversation with Marcus on a laptop in an office overlooking the warehouse" width="1376" height="768" fetchpriority="high" decoding="async" />
+        <figcaption>Workplace conversation practice. AI-generated concept image; fictional people and scenario. <a href="/assets/imagery/marcus-live/marcus-live-practice.png" download>Download practice image as PNG</a>.</figcaption>
+      </figure>
       <div className="ml-abstract">
         <h2>Executive perspective</h2>
         <p>The design question behind this build is practical: how do you help a newly promoted supervisor rehearse a difficult conversation before the stakes are real? The First Sentence explores the consequences of a chosen opening. Marcus, Live extends that idea into a conversation the learner has to sustain.</p>
@@ -239,6 +243,16 @@ function CaseStudyMarcusLive() {
       <p className="tfs-chn">05 · Experience the build</p>
       <h2 id="ml-practice-title" className="tfs-h2">You made the decision. Now have the conversation.</h2>
       <p className="tfs-lede">Step into Dana's role and speak directly with Marcus, the veteran colleague who trained you. Address the performance concern in your own words. Marcus will respond in real time.</p>
+      <div className="ml-build-images">
+        <figure>
+          <img src="/assets/imagery/marcus-live/marcus-character.webp" alt="Marcus, the fictional veteran warehouse colleague, wearing a high-visibility vest in a warehouse aisle" width="1439" height="803" loading="lazy" decoding="async" />
+          <figcaption>Marcus, the roleplay character. Supplied AI-generated character artwork. <a href="/assets/imagery/marcus-live/marcus-character.png" download>Download Marcus portrait as PNG</a>.</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/imagery/marcus-live/marcus-live-interface.webp" alt="Screenshot of the Marcus, Live preview, showing Marcus, the Start the conversation button, and the scenario introduction" width="1920" height="955" loading="lazy" decoding="async" />
+          <figcaption>Supplied screenshot of the Tavus experience. This is a static preview; use the live practice controls below to begin. <a href="/assets/imagery/marcus-live/marcus-live-interface.png" download>Download interface screenshot as PNG</a>.</figcaption>
+        </figure>
+      </div>
       <TfsLivePractice />
     </Chapter>
 
@@ -284,6 +298,12 @@ function CaseStudyMarcusLive() {
 
 const MARCUS_CSS = `
 .ml .tfs-title{font-size:clamp(3.4rem,8vw,7rem)}
+.ml-hero-image{margin:36px 0 0}
+.ml-hero-image img,.ml-build-images img{display:block;width:100%;height:auto;border-radius:var(--inner-r)}
+.ml-hero-image figcaption a,.ml-build-images figcaption a{text-underline-offset:3px}
+.ml-build-images{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:32px 0}
+.ml-build-images figure{margin:0;min-width:0}
+@media(max-width:760px){.ml-build-images{grid-template-columns:1fr}}
 .ml-abstract{max-width:78ch;border-left:2px solid var(--tfs-orange);padding-left:clamp(18px,3vw,32px);margin:36px 0}
 .ml-abstract h2{font:600 1.25rem/1.3 var(--font-display)}
 .ml-abstract p,.ml-prose,.ml-prose p{font-size:1.0625rem;line-height:1.8;color:var(--tfs-soft)}
