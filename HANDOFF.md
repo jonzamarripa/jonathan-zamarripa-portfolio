@@ -152,3 +152,8 @@ Approved PR #10 visual-fidelity corrections completed for branch preview. No mer
 
 ## Public pilot-status edit — 2026-11-02
 - User approved replacing the public Implementation and current status engineering note with the concise Pilot status explanation. Technical details retained in MARCUS-LIVE.md, excluded from deployment. AI/privacy notice and all embed behavior preserved.
+
+## Featured Work editorial gallery release — 2026-11-02
+- User authorized deployment. Release branch `preview/featured-work-gallery-release` is based on live production source b63aac3, preserving Marcus Live, AI work sample, all seven projects and their approved ordering, route flags, current typography/motion and all case-study implementations.
+- Replaced grid with native horizontal scroll-snap gallery, concise value statements, sharp contained media, arrows/progress, keyboard focus reveal and expandable all-projects index. Complete detailed project records retained in FEATURED_PROJECTS.
+- Build and Chromium checks at 375/768/1440 pass: seven links/routes, no overflow/runtime errors, next-project preview, arrow/Home/End, horizontal wheel, reduced motion, tab reveal and touch swipes. Review artifacts in local work/gallery-review. Bundle gzip increases 1,072 bytes relative to live baseline; no dependencies added.

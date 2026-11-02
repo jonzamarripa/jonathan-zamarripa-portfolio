@@ -185,94 +185,115 @@ function SelectedExperience() {
 }
 
 /* ---------- Featured work ---------- */
+const FEATURED_PROJECTS = [
+    { n: '01', latest: true, layout: 'live', org: 'Independent project · Tavus pilot', role: 'Learning strategy, scenario design, research synthesis and AI-assisted implementation.', kicker: 'Conversational simulation', title: 'Marcus, Live', value: 'Rehearse an accountability conversation in your own words with a conversational AI pilot.', dek: 'A newly promoted supervisor rehearses an accountability conversation in their own words. This Tavus pilot pairs conversational AI practice with the research, design decisions and evaluation plan behind it.', tags: ['AI roleplay', 'Leadership development', 'Practice & reflection'], inside: 'Live practice pilot · Research perspective · Evaluation roadmap', image: './assets/imagery/marcus-live/marcus-live-practice.webp', alt: 'AI-generated concept image of a warehouse supervisor using a headset to practice a conversation with Marcus on a laptop', route: 'Marcus, Live', cta: 'Explore the case study & practice' },
+    { n: '02', layout: 'sample', org: 'Candidate work sample', role: 'Scenario architecture, storyboard design and multimedia prototyping.', kicker: 'AI feature readiness', title: 'Drafted by AI. Sent by You.', value: 'Practice explaining an AI-assisted invoice feature while protecting customer trust.', dek: 'Support Experts need to explain an AI-assisted invoice feature accurately while protecting customer trust. A cinematic readiness work sample separates product knowledge from the judgment needed in a customer conversation.', tags: ['Product enablement', 'Scenario-based learning', 'AI readiness'], inside: 'Readiness strategy · Playable scenario · Storyboard & assets', image: './assets/imagery/drafted-by-ai/cold-open-poster.webp', alt: 'AI-generated scene of a fictional small-business owner reviewing her phone beside a pickup truck', route: 'Drafted by AI. Sent by You.', cta: 'Explore the work sample' },
+    { n: '03', layout: 'flagship', org: 'Independent project', role: 'Learning architecture, scenario writing, cinematic production and interactive design.', kicker: 'Leadership development', title: 'The First Sentence', value: 'Practice the first difficult conversation as a newly promoted supervisor.', dek: 'New shift leads must address performance with a former peer. This branching simulation turns that transition into consequential choices, peer coaching and a transfer exercise.', tags: ['Scenario-based learning', 'Leadership development', 'Performance conversations'], chips: ['About 7 min', 'Branching paths', 'Speak or type'], inside: 'Playable simulation · Design rationale · Production process', image: './assets/imagery/the-first-sentence-featured-work-illustration.webp', alt: 'AI-generated illustration of Dana and Marcus talking in a warehouse aisle', route: 'The First Sentence', cta: 'Explore the interactive experience' },
+    { n: '04', layout: 'lead', org: 'Cox Enterprises', role: 'Learning strategy, narrative architecture, Storyline development and AI-assisted production.', kicker: 'Leadership development', title: 'Operation: Legacy Unlocked', value: 'Turn organizational history into an immersive leadership mission.', dek: 'Organizational history becomes a mission-driven leadership experience. Employees investigate the company’s legacy through interactive challenges designed around culture, identity and decisions.', tags: ['Scenario-based learning', 'Culture & leadership', 'Learning experience design'], inside: 'Learning architecture · Mission design · SCORM delivery', image: './assets/imagery/olu-featured-work-illustration.webp', alt: 'Operation: Legacy Unlocked leadership simulation cover', route: 'Operation: Legacy Unlocked' },
+    { n: '05', layout: 'pair-a', org: 'IHG Hotels & Resorts', role: 'Instructional design, motion design and multimedia production.', kicker: 'Product enablement', title: 'Global product readiness for hotel technology', value: 'Prepare hotel teams for evolving technology with reusable learning workflows.', dek: 'New hotel hires need to understand HotelKey’s operating logic as well as its screens. Structured onboarding connects system workflows to the decisions employees make on shift.', tags: ['Employee onboarding', 'Systems training', 'Product enablement'], inside: 'Onboarding strategy · Workflow instruction · Learning assets', image: './assets/imagery/hotelkey-featured-work-illustration.webp', alt: 'HotelKey hotel technology enablement cover', route: 'HotelKey New Hire Onboarding' },
+    { n: '06', layout: 'pair-b', org: 'Cox Enterprises', role: 'Creative strategy, launch messaging, video production and Rise 360 learning design.', kicker: 'Learning platform adoption', title: 'Workday Learn, launched as a growth ecosystem', value: 'Introduce a learning platform through organizational purpose.', dek: 'An enterprise learning platform needs a purpose people can understand. A coordinated launch connects professional growth to the platform through communications, promotional media and learning modules.', tags: ['Learning platform adoption', 'Change enablement', 'Learning communications'], inside: 'Launch strategy · Campaign assets · Learning modules', image: './assets/imagery/workday-featured-work-illustration.webp', alt: 'AI-generated learning platform concept on a laptop and phone, illustrating the Workday Learn launch', route: 'Workday Learn Launch' },
+    { n: '07', layout: 'reverse', org: 'IHG Hotels & Resorts', role: 'Enablement strategy, learning architecture and production of a modular pilot toolkit.', kicker: 'Change enablement', title: 'Guest CRM adoption across pilot hotels', value: 'Help pilot hotel teams understand the reasoning behind new guest workflows.', dek: 'Hotel teams need practical support while a new guest-relationship platform is still evolving. A modular enablement toolkit connects operational context, workflow guidance and feedback-led revisions.', tags: ['Change enablement', 'Workflow learning', 'Performance support'], inside: 'Pilot strategy · Job aids & tutorials · Feedback-led iteration', image: './assets/imagery/guestcrm-featured-work-illustration.webp', alt: 'Guest CRM pilot change enablement cover', route: 'Guest CRM Pilot' },
+  ];
+
 function FeaturedWorkEditorial({ onOpenWork }) {
+  const track = React.useRef(null);
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref);
-  const projects = [
-    { n: '01', latest: true, layout: 'live', org: 'Independent project · Tavus pilot', role: 'Learning strategy, scenario design, research synthesis and AI-assisted implementation.', kicker: 'Conversational simulation', title: 'Marcus, Live', dek: 'A newly promoted supervisor rehearses an accountability conversation in their own words. This Tavus pilot pairs conversational AI practice with the research, design decisions and evaluation plan behind it.', tags: ['AI roleplay', 'Leadership development', 'Practice & reflection'], inside: 'Live practice pilot · Research perspective · Evaluation roadmap', image: './assets/imagery/marcus-live/marcus-live-practice.webp', alt: 'AI-generated concept image of a warehouse supervisor using a headset to practice a conversation with Marcus on a laptop', route: 'Marcus, Live', cta: 'Explore the case study & practice' },
-    { n: '02', layout: 'sample', org: 'Candidate work sample', role: 'Scenario architecture, storyboard design and multimedia prototyping.', kicker: 'AI feature readiness', title: 'Drafted by AI. Sent by You.', dek: 'Support Experts need to explain an AI-assisted invoice feature accurately while protecting customer trust. A cinematic readiness work sample separates product knowledge from the judgment needed in a customer conversation.', tags: ['Product enablement', 'Scenario-based learning', 'AI readiness'], inside: 'Readiness strategy · Playable scenario · Storyboard & assets', image: './assets/imagery/drafted-by-ai/cold-open-poster.webp', alt: 'AI-generated scene of a fictional small-business owner reviewing her phone beside a pickup truck', route: 'Drafted by AI. Sent by You.', cta: 'Explore the work sample' },
-    { n: '03', layout: 'flagship', org: 'Independent project', role: 'Learning architecture, scenario writing, cinematic production and interactive design.', kicker: 'Leadership development', title: 'The First Sentence', dek: 'New shift leads must address performance with a former peer. This branching simulation turns that transition into consequential choices, peer coaching and a transfer exercise.', tags: ['Scenario-based learning', 'Leadership development', 'Performance conversations'], chips: ['About 7 min', 'Branching paths', 'Speak or type'], inside: 'Playable simulation · Design rationale · Production process', image: './assets/imagery/the-first-sentence-featured-work-illustration.webp', alt: 'AI-generated illustration of Dana and Marcus talking in a warehouse aisle', route: 'The First Sentence', cta: 'Explore the interactive experience' },
-    { n: '04', layout: 'lead', org: 'Cox Enterprises', role: 'Learning strategy, narrative architecture, Storyline development and AI-assisted production.', kicker: 'Leadership development', title: 'Operation: Legacy Unlocked', dek: 'Organizational history becomes a mission-driven leadership experience. Employees investigate the company’s legacy through interactive challenges designed around culture, identity and decisions.', tags: ['Scenario-based learning', 'Culture & leadership', 'Learning experience design'], inside: 'Learning architecture · Mission design · SCORM delivery', image: './assets/imagery/olu-featured-work-illustration.webp', alt: 'Operation: Legacy Unlocked leadership simulation cover', route: 'Operation: Legacy Unlocked' },
-    { n: '05', layout: 'pair-a', org: 'IHG Hotels & Resorts', role: 'Instructional design, motion design and multimedia production.', kicker: 'Product enablement', title: 'Global product readiness for hotel technology', dek: 'New hotel hires need to understand HotelKey’s operating logic as well as its screens. Structured onboarding connects system workflows to the decisions employees make on shift.', tags: ['Employee onboarding', 'Systems training', 'Product enablement'], inside: 'Onboarding strategy · Workflow instruction · Learning assets', image: './assets/imagery/hotelkey-featured-work-illustration.webp', alt: 'HotelKey hotel technology enablement cover', route: 'HotelKey New Hire Onboarding' },
-    { n: '06', layout: 'pair-b', org: 'Cox Enterprises', role: 'Creative strategy, launch messaging, video production and Rise 360 learning design.', kicker: 'Learning platform adoption', title: 'Workday Learn, launched as a growth ecosystem', dek: 'An enterprise learning platform needs a purpose people can understand. A coordinated launch connects professional growth to the platform through communications, promotional media and learning modules.', tags: ['Learning platform adoption', 'Change enablement', 'Learning communications'], inside: 'Launch strategy · Campaign assets · Learning modules', image: './assets/imagery/workday-featured-work-illustration.webp', alt: 'AI-generated learning platform concept on a laptop and phone, illustrating the Workday Learn launch', route: 'Workday Learn Launch' },
-    { n: '07', layout: 'reverse', org: 'IHG Hotels & Resorts', role: 'Enablement strategy, learning architecture and production of a modular pilot toolkit.', kicker: 'Change enablement', title: 'Guest CRM adoption across pilot hotels', dek: 'Hotel teams need practical support while a new guest-relationship platform is still evolving. A modular enablement toolkit connects operational context, workflow guidance and feedback-led revisions.', tags: ['Change enablement', 'Workflow learning', 'Performance support'], inside: 'Pilot strategy · Job aids & tutorials · Feedback-led iteration', image: './assets/imagery/guestcrm-featured-work-illustration.webp', alt: 'Guest CRM pilot change enablement cover', route: 'Guest CRM Pilot' },
-  ];
-  // Each case study has its own URL (shareable, opens in a new tab with Cmd/Ctrl-click); a plain click opens it in the overlay.
-  const pathOf = (route) => { const S = window.JIZ_SITE; const t = S && S.resolve(route); const r = t && S.route && S.route(t.view); return r && r.path; };
-  const overlayRoute = (route) => { const S = window.JIZ_SITE; const t = S && S.resolve(route); const r = t && S.route && S.route(t.view); return !!(r && r.featured); };
+  const [active, setActive] = React.useState(0);
+  const projects = FEATURED_PROJECTS;
+  const pathOf = (name) => { const S = window.JIZ_SITE; return S.route(S.resolve(name).view).path; };
   const open = (e, p) => {
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0 || !overlayRoute(p.route)) return;
-    e.preventDefault();
-    if (p.route && onOpenWork) onOpenWork(p.route);
+    const S = window.JIZ_SITE;
+    if (!onOpenWork || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0 || !S.route(S.resolve(p.route).view).featured) return;
+    e.preventDefault(); onOpenWork(p.route);
   };
-  const PreviewDetails = ({ p }) => <>
-    <ul className="jz-fw-chips" aria-label="L&D focus areas">{p.tags.map(tag => <li key={tag}>{tag}</li>)}</ul>
-    <dl className="jz-fw-brief">
-      <div><dt>My contribution</dt><dd>{p.role}</dd></div>
-      <div><dt>Inside the case study</dt><dd>{p.inside}</dd></div>
-    </dl>
-    {p.chips && <p className="jz-fw-format">{p.chips.join(' · ')}</p>}
-  </>;
-  const Card = ({ p }) => {
-    const href = p.route ? pathOf(p.route) : null;
-    const label = p.cta || 'Read the case study';
-    return (
-      <article className="jz-fw-card jz-rise">
-        <div className="jz-fw-media">
-          <img className="jz-fw-media-img" src={p.image} alt={p.alt} loading="lazy" decoding="async" />
-          {p.latest && <span className="jz-fw-latest">Latest work</span>}
-        </div>
-        <div className="jz-fw-meta">
-          <p className="jz-label jz-fw-kicker"><span>{p.n} / {p.kicker}</span><span className="jz-fw-org">{p.org}</span></p>
-          <h3 className="jz-fw-title">{p.title}</h3>
-          <p className="jz-fw-dek">{p.dek}</p>
-          <PreviewDetails p={p} />
-          {href && <a className="jz-link jz-fw-cta" href={href} onClick={(e) => open(e, p)} aria-label={label + ': ' + p.title}><span>{label}</span><span className="jz-arrow" aria-hidden="true">↗</span></a>}
-        </div>
-      </article>
-    );
+  const go = (index) => {
+    const el = track.current;
+    const card = el.children[Math.max(0, Math.min(index, projects.length - 1))];
+    el.scrollTo({ left: card.offsetLeft - el.children[0].offsetLeft, behavior: (prefersReduced() || document.documentElement.dataset.jzMotionPaused === 'true') ? 'auto' : 'smooth' });
   };
+  React.useEffect(() => {
+    const el = track.current;
+    let frame;
+    const update = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const origin = el.children[0].offsetLeft;
+        let nearest = 0;
+        Array.from(el.children).forEach((card, i) => {
+          if (Math.abs(card.offsetLeft - origin - el.scrollLeft) < Math.abs(el.children[nearest].offsetLeft - origin - el.scrollLeft)) nearest = i;
+        });
+        setActive(nearest);
+      });
+    };
+    el.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    return () => { cancelAnimationFrame(frame); el.removeEventListener('scroll', update); window.removeEventListener('resize', update); };
+  }, []);
   return (
     <section className="jz-fw" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-fw-title">
       <EditorialStyles />
       <style>{`
-.jz-fw{position:relative;background:var(--white);padding-block:var(--chapter-pad-y)}
-.jz-fw-head{grid-column:1 / -1;display:flex;flex-direction:column;align-items:flex-start;gap:var(--space-lg);margin-bottom:var(--space-2xl)}
-.jz-fw-h2{margin:0;font:600 clamp(2.75rem,1.6rem + 4.6vw,6.5rem)/.98 var(--font-display);letter-spacing:-.04em}
-.jz-fw-intro{margin:0;font:400 1.0625rem/1.6 var(--font-body);max-width:62ch;text-wrap:pretty}
-.jz-fw-cards{grid-column:1 / -1;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:1fr;gap:var(--space-2xl) var(--space-xl);min-width:0}
-.jz-fw-card{position:relative;display:flex;flex-direction:column;min-width:0;gap:var(--space-lg)}
-.jz-fw-media{position:relative;flex-shrink:0;aspect-ratio:16 / 10;overflow:hidden;background:var(--carbon);border-radius:var(--panel-r-inner);border:1px solid rgba(11,13,16,.12)}
-.jz-fw-media-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%}
-.jz-fw-latest{position:absolute;left:var(--space-md);top:var(--space-md);padding:8px 12px;border-radius:var(--radius-pill);background:var(--signal-lime);color:var(--obsidian);font:600 .75rem/1.2 var(--font-body)}
-.jz-fw-meta{display:flex;flex:1;flex-direction:column;align-items:flex-start;gap:var(--space-md);min-width:0}
-.jz-fw-kicker{display:flex;justify-content:space-between;flex-wrap:wrap;gap:var(--space-sm) var(--space-md);width:100%;margin:0;font-size:.6875rem;line-height:1.5;letter-spacing:.1em}
-.jz-fw-title{margin:0;font:700 clamp(1.5rem,1rem + 1.35vw,2.25rem)/1.08 var(--font-display);letter-spacing:-.025em;text-wrap:balance}
-.jz-fw-dek{margin:0;font:400 1rem/1.65 var(--font-body);max-width:56ch;text-wrap:pretty}
-.jz-fw-chips{display:flex;flex-wrap:wrap;gap:var(--space-sm);list-style:none;padding:0;margin:0}
-.jz-fw-brief{display:grid;gap:12px;margin:4px 0 0;font:.875rem/1.6 var(--font-body)}
-.jz-fw-brief div{display:grid;gap:3px}
-.jz-fw-brief dt{font:500 .6875rem/1.5 var(--font-mono);letter-spacing:.08em;text-transform:uppercase;color:rgba(11,13,16,.64)}
-.jz-fw-brief dd{margin:0;color:rgba(11,13,16,.8)}
-.jz-fw-format{margin:0;font:500 .75rem/1.5 var(--font-mono);color:rgba(11,13,16,.7)}
-.jz-fw-chips li{padding:5px 10px;border:1px solid rgba(11,13,16,.24);border-radius:var(--radius-pill);font:500 .6875rem/1.2 var(--font-mono);color:var(--slate)}
-.jz-fw-cta{display:inline-flex;align-items:center;gap:var(--space-md);min-height:44px;margin-top:auto;text-decoration:underline;text-underline-offset:5px}
-.jz-fw-cta::after{content:"";position:absolute;inset:0;z-index:1}
-.jz-fw-cta:focus-visible{outline:none}
-.jz-fw .jz-arrow{font-size:1.25rem}
-@media(max-width:900px){.jz-fw-head{grid-template-columns:1fr;gap:var(--space-lg)}.jz-fw-intro{max-width:56ch}.jz-fw-title{font-size:1.625rem}.jz-fw-cards{column-gap:var(--space-lg)}}
-@media(max-width:600px){.jz-fw-cards{grid-template-columns:1fr;grid-auto-rows:auto;gap:var(--space-2xl)}.jz-fw-title{min-height:0;font-size:1.75rem}.jz-fw-kicker{justify-content:flex-start}.jz-fw-org{width:100%}.jz-fw-card{gap:var(--space-md)}.jz-fw-head{margin-bottom:var(--space-xl)}}
-
+.jz-fw{--gallery-gutter:clamp(20px,5.5vw,104px);padding-block:clamp(56px,7vw,104px);background:var(--warm-paper);color:var(--obsidian)}
+.jz-fw-heading,.jz-fw-controls,.jz-fw-index{margin-inline:var(--gallery-gutter)}
+.jz-fw-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px}
+.jz-fw-h2{margin:16px 0 0;font:600 clamp(2.75rem,5.6vw,6rem)/1 var(--font-display);letter-spacing:-.045em}
+.jz-fw-heading>p{max-width:25ch;margin:0;font:400 1rem/1.6 var(--font-body);color:var(--obsidian)}
+.jz-fw-track{display:flex;gap:clamp(18px,2.5vw,36px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gallery-gutter);padding:8px var(--gallery-gutter) 24px;position:relative;scrollbar-width:thin;scrollbar-color:var(--obsidian) transparent}
+.jz-fw-track::after{content:'';flex:0 0 calc(15% - var(--gallery-gutter))}
+.jz-fw-slide{flex:0 0 85%;min-width:0;scroll-snap-align:start;scroll-snap-stop:normal}
+.jz-fw-frame{height:clamp(300px,36vw,520px);display:flex;justify-content:center;background:var(--obsidian);border:1px solid var(--slate);padding:clamp(10px,1.5vw,22px);border-radius:var(--panel-r-inner);box-shadow:0 12px 24px rgba(11,13,16,.12);perspective:1400px}
+.jz-fw-frame img{display:block;width:100%;height:100%;object-fit:contain}
+.jz-fw-slide .jz-fw-frame{transition:border-color 200ms,box-shadow 200ms}
+.jz-fw-slide[data-active="true"] .jz-fw-frame{border-color:var(--accent-cyan);box-shadow:0 12px 24px rgba(11,13,16,.18)}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){html:not([data-jz-motion-paused="true"]) .jz-fw-slide:focus-within .jz-fw-frame img{transform:translateZ(3px)}}
+.jz-fw-copy{padding-top:26px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 32px;align-items:start}
+.jz-fw-copy .jz-label{grid-column:1/-1}
+.jz-fw-project-title{margin:0;font:600 clamp(1.65rem,2.7vw,3rem)/1.12 var(--font-display);letter-spacing:-.025em;overflow-wrap:break-word}
+.jz-fw-value{grid-column:1;max-width:52ch;margin:0;font:400 1rem/1.6 var(--font-body)}
+.jz-fw-copy .jz-link{grid-column:2;grid-row:2/4;align-self:end;white-space:nowrap}
+.jz-fw-controls{display:flex;align-items:center;gap:18px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(11,13,16,.2)}
+.jz-fw-count{font:500 .8125rem/1.5 var(--font-mono);font-variant-numeric:tabular-nums}
+.jz-fw-meter{height:3px;flex:1;background:rgba(11,13,16,.18)}
+.jz-fw-meter span{display:block;height:100%;background:var(--obsidian)}
+.jz-fw-buttons{display:flex;gap:8px}
+.jz-fw-buttons button{width:48px;height:48px;border:1px solid var(--obsidian);border-radius:50%;background:transparent;color:var(--obsidian);font-size:24px;cursor:pointer}
+.jz-fw-buttons button:hover:enabled{background:var(--signal-lime)}
+.jz-fw-buttons button:disabled{opacity:.35;cursor:default}
+.jz-fw button:focus-visible,.jz-fw-track:focus-visible,.jz-fw summary:focus-visible,.jz-fw-index a:focus-visible{outline:2px solid var(--obsidian);outline-offset:4px}
+.jz-fw-index{margin-top:28px;font:500 .9375rem/1.5 var(--font-body)}
+.jz-fw-index summary{cursor:pointer;padding-block:12px;width:fit-content;min-height:44px}
+.jz-fw-index ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+.jz-fw-index li{border-top:1px solid rgba(11,13,16,.18)}
+.jz-fw-index a{display:block;padding:14px 0;color:var(--obsidian);text-underline-offset:4px}
+@media(max-width:760px){.jz-fw-heading{display:block;margin-bottom:28px}.jz-fw-heading>p{margin-top:20px;max-width:32ch}.jz-fw-slide{flex-basis:90%}.jz-fw-track::after{flex-basis:calc(10% - var(--gallery-gutter))}.jz-fw-copy{display:flex;flex-direction:column;gap:12px}.jz-fw-copy .jz-link{align-self:start;margin-top:4px}.jz-fw-frame{height:320px}.jz-fw-index ul{grid-template-columns:1fr}.jz-fw-controls{gap:12px}}
+@media(prefers-reduced-motion:reduce){.jz-fw-slide .jz-fw-frame{transition:none}}
       `}</style>
-      <div className="jz-wrap jz-grid">
-        <header className="jz-fw-head">
-          <h2 className="jz-fw-h2 jz-rise" id="jz-fw-title">Featured work</h2>
-          <p className="jz-fw-intro jz-rise">Leadership, product, and AI-enabled learning. Explore each challenge, my contribution, and the strategy and deliverables behind the experience.</p>
-        </header>
-        <div className="jz-fw-cards">
-          {projects.map((p) => <Card key={p.route} p={p} />)}
-        </div>
+      <header className="jz-fw-heading">
+        <div><p className="jz-label">Selected case studies · {String(projects.length).padStart(2, '0')}</p><h2 className="jz-fw-h2" id="jz-fw-title">Featured work</h2></div>
+        <p>Learning experiences for leadership, product, and platform change.</p>
+      </header>
+      <p id="jz-fw-help" className="jz-visually-hidden">Swipe or scroll horizontally to browse. With the gallery focused, use Left and Right arrows, Home or End. Tab to each case-study link.</p>
+      <div className="jz-fw-track" id="jz-fw-gallery" ref={track} tabIndex="0" role="region" aria-label="Featured projects" aria-describedby="jz-fw-help" onKeyDown={(e) => {
+        if (e.target !== e.currentTarget || !['ArrowLeft','ArrowRight','Home','End'].includes(e.key)) return;
+        e.preventDefault(); go(e.key === 'Home' ? 0 : e.key === 'End' ? projects.length - 1 : active + (e.key === 'ArrowRight' ? 1 : -1));
+      }}>
+        {projects.map((p, i) => <article className="jz-fw-slide" key={p.route} onFocusCapture={() => go(i)} data-active={i === active} aria-labelledby={'jz-fw-project-' + i}>
+          <div className="jz-fw-frame"><img src={p.image} alt={p.alt} loading="lazy" decoding="async" width="1254" height="1254" /></div>
+          <div className="jz-fw-copy">
+            <p className="jz-label">{p.kicker}</p>
+            <h3 className="jz-fw-project-title" id={'jz-fw-project-' + i}>{p.title}</h3>
+            <p className="jz-fw-value">{p.value}</p>
+            <a className="jz-link" href={pathOf(p.route)} onClick={(e) => open(e,p)} aria-label={'View case study: ' + p.title}><span>View case study</span><span aria-hidden="true">→</span></a>
+          </div>
+        </article>)}
       </div>
+      <div className="jz-fw-controls">
+        <span className="jz-fw-count" role="status" aria-live="polite" aria-atomic="true"><span className="jz-visually-hidden">Project </span>{String(active + 1).padStart(2,'0')} / {String(projects.length).padStart(2,'0')}</span>
+        <div className="jz-fw-meter" aria-hidden="true"><span style={{width: ((active + 1) / projects.length * 100) + '%'}} /></div>
+        <div className="jz-fw-buttons"><button type="button" aria-label="Previous project" aria-controls="jz-fw-gallery" disabled={active === 0} onClick={() => go(active - 1)}>←</button><button type="button" aria-label="Next project" aria-controls="jz-fw-gallery" disabled={active === projects.length - 1} onClick={() => go(active + 1)}>→</button></div>
+      </div>
+      <details className="jz-fw-index"><summary>View all projects</summary><ul>{projects.map((p) => <li key={p.route}><a href={pathOf(p.route)} onClick={(e) => open(e,p)}>{p.title}</a></li>)}<li><a href="#archive" onClick={(e) => { if (!e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey && window.jizNavigate) { e.preventDefault(); window.jizNavigate('Archive'); } }}>Explore additional work →</a></li></ul></details>
     </section>
   );
 }
