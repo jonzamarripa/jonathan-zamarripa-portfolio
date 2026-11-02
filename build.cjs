@@ -4,7 +4,7 @@
 const { readFileSync, writeFileSync, mkdirSync } = require('fs');
 const { transformSync } = require('@babel/' + 'core');
 
-const SITE_FILES = ['Chapter.jsx', 'HomepageP1.jsx', 'Homepage.jsx', 'CaseStudyShell.jsx', 'CaseStudy-Legacy.jsx', 'CaseStudy-HotelKey.jsx', 'CaseStudy-GuestCRM.jsx', 'CaseStudy-Workday.jsx', 'CaseStudy-FirstSentence.jsx', 'CaseStudy-MarcusLive.jsx', 'CaseStudy-BehindTheBuild.jsx', 'App.jsx'];
+const SITE_FILES = ['Chapter.jsx', 'HomepageP1.jsx', 'Homepage.jsx', 'CaseStudyShell.jsx', 'CaseStudy-Legacy.jsx', 'CaseStudy-HotelKey.jsx', 'CaseStudy-GuestCRM.jsx', 'CaseStudy-Workday.jsx', 'CaseStudy-FirstSentence.jsx', 'CaseStudy-MarcusLive.jsx', 'CaseStudy-DraftedByAI.jsx', 'CaseStudy-BehindTheBuild.jsx', 'App.jsx'];
 const opts = { minified: true, comments: false, babelrc: false, configFile: false };
 mkdirSync('dist', { recursive: true });
 
@@ -29,7 +29,7 @@ try {
   const win = {
     React, ReactDOMServer, location: { hash: '', pathname: '/', search: '' }, sessionStorage: { getItem: () => null, setItem: noop, removeItem: noop },
     matchMedia: () => ({ matches: false, addEventListener: noop, removeEventListener: noop }), addEventListener: noop, removeEventListener: noop,
-    document: { getElementById: () => null, createElement: el, head: el(), documentElement: el(), querySelector: () => null }
+    document: { readyState: 'loading', addEventListener: noop, removeEventListener: noop, getElementById: () => null, createElement: el, head: el(), documentElement: el(), querySelector: () => null }
   };
   win.window = win;
   const ctx = vm.createContext(win);

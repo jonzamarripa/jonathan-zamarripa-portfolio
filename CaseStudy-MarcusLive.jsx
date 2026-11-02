@@ -23,7 +23,7 @@ function MarcusCite({ n }) {
 }
 
 function TfsBuildNavigation({ active }) {
-  return <nav className="tfs-build-nav" aria-label="The First Sentence builds">
+  return <nav className="tfs-build-nav" aria-label="Related learning experiences">
     <a href="/work/the-first-sentence/" aria-current={active === 'branching' ? 'page' : undefined}>01 · Branching simulation</a>
     <a href="/work/marcus-live/" aria-current={active === 'live' ? 'page' : undefined}>02 · Marcus, Live / Research &amp; build</a>
   </nav>;
@@ -149,7 +149,7 @@ function CaseStudyMarcusLive() {
     </div>
     <TfsBuildNavigation active="live" />
     <Chapter surface="obsidian" accent="first-sentence" labelledBy="ml-title">
-      <p className="tfs-chn">Research perspective · Companion build</p>
+      <p className="tfs-chn">Featured case study · Conversational AI practice</p>
       <p className="tfs-eyebrow">Jonathan Iker Zamarripa · Independent L&amp;D exploration · November 2026</p>
       <h1 id="ml-title" className="tfs-title">Marcus, Live</h1>
       <p className="tfs-tension">From choosing the words to finding your own.</p>

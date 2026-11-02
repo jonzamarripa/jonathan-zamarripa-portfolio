@@ -40,6 +40,7 @@ function caseStudyViews() {
     'workday-learn': window.CaseStudyWorkdayExports?.CaseStudyWorkday,
     'the-first-sentence': window.CaseStudyFirstSentenceExports?.CaseStudyFirstSentence,
     'marcus-live': window.CaseStudyMarcusLiveExports?.CaseStudyMarcusLive,
+    'drafted-by-ai': window.CaseStudyDraftedByAIExports?.CaseStudyDraftedByAI,
     'behind-the-build': window.CaseStudyBehindTheBuildExports?.CaseStudyBehindTheBuild
   };
 }
@@ -169,6 +170,7 @@ function App() {
   }, []);
 
   const HomepageComponent = window.HomepageExports?.Homepage;
+  const Footer = window.HomepageExports?.FinalMoment;
   const openProject = React.useCallback((route) => { window.jizNavigate?.(route); }, []);
   const backToWork = React.useCallback(() => { window.jizNavigate?.('Featured Work'); }, []);
   const views = caseStudyViews();
@@ -183,7 +185,7 @@ function App() {
     <>
       <div ref={pageRef} style={{ opacity: entering ? 1 : 0, transform: entering ? 'scale(1)' : 'scale(0.99)', transition: reduced ? 'none' : 'opacity 0.26s ease, transform 0.26s ease' }}>
         {PageComponent
-          ? <PageComponent onBack={backToWork} onOpenProject={openProject} />
+          ? <><PageComponent onBack={backToWork} onOpenProject={openProject} /><Footer standalone onNavigate={(section) => window.location.assign('/#' + section)} /></>
           : <HomepageComponent onOpenCaseStudy={(route) => window.jizNavigate(route || 'Operation: Legacy Unlocked')} />}
       </div>
       {OverlayComponent && (

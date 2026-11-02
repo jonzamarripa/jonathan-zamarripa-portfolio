@@ -1,0 +1,17 @@
+/* Portfolio-only aliases: the journal does not load this stylesheet. */
+:root{
+--portfolio-canvas:var(--carbon);
+--portfolio-content-max:var(--chapter-max);
+--portfolio-heading:var(--white);
+--portfolio-copy:var(--mist);
+--portfolio-muted:color-mix(in srgb,var(--mist) 76%,var(--obsidian));
+--portfolio-line:rgba(217,221,227,.24);
+--portfolio-control-line:rgba(217,221,227,.48);
+--portfolio-card-bg:rgba(247,248,250,.04);
+--portfolio-accent-ink:var(--accent-cyan);
+--portfolio-on-bright:var(--obsidian);
+--portfolio-footer:var(--signal-lime);
+--portfolio-title:var(--size-h1);
+--portfolio-display-title:clamp(2.75rem,2rem + 3vw,5rem);
+--portfolio-section-title:clamp(1.75rem,1.5rem + 1vw,3rem);
+}
