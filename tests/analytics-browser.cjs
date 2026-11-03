@@ -1,0 +1,12 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const source=fs.readFileSync('portfolio-analytics.js','utf8');
+const requests=[],listeners={};
+const location={hostname:'www.jonathanzamarripa.com',pathname:'/',hash:'',href:'https://www.jonathanzamarripa.com/?private=x'};
+const context={location,navigator:{},URL,innerWidth:375,crypto:{randomUUID:()=> '00000000-0000-4000-8000-000000000000'},fetch:async(url,options)=>{requests.push({url,...JSON.parse(options.body)});},history:{pushState:(_s,_t,url)=>{location.hash=new URL(url,'https://www.jonathanzamarripa.com').hash;},replaceState:()=>{}},document:{referrer:'https://www.linkedin.com/feed/?private=secret',createElement:()=>({}),head:{appendChild:()=>{}},addEventListener:(name,fn)=>listeners[name]=fn},window:{crypto:{},JIZ_SITE:{viewForHash:hash=>hash==='#case-study'?'case-study':'home',route:view=>view==='case-study'?{path:'/work/legacy-unlocked/'}:null},addEventListener:(name,fn)=>listeners[name]=fn}};
+vm.runInNewContext(source,context);
+assert.equal(requests.length,1);assert.equal(requests[0].event,'$pageview');assert.equal(requests[0].source,'linkedin');assert.equal(requests[0].path,'/');assert(!JSON.stringify(requests).includes('secret'));
+context.history.pushState({},'', '/#case-study');assert.equal(requests.length,3);assert.equal(requests[2].event,'case_study_view');assert.equal(requests[2].path,'/work/legacy-unlocked/');
+listeners.hashchange();assert.equal(requests.length,3,'Same route must not double count');
+listeners.click({target:{closest:()=>({href:'https://www.jonathanzamarripa.com/assets/documents/jonathan-zamarripa-public-resume.pdf'})}});assert.equal(requests[3].event,'resume_click');
+for(let i=0;i<100;i++)context.window.jizTrack('resume_click');assert.equal(requests.length,40,'Per-page cap');
+console.log('PASS: coarse source attribution, initial pageview, modal route measurement, deduplication, resume click and volume cap without persistent storage');

@@ -217,7 +217,7 @@ function Hero({ onExploreWork, onConnect }) {
           <p className="hero-support hero-fade hero-fade--4">Learning Strategy &amp; Performance Consulting <span className="hero-dot">•</span> Leadership Development <span className="hero-dot">•</span> Product &amp; Technology Enablement <span className="hero-dot">•</span> AI-Enabled Learning <span className="hero-dot">•</span> Creative Technology &amp; Multimedia Production</p>
           <div className="hero-actions hero-fade hero-fade--5">
             <Button variant="primary" onClick={onExploreWork}>View Work</Button>
-            <Button variant="secondary" icon={false} onClick={() => window.open(RESUME_URL, '_blank', 'noopener')}>View Resume</Button>
+            <Button variant="secondary" icon={false} onClick={() => { window.jizTrack && window.jizTrack('resume_click'); window.open(RESUME_URL, '_blank', 'noopener'); }}>View Resume</Button>
           </div>
         </div>
       </div>
@@ -1712,6 +1712,7 @@ function LetsBuild({ onExploreWork }) {
       inFlightRef.current = false;
       if (mountedRef.current) {
         if (ok) {
+          window.jizTrack && window.jizTrack('contact_success');
           setFormStatus('success');
           setFormMessage('Your inquiry is on its way. I’ll be in touch soon.');
           formEl.reset();
@@ -1957,7 +1958,7 @@ function LetsBuild({ onExploreWork }) {
               ) : ''}
             </p>
 
-            <p className="jiz-build-privacy">Your details are used only to respond to this inquiry. No mailing lists. No unsolicited follow-up.</p>
+            <p className="jiz-build-privacy">Your details are used only to respond to this inquiry. No mailing lists. No unsolicited follow-up. This site measures anonymous pageviews and inquiry counts; form contents are excluded from analytics.</p>
           </form>
         </div>
 
@@ -2353,7 +2354,7 @@ function Homepage({ onOpenCaseStudy }) {
         secondaryItems={['Creative Lab', 'Resume', 'LinkedIn']}
         active={activeNavLabel}
         onNavigate={(item) => {
-          if (item === 'Resume') { window.open(SITE.links.resume, '_blank', 'noopener,noreferrer'); return; }
+          if (item === 'Resume') { window.jizTrack && window.jizTrack('resume_click'); window.open(SITE.links.resume, '_blank', 'noopener,noreferrer'); return; }
           if (item === 'LinkedIn') { window.open(SITE.links.linkedin, '_blank', 'noopener,noreferrer'); return; }
           const target = SITE.resolve(item);
           if (!target) return;

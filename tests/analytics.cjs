@@ -1,0 +1,30 @@
+const assert = require('node:assert/strict');
+const handler = require('../api/analytics.js');
+const originalFetch = global.fetch;
+const oldToken = process.env.POSTHOG_PROJECT_TOKEN, oldHost = process.env.POSTHOG_API_HOST;
+process.env.POSTHOG_PROJECT_TOKEN = 'test-ingestion-token';
+process.env.POSTHOG_API_HOST = 'https://us.i.posthog.com';
+let captured = [];
+const body = {event:'contact_success',path:'/',id:'00000000-0000-4000-8000-000000000000',source:'linkedin',device:'mobile',email:'private@example.com',message:'Never forward this'};
+const request = (changes={}) => ({method:'POST',headers:{origin:'https://www.jonathanzamarripa.com','content-type':'application/json'},body,...changes});
+async function invoke(req) { const result={headers:{}}; await handler(req,{setHeader:(k,v)=>result.headers[k]=v,status:n=>{result.status=n;return {end:()=>{}};}});return result; }
+(async()=>{try {
+  global.fetch = async (url, options) => {captured.push({url,body:JSON.parse(options.body)});return {ok:true};};
+  assert.equal((await invoke(request())).status,202);
+  assert.equal(captured.length,1);
+  const sent=captured[0].body;
+  assert.equal(sent.properties.$process_person_profile,false);
+  assert.equal(sent.properties.$geoip_disable,true);
+  assert.equal(sent.properties.$ip,null);
+  assert(!JSON.stringify(sent).includes('private@example.com'));
+  assert(!JSON.stringify(sent).includes('Never forward this'));
+  assert.equal((await invoke(request({method:'GET'}))).status,405);
+  assert.equal((await invoke(request({headers:{origin:'https://other.example','content-type':'application/json'}}))).status,403);
+  assert.equal((await invoke(request({headers:{origin:'https://www.jonathanzamarripa.com','content-type':'application/json',dnt:'1'}}))).status,204);
+  for(const change of [{path:'/?email=private@example.com'},{event:'$identify'},{event:'case_study_view'},{id:'email@example.com'},{source:'https://private.example/?secret=x'}]) assert.equal((await invoke(request({body:{...body,...change}}))).status,400);
+  assert.equal(captured.length,1,'Rejected events must not reach PostHog');
+  global.fetch=async()=>({ok:false});assert.equal((await invoke(request())).status,502);
+  global.fetch=async()=>{throw new Error('Upstream failure');};assert.equal((await invoke(request())).status,502);
+  delete process.env.POSTHOG_PROJECT_TOKEN;assert.equal((await invoke(request())).status,503);
+  console.log('PASS: accepted events, strict origin/event/path validation, privacy signals, PII stripping, no profiles/geolocation, upstream failures');
+}finally{global.fetch=originalFetch;if(oldToken===undefined)delete process.env.POSTHOG_PROJECT_TOKEN;else process.env.POSTHOG_PROJECT_TOKEN=oldToken;if(oldHost===undefined)delete process.env.POSTHOG_API_HOST;else process.env.POSTHOG_API_HOST=oldHost;}})().catch(e=>{console.error(e);process.exitCode=1;});

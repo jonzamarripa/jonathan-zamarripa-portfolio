@@ -312,6 +312,7 @@ const today = new Date().toISOString().slice(0, 10);
 const workDir = require('path').join(__dirname, 'work');
 const work = require('fs').existsSync(workDir) ? require('fs').readdirSync(workDir).filter((d) => require('fs').existsSync(require('path').join(workDir, d, 'index.html'))).sort().map((d) => SITE + '/work/' + d + '/') : [];
 const urls = [SITE + '/'].concat(work, [SITE + '/journal/']).concat(J.articles.filter((x) => x.status === 'published' && x.onSite).map((x) => SITE + '/journal/' + x.slug + '/'));
+writeFileSync(path.join('content', 'analytics-paths.json'), JSON.stringify(urls.map((url) => new URL(url).pathname), null, 2) + '\n');
 // Persist content fingerprints, so rebuilds do not imply editorial changes.
 const { createHash } = require('crypto');
 const stateFile = path.join('content', 'sitemap-state.json');
