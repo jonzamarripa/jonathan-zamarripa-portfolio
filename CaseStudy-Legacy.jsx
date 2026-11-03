@@ -8,7 +8,7 @@ function CaseStudyLegacy({ onBack, onOpenProject, standalone }) {
     statement: window.JIZ_SITE.project('case-study').statement,
     facts: [
       { label: "Organization", value: "Cox Enterprises", accent: "cyan" },
-      { label: "Role", value: "Lead Learning Experience Designer & Creative Strategist", accent: "cyan" },
+      { label: "Role", value: "Learning Experience Designer", accent: "cyan" },
       { label: "Format", value: "Mission-based interactive simulation", accent: "moss" },
       { label: "Audience", value: "Employees and senior leaders across the organization", accent: "moss" },
       { label: "Tools", value: "Articulate Storyline 360, ChatGPT, ElevenLabs, Descript, Dream Machine, Ideogram", accent: "lime" }
@@ -92,7 +92,7 @@ function CaseStudyLegacy({ onBack, onOpenProject, standalone }) {
     galleryHeading: "Full asset package \u2014 cover, narrative, storyboard, workflow, iteration, and final mockups.",
     snapshot: [
       { label: "Organization", value: "Cox Enterprises" },
-      { label: "Role", value: "Lead Learning Experience Designer & Creative Strategist" },
+      { label: "Role", value: "Learning Experience Designer" },
       { label: "Audience", value: "Employees and senior leaders across the organization" },
       { label: "Partners", value: "Organizational leadership and enterprise learning stakeholders" },
       { label: "Primary responsibility", value: "End-to-end learning strategy, narrative design, and AI-assisted production for the full experience" },

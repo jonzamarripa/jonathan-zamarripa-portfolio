@@ -2,7 +2,7 @@
    Section order = page order. `nav` = which NavBar item lights up while the section is in view. */
 (function () {
   var links = {
-    resume: 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf',
+    resume: '/assets/documents/jonathan-zamarripa-public-resume.pdf',
     linkedin: 'https://www.linkedin.com/in/jonathanzamarripa/',
     email: 'mailto:jonathan.zamarripa@gmail.com',
     archive: '/#archive',
@@ -535,11 +535,11 @@
         var jRange = Math.max(1, jr.height - viewport * .18);
         var jp = titleMotionOn ? clamp((viewport * .8 - jr.top) / jRange) : 1;
         value(journey, '--jz-journey-p', jp * jp * (3 - 2 * jp));
+        var milestones = journey.querySelectorAll('.jz-jr-stage');
         var jActive = titleMotionOn && jr.bottom > viewport * .12 && jr.top < viewport * .86
-          ? Math.min(3, Math.floor(jp * 4)) : -1;
+          ? Math.min(milestones.length - 1, Math.floor(jp * milestones.length)) : -1;
         if (journey.getAttribute('data-jz-journey-index') !== String(jActive)) {
           journey.setAttribute('data-jz-journey-index', String(jActive));
-          var milestones = journey.querySelectorAll('.jz-jr-stage');
           for (var v = 0; v < milestones.length; v++) {
             if (v === jActive) milestones[v].setAttribute('data-jz-journey-active', 'true');
             else milestones[v].removeAttribute('data-jz-journey-active');

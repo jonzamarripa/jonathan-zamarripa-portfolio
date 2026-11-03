@@ -8,7 +8,7 @@ function CaseStudyWorkday({ onBack, onOpenProject, standalone }) {
     statement: window.JIZ_SITE.project('workday-learn').statement,
     facts: [
       { label: "Organization", value: "Cox Enterprises", accent: "cyan" },
-      { label: "Role", value: "Creative Lead / Learning Experience Designer", accent: "cyan" },
+      { label: "Role", value: "Learning Experience Designer", accent: "cyan" },
       { label: "Project type", value: "Enterprise platform launch", accent: "moss" },
       { label: "Focus", value: "Creative strategy, launch communications, instructional design", accent: "moss" },
       { label: "Status", value: "Evidence-supported case study", accent: "lime" }
@@ -79,7 +79,7 @@ function CaseStudyWorkday({ onBack, onOpenProject, standalone }) {
     galleryHeading: "Full launch package \u2014 cover, narrative, workflow, and deliverables.",
     snapshot: [
       { label: "Organization", value: "Cox Enterprises" },
-      { label: "Role", value: "Creative Lead / Learning Experience Designer" },
+      { label: "Role", value: "Learning Experience Designer" },
       { label: "Audience", value: "Enterprise-wide employee base" },
       { label: "Partners", value: "Learning leaders, enterprise communications, platform stakeholders" },
       { label: "Primary responsibility", value: "Creative direction and instructional production for the full launch package" },

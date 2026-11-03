@@ -8,7 +8,7 @@ function CaseStudyHotelKey({ onBack, onOpenProject, standalone }) {
     statement: window.JIZ_SITE.project('hotelkey-onboarding').statement,
     facts: [
       { label: "Organization", value: "IHG Hotels & Resorts", accent: "cyan" },
-      { label: "Role", value: "Learning Experience Designer / Producer", accent: "cyan" },
+      { label: "Role", value: "Creative Content Specialist", accent: "cyan" },
       { label: "Project type", value: "New hire onboarding, systems training", accent: "moss" },
       { label: "Focus", value: "Instructional design, motion design, multimedia production", accent: "moss" },
       { label: "Status", value: "Evidence-supported case study", accent: "lime" }
@@ -80,7 +80,7 @@ function CaseStudyHotelKey({ onBack, onOpenProject, standalone }) {
     galleryHeading: "Full onboarding package — hero, storyboard, and process evidence.",
     snapshot: [
       { label: "Organization", value: "IHG Hotels & Resorts" },
-      { label: "Role", value: "Learning Experience Designer / Producer" },
+      { label: "Role", value: "Creative Content Specialist" },
       { label: "Audience", value: "Newly hired hotel employees" },
       { label: "Partners", value: "Hotel operations and learning stakeholders" },
       { label: "Primary responsibility", value: "Instructional strategy and production for the full onboarding experience" },

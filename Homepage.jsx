@@ -193,7 +193,7 @@ function LearningPathways() {
 
 function Hero({ onExploreWork, onConnect }) {
   const { Button, StatusPill } = window.JIZPortfolioSite_b3ba38;
-  const RESUME_URL = 'https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf';
+  const RESUME_URL = window.JIZ_SITE.links.resume;
   // Reduced motion and data-saver visitors get the still poster; every other device plays the loop.
   const heroStill = prefersReduced() || !!(typeof navigator !== 'undefined' && navigator.connection && navigator.connection.saveData);
   // Phones and narrow tablets get a lighter encode of the same 1080p master (same frames, about a third of the size).
@@ -2012,7 +2012,7 @@ function FinalMoment({ onNavigate, standalone = false }) {
                 if (standalone) window.location.assign('/#behind-the-build');
                 else window.jizNavigate && window.jizNavigate('Behind the Build');
               } else if (index === 'resume') {
-                window.open('https://elearningportfolio-jz.s3.us-east-1.amazonaws.com/Public_Career_Overview.pdf', '_blank', 'noopener,noreferrer');
+                window.open(window.JIZ_SITE.links.resume, '_blank', 'noopener,noreferrer');
               } else if (index === 'linkedin') {
                 window.open('https://www.linkedin.com/in/jonathanzamarripa/', '_blank', 'noopener,noreferrer');
               } else if (index === 'journal') {

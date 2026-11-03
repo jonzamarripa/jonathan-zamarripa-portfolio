@@ -51,16 +51,8 @@ const RHYTHM_CSS = `
 /* Selected experience strip sits on the Carbon page between the hero and Featured Work */
 .jiz-homepage .jz-exp{background:transparent;border:0}
 
-/* Featured Work — warm-white editorial gallery, isolated from dark chapters. */
-.jiz-homepage .jz-fw{background:var(--white);color:var(--obsidian)}
-.jiz-homepage .jz-fw :is(.jz-label,.jz-fw-org){color:var(--slate)}
-.jiz-homepage .jz-fw :is(.jz-fw-h2,.jz-fw-n,.jz-fw-title,.jz-link){color:var(--obsidian)}
-.jiz-homepage .jz-fw :is(.jz-fw-intro,.jz-fw-dek){color:color-mix(in srgb,var(--obsidian) 76%,var(--white))}
-.jiz-homepage .jz-fw-card:hover .jz-fw-title{color:var(--obsidian);text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
-.jiz-homepage .jz-fw-card:has(.jz-fw-cta:focus-visible){outline:2px solid var(--obsidian);outline-offset:8px;border-radius:var(--panel-r-inner)}
-.jiz-homepage .jz-fw .jz-link{font-weight:600;color:#286579;transition:color 240ms ease}
-.jiz-homepage .jz-fw-card:hover .jz-link,.jiz-homepage .jz-fw .jz-link:focus-visible{color:var(--obsidian)}
-.jiz-homepage .jz-fw .jz-link:focus-visible{outline-color:var(--obsidian)}
+/* Featured Work — bounded cinematic stage. */
+.jiz-homepage .jz-fw{background:var(--obsidian);color:var(--white)}
 
 /* Creative Lab — cinematic Obsidian panel (content and video untouched) */
 .jiz-homepage .jiz-creative-lab{background-color:#0B0D10}
@@ -178,7 +170,7 @@ function SelectedExperience() {
       <div className="jz-wrap jz-exp-in">
         <p className="jz-label">Selected experience</p>
         <ul className="jz-exp-list">{orgs.map((o) => <li key={o} className="jz-exp-org">{o}</li>)}</ul>
-        <p className="jz-exp-edu"><span className="jz-label">Education</span><span>M.Ed., Instructional Design &amp; Technology, Arizona State University</span></p>
+        <p className="jz-exp-edu"><span className="jz-label">Education</span><span>M.Ed., Learning Design and Technology, Arizona State University</span></p>
       </div>
     </section>
   );
@@ -241,80 +233,89 @@ function FeaturedWorkEditorial({ onOpenWork }) {
     <section className="jz-fw" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-fw-title" style={{ '--gallery-enter-offset': direction === 'next' ? '18px' : '-18px' }}>
       <EditorialStyles />
       <style>{`
-.jz-fw{--gallery-gutter:clamp(20px,5.5vw,104px);padding-block:clamp(48px,6vw,88px);color:var(--obsidian)}
-.jz-fw-heading,.jz-fw-toolbar,.jz-fw-controls,.jz-fw-index{margin-inline:var(--gallery-gutter)}
-.jz-fw-heading{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:clamp(28px,3vw,44px)}
-.jz-fw-h2{margin:14px 0 0;font:600 clamp(2.75rem,5vw,5rem)/1 var(--font-display);letter-spacing:-.045em}
-.jz-fw-heading>p{max-width:30ch;margin:0 0 3px;font:400 1rem/1.6 var(--font-body);color:var(--slate)}
+.jiz-homepage .jz-fw{--gallery-preview:96px;--gallery-gap:24px;background:var(--obsidian);color:var(--white);padding-block:clamp(48px,6vw,80px)}
+.jz-fw-stage{width:min(var(--chapter-max,1180px),calc(100% - 2 * clamp(20px,4vw,56px)));margin-inline:auto}
+.jz-fw-heading{display:block;margin:0 0 28px;max-width:720px}
+.jiz-homepage .jz-fw .jz-label{color:var(--accent-cyan)}
+.jiz-homepage .jz-fw-h2{margin:14px 0 22px;color:var(--white);font:600 clamp(2.6rem,4.5vw,4.5rem)/1 var(--font-display);letter-spacing:-.045em}
+.jz-fw-heading>p{max-width:57ch;margin:0;font:400 1rem/1.65 var(--font-body);color:var(--mist)}
 .jz-fw-toolbar{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:20px}
-.jz-fw-instruction{max-width:55ch;margin:0;font:400 .875rem/1.5 var(--font-body);color:var(--slate)}
+.jz-fw-instruction{max-width:56ch;margin:0;font:400 .875rem/1.6 var(--font-body);color:var(--mist)}
+.jz-fw-motion-paused,.jz-fw-motion-reduced{display:none;font:500 .75rem/1.5 var(--font-body);color:var(--accent-cyan);margin-top:4px}
+html[data-jz-motion-paused="true"] .jz-fw-motion-paused{display:block}
 .jz-fw-buttons{display:flex;gap:8px;flex-shrink:0}
-.jz-fw-buttons button{min-height:48px;padding:10px 18px;display:flex;gap:10px;align-items:center;justify-content:center;border:1px solid rgba(11,13,16,.45);border-radius:999px;background:transparent;color:var(--obsidian);font:600 .875rem/1.2 var(--font-body);cursor:pointer;transition:background 180ms,transform 180ms}
-.jz-fw-buttons button:last-child{background:var(--signal-lime);border-color:var(--signal-lime)}
-.jz-fw-buttons button:hover:enabled{background:var(--obsidian);color:var(--white)}
-.jz-fw-buttons button:active:enabled{transform:scale(.96)}
+.jz-fw-buttons button{min-height:48px;padding:10px 18px;display:flex;gap:10px;align-items:center;justify-content:center;border:1px solid rgba(217,221,227,.5);border-radius:999px;background:transparent;color:var(--white);font:600 .875rem/1.2 var(--font-body);cursor:pointer;transition:background 180ms,transform 180ms}
+.jz-fw-buttons button:last-child{background:var(--signal-lime);border-color:var(--signal-lime);color:var(--obsidian)}
+.jz-fw-buttons button:hover:enabled{background:var(--accent-cyan);border-color:var(--accent-cyan);color:var(--obsidian)}
+.jz-fw-buttons button:active:enabled{transform:scale(.95)}
 .jz-fw-buttons button:disabled{opacity:.35;cursor:default}
-.jz-fw-track{display:flex;align-items:stretch;gap:clamp(18px,2.5vw,36px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gallery-gutter);padding:4px var(--gallery-gutter) 12px;position:relative;scrollbar-width:thin;scrollbar-color:var(--mist) transparent}
-.jz-fw-track::after{content:'';flex:0 0 calc(15% - var(--gallery-gutter))}
-.jz-fw-slide{position:relative;flex:0 0 85%;min-width:0;scroll-snap-align:start;scroll-snap-stop:normal;display:flex;flex-direction:column}
-.jz-fw-project-link{display:flex;flex-direction:column;height:100%;text-decoration:none;color:inherit;border-radius:16px}
-.jz-fw-frame{position:relative;aspect-ratio:16/9;overflow:hidden;border-radius:clamp(10px,1.1vw,16px);background:var(--mist);isolation:isolate}
-.jz-fw-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--project-focal,50% 50%);transition:transform 650ms var(--ease-out),filter 400ms var(--ease-standard)}
-.jz-fw-slide[data-active="false"] .jz-fw-frame img{filter:saturate(.65) brightness(.82)}
-.jz-fw-image-label{position:absolute;top:18px;left:18px;padding:8px 12px;border-radius:999px;background:rgba(11,13,16,.9);color:var(--white);font:500 .6875rem/1.4 var(--font-mono);letter-spacing:.06em}
+.jz-fw-track{display:flex;align-items:stretch;gap:var(--gallery-gap);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:4px;padding:4px 4px 12px;position:relative;scrollbar-width:thin;scrollbar-color:var(--slate) transparent}
+.jz-fw-track::after{content:'';flex:0 0 calc(var(--gallery-preview) - var(--gallery-gap))}
+.jz-fw-slide{position:relative;flex:0 0 calc(100% - var(--gallery-preview));min-width:0;scroll-snap-align:start;scroll-snap-stop:normal;display:flex;flex-direction:column}
+.jz-fw-project-link{display:flex;flex-direction:column;height:100%;text-decoration:none;background:var(--carbon);color:var(--white);border:1px solid var(--slate);border-radius:18px;overflow:hidden;transition:border-color 220ms,box-shadow 220ms}
+.jz-fw-slide[data-active="true"] .jz-fw-project-link{border-color:rgba(96,217,253,.5)}
+.jz-fw-frame{position:relative;aspect-ratio:21/9;overflow:hidden;background:var(--slate);isolation:isolate}
+.jz-fw-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--project-focal,50% 50%);transition:transform 550ms var(--ease-out),filter 350ms var(--ease-standard)}
+.jz-fw-slide[data-active="false"] .jz-fw-frame img{filter:saturate(.55) brightness(.7)}
+.jz-fw-image-label{position:absolute;top:18px;left:18px;padding:8px 12px;border-radius:999px;background:var(--obsidian);color:var(--white);font:500 .6875rem/1.4 var(--font-mono);letter-spacing:.04em}
 .jz-fw-slide[data-active="true"] .jz-fw-image-label{background:var(--signal-lime);color:var(--obsidian)}
-.jz-fw-image-action{position:absolute;bottom:20px;right:20px;display:flex;align-items:center;gap:14px;padding:8px 8px 8px 18px;border-radius:999px;background:var(--obsidian);color:var(--white);font:600 .875rem/1.2 var(--font-body)}
-.jz-fw-image-action>span{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--signal-lime);color:var(--obsidian);font-size:20px;transition:transform 240ms}
+.jz-fw-image-action{position:absolute;bottom:20px;right:20px;display:flex;align-items:center;gap:14px;padding:8px 8px 8px 18px;border:1px solid rgba(217,221,227,.5);border-radius:999px;background:var(--obsidian);color:var(--white);font:600 .875rem/1.2 var(--font-body);transition:background 200ms,color 200ms}
+.jz-fw-image-action>span{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:var(--signal-lime);color:var(--obsidian);transition:transform 240ms}
 .jz-fw-slide[data-active="false"] .jz-fw-image-action{display:none}
-.jz-fw-copy{padding-top:24px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:12px clamp(24px,4vw,64px);align-items:start;align-content:start;flex:1}
-.jz-fw-copy .jz-label{grid-column:1/-1;line-height:1.5;font-size:.6875rem;letter-spacing:.1em;display:flex;flex-wrap:wrap;gap:6px 12px}
-.jz-fw-project-org{margin-left:auto;color:var(--slate);font-family:var(--font-body);text-transform:none;letter-spacing:0;font-size:.8125rem}
-.jz-fw-project-title{grid-column:1;grid-row:2;margin:0;max-width:22ch;font:600 clamp(1.75rem,2.6vw,2.75rem)/1.1 var(--font-display);letter-spacing:-.035em;overflow-wrap:break-word;text-wrap:balance}
-.jz-fw-subtitle{grid-column:1;grid-row:3;margin:0;max-width:36ch;font:500 1rem/1.5 var(--font-body);color:#286579}
-.jz-fw-value{grid-column:2;grid-row:2/4;margin:0;max-width:45ch;font:400 1rem/1.65 var(--font-body);color:var(--slate)}
-.jz-fw-tags{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:8px 0 0}
-.jz-fw-tags li{padding:7px 11px;border:1px solid rgba(11,13,16,.2);border-radius:999px;color:var(--slate);font:500 .75rem/1.3 var(--font-body)}
-.jz-fw-project-link:is(:hover,:focus-visible,:active){color:var(--obsidian)}
+.jz-fw-copy{padding:24px 28px 28px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;flex:1}
+.jz-fw-copy .jz-label{line-height:1.5;font-size:.6875rem;letter-spacing:.1em;display:flex;flex-wrap:wrap;gap:6px 14px;margin:0}
+.jz-fw-project-org{color:var(--mist);font-family:var(--font-body);text-transform:none;letter-spacing:0;font-size:.8125rem}
+.jz-fw-project-title{margin:0;max-width:28ch;color:var(--white);font:600 clamp(1.65rem,2.7vw,2.5rem)/1.12 var(--font-display);letter-spacing:-.035em;overflow-wrap:break-word;text-wrap:balance}
+.jz-fw-subtitle{margin:0;max-width:56ch;font:500 1rem/1.5 var(--font-body);color:var(--accent-cyan)}
+.jz-fw-value{margin:0;max-width:72ch;font:400 .9375rem/1.65 var(--font-body);color:var(--mist)}
+.jz-fw-tags{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:4px 0 0}
+.jz-fw-tags li{padding:7px 12px;border:1px solid transparent;border-radius:999px;background:var(--signal-lime);color:var(--obsidian);font:600 .75rem/1.3 var(--font-body)}
+.jz-fw-tags li:nth-child(3n+2){background:var(--accent-cyan)}
+.jz-fw-tags li:nth-child(3n){background:var(--slate);border-color:rgba(217,221,227,.3);color:var(--white)}
+.jz-fw-project-link:is(:hover,:focus-visible,:active){color:var(--white);border-color:var(--accent-cyan)}
+.jz-fw-project-link:is(:hover,:focus-visible) .jz-fw-image-action{background:var(--white);color:var(--obsidian)}
 .jz-fw-project-link:active .jz-fw-image-action{background:var(--signal-lime);color:var(--obsidian)}
-.jz-fw-project-link:focus-visible{outline:2px solid var(--obsidian);outline-offset:3px}
-.jz-fw-controls{display:flex;align-items:center;gap:24px;margin-top:clamp(20px,3vw,36px);padding-top:18px;border-top:1px solid rgba(11,13,16,.15)}
-.jz-fw-count{font:500 .75rem/1.5 var(--font-mono);font-variant-numeric:tabular-nums;letter-spacing:.04em;white-space:nowrap}
+.jz-fw-project-link:focus-visible{outline:2px solid var(--accent-cyan);outline-offset:3px}
+.jz-fw-controls{display:flex;align-items:center;gap:24px;margin-top:24px;padding-top:14px;border-top:1px solid var(--slate)}
+.jz-fw-count{font:500 .75rem/1.5 var(--font-mono);font-variant-numeric:tabular-nums;letter-spacing:.04em;white-space:nowrap;color:var(--mist)}
 .jz-fw-steps{display:flex;gap:8px;flex:1;min-width:0}
-.jz-fw-step{position:relative;flex:1;min-width:44px;min-height:48px;padding:8px;border:0;border-radius:4px;background:transparent;color:var(--slate);cursor:pointer;font:500 .75rem/1.5 var(--font-mono);font-variant-numeric:tabular-nums}
-.jz-fw-step:after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--mist)}
-.jz-fw-step[aria-current="true"]{color:var(--obsidian);font-weight:700}
-.jz-fw-step[aria-current="true"]:after{background:var(--obsidian)}
-.jz-fw-step:hover{background:var(--mist)}
-.jz-fw-step:hover:after{background:#286579}
-.jz-fw button:focus-visible,.jz-fw-track:focus-visible,.jz-fw summary:focus-visible,.jz-fw-index a:focus-visible{outline:2px solid var(--obsidian);outline-offset:3px}
+.jz-fw-step{position:relative;flex:1;min-width:44px;min-height:48px;padding:8px;border:0;border-radius:4px;background:transparent;color:var(--mist);cursor:pointer;font:500 .75rem/1.5 var(--font-mono);font-variant-numeric:tabular-nums}
+.jz-fw-step:after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--slate)}
+.jz-fw-step[aria-current="true"]{color:var(--signal-lime);font-weight:700}
+.jz-fw-step[aria-current="true"]:after{background:var(--signal-lime)}
+.jz-fw-step:hover{background:var(--slate);color:var(--white)}
+.jz-fw-step:hover:after{background:var(--accent-cyan)}
+.jz-fw button:focus-visible,.jz-fw-track:focus-visible,.jz-fw summary:focus-visible,.jz-fw-index a:focus-visible{outline:2px solid var(--accent-cyan);outline-offset:3px}
 .jz-fw-index{margin-top:16px;font:500 .875rem/1.5 var(--font-body)}
-.jz-fw-index summary{cursor:pointer;padding-block:12px;width:fit-content;min-height:44px}
+.jz-fw-index summary{cursor:pointer;padding-block:12px;width:fit-content;min-height:44px;color:var(--white)}
 .jz-fw-index ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
-.jz-fw-index li{border-top:1px solid rgba(11,13,16,.15)}
-.jz-fw-index a{display:block;padding:14px 0;color:var(--obsidian);text-underline-offset:4px}
-@keyframes jz-fw-copy-enter{from{opacity:.35;transform:translateX(var(--gallery-enter-offset))}to{opacity:1;transform:none}}
-@keyframes jz-fw-image-enter{from{transform:scale(1.035)}to{transform:scale(1)}}
+.jz-fw-index li{border-top:1px solid var(--slate)}
+.jz-fw-index a{display:block;padding:14px 0;color:var(--mist);text-underline-offset:4px}
+.jz-fw-index a:hover{color:var(--accent-cyan)}
+@keyframes jz-fw-copy-enter{from{opacity:0;transform:translateX(var(--gallery-enter-offset))}to{opacity:1;transform:none}}
+@keyframes jz-fw-image-enter{from{opacity:.55;transform:scale(1.04);clip-path:inset(0 6% 0 0)}to{opacity:1;transform:scale(1);clip-path:inset(0)}}
 @media(prefers-reduced-motion:no-preference){
-html:not([data-jz-motion-paused="true"]) .jz-fw[data-in="true"] .jz-fw-slide[data-active="true"] .jz-fw-copy{animation:jz-fw-copy-enter 480ms var(--ease-out) both}
-html:not([data-jz-motion-paused="true"]) .jz-fw[data-in="true"] .jz-fw-slide[data-active="true"] .jz-fw-frame img{animation:jz-fw-image-enter 650ms var(--ease-out)}
+html:not([data-jz-motion-paused="true"]) .jz-fw[data-in="true"] .jz-fw-slide[data-active="true"] .jz-fw-copy{animation:jz-fw-copy-enter 500ms var(--ease-out) both}
+html:not([data-jz-motion-paused="true"]) .jz-fw[data-in="true"] .jz-fw-slide[data-active="true"] .jz-fw-frame img{animation:jz-fw-image-enter 700ms var(--ease-out)}
 }
 @media(hover:hover) and (prefers-reduced-motion:no-preference){
-html:not([data-jz-motion-paused="true"]) .jz-fw-project-link:is(:hover,:focus-visible) .jz-fw-frame img{transform:scale(1.025);filter:none}
-html:not([data-jz-motion-paused="true"]) .jz-fw-project-link:active .jz-fw-frame img{transform:scale(.985)}
+html:not([data-jz-motion-paused="true"]) .jz-fw-project-link:is(:hover,:focus-visible) .jz-fw-frame img{transform:scale(1.045);filter:brightness(1.08)}
+html:not([data-jz-motion-paused="true"]) .jz-fw-project-link:active .jz-fw-frame img{transform:scale(.985);filter:brightness(.9)}
 }
-.jz-fw-project-link:is(:hover,:focus-visible) .jz-fw-image-action>span{transform:translateX(2px)}
-@media(max-width:900px){.jz-fw-copy{grid-template-columns:1fr;gap:10px}.jz-fw-project-title,.jz-fw-subtitle,.jz-fw-value{grid-column:1;grid-row:auto}.jz-fw-project-title{max-width:26ch}.jz-fw-value{max-width:50ch}.jz-fw-project-org{margin-left:0}}
-@media(max-width:600px){.jz-fw-heading{display:block;margin-bottom:24px}.jz-fw-heading>p{margin-top:18px;max-width:32ch;font-size:.9375rem}.jz-fw-toolbar{align-items:start;flex-direction:column;gap:14px}.jz-fw-buttons{width:100%}.jz-fw-buttons button{flex:1;padding-inline:12px}.jz-fw-slide{flex-basis:90%}.jz-fw-track::after{flex-basis:calc(10% - var(--gallery-gutter))}.jz-fw-frame{aspect-ratio:4/3}.jz-fw-image-label{top:12px;left:12px;font-size:.625rem}.jz-fw-image-action{right:12px;bottom:12px;padding:6px 6px 6px 12px;font-size:.8125rem;gap:10px}.jz-fw-image-action>span{width:30px;height:30px}.jz-fw-copy{padding-top:18px}.jz-fw-value,.jz-fw-subtitle{font-size:.9375rem}.jz-fw-project-org{width:100%}.jz-fw-index ul{grid-template-columns:1fr}.jz-fw-controls{align-items:start;flex-direction:column;gap:6px}.jz-fw-steps{width:100%;gap:0}.jz-fw-step{min-width:0;min-height:48px}.jz-fw-tags{gap:6px}.jz-fw-tags li{padding:6px 9px;font-size:.6875rem}}
-@media(prefers-reduced-motion:reduce){.jz-fw *{animation:none!important;transition:none!important}.jz-fw-frame img{transform:none!important}}
+.jz-fw-project-link:is(:hover,:focus-visible) .jz-fw-image-action>span{transform:rotate(6deg)}
+@media(max-width:900px){.jiz-homepage .jz-fw{--gallery-preview:56px;--gallery-gap:16px}.jz-fw-frame{aspect-ratio:16/9}.jz-fw-project-org{width:100%}}
+@media(max-width:600px){.jiz-homepage .jz-fw{--gallery-preview:28px;--gallery-gap:12px}.jz-fw-stage{width:calc(100% - 32px)}.jz-fw-heading{margin-bottom:24px}.jz-fw-heading>p{font-size:.9375rem}.jz-fw-toolbar{align-items:start;flex-direction:column;gap:14px}.jz-fw-buttons{width:100%}.jz-fw-buttons button{flex:1;padding-inline:12px}.jz-fw-frame{aspect-ratio:4/3}.jz-fw-image-label{top:12px;left:12px;font-size:.625rem}.jz-fw-image-action{right:12px;bottom:12px;padding:6px 6px 6px 12px;font-size:.8125rem;gap:10px}.jz-fw-image-action>span{width:30px;height:30px}.jz-fw-copy{padding:20px;gap:12px}.jz-fw-value,.jz-fw-subtitle{font-size:.9375rem}.jz-fw-index ul{grid-template-columns:1fr}.jz-fw-controls{align-items:start;flex-direction:column;gap:6px}.jz-fw-steps{width:100%;gap:0}.jz-fw-step{min-width:0;min-height:48px}.jz-fw-tags{gap:6px}.jz-fw-tags li{padding:6px 9px;font-size:.6875rem}}
+@media(prefers-reduced-motion:reduce){.jz-fw *{animation:none!important;transition:none!important}.jz-fw-frame img{transform:none!important}.jz-fw-motion-reduced{display:block}html[data-jz-motion-paused="true"] .jz-fw-motion-reduced{display:none}}
 html[data-jz-motion-paused="true"] .jz-fw *{animation:none!important;transition:none!important}
 html[data-jz-motion-paused="true"] .jz-fw-frame img{transform:none!important}
       `}</style>
+      <div className="jz-fw-stage">
       <header className="jz-fw-heading">
         <div><p className="jz-label">Enterprise learning · Selected case studies</p><h2 className="jz-fw-h2" id="jz-fw-title">Featured work</h2></div>
         <p>Learning strategy, scenario design, and enablement built around the decisions people make at work.</p>
       </header>
       <div className="jz-fw-toolbar">
-        <p className="jz-fw-instruction" id="jz-fw-help">Swipe or use the arrows to browse. Click the selected image to explore.</p>
+        <div><p className="jz-fw-instruction" id="jz-fw-help">Swipe or use the arrows to browse. Click the selected image to explore.</p><span className="jz-fw-motion-paused">Motion paused</span><span className="jz-fw-motion-reduced">Reduced motion enabled</span></div>
         <div className="jz-fw-buttons"><button type="button" aria-label="Previous project" aria-controls="jz-fw-gallery" disabled={active === 0} onClick={() => go((destination.current ?? active) - 1)}><span aria-hidden="true">←</span> Previous</button><button type="button" aria-label="Next project" aria-controls="jz-fw-gallery" disabled={active === projects.length - 1} onClick={() => go((destination.current ?? active) + 1)}>Next project <span aria-hidden="true">→</span></button></div>
       </div>
       <p id="jz-fw-keyboard-help" className="jz-visually-hidden">With the gallery focused, use Left and Right arrows, Home or End. Tab to case-study links or choose a numbered project button.</p>
@@ -347,6 +348,7 @@ html[data-jz-motion-paused="true"] .jz-fw-frame img{transform:none!important}
         <div className="jz-fw-steps" role="group" aria-label="Choose a featured project">{projects.map((p,i) => <button className="jz-fw-step" type="button" key={p.view} aria-label={'Show project ' + p.n + ': ' + p.title} aria-current={i === active ? 'true' : undefined} aria-controls="jz-fw-gallery" onClick={() => go(i)}>{p.n}</button>)}</div>
       </div>
       <details className="jz-fw-index"><summary>View all projects</summary><ul>{projects.map((p) => <li key={p.view}><a href={pathOf(p)} onClick={(e) => open(e,p)}>{p.title}</a></li>)}<li><a href="#archive" onClick={(e) => { if (plain(e) && window.jizNavigate) { e.preventDefault(); window.jizNavigate('Archive'); } }}>Explore additional work →</a></li></ul></details>
+      </div>
     </section>
   );
 }
@@ -563,16 +565,17 @@ function Practice({ part = 'method' }) {
   );
 }
 
-/* ---------- Career journey (restored from the original CareerArc; same four stages and copy) ---------- */
+/* ---------- Career journey (updated from the supplied professional profile) ---------- */
 function CareerJourney() {
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref);
   const stages = [
     // ctx: organization · industry. meta: title · engagement type · dates, exactly as confirmed by Jonathan.
-    { n: '01', title: 'Education Innovation', ctx: 'K–12 education · Teaching', copy: 'Guided educators through digital learning adoption, where I learned to design for real behavior change.' },
-    { n: '02', title: 'Digital Transformation', ctx: 'Atlanta International School · International education', meta: 'EdTech & Innovation Coach / Strategist · Employee · 2019\u2060–\u20602024', copy: 'Supported an organization-wide LMS migration, helping a school community move from hesitation to fluency.' },
+    { n: '01', title: 'Education Innovation', ctx: 'Charles R. Drew Charter School', meta: 'K–5 Robotics Instructor · Jul 2011–Jul 2019', copy: 'Designed and facilitated STEAM and project-based learning, adapting instruction to different learner needs.' },
+    { n: '02', title: 'Digital Transformation', ctx: 'Atlanta International School · International education', meta: 'Instructional Designer & EdTech Integration Specialist · Jul 2019–Apr 2024', copy: 'Supported an organization-wide LMS migration, helping a school community move from hesitation to fluency.' },
     { n: '03', title: 'Enterprise L&D', ctx: 'Cox Enterprises · Enterprise & corporate learning', meta: 'Learning Experience Designer · Contract · Feb\u2060–\u2060Sep 2025', copy: 'Designed leadership and enterprise learning for audiences from frontline teams to SVPs.' },
-    { n: '04', title: 'Product & Technology Enablement', ctx: 'IHG Hotels & Resorts · Hospitality technology', meta: 'Creative Content Specialist / Producer · Contract · Sep 2025\u2060–\u2060Aug 2026', copy: 'Turned evolving platforms into release-ready learning that keeps global teams operationally current.' }
+    { n: '04', title: 'Product & Technology Enablement', ctx: 'IHG Hotels & Resorts · Hospitality technology', meta: 'Creative Content Specialist · Contract · Sep 2025–Jul 2026', copy: 'Turned evolving platforms into release-ready learning that keeps global teams operationally current.' },
+    { n: '05', title: 'Independent Learning Design', ctx: 'Jon Iker Zamarripa Independent Consulting', meta: 'Learning Experience Designer & AI Learning Strategist · Jul 2024–present', copy: 'Client work, research and prototyping across onboarding, product education and AI-enabled learning.' }
   ];
   return (
     <section className="jz-jr" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-jr-title">
@@ -582,7 +585,7 @@ function CareerJourney() {
 .jz-jr-head > div{grid-column:1 / span 7;display:flex;flex-direction:column;gap:14px}
 .jz-jr-h2{margin:0;font:600 clamp(2rem,1.3rem + 2.4vw,3.5rem)/1 var(--font-display);letter-spacing:-.035em;color:var(--color-text-primary)}
 .jz-jr-sub{grid-column:9 / span 4;margin:0;font:400 1rem/1.6 var(--font-body);color:rgba(217,221,227,.78)}
-.jz-jr-rail{grid-column:1 / span 12;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,2.4vw,40px);list-style:none;margin:0;padding:0}
+.jz-jr-rail{grid-column:1 / span 12;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(20px,2.4vw,40px);list-style:none;margin:0;padding:0}
 .jz-jr-stage{position:relative;display:flex;flex-direction:column;gap:12px;padding-top:24px;border-top:1px solid rgba(217,221,227,.14)}
 .jz-jr-stage::before{content:'';position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;background:var(--color-accent-primary)}
 .jz-jr-t{margin:0;font:600 clamp(1.125rem,1rem + .5vw,1.5rem)/1.15 var(--font-display);letter-spacing:-.02em;color:var(--color-text-primary)}

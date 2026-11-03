@@ -8,7 +8,7 @@ function CaseStudyGuestCRM({ onBack, onOpenProject, standalone }) {
     statement: window.JIZ_SITE.project('guest-crm-pilot').statement,
     facts: [
       { label: "Organization", value: "IHG Hotels & Resorts", accent: "cyan" },
-      { label: "Role", value: "Learning Strategist / Creative Producer", accent: "cyan" },
+      { label: "Role", value: "Creative Content Specialist", accent: "cyan" },
       { label: "Project type", value: "Platform pilot enablement", accent: "moss" },
       { label: "Focus", value: "Change enablement, instructional design, multimedia production", accent: "moss" },
       { label: "Status", value: "Evidence-supported case study", accent: "lime" }
@@ -81,7 +81,7 @@ function CaseStudyGuestCRM({ onBack, onOpenProject, standalone }) {
     galleryHeading: "Full enablement package — cover, pilot storyboard, workflow, feedback, and delivered kit.",
     snapshot: [
       { label: "Organization", value: "IHG Hotels & Resorts" },
-      { label: "Role", value: "Learning Strategist / Creative Producer" },
+      { label: "Role", value: "Creative Content Specialist" },
       { label: "Audience", value: "Pilot cohort of hotel front-desk and operations teams" },
       { label: "Partners", value: "Product, operations, learning, and creative stakeholders" },
       { label: "Primary responsibility", value: "Enablement strategy and production for the full pilot toolkit" },
