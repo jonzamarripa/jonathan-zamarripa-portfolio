@@ -2,9 +2,10 @@ function CaseStudyWorkday({ onBack, onOpenProject, standalone }) {
   const { CaseStudyShell } = window.CaseStudyShellExports;
   const config = {
     slug: "workday-learn",
-    projectName: "Workday Learn Launch",
-    eyebrow: "Case Study \u2014 Enterprise Launch",
-    statement: "An enterprise launch campaign that introduced Workday Learn as a professional growth ecosystem \u2014 leading with organizational purpose before platform features.",
+    projectName: window.JIZ_SITE.project('workday-learn').title,
+    eyebrow: window.JIZ_SITE.project('workday-learn').kicker,
+    subtitle: window.JIZ_SITE.project('workday-learn').subtitle,
+    statement: window.JIZ_SITE.project('workday-learn').statement,
     facts: [
       { label: "Organization", value: "Cox Enterprises", accent: "cyan" },
       { label: "Role", value: "Creative Lead / Learning Experience Designer", accent: "cyan" },

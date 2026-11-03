@@ -2,9 +2,10 @@ function CaseStudyLegacy({ onBack, onOpenProject, standalone }) {
   const { CaseStudyShell } = window.CaseStudyShellExports;
   const config = {
     slug: "operation-legacy-unlocked",
-    projectName: "Operation: Legacy Unlocked",
-    eyebrow: "Case Study \u2014 Featured Project",
-    statement: "An immersive leadership learning experience for Cox Enterprises that casts employees as Cox Intelligence Agents, transforming organizational history into a mission-driven digital experience.",
+    projectName: window.JIZ_SITE.project('case-study').title,
+    eyebrow: window.JIZ_SITE.project('case-study').kicker,
+    subtitle: window.JIZ_SITE.project('case-study').subtitle,
+    statement: window.JIZ_SITE.project('case-study').statement,
     facts: [
       { label: "Organization", value: "Cox Enterprises", accent: "cyan" },
       { label: "Role", value: "Lead Learning Experience Designer & Creative Strategist", accent: "cyan" },

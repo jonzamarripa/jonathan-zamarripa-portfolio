@@ -256,6 +256,7 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
         <Chapter as="header" surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-title'}>
           <p className="jiz-cs-eyebrow">{config.eyebrow || 'Case Study'}</p>
           <h1 id={config.slug + '-title'} className="jiz-cs-title">{config.projectName}</h1>
+          {config.subtitle && <p className="jiz-cs-subtitle">{config.subtitle}</p>}
           <p className="jiz-cs-lede">{config.statement}</p>
           <dl className="jiz-cs-facts">
             {config.facts.map((f) => (
@@ -508,7 +509,7 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
             {config.related.map((r) => (
               <a key={r.route} href={pathFor(r.route)} onClick={(e) => { if (standalone || !plain(e)) return; e.preventDefault(); onOpenProject && onOpenProject(r.route); }}>
                 <span className="jiz-cs-next-k">{r.direction}</span>
-                <span className="jiz-cs-next-v">{r.title}</span>
+                <span className="jiz-cs-next-v">{(SITE.projects.find((p) => p.route === r.route) || {}).title || r.title}</span>
               </a>
             ))}
             <a href="/#work" onClick={(e) => { if (standalone || !plain(e)) return; e.preventDefault(); onBack && onBack(); }}>

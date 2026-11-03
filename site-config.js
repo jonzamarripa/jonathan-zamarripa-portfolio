@@ -37,6 +37,185 @@
     { view: 'marcus-live', path: '/work/marcus-live/', hero: 'assets/imagery/marcus-live/marcus-live-practice.webp', og: 'assets/og/marcus-live.png', aliases: ['Marcus, Live'] },
     { view: 'behind-the-build', aliases: ['Behind the Build'] }
   ];
+  // Shared editorial catalog: gallery, case-study mastheads and metadata. Route aliases remain stable.
+  var projects = [
+    {
+      "n": "01",
+      "latest": true,
+      "layout": "live",
+      "org": "Independent project · Tavus pilot",
+      "role": "Learning strategy, scenario design, research synthesis and AI-assisted implementation.",
+      "kicker": "Leadership capability",
+      "title": "Marcus, Live",
+      "value": "An independent AI roleplay pilot for new supervisors, connecting scenario design, research-informed learning strategy, and an evaluation roadmap.",
+      "dek": "A newly promoted supervisor rehearses an accountability conversation in their own words. This Tavus pilot pairs conversational AI practice with the research, design decisions and evaluation plan behind it.",
+      "tags": [
+        "AI roleplay",
+        "Leadership development",
+        "Practice & reflection"
+      ],
+      "inside": "Live practice pilot · Research perspective · Evaluation roadmap",
+      "image": "./assets/imagery/marcus-live/marcus-live-practice.webp",
+      "alt": "AI-generated concept image of a warehouse supervisor using a headset to practice a conversation with Marcus on a laptop",
+      "route": "Marcus, Live",
+      "cta": "Explore the case study & practice",
+      "originalTitle": "Marcus, Live",
+      "view": "marcus-live",
+      "subtitle": "Conversational AI for leadership rehearsal",
+      "statement": "A research-informed conversational AI pilot for rehearsing accountability conversations with Tavus. This independent L&D exploration connects scenario design, optional reflection, and an evaluation roadmap; its effect on learning and workplace performance has not yet been evaluated."
+    },
+    {
+      "n": "02",
+      "layout": "sample",
+      "org": "Candidate work sample",
+      "role": "Scenario architecture, storyboard design and multimedia prototyping.",
+      "kicker": "Product enablement",
+      "title": "Drafted by AI. Sent by You.",
+      "value": "A candidate work sample translating AI-assisted invoicing into realistic customer decisions, scenario practice, and performance support.",
+      "dek": "Support Experts need to explain an AI-assisted invoice feature accurately while protecting customer trust. A cinematic readiness work sample separates product knowledge from the judgment needed in a customer conversation.",
+      "tags": [
+        "Product enablement",
+        "Scenario-based learning",
+        "AI readiness"
+      ],
+      "inside": "Readiness strategy · Playable scenario · Storyboard & assets",
+      "image": "./assets/imagery/drafted-by-ai/cold-open-poster.webp",
+      "alt": "AI-generated scene of a fictional small-business owner reviewing her phone beside a pickup truck",
+      "route": "Drafted by AI. Sent by You.",
+      "cta": "Explore the work sample",
+      "originalTitle": "Drafted by AI. Sent by You.",
+      "view": "drafted-by-ai",
+      "subtitle": "AI readiness through customer judgment",
+      "statement": "An independent candidate work sample exploring how support Experts can explain AI-assisted invoicing while protecting customer trust. Learning strategy, visual storytelling, and an interactive prototype; not a commissioned or deployed Intuit program."
+    },
+    {
+      "n": "03",
+      "layout": "flagship",
+      "org": "Independent project",
+      "role": "Learning architecture, scenario writing, cinematic production and interactive design.",
+      "kicker": "Scenario-based learning",
+      "title": "The First Sentence",
+      "focal": "50% 40%",
+      "value": "A cinematic branching simulation for first-time supervisors, built around consequential choices, peer coaching, and practice for a new conversation.",
+      "dek": "New shift leads must address performance with a former peer. This branching simulation turns that transition into consequential choices, peer coaching and a transfer exercise.",
+      "tags": [
+        "Scenario-based learning",
+        "Leadership development",
+        "Performance conversations"
+      ],
+      "chips": [
+        "About 7 min",
+        "Branching paths",
+        "Speak or type"
+      ],
+      "inside": "Playable simulation · Design rationale · Production process",
+      "image": "./assets/imagery/the-first-sentence-featured-work-illustration.webp",
+      "alt": "AI-generated illustration of Dana and Marcus talking in a warehouse aisle",
+      "route": "The First Sentence",
+      "cta": "Explore the interactive experience",
+      "originalTitle": "The First Sentence",
+      "view": "the-first-sentence",
+      "subtitle": "From peer to leader, one decision at a time",
+      "statement": "An independent cinematic branching simulation for newly promoted frontline supervisors. Consequential choices, peer coaching, and a transfer exercise help learners practice opening a hard conversation with a former teammate using Behavior → Impact → Ask."
+    },
+    {
+      "n": "04",
+      "layout": "lead",
+      "org": "Cox Enterprises",
+      "role": "Learning strategy, narrative architecture, Storyline development and AI-assisted production.",
+      "kicker": "Enterprise learning",
+      "title": "Operation: Legacy Unlocked",
+      "value": "Organizational history becomes a leadership mission through narrative architecture, interactive challenges, and SCORM delivery for Cox Enterprises.",
+      "dek": "Organizational history becomes a mission-driven leadership experience. Employees investigate the company’s legacy through interactive challenges designed around culture, identity and decisions.",
+      "tags": [
+        "Scenario-based learning",
+        "Culture & leadership",
+        "Learning experience design"
+      ],
+      "inside": "Learning architecture · Mission design · SCORM delivery",
+      "image": "./assets/imagery/olu-featured-work-illustration.webp",
+      "alt": "Operation: Legacy Unlocked leadership simulation cover",
+      "route": "Operation: Legacy Unlocked",
+      "originalTitle": "Operation: Legacy Unlocked",
+      "view": "case-study",
+      "subtitle": "Mission-based learning for enterprise culture",
+      "statement": "A mission-driven leadership learning experience for Cox Enterprises. Employees become Cox Intelligence Agents, exploring organizational history through narrative architecture and interactive challenges designed around culture, identity, and decisions."
+    },
+    {
+      "n": "05",
+      "layout": "pair-a",
+      "org": "IHG Hotels & Resorts",
+      "role": "Instructional design, motion design and multimedia production.",
+      "kicker": "Employee onboarding",
+      "title": "HotelKey: Ready for Day One",
+      "value": "An onboarding experience connecting HotelKey’s operating logic to real shift decisions through workflow instruction and multimedia learning.",
+      "dek": "New hotel hires need to understand HotelKey’s operating logic as well as its screens. Structured onboarding connects system workflows to the decisions employees make on shift.",
+      "tags": [
+        "Employee onboarding",
+        "Systems training",
+        "Product enablement"
+      ],
+      "inside": "Onboarding strategy · Workflow instruction · Learning assets",
+      "image": "./assets/imagery/hotelkey-featured-work-illustration.webp",
+      "alt": "HotelKey hotel technology enablement cover",
+      "route": "HotelKey New Hire Onboarding",
+      "originalTitle": "Global product readiness for hotel technology",
+      "view": "hotelkey-onboarding",
+      "subtitle": "Role-based onboarding for hotel operations",
+      "statement": "A structured onboarding experience for new hotel hires that connects HotelKey’s operating logic to the decisions employees make on shift. Workflow instruction, motion design, and multimedia learning explain why the system works as well as how to use it."
+    },
+    {
+      "n": "06",
+      "layout": "pair-b",
+      "org": "Cox Enterprises",
+      "role": "Creative strategy, launch messaging, video production and Rise 360 learning design.",
+      "kicker": "Learning platform adoption",
+      "title": "Workday Learn: The Growth Launch",
+      "value": "A coordinated enterprise launch connecting professional growth to Workday Learn through campaign strategy, promotional media, and learning modules.",
+      "dek": "An enterprise learning platform needs a purpose people can understand. A coordinated launch connects professional growth to the platform through communications, promotional media and learning modules.",
+      "tags": [
+        "Learning platform adoption",
+        "Change enablement",
+        "Learning communications"
+      ],
+      "inside": "Launch strategy · Campaign assets · Learning modules",
+      "image": "./assets/imagery/workday-featured-work-illustration.webp",
+      "alt": "AI-generated learning platform concept on a laptop and phone, illustrating the Workday Learn launch",
+      "route": "Workday Learn Launch",
+      "originalTitle": "Workday Learn, launched as a growth ecosystem",
+      "view": "workday-learn",
+      "subtitle": "Learning-platform adoption through purpose",
+      "statement": "An enterprise launch campaign positioning Workday Learn as a professional growth ecosystem. Learning strategy, launch messaging, promotional media, and Rise 360 modules connect organizational purpose to the platform before introducing its features."
+    },
+    {
+      "n": "07",
+      "layout": "reverse",
+      "org": "IHG Hotels & Resorts",
+      "role": "Enablement strategy, learning architecture and production of a modular pilot toolkit.",
+      "kicker": "Performance enablement",
+      "title": "Guest CRM: Beyond the Click",
+      "value": "A modular pilot toolkit connecting guest-relationship workflows to operational context, job aids, tutorials, and feedback-led revisions for hotel teams.",
+      "dek": "Hotel teams need practical support while a new guest-relationship platform is still evolving. A modular enablement toolkit connects operational context, workflow guidance and feedback-led revisions.",
+      "tags": [
+        "Change enablement",
+        "Workflow learning",
+        "Performance support"
+      ],
+      "inside": "Pilot strategy · Job aids & tutorials · Feedback-led iteration",
+      "image": "./assets/imagery/guestcrm-featured-work-illustration.webp",
+      "alt": "Guest CRM pilot change enablement cover",
+      "route": "Guest CRM Pilot",
+      "originalTitle": "Guest CRM adoption across pilot hotels",
+      "view": "guest-crm-pilot",
+      "subtitle": "Change enablement at the point of work",
+      "statement": "A modular enablement toolkit supporting hotel teams during a guest CRM pilot. Learning architecture, workflow guidance, job aids, and tutorials connect operational context to new ways of working while feedback informs revisions."
+    }
+  ];
+  function project(view) { return projects.find(function (p) { return p.view === view; }) || null; }
+  projects.forEach(function (p) {
+    var r = routes.find(function (r) { return r.view === p.view; });
+    if (r && r.aliases.indexOf(p.title) === -1) r.aliases.push(p.title);
+  });
   function section(id) { for (var i = 0; i < sections.length; i++) if (sections[i].id === id) return sections[i]; return null; }
   function resolve(name) {
     for (var i = 0; i < sections.length; i++) {
@@ -398,5 +577,5 @@
     initHybridCinematicHome();
   }
 
-  window.JIZ_SITE = { links: links, sections: sections, routes: routes, section: section, resolve: resolve, viewForHash: viewForHash, viewForPath: viewForPath, route: route };
+  window.JIZ_SITE = { projects: projects, project: project, links: links, sections: sections, routes: routes, section: section, resolve: resolve, viewForHash: viewForHash, viewForPath: viewForPath, route: route };
 })();

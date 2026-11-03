@@ -9,8 +9,8 @@ const TFS_IMG = '/assets/imagery/the-first-sentence/';
 
 const TFS_META = {
   slug: 'the-first-sentence',
-  projectName: 'The First Sentence',
-  statement: 'An independent cinematic branching simulation for newly promoted frontline supervisors: open a hard conversation with a former teammate using Behavior → Impact → Ask.',
+  projectName: window.JIZ_SITE.project('the-first-sentence').title,
+  statement: window.JIZ_SITE.project('the-first-sentence').statement,
   ogAlt: 'The First Sentence — Dana and Marcus on the warehouse floor',
   organization: null
 };
@@ -235,7 +235,8 @@ function CaseStudyFirstSentence({ standalone }) {
       <Chapter surface="obsidian" accent="first-sentence" labelledBy="tfs-h1">
           <p className="tfs-chn">Chapter 01 · The premise</p>
           <p className="tfs-eyebrow">Independent project · Cinematic branching learning simulation</p>
-          <h1 id="tfs-h1" className="tfs-title">The First Sentence</h1>
+          <h1 id="tfs-h1" className="tfs-title">{window.JIZ_SITE.project('the-first-sentence').title}</h1>
+          <p className="tfs-editorial-subtitle">{window.JIZ_SITE.project('the-first-sentence').subtitle}</p>
           <p className="tfs-tension">“Yesterday, you were a teammate. Today, you’re their supervisor.”</p>
           <figure className="tfs-hero">
             <img src={TFS_IMG + 'first-sentence-hero.webp'} alt="Dana, a newly promoted shift lead in a high-visibility vest, faces Marcus, a veteran picker, between warehouse racks" width="1600" height="893" fetchpriority="high" decoding="async" />
@@ -243,6 +244,7 @@ function CaseStudyFirstSentence({ standalone }) {
           </figure>
           <div className="tfs-premise">
             <div className="tfs-premise-copy">
+              <p>{window.JIZ_SITE.project('the-first-sentence').statement}</p>
               <p>Shift 01, 06:42 AM, Aisle 04 at Northstar Distribution. Dana R. is on her first day as shift lead. Pick rate in her aisle is down 30% over three weeks, two trailers are waiting at the dock, and the night cutoff was missed by 15 minutes.</p>
               <p>The associate behind the numbers is Marcus T., a picker with nine years on the floor. He trained her on her first day. The learner plays Dana, and has to open the conversation.</p>
               <p className="tfs-disclose">Northstar Distribution is a fictional company and Dana and Marcus are fictional characters. This is an independent prototype, not client work.</p>

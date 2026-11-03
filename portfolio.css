@@ -156,3 +156,7 @@ body:has(.jiz-footer){display:flow-root;background:var(--portfolio-canvas)}
 
 /* Workflow step markers: brand color with readable dark numerals. */
 .jiz-workflow .jiz-workflow-number{background:var(--signal-lime);border-color:var(--signal-lime);color:var(--obsidian)}
+
+/* Shared editorial subheads: gallery and case-study mastheads use the project catalog. */
+.jiz-cs .jiz-cs-subtitle,.tfs-editorial-subtitle{margin:0 0 20px;max-width:42ch;font:500 clamp(1.125rem,1.4vw,1.5rem)/1.4 var(--font-body);color:var(--color-accent-secondary)}
+.tfs-editorial-subtitle{margin-top:20px;color:var(--tfs-accent,var(--accent-cyan))}

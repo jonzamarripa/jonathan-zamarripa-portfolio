@@ -2,9 +2,10 @@ function CaseStudyGuestCRM({ onBack, onOpenProject, standalone }) {
   const { CaseStudyShell } = window.CaseStudyShellExports;
   const config = {
     slug: "guest-crm-pilot",
-    projectName: "Guest CRM Pilot",
-    eyebrow: "Case Study \u2014 Change Enablement",
-    statement: "Enabling a pilot group of hotel teams to adopt a new guest relationship management platform \u2014 not just navigate it, but understand why the workflows were changing.",
+    projectName: window.JIZ_SITE.project('guest-crm-pilot').title,
+    eyebrow: window.JIZ_SITE.project('guest-crm-pilot').kicker,
+    subtitle: window.JIZ_SITE.project('guest-crm-pilot').subtitle,
+    statement: window.JIZ_SITE.project('guest-crm-pilot').statement,
     facts: [
       { label: "Organization", value: "IHG Hotels & Resorts", accent: "cyan" },
       { label: "Role", value: "Learning Strategist / Creative Producer", accent: "cyan" },

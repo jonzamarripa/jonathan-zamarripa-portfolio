@@ -1,8 +1,8 @@
 // Companion build and research perspective. External findings are not pilot outcomes.
 const MARCUS_META = {
   slug: 'marcus-live',
-  projectName: 'Marcus, Live',
-  statement: 'A research-informed L&D strategy and conversational AI pilot: moving from choosing an opening line to rehearsing an accountability conversation with Tavus.',
+  projectName: window.JIZ_SITE.project('marcus-live').title,
+  statement: window.JIZ_SITE.project('marcus-live').statement,
   ogAlt: 'A warehouse supervisor rehearses a conversation with Marcus on a laptop — AI-generated concept image'
 };
 
@@ -151,9 +151,10 @@ function CaseStudyMarcusLive() {
     <Chapter surface="obsidian" accent="first-sentence" labelledBy="ml-title">
       <p className="tfs-chn">Featured case study · Conversational AI practice</p>
       <p className="tfs-eyebrow">Jonathan Iker Zamarripa · Independent L&amp;D exploration · November 2026</p>
-      <h1 id="ml-title" className="tfs-title">Marcus, Live</h1>
+      <h1 id="ml-title" className="tfs-title">{window.JIZ_SITE.project('marcus-live').title}</h1>
+      <p className="tfs-editorial-subtitle">{window.JIZ_SITE.project('marcus-live').subtitle}</p>
       <p className="tfs-tension">From choosing the words to finding your own.</p>
-      <p className="tfs-lede">What conversational AI makes possible for leadership practice—and what it still has to prove.</p>
+      <p className="tfs-lede">{window.JIZ_SITE.project('marcus-live').statement}</p>
       <figure className="ml-hero-image" id="ml-images">
         <img src="/assets/imagery/marcus-live/marcus-live-practice.webp" alt="AI-generated concept image of a warehouse supervisor practicing a conversation with Marcus on a laptop in an office overlooking the warehouse" width="1376" height="768" fetchpriority="high" decoding="async" />
         <figcaption>Workplace conversation practice. AI-generated concept image; fictional people and scenario. <a href="/assets/imagery/marcus-live/marcus-live-practice.png" download>Download practice image as PNG</a>.</figcaption>

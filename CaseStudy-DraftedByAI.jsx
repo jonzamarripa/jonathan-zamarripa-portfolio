@@ -8,9 +8,10 @@ function CaseStudyDraftedByAI({ onBack, onOpenProject, standalone }) {
     "poster": "./assets/imagery/drafted-by-ai/cold-open-poster.webp"
   },
   "heroCaption": "AI-generated scene: a fictional business owner checks her phone while seated on a pickup truck tailgate at sunset.",
-  "projectName": "Drafted by AI. Sent by You.",
-  "eyebrow": "Candidate work sample · Expert readiness",
-  "statement": "An independent candidate work sample exploring how support Experts can help people use AI with confidence. I shaped the learning approach, directed the visual storytelling, and built an interactive prototype. Not a commissioned or deployed Intuit program.",
+  "projectName": window.JIZ_SITE.project('drafted-by-ai').title,
+  "eyebrow": window.JIZ_SITE.project('drafted-by-ai').kicker,
+  subtitle: window.JIZ_SITE.project('drafted-by-ai').subtitle,
+  "statement": window.JIZ_SITE.project('drafted-by-ai').statement,
   "facts": [
     {
       "label": "Context",

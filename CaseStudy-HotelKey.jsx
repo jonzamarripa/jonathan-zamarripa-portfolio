@@ -2,9 +2,10 @@ function CaseStudyHotelKey({ onBack, onOpenProject, standalone }) {
   const { CaseStudyShell } = window.CaseStudyShellExports;
   const config = {
     slug: "hotelkey-onboarding",
-    projectName: "HotelKey New Hire Onboarding",
-    eyebrow: "Case Study \u2014 Enterprise Onboarding",
-    statement: "A structured onboarding experience that introduces new hotel hires to HotelKey's operating logic \u2014 not just its screens \u2014 reducing cognitive load while explaining why the software works the way it does.",
+    projectName: window.JIZ_SITE.project('hotelkey-onboarding').title,
+    eyebrow: window.JIZ_SITE.project('hotelkey-onboarding').kicker,
+    subtitle: window.JIZ_SITE.project('hotelkey-onboarding').subtitle,
+    statement: window.JIZ_SITE.project('hotelkey-onboarding').statement,
     facts: [
       { label: "Organization", value: "IHG Hotels & Resorts", accent: "cyan" },
       { label: "Role", value: "Learning Experience Designer / Producer", accent: "cyan" },
