@@ -144,7 +144,7 @@ function page({ title, description, canonical, depth, body, type, noindex, image
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:type" content="${type || 'website'}">
 <meta property="og:url" content="${esc(canonical)}">
-<meta property="og:image" content="${image || SITE + '/assets/og-image.jpg'}">${noindex ? '\n<meta name="robots" content="noindex, nofollow">' : ''}
+<meta property="og:image" content="${image || SITE + '/assets/og/jonathan-zamarripa-portfolio-v1.jpg'}">${noindex ? '\n<meta name="robots" content="noindex, nofollow">' : ''}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="author" content="${esc(J.author)}">
 <meta name="theme-color" content="#0E1114">${ld ? '\n<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>' : ''}
