@@ -1,42 +1,46 @@
 {
   "https://www.jonathanzamarripa.com/": {
-    "hash": "3288e5deb4fb2aa286ccba2e6af56ffe244530e6aae9275f80679e08900f73d9",
+    "hash": "b41b4b64b9f3f125c40c2a664cb13f4d39ccd089290a53a16ac6e88964fc3d33",
     "lastmod": "2026-11-03"
   },
   "https://www.jonathanzamarripa.com/resume/": {
     "hash": "0540507766961c2a1d6638c6a19770e916019cda6e866ca74b8d8358a920dad2",
     "lastmod": "2026-11-03"
   },
+  "https://www.jonathanzamarripa.com/speaking/": {
+    "hash": "bbe6f90a860806fee8ec7d742f833796917ed3cc5df990ffc2b769b21ff729c0",
+    "lastmod": "2026-11-03"
+  },
   "https://www.jonathanzamarripa.com/work/drafted-by-ai/": {
-    "hash": "85a8595c5ba4f351200106d3f8379559694631422cfc8cf729de50fc61e551cb",
+    "hash": "3909096dacdad8cf5000153b21ae533ad77b603a48594eaa478b434f70b9eea5",
     "lastmod": "2026-11-03"
   },
   "https://www.jonathanzamarripa.com/work/guest-crm-pilot/": {
-    "hash": "be3c5fae1d7de778b147d6e9766ff57e6571c532128e5687a00a1fa2871f30a0",
+    "hash": "de32d3cd1c687e2defd1183c2a6eb47656fd1a2808199c5e9f9ec8a82eb9e483",
     "lastmod": "2026-11-03"
   },
   "https://www.jonathanzamarripa.com/work/hotelkey-onboarding/": {
-    "hash": "6baae3ed7bf1e0f0feb10810ccfaf69006ed6f6c5bd4cf2e3d360c6fe70cbe24",
+    "hash": "11c1ccb2d2d61e8842ec4457ccb794c51a677ed4440b52739d904502ab70fd8a",
     "lastmod": "2026-11-03"
   },
   "https://www.jonathanzamarripa.com/work/legacy-unlocked/": {
-    "hash": "64015859308c68b54210d04574972bff704ee3cc6308f970d06c20b6a31f85d0",
+    "hash": "35f308ee733099ce6e9f923212900be1796b12473c726468df9e76361b794918",
     "lastmod": "2026-11-03"
   },
   "https://www.jonathanzamarripa.com/work/marcus-live/": {
-    "hash": "c23cfcafc1c07362f7a4a56781ea24926320aec2e33509ffa009d247840bf44f",
+    "hash": "bb0f335f99b8e16e5bf4750f76210223433fa6fec5fee5a4d05efd08777dc1b8",
     "lastmod": "2026-11-03"
   },
   "https://www.jonathanzamarripa.com/work/the-first-sentence/": {
-    "hash": "4c4ace268c5fdfb6c86bab8d6b2352ebf87dda0f6b74320b625fa212f748cd03",
+    "hash": "9442f2b1bf47f8ffda1d81606b32370e21e1bcd79ec648fd22e308dc787606d1",
     "lastmod": "2026-11-03"
   },
   "https://www.jonathanzamarripa.com/work/workday-learn-launch/": {
-    "hash": "791bc024f3507fa6268f5401c5bffd092a9298c5e8845352f7fdbcb2db1c73e6",
+    "hash": "4b8aa337f9a14283e71bfc8cb487a3a7dfc295a93f48914a4f0e8fb1ec2571c3",
     "lastmod": "2026-11-03"
   },
   "https://www.jonathanzamarripa.com/journal/": {
-    "hash": "87f6c73bea45d3ad6446139f503ea0933e3f8cd3da5209b3414bca18c630b181",
+    "hash": "067410610091905caa8fdbc884e7aa2cbb82779d3e525426253ba304e86fe2f7",
     "lastmod": "2026-11-03"
   }
 }

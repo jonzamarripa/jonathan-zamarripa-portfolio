@@ -4,7 +4,9 @@
 const { readFileSync, writeFileSync, mkdirSync } = require('fs');
 const { transformSync } = require('@babel/' + 'core');
 
-const SITE_FILES = ['Chapter.jsx', 'HomepageP1.jsx', 'Homepage.jsx', 'CaseStudyShell.jsx', 'CaseStudy-Legacy.jsx', 'CaseStudy-HotelKey.jsx', 'CaseStudy-GuestCRM.jsx', 'CaseStudy-Workday.jsx', 'CaseStudy-FirstSentence.jsx', 'CaseStudy-MarcusLive.jsx', 'CaseStudy-DraftedByAI.jsx', 'CaseStudy-BehindTheBuild.jsx', 'App.jsx'];
+require('./build-speaking.cjs');
+
+const SITE_FILES = ['Chapter.jsx', 'HomepageP1.jsx', 'Homepage.jsx', 'SpeakingPreview.jsx', 'CaseStudyShell.jsx', 'CaseStudy-Legacy.jsx', 'CaseStudy-HotelKey.jsx', 'CaseStudy-GuestCRM.jsx', 'CaseStudy-Workday.jsx', 'CaseStudy-FirstSentence.jsx', 'CaseStudy-MarcusLive.jsx', 'CaseStudy-DraftedByAI.jsx', 'CaseStudy-BehindTheBuild.jsx', 'App.jsx'];
 const opts = { minified: true, comments: false, babelrc: false, configFile: false };
 mkdirSync('dist', { recursive: true });
 
@@ -36,6 +38,7 @@ try {
   vm.runInContext(readFileSync('dist/ds-core.js', 'utf8'), ctx);
   vm.runInContext(readFileSync('site-config.js', 'utf8'), ctx);
   vm.runInContext(readFileSync('content/journal.js', 'utf8'), ctx);
+  vm.runInContext(readFileSync('content/speaking.js', 'utf8'), ctx);
   vm.runInContext(code.replace(/ReactDOM\.createRoot\([^;]*\)\.render\([^;]*\);?\s*$/, ''), ctx);
   const html = ReactDOMServer.renderToString(React.createElement(win.HomepageExports.Homepage, { onOpenCaseStudy: noop })).replace(/<video\b[\s\S]*?<\/video>/g, '');
   const idx = readFileSync('index.html', 'utf8').replace(/<div id="root">[\s\S]*<\/div>(\s*<\/body>)/, (m, end) => '<div id="root"><div data-prerender="">' + html + '</div></div>' + end);

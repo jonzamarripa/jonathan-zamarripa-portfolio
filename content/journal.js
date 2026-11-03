@@ -41,7 +41,7 @@
         { name: 'Measurement', level: 'High' },
         { name: 'Ethics of emotional design', level: 'High' }
       ],
-      nextRelease: { version: 'v1.1', when: 'Scheduled for November 3, 2026', released: false },
+      nextRelease: { version: 'v1.1', when: 'Published November 2, 2026', released: true, url: 'https://doi.org/10.5281/zenodo.23889919' },
       proposed: [
         'Axiom 05 revised: “Disclosed at the threshold, never distracting in the frame.” The original wording stays in version history.',
         'Axiom 09 · Germane Cinema',
@@ -73,7 +73,7 @@
       ],
       versions: [
         { version: 'v1.0', status: 'Published', note: 'Foundational Architecture Document, May 2026' },
-        { version: 'v1.1', status: 'Not released', note: 'Scheduled for November 3, 2026, with a public changelog' }
+        { version: 'v1.1', status: 'Published', note: 'November 2, 2026 · DOI 10.5281/zenodo.23889919 · public changelog' }
       ],
       corrections: [
         { issue: '06', correction: 'The 53-study productive-failure meta-analysis is Sinha & Kapur (2021), Review of Educational Research, not Kapur (2016).', where: 'Issue 07' },

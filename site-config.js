@@ -3,6 +3,7 @@
 (function () {
   var links = {
     resume: '/resume/',
+    speaking: '/speaking/',
     linkedin: 'https://www.linkedin.com/in/jonathanzamarripa/',
     email: 'mailto:jonathan.zamarripa@gmail.com',
     archive: '/#archive',

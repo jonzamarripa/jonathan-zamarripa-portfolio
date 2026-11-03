@@ -1640,11 +1640,11 @@ function LetsBuild({ onExploreWork }) {
     { id: 'other', label: 'Something else', subject: 'General inquiry', detail: 'How can I help?', hint: 'A few lines are enough.' }
   ];
   const FOCUS = ['Learning Experience', 'Leadership Development', 'Product Enablement', 'AI-Enabled Learning'];
-  const FORMATS = ['Keynote', 'Panel', 'Workshop', 'Podcast or Interview'];
+  const FORMATS = ['Keynote', 'Panel', 'Workshop', 'Guest lecture', 'Podcast or Interview'];
   const TIMELINES = ['Exploring', 'Within 30 Days', '1–3 Months', '3+ Months'];
   const BUDGETS = ['Not Established', 'Under $10k', '$10k–25k', '$25k–50k', '$50k+'];
   const REFERRALS = ['LinkedIn', 'Referral', 'Google Search', 'Previous Colleague', 'Conference or Event', 'Other'];
-  const EMPTY = { name: '', email: '', org: '', intent: '', detail: '', role: '', location: '', jobLink: '', focus: [], timeline: '', budget: '', eventName: '', eventDate: '', format: '', referral: '' };
+  const EMPTY = { name: '', email: '', org: '', intent: '', detail: '', role: '', location: '', jobLink: '', focus: [], timeline: '', budget: '', eventName: '', eventDate: '', format: '', topic: '', referral: '' };
   const [form, setForm] = React.useState(EMPTY);
   const intent = INTENTS.find((i) => i.id === form.intent) || null;
   // Preselect the inquiry type when a visitor arrives from "Invite me to speak" (homepage event or /?intent=speaking).
@@ -1655,8 +1655,13 @@ function LetsBuild({ onExploreWork }) {
     if (fromUrl) {
       apply(fromUrl);
       try {
+        const topicId = new URLSearchParams(window.location.search).get('topic');
+        const talk = window.JIZ_SPEAKING && window.JIZ_SPEAKING.talks.find(t => t.id === topicId);
+        if (fromUrl === 'speaking' && talk) setForm(f => ({ ...f, topic: talk.title }));
+      } catch (e) {}
+      try {
         sessionStorage.setItem('jiz-target-section', 'contact');
-        const u = new URL(window.location.href); u.searchParams.delete('intent');
+        const u = new URL(window.location.href); u.searchParams.delete('intent'); u.searchParams.delete('topic');
         window.history.replaceState(window.history.state, '', u.pathname + u.search + u.hash);
       } catch (e) {}
     }
@@ -1860,6 +1865,7 @@ function LetsBuild({ onExploreWork }) {
               ) : null}
               {form.intent === 'speaking' ? (
                 <React.Fragment>
+                  <div className="jiz-build-field"><label className="jiz-build-label" htmlFor="jiz-build-topic">Talk or theme</label><select className="jiz-build-input" id="jiz-build-topic" name="speaking_topic" value={form.topic} onChange={set('topic')}><option value="">Let’s shape it together</option>{(window.JIZ_SPEAKING ? window.JIZ_SPEAKING.talks : []).map(t => <option key={t.id} value={t.title}>{t.title}</option>)}</select></div>
                   <div className="jiz-build-field">
                     <label className="jiz-build-label" htmlFor="jiz-build-event">Event or organization</label>
                     <input className="jiz-build-input" id="jiz-build-event" name="event_name" type="text" value={form.eventName} onChange={set('eventName')} placeholder="Conference, panel, or podcast" />
@@ -1972,7 +1978,7 @@ function FinalMoment({ onNavigate, standalone = false }) {
   const [lit, setLit] = React.useState(false);
   const ref = React.useRef(null);
   const reduced = prefersReduced();
-  const NAV = [['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Behind the Build', 'btb'], ['Resume', 'resume'], ['LinkedIn', 'linkedin']].concat(window.JIZ_SITE.links.newsletter ? [['Journal', 'journal'], ['Read the Newsletter', 'newsletter']] : [], [['Email', 'email']]);
+  const NAV = [['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Behind the Build', 'btb'], ['Speaking', 'speaking'], ['Resume', 'resume'], ['LinkedIn', 'linkedin']].concat(window.JIZ_SITE.links.newsletter ? [['Journal', 'journal'], ['Read the Newsletter', 'newsletter']] : [], [['Email', 'email']]);
   React.useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setLit(true); }, { threshold: 0.4 });
     if (ref.current) obs.observe(ref.current);
@@ -2118,7 +2124,7 @@ function CinematicJournal({ onNavigate }) {
         </article> : null}
         <div className="jz-cls-secondary">
           <div className="jz-cls-more"><p className="jz-cls-type">More from the journal</p><ul className="jz-cls-list">{support.map((a) => <li key={a.slug}><a {...linkProps(a)}><span className="jz-cls-list-title">{a.title}</span><svg className="jz-cls-list-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 18 18 6M6 6h12v12" /></svg>{onPage(a) ? null : <span className="jz-visually-hidden"> (LinkedIn, opens in a new tab)</span>}</a></li>)}</ul></div>
-          <div className="jz-cls-utility"><a className="jz-cls-framework" href="/journal/#framework">Explore the framework · CLPF {J.framework.version} <span aria-hidden="true">→</span></a><button type="button" className="jz-cls-invite" onClick={invite}>Invite me to speak <span aria-hidden="true">→</span></button></div>
+          <div className="jz-cls-utility"><a className="jz-cls-framework" href="/journal/#framework">Framework &amp; publications <span aria-hidden="true">→</span></a><button type="button" className="jz-cls-invite" onClick={invite}>Invite me to speak <span aria-hidden="true">→</span></button></div>
         </div>
       </div>
     </section>
@@ -2281,7 +2287,7 @@ function Homepage({ onOpenCaseStudy }) {
   const sectionRefs = React.useRef({});
   const [activeSection, setActiveSection] = React.useState('hero');
   const reduced = prefersReduced();
-  const navItems = ['Work', 'Capabilities', 'Method', 'Thinking', 'Stack', 'About', 'Archive'];
+  const navItems = ['Work', 'Capabilities', 'Method', 'Thinking', 'Speaking', 'Stack', 'About', 'Archive'];
 
   const registerSection = React.useCallback((id) => (element) => { sectionRefs.current[id] = element; }, []);
   const scrollToSection = React.useCallback((id) => {
@@ -2334,6 +2340,7 @@ function Homepage({ onOpenCaseStudy }) {
         secondaryItems={['Creative Lab', 'Resume', 'LinkedIn']}
         active={activeNavLabel}
         onNavigate={(item) => {
+          if (item === 'Speaking') { window.location.assign(SITE.links.speaking); return; }
           if (item === 'Resume') { window.jizTrack && window.jizTrack('resume_click'); window.open(SITE.links.resume, '_blank', 'noopener,noreferrer'); return; }
           if (item === 'LinkedIn') { window.open(SITE.links.linkedin, '_blank', 'noopener,noreferrer'); return; }
           const target = SITE.resolve(item);
@@ -2351,6 +2358,7 @@ function Homepage({ onOpenCaseStudy }) {
         <div ref={registerSection('capabilities')} data-section="capabilities"><Practice part="capabilities" /></div>
         <div ref={registerSection('method')} data-section="method"><Practice part="method" /></div>
         <div ref={registerSection('thinking')} data-section="cinematic-learning-systems"><CinematicJournal onNavigate={scrollToSection} /></div>
+        <SpeakingPreview />
         <div ref={registerSection('creative-lab')} data-section="creative-lab"><FilmSection /></div>
         <div ref={registerSection('about')} data-section="about"><AboutMind /></div>
         <div ref={registerSection('journey')} data-section="journey"><CareerJourney /></div>

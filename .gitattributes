@@ -1,0 +1,5 @@
+# Treat generated media as binary, including ASCII-encoded PDF streams.
+*.pdf binary
+*.mp4 binary
+*.webp binary
+*.jpeg binary

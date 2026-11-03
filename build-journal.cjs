@@ -214,6 +214,12 @@ function hub() {
   <p class="jr-kicker">02 · The Framework</p>
   <h2 id="jr-fw">${esc(F.name)}</h2>
   <p class="jr-status"><span class="pill pill-ok">${esc(F.version)} · Published</span> ${esc(F.released)}</p>
+  ${F.nextRelease.released ? `<div class="box" role="note"><p class="box-label">CLPF ${esc(F.nextRelease.version)} · Published</p><p>The foundation below is the preserved ${esc(F.version)} edition. <a href="${esc(F.nextRelease.url)}" target="_blank" rel="noopener noreferrer">Read the ${esc(F.nextRelease.version)} publication and changelog<span class="vh"> (opens in a new tab)</span></a>. ${esc(F.nextRelease.when)}.</p></div>` : `  <div class="box box-proposed" role="note" aria-labelledby="jr-prop">
+    <p class="box-label" id="jr-prop">Proposed for ${esc(F.nextRelease.version)} · not released</p>
+    <p>${esc(F.nextRelease.when)}. These changes are not part of CLPF until ${esc(F.nextRelease.version)} is released.</p>
+    <ul>${F.proposed.map((p) => '<li>' + esc(p) + '</li>').join('')}</ul>
+  </div>
+`}
   <p class="jr-lede">${esc(F.scope)}</p>
   <h3>Four systems</h3>
   <ol class="jr-systems">${F.systems.map((s) => '<li>' + esc(s) + '</li>').join('')}</ol>
@@ -225,11 +231,6 @@ function hub() {
   <p class="jr-note">Status reflects the author’s own review of each axiom.</p>
   <h3>Named gaps</h3>
   <ul class="jr-gaps">${F.gaps.map((g, i) => `<li><span>Gap ${i + 1}</span> ${esc(g.name)} <em>${esc(g.level)}</em></li>`).join('')}</ul>
-  <div class="box box-proposed" role="note" aria-labelledby="jr-prop">
-    <p class="box-label" id="jr-prop">Proposed for ${esc(F.nextRelease.version)} · not released</p>
-    <p>${esc(F.nextRelease.when)}. These changes are not part of CLPF until ${esc(F.nextRelease.version)} is released.</p>
-    <ul>${F.proposed.map((p) => '<li>' + esc(p) + '</li>').join('')}</ul>
-  </div>
   <h3>The Master Question</h3>
   <blockquote class="jr-quote">${esc(F.masterQuestion)}</blockquote>
 </section>
@@ -311,7 +312,7 @@ const today = new Date().toISOString().slice(0, 10);
 // Case-study pages written by build.cjs (/work/<slug>/index.html); each one indexable, so each one listed.
 const workDir = require('path').join(__dirname, 'work');
 const work = require('fs').existsSync(workDir) ? require('fs').readdirSync(workDir).filter((d) => require('fs').existsSync(require('path').join(workDir, d, 'index.html'))).sort().map((d) => SITE + '/work/' + d + '/') : [];
-const urls = [SITE + '/', SITE + '/resume/'].concat(work, [SITE + '/journal/']).concat(J.articles.filter((x) => x.status === 'published' && x.onSite).map((x) => SITE + '/journal/' + x.slug + '/'));
+const urls = [SITE + '/', SITE + '/resume/', SITE + '/speaking/'].concat(work, [SITE + '/journal/']).concat(J.articles.filter((x) => x.status === 'published' && x.onSite).map((x) => SITE + '/journal/' + x.slug + '/'));
 writeFileSync(path.join('content', 'analytics-paths.json'), JSON.stringify(urls.map((url) => new URL(url).pathname), null, 2) + '\n');
 // Persist content fingerprints, so rebuilds do not imply editorial changes.
 const { createHash } = require('crypto');

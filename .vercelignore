@@ -53,3 +53,8 @@ assets/favicon-white.svg
 /build-resume.cjs
 /scripts/
 /content/public-resume.json
+
+# Speaking build inputs (compiled page/data remain public)
+/build-speaking.cjs
+/content/speaking.json
+/.gitattributes
