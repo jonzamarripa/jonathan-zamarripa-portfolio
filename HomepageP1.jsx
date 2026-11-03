@@ -188,7 +188,7 @@ function SelectedExperience() {
 const FEATURED_PROJECTS = [
     { n: '01', latest: true, layout: 'live', org: 'Independent project · Tavus pilot', role: 'Learning strategy, scenario design, research synthesis and AI-assisted implementation.', kicker: 'Conversational simulation', title: 'Marcus, Live', value: 'Rehearse an accountability conversation in your own words with a conversational AI pilot.', dek: 'A newly promoted supervisor rehearses an accountability conversation in their own words. This Tavus pilot pairs conversational AI practice with the research, design decisions and evaluation plan behind it.', tags: ['AI roleplay', 'Leadership development', 'Practice & reflection'], inside: 'Live practice pilot · Research perspective · Evaluation roadmap', image: './assets/imagery/marcus-live/marcus-live-practice.webp', alt: 'AI-generated concept image of a warehouse supervisor using a headset to practice a conversation with Marcus on a laptop', route: 'Marcus, Live', cta: 'Explore the case study & practice' },
     { n: '02', layout: 'sample', org: 'Candidate work sample', role: 'Scenario architecture, storyboard design and multimedia prototyping.', kicker: 'AI feature readiness', title: 'Drafted by AI. Sent by You.', value: 'Practice explaining an AI-assisted invoice feature while protecting customer trust.', dek: 'Support Experts need to explain an AI-assisted invoice feature accurately while protecting customer trust. A cinematic readiness work sample separates product knowledge from the judgment needed in a customer conversation.', tags: ['Product enablement', 'Scenario-based learning', 'AI readiness'], inside: 'Readiness strategy · Playable scenario · Storyboard & assets', image: './assets/imagery/drafted-by-ai/cold-open-poster.webp', alt: 'AI-generated scene of a fictional small-business owner reviewing her phone beside a pickup truck', route: 'Drafted by AI. Sent by You.', cta: 'Explore the work sample' },
-    { n: '03', layout: 'flagship', org: 'Independent project', role: 'Learning architecture, scenario writing, cinematic production and interactive design.', kicker: 'Leadership development', title: 'The First Sentence', value: 'Practice the first difficult conversation as a newly promoted supervisor.', dek: 'New shift leads must address performance with a former peer. This branching simulation turns that transition into consequential choices, peer coaching and a transfer exercise.', tags: ['Scenario-based learning', 'Leadership development', 'Performance conversations'], chips: ['About 7 min', 'Branching paths', 'Speak or type'], inside: 'Playable simulation · Design rationale · Production process', image: './assets/imagery/the-first-sentence-featured-work-illustration.webp', alt: 'AI-generated illustration of Dana and Marcus talking in a warehouse aisle', route: 'The First Sentence', cta: 'Explore the interactive experience' },
+    { n: '03', layout: 'flagship', org: 'Independent project', role: 'Learning architecture, scenario writing, cinematic production and interactive design.', kicker: 'Leadership development', title: 'The First Sentence', focal: '50% 40%', value: 'Practice the first difficult conversation as a newly promoted supervisor.', dek: 'New shift leads must address performance with a former peer. This branching simulation turns that transition into consequential choices, peer coaching and a transfer exercise.', tags: ['Scenario-based learning', 'Leadership development', 'Performance conversations'], chips: ['About 7 min', 'Branching paths', 'Speak or type'], inside: 'Playable simulation · Design rationale · Production process', image: './assets/imagery/the-first-sentence-featured-work-illustration.webp', alt: 'AI-generated illustration of Dana and Marcus talking in a warehouse aisle', route: 'The First Sentence', cta: 'Explore the interactive experience' },
     { n: '04', layout: 'lead', org: 'Cox Enterprises', role: 'Learning strategy, narrative architecture, Storyline development and AI-assisted production.', kicker: 'Leadership development', title: 'Operation: Legacy Unlocked', value: 'Turn organizational history into an immersive leadership mission.', dek: 'Organizational history becomes a mission-driven leadership experience. Employees investigate the company’s legacy through interactive challenges designed around culture, identity and decisions.', tags: ['Scenario-based learning', 'Culture & leadership', 'Learning experience design'], inside: 'Learning architecture · Mission design · SCORM delivery', image: './assets/imagery/olu-featured-work-illustration.webp', alt: 'Operation: Legacy Unlocked leadership simulation cover', route: 'Operation: Legacy Unlocked' },
     { n: '05', layout: 'pair-a', org: 'IHG Hotels & Resorts', role: 'Instructional design, motion design and multimedia production.', kicker: 'Product enablement', title: 'Global product readiness for hotel technology', value: 'Prepare hotel teams for evolving technology with reusable learning workflows.', dek: 'New hotel hires need to understand HotelKey’s operating logic as well as its screens. Structured onboarding connects system workflows to the decisions employees make on shift.', tags: ['Employee onboarding', 'Systems training', 'Product enablement'], inside: 'Onboarding strategy · Workflow instruction · Learning assets', image: './assets/imagery/hotelkey-featured-work-illustration.webp', alt: 'HotelKey hotel technology enablement cover', route: 'HotelKey New Hire Onboarding' },
     { n: '06', layout: 'pair-b', org: 'Cox Enterprises', role: 'Creative strategy, launch messaging, video production and Rise 360 learning design.', kicker: 'Learning platform adoption', title: 'Workday Learn, launched as a growth ecosystem', value: 'Introduce a learning platform through organizational purpose.', dek: 'An enterprise learning platform needs a purpose people can understand. A coordinated launch connects professional growth to the platform through communications, promotional media and learning modules.', tags: ['Learning platform adoption', 'Change enablement', 'Learning communications'], inside: 'Launch strategy · Campaign assets · Learning modules', image: './assets/imagery/workday-featured-work-illustration.webp', alt: 'AI-generated learning platform concept on a laptop and phone, illustrating the Workday Learn launch', route: 'Workday Learn Launch' },
@@ -234,40 +234,44 @@ function FeaturedWorkEditorial({ onOpenWork }) {
     <section className="jz-fw" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-fw-title">
       <EditorialStyles />
       <style>{`
-.jz-fw{--gallery-gutter:clamp(20px,5.5vw,104px);padding-block:clamp(56px,7vw,104px);background:var(--warm-paper);color:var(--obsidian)}
+.jz-fw{--gallery-gutter:clamp(20px,5.5vw,104px);padding-block:clamp(48px,6vw,88px);color:var(--obsidian)}
 .jz-fw-heading,.jz-fw-controls,.jz-fw-index{margin-inline:var(--gallery-gutter)}
-.jz-fw-heading{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:40px}
-.jz-fw-h2{margin:16px 0 0;font:600 clamp(2.75rem,5.6vw,6rem)/1 var(--font-display);letter-spacing:-.045em}
-.jz-fw-heading>p{max-width:25ch;margin:0;font:400 1rem/1.6 var(--font-body);color:var(--obsidian)}
-.jz-fw-track{display:flex;gap:clamp(18px,2.5vw,36px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gallery-gutter);padding:8px var(--gallery-gutter) 24px;position:relative;scrollbar-width:thin;scrollbar-color:var(--obsidian) transparent}
+.jz-fw-heading{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-bottom:clamp(28px,3vw,44px)}
+.jz-fw-h2{margin:14px 0 0;font:600 clamp(2.75rem,5vw,5rem)/1 var(--font-display);letter-spacing:-.045em}
+.jz-fw-heading>p{max-width:28ch;margin:0 0 3px;font:400 1rem/1.6 var(--font-body);color:var(--slate)}
+.jz-fw-track{display:flex;align-items:stretch;gap:clamp(18px,2.5vw,36px);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--gallery-gutter);padding:4px var(--gallery-gutter) 16px;position:relative;scrollbar-width:thin;scrollbar-color:var(--mist) transparent}
 .jz-fw-track::after{content:'';flex:0 0 calc(15% - var(--gallery-gutter))}
-.jz-fw-slide{flex:0 0 85%;min-width:0;scroll-snap-align:start;scroll-snap-stop:normal}
-.jz-fw-frame{height:clamp(300px,36vw,520px);display:flex;justify-content:center;background:var(--obsidian);border:1px solid var(--slate);padding:clamp(10px,1.5vw,22px);border-radius:var(--panel-r-inner);box-shadow:0 12px 24px rgba(11,13,16,.12);perspective:1400px}
-.jz-fw-frame img{display:block;width:100%;height:100%;object-fit:contain}
-.jz-fw-slide .jz-fw-frame{transition:border-color 200ms,box-shadow 200ms}
-.jz-fw-slide[data-active="true"] .jz-fw-frame{border-color:var(--accent-cyan);box-shadow:0 12px 24px rgba(11,13,16,.18)}
-@media(hover:hover) and (prefers-reduced-motion:no-preference){html:not([data-jz-motion-paused="true"]) .jz-fw-slide:focus-within .jz-fw-frame img{transform:translateZ(3px)}}
-.jz-fw-copy{padding-top:26px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px 32px;align-items:start}
-.jz-fw-copy .jz-label{grid-column:1/-1}
-.jz-fw-project-title{margin:0;font:600 clamp(1.65rem,2.7vw,3rem)/1.12 var(--font-display);letter-spacing:-.025em;overflow-wrap:break-word}
-.jz-fw-value{grid-column:1;max-width:52ch;margin:0;font:400 1rem/1.6 var(--font-body)}
-.jz-fw-copy .jz-link{grid-column:2;grid-row:2/4;align-self:end;white-space:nowrap}
-.jz-fw-controls{display:flex;align-items:center;gap:18px;margin-top:28px;padding-top:24px;border-top:1px solid rgba(11,13,16,.2)}
-.jz-fw-count{font:500 .8125rem/1.5 var(--font-mono);font-variant-numeric:tabular-nums}
-.jz-fw-meter{height:3px;flex:1;background:rgba(11,13,16,.18)}
+.jz-fw-slide{position:relative;flex:0 0 85%;min-width:0;scroll-snap-align:start;scroll-snap-stop:normal;display:flex;flex-direction:column}
+.jz-fw-frame{aspect-ratio:16/9;overflow:hidden;border-radius:clamp(10px,1.1vw,16px);background:var(--mist);isolation:isolate}
+.jz-fw-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:var(--project-focal,50% 50%)}
+.jz-fw-copy{padding-top:24px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:12px clamp(24px,4vw,64px);align-items:start;align-content:start;flex:1}
+.jz-fw-copy .jz-label{grid-column:1;line-height:1.5;font-size:.6875rem;letter-spacing:.12em;display:flex;gap:12px}
+.jz-fw-project-number{color:#286579;font-variant-numeric:tabular-nums}
+.jz-fw-project-title{grid-column:1;grid-row:2/4;margin:0;max-width:22ch;font:600 clamp(1.65rem,2.6vw,2.75rem)/1.12 var(--font-display);letter-spacing:-.035em;overflow-wrap:break-word;text-wrap:balance}
+.jz-fw-value{grid-column:2;grid-row:2;margin:0;max-width:43ch;font:400 1rem/1.6 var(--font-body);color:var(--slate)}
+.jz-fw-copy .jz-link{grid-column:2;grid-row:3;justify-self:start;align-self:end;white-space:nowrap;margin-top:4px}
+.jz-fw-copy .jz-link:after{content:'';position:absolute;inset:0;border-radius:16px}
+.jz-fw-slide:has(.jz-link:focus-visible) .jz-fw-frame{outline:2px solid var(--obsidian);outline-offset:3px}
+.jz-fw-copy .jz-link>span:last-child{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border:1px solid var(--mist);border-radius:50%;color:var(--obsidian);transition:background 180ms,border-color 180ms}
+.jz-fw-slide:hover .jz-link>span:last-child,.jz-fw-slide:focus-within .jz-link>span:last-child{background:var(--signal-lime);border-color:var(--signal-lime)}
+.jz-fw-controls{display:flex;align-items:center;gap:20px;margin-top:clamp(20px,3vw,40px);padding-top:20px;border-top:1px solid rgba(11,13,16,.15)}
+.jz-fw-count{font:500 .75rem/1.5 var(--font-mono);font-variant-numeric:tabular-nums;letter-spacing:.04em}
+.jz-fw-meter{height:2px;flex:1;background:var(--mist)}
 .jz-fw-meter span{display:block;height:100%;background:var(--obsidian)}
 .jz-fw-buttons{display:flex;gap:8px}
-.jz-fw-buttons button{width:48px;height:48px;border:1px solid var(--obsidian);border-radius:50%;background:transparent;color:var(--obsidian);font-size:24px;cursor:pointer}
-.jz-fw-buttons button:hover:enabled{background:var(--signal-lime)}
+.jz-fw-buttons button{width:44px;height:44px;border:1px solid var(--mist);border-radius:50%;background:transparent;color:var(--obsidian);font-size:22px;cursor:pointer;transition:background 180ms,border-color 180ms}
+.jz-fw-buttons button:hover:enabled{background:var(--signal-lime);border-color:var(--signal-lime)}
 .jz-fw-buttons button:disabled{opacity:.35;cursor:default}
 .jz-fw button:focus-visible,.jz-fw-track:focus-visible,.jz-fw summary:focus-visible,.jz-fw-index a:focus-visible{outline:2px solid var(--obsidian);outline-offset:4px}
-.jz-fw-index{margin-top:28px;font:500 .9375rem/1.5 var(--font-body)}
+.jz-fw-index{margin-top:12px;font:500 .875rem/1.5 var(--font-body)}
 .jz-fw-index summary{cursor:pointer;padding-block:12px;width:fit-content;min-height:44px}
 .jz-fw-index ul{list-style:none;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
-.jz-fw-index li{border-top:1px solid rgba(11,13,16,.18)}
+.jz-fw-index li{border-top:1px solid rgba(11,13,16,.15)}
 .jz-fw-index a{display:block;padding:14px 0;color:var(--obsidian);text-underline-offset:4px}
-@media(max-width:760px){.jz-fw-heading{display:block;margin-bottom:28px}.jz-fw-heading>p{margin-top:20px;max-width:32ch}.jz-fw-slide{flex-basis:90%}.jz-fw-track::after{flex-basis:calc(10% - var(--gallery-gutter))}.jz-fw-copy{display:flex;flex-direction:column;gap:12px}.jz-fw-copy .jz-link{align-self:start;margin-top:4px}.jz-fw-frame{height:320px}.jz-fw-index ul{grid-template-columns:1fr}.jz-fw-controls{gap:12px}}
-@media(prefers-reduced-motion:reduce){.jz-fw-slide .jz-fw-frame{transition:none}}
+@media(max-width:900px){.jz-fw-copy{grid-template-columns:1fr;gap:10px}.jz-fw-project-title,.jz-fw-value,.jz-fw-copy .jz-link{grid-column:1;grid-row:auto}.jz-fw-project-title{max-width:26ch}.jz-fw-copy .jz-link{align-self:start}.jz-fw-value{max-width:46ch}}
+@media(max-width:600px){.jz-fw-heading{display:block;margin-bottom:24px}.jz-fw-heading>p{margin-top:18px;max-width:32ch;font-size:.9375rem}.jz-fw-slide{flex-basis:90%}.jz-fw-track::after{flex-basis:calc(10% - var(--gallery-gutter))}.jz-fw-frame{aspect-ratio:4/3}.jz-fw-copy{padding-top:18px}.jz-fw-value{font-size:.9375rem}.jz-fw-index ul{grid-template-columns:1fr}.jz-fw-controls{gap:12px}}
+@media(prefers-reduced-motion:reduce){.jz-fw button,.jz-fw-copy .jz-link>span:last-child{transition:none}}
+html[data-jz-motion-paused="true"] .jz-fw button,html[data-jz-motion-paused="true"] .jz-fw-copy .jz-link>span:last-child{transition:none}
       `}</style>
       <header className="jz-fw-heading">
         <div><p className="jz-label">Selected case studies · {String(projects.length).padStart(2, '0')}</p><h2 className="jz-fw-h2" id="jz-fw-title">Featured work</h2></div>
@@ -279,9 +283,9 @@ function FeaturedWorkEditorial({ onOpenWork }) {
         e.preventDefault(); go(e.key === 'Home' ? 0 : e.key === 'End' ? projects.length - 1 : active + (e.key === 'ArrowRight' ? 1 : -1));
       }}>
         {projects.map((p, i) => <article className="jz-fw-slide" key={p.route} onFocusCapture={() => go(i)} data-active={i === active} aria-labelledby={'jz-fw-project-' + i}>
-          <div className="jz-fw-frame"><img src={p.image} alt={p.alt} loading="lazy" decoding="async" width="1254" height="1254" /></div>
+          <div className="jz-fw-frame" style={{'--project-focal': p.focal || '50% 50%'}}><img src={p.image} alt={p.alt} loading="lazy" decoding="async" width="1254" height="1254" /></div>
           <div className="jz-fw-copy">
-            <p className="jz-label">{p.kicker}</p>
+            <p className="jz-label"><span className="jz-fw-project-number" aria-hidden="true">{p.n}</span>{p.kicker}</p>
             <h3 className="jz-fw-project-title" id={'jz-fw-project-' + i}>{p.title}</h3>
             <p className="jz-fw-value">{p.value}</p>
             <a className="jz-link" href={pathOf(p.route)} onClick={(e) => open(e,p)} aria-label={'View case study: ' + p.title}><span>View case study</span><span aria-hidden="true">→</span></a>
