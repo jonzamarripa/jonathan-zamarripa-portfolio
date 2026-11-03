@@ -60,7 +60,7 @@
   document.addEventListener('click', function (event) {
     var link = event.target.closest && event.target.closest('a[href]');
     if (!link) return;
-    if (new URL(link.href).pathname === '/assets/documents/jonathan-zamarripa-public-resume.pdf') window.jizTrack('resume_click');
+    if (['/resume/', '/assets/documents/jonathan-zamarripa-public-resume.pdf'].indexOf(new URL(link.href).pathname) !== -1) window.jizTrack('resume_click');
     else if (link.href.indexOf('mailto:') === 0) window.jizTrack('contact_email_click');
   });
   pageview();

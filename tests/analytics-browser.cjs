@@ -8,5 +8,6 @@ assert.equal(requests.length,1);assert.equal(requests[0].event,'$pageview');asse
 context.history.pushState({},'', '/#case-study');assert.equal(requests.length,3);assert.equal(requests[2].event,'case_study_view');assert.equal(requests[2].path,'/work/legacy-unlocked/');
 listeners.hashchange();assert.equal(requests.length,3,'Same route must not double count');
 listeners.click({target:{closest:()=>({href:'https://www.jonathanzamarripa.com/assets/documents/jonathan-zamarripa-public-resume.pdf'})}});assert.equal(requests[3].event,'resume_click');
+listeners.click({target:{closest:()=>({href:'https://www.jonathanzamarripa.com/resume/'})}});assert.equal(requests[4].event,'resume_click');
 for(let i=0;i<100;i++)context.window.jizTrack('resume_click');assert.equal(requests.length,40,'Per-page cap');
 console.log('PASS: coarse source attribution, initial pageview, modal route measurement, deduplication, resume click and volume cap without persistent storage');

@@ -48,3 +48,8 @@ assets/favicon-white.svg
 # Build-only regression checks and sitemap fingerprints
 /tests/
 /content/sitemap-state.json
+
+# Browser-resume build inputs
+/build-resume.cjs
+/scripts/
+/content/public-resume.json

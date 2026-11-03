@@ -2,7 +2,7 @@
    Section order = page order. `nav` = which NavBar item lights up while the section is in view. */
 (function () {
   var links = {
-    resume: '/assets/documents/jonathan-zamarripa-public-resume.pdf',
+    resume: '/resume/',
     linkedin: 'https://www.linkedin.com/in/jonathanzamarripa/',
     email: 'mailto:jonathan.zamarripa@gmail.com',
     archive: '/#archive',

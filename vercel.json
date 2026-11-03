@@ -25,6 +25,19 @@
           "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://elearningportfolio-jz.s3.us-east-1.amazonaws.com; media-src 'self' https://elearningportfolio-jz.s3.us-east-1.amazonaws.com; connect-src 'self' https://api.web3forms.com https://tavusapi.com; frame-src https://drums-plant-63973620.figma.site https://coach-line-18168657.figma.site; frame-ancestors 'self'; base-uri 'self'; form-action 'self' https://api.web3forms.com; object-src 'none'"
         }
       ]
+    },
+    {
+      "source": "/assets/documents/jonathan-zamarripa-public-resume.pdf",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/pdf"
+        },
+        {
+          "key": "Content-Disposition",
+          "value": "inline; filename=\"jonathan-zamarripa-public-resume.pdf\""
+        }
+      ]
     }
   ]
 }

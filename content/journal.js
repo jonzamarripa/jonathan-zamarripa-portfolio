@@ -11,11 +11,12 @@
     name: 'Cinematic Learning Systems',
     subtitle: 'An independent journal on the changing conditions of learning, expertise, and experience design.',
     author: 'Jonathan Iker Zamarripa',
+    home: { headline: 'Learning, through a cinematic lens.', description: 'Film craft, learning science, and the decisions that connect them.' },
     anchor: ['The production conditions of learning have changed.', 'The design epistemology hasn’t caught up yet.', 'That gap is the work.'],
     newsletter: NEWSLETTER,
     // Newest first. `url` = the issue's own LinkedIn URL when known; otherwise the newsletter page is used.
     articles: [
-      { slug: 'designed-for-dana-wrong-for-marcus', issue: '07', type: 'Audit', title: 'Designed for Dana. Wrong for Marcus.', standfirst: 'An audit of last week’s worked example, the production artifacts behind the fix, and the pilot designed to test it.', note: 'Dana and Marcus are composite characters.', status: 'published', featured: 'lead', url: 'https://www.linkedin.com/pulse/designed-dana-wrong-marcus-jonathan-zamarripa-o3fme', onSite: false, preview: true, dossier: true, image: 'dana-01-opening-state-1600.webp' },
+      { slug: 'designed-for-dana-wrong-for-marcus', issue: '07', type: 'Audit', title: 'Designed for Dana. Wrong for Marcus.', standfirst: 'An audit of last week’s worked example, the production artifacts behind the fix, and the pilot designed to test it.', note: 'Dana and Marcus are composite characters.', status: 'published', featured: 'lead', homeTeaser: 'A scenario-design audit of the person on the other side of the conversation.', cover: { src: '/journal/designed-for-dana-wrong-for-marcus/assets/01_dana_marcus_aisle04_wide-2048.webp', srcSet: '/journal/designed-for-dana-wrong-for-marcus/assets/01_dana_marcus_aisle04_wide-1024.webp 1024w, /journal/designed-for-dana-wrong-for-marcus/assets/01_dana_marcus_aisle04_wide-2048.webp 2048w', alt: 'AI-generated scene of Dana and Marcus facing one another in a warehouse aisle; both are composite characters.', caption: 'AI-generated scenario artwork · composite characters' }, url: 'https://www.linkedin.com/pulse/designed-dana-wrong-marcus-jonathan-zamarripa-o3fme', onSite: false, preview: true, dossier: true, image: 'dana-01-opening-state-1600.webp' },
       { slug: 'every-shot-you-choose', issue: '03', type: 'Framework', title: 'Every Shot You Choose Is a Learning Design Decision', standfirst: 'A close-up isn’t prettier. It’s attentional narrowing. We just never called it that in learning design.', status: 'published', featured: 'support', url: '', onSite: false }
     ],
     framework: {

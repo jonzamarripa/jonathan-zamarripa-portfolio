@@ -2035,110 +2035,90 @@ function FinalMoment({ onNavigate, standalone = false }) {
 
 function CinematicJournal({ onNavigate }) {
   const J = window.JIZ_JOURNAL;
+  const ref = React.useRef(null);
+  const inView = useInViewOnce(ref);
   if (!J) return null;
   const published = J.articles.filter((a) => a.status === 'published');
   const lead = published.find((a) => a.featured === 'lead') || published[0];
   const support = published.filter((a) => a !== lead && a.featured).slice(0, 2);
   const onPage = (a) => a.onSite || a.dossier;
-  const linkProps = (a) => (onPage(a) ? { href: './journal/' + a.slug + '/' } : { href: a.url, target: '_blank', rel: 'noopener noreferrer' });
-  const readLabel = (a) => (a.onSite ? 'Read on this site' : a.dossier ? 'Read the dossier' : 'Read in the newsletter');
+  const linkProps = (a) => (onPage(a) ? { href: '/journal/' + a.slug + '/' } : { href: a.url, target: '_blank', rel: 'noopener noreferrer' });
   const invite = () => {
     window.dispatchEvent(new CustomEvent('jiz-contact-intent', { detail: 'speaking' }));
     if (onNavigate) onNavigate('contact');
   };
   return (
-    <section className="jz-cls" aria-label={J.name + ', an independent journal'}>
+    <section className="jz-cls" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-cls-title">
       <style>{`
-.jz-cls{position:relative;background:linear-gradient(180deg,#0E1114 0%,#0E1114 38%,#11202A 100%);border-top:1px solid rgba(227,162,76,.32);padding-block:clamp(40px,4.4vw,64px) clamp(72px,8vw,128px);color:#E8E3D9}
-.jz-cls-mast{grid-column:1 / span 12;display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:8px 24px;padding-bottom:16px;margin-bottom:clamp(40px,5vw,72px);border-bottom:1px solid rgba(232,227,217,.14)}
-.jz-cls-mast-name{margin:0;font:600 clamp(1rem,.9rem + .4vw,1.25rem)/1.2 var(--font-display);letter-spacing:.01em;color:#E8E3D9}
-.jz-cls-mast-name span{margin-left:12px;font:500 .75rem/1 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:#E3A24C}
-.jz-cls-intro{grid-column:1 / span 5;display:flex;flex-direction:column;gap:18px}
-.jz-cls-anchor{margin:4px 0 0;font:600 clamp(1.9rem,1.25rem + 2vw,3.1rem)/1.06 var(--font-display);letter-spacing:-.03em;color:#E8E3D9;text-wrap:balance}
-.jz-cls-anchor span{display:block}
-.jz-cls-anchor span:last-child{color:#E3A24C}
-.jz-cls-sub{margin:0;max-width:44ch;font:400 1rem/1.6 var(--font-body);color:rgba(232,227,217,.78)}
-.jz-cls-by{margin:0;font:500 .75rem/1.4 var(--font-mono);letter-spacing:.06em;color:rgba(232,227,217,.6)}
-.jz-cls-links{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:6px}
-.jz-cls-links a,.jz-cls-read,.jz-cls-invite{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:var(--text-button);font-size:.9375rem;color:var(--color-accent-primary);text-decoration:none;background:none;border:0;padding:0;cursor:pointer}
-.jz-cls-links a + a{color:#E8E3D9}
-.jz-cls-actions{display:flex;flex-wrap:wrap;gap:4px 24px;margin:0}
-.jiz-homepage .jz-cls .jz-cls-orig{color:#E8E3D9}
-.jz-cls-links a:hover,.jz-cls-read:hover,.jz-cls-invite:hover{text-decoration:underline;text-underline-offset:4px}
-.jz-cls-invite:focus-visible,.jz-cls a:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:4px;border-radius:2px}
-.jz-cls-feature{grid-column:7 / span 6;display:flex;flex-direction:column}
-.jz-cls-lead{position:relative;display:flex;flex-direction:column;gap:14px;padding:clamp(24px,2.6vw,36px);background:rgba(42,47,55,.38);border:1px solid rgba(86,184,180,.22);border-radius:16px}
-.jz-cls-lead::before{content:'';position:absolute;top:-1px;left:clamp(24px,2.6vw,36px);width:40px;height:2px;background:#E3A24C}
-.jz-cls-more{margin:clamp(28px,3vw,40px) 0 4px;color:rgba(232,227,217,.6)}
-.jz-cls-type{color:#56B8B4}
-.jz-cls-lead h3{margin:0;font:600 clamp(1.6rem,1.2rem + 1.4vw,2.5rem)/1.08 var(--font-display);letter-spacing:-.03em;color:#E8E3D9;text-wrap:balance}
-.jz-cls-dek{margin:0;max-width:52ch;font:400 clamp(1rem,.96rem + .2vw,1.125rem)/1.6 var(--font-body);color:rgba(232,227,217,.84)}
-.jz-cls-note{margin:0;font:400 .8125rem/1.5 var(--font-body);font-style:italic;color:rgba(232,227,217,.62)}
-.jz-cls-list{list-style:none;margin:0;padding:0}
-.jz-cls-list li{border-bottom:1px solid rgba(232,227,217,.12)}
-.jz-cls-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px;align-items:center;padding:20px 0;text-decoration:none;color:#E8E3D9}
-.jz-cls-list .jz-label{grid-column:1}
-.jz-cls-list-title{grid-column:1;font:500 clamp(1.0625rem,1rem + .3vw,1.25rem)/1.3 var(--font-display);letter-spacing:-.01em}
-.jz-cls-list-arrow{grid-column:2;grid-row:1 / span 2;color:rgba(232,227,217,.6);transition:transform 220ms cubic-bezier(.22,.61,.36,1),color 220ms ease}
-.jz-cls-list a:hover .jz-cls-list-title{text-decoration:underline;text-underline-offset:4px}
-.jz-cls-list a:hover .jz-cls-list-arrow{color:var(--color-accent-primary);transform:translate(2px,-2px)}
-.jz-cls-talk{grid-column:1 / span 12;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr) auto;gap:12px clamp(20px,3vw,48px);align-items:center;margin-top:clamp(48px,5vw,80px);padding-top:clamp(24px,2.4vw,32px);border-top:1px solid rgba(232,227,217,.12)}
-.jz-cls-talk-t{margin:6px 0 0;font:600 clamp(1.125rem,1rem + .5vw,1.5rem)/1.2 var(--font-display);color:#E8E3D9}
-.jz-cls-talk-c{margin:0;font:400 .9375rem/1.6 var(--font-body);color:rgba(232,227,217,.78)}
-@media(max-width:1024px){.jz-cls-intro,.jz-cls-feature{grid-column:1 / span 12}.jz-cls-feature{margin-top:clamp(36px,6vw,56px)}.jz-cls-talk{grid-template-columns:1fr}}
-@media(prefers-reduced-motion:reduce){.jz-cls-list-arrow{transition:none}}
+.jz-cls{position:relative;padding-block:clamp(36px,4vw,56px) clamp(40px,5vw,72px);background:#0E1114;color:#E8E3D9;border-top:1px solid rgba(227,162,76,.35)}
+.jz-cls-inner{width:min(1180px,calc(100% - 2 * clamp(20px,4vw,56px)));margin-inline:auto}
+.jz-cls-mast{display:flex;justify-content:space-between;align-items:baseline;gap:12px 24px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid rgba(227,162,76,.28)}
+.jz-cls-mast-name{margin:0;font:600 clamp(1rem,1.5vw,1.25rem)/1.3 var(--font-display);color:#E8E3D9}
+.jz-cls-mast-name span{display:inline-block;margin-left:14px;font:500 .625rem/1.6 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:#E3A24C}
+.jz-cls-by{margin:0;font:400 .6875rem/1.5 var(--font-mono);color:#A9AAA5}
+.jz-cls-intro{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:30px 0 28px}
+.jz-cls-anchor{max-width:20ch;margin:0;font:600 clamp(2rem,3.7vw,3.4rem)/1.05 var(--font-display);letter-spacing:-.045em;color:#E8E3D9;text-wrap:balance}
+.jz-cls-sub{max-width:44ch;margin:14px 0 0;font:400 1rem/1.6 var(--font-body);color:#B9BBB6}
+.jz-cls-browse,.jz-cls-orig,.jz-cls-invite,.jz-cls-framework{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0;color:#E8E3D9;font:500 .875rem/1.4 var(--font-body);text-decoration:none;border:0;background:none;cursor:pointer}
+.jz-cls-browse{flex-shrink:0;color:#E3A24C}
+.jz-cls a:hover,.jz-cls-invite:hover{text-decoration:underline;text-underline-offset:5px}
+.jz-cls a:focus-visible,.jz-cls button:focus-visible{outline:2px solid #E3A24C;outline-offset:5px}
+.jz-cls-lead{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);overflow:hidden;border:1px solid #354448;border-radius:18px;background:#142128}
+.jz-cls-scene{position:relative;margin:0;min-width:0;min-height:390px;overflow:hidden;background:#10191D}
+.jz-cls-scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 48%;transition:transform 650ms cubic-bezier(.22,.61,.36,1)}
+.jz-cls-scene::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,16,.2),transparent 32%,transparent 68%,rgba(8,13,16,.85));pointer-events:none}
+.jz-cls-frame{position:absolute;z-index:1;inset:18px;border:1px solid rgba(232,227,217,.22);pointer-events:none;border-radius:2px}
+.jz-cls-scene figcaption{position:absolute;z-index:2;left:28px;right:28px;bottom:22px;margin:0;font:400 .75rem/1.5 var(--font-mono);letter-spacing:.02em;color:#E8E3D9}
+.jz-cls-scene-label{position:absolute;z-index:2;top:30px;left:30px;font:500 .625rem/1.4 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:#E8E3D9;display:flex;align-items:center;gap:10px}
+.jz-cls-scene-label::before{content:'';width:7px;height:7px;background:#E3A24C;border-radius:50%}
+.jz-cls-cover-copy{display:flex;flex-direction:column;align-items:start;justify-content:center;gap:18px;min-width:0;padding:clamp(26px,3.5vw,48px)}
+.jz-cls-type{margin:0;font:500 .6875rem/1.5 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:#72CAC4}
+.jz-cls-lead h3{margin:0;max-width:18ch;font:600 clamp(1.75rem,2.7vw,2.5rem)/1.08 var(--font-display);letter-spacing:-.035em;color:#E8E3D9;text-wrap:balance}
+.jz-cls-dek{margin:0;max-width:36ch;font:400 1rem/1.6 var(--font-body);color:#C1C9C9}
+.jz-cls-read{display:inline-flex;align-items:center;gap:18px;min-height:48px;margin-top:6px;padding:12px 20px;border:1px solid #E3A24C;border-radius:99px;background:#E3A24C;color:#101418;font:600 .875rem/1.4 var(--font-body);text-decoration:none;transition:background 180ms ease,transform 180ms ease}
+.jz-cls-read:hover{background:#F0B568;transform:translateY(-2px)}
+.jz-cls-read:active{transform:translateY(0)}
+.jz-cls-orig{font-size:.8125rem;color:#C1C9C9}
+.jz-cls-secondary{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 0;margin-top:28px;border-top:1px solid #354448}
+.jz-cls-more{padding:24px 36px 0 0}
+.jz-cls-list{list-style:none;margin:10px 0 0;padding:0}
+.jz-cls-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px;align-items:center;min-height:60px;text-decoration:none;color:#E8E3D9}
+.jz-cls-list-title{font:500 clamp(1rem,1.4vw,1.125rem)/1.4 var(--font-display)}
+.jz-cls-list-arrow{grid-column:2;grid-row:1 / span 2;color:#E3A24C}
+.jz-cls-utility{display:flex;flex-direction:column;justify-content:center;align-items:start;gap:2px;padding:24px 0 0 clamp(26px,3.5vw,48px);border-left:1px solid #354448}
+.jz-cls-invite{color:#B9BBB6;font-weight:400;font-size:.8125rem}
+@media(hover:hover){.jz-cls-lead:hover .jz-cls-scene img,.jz-cls-lead:focus-within .jz-cls-scene img{transform:scale(1.025)}}
+@media(prefers-reduced-motion:no-preference){.jz-cls[data-in="true"] .jz-cls-scene img{animation:cls-scene-reveal 700ms cubic-bezier(.22,.61,.36,1) backwards}@keyframes cls-scene-reveal{from{opacity:.65;transform:scale(1.035)}to{opacity:1;transform:scale(1)}}}
+@media(max-width:767px){.jz-cls-by{display:none}.jz-cls-intro{display:block}.jz-cls-browse{margin-top:12px}.jz-cls-lead,.jz-cls-secondary{grid-template-columns:minmax(0,1fr)}.jz-cls-scene{min-height:0;aspect-ratio:16/10}.jz-cls-cover-copy{padding:26px;gap:14px}.jz-cls-lead h3{font-size:clamp(1.8rem,6vw,2.4rem);max-width:22ch}.jz-cls-more{padding-right:0}.jz-cls-utility{border-left:0;border-top:1px solid #354448;padding:18px 0 0}.jz-cls-mast-name span{display:block;margin:8px 0 0}.jz-cls-scene figcaption{left:24px;right:24px;font-size:.6875rem}}
+@media(prefers-reduced-motion:reduce){.jz-cls-scene img,.jz-cls-read{animation:none;transition:none;transform:none!important}}
       `}</style>
-      <div className="jz-wrap jz-grid">
+      <div className="jz-cls-inner">
         <div className="jz-cls-mast">
           <p className="jz-cls-mast-name">{J.name}<span>Independent journal</span></p>
           <p className="jz-cls-by">By {J.author}</p>
         </div>
-        <div className="jz-cls-intro">
-          <h2 className="jz-cls-anchor" id="jz-cls-title">{J.anchor.map((l) => <span key={l}>{l}</span>)}</h2>
-          <p className="jz-cls-sub">{J.subtitle}</p>
-          <div className="jz-cls-links">
-            <a href="./journal/">Read the journal <span aria-hidden="true">→</span></a>
-            <a href="./journal/#framework">The framework: CLPF {J.framework.version} <span aria-hidden="true">→</span></a>
+        <header className="jz-cls-intro">
+          <div><h2 className="jz-cls-anchor" id="jz-cls-title">{J.home.headline}</h2><p className="jz-cls-sub">{J.home.description}</p></div>
+          <a className="jz-cls-browse" href="/journal/">Browse the journal <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 18 18 6M6 6h12v12" /></svg></a>
+        </header>
+        {lead ? <article className="jz-cls-lead" aria-labelledby="jz-cls-lead-title">
+          <figure className="jz-cls-scene">
+            <img src={lead.cover ? lead.cover.src : '/journal/' + lead.slug + '/assets/' + lead.image} srcSet={lead.cover ? lead.cover.srcSet : undefined} sizes="(max-width: 767px) calc(100vw - 60px), (min-width: 1280px) 666px, 54vw" alt={lead.cover ? lead.cover.alt : lead.title} loading="lazy" decoding="async" width="2048" height="1143" />
+            <span className="jz-cls-frame" aria-hidden="true" />
+            <span className="jz-cls-scene-label" aria-hidden="true">Inside the scene</span>
+            <figcaption>{lead.cover ? lead.cover.caption : lead.note}</figcaption>
+          </figure>
+          <div className="jz-cls-cover-copy">
+            <p className="jz-cls-type">{lead.type} · Issue {lead.issue}</p>
+            <h3 id="jz-cls-lead-title">{lead.title}</h3>
+            <p className="jz-cls-dek">{lead.homeTeaser || lead.standfirst}</p>
+            <a className="jz-cls-read" {...linkProps(lead)}>{lead.dossier ? 'Explore the dossier' : 'Read the issue'} <span aria-hidden="true">→</span></a>
+            {lead.dossier && !lead.onSite ? <a className="jz-cls-orig" href={lead.url} target="_blank" rel="noopener noreferrer">Original on LinkedIn <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 18 18 6M6 6h12v12" /></svg><span className="jz-visually-hidden"> (opens in a new tab)</span></a> : null}
           </div>
-        </div>
-        {lead ? (
-          <div className="jz-cls-feature">
-            <article className="jz-cls-lead" aria-labelledby="jz-cls-lead-title">
-              <p className="jz-label jz-cls-type">{lead.type} · Issue {lead.issue}</p>
-              <h3 id="jz-cls-lead-title">{lead.title}</h3>
-              <p className="jz-cls-dek">{lead.standfirst}</p>
-              {lead.note ? <p className="jz-cls-note">{lead.note}</p> : null}
-              <p className="jz-cls-actions">
-                <a className="jz-cls-read" {...linkProps(lead)}>{readLabel(lead)} <span aria-hidden="true">{onPage(lead) ? '→' : '↗'}</span><span className="jz-visually-hidden">: {lead.title}{onPage(lead) ? '' : ' (LinkedIn, opens in a new tab)'}</span></a>
-                {lead.dossier && !lead.onSite ? <a className="jz-cls-read jz-cls-orig" href={lead.url} target="_blank" rel="noopener noreferrer">Original on LinkedIn <span aria-hidden="true">↗</span><span className="jz-visually-hidden"> (opens in a new tab)</span></a> : null}
-              </p>
-            </article>
-            {support.length ? (
-              <React.Fragment>
-              <p className="jz-label jz-cls-more" id="jz-cls-more">More from the journal</p>
-              <ul className="jz-cls-list" aria-labelledby="jz-cls-more">
-                {support.map((a) => (
-                  <li key={a.slug}>
-                    <a {...linkProps(a)}>
-                      <span className="jz-label jz-cls-type">{a.type} · Issue {a.issue}</span>
-                      <span className="jz-cls-list-title">{a.title}</span>
-                      <span className="jz-cls-list-arrow" aria-hidden="true">{onPage(a) ? '→' : '↗'}</span>
-                      {onPage(a) ? null : <span className="jz-visually-hidden"> (LinkedIn, opens in a new tab)</span>}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              </React.Fragment>
-            ) : null}
-          </div>
-        ) : null}
-        <div className="jz-cls-talk">
-          <div>
-            <p className="jz-label">Speaking · {J.talk.status}</p>
-            <p className="jz-cls-talk-t">{J.talk.title}</p>
-          </div>
-          <p className="jz-cls-talk-c">{J.talk.about} {J.talk.formats}.</p>
-          <button type="button" className="jz-cls-invite" onClick={invite}>Invite me to speak <span aria-hidden="true">→</span></button>
+        </article> : null}
+        <div className="jz-cls-secondary">
+          <div className="jz-cls-more"><p className="jz-cls-type">More from the journal</p><ul className="jz-cls-list">{support.map((a) => <li key={a.slug}><a {...linkProps(a)}><span className="jz-cls-list-title">{a.title}</span><svg className="jz-cls-list-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 18 18 6M6 6h12v12" /></svg>{onPage(a) ? null : <span className="jz-visually-hidden"> (LinkedIn, opens in a new tab)</span>}</a></li>)}</ul></div>
+          <div className="jz-cls-utility"><a className="jz-cls-framework" href="/journal/#framework">Explore the framework · CLPF {J.framework.version} <span aria-hidden="true">→</span></a><button type="button" className="jz-cls-invite" onClick={invite}>Invite me to speak <span aria-hidden="true">→</span></button></div>
         </div>
       </div>
     </section>

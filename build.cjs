@@ -112,4 +112,5 @@ function buildWorkPages(win, ctx, homeHtml) {
   console.log('prerendered case-study pages: ' + written.join(' '));
 }
 function ReactDOMServer_render(win, el) { return win.ReactDOMServer.renderToString(el).replace(/<video\b[\s\S]*?<\/video>/g, ''); }
+require('./build-resume.cjs');
 require('./build-journal.cjs');
