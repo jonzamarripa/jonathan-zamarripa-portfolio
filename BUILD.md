@@ -10,3 +10,5 @@ The site ships precompiled. Visitors no longer download Babel or compile JSX.
 Sections, routes and outbound links live in one place: `site-config.js` (order = page order).
 
 Rollback point: `/archive/baseline-2026-09-30-pre-P0/` (files suffixed `.txt` so they aren't compiled).
+
+Discovery regression checks: after building, run `node tests/discovery-integrity.cjs`. Sitemap dates are stored with content fingerprints in `content/sitemap-state.json`; commit that file alongside regenerated pages. Unchanged output keeps its previous date. Prerender failures now stop the build.

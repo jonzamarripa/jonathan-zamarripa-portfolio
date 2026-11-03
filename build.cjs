@@ -43,7 +43,7 @@ try {
   writeFileSync('index.html', idx);
   console.log('prerendered homepage into index.html');
   buildWorkPages(win, ctx, idx);
-} catch (e) { console.warn('prerender skipped:', e.message); }
+} catch (e) { throw new Error('prerender failed: ' + e.message); }
 console.log('built dist/site.js' + (bundlePath ? ' + dist/ds-core.js' : ''));
 
 // Case-study pages: /work/<slug>/index.html for every featured route with a `path`.
@@ -101,6 +101,8 @@ function buildWorkPages(win, ctx, homeHtml) {
       .replace(/<link rel="preload" as="image" href="[^"]*" fetchpriority="high">/, '<link rel="preload" as="image" href="/' + r.hero + '" fetchpriority="high">')
       .replace(/<script type="application\/ld\+json">[\s\S]*?<\/script>/, '<script type="application/ld+json">' + JSON.stringify(ld).replace(/</g, '\\u003c') + '</script>')
       .replace(/<div id="root">[\s\S]*<\/div>(\s*<\/body>)/, (m, end) => '<div id="root"><div data-prerender="">' + body + '</div></div>' + end);
+    html = html.replace(/href="#main-content"/g, 'href="' + r.path + '#main-content"');
+    if (/href="#[^"]*"/.test(html)) throw new Error(r.path + ': fragment links must include the case-study path because the page uses a root base URL');
     for (const must of ['<base href="/">', 'rel="canonical" href="' + url, 'og:url" content="' + url, 'data-prerender', '"CreativeWork"', '/' + r.hero]) if (!html.includes(must)) throw new Error(r.path + ': missing ' + must);
     if (/<script type="application\/ld\+json">[\s\S]*?"ProfilePage"/.test(html)) throw new Error(r.path + ': homepage JSON-LD leaked');
     mkdirSync('.' + r.path, { recursive: true });

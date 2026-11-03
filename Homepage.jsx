@@ -1694,8 +1694,10 @@ function LetsBuild({ onExploreWork }) {
     formData.append('from_name', 'Jonathan Zamarripa Portfolio');
     let ok = false;
     let notice = 'Something interrupted the submission. Please try again.';
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 15000);
     try {
-      const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
+      const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData, signal: controller.signal });
       let data = null;
       try { data = await response.json(); } catch (parseError) { data = null; }
       if (response.ok && data && data.success === true) {
@@ -1704,8 +1706,9 @@ function LetsBuild({ onExploreWork }) {
         notice = data.message;
       }
     } catch (networkError) {
-      notice = 'The request could not reach the server. Check your connection and try again.';
+      notice = networkError.name === 'AbortError' ? 'The request took too long. Please try again, or email me directly using the Email link below.' : 'The request could not reach the server. Check your connection and try again.';
     } finally {
+      clearTimeout(timeout);
       inFlightRef.current = false;
       if (mountedRef.current) {
         if (ok) {
@@ -1993,11 +1996,11 @@ function FinalMoment({ onNavigate, standalone = false }) {
         .jiz-footer-credit{font-style:italic}
         .jiz-footer-tech{color:rgba(11,13,16,.8);font:var(--text-hud);font-size:.625rem;line-height:1.5;letter-spacing:.12em;text-transform:uppercase}
         .jiz-footer-nav{grid-area:nav;display:flex;flex-wrap:wrap;justify-content:flex-start;gap:var(--space-xs) var(--space-sm);margin:0}
-        .jiz-footer-nav button{min-height:44px;padding:0 var(--space-sm);border:1px solid transparent;border-radius:var(--radius-pill);background:transparent;color:var(--obsidian);font:var(--text-body);font-size:.875rem;cursor:pointer;transition:border-color var(--motion-fast) var(--ease-standard)}
-        .jiz-footer-nav button:hover{border-color:var(--obsidian);text-decoration:underline;text-underline-offset:4px}
-        .jiz-footer-nav button:focus-visible,.jiz-footer-top:focus-visible{outline:2px solid var(--obsidian);outline-offset:4px}
+        .jiz-footer-nav a{display:inline-flex;align-items:center;text-decoration:none;min-height:44px;padding:0 var(--space-sm);border:1px solid transparent;border-radius:var(--radius-pill);background:transparent;color:var(--obsidian);font:var(--text-body);font-size:.875rem;cursor:pointer;transition:border-color var(--motion-fast) var(--ease-standard)}
+        .jiz-footer-nav a:hover{border-color:var(--obsidian);text-decoration:underline;text-underline-offset:4px}
+        .jiz-footer-nav a:focus-visible,.jiz-footer-top:focus-visible{outline:2px solid var(--obsidian);outline-offset:4px}
         @media(max-width:640px){footer.jiz-footer{padding-block:var(--space-lg)}.jiz-footer-inner{grid-template-columns:48px minmax(0,1fr);grid-template-areas:"mark name" "disciplines disciplines" "nav nav" "top top" "rule rule" "meta meta";column-gap:var(--space-md)}.jiz-footer-top{justify-self:start}}
-        @media(prefers-reduced-motion:reduce){.jiz-footer-top,.jiz-footer-nav button{transition:none}}
+        @media(prefers-reduced-motion:reduce){.jiz-footer-top,.jiz-footer-nav a{transition:none}}
       `}</style>
       <div className="jiz-footer-inner">
         <div className="jiz-footer-mark">
@@ -2006,26 +2009,16 @@ function FinalMoment({ onNavigate, standalone = false }) {
         <p className="jiz-footer-name">Jonathan Iker Zamarripa</p>
         <p className="jiz-footer-disciplines">Learning Strategy &amp; Performance Consulting • Leadership Development • Product &amp; Technology Enablement • AI-Enabled Learning • Creative Technology &amp; Multimedia Production</p>
         <nav className="jiz-footer-nav" aria-label="Footer">
-          {NAV.map(([label, index]) => (
-            <button key={label} type="button" onClick={() => {
-              if (index === 'btb') {
-                if (standalone) window.location.assign('/#behind-the-build');
-                else window.jizNavigate && window.jizNavigate('Behind the Build');
-              } else if (index === 'resume') {
-                window.open(window.JIZ_SITE.links.resume, '_blank', 'noopener,noreferrer');
-              } else if (index === 'linkedin') {
-                window.open('https://www.linkedin.com/in/jonathanzamarripa/', '_blank', 'noopener,noreferrer');
-              } else if (index === 'journal') {
-                window.location.href = './journal/';
-              } else if (index === 'newsletter') {
-                window.open(window.JIZ_SITE.links.newsletter, '_blank', 'noopener,noreferrer');
-              } else if (index === 'email') {
-                window.location.href = 'mailto:jonathan.zamarripa@gmail.com';
-              } else {
-                onNavigate && onNavigate(index);
-              }
-            }}>{label}</button>
-          ))}
+          {NAV.map(([label, index]) => {
+            const href = index === 'journal' ? '/journal/' : index === 'btb' ? '/#behind-the-build' : window.JIZ_SITE.links[index] || '/#' + index;
+            const external = ['resume', 'linkedin', 'newsletter'].includes(index);
+            return <a key={label} href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} onClick={(event) => {
+              if (!['btb', 'creative-lab', 'archive'].includes(index) || standalone || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+              event.preventDefault();
+              if (index === 'btb') window.jizNavigate && window.jizNavigate('Behind the Build');
+              else onNavigate && onNavigate(index);
+            }}>{label}{external && <span className="jz-visually-hidden"> (opens in a new tab)</span>}</a>;
+          })}
         </nav>
         <button className="jiz-footer-top" type="button" onClick={toTop}>↑ Back to Top</button>
         <div className="jiz-footer-rule" aria-hidden="true" />

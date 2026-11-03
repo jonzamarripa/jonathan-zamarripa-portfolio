@@ -154,6 +154,7 @@ function page({ title, description, canonical, depth, body, type, noindex, image
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="${up}styles.css">
 <link rel="stylesheet" href="${up}journal/journal.css">${depth === 2 ? '\n<link rel="stylesheet" href="' + up + 'journal/dossier.css">' : ''}
+<script defer src="/portfolio-analytics.js"></script>
 </head>
 <body class="jr">
 <a class="skip" href="#main">Skip to content</a>
@@ -311,6 +312,19 @@ const today = new Date().toISOString().slice(0, 10);
 const workDir = require('path').join(__dirname, 'work');
 const work = require('fs').existsSync(workDir) ? require('fs').readdirSync(workDir).filter((d) => require('fs').existsSync(require('path').join(workDir, d, 'index.html'))).sort().map((d) => SITE + '/work/' + d + '/') : [];
 const urls = [SITE + '/'].concat(work, [SITE + '/journal/']).concat(J.articles.filter((x) => x.status === 'published' && x.onSite).map((x) => SITE + '/journal/' + x.slug + '/'));
-writeFileSync('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls.map((u) => '  <url><loc>' + u + '</loc><lastmod>' + today + '</lastmod></url>').join('\n') + '\n</urlset>\n');
+// Persist content fingerprints, so rebuilds do not imply editorial changes.
+const { createHash } = require('crypto');
+const stateFile = path.join('content', 'sitemap-state.json');
+const previous = existsSync(stateFile) ? JSON.parse(readFileSync(stateFile, 'utf8')) : {};
+const previousXml = existsSync('sitemap.xml') ? readFileSync('sitemap.xml', 'utf8') : '';
+const oldDates = Object.fromEntries([...previousXml.matchAll(/<url><loc>([^<]+)<\/loc><lastmod>([^<]+)<\/lastmod><\/url>/g)].map((m) => [m[1], m[2]]));
+const next = {};
+for (const url of urls) {
+  const file = path.join(__dirname, new URL(url).pathname, 'index.html');
+  const hash = createHash('sha256').update(readFileSync(file)).digest('hex');
+  next[url] = { hash, lastmod: previous[url] ? (previous[url].hash === hash ? previous[url].lastmod : today) : (oldDates[url] || today) };
+}
+writeFileSync(stateFile, JSON.stringify(next, null, 2) + '\n');
+writeFileSync('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls.map((u) => '  <url><loc>' + u + '</loc><lastmod>' + next[u].lastmod + '</lastmod></url>').join('\n') + '\n</urlset>\n');
 console.log('built journal/index.html + ' + n + ' article page(s) + sitemap.xml (' + urls.length + ' URLs)');
 module.exports = { markdown, frontMatter, article };

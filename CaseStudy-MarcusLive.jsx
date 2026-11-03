@@ -165,9 +165,9 @@ function CaseStudyMarcusLive() {
         <p>My strategic proposition is to make purposeful rehearsal easier to access, while keeping the learning objective, evidence and responsibility for evaluation in human hands. Tavus supplies the conversational video layer. The learning design determines whether the interaction is worth having.</p>
         <p>This is a working integration and a research-informed hypothesis. The host experience has passed fixture-based tests; live deployment and learner outcomes remain unverified. The research below establishes a rationale for testing, rather than an effectiveness claim for this pilot.</p>
       </div>
-      <div className="ml-actions"><a className="tfs-btn" href="#ml-practice">Try the practice</a><a className="tfs-btn tfs-btn--ghost" href="#ml-evidence">Read the evidence</a><button className="tfs-btn tfs-btn--ghost" type="button" onClick={() => window.print()}>Print / save paper</button></div>
+      <div className="ml-actions"><a className="tfs-btn" href="/work/marcus-live/#ml-practice">Try the practice</a><a className="tfs-btn tfs-btn--ghost" href="/work/marcus-live/#ml-evidence">Read the evidence</a><button className="tfs-btn tfs-btn--ghost" type="button" onClick={() => window.print()}>Print / save paper</button></div>
       <nav className="ml-contents" aria-label="Research paper contents">
-        <a href="#ml-brief">The brief</a><a href="#ml-evidence">Why now &amp; evidence</a><a href="#ml-platform">Why Tavus</a><a href="#ml-process">Build process</a><a href="#ml-evaluation">What comes next</a><a href="#ml-future">Future applications</a><a href="#ml-references">References</a>
+        <a href="/work/marcus-live/#ml-brief">The brief</a><a href="/work/marcus-live/#ml-evidence">Why now &amp; evidence</a><a href="/work/marcus-live/#ml-platform">Why Tavus</a><a href="/work/marcus-live/#ml-process">Build process</a><a href="/work/marcus-live/#ml-evaluation">What comes next</a><a href="/work/marcus-live/#ml-future">Future applications</a><a href="/work/marcus-live/#ml-references">References</a>
       </nav>
     </Chapter>
 

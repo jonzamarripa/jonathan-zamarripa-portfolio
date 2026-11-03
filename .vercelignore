@@ -44,3 +44,7 @@ assets/imagery/hero-portrait-new.svg
 assets/logo/jiz-monogram.png
 assets/icons/linkedin-icon.png
 assets/favicon-white.svg
+
+# Build-only regression checks and sitemap fingerprints
+/tests/
+/content/sitemap-state.json
