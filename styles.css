@@ -3,6 +3,7 @@
 @import "./tokens/spacing.css";
 @import "./tokens/effects.css";
 @import "./tokens/base.css";
+@import "./cls-screening-room.css";
 
 a{color:var(--color-accent-secondary);text-underline-offset:3px;transition:color 200ms ease}
 a:hover{color:var(--color-accent-primary)}

@@ -2039,93 +2039,201 @@ function FinalMoment({ onNavigate, standalone = false }) {
   );
 }
 
+/* Cinematic Learning Systems — Screening Room (replace the existing CinematicJournal function). */
+function ClsIcon({ name, size = 22 }) {
+  const shared = { width: size, height: size, viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.6, strokeLinecap: 'round', strokeLinejoin: 'round', 'aria-hidden': 'true', focusable: 'false' };
+  const artwork = {
+    book: <><path d="M12 20c-2-1.4-5-2.1-9-2V4c4-.2 7 .5 9 2 2-1.5 5-2.2 9-2v14c-4-.1-7 .6-9 2Z" /><path d="M12 6v14" /></>,
+    framework: <><rect x="3.2" y="3.2" width="7" height="7" rx="1.5" /><rect x="13.8" y="3.2" width="7" height="7" rx="1.5" /><rect x="3.2" y="13.8" width="7" height="7" rx="1.5" /><path d="M17.3 13.8v7m-3.5-3.5h7" /></>,
+    dossier: <><path d="M3 7V5a2 2 0 0 1 2-2h5l2.2 2.5H19a2 2 0 0 1 2 2V9" /><path d="M4 9h16l-1.2 11H5.2L4 9Z" /><path d="M9 14h6m-6 3h4" /></>,
+    arrow: <><path d="M5 12h14m-6-6 6 6-6 6" /></>,
+    play: <path d="m8 5 11 7-11 7V5Z" fill="currentColor" stroke="none" />,
+    pause: <><path d="M8 5v14M16 5v14" strokeWidth="3" /></>,
+    mute: <><path d="M11 5 6.5 9H3v6h3.5l4.5 4V5Z" /><path d="m16 9 5 6m0-6-5 6" /></>,
+    volume: <><path d="M11 5 6.5 9H3v6h3.5l4.5 4V5Z" /><path d="M15 9a4 4 0 0 1 0 6m3-9a8 8 0 0 1 0 12" /></>,
+    fullscreen: <><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5" /></>,
+    replay: <><path d="M4 9V4m0 5h5" /><path d="M4.8 9A8 8 0 1 1 4 14" /></>,
+  };
+  return <svg {...shared}>{artwork[name] || artwork.arrow}</svg>;
+}
+
+function ClsScreeningFilm() {
+  const videoRef = React.useRef(null);
+  const frameRef = React.useRef(null);
+  const userPausedRef = React.useRef(false);
+  const visibleRef = React.useRef(false);
+  const [playing, setPlaying] = React.useState(false);
+  const [muted, setMuted] = React.useState(true);
+  const [currentTime, setCurrentTime] = React.useState(0);
+  const [duration, setDuration] = React.useState(69.504);
+  const [ended, setEnded] = React.useState(false);
+  const [motionRestricted, setMotionRestricted] = React.useState(false);
+  const formatTime = (n) => { const s = Math.floor(Number.isFinite(n) ? n : 0); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2,'0')}`; };
+
+  React.useEffect(() => {
+    const video = videoRef.current;
+    const frame = frameRef.current;
+    if (!video || !frame) return undefined;
+    video.muted = true;
+    const motion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const saveData = !!(navigator.connection && navigator.connection.saveData);
+    const restricted = motion.matches || saveData;
+    setMotionRestricted(restricted);
+    const enter = () => {
+      if (!userPausedRef.current && !motion.matches && !saveData && !video.ended && document.visibilityState !== 'hidden') {
+        video.play().catch(() => setPlaying(false));
+      }
+    };
+    const io = typeof IntersectionObserver !== 'undefined'
+      ? new IntersectionObserver(([entry]) => {
+          visibleRef.current = entry.isIntersecting;
+          if (entry.isIntersecting) enter();
+          else video.pause();
+        }, { threshold: 0.48 })
+      : null;
+    if (io) io.observe(frame);
+    const onVisibility = () => { if (document.hidden) video.pause(); else if (visibleRef.current) enter(); };
+    const onMotion = () => { setMotionRestricted(motion.matches || saveData); if (motion.matches) video.pause(); else if (visibleRef.current) enter(); };
+    document.addEventListener('visibilitychange', onVisibility);
+    motion.addEventListener && motion.addEventListener('change', onMotion);
+    return () => {
+      if (io) io.disconnect();
+      document.removeEventListener('visibilitychange', onVisibility);
+      motion.removeEventListener && motion.removeEventListener('change', onMotion);
+      video.pause();
+    };
+  }, []);
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused || video.ended) {
+      if (video.ended) { video.currentTime = 0; setEnded(false); }
+      userPausedRef.current = false;
+      video.play().catch(() => setPlaying(false));
+    } else {
+      userPausedRef.current = true;
+      video.pause();
+    }
+  };
+  const toggleMute = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setMuted(video.muted);
+  };
+  const fullscreen = () => {
+    const frame = frameRef.current;
+    const video = videoRef.current;
+    if (!frame || !video) return;
+    if (document.fullscreenElement) { document.exitFullscreen && document.exitFullscreen(); return; }
+    if (frame.requestFullscreen) frame.requestFullscreen().catch(() => {});
+    else if (video.webkitEnterFullscreen) video.webkitEnterFullscreen();
+  };
+  const seek = (e) => {
+    const video = videoRef.current;
+    if (!video) return;
+    const t = Number(e.target.value);
+    if (Number.isFinite(t)) { video.currentTime = t; setCurrentTime(t); setEnded(false); }
+  };
+
+  return (
+    <div className="cls-screening" aria-label="Cinematic Learning Systems featured film">
+      <div className="cls-screening__overline"><span className="cls-screening__pulse" aria-hidden="true" /> FEATURE FILM <span className="cls-screening__overline-divider">/</span> CINEMATIC LEARNING SYSTEMS <span className="cls-screening__runtime">01:09 RUNTIME</span></div>
+      <div ref={frameRef} className={'cls-screening__frame' + (playing ? ' is-playing' : '')}>
+        <video
+          ref={videoRef}
+          className="cls-screening__video"
+          width="1280" height="720"
+          preload="none" playsInline muted
+          poster="./assets/imagery/cinematic-learning-systems-poster.webp"
+          aria-label="Cinematic Learning Systems, a short film by Jonathan Iker Zamarripa"
+          onPlay={() => { setPlaying(true); setEnded(false); }}
+          onPause={() => setPlaying(false)}
+          onEnded={() => { setEnded(true); setPlaying(false); userPausedRef.current = true; }}
+          onTimeUpdate={(e) => setCurrentTime(e.currentTarget.currentTime)}
+          onLoadedMetadata={(e) => { const d = e.currentTarget.duration; if (Number.isFinite(d)) setDuration(d); }}
+        >
+          <source src="./assets/video/cinematic-learning-systems-mobile.mp4" type="video/mp4" media="(max-width: 640px)" />
+          <source src="./assets/video/cinematic-learning-systems.mp4" type="video/mp4" />
+          Your browser does not support embedded video.
+        </video>
+        <div className="cls-screening__topline" aria-hidden="true"><span>CLS / FILM 001</span><span>JONATHAN IKER ZAMARRIPA</span></div>
+        {!playing && (
+          <button type="button" className="cls-screening__big-play" onClick={togglePlay} aria-label={ended ? 'Replay featured film' : 'Play featured film'}>
+            <ClsIcon name={ended ? 'replay' : 'play'} size={28} />
+            <span>{ended ? 'REPLAY FILM' : motionRestricted ? 'PLAY FILM' : 'PLAY / RESUME'}</span>
+          </button>
+        )}
+        <div className="cls-screening__bottom-fade" aria-hidden="true" />
+        <div className="cls-screening__controls" role="group" aria-label="Featured film playback controls">
+          <button type="button" className="cls-screening__control" onClick={togglePlay} aria-label={playing ? 'Pause film' : ended ? 'Replay film' : 'Play film'} title={playing ? 'Pause' : 'Play'}><ClsIcon name={playing ? 'pause' : ended ? 'replay' : 'play'} size={19} /></button>
+          <span className="cls-screening__time" aria-live="off">{formatTime(currentTime)}</span>
+          <input type="range" min="0" max={duration} step="0.1" value={Math.min(currentTime, duration)} onChange={seek} className="cls-screening__scrub" aria-label="Seek within featured film" style={{ '--cls-progress': `${duration ? currentTime / duration * 100 : 0}%` }} />
+          <span className="cls-screening__time cls-screening__time--total" aria-hidden="true">{formatTime(duration)}</span>
+          <button type="button" className="cls-screening__control" onClick={toggleMute} aria-label={muted ? 'Unmute film' : 'Mute film'} title={muted ? 'Unmute' : 'Mute'}><ClsIcon name={muted ? 'mute' : 'volume'} size={20} /></button>
+          <button type="button" className="cls-screening__control" onClick={fullscreen} aria-label="Toggle fullscreen film" title="Fullscreen"><ClsIcon name="fullscreen" size={19} /></button>
+        </div>
+      </div>
+      <div className="cls-screening__footnote"><span>01 <span className="cls-screening__footnote-divider">/</span> A FILM ABOUT LEARNING THAT MOVES PEOPLE</span><span>{motionRestricted ? 'PLAYBACK IS MANUAL' : 'PLAYS SILENTLY IN VIEW · SOUND OPTIONAL'}</span></div>
+    </div>
+  );
+}
+
 function CinematicJournal({ onNavigate }) {
   const J = window.JIZ_JOURNAL;
-  const ref = React.useRef(null);
-  const inView = useInViewOnce(ref);
+  const [inView, setInView] = React.useState(false);
+  const [motionReady, setMotionReady] = React.useState(false);
+  const sectionRef = React.useRef(null);
+  React.useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return undefined;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    setMotionReady(true);
+    if (reduce || typeof IntersectionObserver === 'undefined') { setInView(true); return undefined; }
+    const io = new IntersectionObserver(([entry]) => { if (entry.isIntersecting) { setInView(true); io.disconnect(); } }, { threshold: .08 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
   if (!J) return null;
   const published = J.articles.filter((a) => a.status === 'published');
   const lead = published.find((a) => a.featured === 'lead') || published[0];
   const support = published.filter((a) => a !== lead && a.featured).slice(0, 2);
   const onPage = (a) => a.onSite || a.dossier;
-  const linkProps = (a) => (onPage(a) ? { href: '/journal/' + a.slug + '/' } : { href: a.url, target: '_blank', rel: 'noopener noreferrer' });
+  const linkProps = (a) => onPage(a) ? { href: './journal/' + a.slug + '/' } : { href: a.url, target: '_blank', rel: 'noopener noreferrer' };
   const invite = () => {
     window.dispatchEvent(new CustomEvent('jiz-contact-intent', { detail: 'speaking' }));
     if (onNavigate) onNavigate('contact');
   };
+  const dossier = lead && onPage(lead) ? { href: './journal/' + lead.slug + '/' } : { href: './journal/' };
   return (
-    <section className="jz-cls" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-cls-title">
-      <style>{`
-.jz-cls{position:relative;padding-block:clamp(36px,4vw,56px) clamp(40px,5vw,72px);background:#0E1114;color:#E8E3D9;border-top:1px solid rgba(227,162,76,.35)}
-.jz-cls-inner{width:min(1180px,calc(100% - 2 * clamp(20px,4vw,56px)));margin-inline:auto}
-.jz-cls-mast{display:flex;justify-content:space-between;align-items:baseline;gap:12px 24px;flex-wrap:wrap;padding-bottom:18px;border-bottom:1px solid rgba(227,162,76,.28)}
-.jz-cls-mast-name{margin:0;font:600 clamp(1rem,1.5vw,1.25rem)/1.3 var(--font-display);color:#E8E3D9}
-.jz-cls-mast-name span{display:inline-block;margin-left:14px;font:500 .625rem/1.6 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:#E3A24C}
-.jz-cls-by{margin:0;font:400 .6875rem/1.5 var(--font-mono);color:#A9AAA5}
-.jz-cls-intro{display:flex;align-items:end;justify-content:space-between;gap:20px;margin:30px 0 28px}
-.jz-cls-anchor{max-width:20ch;margin:0;font:600 clamp(2rem,3.7vw,3.4rem)/1.05 var(--font-display);letter-spacing:-.045em;color:#E8E3D9;text-wrap:balance}
-.jz-cls-sub{max-width:44ch;margin:14px 0 0;font:400 1rem/1.6 var(--font-body);color:#B9BBB6}
-.jz-cls-browse,.jz-cls-orig,.jz-cls-invite,.jz-cls-framework{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:0;color:#E8E3D9;font:500 .875rem/1.4 var(--font-body);text-decoration:none;border:0;background:none;cursor:pointer}
-.jz-cls-browse{flex-shrink:0;color:#E3A24C}
-.jz-cls a:hover,.jz-cls-invite:hover{text-decoration:underline;text-underline-offset:5px}
-.jz-cls a:focus-visible,.jz-cls button:focus-visible{outline:2px solid #E3A24C;outline-offset:5px}
-.jz-cls-lead{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);overflow:hidden;border:1px solid #354448;border-radius:18px;background:#142128}
-.jz-cls-scene{position:relative;margin:0;min-width:0;min-height:390px;overflow:hidden;background:#10191D}
-.jz-cls-scene img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 48%;transition:transform 650ms cubic-bezier(.22,.61,.36,1)}
-.jz-cls-scene::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,13,16,.2),transparent 32%,transparent 68%,rgba(8,13,16,.85));pointer-events:none}
-.jz-cls-frame{position:absolute;z-index:1;inset:18px;border:1px solid rgba(232,227,217,.22);pointer-events:none;border-radius:2px}
-.jz-cls-scene figcaption{position:absolute;z-index:2;left:28px;right:28px;bottom:22px;margin:0;font:400 .75rem/1.5 var(--font-mono);letter-spacing:.02em;color:#E8E3D9}
-.jz-cls-scene-label{position:absolute;z-index:2;top:30px;left:30px;font:500 .625rem/1.4 var(--font-mono);letter-spacing:.12em;text-transform:uppercase;color:#E8E3D9;display:flex;align-items:center;gap:10px}
-.jz-cls-scene-label::before{content:'';width:7px;height:7px;background:#E3A24C;border-radius:50%}
-.jz-cls-cover-copy{display:flex;flex-direction:column;align-items:start;justify-content:center;gap:18px;min-width:0;padding:clamp(26px,3.5vw,48px)}
-.jz-cls-type{margin:0;font:500 .6875rem/1.5 var(--font-mono);letter-spacing:.16em;text-transform:uppercase;color:#72CAC4}
-.jz-cls-lead h3{margin:0;max-width:18ch;font:600 clamp(1.75rem,2.7vw,2.5rem)/1.08 var(--font-display);letter-spacing:-.035em;color:#E8E3D9;text-wrap:balance}
-.jz-cls-dek{margin:0;max-width:36ch;font:400 1rem/1.6 var(--font-body);color:#C1C9C9}
-.jz-cls-read{display:inline-flex;align-items:center;gap:18px;min-height:48px;margin-top:6px;padding:12px 20px;border:1px solid #E3A24C;border-radius:99px;background:#E3A24C;color:#101418;font:600 .875rem/1.4 var(--font-body);text-decoration:none;transition:background 180ms ease,transform 180ms ease}
-.jz-cls-read:hover{background:#F0B568;transform:translateY(-2px)}
-.jz-cls-read:active{transform:translateY(0)}
-.jz-cls-orig{font-size:.8125rem;color:#C1C9C9}
-.jz-cls-secondary{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 0;margin-top:28px;border-top:1px solid #354448}
-.jz-cls-more{padding:24px 36px 0 0}
-.jz-cls-list{list-style:none;margin:10px 0 0;padding:0}
-.jz-cls-list a{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px;align-items:center;min-height:60px;text-decoration:none;color:#E8E3D9}
-.jz-cls-list-title{font:500 clamp(1rem,1.4vw,1.125rem)/1.4 var(--font-display)}
-.jz-cls-list-arrow{grid-column:2;grid-row:1 / span 2;color:#E3A24C}
-.jz-cls-utility{display:flex;flex-direction:column;justify-content:center;align-items:start;gap:2px;padding:24px 0 0 clamp(26px,3.5vw,48px);border-left:1px solid #354448}
-.jz-cls-invite{color:#B9BBB6;font-weight:400;font-size:.8125rem}
-@media(hover:hover){.jz-cls-lead:hover .jz-cls-scene img,.jz-cls-lead:focus-within .jz-cls-scene img{transform:scale(1.025)}}
-@media(prefers-reduced-motion:no-preference){.jz-cls[data-in="true"] .jz-cls-scene img{animation:cls-scene-reveal 700ms cubic-bezier(.22,.61,.36,1) backwards}@keyframes cls-scene-reveal{from{opacity:.65;transform:scale(1.035)}to{opacity:1;transform:scale(1)}}}
-@media(max-width:767px){.jz-cls-by{display:none}.jz-cls-intro{display:block}.jz-cls-browse{margin-top:12px}.jz-cls-lead,.jz-cls-secondary{grid-template-columns:minmax(0,1fr)}.jz-cls-scene{min-height:0;aspect-ratio:16/10}.jz-cls-cover-copy{padding:26px;gap:14px}.jz-cls-lead h3{font-size:clamp(1.8rem,6vw,2.4rem);max-width:22ch}.jz-cls-more{padding-right:0}.jz-cls-utility{border-left:0;border-top:1px solid #354448;padding:18px 0 0}.jz-cls-mast-name span{display:block;margin:8px 0 0}.jz-cls-scene figcaption{left:24px;right:24px;font-size:.6875rem}}
-@media(prefers-reduced-motion:reduce){.jz-cls-scene img,.jz-cls-read{animation:none;transition:none;transform:none!important}}
-      `}</style>
-      <div className="jz-cls-inner">
-        <div className="jz-cls-mast">
-          <p className="jz-cls-mast-name">{J.name}<span>Independent journal</span></p>
-          <p className="jz-cls-by">By {J.author}</p>
-        </div>
-        <header className="jz-cls-intro">
-          <div><h2 className="jz-cls-anchor" id="jz-cls-title">{J.home.headline}</h2><p className="jz-cls-sub">{J.home.description}</p></div>
-          <a className="jz-cls-browse" href="/journal/">Browse the journal <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 18 18 6M6 6h12v12" /></svg></a>
-        </header>
-        {lead ? <article className="jz-cls-lead" aria-labelledby="jz-cls-lead-title">
-          <figure className="jz-cls-scene">
-            <img src={lead.cover ? lead.cover.src : '/journal/' + lead.slug + '/assets/' + lead.image} srcSet={lead.cover ? lead.cover.srcSet : undefined} sizes="(max-width: 767px) calc(100vw - 60px), (min-width: 1280px) 666px, 54vw" alt={lead.cover ? lead.cover.alt : lead.title} loading="lazy" decoding="async" width="2048" height="1143" />
-            <span className="jz-cls-frame" aria-hidden="true" />
-            <span className="jz-cls-scene-label" aria-hidden="true">Inside the scene</span>
-            <figcaption>{lead.cover ? lead.cover.caption : lead.note}</figcaption>
-          </figure>
-          <div className="jz-cls-cover-copy">
-            <p className="jz-cls-type">{lead.type} · Issue {lead.issue}</p>
-            <h3 id="jz-cls-lead-title">{lead.title}</h3>
-            <p className="jz-cls-dek">{lead.homeTeaser || lead.standfirst}</p>
-            <a className="jz-cls-read" {...linkProps(lead)}>{lead.dossier ? 'Explore the dossier' : 'Read the issue'} <span aria-hidden="true">→</span></a>
-            {lead.dossier && !lead.onSite ? <a className="jz-cls-orig" href={lead.url} target="_blank" rel="noopener noreferrer">Original on LinkedIn <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 18 18 6M6 6h12v12" /></svg><span className="jz-visually-hidden"> (opens in a new tab)</span></a> : null}
+    <section ref={sectionRef} className={'jz-cls cls-room' + (motionReady ? ' cls-motion-ready' : '') + (inView ? ' cls-in-view' : '')} aria-labelledby="jz-cls-title">
+      <div className="cls-room__inner">
+        <div className="cls-room__eyebrow cls-animate"><span className="cls-room__serial">JOURNAL / 001</span><span className="cls-room__eyebrow-line" aria-hidden="true" /><span>INDEPENDENT RESEARCH &amp; CREATIVE PRACTICE</span></div>
+        <div className="cls-room__intro cls-animate">
+          <div>
+            <p className="cls-room__label">THE JOURNAL / AN OPEN DESIGN PRACTICE</p>
+            <h2 id="jz-cls-title" className="cls-room__headline"><span>Cinematic</span><span>Learning <em>Systems.</em></span></h2>
           </div>
-        </article> : null}
-        <div className="jz-cls-secondary">
-          <div className="jz-cls-more"><p className="jz-cls-type">More from the journal</p><ul className="jz-cls-list">{support.map((a) => <li key={a.slug}><a {...linkProps(a)}><span className="jz-cls-list-title">{a.title}</span><svg className="jz-cls-list-arrow" aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M6 18 18 6M6 6h12v12" /></svg>{onPage(a) ? null : <span className="jz-visually-hidden"> (LinkedIn, opens in a new tab)</span>}</a></li>)}</ul></div>
-          <div className="jz-cls-utility"><a className="jz-cls-framework" href="/journal/#framework">Framework &amp; publications <span aria-hidden="true">→</span></a><button type="button" className="jz-cls-invite" onClick={invite}>Invite me to speak <span aria-hidden="true">→</span></button></div>
+          <div className="cls-room__intro-aside"><p>{J.anchor.join(' ')}</p><span>BY {J.author.toUpperCase()}</span></div>
         </div>
+        <div className="cls-room__film cls-animate"><ClsScreeningFilm /></div>
+        <div className="cls-room__library cls-animate">
+          <div className="cls-room__library-heading"><p className="cls-room__label">BEYOND THE FILM</p><h3>Explore the thinking.</h3><p>Three ways into the research, stories, and design decisions behind the work.</p></div>
+          <nav className="cls-room__routes" aria-label="Explore Cinematic Learning Systems">
+            <a href="./journal/" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="book" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">01 / THE PUBLICATION</span><strong>Read the journal</strong><small>Essays, ideas, and current thinking</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
+            <a href="./journal/#framework" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="framework" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">02 / THE METHODOLOGY</span><strong>Explore the framework</strong><small>CLPF {J.framework.version} · The system behind the work</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
+            <a {...dossier} className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="dossier" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">03 / THE EVIDENCE</span><strong>Open the dossier</strong><small>Scenes, artifacts, and the design rationale</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
+          </nav>
+        </div>
+        {(lead || support.length > 0) && (
+          <div className="cls-room__dispatch cls-animate">
+            <div className="cls-room__dispatch-caption"><p className="cls-room__label">FROM THE EDITORIAL DESK</p><h3>Keep reading.</h3></div>
+            {lead && <article className="cls-room__dispatch-lead"><span className="cls-room__route-number">{lead.type} / ISSUE {lead.issue}</span><h4>{lead.title}</h4><p>{lead.standfirst}</p><a {...linkProps(lead)}> {lead.dossier ? 'Read the dossier' : 'Read the essay'} <ClsIcon name="arrow" size={17} /></a></article>}
+            {support.length > 0 && <div className="cls-room__dispatch-support">{support.map((a) => <a key={a.slug} {...linkProps(a)}><span className="cls-room__route-number">{a.type} / ISSUE {a.issue}</span><strong>{a.title}</strong><ClsIcon name="arrow" size={17} /></a>)}</div>}
+          </div>
+        )}
+        <div className="cls-room__speaking cls-animate"><div><p className="cls-room__label">SPEAKING / {J.talk.status}</p><h3>{J.talk.title}</h3></div><p>{J.talk.about} {J.talk.formats}.</p><button type="button" onClick={invite}>Invite me to speak <ClsIcon name="arrow" size={20} /></button></div>
       </div>
     </section>
   );
