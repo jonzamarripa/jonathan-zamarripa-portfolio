@@ -1,11 +1,9 @@
 # Files kept in the repository but not published to the website.
 # The live site runs from index.html, dist/, site-config.js, content/journal.js, styles.css, tokens/, journal/ and the assets it references.
 
-# Source and build tooling
-*.jsx
+# Build sources retained for on-deploy prerendering; unpublished media exclusions remain below.
+# Build tooling
 _ds_bundle.js
-build.cjs
-build-journal.cjs
 node_modules/
 
 # Drafts, test pages and internal documentation
@@ -13,7 +11,6 @@ Homepage.html
 test-behind-the-build.html
 image-slot.js
 behind-the-build.css
-*.md
 DEPLOYMENT-INSTRUCTIONS.txt
 /hero-portrait-green.mp4
 
@@ -45,16 +42,10 @@ assets/logo/jiz-monogram.png
 assets/icons/linkedin-icon.png
 assets/favicon-white.svg
 
-# Build-only regression checks and sitemap fingerprints
-/tests/
-/content/sitemap-state.json
+# Build-source data is retained for regression validation
 
 # Browser-resume build inputs
-/build-resume.cjs
 /scripts/
-/content/public-resume.json
 
 # Speaking build inputs (compiled page/data remain public)
-/build-speaking.cjs
-/content/speaking.json
 /.gitattributes
