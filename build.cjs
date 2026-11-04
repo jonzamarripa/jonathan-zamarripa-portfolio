@@ -39,6 +39,7 @@ try {
   vm.runInContext(readFileSync('site-config.js', 'utf8'), ctx);
   vm.runInContext(readFileSync('content/journal.js', 'utf8'), ctx);
   vm.runInContext(readFileSync('content/speaking.js', 'utf8'), ctx);
+  vm.runInContext(readFileSync('creative-lab-v5.js', 'utf8'), ctx);
   vm.runInContext(code.replace(/ReactDOM\.createRoot\([^;]*\)\.render\([^;]*\);?\s*$/, ''), ctx);
   const html = ReactDOMServer.renderToString(React.createElement(win.HomepageExports.Homepage, { onOpenCaseStudy: noop })).replace(/<video\b[\s\S]*?<\/video>/g, '');
   const idx = readFileSync('index.html', 'utf8').replace(/<div id="root">[\s\S]*<\/div>(\s*<\/body>)/, (m, end) => '<div id="root"><div data-prerender="">' + html + '</div></div>' + end);
