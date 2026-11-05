@@ -1,20 +1,19 @@
-/* CINEMATIC CHAPTER ARCHITECTURE v3
- * Full-strength left-to-right rail, visible graphite gutters, elevated panels.
- * This layer intentionally overrides the distributed homepage and v2 shadow rules.
+/* CINEMATIC CHAPTER ARCHITECTURE v4
+ * Accent-colored ambient elevation instead of moving accent rails.
+ * A single graphite gallery, harmonious rounded panels and accessible motion.
  */
 :root { --chapter-gallery-surface:#39434F; }
 html body:has(.jiz-homepage),
 html body:has(.jiz-cs),
 html body:has(.tfs),
-html body:has(.jiz-btb-detail) {background:var(--chapter-gallery-surface);}
+html body:has(.jiz-btb-detail) { background:var(--chapter-gallery-surface); }
 html .jiz-homepage {
-  --panel-gutter-surface:var(--chapter-gallery-surface) !important;
+  --panel-gutter-surface:var(--chapter-gallery-surface)!important;
   background:var(--chapter-gallery-surface)!important;
 }
 html .jiz-homepage main {background:transparent!important;}
 html .jiz-homepage main > div[data-section] {
   --chapter-rgb:198,242,58;
-  --chapter-sweep:0;
   position:relative;
   isolation:isolate;
 }
@@ -24,57 +23,42 @@ html .jiz-homepage main > div[data-chapter-accent="teal"] {--chapter-rgb:86,184,
 html .jiz-homepage main > div[data-chapter-accent="amber"] {--chapter-rgb:227,162,76;}
 html .jiz-homepage main > div[data-chapter-accent="neutral"] {--chapter-rgb:217,221,227;}
 html .jiz-homepage main > div[data-chapter-accent="light"] {--chapter-rgb:29,110,123;}
-/* Unlike the previous ambient-only pass, this is a literal visible sweep across
-   the upper edge of EVERY rounded chapter, modeled on Featured Work. */
-html .jiz-homepage main > div[data-section]::after {
-  content:"";
-  position:absolute;
-  /* Place the light directly on the panel's outer border, not inside its surface. */
-  top:calc(var(--panel-gap) - 1px);
-  left:calc(var(--panel-gap) + var(--panel-r) - 1px);
-  width:calc(100% - 2 * var(--panel-gap) - 2 * var(--panel-r) + 2px);
-  height:2px;
-  z-index:15;
-  pointer-events:none;
-  border-radius:999px;
-  transform:scaleX(var(--chapter-sweep,0));
-  transform-origin:left center;
-  background:linear-gradient(90deg,rgba(var(--chapter-rgb),.08) 0%,rgba(var(--chapter-rgb),.52) 47%,rgba(var(--chapter-rgb),.95) 96%,#fff 100%);
-  box-shadow:0 0 9px 1px rgba(var(--chapter-rgb),.35),0 0 22px rgba(var(--chapter-rgb),.20);
-  opacity:.97;
-}
+/* Architectural lighting lives OUTSIDE the panel instead of drawing attention
+   to a line on its edge. A soft tint strengthens when the chapter scrolls in. */
 html .jiz-homepage main > div[data-section] > section {
-  --panel-depth-color:rgba(var(--chapter-rgb),.20);
+  --chapter-reveal:var(--atmosphere-progress,0);
+  --chapter-glow-alpha:calc(.14 + var(--chapter-reveal) * .21);
   position:relative;
   border-radius:var(--panel-r)!important;
-  outline:1px solid rgba(var(--chapter-rgb),.19);
+  outline:1px solid rgba(var(--chapter-rgb),.13);
   outline-offset:-1px;
   box-shadow:
-    0 27px 50px -16px rgba(0,0,0,.77),
-    0 52px 100px -64px rgba(0,0,0,.78),
-    0 9px 42px -24px var(--panel-depth-color),
-    inset 0 1px 0 rgba(255,255,255,.08) !important;
+    0 24px 46px -21px rgba(0,0,0,.78),
+    0 43px 97px -56px rgba(0,0,0,.74),
+    0 26px 72px -43px rgba(var(--chapter-rgb),var(--chapter-glow-alpha)),
+    inset 0 1px 0 rgba(255,255,255,.055)!important;
 }
-/* Featured Work previously drew its own internal rail.
-   Suppress that duplicate so every chapter uses one aligned perimeter sweep. */
-html[data-jz-hybrid-home="true"] .jiz-homepage main > div[data-section="featured-work"] > .jz-fw::before {
+/* Remove prior page's independent Featured Work sweep.
+   No edge or internal accent rail is rendered for any homepage chapter. */
+html[data-jz-hybrid-home="true"] .jiz-homepage .jz-fw::before {
   content:none!important;
 }
-/* The hero and selected-experience bridge retain their art-directed motion. */
-html .jiz-homepage .hero { box-shadow:0 24px 45px -24px rgba(0,0,0,.62)!important; }
+html .jiz-homepage .hero {
+  box-shadow:0 24px 45px -24px rgba(0,0,0,.62)!important;
+}
 html .jiz-homepage .jz-exp {background:transparent!important;}
-/* Keep the light and warm sections less luminous; shadow does the separating. */
+/* Light and neutral chapters need contrast, not a neon aura. */
 html .jiz-homepage main > div[data-chapter-accent="light"] > section,
 html .jiz-homepage main > div[data-chapter-accent="neutral"] > section {
-  --panel-depth-color:rgba(9,25,32,.13);
-  outline-color:rgba(11,13,16,.16);
+  --chapter-glow-alpha:calc(.07 + var(--chapter-reveal) * .11);
+  outline-color:rgba(11,13,16,.13);
 }
 html .jiz-homepage main > div[data-section] > section[data-choreo="pending"] {
   box-shadow:
-    0 12px 30px -18px rgba(0,0,0,.50),
-    0 18px 54px -44px rgba(var(--chapter-rgb),.18)!important;
+    0 13px 32px -19px rgba(0,0,0,.58),
+    0 16px 52px -42px rgba(var(--chapter-rgb),.13)!important;
 }
-/* Shared gallery surface and panel depth are equally important within case studies. */
+/* Case studies use identical panel geometry and a project-specific glow. */
 html .jiz-chapter-stack,
 html .jiz-cs,
 html .tfs,
@@ -87,56 +71,41 @@ html .jiz-cs-overlay {
 html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter {
   --case-panel-glow:var(--chapter-accent,#C6F23A);
   border-radius:var(--panel-r)!important;
-  outline:1px solid color-mix(in srgb,var(--case-panel-glow) 22%,transparent);
+  outline:1px solid color-mix(in srgb,var(--case-panel-glow) 15%,transparent);
   outline-offset:-1px;
   box-shadow:
-    0 27px 54px -18px rgba(0,0,0,.80),
-    0 49px 100px -62px rgba(0,0,0,.70),
-    0 7px 38px -26px color-mix(in srgb,var(--case-panel-glow) 36%,transparent)!important;
+    0 25px 52px -20px rgba(0,0,0,.78),
+    0 46px 98px -59px rgba(0,0,0,.72),
+    0 20px 74px -45px color-mix(in srgb,var(--case-panel-glow) 43%,transparent)!important;
 }
 html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-cs-motion="pending"] {
-  box-shadow:0 13px 28px -17px rgba(0,0,0,.53)!important;
+  box-shadow:0 13px 30px -19px rgba(0,0,0,.54)!important;
 }
-html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-cs-motion] {
-  position:relative;
-}
-html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-cs-motion]::after {
-  content:"";
-  /* The case-study rail traces the panel's top border inside its clipping edge. */
-  position:absolute;top:0;left:var(--panel-r);
-  width:calc(100% - 2 * var(--panel-r));height:2px;
-  border-radius:999px;z-index:5;pointer-events:none;
-  transform:scaleX(var(--case-sweep,0));transform-origin:left;
-  background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--chapter-accent,#C6F23A) 72%,white),#fff);
-  filter:drop-shadow(0 0 6px color-mix(in srgb,var(--chapter-accent,#C6F23A) 65%,transparent));
-}
-/* No tween is forced on scroll; the viewport scroll drives the line directly.
-   Pause and reduced-motion reveal content without motion. */
-html[data-jz-motion-paused="true"] .jiz-homepage main > div[data-section]::after,
-html[data-jz-motion-paused="true"] :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-cs-motion]::after {
-  transform:scaleX(1)!important;transition:none!important;
-}
-@media(prefers-reduced-motion:reduce){
-  html .jiz-homepage main > div[data-section]::after,
-  html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-cs-motion]::after {
-    transform:scaleX(1)!important;filter:none!important;transition:none!important;
-  }
-}
+/* The v2 section lift and typographic stagger remain intact. */
 @media(max-width:767px){
   :root{--chapter-gallery-surface:#333C46;}
-  html .jiz-homepage main > div[data-section]::after {height:2px}
-  html .jiz-homepage main > div[data-section] > section {
-    box-shadow:0 20px 40px -19px rgba(0,0,0,.74),0 30px 66px -56px rgba(0,0,0,.6)!important;
+  html .jiz-homepage main > div[data-section] > section{
+    box-shadow:0 20px 43px -20px rgba(0,0,0,.74),
+      0 22px 63px -47px rgba(var(--chapter-rgb),.24)!important;
   }
   html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter {
-    box-shadow:0 20px 43px -22px rgba(0,0,0,.75)!important;
+    box-shadow:0 20px 43px -22px rgba(0,0,0,.75),
+      0 22px 66px -49px color-mix(in srgb,var(--case-panel-glow) 30%,transparent)!important;
   }
 }
+@media(prefers-reduced-motion:reduce) {
+  html .jiz-homepage main > div[data-section] > section{
+    --chapter-reveal:1!important;
+  }
+}
+html[data-jz-motion-paused="true"] .jiz-homepage main > div[data-section] > section {
+  --chapter-reveal:1!important;
+}
 @media print{
-  html .jiz-homepage main > div[data-section]::after,
-  html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-cs-motion]::after{display:none!important}
   html .jiz-homepage main > div[data-section] > section,
-  html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter{box-shadow:none!important;outline:none!important}
+  html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter {
+    box-shadow:none!important;outline:none!important;
+  }
 }
 
 /* Supporting editorial pathways: visible but intentionally quieter than case studies. */
