@@ -45,7 +45,7 @@ function CaseStudyNavigation({ view, overlay = false, onClose }) {
   return (
     <nav ref={navRef} className="jiz-project-nav" aria-label="Project navigation">
       <a className="jiz-project-nav__brand" href="/" aria-label="Go to portfolio homepage">
-        <span aria-hidden="true" className="jiz-project-nav__mark">JZ</span>
+        <img aria-hidden="true" className="jiz-project-nav__logo" src="/assets/logo/jiz-logo-white.svg" width="40" height="40" alt="" decoding="async" />
         <span className="jiz-project-nav__brandname">Jonathan Zamarripa</span>
       </a>
       <span className="jiz-project-nav__current" aria-current="page">
