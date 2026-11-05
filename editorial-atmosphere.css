@@ -29,10 +29,11 @@ html .jiz-homepage main > div[data-chapter-accent="light"] {--chapter-rgb:29,110
 html .jiz-homepage main > div[data-section]::after {
   content:"";
   position:absolute;
-  top:var(--panel-gap);
-  left:calc(var(--panel-gap) + var(--panel-r));
-  width:calc(100% - 2 * var(--panel-gap) - 2 * var(--panel-r));
-  height:3px;
+  /* Place the light directly on the panel's outer border, not inside its surface. */
+  top:calc(var(--panel-gap) - 1px);
+  left:calc(var(--panel-gap) + var(--panel-r) - 1px);
+  width:calc(100% - 2 * var(--panel-gap) - 2 * var(--panel-r) + 2px);
+  height:2px;
   z-index:15;
   pointer-events:none;
   border-radius:999px;
@@ -53,6 +54,11 @@ html .jiz-homepage main > div[data-section] > section {
     0 52px 100px -64px rgba(0,0,0,.78),
     0 9px 42px -24px var(--panel-depth-color),
     inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+/* Featured Work previously drew its own internal rail.
+   Suppress that duplicate so every chapter uses one aligned perimeter sweep. */
+html[data-jz-hybrid-home="true"] .jiz-homepage main > div[data-section="featured-work"] > .jz-fw::before {
+  content:none!important;
 }
 /* The hero and selected-experience bridge retain their art-directed motion. */
 html .jiz-homepage .hero { box-shadow:0 24px 45px -24px rgba(0,0,0,.62)!important; }
@@ -96,8 +102,9 @@ html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-cs-motion] {
 }
 html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-cs-motion]::after {
   content:"";
+  /* The case-study rail traces the panel's top border inside its clipping edge. */
   position:absolute;top:0;left:var(--panel-r);
-  width:calc(100% - 2 * var(--panel-r));height:3px;
+  width:calc(100% - 2 * var(--panel-r));height:2px;
   border-radius:999px;z-index:5;pointer-events:none;
   transform:scaleX(var(--case-sweep,0));transform-origin:left;
   background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--chapter-accent,#C6F23A) 72%,white),#fff);
