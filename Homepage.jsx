@@ -1257,7 +1257,7 @@ function Homepage({ onOpenCaseStudy }) {
         <div id="capabilities" ref={registerSection('capabilities')} data-section="capabilities"><Practice part="capabilities" /></div>
         <div id="method" ref={registerSection('method')} data-section="method"><Practice part="method" /></div>
         <div id="thinking" ref={registerSection('thinking')} data-section="cinematic-learning-systems"><CinematicJournal onNavigate={scrollToSection} /></div>
-        <SpeakingPreview />
+        <div id="speaking" data-section="speaking"><SpeakingPreview /></div>
         <div id="creative-lab" ref={registerSection('creative-lab')} data-section="creative-lab"><FilmSection /></div>
         <div id="about" ref={registerSection('about')} data-section="about"><AboutMind /></div>
         <div id="journey" ref={registerSection('journey')} data-section="journey"><CareerJourney /></div>
