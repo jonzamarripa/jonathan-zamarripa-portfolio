@@ -788,7 +788,12 @@ function FinalMoment({ onNavigate, standalone = false }) {
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
-  const toTop = () => scrollToY(0);
+  const toTop = () => {
+    const overlay = ref.current?.closest('.jiz-cs-overlay');
+    if (overlay) overlay.scrollTo({ top: 0, behavior: prefersReduced() ? 'auto' : 'smooth' });
+    else if (window.location.pathname !== '/') window.location.assign('/');
+    else scrollToY(0);
+  };
   return (
     <footer ref={ref} className="jiz-footer" data-footer="ready">
       <style>{`
@@ -798,6 +803,9 @@ function FinalMoment({ onNavigate, standalone = false }) {
         .jiz-footer-mark{grid-area:mark;display:grid;place-items:center;margin:0}
         .jiz-footer-logo{width:48px;height:48px;object-fit:contain;filter:brightness(0)}
         .jiz-footer-name{grid-area:name;margin:0;color:var(--obsidian);font:var(--text-h3);font-size:clamp(1.125rem,1.4vw,1.375rem);letter-spacing:-.025em}
+        .jiz-footer-name--link{text-decoration:none!important;display:inline-flex;align-items:center;min-height:44px;justify-self:start}
+        .jiz-footer-name--link:hover{text-decoration:underline!important;text-underline-offset:5px}
+        .jiz-footer-mark:focus-visible,.jiz-footer-name--link:focus-visible{outline:2px solid var(--obsidian);outline-offset:4px;border-radius:6px}
         .jiz-footer-disciplines{grid-area:disciplines;margin:0;color:rgba(11,13,16,.8);font:var(--text-body);font-size:.875rem;line-height:1.6}
         .jiz-footer-top{grid-area:top;justify-self:end;min-height:44px;padding:0 var(--space-md);border:1px solid var(--obsidian);border-radius:var(--radius-pill);background:var(--obsidian);color:var(--signal-lime);font:var(--text-button);font-size:.875rem;cursor:pointer;transition:background var(--motion-fast) var(--ease-standard)}
         .jiz-footer-top:hover{background:var(--carbon)}
@@ -814,10 +822,10 @@ function FinalMoment({ onNavigate, standalone = false }) {
         @media(prefers-reduced-motion:reduce){.jiz-footer-top,.jiz-footer-nav a{transition:none}}
       `}</style>
       <div className="jiz-footer-inner">
-        <div className="jiz-footer-mark">
-          <img className="jiz-footer-logo" src="./assets/logo/jiz-logo-white.svg" alt="Jonathan Iker Zamarripa logo" />
-        </div>
-        <p className="jiz-footer-name">Jonathan Iker Zamarripa</p>
+        <a className="jiz-footer-mark" href="/" aria-label="Jonathan Iker Zamarripa — back to homepage">
+          <img className="jiz-footer-logo" src="/assets/logo/jiz-logo-white.svg" alt="" />
+        </a>
+        <a className="jiz-footer-name jiz-footer-name--link" href="/" aria-label="Jonathan Iker Zamarripa — back to homepage">Jonathan Iker Zamarripa</a>
         <p className="jiz-footer-disciplines">Learning Strategy &amp; Performance Consulting • Leadership Development • Product &amp; Technology Enablement • AI-Enabled Learning • Creative Technology &amp; Multimedia Production</p>
         <nav className="jiz-footer-nav" aria-label="Footer">
           {NAV.map(([label, index]) => {
