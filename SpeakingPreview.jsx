@@ -10,7 +10,7 @@ function SpeakingPreview() {
           <a href="/speaking/">Explore workshop topics <span aria-hidden="true">→</span></a>
         </div>
       </div>
-      <figure className="sp-preview-media"><a href="/speaking/" aria-label="Explore Jonathan’s speaking topics and silent promo"><img src={S.video.poster} width="1600" height="900" loading="lazy" decoding="async" alt="AI-generated speaker promo of Jonathan on a fictional presentation stage" /></a><figcaption className="sp-caption">{S.video.caption}</figcaption></figure>
+      <figure className="sp-preview-media"><a href="/speaking/" aria-label="Explore Jonathan’s speaking topics and cinematic scene"><img src={S.video.poster} width="1600" height="900" loading="lazy" decoding="async" alt="AI-generated speaker promo of Jonathan on a fictional presentation stage" /></a><figcaption className="sp-caption">Conceptual speaker portrait · An illustrated scene, not a live-event photograph.</figcaption></figure>
     </div>
   </section>;
 }

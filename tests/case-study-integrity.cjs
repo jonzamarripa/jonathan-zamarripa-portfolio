@@ -88,7 +88,26 @@ for (const slug of routes) {
   }
   checked++;
 }
+// Editorial subpage continuity and navigation release contract.
+const speaker = read('speaking/index.html');
+const journalHub = read('journal/index.html');
+const dossier = read('journal/designed-for-dana-wrong-for-marcus/index.html');
+const journalCss = read('journal/journal.css');
+const dossierCss = read('journal/dossier.css');
+assert.ok(speaker.includes('class="sp-scene"'), 'Speaking must present a cinematic portrait, not a player');
+assert.ok(!speaker.includes('<video'), 'Speaking should not contain a playable promo');
+assert.ok(speaker.includes('Keynote') && speaker.includes('Workshop') && speaker.includes('Panel'), 'Speaking format options missing');
+assert.ok(speaker.includes('data-editorial-return'), 'Speaking return navigation missing');
+assert.ok(journalHub.includes('data-editorial-return'), 'Journal reader return navigation missing');
+assert.ok(journalHub.includes('id="framework"') && journalHub.includes('id="evidence"'), 'Framework/evidence deep links missing');
+assert.ok(journalCss.includes('body.jr main > #framework'), 'Framework architectural panel styling missing');
+assert.ok(dossierCss.includes('body.jr .dx-body > .dx-ch'), 'Dossier chapter separation missing');
+assert.ok(journalCss.includes('scroll-margin-top:155px') && dossierCss.includes('scroll-margin-top:155px'), 'Mobile editorial anchor offsets missing');
+assert.ok(dossier.includes('class="dx-ch'), 'Dossier chapters missing');
+assert.ok(read('editorial-return.js').includes('jiz-editorial-origin-v1'), 'Return-to-scroll preservation missing');
+assert.ok(homepage.includes('editorial-return.js'), 'Homepage editorial return script missing');
 const app = read('App.jsx');
+assert.ok(app.includes('src="/assets/logo/jiz-logo-white.svg"'), 'Case-study navigation must display actual brand logo');
 assert.ok(app.includes('<CaseStudyNavigation view={displayView} />'), 'Internal view navigation missing');
 assert.ok(app.includes('<CaseStudyNavigation view={view} overlay'), 'Overlay navigation missing');
 console.log('Case-study integrity passed: ' + checked + ' standalone routes, internal and overlay nav, anchors and local assets.');
