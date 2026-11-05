@@ -433,10 +433,16 @@ function LetsBuild({ onExploreWork }) {
   const REFERRALS = ['LinkedIn', 'Referral', 'Google Search', 'Previous Colleague', 'Conference or Event', 'Other'];
   const EMPTY = { name: '', email: '', org: '', intent: '', detail: '', role: '', location: '', jobLink: '', focus: [], timeline: '', budget: '', eventName: '', eventDate: '', format: '', topic: '', referral: '' };
   const [form, setForm] = React.useState(EMPTY);
+  const [formOpen, setFormOpen] = React.useState(false);
+  const openInquiry = (type) => {
+    if(type) setForm(f => ({...f,intent:type}));
+    setFormOpen(true);
+    requestAnimationFrame(() => document.getElementById('jiz-build-form-start')?.scrollIntoView({block:'nearest',behavior:'auto'}));
+  };
   const intent = INTENTS.find((i) => i.id === form.intent) || null;
   // Preselect the inquiry type when a visitor arrives from "Invite me to speak" (homepage event or /?intent=speaking).
   React.useEffect(() => {
-    const apply = (id) => { if (INTENTS.some((i) => i.id === id)) setForm((f) => ({ ...f, intent: id })); };
+    const apply = (id) => { if (INTENTS.some((i) => i.id === id)) {setForm((f) => ({ ...f, intent: id }));setFormOpen(true);} };
     let fromUrl = null;
     try { fromUrl = new URLSearchParams(window.location.search).get('intent'); } catch (e) {}
     if (fromUrl) {
@@ -585,10 +591,10 @@ function LetsBuild({ onExploreWork }) {
             <h2 className="jiz-build-title" id="jiz-build-title">Have something complex worth making clear?</h2>
           </div>
           <div className="jiz-build-head-right">
-            <p className="jiz-build-sub">A strategy that needs shape, an experience that needs building, a story that needs telling, or a new tool worth figuring out. Tell me what you’re working on. I’m open to senior full-time and contract roles, consulting projects, and speaking or panel invitations.</p>
+            <p className="jiz-build-sub">Let's turn a complex challenge into something people can understand, use, and remember.</p>
           </div>
         </header>
-        <div className="jiz-build-stage">
+        <div className={"jiz-build-stage" + (formOpen ? " is-form-open" : "")}>
           <div className="jz-ct-direct">
             <style>{`
 .jz-ct-direct{display:flex;flex-direction:column;gap:clamp(28px,3vw,44px);padding-top:8px;min-width:0}
@@ -608,9 +614,20 @@ function LetsBuild({ onExploreWork }) {
               <li><a href={window.JIZ_SITE.links.resume} target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a></li>
               <li><a href={window.JIZ_SITE.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></li>
             </ul>
-            <p className="jz-ct-note">Or use the form. A few lines are enough; I reply personally.</p>
+            <div className="jz-ct-choices" aria-label="Choose a way to connect">
+              <p className="jz-ct-choices-label">START WITH YOUR GOAL</p>
+              <button type="button" onClick={() => openInquiry('hiring')}>Explore a leadership role <span aria-hidden="true">↗</span></button>
+              <button type="button" onClick={() => openInquiry('project')}>Collaborate on a project <span aria-hidden="true">↗</span></button>
+              <button type="button" onClick={() => openInquiry('speaking')}>Invite me to speak <span aria-hidden="true">↗</span></button>
+            </div>
           </div>
-          <form className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
+          {!formOpen && <div className="jz-ct-poster" aria-hidden="true">
+            <span className="jz-ct-poster-kicker">FROM COMPLEXITY / TO CLARITY</span>
+            <span className="jz-ct-poster-word">MAKE<br/>IT<br/><em>MATTER.</em></span>
+            <span className="jz-ct-poster-line"/>
+            <span className="jz-ct-poster-footer">Strategy → Design → Experience</span>
+          </div>}
+          <form id="jiz-build-form-start" className="jiz-build-form" hidden={!formOpen} data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
             <h3>Start the Conversation</h3>
             <p className="jiz-build-form-note">Hiring, projects, or speaking — a few details are enough to begin.</p>
             <div className="jiz-build-fields">
@@ -765,7 +782,7 @@ function FinalMoment({ onNavigate, standalone = false }) {
   const [lit, setLit] = React.useState(false);
   const ref = React.useRef(null);
   const reduced = prefersReduced();
-  const NAV = [['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Behind the Build', 'btb'], ['Speaking', 'speaking'], ['Resume', 'resume'], ['LinkedIn', 'linkedin']].concat(window.JIZ_SITE.links.newsletter ? [['Journal', 'journal'], ['Read the Newsletter', 'newsletter']] : [], [['Email', 'email']]);
+  const NAV = [['Creative Lab', 'creative-lab'], ['Behind the Build', 'btb'], ['Speaking', 'speaking'], ['Resume', 'resume'], ['LinkedIn', 'linkedin']].concat(window.JIZ_SITE.links.newsletter ? [['Journal', 'journal'], ['Read the Newsletter', 'newsletter']] : [], [['Email', 'email']]);
   React.useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setLit(true); }, { threshold: 0.4 });
     if (ref.current) obs.observe(ref.current);
@@ -1186,7 +1203,7 @@ function Homepage({ onOpenCaseStudy }) {
   const sectionRefs = React.useRef({});
   const [activeSection, setActiveSection] = React.useState('hero');
   const reduced = prefersReduced();
-  const navItems = ['Work', 'Capabilities', 'Method', 'Thinking', 'Speaking', 'Stack', 'About', 'Archive'];
+  const navItems = ['Work', 'Capabilities', 'Method', 'Thinking', 'Speaking', 'Stack', 'About'];
 
   const registerSection = React.useCallback((id) => (element) => { sectionRefs.current[id] = element; }, []);
   const scrollToSection = React.useCallback((id) => {
@@ -1263,7 +1280,7 @@ function Homepage({ onOpenCaseStudy }) {
         <div id="journey" ref={registerSection('journey')} data-section="journey"><CareerJourney /></div>
         <div id="stack" ref={registerSection('stack')} data-section="stack"><LearningStack /></div>
         <div id="principles" ref={registerSection('principles')} data-section="principles"><Principles /></div>
-        <div id="archive" ref={registerSection('archive')} data-section="archive"><ArchiveBridge onNavigate={scrollToSection} /></div>
+        {/* Additional Work is intentionally held in source for its later editorial redesign. */}
         <div id="contact" ref={registerSection('contact')} data-section="contact">
           <LetsBuild onExploreWork={() => scrollToSection('work')} />
           <FinalMoment onNavigate={scrollToSection} />
