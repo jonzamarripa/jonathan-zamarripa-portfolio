@@ -514,7 +514,7 @@ function LetsBuild({ onExploreWork }) {
           setFormStatus('success');
           setFormMessage('Your inquiry is on its way. I’ll be in touch soon.');
           formEl.reset();
-          setForm(EMPTY);
+          setForm({ ...EMPTY, intent: form.intent });
         } else {
           setFormStatus('error');
           setFormMessage(notice);
