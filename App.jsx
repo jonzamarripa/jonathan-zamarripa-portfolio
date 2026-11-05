@@ -1,7 +1,7 @@
 /* Shared persistent project navigation — standalone and overlay variants. */
 function CaseStudyNavigation({ view, overlay = false, onClose }) {
   const navRef = React.useRef(null);
-  const [motionPaused, setMotionPaused] = React.useState(() => document.documentElement.dataset.jzMotionPaused === 'true');
+  const [motionPaused, setMotionPaused] = React.useState(() => typeof document !== 'undefined' && document.documentElement.dataset.jzMotionPaused === 'true');
   const toggleMotion = () => {
     const next = !motionPaused;
     document.documentElement.dataset.jzMotionPaused = String(next);
