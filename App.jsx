@@ -1,5 +1,30 @@
 /* Shared persistent project navigation — standalone and overlay variants. */
 function CaseStudyNavigation({ view, overlay = false, onClose }) {
+  const navRef = React.useRef(null);
+  React.useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return undefined;
+    const box = nav.closest('.jiz-cs-overlay');
+    const target = box || window;
+    let frame = 0;
+    const measure = () => {
+      frame = 0;
+      const distance = box ? box.scrollHeight - box.clientHeight :
+        document.documentElement.scrollHeight - window.innerHeight;
+      const current = box ? box.scrollTop : window.scrollY;
+      nav.style.setProperty('--project-read-progress',
+        String(distance > 0 ? Math.max(0,Math.min(1,current / distance)) : 0));
+    };
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(measure); };
+    target.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll);
+    onScroll();
+    return () => {
+      target.removeEventListener('scroll',onScroll);
+      window.removeEventListener('resize',onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [overlay,view]);
   const names = {
     'case-study': 'Operation: Legacy Unlocked',
     'hotelkey-onboarding': 'HotelKey Onboarding',
@@ -11,7 +36,7 @@ function CaseStudyNavigation({ view, overlay = false, onClose }) {
     'behind-the-build': 'Behind the Build'
   };
   return (
-    <nav className="jiz-project-nav" aria-label="Project navigation">
+    <nav ref={navRef} className="jiz-project-nav" aria-label="Project navigation">
       <a className="jiz-project-nav__brand" href="/" aria-label="Go to portfolio homepage">
         <span aria-hidden="true" className="jiz-project-nav__mark">JZ</span>
         <span className="jiz-project-nav__brandname">Jonathan Zamarripa</span>
