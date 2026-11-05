@@ -64,6 +64,7 @@ function CaseStudyNavigation({ view, overlay = false, onClose }) {
 }
 
 function CaseStudyOverlay({ view, onClose, children }) {
+  const Footer = window.HomepageExports?.FinalMoment;
   const ref = React.useRef(null);
   React.useEffect(() => {
     const el = ref.current;
@@ -93,7 +94,7 @@ function CaseStudyOverlay({ view, onClose, children }) {
       `}</style>
       <CaseStudyNavigation view={view} overlay onClose={onClose} />
       {children}
-      {window.HomepageExports?.FinalMoment && <window.HomepageExports.FinalMoment standalone onNavigate={(section) => window.location.assign("/#" + section)} />}
+      {Footer && <Footer standalone onNavigate={(section) => window.location.assign("/#" + section)} />}
     </div>
   );
 }
