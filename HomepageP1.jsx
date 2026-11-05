@@ -351,9 +351,9 @@ html[data-jz-motion-paused="true"] .jz-fw-frame img{transform:none!important}
       </div>
       <div className="jz-fw-controls">
         <span className="jz-fw-count" role="status" aria-live="polite" aria-atomic="true"><span className="jz-visually-hidden">Project </span>{String(active + 1).padStart(2,'0')} / {String(projects.length).padStart(2,'0')}<span className="jz-visually-hidden">: {projects[active].title}</span></span>
-        <div className="jz-fw-steps" role="group" aria-label="Choose a featured project">{projects.map((p,i) => <button className="jz-fw-step" type="button" key={p.view} aria-label={'Show project ' + p.n + ': ' + p.title} aria-current={i === active ? 'true' : undefined} aria-controls="jz-fw-gallery" onClick={() => go(i)}>{p.n}</button>)}</div>
+
       </div>
-      <details className="jz-fw-index"><summary>View all projects</summary><ul>{projects.map((p) => <li key={p.view}><a href={pathOf(p)} onClick={(e) => open(e,p)}>{p.title}</a></li>)}</ul></details>
+      <details className="jz-fw-index"><summary><PortfolioGlyph kind="work" size={18}/> View all projects <PortfolioGlyph kind="arrow" size={16}/></summary><ul>{projects.map((p) => <li key={p.view}><a href={pathOf(p)} onClick={(e) => open(e,p)}>{p.title}</a></li>)}</ul></details>
       </div>
     </section>
   );
@@ -695,12 +695,12 @@ function LearningStack() {
             return (
               <li key={g.n} className="jz-st-card jz-rise">
                 <div className="jz-st-top"><span className="jz-label">{g.n}</span><span className="jz-label jz-st-layer">{g.layer}</span></div>
-                <h3 className="jz-st-t">{g.title}</h3>
+                <div className="jz-st-titleline"><span className="jz-st-glyph"><PortfolioGlyph kind={g.layer === "AI Production" ? "ai" : g.layer === "Automation" ? "automation" : g.layer === "Design" ? "design" : g.layer === "Delivery" ? "delivery" : g.layer === "Measurement" ? "measure" : "access"} /></span><h3 className="jz-st-t">{g.title}</h3></div>
                 <p className="jz-st-l">{g.label}</p>
-                <ul className="jz-st-tools" id={listId} aria-label={g.title + ' tools'}>{shown.map((tool) => <li key={tool}>{tool}</li>)}</ul>
+                <ul className="jz-st-tools" id={listId} aria-label={g.title + ' tools'}>{shown.map((tool) => <li key={tool} className={shown.indexOf(tool) < 2 ? "jz-st-tool--primary" : "jz-st-tool--secondary"}>{tool}</li>)}</ul>
                 {rest > 0 && (
                   <button type="button" className="jz-st-more" aria-expanded={expanded} aria-controls={listId} onClick={() => setOpen((o) => ({ ...o, [g.n]: !expanded }))}>
-                    {expanded ? 'Show fewer' : '+' + rest + ' more'}<span className="jz-visually-hidden">{expanded ? '' : ' ' + g.title + ' tools'}</span>
+                    <PortfolioGlyph kind="arrow" size={15}/>{expanded ? "Show fewer" : "+" + rest + " more"}<span className="jz-visually-hidden">{expanded ? '' : ' ' + g.title + ' tools'}</span>
                   </button>
                 )}
               </li>
@@ -753,7 +753,7 @@ function Principles() {
         <ol className="jz-pp-list">
           {principles.map((p) => (
             <li key={p.n} className="jz-pp-item jz-rise">
-              <span className="jz-pp-n">{p.n}</span>
+              <span className="jz-pp-n"><PortfolioGlyph kind={["clarity","people","evidence","behavior","human","direction","speed","review"][Number(p.n)-1]} size={27}/><small>{p.n}</small></span>
               <div><h3 className="jz-pp-t">{p.t}</h3><p className="jz-pp-c">{p.c}</p></div>
             </li>
           ))}
