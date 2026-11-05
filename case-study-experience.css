@@ -133,3 +133,15 @@ html[data-jz-motion-paused="true"] :is(.jiz-cs,.tfs,.jiz-btb-detail) :is(.jiz-ch
     translate:none!important;scale:1!important;opacity:1!important;filter:none!important;box-shadow:none!important;
   }
 }
+
+/* Continuous reading position across shared, flagship and overlay case studies. */
+.jiz-project-nav::after {
+  content:"";position:absolute;left:clamp(12px,2vw,30px);right:clamp(12px,2vw,30px);
+  bottom:-1px;height:2px;pointer-events:none;border-radius:3px;
+  background:linear-gradient(90deg,#C6F23A,#64E1FF);
+  transform:scaleX(var(--project-read-progress,0));transform-origin:left;
+  transition:transform 100ms linear;
+}
+@media(prefers-reduced-motion:reduce){.jiz-project-nav::after{transition:none}}
+/* Only one progress indicator per case-study presentation. */
+.jiz-cs:has(.jiz-cs-progress) .jiz-cs-progress{display:none}
