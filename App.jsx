@@ -1,3 +1,35 @@
+/* Shared persistent project navigation — standalone and overlay variants. */
+function CaseStudyNavigation({ view, overlay = false, onClose }) {
+  const names = {
+    'case-study': 'Operation: Legacy Unlocked',
+    'hotelkey-onboarding': 'HotelKey Onboarding',
+    'guest-crm-pilot': 'Guest CRM Pilot',
+    'workday-learn': 'Workday Learn',
+    'the-first-sentence': 'The First Sentence',
+    'marcus-live': 'Marcus, Live',
+    'drafted-by-ai': 'Drafted by AI',
+    'behind-the-build': 'Behind the Build'
+  };
+  return (
+    <nav className="jiz-project-nav" aria-label="Project navigation">
+      <a className="jiz-project-nav__brand" href="/" aria-label="Go to portfolio homepage">
+        <span aria-hidden="true" className="jiz-project-nav__mark">JZ</span>
+        <span className="jiz-project-nav__brandname">Jonathan Zamarripa</span>
+      </a>
+      <span className="jiz-project-nav__current" aria-current="page">
+        <span className="jiz-project-nav__type">CASE STUDY</span>
+        <span className="jiz-project-nav__name">{names[view] || 'Selected Work'}</span>
+      </span>
+      <span className="jiz-project-nav__actions">
+        <a className="jiz-project-nav__work" href="/#work">All work</a>
+        {overlay
+          ? <button type="button" className="jiz-project-nav__exit" onClick={onClose} aria-label="Close case study and return to portfolio">Close <span aria-hidden="true">×</span></button>
+          : <a className="jiz-project-nav__exit" href="/#work">← Back to work</a>}
+      </span>
+    </nav>
+  );
+}
+
 function CaseStudyOverlay({ view, onClose, children }) {
   const ref = React.useRef(null);
   React.useEffect(() => {
@@ -26,7 +58,7 @@ function CaseStudyOverlay({ view, onClose, children }) {
         @keyframes jiz-cs-in{from{opacity:0}to{opacity:1}}
         @media(prefers-reduced-motion:reduce){.jiz-cs-overlay{animation:none}}
       `}</style>
-      <button type="button" className="jiz-cs-close" onClick={onClose} aria-label="Close case study"><span aria-hidden="true">×</span> Close</button>
+      <CaseStudyNavigation view={view} overlay onClose={onClose} />
       {children}
     </div>
   );
@@ -54,6 +86,7 @@ function CaseStudyPage({ view }) {
   const Footer = window.HomepageExports.FinalMoment;
   return (
     <>
+      <CaseStudyNavigation view={view} />
       <main id="main-content" tabIndex={-1} style={{ outline: 'none' }}>
         <Page standalone onBack={() => window.location.assign('/#work')} onOpenProject={goTo} />
       </main>
