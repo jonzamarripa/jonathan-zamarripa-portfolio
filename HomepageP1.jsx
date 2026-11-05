@@ -185,7 +185,13 @@ function FeaturedWorkEditorial({ onOpenWork }) {
   const [active, setActive] = React.useState(0);
   const [direction, setDirection] = React.useState('next');
   const inView = useInViewOnce(ref);
-  const projects = window.JIZ_SITE.projects;
+  // Enterprise proof first, independent innovation second; the catalog remains the source of truth.
+  // Stable view IDs make this presentation order resilient as new studies are added.
+  const featuredOrder = ['case-study','hotelkey-onboarding','guest-crm-pilot','workday-learn','the-first-sentence','marcus-live','drafted-by-ai'];
+  const projects = window.JIZ_SITE.projects.slice().sort((a,b) => {
+    const ai=featuredOrder.indexOf(a.view),bi=featuredOrder.indexOf(b.view);
+    return (ai<0?999:ai)-(bi<0?999:bi);
+  }).map((p,i)=>({...p,n:String(i+1).padStart(2,'0')}));
   const pathOf = (p) => window.JIZ_SITE.route(p.view).path;
   const plain = (e) => !(e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0);
   const open = (e, p) => {
