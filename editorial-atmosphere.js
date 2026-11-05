@@ -3,10 +3,10 @@
 (() => {
  'use strict';
  const palette = {
-   work:'cyan',impact:'lime',capabilities:'light',method:'teal',
-   thinking:'amber',speaking:'amber','creative-lab':'cyan',
-   about:'teal',journey:'lime',stack:'cyan',principles:'neutral',
-   archive:'amber',contact:'lime'
+   work:'cyan',impact:'lime',capabilities:'cyan',method:'cyan',
+   thinking:'cyan',speaking:'lime','creative-lab':'cyan',
+   about:'cyan',journey:'lime',stack:'cyan',principles:'lime',
+   archive:'cyan',contact:'lime'
  };
  const mq=window.matchMedia('(prefers-reduced-motion: reduce)');
  const paused=()=>mq.matches||document.documentElement.dataset.jzMotionPaused==='true';
