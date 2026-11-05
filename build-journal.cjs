@@ -5,6 +5,7 @@ const path = require('path');
 
 const SITE = 'https://www.jonathanzamarripa.com';
 const J = require('./content/journal.js');
+const {editorialFooter}=require('./editorial-footer.cjs');
 
 const esc = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const TAGS = ['Established', 'Emerging', 'Extrapolated', 'Hypothesis'];
@@ -153,7 +154,7 @@ function page({ title, description, canonical, depth, body, type, noindex, image
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="${up}styles.css">
-<link rel="stylesheet" href="${up}journal/journal.css">${depth === 2 ? '\n<link rel="stylesheet" href="' + up + 'journal/dossier.css">' : ''}
+<link rel="stylesheet" href="${up}journal/journal.css">\n<link rel="stylesheet" href="/editorial-footer.css">${depth === 2 ? '\n<link rel="stylesheet" href="' + up + 'journal/dossier.css">' : ''}
 <script defer src="/portfolio-analytics.js"></script>
 <script defer src="/editorial-return.js"></script>
 </head>
@@ -170,10 +171,7 @@ function page({ title, description, canonical, depth, body, type, noindex, image
 <main id="main">
 ${body}
 </main>
-<footer class="jr-foot">
-  <p>${esc(J.disclosures.join(' '))}</p>
-  <p>© 2026 ${esc(J.author)} · <a href="${up}">Portfolio</a> · <a href="${esc(J.newsletter)}" target="_blank" rel="noopener noreferrer">LinkedIn newsletter<span class="vh"> (opens in a new tab)</span></a></p>
-</footer>
+${editorialFooter({context:"Cinematic Learning Systems",disclosure:J.disclosures.join(" ")})}
 </body>
 </html>
 `;
