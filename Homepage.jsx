@@ -1021,17 +1021,17 @@ function CinematicJournal({ onNavigate }) {
   return (
     <section ref={sectionRef} className={'jz-cls cls-room' + (motionReady ? ' cls-motion-ready' : '') + (inView ? ' cls-in-view' : '')} aria-labelledby="jz-cls-title">
       <div className="cls-room__inner">
-        <div className="cls-room__eyebrow cls-animate"><span className="cls-room__serial">JOURNAL / 001</span><span className="cls-room__eyebrow-line" aria-hidden="true" /><span>INDEPENDENT RESEARCH &amp; CREATIVE PRACTICE</span></div>
+        <div className="cls-room__eyebrow cls-animate"><span className="cls-room__serial">05 / JOURNAL</span><span className="cls-room__eyebrow-line" aria-hidden="true" /><span>INDEPENDENT RESEARCH / OPEN DESIGN PRACTICE</span></div>
         <div className="cls-room__intro cls-animate">
           <div>
-            <p className="cls-room__label">THE JOURNAL / AN OPEN DESIGN PRACTICE</p>
+            
             <h2 id="jz-cls-title" className="cls-room__headline"><span>Cinematic</span><span>Learning <em>Systems.</em></span></h2>
           </div>
           <div className="cls-room__intro-aside"><p>{J.anchor.join(' ')}</p><span>BY {J.author.toUpperCase()}</span></div>
         </div>
         <div className="cls-room__film cls-animate"><ClsScreeningFilm /></div>
         <div className="cls-room__library cls-animate">
-          <div className="cls-room__library-heading"><p className="cls-room__label">BEYOND THE FILM</p><h3>Explore the thinking.</h3><p>Three ways into the research, stories, and design decisions behind the work.</p></div>
+          <div className="cls-room__library-heading"><p className="cls-room__label">BEYOND THE FILM</p><h3>Explore the thinking.</h3><p>Read the work, investigate the framework, or examine a design decision in depth.</p></div>
           <nav className="cls-room__routes" aria-label="Explore Cinematic Learning Systems">
             <a href="./journal/" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="book" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">01 / THE PUBLICATION</span><strong>Read the journal</strong><small>Essays, ideas, and current thinking</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
             <a href="./journal/#framework" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="framework" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">02 / THE METHODOLOGY</span><strong>Explore the framework</strong><small>CLPF {J.framework.version} · The system behind the work</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
@@ -1040,16 +1040,14 @@ function CinematicJournal({ onNavigate }) {
         </div>
         {(lead || support.length > 0) && (
           <div className="cls-room__dispatch cls-animate">
-            <div className="cls-room__dispatch-caption"><p className="cls-room__label">FROM THE EDITORIAL DESK</p><h3>Keep reading.</h3></div>
+            <div className="cls-room__dispatch-caption"><p className="cls-room__label">SELECTED EDITIONS</p><h3>Notes from the editorial desk.</h3></div>
             {lead && <article className="cls-room__dispatch-lead"><span className="cls-room__route-number">{lead.type} / ISSUE {lead.issue}</span><h4>{lead.title}</h4><p>{lead.standfirst}</p><a {...linkProps(lead)}> {lead.dossier ? 'Read the dossier' : 'Read the essay'} <ClsIcon name="arrow" size={17} /></a></article>}
             {support.length > 0 && <div className="cls-room__dispatch-support">{support.map((a) => <a key={a.slug} {...linkProps(a)}><span className="cls-room__route-number">{a.type} / ISSUE {a.issue}</span><strong>{a.title}</strong><ClsIcon name="arrow" size={17} /></a>)}</div>}
           </div>
         )}
-        <div className="cls-room__issues-footer cls-animate">
-          <span>Explore the complete series, including editions not yet mirrored in the on-site journal.</span>
-          <a href={J.newsletter} target="_blank" rel="noopener noreferrer">All newsletter editions <span aria-hidden="true">↗</span></a>
+        <div className="cls-room__archive-link cls-animate">
+          <a href={J.newsletter} target="_blank" rel="noopener noreferrer">Browse the complete newsletter archive <span aria-hidden="true">↗</span><span className="jz-visually-hidden"> (opens in a new tab)</span></a>
         </div>
-        <div className="cls-room__speaking cls-animate"><div><p className="cls-room__label">SPEAKING / {J.talk.status}</p><h3>{J.talk.title}</h3></div><p>{J.talk.about} {J.talk.formats}.</p><button type="button" onClick={invite}>Invite me to speak <ClsIcon name="arrow" size={20} /></button></div>
       </div>
     </section>
   );
