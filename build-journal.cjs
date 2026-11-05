@@ -162,11 +162,17 @@ function page({ title, description, canonical, depth, body, type, noindex, image
 <a class="skip" href="#main">Skip to content</a>
 <header class="jr-top" id="top">
   <a class="jr-home" href="${up}"><img src="${up}assets/logo/jiz-logo-white.svg" alt="" width="28" height="28"> <span>Jonathan Iker Zamarripa</span></a>
-  <nav aria-label="Journal">
-    <a href="/#thinking" class="jr-return" data-editorial-return>← Back to where I was</a>
-    <a href="${up}journal/">${esc(J.name)}</a>
-    <a href="${esc(J.newsletter)}" target="_blank" rel="noopener noreferrer">Newsletter <span aria-hidden="true">↗</span><span class="vh"> on LinkedIn (opens in a new tab)</span></a>
+  <nav class="jr-nav-links" aria-label="Primary navigation">
+    <a href="/#work">Work</a>
+    <a href="/journal/" aria-current="page">Journal</a>
+    <a href="/speaking/">Speaking</a>
+    <a href="/#about">About</a>
   </nav>
+  <a href="/#thinking" class="jr-return" data-editorial-return>← Back to where I was</a>
+  <details class="jr-menu"><summary>Menu</summary><nav aria-label="Mobile navigation">
+    <a href="/#work">Work</a><a href="/journal/" aria-current="page">Journal</a><a href="/speaking/">Speaking</a>
+    <a href="/#about">About</a><a href="${esc(J.newsletter)}" target="_blank" rel="noopener noreferrer">Read the newsletter<span class="vh"> (opens in a new tab)</span></a>
+  </nav></details>
 </header>
 <main id="main">
 ${body}
