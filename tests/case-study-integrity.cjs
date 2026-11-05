@@ -19,7 +19,9 @@ const requiredAssets = [
   'case-study-experience.css',
   'case-study-motion.js',
   'cinematic-scroll.css',
-  'cinematic-scroll.js'
+  'cinematic-scroll.js',
+  'editorial-atmosphere.css',
+  'editorial-atmosphere.js'
 ];
 for (const asset of requiredAssets) {
   assert.ok(fs.existsSync(path.join(root,asset)), 'Missing asset: ' + asset);
@@ -29,6 +31,13 @@ for (const id of ['work','creative-lab','archive','contact']) {
   assert.match(homepage, new RegExp('\\bid="' + id + '"'), 'Homepage missing anchor #' + id);
 }
 assert.ok(homepage.includes('data-prerender'), 'Homepage must remain prerendered');
+assert.ok(homepage.includes('All newsletter editions'), 'Newsletter archive CTA missing');
+assert.ok(homepage.includes('TEACHING STUDIO / IN DEVELOPMENT'), 'Teaching must be correctly labeled as in development');
+const editorial = read('HomepageP1.jsx');
+assert.ok(editorial.includes("featuredOrder = ['case-study','hotelkey-onboarding','guest-crm-pilot','workday-learn'"), 'Enterprise case studies should lead Featured Work');
+const journal = read('content/journal.js');
+assert.ok(journal.includes('https://www.linkedin.com/pulse/every-shot-you-choose-learning-design-decision-jonathan-zamarripa-avdde'), 'Verified issue 03 article must link to its publication');
+
 
 let checked = 0;
 for (const slug of routes) {
