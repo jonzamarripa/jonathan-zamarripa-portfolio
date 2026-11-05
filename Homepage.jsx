@@ -1020,6 +1020,10 @@ function CinematicJournal({ onNavigate }) {
             {support.length > 0 && <div className="cls-room__dispatch-support">{support.map((a) => <a key={a.slug} {...linkProps(a)}><span className="cls-room__route-number">{a.type} / ISSUE {a.issue}</span><strong>{a.title}</strong><ClsIcon name="arrow" size={17} /></a>)}</div>}
           </div>
         )}
+        <div className="cls-room__issues-footer cls-animate">
+          <span>Explore the complete series, including editions not yet mirrored in the on-site journal.</span>
+          <a href={J.newsletter} target="_blank" rel="noopener noreferrer">All newsletter editions <span aria-hidden="true">↗</span></a>
+        </div>
         <div className="cls-room__speaking cls-animate"><div><p className="cls-room__label">SPEAKING / {J.talk.status}</p><h3>{J.talk.title}</h3></div><p>{J.talk.about} {J.talk.formats}.</p><button type="button" onClick={invite}>Invite me to speak <ClsIcon name="arrow" size={20} /></button></div>
       </div>
     </section>
