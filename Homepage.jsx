@@ -1269,7 +1269,7 @@ function Homepage({ onOpenCaseStudy }) {
       <main id="main-content" tabIndex={-1} style={{ flex: 1, position: 'relative', zIndex: 1, overflow: 'visible', outline: 'none' }}>
         <div ref={registerSection('hero')}><Hero onExploreWork={() => scrollToSection('work')} onConnect={() => scrollToSection('contact')} /></div>
         <SelectedExperience />
-        <div id="work" ref={registerSection('work')} data-section="featured-work"><FeaturedWorkEditorial onOpenWork={onOpenCaseStudy} /></div>
+        <div id="work" ref={registerSection('work')} data-section="featured-work"><span id="archive" className="jz-visually-hidden" aria-hidden="true" /><FeaturedWorkEditorial onOpenWork={onOpenCaseStudy} /></div>
         <div id="impact" ref={registerSection('impact')} data-section="impact"><ImpactEditorial /></div>
         <div id="capabilities" ref={registerSection('capabilities')} data-section="capabilities"><Practice part="capabilities" /></div>
         <div id="method" ref={registerSection('method')} data-section="method"><Practice part="method" /></div>
