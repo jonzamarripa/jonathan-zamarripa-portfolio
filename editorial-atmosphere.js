@@ -1,53 +1,58 @@
-/* Scroll-responsive accent light for major homepage chapters.
-   Uses shared v2 section nodes, honors pause/reduced motion, never moves content. */
+/* Cinematic Chapter Architecture v3 — shared sweep and depth, no DOM insertion.
+   The original Featured Work cyan sweep is the interaction reference.
+   One style system drives every homepage chapter. */
 (() => {
-  'use strict';
-  const palette = new Map([
-    ['jz-fw','cyan'],['jz-im','lime'],['jz-pr--capabilities','light'],
-    ['jz-pr--method','teal'],['jz-cls','amber'],['sp-preview','amber'],
-    ['jiz-creative-lab','cyan'],['jiz-am','teal'],['jz-jr','lime'],
-    ['jz-st','cyan'],['jz-pp','neutral'],['jiz-arch','amber'],['jiz-build','lime']
-  ]);
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  const stopped = () => reduced.matches || document.documentElement.dataset.jzMotionPaused === 'true';
-  let nodes = [];
-  let frame = 0;
-  function register() {
-    nodes = [...document.querySelectorAll('.jiz-homepage main section')].filter(el => {
-      if(el.closest('.jiz-chapter') && el.closest('.jiz-chapter')!==el) return false;
-      if(el.closest('section') && el.closest('section')!==el) return false;
-      return el.classList.contains('sp-preview') || el.hasAttribute('data-choreo');
-    });
-    nodes.forEach(el => {
-      if (el.hasAttribute('data-atmosphere')) return;
-      let kind = 'neutral';
-      for(const [key,value] of palette){if(el.classList.contains(key)){kind=value;break;}}
-      el.dataset.atmosphere=kind;
-
-    });
-  }
-  function update() {
-    frame=0;
-    if(stopped())return;
-    const h=window.innerHeight;
-    nodes.forEach(el=>{
-      const r=el.getBoundingClientRect();
-      if(r.bottom<0 || r.top>h)return;
-      const progress=Math.max(0,Math.min(1,(h-r.top)/(h+r.height)));
-      el.style.setProperty('--atmosphere-progress',progress.toFixed(3));
-    });
-  }
-  function tick(){if(!frame)frame=requestAnimationFrame(update);}
-  function boot(){
-    register();tick();
-    const mount=document.querySelector('#root');
-    if(mount){let pending=false;new MutationObserver(()=>{
-      if(pending)return;pending=true;
-      requestAnimationFrame(()=>{pending=false;register();tick();});
-    }).observe(mount,{childList:true,subtree:true});}
-    window.addEventListener('scroll',tick,{passive:true});
-    window.addEventListener('resize',tick,{passive:true});
-    reduced.addEventListener?.('change',tick);
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',boot,{once:true});else boot();
+ 'use strict';
+ const palette = {
+   work:'cyan',impact:'lime',capabilities:'light',method:'teal',
+   thinking:'amber',speaking:'amber','creative-lab':'cyan',
+   about:'teal',journey:'lime',stack:'cyan',principles:'neutral',
+   archive:'amber',contact:'lime'
+ };
+ const mq=window.matchMedia('(prefers-reduced-motion: reduce)');
+ const paused=()=>mq.matches||document.documentElement.dataset.jzMotionPaused==='true';
+ let chapters=[],frame=0;
+ function register(){
+   chapters=[...document.querySelectorAll('.jiz-homepage main > div[data-section]')];
+   chapters.forEach(w=>{
+     const first=w.querySelector(':scope > section');
+     if(!first)return;
+     const id=w.id||w.dataset.section;
+     const color=palette[id]||'neutral';
+     if(w.dataset.chapterAccent!==color)w.dataset.chapterAccent=color;
+     if(first.dataset.atmosphere!==color)first.dataset.atmosphere=color;
+   });
+ }
+ function update(){
+   frame=0;
+   const h=window.innerHeight||1;
+   const still=paused();
+   for(const w of chapters){
+     const r=w.getBoundingClientRect();
+     if(r.bottom < -10 || r.top>h+10)continue;
+     const t=still?1:Math.max(0,Math.min(1,(h*.92-r.top)/Math.max(h*.7,r.height*.72)));
+     // The line sweeps left-to-right while the chapter is revealed.
+     const value=t.toFixed(3);
+     w.style.setProperty('--chapter-sweep',value);
+     const first=w.querySelector(':scope > section');
+     if(first)first.style.setProperty('--atmosphere-progress',value);
+   }
+ }
+ function schedule(){if(!frame)frame=requestAnimationFrame(update);}
+ function init(){
+   register();schedule();
+   let queued=false;
+   const mount=document.querySelector('#root');
+   if(mount)new MutationObserver(()=>{
+     if(queued)return;queued=true;
+     requestAnimationFrame(()=>{queued=false;register();schedule();});
+   }).observe(mount,{subtree:true,childList:true});
+   window.addEventListener('scroll',schedule,{passive:true});
+   window.addEventListener('resize',schedule,{passive:true});
+   mq.addEventListener?.('change',schedule);
+   new MutationObserver(schedule).observe(document.documentElement,{attributes:true,attributeFilter:['data-jz-motion-paused']});
+   window.addEventListener('pageshow',schedule);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init,{once:true});
+ else init();
 })();
