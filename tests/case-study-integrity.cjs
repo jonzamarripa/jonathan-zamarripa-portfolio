@@ -44,7 +44,7 @@ assert.ok(!atmosphere.includes('div[data-section]::after'), 'Homepage moving acc
 assert.ok(!atmosphere.includes('.jiz-chapter[data-cs-motion]::after'), 'Case-study moving accent rail must be removed');
 assert.ok(!atmosphereJS.includes('--chapter-sweep'), 'Unused homepage rail animation variable must be removed');
 assert.ok(!caseMotion.includes('--case-sweep'), 'Unused case-study rail animation variable must be removed');
-assert.ok(atmosphereJS.includes("'creative-lab':'cyan'") && atmosphereJS.includes("thinking:'amber'"), 'Section-specific accent palette missing');
+assert.ok(atmosphereJS.includes("'creative-lab':'cyan'") && atmosphereJS.includes("thinking:'cyan'") && atmosphereJS.includes("impact:'lime'"), 'Section-specific accent palette missing');
 assert.ok(homepage.includes('data-section="speaking"'), 'Speaking must use the shared chapter structure');
 assert.ok(homepage.includes('All newsletter editions'), 'Newsletter archive CTA missing');
 assert.ok(homepage.includes('TEACHING STUDIO / IN DEVELOPMENT'), 'Teaching must be correctly labeled as in development');
