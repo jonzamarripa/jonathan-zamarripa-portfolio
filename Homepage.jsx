@@ -418,6 +418,16 @@ function ArchiveBridge({ onNavigate }) {
   );
 }
 
+function ContactGlyph({kind='conversation'}) {
+  const artwork={
+    hiring:<><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4h8v3M3 12h18"/></>,
+    project:<><path d="M4 20h16M5 16l9-9 3 3-9 9H5zM13 8l3-3 3 3-3 3z"/></>,
+    speaking:<><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M6 11a6 6 0 0 0 12 0m-6 6v5m-4 0h8"/></>,
+    conversation:<><path d="M4 4h16v12H8l-4 4V4zM8 9h8m-8 3h5"/></>,
+    arrow:<><path d="M4 12h16m-7-7 7 7-7 7"/></>
+  };
+  return <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round" focusable="false" aria-hidden="true">{artwork[kind]||artwork.conversation}</svg>;
+}
 function LetsBuild({ onExploreWork }) {
   // One choice routes the form; only the fields for that choice are shown and sent.
   const INTENTS = [
@@ -591,7 +601,7 @@ function LetsBuild({ onExploreWork }) {
             <h2 className="jiz-build-title" id="jiz-build-title">Have something complex worth making clear?</h2>
           </div>
           <div className="jiz-build-head-right">
-            <p className="jiz-build-sub">Let's turn a complex challenge into something people can understand, use, and remember.</p>
+            <p className="jiz-build-sub">Strategy, learning, and creative technology—built around the people who need to use them.</p>
           </div>
         </header>
         <div className={"jiz-build-stage" + (formOpen ? " is-form-open" : "")}>
@@ -609,23 +619,22 @@ function LetsBuild({ onExploreWork }) {
 .jz-ct-note{margin:0;max-width:36ch;font:400 .9375rem/1.6 var(--font-body);color:rgba(217,221,227,.66)}
 @media(prefers-reduced-motion:reduce){.jz-ct-mail span:last-child{transition:none}}
             `}</style>
-            <a className="jz-ct-mail" href={window.JIZ_SITE.links.email}><span className="jz-label">Email me directly</span><span>jonathan.zamarripa@gmail.com</span></a>
+            <div className="jz-ct-intro"><span className="jz-label">YOUR NEXT CONVERSATION STARTS HERE</span><p>Choose what brings you here. I’ll take care of the next step.</p></div>
             <ul className="jz-ct-sec">
               <li><a href={window.JIZ_SITE.links.resume} target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a></li>
               <li><a href={window.JIZ_SITE.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></li>
             </ul>
             <div className="jz-ct-choices" aria-label="Choose a way to connect">
               <p className="jz-ct-choices-label">START WITH YOUR GOAL</p>
-              <button type="button" onClick={() => openInquiry('hiring')}>Explore a leadership role <span aria-hidden="true">↗</span></button>
-              <button type="button" onClick={() => openInquiry('project')}>Collaborate on a project <span aria-hidden="true">↗</span></button>
-              <button type="button" onClick={() => openInquiry('speaking')}>Invite me to speak <span aria-hidden="true">↗</span></button>
+              <button type="button" onClick={() => openInquiry('hiring')}><span className="jz-ct-choice-icon"><ContactGlyph kind="hiring"/></span><span className="jz-ct-choice-name">Explore a leadership role</span><span className="jz-ct-choice-arrow"><ContactGlyph kind="arrow"/></span></button>
+              <button type="button" onClick={() => openInquiry('project')}><span className="jz-ct-choice-icon"><ContactGlyph kind="project"/></span><span className="jz-ct-choice-name">Collaborate on a project</span><span className="jz-ct-choice-arrow"><ContactGlyph kind="arrow"/></span></button>
+              <button type="button" onClick={() => openInquiry('speaking')}><span className="jz-ct-choice-icon"><ContactGlyph kind="speaking"/></span><span className="jz-ct-choice-name">Invite me to speak</span><span className="jz-ct-choice-arrow"><ContactGlyph kind="arrow"/></span></button>
             </div>
           </div>
-          {!formOpen && <div className="jz-ct-poster" aria-hidden="true">
-            <span className="jz-ct-poster-kicker">FROM COMPLEXITY / TO CLARITY</span>
-            <span className="jz-ct-poster-word">MAKE<br/>IT<br/><em>MATTER.</em></span>
+          {!formOpen && <div className="jz-ct-poster jz-ct-poster--portrait" aria-hidden="true">
+            <span className="jz-ct-poster-kicker">HUMAN-FIRST / FUTURE-READY</span>
             <span className="jz-ct-poster-line"/>
-            <span className="jz-ct-poster-footer">Strategy → Design → Experience</span>
+            <span className="jz-ct-poster-footer">Better learning starts with a conversation.</span>
           </div>}
           <form id="jiz-build-form-start" className="jiz-build-form" hidden={!formOpen} data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
             <h3>Start the Conversation</h3>
