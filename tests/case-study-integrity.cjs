@@ -53,6 +53,9 @@ assert.ok(!homepage.includes('Explore additional work'), 'Hidden Additional Work
 assert.ok(homepage.includes('jz-ct-choices'), 'Contact must offer goal-based entry points');
 assert.ok(homepage.includes('jz-ct-poster'), 'Contact editorial visual missing');
 assert.ok(homepage.includes('jiz-build-form-start'), 'Progressive contact form missing');
+assert.ok(homepage.includes('id="archive"'), 'Legacy archive hash must resolve to Featured Work');
+assert.ok(read('Homepage.jsx').includes('setForm({ ...EMPTY, intent: form.intent })'), 'Contact should retain inquiry category after successful submission');
+assert.ok(read('site-config.js').includes("archive: '/#work'"), 'Archive navigation should resolve to available Featured Work');
 const lab = read('creative-lab-v5.js');
 assert.ok(!lab.includes('corner tl'), 'Creative Lab viewfinder brackets should be removed from markup');
 assert.ok(atmosphere.includes('--chapter-gallery-surface:#46515C'), 'Gallery canvas must use lighter graphite');
