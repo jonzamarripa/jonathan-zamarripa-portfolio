@@ -12,6 +12,21 @@
   let panelsObserver;
   let inkObserver;
   let scheduled = false;
+  let sweepFrame = 0;
+  function updateSweeps() {
+    sweepFrame = 0;
+    const h = window.innerHeight || 1;
+    const still = disabled();
+    document.querySelectorAll('.jiz-cs .jiz-chapter[data-cs-motion], .tfs .jiz-chapter[data-cs-motion], .jiz-btb-detail .jiz-chapter[data-cs-motion]').forEach(panel => {
+      const r = panel.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > h) return;
+      const progress = still ? 1 : Math.max(0, Math.min(1, (h * .92 - r.top) / Math.max(h * .7, r.height * .72)));
+      panel.style.setProperty('--case-sweep', progress.toFixed(3));
+    });
+  }
+  function scheduleSweep() {
+    if (!sweepFrame) sweepFrame = requestAnimationFrame(updateSweeps);
+  }
 
   function showAll() {
     panelsObserver?.disconnect();
@@ -92,7 +107,7 @@
   function schedule() {
     if (scheduled) return;
     scheduled = true;
-    requestAnimationFrame(() => {scheduled=false;register();});
+    requestAnimationFrame(() => {scheduled=false;register();scheduleSweep();});
   }
   function init() {
     register();
@@ -101,7 +116,10 @@
     reduced.addEventListener?.('change', () => disabled() ? showAll() : schedule());
     new MutationObserver(() => disabled() ? showAll() : schedule())
       .observe(root,{attributes:true,attributeFilter:['data-jz-motion-paused']});
-    window.addEventListener('pageshow',schedule);
+    window.addEventListener('scroll', scheduleSweep, {passive:true});
+    window.addEventListener('resize', scheduleSweep, {passive:true});
+    window.addEventListener('pageshow', () => {schedule();scheduleSweep();});
+    scheduleSweep();
   }
   if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',init,{once:true});
   else init();
