@@ -209,3 +209,7 @@ body.jr .jr-foot{
   body.jr .jr-top nav a:not(.jr-return):first-of-type{display:none}
   body.jr .jr-systems{grid-template-columns:1fr}
 }
+
+/* Journal navigation spans two rows on narrow phones: reserve the entire
+   sticky-header height when arriving at anchored sections. */
+@media(max-width:700px){body.jr .jr-sec{scroll-margin-top:155px}}
