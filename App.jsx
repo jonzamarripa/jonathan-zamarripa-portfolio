@@ -53,11 +53,11 @@ function CaseStudyNavigation({ view, overlay = false, onClose }) {
         <span className="jiz-project-nav__name">{names[view] || 'Selected Work'}</span>
       </span>
       <span className="jiz-project-nav__actions">
-        <a className="jiz-project-nav__work" href="/#work">All work</a>
+        
         <button type="button" className="jiz-project-nav__motion" aria-pressed={motionPaused} onClick={toggleMotion}>{motionPaused ? "Enable motion" : "Pause motion"}</button>
         {overlay
           ? <button type="button" className="jiz-project-nav__exit" onClick={onClose} aria-label="Close case study and return to portfolio">Close <span aria-hidden="true">×</span></button>
-          : <a className="jiz-project-nav__exit" href="/#work">← Back to work</a>}
+          : <a className="jiz-project-nav__exit" href="/#work">← Back to Work</a>}
       </span>
     </nav>
   );
@@ -93,6 +93,7 @@ function CaseStudyOverlay({ view, onClose, children }) {
       `}</style>
       <CaseStudyNavigation view={view} overlay onClose={onClose} />
       {children}
+      {window.HomepageExports?.FinalMoment && <window.HomepageExports.FinalMoment standalone onNavigate={(section) => window.location.assign("/#" + section)} />}
     </div>
   );
 }
