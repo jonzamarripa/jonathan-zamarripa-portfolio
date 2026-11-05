@@ -27,18 +27,18 @@ for (const asset of requiredAssets) {
   assert.ok(fs.existsSync(path.join(root,asset)), 'Missing asset: ' + asset);
   assert.ok(homepage.includes(asset), 'Asset missing from homepage shell: ' + asset);
 }
-for (const id of ['work','creative-lab','archive','contact']) {
+for (const id of ['work','creative-lab','contact']) {
   assert.match(homepage, new RegExp('\\bid="' + id + '"'), 'Homepage missing anchor #' + id);
 }
 assert.ok(homepage.includes('data-prerender'), 'Homepage must remain prerendered');
 const atmosphere = read('editorial-atmosphere.css');
 const atmosphereJS = read('editorial-atmosphere.js');
 const caseMotion = read('case-study-motion.js');
-assert.ok(atmosphere.includes('--chapter-gallery-surface:#39434F'), 'Lighter gallery surface missing');
+assert.ok(atmosphere.includes('--chapter-gallery-surface:#46515C'), 'Lighter gallery surface missing');
 assert.ok(atmosphere.includes('--chapter-glow-alpha'), 'Color-tinted homepage shadow must be present');
 assert.ok(atmosphere.includes('rgba(var(--chapter-rgb),var(--chapter-glow-alpha))'), 'Homepage shadow must use section accent color');
 assert.ok(atmosphere.includes('--case-panel-glow'), 'Case studies must use project accent shadows');
-assert.ok(atmosphere.includes('color-mix(in srgb,var(--case-panel-glow) 43%,transparent)'), 'Case-study color-tinted shadow missing');
+assert.ok(atmosphere.includes('color-mix(in srgb,var(--case-panel-glow) 54%,transparent)'), 'Case-study color-tinted shadow missing');
 assert.ok(atmosphere.includes('.jiz-homepage .jz-fw::before'), 'Legacy Featured Work rail must remain suppressed');
 assert.ok(!atmosphere.includes('div[data-section]::after'), 'Homepage moving accent rail must be removed');
 assert.ok(!atmosphere.includes('.jiz-chapter[data-cs-motion]::after'), 'Case-study moving accent rail must be removed');
@@ -48,6 +48,18 @@ assert.ok(atmosphereJS.includes("'creative-lab':'cyan'") && atmosphereJS.include
 assert.ok(homepage.includes('data-section="speaking"'), 'Speaking must use the shared chapter structure');
 assert.ok(homepage.includes('All newsletter editions'), 'Newsletter archive CTA missing');
 assert.ok(homepage.includes('TEACHING STUDIO / IN DEVELOPMENT'), 'Teaching must be correctly labeled as in development');
+assert.ok(!homepage.includes('Selected Additional Work'), 'Additional Work must be held from the rendered homepage');
+assert.ok(!homepage.includes('Explore additional work'), 'Hidden Additional Work must not be promoted in Featured Work');
+assert.ok(homepage.includes('jz-ct-choices'), 'Contact must offer goal-based entry points');
+assert.ok(homepage.includes('jz-ct-poster'), 'Contact editorial visual missing');
+assert.ok(homepage.includes('jiz-build-form-start'), 'Progressive contact form missing');
+const lab = read('creative-lab-v5.js');
+assert.ok(!lab.includes('corner tl'), 'Creative Lab viewfinder brackets should be removed from markup');
+assert.ok(atmosphere.includes('--chapter-gallery-surface:#46515C'), 'Gallery canvas must use lighter graphite');
+assert.ok(atmosphere.includes('--case-panel-glow'), 'Shared case-study shadow token missing');
+assert.ok(atmosphere.includes('footer.jiz-footer::before'), 'Signature footer grid missing');
+assert.ok(atmosphere.includes('.jz-ct-choices'), 'Contact editorial choice cards missing');
+
 const editorial = read('HomepageP1.jsx');
 assert.ok(editorial.includes("featuredOrder = ['case-study','hotelkey-onboarding','guest-crm-pilot','workday-learn'"), 'Enterprise case studies should lead Featured Work');
 const journal = read('content/journal.js');
