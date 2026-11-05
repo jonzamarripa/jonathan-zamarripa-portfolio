@@ -160,7 +160,7 @@ function page({ title, description, canonical, depth, body, type, noindex, image
 </head>
 <body class="jr">
 <a class="skip" href="#main">Skip to content</a>
-<header class="jr-top">
+<header class="jr-top" id="top">
   <a class="jr-home" href="${up}"><img src="${up}assets/logo/jiz-logo-white.svg" alt="" width="28" height="28"> <span>Jonathan Iker Zamarripa</span></a>
   <nav aria-label="Journal">
     <a href="/#thinking" class="jr-return" data-editorial-return>← Back to where I was</a>
