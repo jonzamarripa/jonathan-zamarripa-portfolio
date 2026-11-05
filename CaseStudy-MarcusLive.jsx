@@ -143,10 +143,6 @@ function CaseStudyMarcusLive() {
   const Chapter = window.JIZChapter.Chapter;
   return <article className="tfs ml" data-case-study="marcus-live">
     <style>{TFS_CSS + MARCUS_CSS}</style>
-    <div className="tfs-top">
-      <nav className="tfs-crumb" aria-label="Breadcrumb"><a href="/">Jonathan Zamarripa</a> / <a href="/#work">Work</a> / <span aria-current="page">Marcus, Live</span></nav>
-      <a className="tfs-pill" href="/#work">← All work</a>
-    </div>
     <TfsBuildNavigation active="live" />
     <Chapter surface="obsidian" accent="first-sentence" labelledBy="ml-title">
       <p className="tfs-chn">Featured case study · Conversational AI practice</p>
