@@ -1248,19 +1248,19 @@ function Homepage({ onOpenCaseStudy }) {
       <main id="main-content" tabIndex={-1} style={{ flex: 1, position: 'relative', zIndex: 1, overflow: 'visible', outline: 'none' }}>
         <div ref={registerSection('hero')}><Hero onExploreWork={() => scrollToSection('work')} onConnect={() => scrollToSection('contact')} /></div>
         <SelectedExperience />
-        <div ref={registerSection('work')} data-section="featured-work"><FeaturedWorkEditorial onOpenWork={onOpenCaseStudy} /></div>
-        <div ref={registerSection('impact')} data-section="impact"><ImpactEditorial /></div>
-        <div ref={registerSection('capabilities')} data-section="capabilities"><Practice part="capabilities" /></div>
-        <div ref={registerSection('method')} data-section="method"><Practice part="method" /></div>
-        <div ref={registerSection('thinking')} data-section="cinematic-learning-systems"><CinematicJournal onNavigate={scrollToSection} /></div>
+        <div id="work" ref={registerSection('work')} data-section="featured-work"><FeaturedWorkEditorial onOpenWork={onOpenCaseStudy} /></div>
+        <div id="impact" ref={registerSection('impact')} data-section="impact"><ImpactEditorial /></div>
+        <div id="capabilities" ref={registerSection('capabilities')} data-section="capabilities"><Practice part="capabilities" /></div>
+        <div id="method" ref={registerSection('method')} data-section="method"><Practice part="method" /></div>
+        <div id="thinking" ref={registerSection('thinking')} data-section="cinematic-learning-systems"><CinematicJournal onNavigate={scrollToSection} /></div>
         <SpeakingPreview />
-        <div ref={registerSection('creative-lab')} data-section="creative-lab"><FilmSection /></div>
-        <div ref={registerSection('about')} data-section="about"><AboutMind /></div>
-        <div ref={registerSection('journey')} data-section="journey"><CareerJourney /></div>
-        <div ref={registerSection('stack')} data-section="stack"><LearningStack /></div>
-        <div ref={registerSection('principles')} data-section="principles"><Principles /></div>
-        <div ref={registerSection('archive')} data-section="archive"><ArchiveBridge onNavigate={scrollToSection} /></div>
-        <div ref={registerSection('contact')} data-section="contact">
+        <div id="creative-lab" ref={registerSection('creative-lab')} data-section="creative-lab"><FilmSection /></div>
+        <div id="about" ref={registerSection('about')} data-section="about"><AboutMind /></div>
+        <div id="journey" ref={registerSection('journey')} data-section="journey"><CareerJourney /></div>
+        <div id="stack" ref={registerSection('stack')} data-section="stack"><LearningStack /></div>
+        <div id="principles" ref={registerSection('principles')} data-section="principles"><Principles /></div>
+        <div id="archive" ref={registerSection('archive')} data-section="archive"><ArchiveBridge onNavigate={scrollToSection} /></div>
+        <div id="contact" ref={registerSection('contact')} data-section="contact">
           <LetsBuild onExploreWork={() => scrollToSection('work')} />
           <FinalMoment onNavigate={scrollToSection} />
         </div>
