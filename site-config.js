@@ -6,7 +6,7 @@
     speaking: '/speaking/',
     linkedin: 'https://www.linkedin.com/in/jonathanzamarripa/',
     email: 'mailto:jonathan.zamarripa@gmail.com',
-    archive: '/#archive',
+    archive: '/#work', // Additional Work is on hold; keep archive navigation useful
     // Cinematic Learning Systems newsletter on LinkedIn. Paste the URL here; the Thinking and footer links appear automatically.
     newsletter: 'https://www.linkedin.com/newsletters/cinematic-learning-systems-7463584574371942400/'
   };
