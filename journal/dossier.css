@@ -187,3 +187,6 @@ body.jr .dx .jr-back{
   body.jr .dx-toc ol{grid-template-columns:1fr}
   body.jr .dx-body > .dx-ch .dx-fig--artifact{grid-template-columns:1fr}
 }
+
+/* Dossier chapter deep links stay below the two-row mobile journal header. */
+@media(max-width:700px){body.jr .dx-body > .dx-ch{scroll-margin-top:155px}}
