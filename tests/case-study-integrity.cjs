@@ -102,6 +102,7 @@ assert.ok(journalHub.includes('data-editorial-return'), 'Journal reader return n
 assert.ok(journalHub.includes('id="framework"') && journalHub.includes('id="evidence"'), 'Framework/evidence deep links missing');
 assert.ok(journalCss.includes('body.jr main > #framework'), 'Framework architectural panel styling missing');
 assert.ok(dossierCss.includes('body.jr .dx-body > .dx-ch'), 'Dossier chapter separation missing');
+assert.ok(journalCss.includes('scroll-margin-top:155px') && dossierCss.includes('scroll-margin-top:155px'), 'Mobile editorial anchor offsets missing');
 assert.ok(dossier.includes('class="dx-ch'), 'Dossier chapters missing');
 assert.ok(read('editorial-return.js').includes('jiz-editorial-origin-v1'), 'Return-to-scroll preservation missing');
 assert.ok(homepage.includes('editorial-return.js'), 'Homepage editorial return script missing');
