@@ -31,6 +31,16 @@ for (const id of ['work','creative-lab','archive','contact']) {
   assert.match(homepage, new RegExp('\\bid="' + id + '"'), 'Homepage missing anchor #' + id);
 }
 assert.ok(homepage.includes('data-prerender'), 'Homepage must remain prerendered');
+const atmosphere = read('editorial-atmosphere.css');
+const atmosphereJS = read('editorial-atmosphere.js');
+const caseMotion = read('case-study-motion.js');
+assert.ok(atmosphere.includes('--chapter-gallery-surface:#39434F'), 'Lighter gallery surface missing');
+assert.ok(atmosphere.includes('div[data-section]::after'), 'Visible main chapter sweep rail missing');
+assert.ok(atmosphere.includes('.jiz-chapter[data-cs-motion]::after'), 'Case-study chapter sweep rail missing');
+assert.ok(atmosphere.includes('27px 50px -16px'), 'Chapter drop-shadow system missing');
+assert.ok(atmosphereJS.includes("'creative-lab':'cyan'") && atmosphereJS.includes("thinking:'amber'"), 'Section-specific accent palette missing');
+assert.ok(caseMotion.includes('--case-sweep'), 'Case studies must have scroll-linked rail progress');
+assert.ok(homepage.includes('data-section="speaking"'), 'Speaking must use the shared chapter structure');
 assert.ok(homepage.includes('All newsletter editions'), 'Newsletter archive CTA missing');
 assert.ok(homepage.includes('TEACHING STUDIO / IN DEVELOPMENT'), 'Teaching must be correctly labeled as in development');
 const editorial = read('HomepageP1.jsx');
