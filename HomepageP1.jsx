@@ -622,6 +622,27 @@ function CareerJourney() {
   );
 }
 
+/* Cohesive compact line icon system for portfolio category and principles. */
+function PortfolioGlyph({kind='design',size=24}) {
+ const d={design:<><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 16l8-8m-6 2h6v6"/></>,
+ ai:<><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 2v3m6-3v3M2 9h3m-3 6h3m14-6h3m-3 6h3m-10 4v3m-6-3v3M9 11l3-3 3 3-3 4z"/></>,
+ automation:<><circle cx="5" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 6h8v6m-6 6h8m-3-9 3 3-3 3"/></>,
+ video:<><rect x="3" y="5" width="15" height="14" rx="2"/><path d="m18 9 4-3v12l-4-3M8 10l4 2-4 2z"/></>,
+ delivery:<><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></>,
+ measure:<><path d="M4 20V4m0 16h16M8 16v-5m4 5V7m4 9V9m4 7V5"/></>,
+ access:<><circle cx="12" cy="4" r="2"/><path d="M4 9h16m-8 0v12m0-7-5 7m5-7 5 7"/></>,
+ clarity:<><circle cx="12" cy="12" r="9"/><path d="M8 12h8m-4-4v8"/></>,
+ people:<><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M17 7a3 3 0 0 1 0 6m1 3c2 1 3 2 3 4"/></>,
+ evidence:<><path d="M5 3h11l3 3v15H5zM8 12l3 3 5-6"/></>,
+ behavior:<><path d="m4 18 5-5 4 3 7-9m-5 0h5v5"/></>,
+ human:<><path d="M12 20s-8-5-8-11a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 6-8 11-8 11z"/></>,
+ direction:<><path d="M3 18 20 4 15 20 11 13z"/></>,
+ speed:<><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 3"/></>,
+ review:<><path d="M4 5h12l4 4v11H4zM8 13l3 3 5-6"/></>,
+ work:<><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4h8v3M3 12h18"/></>,
+ arrow:<><path d="M4 12h16m-7-7 7 7-7 7"/></>};
+ return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">{d[kind]||d.design}</svg>;
+}
 /* ---------- Stack (restored from the original LearningStack; same eight categories, outcomes and tools) ---------- */
 function LearningStack() {
   const ref = React.useRef(null);
