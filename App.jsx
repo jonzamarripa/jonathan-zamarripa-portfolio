@@ -48,7 +48,20 @@ function CaseStudyNavigation({ view, overlay = false, onClose }) {
         <img aria-hidden="true" className="jiz-project-nav__logo" src="/assets/logo/jiz-logo-white.svg" width="40" height="40" alt="" decoding="async" />
         <span className="jiz-project-nav__brandname">Jonathan Zamarripa</span>
       </a>
-      <span className="jiz-project-nav__current" aria-current="page">
+            <div className="jiz-project-nav__links" aria-label="Explore portfolio">
+        <a href="/#work" aria-current="page">Work</a>
+        <a href="/journal/">Journal</a>
+        <a href="/speaking/">Speaking</a>
+        <a href="/#about">About</a>
+      </div>
+      <details className="jiz-project-nav__menu">
+        <summary aria-label="Open portfolio navigation">Menu</summary>
+        <div className="jiz-project-nav__menu-links">
+          <a href="/#work">Work</a><a href="/journal/">Journal</a>
+          <a href="/speaking/">Speaking</a><a href="/#about">About</a>
+        </div>
+      </details>
+<span className="jiz-project-nav__current" aria-current="page">
         <span className="jiz-project-nav__type">CASE STUDY</span>
         <span className="jiz-project-nav__name">{names[view] || 'Selected Work'}</span>
       </span>
