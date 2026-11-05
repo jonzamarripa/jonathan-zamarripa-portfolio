@@ -1,6 +1,6 @@
 /* Portfolio-only aliases: the journal does not load this stylesheet. */
 :root{
---portfolio-canvas:var(--carbon);
+--portfolio-canvas:#242A31;
 --portfolio-content-max:var(--chapter-max);
 --portfolio-heading:var(--white);
 --portfolio-copy:var(--mist);

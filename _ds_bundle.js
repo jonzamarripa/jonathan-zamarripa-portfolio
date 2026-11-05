@@ -6363,7 +6363,7 @@ function NavBar({
       visible: true
     });
   }, [active, items]);
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     measureIndicator();
     const onResize = () => measureIndicator();
     window.addEventListener('resize', onResize);

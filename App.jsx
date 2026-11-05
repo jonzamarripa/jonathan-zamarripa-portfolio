@@ -1,3 +1,68 @@
+/* Shared persistent project navigation — standalone and overlay variants. */
+function CaseStudyNavigation({ view, overlay = false, onClose }) {
+  const navRef = React.useRef(null);
+  const [motionPaused, setMotionPaused] = React.useState(() => typeof document !== 'undefined' && document.documentElement?.dataset?.jzMotionPaused === 'true');
+  const toggleMotion = () => {
+    const next = !motionPaused;
+    document.documentElement.dataset.jzMotionPaused = String(next);
+    try { sessionStorage.setItem('jiz-motion-paused', next ? '1' : '0'); } catch(e) {}
+    setMotionPaused(next);
+  };
+  React.useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return undefined;
+    const box = nav.closest('.jiz-cs-overlay');
+    const target = box || window;
+    let frame = 0;
+    const measure = () => {
+      frame = 0;
+      const distance = box ? box.scrollHeight - box.clientHeight :
+        document.documentElement.scrollHeight - window.innerHeight;
+      const current = box ? box.scrollTop : window.scrollY;
+      nav.style.setProperty('--project-read-progress',
+        String(distance > 0 ? Math.max(0,Math.min(1,current / distance)) : 0));
+    };
+    const onScroll = () => { if (!frame) frame = requestAnimationFrame(measure); };
+    target.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll);
+    onScroll();
+    return () => {
+      target.removeEventListener('scroll',onScroll);
+      window.removeEventListener('resize',onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, [overlay,view]);
+  const names = {
+    'case-study': 'Operation: Legacy Unlocked',
+    'hotelkey-onboarding': 'HotelKey Onboarding',
+    'guest-crm-pilot': 'Guest CRM Pilot',
+    'workday-learn': 'Workday Learn',
+    'the-first-sentence': 'The First Sentence',
+    'marcus-live': 'Marcus, Live',
+    'drafted-by-ai': 'Drafted by AI',
+    'behind-the-build': 'Behind the Build'
+  };
+  return (
+    <nav ref={navRef} className="jiz-project-nav" aria-label="Project navigation">
+      <a className="jiz-project-nav__brand" href="/" aria-label="Go to portfolio homepage">
+        <span aria-hidden="true" className="jiz-project-nav__mark">JZ</span>
+        <span className="jiz-project-nav__brandname">Jonathan Zamarripa</span>
+      </a>
+      <span className="jiz-project-nav__current" aria-current="page">
+        <span className="jiz-project-nav__type">CASE STUDY</span>
+        <span className="jiz-project-nav__name">{names[view] || 'Selected Work'}</span>
+      </span>
+      <span className="jiz-project-nav__actions">
+        <a className="jiz-project-nav__work" href="/#work">All work</a>
+        <button type="button" className="jiz-project-nav__motion" aria-pressed={motionPaused} onClick={toggleMotion}>{motionPaused ? "Enable motion" : "Pause motion"}</button>
+        {overlay
+          ? <button type="button" className="jiz-project-nav__exit" onClick={onClose} aria-label="Close case study and return to portfolio">Close <span aria-hidden="true">×</span></button>
+          : <a className="jiz-project-nav__exit" href="/#work">← Back to work</a>}
+      </span>
+    </nav>
+  );
+}
+
 function CaseStudyOverlay({ view, onClose, children }) {
   const ref = React.useRef(null);
   React.useEffect(() => {
@@ -26,7 +91,7 @@ function CaseStudyOverlay({ view, onClose, children }) {
         @keyframes jiz-cs-in{from{opacity:0}to{opacity:1}}
         @media(prefers-reduced-motion:reduce){.jiz-cs-overlay{animation:none}}
       `}</style>
-      <button type="button" className="jiz-cs-close" onClick={onClose} aria-label="Close case study"><span aria-hidden="true">×</span> Close</button>
+      <CaseStudyNavigation view={view} overlay onClose={onClose} />
       {children}
     </div>
   );
@@ -54,6 +119,7 @@ function CaseStudyPage({ view }) {
   const Footer = window.HomepageExports.FinalMoment;
   return (
     <>
+      <CaseStudyNavigation view={view} />
       <main id="main-content" tabIndex={-1} style={{ outline: 'none' }}>
         <Page standalone onBack={() => window.location.assign('/#work')} onOpenProject={goTo} />
       </main>
@@ -124,7 +190,11 @@ function App() {
   React.useEffect(() => {
     const onPopState = () => setView(SITE.viewForHash(window.location.hash));
     window.addEventListener('popstate', onPopState);
-    return () => window.removeEventListener('popstate', onPopState);
+    window.addEventListener('hashchange', onPopState);
+    return () => {
+      window.removeEventListener('popstate', onPopState);
+      window.removeEventListener('hashchange', onPopState);
+    };
   }, []);
 
   React.useEffect(() => {
@@ -185,7 +255,7 @@ function App() {
     <>
       <div ref={pageRef} style={{ opacity: entering ? 1 : 0, transform: entering ? 'scale(1)' : 'scale(0.99)', transition: reduced ? 'none' : 'opacity 0.26s ease, transform 0.26s ease' }}>
         {PageComponent
-          ? <><PageComponent onBack={backToWork} onOpenProject={openProject} /><Footer standalone onNavigate={(section) => window.location.assign('/#' + section)} /></>
+          ? <><CaseStudyNavigation view={displayView} /><PageComponent onBack={backToWork} onOpenProject={openProject} /><Footer standalone onNavigate={(section) => window.location.assign('/#' + section)} /></>
           : <HomepageComponent onOpenCaseStudy={(route) => window.jizNavigate(route || 'Operation: Legacy Unlocked')} />}
       </div>
       {OverlayComponent && (
