@@ -182,7 +182,11 @@ function App() {
   React.useEffect(() => {
     const onPopState = () => setView(SITE.viewForHash(window.location.hash));
     window.addEventListener('popstate', onPopState);
-    return () => window.removeEventListener('popstate', onPopState);
+    window.addEventListener('hashchange', onPopState);
+    return () => {
+      window.removeEventListener('popstate', onPopState);
+      window.removeEventListener('hashchange', onPopState);
+    };
   }, []);
 
   React.useEffect(() => {
