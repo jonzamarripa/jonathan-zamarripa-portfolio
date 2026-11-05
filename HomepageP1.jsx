@@ -353,7 +353,7 @@ html[data-jz-motion-paused="true"] .jz-fw-frame img{transform:none!important}
         <span className="jz-fw-count" role="status" aria-live="polite" aria-atomic="true"><span className="jz-visually-hidden">Project </span>{String(active + 1).padStart(2,'0')} / {String(projects.length).padStart(2,'0')}<span className="jz-visually-hidden">: {projects[active].title}</span></span>
         <div className="jz-fw-steps" role="group" aria-label="Choose a featured project">{projects.map((p,i) => <button className="jz-fw-step" type="button" key={p.view} aria-label={'Show project ' + p.n + ': ' + p.title} aria-current={i === active ? 'true' : undefined} aria-controls="jz-fw-gallery" onClick={() => go(i)}>{p.n}</button>)}</div>
       </div>
-      <details className="jz-fw-index"><summary>View all projects</summary><ul>{projects.map((p) => <li key={p.view}><a href={pathOf(p)} onClick={(e) => open(e,p)}>{p.title}</a></li>)}<li><a href="#archive" onClick={(e) => { if (plain(e) && window.jizNavigate) { e.preventDefault(); window.jizNavigate('Archive'); } }}>Explore additional work →</a></li></ul></details>
+      <details className="jz-fw-index"><summary>View all projects</summary><ul>{projects.map((p) => <li key={p.view}><a href={pathOf(p)} onClick={(e) => open(e,p)}>{p.title}</a></li>)}</ul></details>
       </div>
     </section>
   );
