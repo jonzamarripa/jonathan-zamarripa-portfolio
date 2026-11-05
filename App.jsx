@@ -1,6 +1,13 @@
 /* Shared persistent project navigation — standalone and overlay variants. */
 function CaseStudyNavigation({ view, overlay = false, onClose }) {
   const navRef = React.useRef(null);
+  const [motionPaused, setMotionPaused] = React.useState(() => document.documentElement.dataset.jzMotionPaused === 'true');
+  const toggleMotion = () => setMotionPaused(previous => {
+    const next = !previous;
+    document.documentElement.dataset.jzMotionPaused = String(next);
+    try { sessionStorage.setItem('jiz-motion-paused', next ? '1' : '0'); } catch(e) {}
+    return next;
+  });
   React.useEffect(() => {
     const nav = navRef.current;
     if (!nav) return undefined;
@@ -47,6 +54,7 @@ function CaseStudyNavigation({ view, overlay = false, onClose }) {
       </span>
       <span className="jiz-project-nav__actions">
         <a className="jiz-project-nav__work" href="/#work">All work</a>
+        <button type="button" className="jiz-project-nav__motion" aria-pressed={motionPaused} onClick={toggleMotion}>{motionPaused ? "Enable motion" : "Pause motion"}</button>
         {overlay
           ? <button type="button" className="jiz-project-nav__exit" onClick={onClose} aria-label="Close case study and return to portfolio">Close <span aria-hidden="true">×</span></button>
           : <a className="jiz-project-nav__exit" href="/#work">← Back to work</a>}
