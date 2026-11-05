@@ -389,6 +389,15 @@ function CountUp({ to, run, suffix, srSuffix }) {
   </React.Fragment>;
 }
 
+function MetricEvidence({context,work}) {
+ return <details className="jz-im-evidence">
+  <summary><PortfolioGlyph kind="evidence" size={17}/> How this outcome was supported <PortfolioGlyph kind="arrow" size={15}/></summary>
+  <div className="jz-im-evidence__body"><p>{context}</p>
+    <p className="jz-im-evidence__note">Portfolio-reported outcome. The figure represents a program result, not a claim of sole individual causation.</p>
+    {work ? <a href={work}>Explore related work <PortfolioGlyph kind="arrow" size={15}/></a> : null}
+  </div>
+ </details>;
+}
 function ImpactEditorial() {
   const [animate, setAnimate] = React.useState(true);
   const [reduced, setReduced] = React.useState(false);
@@ -402,11 +411,11 @@ function ImpactEditorial() {
   const run = animate && !reduced && pageVisible;
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref, { threshold: 0.3 });
-  const lead = { to: 98, suffix: '%', label: 'Platform adoption in Q1, supported through targeted enablement', src: 'Workday Learn launch · Cox Enterprises', cat: 'Adoption' };
+  const lead = { to: 98, suffix: '%', label: 'Platform adoption in Q1, supported through targeted enablement', src: 'Workday Learn launch · Cox Enterprises', cat: 'Adoption', evidence: 'The reported Q1 adoption rate belongs to the Workday Learn launch at Cox Enterprises. The related work sample describes the enablement approach and communication context; this is not an independently audited effectiveness estimate.', work: '/work/workday-learn-launch/' };
   const rest = [
-    { to: 40, suffix: '%', label: 'Faster content development using an AI-assisted production pipeline, adopted team-wide', src: 'Learning production · Cox Enterprises', cat: 'Production' },
-    { to: 35, suffix: '%', label: 'Lift in strategic knowledge retention versus presentation formats', src: 'Cox 20/20 executive simulation', cat: 'Leadership' },
-    { to: 95, suffix: '%', label: 'Adoption and 4.9/5 satisfaction on an organization-wide LMS migration', src: 'Digital learning function · Atlanta International School', cat: 'Migration' },
+    { to: 40, suffix: '%', label: 'Faster content development using an AI-assisted production pipeline, adopted team-wide', src: 'Learning production · Cox Enterprises', cat: 'Production', evidence: 'Reported improvement in development cycle time associated with an AI-assisted production pipeline. The figure describes workflow speed, not independently established learner performance.', work: '/work/legacy-unlocked/' },
+    { to: 35, suffix: '%', label: 'Lift in strategic knowledge retention versus presentation formats', src: 'Cox 20/20 executive simulation', cat: 'Leadership', evidence: 'Reported comparison between a strategic leadership simulation and presentation-led formats. The precise assessment methodology is not published here, so the figure should be read as contextual program evidence.', work: '/work/legacy-unlocked/' },
+    { to: 95, suffix: '%', label: 'Adoption and 4.9/5 satisfaction on an organization-wide LMS migration', src: 'Digital learning function · Atlanta International School', cat: 'Migration', evidence: 'Reported adoption and satisfaction during the school-wide LMS migration at Atlanta International School. A complete evaluation protocol is not publicly available.', work: '' },
     // Non-numeric until a verified duration is confirmed.
     { text: 'Education to enterprise', label: 'Experience across education, enterprise learning, technology enablement, and creative production', cat: 'Experience' }
   ];
@@ -445,6 +454,7 @@ function ImpactEditorial() {
           <p className="jz-im-fig"><CountUp to={lead.to} run={run} suffix={lead.suffix} srSuffix={lead.srSuffix} /></p>
           <p className="jz-im-label">{lead.label}</p>
           <p className="jz-im-src">{lead.src}</p>
+          <MetricEvidence context={lead.evidence} work={lead.work}/>
         </div>
         <div className="jz-im-row">
           {rest.map((m) => (
@@ -455,6 +465,7 @@ function ImpactEditorial() {
                 : <p className="jz-im-fig"><CountUp to={m.to} run={run} suffix={m.suffix} srSuffix={m.srSuffix} /></p>}
               <p className="jz-im-label">{m.label}</p>
               {m.src ? <p className="jz-im-src">{m.src}</p> : null}
+              {m.evidence ? <MetricEvidence context={m.evidence} work={m.work}/> : null}
             </div>
           ))}
         </div>
