@@ -1,6 +1,5 @@
-/* Cinematic Chapter Architecture v3 — shared sweep and depth, no DOM insertion.
-   The original Featured Work cyan sweep is the interaction reference.
-   One style system drives every homepage chapter. */
+/* Cinematic Chapter Architecture v4 — section-colored ambient shadows.
+   Maintain only scroll progress for subtle depth, without accent rails. */
 (() => {
  'use strict';
  const palette = {
@@ -31,9 +30,8 @@
      const r=w.getBoundingClientRect();
      if(r.bottom < -10 || r.top>h+10)continue;
      const t=still?1:Math.max(0,Math.min(1,(h*.92-r.top)/Math.max(h*.7,r.height*.72)));
-     // The line sweeps left-to-right while the chapter is revealed.
+     // Ambient elevation subtly strengthens as a chapter enters the viewport.
      const value=t.toFixed(3);
-     w.style.setProperty('--chapter-sweep',value);
      const first=w.querySelector(':scope > section');
      if(first)first.style.setProperty('--atmosphere-progress',value);
    }
