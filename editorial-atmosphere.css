@@ -54,3 +54,30 @@ html[data-jz-motion-paused="true"] .jiz-homepage section[data-atmosphere] {
   --atmosphere-progress:.5!important;
 }
 @media print { .jiz-homepage section[data-atmosphere] { box-shadow:none!important; } }
+
+/* Supporting editorial pathways: visible but intentionally quieter than case studies. */
+.cls-room__issues-footer {
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;
+  margin:clamp(22px,3vw,42px) 0;padding-top:20px;
+  border-top:1px solid rgba(217,221,227,.16);
+  color:rgba(217,221,227,.78);font:400 .875rem/1.6 var(--font-body,Arial,sans-serif);
+}
+.cls-room__issues-footer span {max-width:58ch;}
+.cls-room__issues-footer a {
+  display:inline-flex;align-items:center;min-height:44px;gap:8px;
+  color:#C6F23A;text-decoration:none;font-weight:650;
+}
+.cls-room__issues-footer a:hover {text-decoration:underline;text-underline-offset:4px;}
+.sp-course-note {
+  margin-top:clamp(22px,2.6vw,34px);padding:20px 22px;
+  background:rgba(11,13,16,.045);border:1px solid rgba(11,13,16,.14);
+  border-left:3px solid #177A83;border-radius:14px;
+  color:#0B0D10;
+}
+.sp-course-note__label {
+  display:block;font:600 .65rem/1.4 var(--font-mono,monospace);
+  letter-spacing:.14em;color:#165A63;
+}
+.sp-course-note p {max-width:58ch;margin:10px 0;font-size:.88rem;line-height:1.55;color:#303942;}
+.sp-course-note a {display:inline-flex;align-items:center;min-height:44px;color:#0B414A;font-size:.875rem;font-weight:650;text-underline-offset:4px;}
+.sp-course-note a:hover {color:#0B0D10}
