@@ -123,3 +123,16 @@
   .sp-page .sp-format-strip > div,.sp-page .sp-format-strip > div+div{min-height:104px;padding:16px}
   .sp-page .sp-portrait{max-width:290px;aspect-ratio:4/5;object-position:50% 24%}
 }
+
+
+/* Keep disclosure separate from the editorial copy on small viewports. */
+@media(max-width:760px){
+  .sp-scene{display:flex;flex-direction:column;justify-content:flex-end;align-items:stretch;gap:12px}
+  .sp-scene-copy{align-self:stretch}
+  .sp-scene-disclosure{
+    position:relative;right:auto;bottom:auto;
+    align-self:flex-start;text-align:left;max-width:40ch;margin:0;
+    padding-top:10px;border-top:1px solid rgba(247,248,250,.28);
+    font-size:.6rem;line-height:1.5;
+  }
+}
