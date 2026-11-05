@@ -1,59 +1,136 @@
-/* Editorial atmosphere v1 — subtle kinetic light, rather than identical effects everywhere.
-   Accent assignments follow meaning; decorative only, never interactive. */
+/* CINEMATIC CHAPTER ARCHITECTURE v3
+ * Full-strength left-to-right rail, visible graphite gutters, elevated panels.
+ * This layer intentionally overrides the distributed homepage and v2 shadow rules.
+ */
+:root { --chapter-gallery-surface:#39434F; }
+html body:has(.jiz-homepage),
+html body:has(.jiz-cs),
+html body:has(.tfs),
+html body:has(.jiz-btb-detail) {background:var(--chapter-gallery-surface);}
 html .jiz-homepage {
-  --panel-gutter-surface:#242A31;
-  background:var(--panel-gutter-surface)!important;
+  --panel-gutter-surface:var(--chapter-gallery-surface) !important;
+  background:var(--chapter-gallery-surface)!important;
 }
-.jiz-homepage main {
-  background:transparent!important;
-}
-.jiz-homepage .jz-exp {
-  background:transparent!important;
-}
-.jiz-homepage section[data-atmosphere] {
-  --atmosphere-rgb:198,242,58;
-  --atmosphere-opacity:.50;
+html .jiz-homepage main {background:transparent!important;}
+html .jiz-homepage main > div[data-section] {
+  --chapter-rgb:198,242,58;
+  --chapter-sweep:0;
   position:relative;
-  border:1px solid rgba(var(--atmosphere-rgb),.13)!important;
-  box-shadow:
-    0 24px 54px -32px rgba(0,0,0,.78),
-    0 28px 100px -78px rgba(var(--atmosphere-rgb),.26),
-    inset 0 1px 0 rgba(var(--atmosphere-rgb),.085);
+  isolation:isolate;
 }
-.jiz-homepage section[data-atmosphere="cyan"] { --atmosphere-rgb:96,217,253; }
-.jiz-homepage section[data-atmosphere="lime"] { --atmosphere-rgb:198,242,58; }
-.jiz-homepage section[data-atmosphere="teal"] { --atmosphere-rgb:86,184,180; }
-.jiz-homepage section[data-atmosphere="amber"] { --atmosphere-rgb:227,162,76; }
-.jiz-homepage section[data-atmosphere="neutral"] { --atmosphere-rgb:217,221,227; --atmosphere-opacity:.22; }
-.jiz-homepage section[data-atmosphere="light"] { --atmosphere-rgb:30,115,137; --atmosphere-opacity:.25; }
-/* Scroll progress changes the depth and direction of the ambient shadow.
-   No DOM decoration is injected into React-owned sections. */
-.jiz-homepage section[data-atmosphere] {
-  --atmosphere-progress:0;
-  --atmosphere-strength:calc(.15 + .4 * var(--atmosphere-progress));
-  box-shadow:
-    0 calc(22px + 22px * var(--atmosphere-progress)) 58px -33px rgba(0,0,0,.84),
-    calc((var(--atmosphere-progress) - .5) * 36px)
-    calc(22px + var(--atmosphere-progress) * 22px)
-    94px -65px rgba(var(--atmosphere-rgb),var(--atmosphere-strength)),
-    inset 0 1px 0 rgba(var(--atmosphere-rgb),.14);
+html .jiz-homepage main > div[data-chapter-accent="cyan"] {--chapter-rgb:96,217,253;}
+html .jiz-homepage main > div[data-chapter-accent="lime"] {--chapter-rgb:198,242,58;}
+html .jiz-homepage main > div[data-chapter-accent="teal"] {--chapter-rgb:86,184,180;}
+html .jiz-homepage main > div[data-chapter-accent="amber"] {--chapter-rgb:227,162,76;}
+html .jiz-homepage main > div[data-chapter-accent="neutral"] {--chapter-rgb:217,221,227;}
+html .jiz-homepage main > div[data-chapter-accent="light"] {--chapter-rgb:29,110,123;}
+/* Unlike the previous ambient-only pass, this is a literal visible sweep across
+   the upper edge of EVERY rounded chapter, modeled on Featured Work. */
+html .jiz-homepage main > div[data-section]::after {
+  content:"";
+  position:absolute;
+  top:var(--panel-gap);
+  left:calc(var(--panel-gap) + var(--panel-r));
+  width:calc(100% - 2 * var(--panel-gap) - 2 * var(--panel-r));
+  height:3px;
+  z-index:15;
+  pointer-events:none;
+  border-radius:999px;
+  transform:scaleX(var(--chapter-sweep,0));
+  transform-origin:left center;
+  background:linear-gradient(90deg,rgba(var(--chapter-rgb),.08) 0%,rgba(var(--chapter-rgb),.52) 47%,rgba(var(--chapter-rgb),.95) 96%,#fff 100%);
+  box-shadow:0 0 9px 1px rgba(var(--chapter-rgb),.35),0 0 22px rgba(var(--chapter-rgb),.20);
+  opacity:.97;
 }
-.jiz-homepage section[data-atmosphere="light"] { --atmosphere-opacity:.25; }
-.jiz-homepage section[data-atmosphere="neutral"] { --atmosphere-opacity:.18; }
-@media (max-width:767px) {
-  html .jiz-homepage{--panel-gutter-surface:#20262D;}
-  .jiz-homepage section[data-atmosphere] {
-    box-shadow:0 22px 64px -42px rgba(0,0,0,.72),
-      0 24px 80px -66px rgba(var(--atmosphere-rgb),.25);
+html .jiz-homepage main > div[data-section] > section {
+  --panel-depth-color:rgba(var(--chapter-rgb),.20);
+  position:relative;
+  border-radius:var(--panel-r)!important;
+  outline:1px solid rgba(var(--chapter-rgb),.19);
+  outline-offset:-1px;
+  box-shadow:
+    0 27px 50px -16px rgba(0,0,0,.77),
+    0 52px 100px -64px rgba(0,0,0,.78),
+    0 9px 42px -24px var(--panel-depth-color),
+    inset 0 1px 0 rgba(255,255,255,.08) !important;
+}
+/* The hero and selected-experience bridge retain their art-directed motion. */
+html .jiz-homepage .hero { box-shadow:0 24px 45px -24px rgba(0,0,0,.62)!important; }
+html .jiz-homepage .jz-exp {background:transparent!important;}
+/* Keep the light and warm sections less luminous; shadow does the separating. */
+html .jiz-homepage main > div[data-chapter-accent="light"] > section,
+html .jiz-homepage main > div[data-chapter-accent="neutral"] > section {
+  --panel-depth-color:rgba(9,25,32,.13);
+  outline-color:rgba(11,13,16,.16);
+}
+html .jiz-homepage main > div[data-section] > section[data-choreo="pending"] {
+  box-shadow:
+    0 12px 30px -18px rgba(0,0,0,.50),
+    0 18px 54px -44px rgba(var(--chapter-rgb),.18)!important;
+}
+/* Shared gallery surface and panel depth are equally important within case studies. */
+html .jiz-chapter-stack,
+html .jiz-cs,
+html .tfs,
+html .jiz-btb-detail,
+html .jiz-cs-overlay {
+  --panel-gutter-surface:var(--chapter-gallery-surface);
+  --portfolio-canvas:var(--chapter-gallery-surface);
+  background-color:var(--chapter-gallery-surface);
+}
+html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter {
+  --case-panel-glow:var(--chapter-accent,#C6F23A);
+  border-radius:var(--panel-r)!important;
+  outline:1px solid color-mix(in srgb,var(--case-panel-glow) 22%,transparent);
+  outline-offset:-1px;
+  box-shadow:
+    0 27px 54px -18px rgba(0,0,0,.80),
+    0 49px 100px -62px rgba(0,0,0,.70),
+    0 7px 38px -26px color-mix(in srgb,var(--case-panel-glow) 36%,transparent)!important;
+}
+html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-cs-motion="pending"] {
+  box-shadow:0 13px 28px -17px rgba(0,0,0,.53)!important;
+}
+html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-cs-motion] {
+  position:relative;
+}
+html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-cs-motion]::after {
+  content:"";
+  position:absolute;top:0;left:var(--panel-r);
+  width:calc(100% - 2 * var(--panel-r));height:3px;
+  border-radius:999px;z-index:5;pointer-events:none;
+  transform:scaleX(var(--case-sweep,0));transform-origin:left;
+  background:linear-gradient(90deg,transparent,color-mix(in srgb,var(--chapter-accent,#C6F23A) 72%,white),#fff);
+  filter:drop-shadow(0 0 6px color-mix(in srgb,var(--chapter-accent,#C6F23A) 65%,transparent));
+}
+/* No tween is forced on scroll; the viewport scroll drives the line directly.
+   Pause and reduced-motion reveal content without motion. */
+html[data-jz-motion-paused="true"] .jiz-homepage main > div[data-section]::after,
+html[data-jz-motion-paused="true"] :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-cs-motion]::after {
+  transform:scaleX(1)!important;transition:none!important;
+}
+@media(prefers-reduced-motion:reduce){
+  html .jiz-homepage main > div[data-section]::after,
+  html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-cs-motion]::after {
+    transform:scaleX(1)!important;filter:none!important;transition:none!important;
   }
 }
-@media(prefers-reduced-motion:reduce) {
-  .jiz-homepage section[data-atmosphere] { --atmosphere-progress:.5!important; }
+@media(max-width:767px){
+  :root{--chapter-gallery-surface:#333C46;}
+  html .jiz-homepage main > div[data-section]::after {height:2px}
+  html .jiz-homepage main > div[data-section] > section {
+    box-shadow:0 20px 40px -19px rgba(0,0,0,.74),0 30px 66px -56px rgba(0,0,0,.6)!important;
+  }
+  html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter {
+    box-shadow:0 20px 43px -22px rgba(0,0,0,.75)!important;
+  }
 }
-html[data-jz-motion-paused="true"] .jiz-homepage section[data-atmosphere] {
-  --atmosphere-progress:.5!important;
+@media print{
+  html .jiz-homepage main > div[data-section]::after,
+  html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-cs-motion]::after{display:none!important}
+  html .jiz-homepage main > div[data-section] > section,
+  html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter{box-shadow:none!important;outline:none!important}
 }
-@media print { .jiz-homepage section[data-atmosphere] { box-shadow:none!important; } }
 
 /* Supporting editorial pathways: visible but intentionally quieter than case studies. */
 .cls-room__issues-footer {
