@@ -89,3 +89,37 @@
 }
 @media(max-width:440px){.sp-scene{min-height:380px}.sp-scene-copy{padding-bottom:24px}.sp-return{font-size:0;min-width:44px}.sp-return::before{content:'←';font-size:1.12rem}}
 @media(prefers-reduced-motion:reduce){.sp-scene{transition:none}}
+
+
+/* Speaking formats are editorial entry cards, not an understated list. */
+.sp-page .sp-format-strip{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.6vw,18px);
+  border:0;margin-top:clamp(16px,2.2vw,28px);padding:0;
+}
+.sp-page .sp-format-strip > div,
+.sp-page .sp-format-strip > div + div{
+  min-width:0;min-height:112px;display:flex;flex-direction:column;justify-content:space-between;
+  padding:clamp(16px,1.8vw,24px);border:1px solid rgba(11,13,16,.16)!important;
+  border-radius:clamp(14px,1.5vw,20px);background:#FFFFFF;box-shadow:0 12px 32px -24px rgba(11,13,16,.45);
+}
+.sp-page .sp-format-strip > div:first-child{
+  background:#1A2A30;border-color:rgba(86,184,180,.32)!important;
+  color:#F7F8FA;box-shadow:0 22px 54px -40px rgba(86,184,180,.6);
+}
+.sp-page .sp-format-strip dt{font-size:clamp(1.04rem,1.45vw,1.25rem);letter-spacing:-.025em;line-height:1.2}
+.sp-page .sp-format-strip dd{font-size:.78rem;line-height:1.5;margin:12px 0 0;color:#4D595A}
+.sp-page .sp-format-strip > div:first-child dd{color:#B9CFD0}
+.sp-page .sp-portrait{
+  display:block;aspect-ratio:4/5;object-fit:cover;object-position:50% 23%;
+  width:min(100%,380px);max-width:380px;height:auto;
+  border-radius:clamp(18px,2vw,26px);border:1px solid rgba(198,242,58,.25);
+  box-shadow:0 24px 57px -34px rgba(0,0,0,.72),0 17px 50px -37px rgba(100,225,255,.38);
+}
+.sp-bio-expansion{margin-top:16px;max-width:71ch;line-height:1.67}
+@media(max-width:900px){
+  .sp-page .sp-format-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:510px){
+  .sp-page .sp-format-strip > div,.sp-page .sp-format-strip > div+div{min-height:104px;padding:16px}
+  .sp-page .sp-portrait{max-width:290px;aspect-ratio:4/5;object-position:50% 24%}
+}
