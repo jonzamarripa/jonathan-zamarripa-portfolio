@@ -155,12 +155,14 @@ function page({ title, description, canonical, depth, body, type, noindex, image
 <link rel="stylesheet" href="${up}styles.css">
 <link rel="stylesheet" href="${up}journal/journal.css">${depth === 2 ? '\n<link rel="stylesheet" href="' + up + 'journal/dossier.css">' : ''}
 <script defer src="/portfolio-analytics.js"></script>
+<script defer src="/editorial-return.js"></script>
 </head>
 <body class="jr">
 <a class="skip" href="#main">Skip to content</a>
 <header class="jr-top">
   <a class="jr-home" href="${up}"><img src="${up}assets/logo/jiz-logo-white.svg" alt="" width="28" height="28"> <span>Jonathan Iker Zamarripa</span></a>
   <nav aria-label="Journal">
+    <a href="/#thinking" class="jr-return" data-editorial-return>← Back to where I was</a>
     <a href="${up}journal/">${esc(J.name)}</a>
     <a href="${esc(J.newsletter)}" target="_blank" rel="noopener noreferrer">Newsletter <span aria-hidden="true">↗</span><span class="vh"> on LinkedIn (opens in a new tab)</span></a>
   </nav>
