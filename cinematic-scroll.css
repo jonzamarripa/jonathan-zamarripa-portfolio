@@ -1,0 +1,53 @@
+/* Cinematic Scroll Choreography v1 — progressive enhancement; no layout reflow. */
+:root {
+  --choreo-distance: clamp(24px, 3.5vw, 52px);
+  --choreo-duration: 850ms;
+  --choreo-ease: cubic-bezier(.22, 1, .36, 1);
+}
+/* Use the independent translate property so existing transform animations remain intact. */
+html[data-choreo-ready="true"] .jiz-homepage section[data-choreo="pending"] {
+  translate: 0 var(--choreo-distance);
+  opacity: .78;
+}
+html[data-choreo-ready="true"] .jiz-homepage section[data-choreo="entered"] {
+  translate: 0 0;
+  opacity: 1;
+}
+.jiz-homepage section[data-choreo] {
+  transition: translate var(--choreo-duration) var(--choreo-ease),
+              opacity 700ms ease-out;
+  will-change: auto;
+}
+html[data-choreo-ready="true"] .jiz-homepage section[data-choreo="pending"] > :is(h1,h2,h3,header) {
+  translate: 0 14px;
+  opacity: .76;
+}
+.jiz-homepage section[data-choreo] > :is(h1,h2,h3,header) {
+  transition: translate 660ms var(--choreo-ease) 90ms,
+              opacity 600ms ease-out 90ms;
+}
+html[data-choreo-ready="true"] .jiz-homepage section[data-choreo="entered"] > :is(h1,h2,h3,header) {
+  translate: 0;
+  opacity: 1;
+}
+@media (max-width: 767px) {
+  :root { --choreo-distance: 20px; --choreo-duration: 650ms; }
+  html[data-choreo-ready="true"] .jiz-homepage section[data-choreo="pending"] { opacity: .9; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html[data-choreo-ready="true"] .jiz-homepage section[data-choreo],
+  html[data-choreo-ready="true"] .jiz-homepage section[data-choreo] > :is(h1,h2,h3,header) {
+    translate: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+  }
+}
+html[data-jz-motion-paused="true"] .jiz-homepage section[data-choreo],
+html[data-jz-motion-paused="true"] .jiz-homepage section[data-choreo] > :is(h1,h2,h3,header) {
+  translate: none !important;
+  opacity: 1 !important;
+  transition: none !important;
+}
+@media print {
+  .jiz-homepage section[data-choreo] { translate: none !important; opacity: 1 !important; }
+}
