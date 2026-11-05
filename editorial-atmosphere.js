@@ -23,12 +23,7 @@
       let kind = 'neutral';
       for(const [key,value] of palette){if(el.classList.contains(key)){kind=value;break;}}
       el.dataset.atmosphere=kind;
-      for(const cls of ['jz-atmosphere-orb','jz-atmosphere-edge']){
-        const layer=document.createElement('span');
-        layer.className=cls;
-        layer.setAttribute('aria-hidden','true');
-        el.insertBefore(layer,el.firstChild);
-      }
+
     });
   }
   function update() {
