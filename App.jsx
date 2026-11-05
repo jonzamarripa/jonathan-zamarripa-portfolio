@@ -2,12 +2,12 @@
 function CaseStudyNavigation({ view, overlay = false, onClose }) {
   const navRef = React.useRef(null);
   const [motionPaused, setMotionPaused] = React.useState(() => document.documentElement.dataset.jzMotionPaused === 'true');
-  const toggleMotion = () => setMotionPaused(previous => {
-    const next = !previous;
+  const toggleMotion = () => {
+    const next = !motionPaused;
     document.documentElement.dataset.jzMotionPaused = String(next);
     try { sessionStorage.setItem('jiz-motion-paused', next ? '1' : '0'); } catch(e) {}
-    return next;
-  });
+    setMotionPaused(next);
+  };
   React.useEffect(() => {
     const nav = navRef.current;
     if (!nav) return undefined;
