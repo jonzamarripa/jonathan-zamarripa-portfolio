@@ -1,6 +1,6 @@
 /* Editorial atmosphere v1 — subtle kinetic light, rather than identical effects everywhere.
    Accent assignments follow meaning; decorative only, never interactive. */
-.jiz-homepage {
+html .jiz-homepage {
   --panel-gutter-surface:#242A31;
   background:var(--panel-gutter-surface)!important;
 }
@@ -26,53 +26,31 @@
 .jiz-homepage section[data-atmosphere="amber"] { --atmosphere-rgb:227,162,76; }
 .jiz-homepage section[data-atmosphere="neutral"] { --atmosphere-rgb:217,221,227; --atmosphere-opacity:.22; }
 .jiz-homepage section[data-atmosphere="light"] { --atmosphere-rgb:30,115,137; --atmosphere-opacity:.25; }
-/* Keep the v2 lift, but let the atmospheric edge and layer move with the viewport. */
-.jiz-homepage section[data-atmosphere] .jz-atmosphere-orb,
-.jiz-homepage section[data-atmosphere] .jz-atmosphere-edge {
-  pointer-events:none;
-  position:absolute;
-  aria-hidden:true;
+/* Scroll progress changes the depth and direction of the ambient shadow.
+   No DOM decoration is injected into React-owned sections. */
+.jiz-homepage section[data-atmosphere] {
+  --atmosphere-progress:0;
+  --atmosphere-strength:calc(.15 + .4 * var(--atmosphere-progress));
+  box-shadow:
+    0 calc(22px + 22px * var(--atmosphere-progress)) 58px -33px rgba(0,0,0,.84),
+    calc((var(--atmosphere-progress) - .5) * 36px)
+    calc(22px + var(--atmosphere-progress) * 22px)
+    94px -65px rgba(var(--atmosphere-rgb),var(--atmosphere-strength)),
+    inset 0 1px 0 rgba(var(--atmosphere-rgb),.14);
 }
-.jiz-homepage section[data-atmosphere] .jz-atmosphere-orb {
-  z-index:0;
-  right:-8%;
-  top:0;
-  width:min(48vw,620px);
-  height:clamp(160px,35vw,400px);
-  border-radius:50%;
-  background:radial-gradient(ellipse at center,rgba(var(--atmosphere-rgb),.11),transparent 69%);
-  opacity:calc(var(--atmosphere-opacity) * (0.5 + var(--atmosphere-progress,0) * .5));
-  transform:translate3d(calc((var(--atmosphere-progress,0) - .5) * -12%),calc(var(--atmosphere-progress,0) * 55px),0);
-  will-change:auto;
-}
-.jiz-homepage section[data-atmosphere] .jz-atmosphere-edge {
-  z-index:3;
-  width:clamp(90px,22vw,310px);
-  height:2px;
-  top:0;
-  left:0;
-  border-radius:2px;
-  background:linear-gradient(90deg,transparent,rgba(var(--atmosphere-rgb),.7),transparent);
-  opacity:calc(.18 + .62 * var(--atmosphere-progress,0));
-  transform:translate3d(calc(var(--atmosphere-progress,0) * 78vw),0,0);
-}
-.jiz-homepage section[data-atmosphere="light"] .jz-atmosphere-orb { opacity:.18; }
-.jiz-homepage section[data-atmosphere="neutral"] .jz-atmosphere-orb { opacity:.14; }
+.jiz-homepage section[data-atmosphere="light"] { --atmosphere-opacity:.25; }
+.jiz-homepage section[data-atmosphere="neutral"] { --atmosphere-opacity:.18; }
 @media (max-width:767px) {
-  .jiz-homepage{--panel-gutter-surface:#20262D}
-  .jiz-homepage section[data-atmosphere] .jz-atmosphere-orb{width:65vw;height:200px;opacity:.17}
-  .jiz-homepage section[data-atmosphere] .jz-atmosphere-edge{width:100px}
-}
-@media(prefers-reduced-motion:reduce) {
-  .jiz-homepage section[data-atmosphere] .jz-atmosphere-orb,
-  .jiz-homepage section[data-atmosphere] .jz-atmosphere-edge {
-    transform:none!important;opacity:.16!important;transition:none!important;
+  html .jiz-homepage{--panel-gutter-surface:#20262D;}
+  .jiz-homepage section[data-atmosphere] {
+    box-shadow:0 22px 64px -42px rgba(0,0,0,.72),
+      0 24px 80px -66px rgba(var(--atmosphere-rgb),.25);
   }
 }
-html[data-jz-motion-paused="true"] .jiz-homepage section[data-atmosphere] .jz-atmosphere-orb,
-html[data-jz-motion-paused="true"] .jiz-homepage section[data-atmosphere] .jz-atmosphere-edge {
-  transform:none!important;opacity:.16!important;transition:none!important;
+@media(prefers-reduced-motion:reduce) {
+  .jiz-homepage section[data-atmosphere] { --atmosphere-progress:.5!important; }
 }
-@media print {
-  .jz-atmosphere-orb,.jz-atmosphere-edge{display:none!important}
+html[data-jz-motion-paused="true"] .jiz-homepage section[data-atmosphere] {
+  --atmosphere-progress:.5!important;
 }
+@media print { .jiz-homepage section[data-atmosphere] { box-shadow:none!important; } }
