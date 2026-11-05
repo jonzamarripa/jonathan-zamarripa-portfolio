@@ -106,8 +106,28 @@ assert.ok(journalCss.includes('scroll-margin-top:155px') && dossierCss.includes(
 assert.ok(dossier.includes('class="dx-ch'), 'Dossier chapters missing');
 assert.ok(read('editorial-return.js').includes('jiz-editorial-origin-v1'), 'Return-to-scroll preservation missing');
 assert.ok(homepage.includes('editorial-return.js'), 'Homepage editorial return script missing');
+
+const firstSentence = read('CaseStudy-FirstSentence.jsx');
+const marcusLive = read('CaseStudy-MarcusLive.jsx');
+const homepageSource = read('Homepage.jsx');
+const speakingPage = read('speaking/index.html');
+const journalPage = read('journal/index.html');
+const dossierPage = read('journal/designed-for-dana-wrong-for-marcus/index.html');
+assert.ok(!firstSentence.includes('className="tfs-top"'), 'First Sentence must not duplicate global case study navigation');
+assert.ok(!marcusLive.includes('className="tfs-top"'), 'Marcus Live must not duplicate global case study navigation');
+assert.ok(firstSentence.includes('tfs-hero--immersive') && firstSentence.includes('tfs-hero__statement'), 'First Sentence hero must layer editorial premise over enlarged artwork');
+assert.ok(homepageSource.includes('className="jiz-footer-name jiz-footer-name--link"'), 'Footer name must link to portfolio homepage');
+assert.ok(homepageSource.includes('className="jiz-footer-mark" href="/"'), 'Footer logo must link to portfolio homepage');
+assert.ok(speakingPage.includes('class="jiz-editorial-footer"') && journalPage.includes('class="jiz-editorial-footer"') && dossierPage.includes('class="jiz-editorial-footer"'), 'Static subpages must share editorial footer');
+assert.ok(speakingPage.includes('sp-bio-expansion'), 'Speaking page must have extended bio');
+assert.ok(speakingPage.includes('class="sp-format-strip"'), 'Speaking formats must remain visible');
+assert.ok(journalPage.includes('class="jr-menu"'), 'Journal must have mobile navigation like Speaking');
+assert.ok(read('editorial-footer.css').includes('.jiz-editorial-footer::before'), 'Shared footer grid system absent');
 const app = read('App.jsx');
 assert.ok(app.includes('src="/assets/logo/jiz-logo-white.svg"'), 'Case-study navigation must display actual brand logo');
 assert.ok(app.includes('<CaseStudyNavigation view={displayView} />'), 'Internal view navigation missing');
+assert.ok(app.includes('{Footer && <Footer standalone'), 'Overlay must have shared footer');
+assert.ok(!app.includes('className="jiz-project-nav__work"'), 'Duplicate All Work action should be removed from top navigation');
+
 assert.ok(app.includes('<CaseStudyNavigation view={view} overlay'), 'Overlay navigation missing');
 console.log('Case-study integrity passed: ' + checked + ' standalone routes, internal and overlay nav, anchors and local assets.');
