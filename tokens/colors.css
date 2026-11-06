@@ -10,6 +10,16 @@
 --accent-cyan-rgb:96,217,253;
 --black-pure:#000000;
 --warm-paper:#E8E3D9;
+/* V2 portfolio visual identity: cool gallery with navy and restrained teal. */
+--gallery-mist:#F4F7F7;
+--gallery-midnight:#0B1F2A;
+--gallery-teal:#0F8B8D;
+--gallery-sandstone:#E8E3DA;
+/* CLS subbrand: plum, amber, onyx and sand. */
+--cls-plum:#4C1D68;
+--cls-amber:#F59E0B;
+--cls-onyx:#1A1A2E;
+--cls-sand:#F7E9D6;
 
 /* Chapter surfaces: panels sit on the Carbon gutter; never place two near-identical darks side by side. */
 --panel-gutter-surface:var(--carbon);

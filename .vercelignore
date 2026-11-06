@@ -1,11 +1,9 @@
 # Files kept in the repository but not published to the website.
 # The live site runs from index.html, dist/, site-config.js, content/journal.js, styles.css, tokens/, journal/ and the assets it references.
 
-# Source and build tooling
-*.jsx
+# Generated build executes on Vercel; source files must be available at build time.
+# Runtime publication is controlled by the configured output directory.
 _ds_bundle.js
-build.cjs
-build-journal.cjs
 node_modules/
 
 # Drafts, test pages and internal documentation
@@ -13,7 +11,12 @@ Homepage.html
 test-behind-the-build.html
 image-slot.js
 behind-the-build.css
-*.md
+# Keep content/journal/*.md accessible to the journal build; omit non-content docs below.
+README.md
+HANDOFF.md
+RELEASE_NOTES.md
+DEPLOYMENT.md
+CLAUDE.md
 DEPLOYMENT-INSTRUCTIONS.txt
 /hero-portrait-green.mp4
 

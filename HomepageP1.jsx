@@ -41,8 +41,8 @@ const EDITORIAL_CSS = `
    → Creative Lab (page) → About (Slate) → Journey (Warm Paper, light) → Stack (Carbon) → Principles (light) → Archive (page).
    Scoped to .jiz-homepage so it layers over each section's own styles. */
 const RHYTHM_CSS = `
-.jiz-homepage{--panel-gap:clamp(10px,1.4vw,20px);--panel-r:clamp(18px,2.4vw,32px);--panel-gutter-surface:#171A1F;background:var(--panel-gutter-surface)!important}
-/* Every major chapter is a panel; the Carbon page shows through the gutters, so dark panels keep a visible curved edge. */
+.jiz-homepage{--panel-gap:clamp(10px,1.4vw,20px);--panel-r:clamp(18px,2.4vw,32px);--panel-gutter-surface:#0E1114;background:var(--panel-gutter-surface)!important}
+/* Obsidian page seams frame each surface without a bright-colored outline. Warm paper is a deliberate chapter surface, not a global background. */
 .jiz-homepage .hero,.jiz-homepage .jz-fw,.jiz-homepage .jz-im,.jiz-homepage .jz-pr,.jiz-homepage .jz-cls,.jiz-homepage .jiz-creative-lab,.jiz-homepage .jiz-am,.jiz-homepage .jz-jr,.jiz-homepage .jz-st,.jiz-homepage .jz-pp,.jiz-homepage .jiz-arch,.jiz-homepage .jiz-build{width:auto;margin:var(--panel-gap);border-radius:var(--panel-r);overflow:hidden;border:0}
 
 /* Hero — cinematic dark panel; video, crop and copy untouched. Height trimmed by the gutters so the fold is unchanged. */
@@ -58,8 +58,8 @@ const RHYTHM_CSS = `
 .jiz-homepage .jz-fw-intro,.jiz-homepage .jz-fw-dek{color:rgba(11,13,16,.76)}
 .jiz-homepage .jz-fw-org{color:rgba(11,13,16,.62)}
 .jiz-homepage .jz-fw-media{background:linear-gradient(135deg,var(--carbon) 0%,var(--slate) 100%);border-color:rgba(11,13,16,.14)}
-.jiz-homepage .jz-fw-card:hover .jz-fw-title{color:var(--obsidian);background:var(--accent-cyan)}
-.jiz-homepage .jz-fw-card:hover .jz-fw-media,.jiz-homepage .jz-fw-card:focus-within .jz-fw-media{border-color:var(--accent-cyan)}
+.jiz-homepage .jz-fw-card:hover .jz-fw-title{color:var(--obsidian);background:none;text-decoration:underline;text-decoration-color:#086477;text-decoration-thickness:2px;text-underline-offset:.12em}
+.jiz-homepage .jz-fw-card:hover .jz-fw-media,.jiz-homepage .jz-fw-card:focus-within .jz-fw-media{border-color:rgba(11,13,16,.38)}
 .jiz-homepage .jz-fw-card:has(.jz-fw-cta:focus-visible){outline-color:#0B0D10}
 .jiz-homepage .jz-fw .jz-link{color:#0B0D10;font-weight:600}
 .jiz-homepage .jz-fw .jz-link:focus-visible{outline-color:#0B0D10}
@@ -84,7 +84,7 @@ const RHYTHM_CSS = `
 @media(max-width:1024px){.jiz-homepage .jz-im-cell:nth-child(n+3),.jiz-homepage .jz-im-cell + .jz-im-cell{border-top-color:rgba(232,240,245,.14)}}
 
 /* Capabilities — Mist light chapter, dark type */
-.jiz-homepage .jz-pr--capabilities{background:#D9DDE3;color:#0B0D10}
+.jiz-homepage .jz-pr--capabilities{background:#E8E3D9;color:#0B0D10}
 .jiz-homepage .jz-pr--capabilities .jz-label{color:rgba(11,13,16,.66)}
 .jiz-homepage .jz-pr--capabilities .jz-pr-caps-h{color:#0B0D10}
 .jiz-homepage .jz-pr--capabilities .jz-pr-sub{color:rgba(11,13,16,.74)}
@@ -94,22 +94,27 @@ const RHYTHM_CSS = `
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap-t{font-weight:600;color:#0B0D10}
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap-c{max-width:60ch;color:rgba(11,13,16,.74)}
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap-x{color:rgba(11,13,16,.6)}
-.jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover{background:linear-gradient(90deg,rgba(var(--accent-cyan-rgb),.12),transparent 60%)}
-.jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover .jz-pr-cap-t,.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-t{color:var(--obsidian);background:var(--accent-cyan)}
-.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-x{color:var(--obsidian);background:var(--accent-cyan)}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover{background:rgba(11,13,16,.035)}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap-t{color:#086477;background:none}.jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover .jz-pr-cap-t,.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-t{color:#086477;background:none}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-x{color:#086477;background:none}
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap button:focus-visible{outline-color:#0B0D10}
-.jiz-homepage .jz-pr--capabilities .jz-pr-tools p{color:rgba(11,13,16,.72)}
+.jiz-homepage .jz-pr--capabilities .jz-pr-tools{padding-block:12px 26px;border-top:1px solid rgba(11,13,16,.1)}.jiz-homepage .jz-pr--capabilities .jz-pr-tools p{color:rgba(11,13,16,.8);font-family:var(--font-body);font-size:.9375rem;line-height:1.65}.jiz-homepage .jz-pr--capabilities .jz-pr-tools strong{color:#086477}
 
 /* Method — Slate panel; five stages on a connecting rail */
-.jiz-homepage .jz-pr--method{background:#2A2F37}
+.jiz-homepage .jz-pr--method{background:#171A1F}
+.jiz-homepage .jz-pr-step-title,.jiz-homepage .jz-jr-stage-title{display:flex;align-items:center;gap:12px;min-width:0}
+.jiz-homepage .jz-pr-step-title .jz-editorial-icon{flex:none;color:#C6F23A}
+.jiz-homepage .jz-jr-stage-title .jz-editorial-icon{flex:none;color:#41535A}
+@media(max-width:1024px){.jiz-homepage .jz-pr-step-title{grid-column:2 / span 4;align-self:start}}
+@media(max-width:680px){.jiz-homepage .jz-pr-step-title{grid-column:auto}}
 .jiz-homepage .jz-pr--method .jz-pr-intro,.jiz-homepage .jz-pr--method .jz-pr-c{color:rgba(232,236,240,.86)}
 .jiz-homepage .jz-pr-steps{border-top-color:rgba(217,221,227,.26)}
-.jiz-homepage .jz-pr-step{padding-top:34px}
-.jiz-homepage .jz-pr-step::after{content:'';position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#2A2F37;border:1px solid var(--color-accent-primary);box-sizing:border-box}
+.jiz-homepage .jz-pr-step{padding:28px clamp(12px,1.8vw,26px) 16px 0;gap:12px}
+.jiz-homepage .jz-pr-step::after{content:'';position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#171A1F;border:1px solid var(--color-accent-primary);box-sizing:border-box}
 .jiz-homepage .jz-pr-step:last-child::after{background:var(--color-accent-primary)}
 .jiz-homepage .jz-pr-step .jz-label{color:var(--color-accent-primary)}
-.jiz-homepage .jz-pr-c{max-width:30ch}
-.jiz-homepage .jz-pr-rule{padding-top:0;border-top:0;font-size:.875rem;color:rgba(217,221,227,.72)}
+.jiz-homepage .jz-pr-c{max-width:34ch}
+.jiz-homepage .jz-pr-rule{margin-top:auto;padding-top:16px;border-top:1px solid rgba(232,236,240,.16);font-size:.875rem;color:rgba(217,221,227,.82)}
 @media(max-width:1024px){
   .jiz-homepage .jz-pr-steps{position:relative;padding-left:28px}
   .jiz-homepage .jz-pr-steps::before{content:'';position:absolute;left:4px;top:34px;bottom:34px;width:1px;background:linear-gradient(180deg,rgba(198,242,58,.6),rgba(198,242,58,.2))}
@@ -137,13 +142,13 @@ const RHYTHM_CSS = `
 .jiz-homepage .jz-jr .jz-label{color:rgba(11,13,16,.62)}
 .jiz-homepage .jz-jr-h2,.jiz-homepage .jz-jr-t{color:#0B0D10}
 .jiz-homepage .jz-jr-sub,.jiz-homepage .jz-jr-c{color:rgba(11,13,16,.76)}
-.jiz-homepage .jz-jr-x{color:var(--obsidian);background:var(--accent-cyan);opacity:1;font-weight:600}
+.jiz-homepage .jz-jr-x{color:#41535A;background:#D6E3DF;opacity:1;font-weight:600;border-radius:4px;padding:5px 8px;align-self:flex-start}
 .jiz-homepage .jz-jr-m{color:rgba(11,13,16,.66)}
 .jiz-homepage .jz-jr-rail{position:relative}
 .jiz-homepage .jz-jr-rail::before{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,rgba(11,13,16,.18),rgba(var(--accent-cyan-rgb),.7))}
 .jiz-homepage .jz-jr-stage{border-top-color:transparent}
 .jiz-homepage .jz-jr-stage::before{box-sizing:border-box;width:9px;height:9px;top:-4px;background:#E8E3D9;border:1.5px solid var(--accent-cyan)}
-.jiz-homepage .jz-jr-stage:last-child::before{background:var(--color-accent-primary);border-color:#0B0D10}
+.jiz-homepage .jz-jr-stage:last-child::before{background:#0B0D10;border-color:#0B0D10}
 @media(max-width:1024px){
   .jiz-homepage .jz-jr-rail::before{display:none}
   .jiz-homepage .jz-jr-stage{border-top-color:rgba(11,13,16,.16)}
@@ -161,6 +166,126 @@ const RHYTHM_CSS = `
 .jiz-homepage .jz-st-card{padding:clamp(22px,2.2vw,30px) 0 clamp(18px,2vw,26px);background:none;border:0;border-top:1px solid rgba(217,221,227,.16);border-radius:0}
 .jiz-homepage .jz-st-l{max-width:58ch;color:rgba(217,221,227,.8)}
 .jiz-homepage .jz-st-tools{border-top:0;padding-top:4px}
+
+/* DESIGN SYSTEM V2 / MIST + NAVY + CHARTREUSE
+   The page is a cool Mist gallery; sections remain individual, elevated slides.
+   The gradient is an atmospheric overlay, never a replacement for real imagery. */
+.jiz-homepage{
+  --design-mist:#F4F7F7;
+  --design-midnight:#0B1F2A;
+  --design-deep-teal:#0F8B8D;
+  --design-sandstone:#E8E3DA;
+  --design-ink:#102730;
+  --design-charteuse:#C6F23A;
+  --design-panel-radius:clamp(22px,2.7vw,36px);
+  --design-elevation:0 14px 36px rgba(8,34,44,.12),0 3px 10px rgba(8,34,44,.045);
+  --design-elevation-hover:0 20px 44px rgba(8,34,44,.16),0 6px 14px rgba(8,34,44,.06);
+  --panel-gap:clamp(12px,1.65vw,24px);
+  --panel-r:var(--design-panel-radius);
+  --panel-gutter-surface:var(--design-mist);
+  background:var(--design-mist)!important;
+  color:var(--design-ink);
+}
+.jiz-homepage main{background:var(--design-mist)}
+.jiz-homepage :is(.hero,.jz-fw,.jz-im,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build){
+  position:relative;
+  border-radius:var(--design-panel-radius);
+  border:1px solid rgba(9,35,48,.065);
+  box-shadow:var(--design-elevation);
+  isolation:isolate;
+  margin-block:var(--panel-gap);
+  transition:box-shadow 280ms cubic-bezier(.2,.7,.2,1);
+}
+@media(hover:hover){
+  .jiz-homepage :is(.hero,.jz-fw,.jz-im,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build):hover{box-shadow:var(--design-elevation-hover)}
+}
+.jiz-homepage .hero{margin-top:var(--panel-gap);background-color:var(--design-midnight)}
+.jiz-homepage .hero-base-gradient{
+  background:linear-gradient(100deg,rgba(6,29,39,.98) 0%,rgba(8,36,47,.91) 35%,rgba(8,42,54,.64) 67%,rgba(9,31,41,.2) 100%);
+}
+.jiz-homepage .hero-signal-field{opacity:.08}
+.jiz-homepage .jz-exp{
+  width:calc(100% - 2 * var(--panel-gap));
+  margin:0 var(--panel-gap);
+  padding-block:clamp(8px,1vw,14px);
+  border:0;
+  background:transparent;
+}
+.jiz-homepage .jz-exp .jz-label{color:#3D6069}
+.jiz-homepage .jz-exp .jz-exp-org{color:var(--design-midnight)}
+.jiz-homepage .jz-exp .jz-exp-edu span:last-child{color:#415B62}
+.jiz-homepage :is(.jz-fw,.jz-pr--capabilities,.jz-jr,.jz-pp){background:linear-gradient(135deg,#FCFDFD 0%,#F1F6F6 100%);color:var(--design-ink)}
+.jiz-homepage .jz-fw :is(.jz-fw-h2,.jz-fw-n,.jz-fw-title),
+.jiz-homepage .jz-pr--capabilities :is(.jz-pr-caps-h,.jz-pr-cap-t),
+.jiz-homepage .jz-jr :is(.jz-jr-h2,.jz-jr-t){color:var(--design-ink)}
+.jiz-homepage .jz-fw :is(.jz-fw-intro,.jz-fw-dek,.jz-fw-org),
+.jiz-homepage .jz-pr--capabilities :is(.jz-pr-sub,.jz-pr-cap-c),
+.jiz-homepage .jz-jr :is(.jz-jr-sub,.jz-jr-c){color:#35515A}
+.jiz-homepage .jz-fw .jz-label,
+.jiz-homepage .jz-pr--capabilities .jz-label,
+.jiz-homepage .jz-jr .jz-label{color:#48626B}
+.jiz-homepage .jz-pr--capabilities :is(.jz-pr-cap-t,.jz-pr-cap[data-open="true"] .jz-pr-cap-t){color:#116B74}
+.jiz-homepage .jz-pr--capabilities .jz-pr-tools strong{color:#116B74}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap,
+.jiz-homepage .jz-jr-stage{border-color:rgba(11,31,42,.14)}
+.jiz-homepage .jz-fw-media{position:relative;overflow:hidden;border-radius:clamp(14px,1.5vw,22px);border-color:rgba(11,31,42,.1)}
+.jiz-homepage .jz-fw-media::after{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(160deg,rgba(11,31,42,.02) 22%,rgba(11,31,42,.19) 100%);
+}
+.jiz-homepage .jz-fw-card:hover .jz-fw-title{color:var(--design-midnight);text-decoration-color:var(--design-deep-teal)}
+.jiz-homepage .jz-fw :is(.jz-link,.jz-fw-cta){color:#0C626B}
+.jiz-homepage .jz-im{
+  background:radial-gradient(ellipse at 90% 0%,rgba(15,139,141,.24),transparent 51%),linear-gradient(145deg,#0B1F2A,#143945 88%);
+}
+.jiz-homepage .jz-im-row{background:rgba(3,21,29,.25)}
+.jiz-homepage .jz-pr--method{
+  background:radial-gradient(ellipse at 95% 8%,rgba(15,139,141,.22),transparent 60%),linear-gradient(135deg,#0B1F2A,#123441);
+}
+.jiz-homepage .jz-pr-step::after{background:#0B1F2A}
+.jiz-homepage .jz-st{
+  background:linear-gradient(130deg,#0B1F2A 0%,#143641 100%);
+}
+.jiz-homepage .jiz-am{
+  background:radial-gradient(ellipse at 96% 7%,rgba(15,139,141,.17),transparent 49%),linear-gradient(145deg,#0B1F2A,#193541);
+}
+.jiz-homepage .jiz-am::before{background:radial-gradient(ellipse at 70% 20%,rgba(15,139,141,.14),transparent 68%)}
+.jiz-homepage .jiz-creative-lab{background-color:#0B1F2A}
+.jiz-homepage .jiz-arch-scrim{background:linear-gradient(95deg,rgba(7,25,35,.97) 0%,rgba(8,29,39,.88) 48%,rgba(10,32,42,.65) 100%)}
+.jiz-homepage .jiz-arch-tint{background:radial-gradient(ellipse at 92% 8%,rgba(15,139,141,.23),transparent 69%)}
+.jiz-homepage .jiz-build{
+  background:radial-gradient(ellipse at 12% 12%,rgba(15,139,141,.2),transparent 58%),linear-gradient(148deg,#0B1F2A,#183D49);
+}
+.jiz-homepage .jz-jr-x{background:#D7E9EA;color:#17505B}
+.jiz-homepage .jz-jr-stage::before{background:#F5F9F9;border-color:#0F8B8D}
+.jiz-homepage .jz-jr-stage:last-child::before{background:#0B1F2A;border-color:#0B1F2A}
+.jiz-homepage .jz-jr-rail::before{background:linear-gradient(90deg,rgba(11,31,42,.16),rgba(15,139,141,.55))}
+.jiz-homepage .jz-jr-stage-title .jz-editorial-icon{color:#0F7077}
+.jiz-homepage .jz-cls{
+  background:radial-gradient(ellipse at 86% 12%,rgba(245,158,11,.16),transparent 52%),linear-gradient(130deg,#1A1A2E 0%,#371A47 62%,#4C1D68 130%);
+  color:#F7E9D6;
+  border:1px solid rgba(245,158,11,.24);
+  box-shadow:var(--design-elevation);
+}
+.jiz-homepage .jz-cls-mast{border-bottom-color:rgba(245,158,11,.37)}
+.jiz-homepage .jz-cls-mast-name{color:#F7E9D6}
+.jiz-homepage .jz-cls-mast-name span,.jiz-homepage .jz-cls-anchor span:last-child{color:#FFB33B}
+.jiz-homepage .jz-cls-lead{background:rgba(20,15,36,.38);border-color:rgba(245,158,11,.28)}
+.jiz-homepage .jz-cls .jz-cls-type{color:#F9BE71}
+.jiz-homepage .jz-cls :is(.jz-cls-read,.jz-cls-invite,.jz-cls-links a){color:#FFB33B}
+.jiz-homepage .jz-cls :is(.jz-cls-read,.jz-cls-invite,.jz-cls-links a):focus-visible{outline-color:#F59E0B}
+.jiz-homepage .jz-cls-list li{border-bottom-color:rgba(247,233,214,.18)}
+.jiz-homepage .jz-cls-talk{border-top-color:rgba(245,158,11,.38)}
+/* Existing motion/content remain; new palette does not create hover jumps on touch. */
+@media(max-width:760px){
+  .jiz-homepage{--panel-gap:12px;--design-panel-radius:22px}
+  .jiz-homepage .jz-exp{width:calc(100% - 24px)}
+  .jiz-homepage :is(.hero,.jz-fw,.jz-im,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build){box-shadow:0 8px 22px rgba(8,34,44,.11)}
+}
+@media(prefers-reduced-motion:reduce){
+  .jiz-homepage :is(.hero,.jz-fw,.jz-im,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build){transition:none}
+}
+
 `;
 function EditorialStyles() { return <style>{EDITORIAL_CSS + RHYTHM_CSS}</style>; }
 
@@ -389,27 +514,42 @@ function ImpactEditorial() {
   );
 }
 
+/* One monochrome icon grammar for the five-stage method and career rail. */
+function EditorialGlyph({name}) {
+  const paths = {
+    search: <><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></>,
+    layers: <><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 17l9 5 9-5"/></>,
+    pen: <><path d="m15 5 4 4M4 20l4.5-.8L20 7.7 16.3 4 4.8 15.5 4 20Z"/></>,
+    wrench: <><path d="M14 6a6 6 0 0 0-8 8l-4 4 4 4 4-4a6 6 0 0 0 8-8l-4 4-4-4 4-4Z"/></>,
+    chart: <><path d="M4 20V4M4 20h17M8 16l4-5 3 2 5-7"/></>,
+    graduation: <><path d="m2 9 10-5 10 5-10 5-10-5ZM6 11v5c4 3 8 3 12 0v-5M22 9v7"/></>,
+    network: <><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-4h14v4"/></>,
+    users: <><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M17 5a3 3 0 0 1 0 6M18 14a5 5 0 0 1 3 5v1"/></>,
+    monitor: <><rect x="2" y="3" width="20" height="15" rx="2"/><path d="M8 22h8M12 18v4M6 8h12M6 12h8"/></>
+  };
+  return <svg className="jz-editorial-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">{paths[name] || paths.layers}</svg>;
+}
+
 /* ---------- Practice: method + principles + capabilities + tools, consolidated ---------- */
 function Practice({ part = 'method' }) {
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref);
   const [openCap, setOpenCap] = React.useState(null);
   const steps = [
-    { n: '01', t: 'Clarify', c: 'Define the business problem, learner need, stakeholder expectations, and success criteria.', rule: 'Clarity over complexity. Every complex problem hides a simpler structure worth finding first.' },
-    { n: '02', t: 'Structure', c: 'Organize complexity into a learning architecture, journey, content map, or enablement strategy.', rule: 'People before platforms. Technology only matters once the people using it can succeed with it.' },
-    { n: '03', t: 'Design', c: 'Shape the experience through story, interaction, visuals, accessibility, and human-centered learning principles.', rule: 'Technology should feel human. Systems earn adoption when they respect attention, context, and effort.' },
-    { n: '04', t: 'Build', c: 'Produce eLearning, video, guides, toolkits, job aids, and communications. Prototype early, then scale.', rule: 'Speed for production, not decisions. AI expands what is possible; the point of view stays mine.' },
-    { n: '05', t: 'Measure', c: 'Use feedback, adoption signals, performance evidence, and stakeholder input to refine impact.', rule: 'Learning should move behavior. The measure is what people do differently after.' }
+    { n: '01', t: 'Clarify', icon: 'search', c: 'Define the business problem, learner need, stakeholder expectations, and success criteria.', rule: 'Clarity over complexity. Every complex problem hides a simpler structure worth finding first.' },
+    { n: '02', t: 'Structure', icon: 'layers', c: 'Organize complexity into a learning architecture, journey, content map, or enablement strategy.', rule: 'People before platforms. Technology only matters once the people using it can succeed with it.' },
+    { n: '03', t: 'Design', icon: 'pen', c: 'Shape the experience through story, interaction, visuals, accessibility, and human-centered learning principles.', rule: 'Technology should feel human. Systems earn adoption when they respect attention, context, and effort.' },
+    { n: '04', t: 'Build', icon: 'wrench', c: 'Produce eLearning, video, guides, toolkits, job aids, and communications. Prototype early, then scale.', rule: 'Speed for production, not decisions. AI expands what is possible; the point of view stays mine.' },
+    { n: '05', t: 'Measure', icon: 'chart', c: 'Use feedback, adoption signals, performance evidence, and stakeholder input to refine impact.', rule: 'Learning should move behavior. The measure is what people do differently after.' }
   ];
   const caps = [
-    { t: 'Learning strategy & performance consulting', c: 'Needs analysis and performance consulting that connect business goals, learner needs, and stakeholder priorities to measurable outcomes.', tools: 'Miro, FigJam, Tableau, Power BI, learning dashboards, KPI and adoption tracking, survey analysis' },
-    { t: 'Product & technology enablement', c: 'Complex platforms, workflows, and system changes turned into learning that supports adoption and operational readiness, built in partnership with product and business stakeholders.', tools: 'Workday Learn, SharePoint, Microsoft 365, Asana, Frame.io, LMS governance, release workflows' },
-    { t: 'Leadership development', c: 'Leadership experiences that strengthen decision-making, alignment, emotional intelligence, and enterprise capability.', tools: 'Articulate Storyline 360, scenario and branching design, simulations, facilitation kits' },
-    { t: 'AI-enabled learning', c: 'AI-supported workflows that accelerate content development, personalize learning, and scale multimedia, with every output reviewed and owned.', tools: 'ChatGPT, Claude, Gemini, Copilot, NotebookLM, Custom GPTs, Zapier, Make, n8n, Synthesia, ElevenLabs, HeyGen, Descript, Runway' },
-    { t: 'Creative technology & multimedia production', c: 'eLearning, explainer video, motion, job aids, and digital assets that make complex information easier to apply.', tools: 'Storyline 360, Rise 360, Camtasia, Genially, H5P, Canvas LMS, Premiere Pro, After Effects, Photoshop, Illustrator, Figma' },
-    { t: 'Accessibility, evaluation & inclusive design', c: 'Accessible, inclusive learning grounded in WCAG and UDL, evaluated through learner feedback, adoption signals, and performance evidence.', tools: 'WCAG, UDL, accessibility checkers, captioning and SRT workflows, screen-reader and contrast checks, QA checklists' }
-  ];
-  return (
+    { t: 'Learning strategy & performance consulting', c: 'Connect enterprise priorities and performance gaps to measurable human outcomes.', evidence: 'Typical deliverables: stakeholder discovery, needs analysis, performance maps, learning strategy, and success criteria.' },
+    { t: 'Product & technology enablement', c: 'Translate complex systems and changing workflows into actionable guidance for the people who rely on them.', evidence: 'Typical deliverables: launch readiness plans, role-based onboarding, release communications, workflow guidance, and adoption support.' },
+    { t: 'Leadership development', c: 'Design decisions and conversations people can practice before the stakes become real.', evidence: 'Typical deliverables: branching simulations, leadership scenarios, facilitator resources, manager toolkits, and reflection activities.' },
+    { t: 'AI-enabled learning', c: 'Build accountable, human-directed AI workflows that increase production capacity without outsourcing judgment.', evidence: 'Typical deliverables: governed prompt workflows, agent prototypes, content pipelines, review checkpoints, and production standards.' },
+    { t: 'Creative technology & multimedia production', c: 'Use story, interaction, and media to make complex material clearer, more engaging, and easier to apply.', evidence: 'Typical deliverables: interactive learning, explainer films, motion graphics, prototypes, job aids, and visual learning systems.' },
+    { t: 'Accessibility, evaluation & inclusive design', c: 'Make learning usable across diverse needs and evaluate what changes after people engage with it.', evidence: 'Typical deliverables: accessible design reviews, inclusive content patterns, feedback instruments, QA criteria, and performance evidence.' }
+  ];  return (
     <section className={'jz-pr jz-pr--' + part} ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby={part === 'capabilities' ? 'jz-cap-title' : 'jz-pr-title'}>
       <style>{`
 .jz-pr{background:#080D0B;padding-block:clamp(96px,11vw,176px) clamp(80px,9vw,140px)}
@@ -462,7 +602,7 @@ function Practice({ part = 'method' }) {
           {steps.map((s) => (
             <li key={s.n} className="jz-pr-step jz-rise">
               <span className="jz-label">{s.n}</span>
-              <h3 className="jz-pr-word">{s.t}</h3>
+              <div className="jz-pr-step-title"><EditorialGlyph name={s.icon} /><h3 className="jz-pr-word">{s.t}</h3></div>
               <p className="jz-pr-c">{s.c}</p>
               <p className="jz-pr-rule">{s.rule}</p>
             </li>
@@ -474,7 +614,7 @@ function Practice({ part = 'method' }) {
         <div className="jz-pr-caps-head">
           <p className="jz-label" style={{ gridColumn: '1 / span 12' }}>Capabilities &amp; tools</p>
           <h2 className="jz-pr-caps-h" id="jz-cap-title">What I bring to a team.</h2>
-          <p className="jz-pr-sub">Capability first. Open any row for the tools I use to deliver it; depth varies from daily practice to emerging workflows.</p>
+          <p className="jz-pr-sub">The value I create for teams, organized by the problems I solve. Open a capability to see representative deliverables; the technical stack appears later.</p>
         </div>
         <ul className="jz-pr-caps">
           {caps.map((c, i) => {
@@ -486,7 +626,7 @@ function Practice({ part = 'method' }) {
                   <span className="jz-pr-cap-c">{c.c}</span>
                   <span className="jz-pr-cap-x" aria-hidden="true">+</span>
                 </button>
-                <div className="jz-pr-tools" id={'jz-pr-tools-' + i} hidden={!open}><p>{c.tools}</p></div>
+                <div className="jz-pr-tools" id={'jz-pr-tools-' + i} hidden={!open}><p><strong>In practice · </strong>{c.evidence}</p></div>
               </li>
             );
           })}
@@ -535,7 +675,7 @@ function CareerJourney() {
           {stages.map((s) => (
             <li key={s.n} className="jz-jr-stage jz-rise">
               <span className="jz-label">{s.n}</span>
-              <h3 className="jz-jr-t">{s.title}</h3>
+              <div className="jz-jr-stage-title"><EditorialGlyph name={['graduation','network','users','monitor'][Number(s.n)-1]} /><h3 className="jz-jr-t">{s.title}</h3></div>
               {s.ctx ? <p className="jz-jr-x">{s.ctx}</p> : null}
               {s.meta ? <p className="jz-jr-m">{s.meta}</p> : null}
               <p className="jz-jr-c">{s.copy}</p>
@@ -587,8 +727,8 @@ function LearningStack() {
       `}</style>
       <div className="jz-wrap jz-grid">
         <header className="jz-st-head">
-          <div className="jz-rise"><p className="jz-label">Tools &amp; platforms</p><h2 className="jz-st-h2" id="jz-st-title">A modern learning stack for strategy, design, production, and scale.</h2></div>
-          <p className="jz-st-sub jz-rise">Hands-on tools and emerging AI workflows used to design, build, localize, automate, and measure learning experiences across enterprise environments.</p>
+          <div className="jz-rise"><p className="jz-label">Tools &amp; platforms</p><h2 className="jz-st-h2" id="jz-st-title">The production toolkit behind the strategy.</h2></div>
+          <p className="jz-st-sub jz-rise">A transparent look at the platforms and production methods behind the work. Capabilities describe the strategic value; this is the technical toolkit used to deliver it.</p>
         </header>
         <ul className="jz-st-grid">
           {groups.map((g) => {

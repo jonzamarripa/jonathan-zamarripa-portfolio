@@ -107,3 +107,47 @@ main:has(.dx .jiz-chapter){width:auto;margin:0}
 .dx .jiz-chapter:is([data-surface="paper"],[data-surface="mist"]) :is(.dx-missing span,.box-corrections .box-label,.dx-gaps em,.pill-warn){color:#9A3324}
 .dx .jiz-chapter:is([data-surface="paper"],[data-surface="mist"]) .dx-btn{color:var(--obsidian)!important;background:var(--accent-journal-amber)}
 .dx-mast-pre{margin-top:clamp(28px,4vw,44px)}
+
+
+/* Cohesive dossier geometry: one outer grid, one reading measure, full-width figures. */
+.jr main:has(.dx){width:min(var(--jr-shell,1280px),calc(100% - 2 * var(--jr-inset,clamp(16px,5vw,64px))))}
+.jr main:has(.dx .jiz-chapter){width:100%;max-width:none}
+.dx:has(.jiz-chapter){--panel-gap:clamp(10px,1.4vw,20px);--chapter-pad-x:clamp(22px,5vw,80px);background:#11171B}
+.dx-mast.jiz-chapter,.dx .dx-ch.jiz-chapter{width:calc(100% - 2 * var(--panel-gap));max-width:none;box-sizing:border-box;margin-left:var(--panel-gap);margin-right:var(--panel-gap);border-radius:clamp(14px,2vw,26px);overflow:visible}
+.dx .jiz-chapter>.dx-fig,.dx .jiz-chapter>.dx-fig--artifact{width:100%;max-width:min(1180px,100%)}
+.dx .dx-ch.jiz-chapter:not([data-surface="paper"]):not([data-surface="mist"]):nth-of-type(3n+1){background:#172027}
+.dx .dx-ch.jiz-chapter:not([data-surface="paper"]):not([data-surface="mist"]):nth-of-type(3n+2){background:#20292D}
+.dx .dx-ch.jiz-chapter:not([data-surface="paper"]):not([data-surface="mist"]):nth-of-type(3n){background:#0E1114}
+.dx .dx-ch.jiz-chapter:not([data-surface]){color:var(--jr-ink)}
+.dx-toc a:hover,.dx-toc a:focus-visible{color:var(--jr-amber)}
+.dx-inquiry{border-color:rgba(227,162,76,.55);background:linear-gradient(130deg,rgba(227,162,76,.13),rgba(227,162,76,.025) 75%)}
+.dx-fig figcaption{max-width:min(68ch,100%)}
+.dx-media,.dx-scroll,.dx-fig--artifact{min-width:0}
+.dx-media img,.dx-scroll img{max-width:100%;box-sizing:border-box}
+.dx-ch>.dx-ch-head{width:100%;max-width:68ch}
+@media(max-width:760px){.dx:has(.jiz-chapter){--chapter-pad-x:20px}.dx-mast.jiz-chapter,.dx .dx-ch.jiz-chapter{border-radius:14px}.dx .dx-ch.jiz-chapter{padding-top:48px;padding-bottom:48px}}
+
+
+/* V2 CLS dossier: story slides, soft elevation, plum/amber editorial framing.
+   Preserve each existing light/dark chapter's contrast-specific treatment. */
+.dx:has(.jiz-chapter){background:#F4F7F7;--panel-gap:clamp(14px,1.8vw,26px)}
+.dx .dx-mast.jiz-chapter{
+  border:1px solid rgba(245,158,11,.2);
+  border-radius:clamp(20px,2.5vw,34px);
+  background:radial-gradient(ellipse at 86% 8%,rgba(245,158,11,.16),transparent 54%),linear-gradient(132deg,#1A1A2E,#4C1D68);
+  box-shadow:0 14px 36px rgba(19,28,44,.13),0 3px 8px rgba(19,28,44,.05);
+}
+.dx .dx-ch.jiz-chapter{
+  border-radius:clamp(20px,2.5vw,34px);
+  box-shadow:0 14px 36px rgba(19,28,44,.12),0 3px 8px rgba(19,28,44,.05);
+}
+.dx .dx-ch.jiz-chapter:not([data-surface="paper"]):not([data-surface="mist"]):nth-of-type(3n+1){background:linear-gradient(136deg,#1A1A2E,#352047)}
+.dx .dx-ch.jiz-chapter:not([data-surface="paper"]):not([data-surface="mist"]):nth-of-type(3n+2){background:linear-gradient(136deg,#271C39,#45235C)}
+.dx .dx-ch.jiz-chapter:not([data-surface="paper"]):not([data-surface="mist"]):nth-of-type(3n){background:linear-gradient(136deg,#1A1A2E,#233447)}
+.dx .dx-ch.jiz-chapter:is([data-surface="paper"],[data-surface="mist"]){background:linear-gradient(150deg,#FCFCFD,#F3F7F8);color:#1A1A2E}
+.dx .dx-ch.jiz-chapter:is([data-surface="paper"],[data-surface="mist"]){--jr-ink:#1A1A2E;--jr-soft:#344956;--jr-mute:#536672;--jr-line:rgba(26,26,46,.16);--jr-amber:#975B0B;--jr-teal:#135B70}
+.dx .dx-ch.jiz-chapter:not([data-surface="paper"]):not([data-surface="mist"]){--jr-amber:#FFB33B;--jr-teal:#A6CFD9;--jr-ink:#F7E9D6;--jr-soft:rgba(247,233,214,.87);--jr-mute:rgba(247,233,214,.72)}
+.dx .dx-ch.jiz-chapter .dx-fig img{border-radius:clamp(12px,1.2vw,18px)}
+@media(max-width:760px){
+  .dx .dx-mast.jiz-chapter,.dx .dx-ch.jiz-chapter{border-radius:20px}
+}
