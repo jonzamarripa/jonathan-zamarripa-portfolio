@@ -155,6 +155,7 @@ function page({ title, description, canonical, depth, body, type, noindex, image
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="${up}styles.css">
 <link rel="stylesheet" href="${up}journal/journal.css">\n<link rel="stylesheet" href="/editorial-footer.css"><link rel="stylesheet" href="/editorial-v8.css">${depth === 2 ? '\n<link rel="stylesheet" href="' + up + 'journal/dossier.css">' : ''}
+<link rel="stylesheet" href="${up}identity-mist-v2.css">
 <script defer src="/portfolio-analytics.js"></script>
 <script defer src="/editorial-return.js"></script>
 </head>
