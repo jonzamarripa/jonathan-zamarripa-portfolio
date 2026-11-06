@@ -46,7 +46,7 @@ assert.ok(!atmosphereJS.includes('--chapter-sweep'), 'Unused homepage rail anima
 assert.ok(!caseMotion.includes('--case-sweep'), 'Unused case-study rail animation variable must be removed');
 assert.ok(atmosphereJS.includes("'creative-lab':'cyan'") && atmosphereJS.includes("thinking:'cyan'") && atmosphereJS.includes("impact:'lime'"), 'Section-specific accent palette missing');
 assert.ok(homepage.includes('data-section="speaking"'), 'Speaking must use the shared chapter structure');
-assert.ok(homepage.includes('All newsletter editions'), 'Newsletter archive CTA missing');
+assert.ok(homepage.includes('Browse the complete newsletter archive'), 'Editorial archive pathway missing');
 assert.ok(homepage.includes('TEACHING STUDIO / IN DEVELOPMENT'), 'Teaching must be correctly labeled as in development');
 assert.ok(!homepage.includes('Selected Additional Work'), 'Additional Work must be held from the rendered homepage');
 assert.ok(!homepage.includes('Explore additional work'), 'Hidden Additional Work must not be promoted in Featured Work');
@@ -94,7 +94,7 @@ const journalHub = read('journal/index.html');
 const dossier = read('journal/designed-for-dana-wrong-for-marcus/index.html');
 const journalCss = read('journal/journal.css');
 const dossierCss = read('journal/dossier.css');
-assert.ok(speaker.includes('class="sp-scene"'), 'Speaking must present a cinematic portrait, not a player');
+assert.ok(speaker.includes('class="sp-scene sp-scene--cover"'), 'Speaking must present a single full-scene hero, not a player');
 assert.ok(!speaker.includes('<video'), 'Speaking should not contain a playable promo');
 assert.ok(speaker.includes('Keynote') && speaker.includes('Workshop') && speaker.includes('Panel'), 'Speaking format options missing');
 assert.ok(speaker.includes('data-editorial-return'), 'Speaking return navigation missing');
@@ -123,6 +123,14 @@ assert.ok(speakingPage.includes('sp-bio-expansion'), 'Speaking page must have ex
 assert.ok(speakingPage.includes('class="sp-format-strip"'), 'Speaking formats must remain visible');
 assert.ok(journalPage.includes('class="jr-menu"'), 'Journal must have mobile navigation like Speaking');
 assert.ok(read('editorial-footer.css').includes('.jiz-editorial-footer::before'), 'Shared footer grid system absent');
+assert.ok(read('editorial-v7.css').includes('.jz-im-evidence'), 'Impact evidence interaction styling missing');
+assert.ok(read('HomepageP1.jsx').includes('function MetricEvidence'), 'Impact evidence disclosure component missing');
+assert.ok(read('HomepageP1.jsx').includes('function PortfolioGlyph'), 'Shared icon system missing');
+assert.ok(!read('HomepageP1.jsx').includes('className="jz-fw-steps"'), 'Redundant numeric carousel selectors must be removed');
+assert.ok(!homepageSource.includes('Email me directly'), 'Contact should prioritize inquiry flow over raw email');
+assert.ok(speakingPage.includes('sp-scene--cover') && speakingPage.includes('sp-scene-intro'), 'Speaking hero must integrate intro over portrait');
+assert.ok(app.includes('jiz-project-nav__menu') && app.includes('jiz-project-nav__links'), 'Case study navigation must use Speaking style structure');
+
 const app = read('App.jsx');
 assert.ok(app.includes('src="/assets/logo/jiz-logo-white.svg"'), 'Case-study navigation must display actual brand logo');
 assert.ok(app.includes('<CaseStudyNavigation view={displayView} />'), 'Internal view navigation missing');
