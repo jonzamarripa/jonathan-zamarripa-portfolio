@@ -11,7 +11,12 @@ Homepage.html
 test-behind-the-build.html
 image-slot.js
 behind-the-build.css
-*.md
+# Keep content/journal/*.md accessible to the journal build; omit non-content docs below.
+README.md
+HANDOFF.md
+RELEASE_NOTES.md
+DEPLOYMENT.md
+CLAUDE.md
 DEPLOYMENT-INSTRUCTIONS.txt
 /hero-portrait-green.mp4
 
