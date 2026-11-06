@@ -58,7 +58,7 @@ const RHYTHM_CSS = `
 .jiz-homepage .jz-fw-intro,.jiz-homepage .jz-fw-dek{color:rgba(11,13,16,.76)}
 .jiz-homepage .jz-fw-org{color:rgba(11,13,16,.62)}
 .jiz-homepage .jz-fw-media{background:linear-gradient(135deg,var(--carbon) 0%,var(--slate) 100%);border-color:rgba(11,13,16,.14)}
-.jiz-homepage .jz-fw-card:hover .jz-fw-title{color:var(--obsidian);background:none;text-decoration:underline;text-decoration-color:#087B91;text-decoration-thickness:2px;text-underline-offset:.12em}
+.jiz-homepage .jz-fw-card:hover .jz-fw-title{color:var(--obsidian);background:none;text-decoration:underline;text-decoration-color:#086477;text-decoration-thickness:2px;text-underline-offset:.12em}
 .jiz-homepage .jz-fw-card:hover .jz-fw-media,.jiz-homepage .jz-fw-card:focus-within .jz-fw-media{border-color:rgba(11,13,16,.38)}
 .jiz-homepage .jz-fw-card:has(.jz-fw-cta:focus-visible){outline-color:#0B0D10}
 .jiz-homepage .jz-fw .jz-link{color:#0B0D10;font-weight:600}
@@ -95,10 +95,10 @@ const RHYTHM_CSS = `
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap-c{max-width:60ch;color:rgba(11,13,16,.74)}
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap-x{color:rgba(11,13,16,.6)}
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover{background:rgba(11,13,16,.035)}
-.jiz-homepage .jz-pr--capabilities .jz-pr-cap-t{color:#087B91;background:none}.jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover .jz-pr-cap-t,.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-t{color:#087B91;background:none}
-.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-x{color:#087B91;background:none}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap-t{color:#086477;background:none}.jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover .jz-pr-cap-t,.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-t{color:#086477;background:none}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-x{color:#086477;background:none}
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap button:focus-visible{outline-color:#0B0D10}
-.jiz-homepage .jz-pr--capabilities .jz-pr-tools{padding-block:12px 26px;border-top:1px solid rgba(11,13,16,.1)}.jiz-homepage .jz-pr--capabilities .jz-pr-tools p{color:rgba(11,13,16,.8);font-family:var(--font-body);font-size:.9375rem;line-height:1.65}.jiz-homepage .jz-pr--capabilities .jz-pr-tools strong{color:#087B91}
+.jiz-homepage .jz-pr--capabilities .jz-pr-tools{padding-block:12px 26px;border-top:1px solid rgba(11,13,16,.1)}.jiz-homepage .jz-pr--capabilities .jz-pr-tools p{color:rgba(11,13,16,.8);font-family:var(--font-body);font-size:.9375rem;line-height:1.65}.jiz-homepage .jz-pr--capabilities .jz-pr-tools strong{color:#086477}
 
 /* Method — Slate panel; five stages on a connecting rail */
 .jiz-homepage .jz-pr--method{background:#171A1F}
