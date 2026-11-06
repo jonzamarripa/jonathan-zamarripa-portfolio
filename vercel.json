@@ -40,6 +40,6 @@
       ]
     }
   ],
-  "buildCommand": "npm install --no-save --no-package-lock --no-audit --no-fund @babel/core@7 @babel/preset-react@7 react@18.3.1 react-dom@18.3.1 && node build.cjs && node tests/discovery-integrity.cjs && node tests/case-study-integrity.cjs",
+  "buildCommand": "npm install --no-save --no-package-lock --no-audit --no-fund @babel/core@7 @babel/preset-react@7 react@18.3.1 react-dom@18.3.1 && node build.cjs && node tests/discovery-integrity.cjs && node tests/case-study-integrity.cjs && node tests/identity-integrity.cjs",
   "outputDirectory": "."
 }
