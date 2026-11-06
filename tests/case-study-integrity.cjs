@@ -124,6 +124,16 @@ assert.ok(speakingPage.includes('class="sp-format-strip"'), 'Speaking formats mu
 assert.ok(journalPage.includes('class="jr-menu"'), 'Journal must have mobile navigation like Speaking');
 assert.ok(read('editorial-footer.css').includes('.jiz-editorial-footer::before'), 'Shared footer grid system absent');
 assert.ok(read('editorial-v7.css').includes('.jz-im-evidence'), 'Impact evidence interaction styling missing');
+for (const portrait of ['assets/imagery/speaking/speaker-cinematic-dark.jpg','assets/imagery/speaking/speaker-contact-warm.jpg']) {
+  assert.ok(fs.existsSync(path.join(root,portrait)), 'User-provided portrait missing: '+portrait);
+}
+assert.ok(read('build-speaking.cjs').includes('speaker-cinematic-dark.jpg'), 'Speaking hero must use supplied dark image');
+assert.ok(read('build-speaking.cjs').includes('speaker-contact-warm.jpg'), 'Speaking bio must use supplied warm image');
+assert.ok(read('editorial-v7.css').includes('speaker-contact-warm.jpg'), 'Contact must use supplied warm image');
+assert.ok(read('SpeakingPreview.jsx').includes('sp-preview-scene'), 'Homepage Speaking must be integrated portrait scene');
+assert.ok(read('Homepage.jsx').includes('data-chapter-label="03 / SELECTED WORK"'), 'Editorial chapter numbering missing');
+assert.ok(!read('HomepageP1.jsx').includes('timer = setTimeout(() => { start = undefined;'), 'Metrics should not restart after finishing');
+
 assert.ok(read('HomepageP1.jsx').includes('function MetricEvidence'), 'Impact evidence disclosure component missing');
 assert.ok(read('HomepageP1.jsx').includes('function PortfolioGlyph'), 'Shared icon system missing');
 assert.ok(!read('HomepageP1.jsx').includes('className="jz-fw-steps"'), 'Redundant numeric carousel selectors must be removed');
