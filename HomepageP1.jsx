@@ -41,8 +41,8 @@ const EDITORIAL_CSS = `
    → Creative Lab (page) → About (Slate) → Journey (Warm Paper, light) → Stack (Carbon) → Principles (light) → Archive (page).
    Scoped to .jiz-homepage so it layers over each section's own styles. */
 const RHYTHM_CSS = `
-.jiz-homepage{--panel-gap:clamp(10px,1.4vw,20px);--panel-r:clamp(18px,2.4vw,32px);--panel-gutter-surface:#EAE2D4;background:var(--panel-gutter-surface)!important}
-/* Every major chapter is a panel; the Carbon page shows through the gutters, so dark panels keep a visible curved edge. */
+.jiz-homepage{--panel-gap:clamp(10px,1.4vw,20px);--panel-r:clamp(18px,2.4vw,32px);--panel-gutter-surface:#0E1114;background:var(--panel-gutter-surface)!important}
+/* Obsidian page seams frame each surface without a bright-colored outline. Warm paper is a deliberate chapter surface, not a global background. */
 .jiz-homepage .hero,.jiz-homepage .jz-fw,.jiz-homepage .jz-im,.jiz-homepage .jz-pr,.jiz-homepage .jz-cls,.jiz-homepage .jiz-creative-lab,.jiz-homepage .jiz-am,.jiz-homepage .jz-jr,.jiz-homepage .jz-st,.jiz-homepage .jz-pp,.jiz-homepage .jiz-arch,.jiz-homepage .jiz-build{width:auto;margin:var(--panel-gap);border-radius:var(--panel-r);overflow:hidden;border:0}
 
 /* Hero — cinematic dark panel; video, crop and copy untouched. Height trimmed by the gutters so the fold is unchanged. */
@@ -58,8 +58,8 @@ const RHYTHM_CSS = `
 .jiz-homepage .jz-fw-intro,.jiz-homepage .jz-fw-dek{color:rgba(11,13,16,.76)}
 .jiz-homepage .jz-fw-org{color:rgba(11,13,16,.62)}
 .jiz-homepage .jz-fw-media{background:linear-gradient(135deg,var(--carbon) 0%,var(--slate) 100%);border-color:rgba(11,13,16,.14)}
-.jiz-homepage .jz-fw-card:hover .jz-fw-title{color:var(--obsidian);background:var(--accent-cyan)}
-.jiz-homepage .jz-fw-card:hover .jz-fw-media,.jiz-homepage .jz-fw-card:focus-within .jz-fw-media{border-color:var(--accent-cyan)}
+.jiz-homepage .jz-fw-card:hover .jz-fw-title{color:var(--obsidian);background:none;text-decoration:underline;text-decoration-color:#087B91;text-decoration-thickness:2px;text-underline-offset:.12em}
+.jiz-homepage .jz-fw-card:hover .jz-fw-media,.jiz-homepage .jz-fw-card:focus-within .jz-fw-media{border-color:rgba(11,13,16,.38)}
 .jiz-homepage .jz-fw-card:has(.jz-fw-cta:focus-visible){outline-color:#0B0D10}
 .jiz-homepage .jz-fw .jz-link{color:#0B0D10;font-weight:600}
 .jiz-homepage .jz-fw .jz-link:focus-visible{outline-color:#0B0D10}
@@ -84,7 +84,7 @@ const RHYTHM_CSS = `
 @media(max-width:1024px){.jiz-homepage .jz-im-cell:nth-child(n+3),.jiz-homepage .jz-im-cell + .jz-im-cell{border-top-color:rgba(232,240,245,.14)}}
 
 /* Capabilities — Mist light chapter, dark type */
-.jiz-homepage .jz-pr--capabilities{background:#F1EBDD;color:#0B0D10}
+.jiz-homepage .jz-pr--capabilities{background:#E8E3D9;color:#0B0D10}
 .jiz-homepage .jz-pr--capabilities .jz-label{color:rgba(11,13,16,.66)}
 .jiz-homepage .jz-pr--capabilities .jz-pr-caps-h{color:#0B0D10}
 .jiz-homepage .jz-pr--capabilities .jz-pr-sub{color:rgba(11,13,16,.74)}
