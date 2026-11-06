@@ -7,7 +7,7 @@ const homepage = read('index.html');
 const bundle = read('dist/site.js');
 const journal = read('journal/index.html');
 const dossier = read('journal/designed-for-dana-wrong-for-marcus/index.html');
-const footer = homepage.match(/<footer\\b[\\s\\S]*?<\\/footer>/)?.[0] || '';
+const footer = homepage.slice(homepage.indexOf('<footer'), homepage.indexOf('</footer>') + '</footer>'.length);
 assert(footer, 'Rendered footer is missing');
 for (const removed of ['Behind the Build</button>', 'Resume</button>', 'LinkedIn</button>', 'Read the Newsletter</button>']) {
   assert(!footer.includes(removed), 'Outdated footer nav remains: ' + removed);
