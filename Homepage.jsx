@@ -1972,7 +1972,7 @@ function FinalMoment({ onNavigate, standalone = false }) {
   const [lit, setLit] = React.useState(false);
   const ref = React.useRef(null);
   const reduced = prefersReduced();
-  const NAV = [['Featured Work', 'featured-work'], ['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Email', 'email']];
+  const NAV = [['Featured Work', 'work'], ['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Email', 'email']];
   React.useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setLit(true); }, { threshold: 0.4 });
     if (ref.current) obs.observe(ref.current);
