@@ -160,3 +160,11 @@ footer.jiz-footer .jiz-footer-nav,footer.jiz-editorial-footer .jiz-editorial-foo
 .tfs .ml-abstract h2{grid-column:1/-1;margin:0}
 .tfs .ml-abstract>p{margin:0;max-width:65ch;line-height:1.7;color:#D9DDE3}
 @media(max-width:760px){.tfs .ml-abstract{grid-template-columns:1fr;padding:20px}}
+
+
+/* A quiet icon grammar in enterprise fact cards. */
+.jiz-cs .jiz-cs-fact-k{display:flex;align-items:center;gap:9px;line-height:1.4}
+.jiz-cs .jiz-cs-fact-k svg{flex:0 0 17px;opacity:.9}
+.jiz-cs .jiz-cs-fact-v{margin-top:13px!important;line-height:1.55}
+.jiz-cs .jiz-cs-fact{padding:clamp(15px,1.8vw,24px)!important;
+ background:linear-gradient(150deg,rgba(255,255,255,.045),rgba(255,255,255,.015))}
