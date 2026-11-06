@@ -149,5 +149,4 @@ body.jr .dx:has(.jiz-chapter){background:var(--identity-mist)!important}
 body.jr .dx .dx-ch.jiz-chapter:not([data-surface=paper]):not([data-surface=mist]){background:linear-gradient(135deg,#1A1A2E,#352047)}
 body.jr .dx .dx-ch.jiz-chapter:is([data-surface=paper],[data-surface=mist]){background:#F7FAFA;color:#122C36}
 body.jr .jr-mast :is(h1,.jr-sub,.jr-anchor){color:#F7E9D6}
-body.jr :is(.jr-mast,.jr-sec) :is(p,li){max-width:100%}
 /* Keep touch and reduced-motion behavior exactly as authored in the original v8 branch. */
