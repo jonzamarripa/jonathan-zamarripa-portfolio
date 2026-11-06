@@ -118,3 +118,19 @@
  color:#C6F23A;text-decoration:none;font:600 .87rem/1.5 var(--font-body)}
 .jiz-homepage .cls-room__archive-link a:hover{text-decoration:underline;text-underline-offset:5px}
 @media(prefers-reduced-motion:reduce){.jiz-homepage .jz-pp-item{transition:none}}
+
+/* The graphite gutter doubles as a subtle editorial chapter guide.
+   Numbers continue from Presence 01 / Proof 02, without adding new headings. */
+.jiz-homepage main > div[data-chapter-label]::before{
+ content:attr(data-chapter-label);
+ position:absolute;top:2px;right:calc(var(--panel-gap,20px) + 10px);z-index:3;
+ display:block;pointer-events:none;
+ color:#D9E5E8;font:650 .59rem/1.4 var(--font-mono,monospace);
+ letter-spacing:.15em;opacity:.72;
+}
+@media(max-width:640px){
+ .jiz-homepage main > div[data-chapter-label]::before{
+  top:0;right:calc(var(--panel-gap,12px) + 8px);
+  font-size:.54rem;letter-spacing:.09em;
+ }
+}
