@@ -115,6 +115,21 @@ function PackageCarousel({ items }) {
 
 function has0(v) { return Array.isArray(v) && v.length > 0; }
 
+function CaseStudyFactGlyph({label}) {
+ const key=String(label||'').toLowerCase();
+ const type=/org|company|partner|client/.test(key)?'organization':/role|owner|designer/.test(key)?'role':/audience|learner|team/.test(key)?'audience':/tool|platform|technology/.test(key)?'tools':/outcome|impact|adoption|result/.test(key)?'impact':/status|validation|date/.test(key)?'status':'format';
+ const d={
+  organization:<><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 20v-5h6v5M8 9h2m4 0h2"/></>,
+  role:<><circle cx="12" cy="8" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></>,
+  audience:<><circle cx="8" cy="8" r="3"/><path d="M2 20v-2a6 6 0 0 1 12 0v2m3-12a3 3 0 0 1 0 6m1 3c2 1 3 2 3 5"/></>,
+  tools:<><path d="M4 7h16M4 12h16M4 17h16"/><circle cx="8" cy="7" r="1"/><circle cx="16" cy="12" r="1"/><circle cx="11" cy="17" r="1"/></>,
+  impact:<><path d="M4 20V4m0 16h16M9 16l4-5 3 2 4-7"/></>,
+  status:<><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></>,
+  format:<><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m10 8 5 4-5 4z"/></>,
+ };
+ return <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" focusable="false" aria-hidden="true">{d[type]}</svg>;
+}
+
 function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
   const SITE = window.JIZ_SITE;
   // Every project link is a real URL (shareable, opens in a new tab); inside the homepage overlay a plain click stays in the overlay.
@@ -253,7 +268,7 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
           <dl className="jiz-cs-facts">
             {config.facts.map((f) => (
               <div className="jiz-cs-fact" key={f.label} style={{ '--fact-accent': f.accent === 'lime' ? 'var(--color-accent-primary)' : f.accent === 'moss' ? 'var(--electric-moss)' : 'var(--accent-cyan)' }}>
-                <dt className="jiz-cs-fact-k">{f.label}</dt>
+                <dt className="jiz-cs-fact-k"><CaseStudyFactGlyph label={f.label}/>{f.label}</dt>
                 <dd className="jiz-cs-fact-v" style={{ margin: 0 }}>{f.value}</dd>
               </div>
             ))}
