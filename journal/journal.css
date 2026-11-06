@@ -109,3 +109,67 @@ main{width:min(1120px,calc(100% - 2*clamp(16px,5vw,64px)));margin-inline:auto}
 @media(max-width:860px){.jr-pillars{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:520px){.jr-pillars{grid-template-columns:1fr 1fr}.jr-pillars a{padding:14px;min-height:104px;font-size:.875rem}.jr-sec{padding-inline:18px}}
 @media(prefers-reduced-motion:reduce){.jr-pillars a{transition:none}}
+
+
+/* DESIGN SYSTEM V2 — Cinematic Learning Systems
+   Editorial chapters float above cool Mist; the publication owns the plum/amber identity.
+   Keep the original journal content hierarchy and evidence markings. */
+:root{
+  --jr-ground:#F4F7F7;
+  --jr-shell:1280px;
+  --jr-amber:#FFB33B;
+  --jr-teal:#88B6C4;
+  --jr-surface-a:#1A1A2E;
+  --jr-surface-b:#291E3B;
+  --jr-surface-c:#351C48;
+  --jr-ink:#F7E9D6;
+  --jr-soft:rgba(247,233,214,.86);
+  --jr-mute:rgba(247,233,214,.72);
+  --jr-line:rgba(247,233,214,.19);
+  --cls-panel-radius:clamp(20px,2.5vw,34px);
+  --cls-elevation:0 14px 36px rgba(19,28,44,.13),0 3px 8px rgba(19,28,44,.05);
+}
+html:has(body.jr),body.jr{background:#F4F7F7}
+body.jr{color:#1A1A2E}
+.jr-top{background:rgba(26,26,46,.97);border-bottom:1px solid rgba(245,158,11,.22);box-shadow:0 4px 18px rgba(20,20,38,.12)}
+.jr .jr-top a{color:#F7E9D6}
+.jr main{width:min(var(--jr-shell),calc(100% - 2 * var(--jr-inset)));margin-inline:auto}
+.jr-mast{
+  margin:clamp(16px,2vw,28px) 0;
+  padding:clamp(42px,6vw,90px) clamp(24px,5vw,80px);
+  color:#F7E9D6;
+  border:1px solid rgba(245,158,11,.24);
+  border-radius:var(--cls-panel-radius);
+  background:radial-gradient(ellipse at 92% 15%,rgba(245,158,11,.22),transparent 57%),linear-gradient(130deg,#1A1A2E 0%,#371A47 64%,#4C1D68 110%);
+  box-shadow:var(--cls-elevation);
+}
+.jr-mast .jr-sub,.jr-mast .jr-anchor{color:#F7E9D6}
+.jr .jr-mast .jr-kicker{color:#FFB33B}
+.jr .jr-mast .jr-pillars a{background:rgba(16,16,34,.32);border-color:rgba(247,233,214,.2);color:#F7E9D6}
+.jr .jr-mast .jr-pillars a:hover{background:rgba(245,158,11,.12);border-color:#FFB33B}
+.jr-sec{
+  margin:clamp(16px,2vw,26px) 0;
+  padding:clamp(40px,6vw,76px) clamp(22px,4vw,68px);
+  border-radius:var(--cls-panel-radius);
+  box-shadow:var(--cls-elevation);
+  border:1px solid rgba(245,158,11,.16);
+  background:linear-gradient(140deg,#1A1A2E,#352047);
+  color:#F7E9D6;
+}
+.jr-sec:nth-of-type(even){background:linear-gradient(140deg,#271C39,#4C1D68)}
+.jr-sec:nth-of-type(3n){background:linear-gradient(140deg,#1A1A2E,#27354A)}
+.jr-sec .jr-meta{color:#A6CFD9}
+.jr-sec .jr-kicker,.jr-sec .box-label{color:#FFB33B}
+.jr-sec .jr-read,.jr-sec .jr-cta{color:#FFB33B!important}
+.jr .jr-foot{border-top-color:rgba(26,26,46,.18);color:#425560}
+.jr .jr-foot a{color:#24566A}
+.jr .jr-sec :is(.jr-systems li,.jr-issues li){border-color:rgba(247,233,214,.17)}
+.jr .jr-sec .jr-table{border-color:rgba(247,233,214,.28)}
+.jr .jr-sec .jr-table th,.jr .jr-sec .jr-table td{border-color:rgba(247,233,214,.16)}
+@media(max-width:760px){
+  .jr-mast{padding:34px 22px}
+  .jr-sec{padding:36px 22px}
+  .jr-pillars{gap:8px}
+  .jr .jr-mast .jr-pillars a{padding:13px}
+}
+@media(prefers-reduced-motion:reduce){.jr-sec,.jr-mast{scroll-behavior:auto}}
