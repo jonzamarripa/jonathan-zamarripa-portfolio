@@ -1730,7 +1730,12 @@ function LetsBuild({ onExploreWork }) {
         .jiz-build{position:relative;isolation:isolate;overflow:hidden;padding:clamp(76px,8vw,124px) var(--container-pad) clamp(52px,5vw,76px);background:radial-gradient(ellipse 74% 54% at 18% 8%,rgba(var(--accent-cyan-rgb),.094),transparent 66%),radial-gradient(ellipse 62% 50% at 88% 64%,rgba(198,242,58,.05),transparent 70%),linear-gradient(180deg,#121a1d 0%,#141d20 40%,#101619 100%)}
         .jiz-build::before{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%);mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%)}
         .jiz-build-inner{position:relative;z-index:1;width:min(100%,1360px);margin-inline:auto}
-        .jiz-build-head{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(14px,2vw,24px);align-items:start;margin-bottom:clamp(28px,3vw,42px)}
+        .jiz-build-head{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(24px,4vw,72px);align-items:center;margin-bottom:clamp(28px,3vw,42px)}
+        .jiz-build-head-left,.jiz-build-head-right{grid-column:1;min-width:0}
+        .jiz-build-head-right{grid-row:2;max-width:60ch}
+        .jiz-build-portrait{grid-column:2;grid-row:1 / span 2;align-self:stretch;min-height:clamp(300px,37vw,520px);margin:0;border-radius:clamp(18px,2vw,28px);overflow:hidden;background:#0B0D10}
+        .jiz-build-portrait img{display:block;width:100%;height:100%;min-height:inherit;object-fit:cover;object-position:60% 26%}
+        @media(max-width:760px){.jiz-build-head{grid-template-columns:1fr}.jiz-build-head-left,.jiz-build-head-right,.jiz-build-portrait{grid-column:1;grid-row:auto}.jiz-build-portrait{min-height:310px;max-height:440px}.jiz-build-portrait img{object-position:60% 25%}}
         .jiz-build-eyebrow{margin:0 0 16px;color:var(--color-accent-primary);font:var(--text-hud);font-size:.6875rem;letter-spacing:.22em;text-transform:uppercase}
         .jiz-build-title{margin:0;color:var(--color-text-primary);font:var(--text-display);font-size:clamp(2rem,1.35rem + 1.9vw,3.1rem);line-height:1.08;letter-spacing:-.024em;max-width:18ch;text-wrap:pretty}
         .jiz-build-sub{margin:0;color:rgba(217,221,227,.76);font:var(--text-body);font-size:clamp(.9375rem,.9rem + .22vw,1.0625rem);line-height:1.7;max-width:56ch;text-wrap:pretty}
@@ -1792,6 +1797,7 @@ function LetsBuild({ onExploreWork }) {
           <div className="jiz-build-head-right">
             <p className="jiz-build-sub">A strategy that needs shape, an experience that needs building, a story that needs telling, or a new tool worth figuring out. Tell me what you’re working on. I’m open to senior full-time and contract roles, consulting projects, and speaking or panel invitations.</p>
           </div>
+          <figure className="jiz-build-portrait"><img src="./assets/imagery/jonathan-hero-final-poster.webp" alt="Jonathan Iker Zamarripa, learning experience designer" loading="lazy" decoding="async" /></figure>
         </header>
         <div className="jiz-build-stage">
           <div className="jz-ct-direct">
@@ -1809,10 +1815,7 @@ function LetsBuild({ onExploreWork }) {
 @media(prefers-reduced-motion:reduce){.jz-ct-mail span:last-child{transition:none}}
             `}</style>
             <a className="jz-ct-mail" href={window.JIZ_SITE.links.email}><span className="jz-label">Email me directly</span><span>jonathan.zamarripa@gmail.com</span></a>
-            <ul className="jz-ct-sec">
-              <li><a href={window.JIZ_SITE.links.resume} target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a></li>
-              <li><a href={window.JIZ_SITE.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></li>
-            </ul>
+
             <p className="jz-ct-note">Or use the form. A few lines are enough; I reply personally.</p>
           </div>
           <form className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
@@ -1969,7 +1972,7 @@ function FinalMoment({ onNavigate, standalone = false }) {
   const [lit, setLit] = React.useState(false);
   const ref = React.useRef(null);
   const reduced = prefersReduced();
-  const NAV = [['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Behind the Build', 'btb'], ['Resume', 'resume'], ['LinkedIn', 'linkedin']].concat(window.JIZ_SITE.links.newsletter ? [['Journal', 'journal'], ['Read the Newsletter', 'newsletter']] : [], [['Email', 'email']]);
+  const NAV = [['Featured Work', 'featured-work'], ['Creative Lab', 'creative-lab'], ['Additional Work', 'archive'], ['Email', 'email']];
   React.useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setLit(true); }, { threshold: 0.4 });
     if (ref.current) obs.observe(ref.current);
@@ -1999,7 +2002,7 @@ function FinalMoment({ onNavigate, standalone = false }) {
         .jiz-footer-tech{color:rgba(217,221,227,.65);font:var(--text-hud);font-size:.625rem;letter-spacing:.14em;text-transform:uppercase}
         .jiz-footer-nav{display:flex;flex-wrap:wrap;justify-content:center;gap:clamp(6px,1vw,12px);margin-bottom:clamp(26px,3vw,38px)}
         .jiz-footer-nav button{min-height:44px;padding:0 16px;border:1px solid transparent;border-radius:var(--radius-pill);background:transparent;color:var(--mist);font:var(--text-body);font-size:.9375rem;cursor:pointer;transition:border-color var(--motion-fast) var(--ease-standard),background var(--motion-fast) var(--ease-standard),color var(--motion-fast) var(--ease-standard)}
-        .jiz-footer-nav button:hover{border-color:rgba(var(--accent-cyan-rgb),.4);background:rgba(var(--accent-cyan-rgb),.08);color:var(--accent-cyan)}
+        .jiz-footer-nav button:hover{border-color:rgba(217,221,227,.32);background:rgba(217,221,227,.07);color:var(--white)}
         .jiz-footer-nav button:focus-visible,.jiz-footer-top:focus-visible{outline:2px solid var(--accent-cyan);outline-offset:3px}
 
         @media(prefers-reduced-motion:reduce){.jiz-footer-top,.jiz-footer-nav button{transition:none}.jiz-footer-top:hover{transform:none}}
@@ -2071,12 +2074,12 @@ function CinematicJournal({ onNavigate }) {
 .jz-cls-sub{margin:0;max-width:44ch;font:400 1rem/1.6 var(--font-body);color:rgba(232,227,217,.78)}
 .jz-cls-by{margin:0;font:500 .75rem/1.4 var(--font-mono);letter-spacing:.06em;color:rgba(232,227,217,.6)}
 .jz-cls-links{display:flex;flex-wrap:wrap;gap:10px 28px;margin-top:6px}
-.jz-cls-links a,.jz-cls-read,.jz-cls-invite{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:var(--text-button);font-size:.9375rem;color:var(--color-accent-primary);text-decoration:none;background:none;border:0;padding:0;cursor:pointer}
+.jz-cls-links a,.jz-cls-read,.jz-cls-invite{display:inline-flex;align-items:center;gap:8px;min-height:44px;font:var(--text-button);font-size:.9375rem;color:#E3A24C;text-decoration:none;background:none;border:0;padding:0;cursor:pointer}
 .jz-cls-links a + a{color:#E8E3D9}
 .jz-cls-actions{display:flex;flex-wrap:wrap;gap:4px 24px;margin:0}
 .jiz-homepage .jz-cls .jz-cls-orig{color:#E8E3D9}
 .jz-cls-links a:hover,.jz-cls-read:hover,.jz-cls-invite:hover{text-decoration:underline;text-underline-offset:4px}
-.jz-cls-invite:focus-visible,.jz-cls a:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:4px;border-radius:2px}
+.jz-cls-invite:focus-visible,.jz-cls a:focus-visible{outline:2px solid #E3A24C;outline-offset:4px;border-radius:2px}
 .jz-cls-feature{grid-column:7 / span 6;display:flex;flex-direction:column}
 .jz-cls-lead{position:relative;display:flex;flex-direction:column;gap:14px;padding:clamp(24px,2.6vw,36px);background:rgba(42,47,55,.38);border:1px solid rgba(86,184,180,.22);border-radius:16px}
 .jz-cls-lead::before{content:'';position:absolute;top:-1px;left:clamp(24px,2.6vw,36px);width:40px;height:2px;background:#E3A24C}
