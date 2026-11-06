@@ -140,3 +140,23 @@ footer.jiz-footer .jiz-footer-nav a{font-weight:600}
 /* No footer hover language pretends to open a new tab for an internal route. */
 footer.jiz-footer .jiz-footer-nav,footer.jiz-editorial-footer .jiz-editorial-footer__nav{
  align-items:center;row-gap:4px}
+
+
+/* Introductory labels are separate block lines, never concatenated inline. */
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter :is(.tfs-chn,.tfs-eyebrow,.jiz-cs-eyebrow){
+ display:flex!important;align-items:center;width:fit-content;max-width:calc(100% - 56px);
+ margin-bottom:clamp(12px,1.4vw,21px);line-height:1.5;
+}
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter .jiz-cs-eyebrow{letter-spacing:.11em}
+.jiz-cs-wrap{padding-top:clamp(18px,2.2vw,34px)!important}
+.tfs .ml-hero-image{margin-block:clamp(26px,3vw,44px) clamp(20px,2vw,32px)!important}
+.tfs .ml-hero-image img{width:100%;max-height:550px;object-fit:cover;object-position:center;
+ border-radius:clamp(15px,2vw,25px)}
+/* Reader-facing detail cards feel authored, not uninterrupted paragraphs. */
+.tfs .ml-abstract{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:clamp(15px,2vw,27px);padding:clamp(18px,3vw,38px);
+ border:1px solid rgba(100,225,255,.18);border-radius:23px;
+ background:linear-gradient(125deg,rgba(100,225,255,.055),rgba(198,242,58,.035))}
+.tfs .ml-abstract h2{grid-column:1/-1;margin:0}
+.tfs .ml-abstract>p{margin:0;max-width:65ch;line-height:1.7;color:#D9DDE3}
+@media(max-width:760px){.tfs .ml-abstract{grid-template-columns:1fr;padding:20px}}
