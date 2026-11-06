@@ -126,3 +126,28 @@ main:has(.dx .jiz-chapter){width:auto;margin:0}
 .dx-media img,.dx-scroll img{max-width:100%;box-sizing:border-box}
 .dx-ch>.dx-ch-head{width:100%;max-width:68ch}
 @media(max-width:760px){.dx:has(.jiz-chapter){--chapter-pad-x:20px}.dx-mast.jiz-chapter,.dx .dx-ch.jiz-chapter{border-radius:14px}.dx .dx-ch.jiz-chapter{padding-top:48px;padding-bottom:48px}}
+
+
+/* V2 CLS dossier: story slides, soft elevation, plum/amber editorial framing.
+   Preserve each existing light/dark chapter's contrast-specific treatment. */
+.dx:has(.jiz-chapter){background:#F4F7F7;--panel-gap:clamp(14px,1.8vw,26px)}
+.dx .dx-mast.jiz-chapter{
+  border:1px solid rgba(245,158,11,.2);
+  border-radius:clamp(20px,2.5vw,34px);
+  background:radial-gradient(ellipse at 86% 8%,rgba(245,158,11,.16),transparent 54%),linear-gradient(132deg,#1A1A2E,#4C1D68);
+  box-shadow:0 14px 36px rgba(19,28,44,.13),0 3px 8px rgba(19,28,44,.05);
+}
+.dx .dx-ch.jiz-chapter{
+  border-radius:clamp(20px,2.5vw,34px);
+  box-shadow:0 14px 36px rgba(19,28,44,.12),0 3px 8px rgba(19,28,44,.05);
+}
+.dx .dx-ch.jiz-chapter:not([data-surface="paper"]):not([data-surface="mist"]):nth-of-type(3n+1){background:linear-gradient(136deg,#1A1A2E,#352047)}
+.dx .dx-ch.jiz-chapter:not([data-surface="paper"]):not([data-surface="mist"]):nth-of-type(3n+2){background:linear-gradient(136deg,#271C39,#45235C)}
+.dx .dx-ch.jiz-chapter:not([data-surface="paper"]):not([data-surface="mist"]):nth-of-type(3n){background:linear-gradient(136deg,#1A1A2E,#233447)}
+.dx .dx-ch.jiz-chapter:is([data-surface="paper"],[data-surface="mist"]){background:linear-gradient(150deg,#FCFCFD,#F3F7F8);color:#1A1A2E}
+.dx .dx-ch.jiz-chapter:is([data-surface="paper"],[data-surface="mist"]){--jr-ink:#1A1A2E;--jr-soft:#344956;--jr-mute:#536672;--jr-line:rgba(26,26,46,.16);--jr-amber:#975B0B;--jr-teal:#135B70}
+.dx .dx-ch.jiz-chapter:not([data-surface="paper"]):not([data-surface="mist"]){--jr-amber:#FFB33B;--jr-teal:#A6CFD9;--jr-ink:#F7E9D6;--jr-soft:rgba(247,233,214,.87);--jr-mute:rgba(247,233,214,.72)}
+.dx .dx-ch.jiz-chapter .dx-fig img{border-radius:clamp(12px,1.2vw,18px)}
+@media(max-width:760px){
+  .dx .dx-mast.jiz-chapter,.dx .dx-ch.jiz-chapter{border-radius:20px}
+}
