@@ -1,0 +1,24 @@
+/* Shared static footer for standalone Speaking and Journal templates.
+   The React homepage and case studies use FinalMoment with the same brand system. */
+const escape = s => String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function editorialFooter({context='Portfolio',disclosure=''}={}){
+ return `<footer class="jiz-editorial-footer" aria-label="Site footer">
+  <div class="jiz-editorial-footer__inner">
+    <a class="jiz-editorial-footer__brand" href="/" aria-label="Jonathan Iker Zamarripa — home">
+      <img src="/assets/logo/jiz-logo-white.svg" width="48" height="48" alt="">
+      <span>Jonathan Iker Zamarripa</span>
+    </a>
+    <p class="jiz-editorial-footer__tagline">Learning Strategy &amp; Performance Consulting · Leadership Development · Creative Technology</p>
+    <nav class="jiz-editorial-footer__nav" aria-label="Footer navigation">
+      <a href="/#work">Selected Work</a><a href="/journal/">Journal</a>
+      <a href="/speaking/">Speaking</a><a href="/#about">About</a>
+      <a href="/resume/">Résumé</a><a href="/#contact">Contact</a>
+    </nav>
+    <a class="jiz-editorial-footer__top" href="#top" data-editorial-back-top>↑ Back to Top</a>
+    ${disclosure ? '<p class="jiz-editorial-footer__disclosure">'+escape(disclosure)+'</p>' : ''}
+    <div class="jiz-editorial-footer__meta"><span>© 2026 Jonathan Iker Zamarripa. All rights reserved.</span>
+    <span>${escape(context)} · Designed with curiosity. Guided by human judgment.</span></div>
+  </div>
+</footer>`;
+}
+module.exports={editorialFooter};

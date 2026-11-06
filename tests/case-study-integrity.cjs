@@ -46,7 +46,7 @@ assert.ok(!atmosphereJS.includes('--chapter-sweep'), 'Unused homepage rail anima
 assert.ok(!caseMotion.includes('--case-sweep'), 'Unused case-study rail animation variable must be removed');
 assert.ok(atmosphereJS.includes("'creative-lab':'cyan'") && atmosphereJS.includes("thinking:'cyan'") && atmosphereJS.includes("impact:'lime'"), 'Section-specific accent palette missing');
 assert.ok(homepage.includes('data-section="speaking"'), 'Speaking must use the shared chapter structure');
-assert.ok(homepage.includes('All newsletter editions'), 'Newsletter archive CTA missing');
+assert.ok(homepage.includes('Browse the complete newsletter archive'), 'Editorial archive pathway missing');
 assert.ok(homepage.includes('TEACHING STUDIO / IN DEVELOPMENT'), 'Teaching must be correctly labeled as in development');
 assert.ok(!homepage.includes('Selected Additional Work'), 'Additional Work must be held from the rendered homepage');
 assert.ok(!homepage.includes('Explore additional work'), 'Hidden Additional Work must not be promoted in Featured Work');
@@ -94,7 +94,7 @@ const journalHub = read('journal/index.html');
 const dossier = read('journal/designed-for-dana-wrong-for-marcus/index.html');
 const journalCss = read('journal/journal.css');
 const dossierCss = read('journal/dossier.css');
-assert.ok(speaker.includes('class="sp-scene"'), 'Speaking must present a cinematic portrait, not a player');
+assert.ok(speaker.includes('class="sp-scene sp-scene--cover"'), 'Speaking must present a single full-scene hero, not a player');
 assert.ok(!speaker.includes('<video'), 'Speaking should not contain a playable promo');
 assert.ok(speaker.includes('Keynote') && speaker.includes('Workshop') && speaker.includes('Panel'), 'Speaking format options missing');
 assert.ok(speaker.includes('data-editorial-return'), 'Speaking return navigation missing');
@@ -106,8 +106,47 @@ assert.ok(journalCss.includes('scroll-margin-top:155px') && dossierCss.includes(
 assert.ok(dossier.includes('class="dx-ch'), 'Dossier chapters missing');
 assert.ok(read('editorial-return.js').includes('jiz-editorial-origin-v1'), 'Return-to-scroll preservation missing');
 assert.ok(homepage.includes('editorial-return.js'), 'Homepage editorial return script missing');
+
+const firstSentence = read('CaseStudy-FirstSentence.jsx');
+const marcusLive = read('CaseStudy-MarcusLive.jsx');
+const homepageSource = read('Homepage.jsx');
+const speakingPage = read('speaking/index.html');
+const journalPage = read('journal/index.html');
+const dossierPage = read('journal/designed-for-dana-wrong-for-marcus/index.html');
+assert.ok(!firstSentence.includes('className="tfs-top"'), 'First Sentence must not duplicate global case study navigation');
+assert.ok(!marcusLive.includes('className="tfs-top"'), 'Marcus Live must not duplicate global case study navigation');
+assert.ok(firstSentence.includes('tfs-hero--immersive') && firstSentence.includes('tfs-hero__statement'), 'First Sentence hero must layer editorial premise over enlarged artwork');
+assert.ok(homepageSource.includes('className="jiz-footer-name jiz-footer-name--link"'), 'Footer name must link to portfolio homepage');
+assert.ok(homepageSource.includes('className="jiz-footer-mark" href="/"'), 'Footer logo must link to portfolio homepage');
+assert.ok(speakingPage.includes('class="jiz-editorial-footer"') && journalPage.includes('class="jiz-editorial-footer"') && dossierPage.includes('class="jiz-editorial-footer"'), 'Static subpages must share editorial footer');
+assert.ok(speakingPage.includes('sp-bio-expansion'), 'Speaking page must have extended bio');
+assert.ok(speakingPage.includes('class="sp-format-strip"'), 'Speaking formats must remain visible');
+assert.ok(journalPage.includes('class="jr-menu"'), 'Journal must have mobile navigation like Speaking');
+assert.ok(read('editorial-footer.css').includes('.jiz-editorial-footer::before'), 'Shared footer grid system absent');
+assert.ok(read('editorial-v7.css').includes('.jz-im-evidence'), 'Impact evidence interaction styling missing');
+for (const portrait of ['assets/imagery/speaking/speaker-cinematic-dark.jpg','assets/imagery/speaking/speaker-contact-warm.jpg']) {
+  assert.ok(fs.existsSync(path.join(root,portrait)), 'User-provided portrait missing: '+portrait);
+}
+assert.ok(read('build-speaking.cjs').includes('speaker-cinematic-dark.jpg'), 'Speaking hero must use supplied dark image');
+assert.ok(read('build-speaking.cjs').includes('speaker-contact-warm.jpg'), 'Speaking bio must use supplied warm image');
+assert.ok(read('editorial-v7.css').includes('speaker-contact-warm.jpg'), 'Contact must use supplied warm image');
+assert.ok(read('SpeakingPreview.jsx').includes('sp-preview-scene'), 'Homepage Speaking must be integrated portrait scene');
+assert.ok(read('Homepage.jsx').includes('data-chapter-label="03 / SELECTED WORK"'), 'Editorial chapter numbering missing');
+assert.ok(!read('HomepageP1.jsx').includes('timer = setTimeout(() => { start = undefined;'), 'Metrics should not restart after finishing');
+
+assert.ok(read('HomepageP1.jsx').includes('function MetricEvidence'), 'Impact evidence disclosure component missing');
+assert.ok(read('HomepageP1.jsx').includes('function PortfolioGlyph'), 'Shared icon system missing');
+assert.ok(!read('HomepageP1.jsx').includes('className="jz-fw-steps"'), 'Redundant numeric carousel selectors must be removed');
+assert.ok(!homepageSource.includes('Email me directly'), 'Contact should prioritize inquiry flow over raw email');
+assert.ok(speakingPage.includes('sp-scene--cover') && speakingPage.includes('sp-scene-intro'), 'Speaking hero must integrate intro over portrait');
+
+
 const app = read('App.jsx');
+assert.ok(app.includes('jiz-project-nav__menu') && app.includes('jiz-project-nav__links'), 'Case study navigation must use Speaking style structure');
 assert.ok(app.includes('src="/assets/logo/jiz-logo-white.svg"'), 'Case-study navigation must display actual brand logo');
 assert.ok(app.includes('<CaseStudyNavigation view={displayView} />'), 'Internal view navigation missing');
+assert.ok(app.includes('{Footer && <Footer standalone'), 'Overlay must have shared footer');
+assert.ok(!app.includes('className="jiz-project-nav__work"'), 'Duplicate All Work action should be removed from top navigation');
+
 assert.ok(app.includes('<CaseStudyNavigation view={view} overlay'), 'Overlay navigation missing');
 console.log('Case-study integrity passed: ' + checked + ' standalone routes, internal and overlay nav, anchors and local assets.');

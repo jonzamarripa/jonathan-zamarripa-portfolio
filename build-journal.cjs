@@ -5,6 +5,7 @@ const path = require('path');
 
 const SITE = 'https://www.jonathanzamarripa.com';
 const J = require('./content/journal.js');
+const {editorialFooter}=require('./editorial-footer.cjs');
 
 const esc = (s) => String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const TAGS = ['Established', 'Emerging', 'Extrapolated', 'Hypothesis'];
@@ -153,27 +154,30 @@ function page({ title, description, canonical, depth, body, type, noindex, image
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="${up}styles.css">
-<link rel="stylesheet" href="${up}journal/journal.css">${depth === 2 ? '\n<link rel="stylesheet" href="' + up + 'journal/dossier.css">' : ''}
+<link rel="stylesheet" href="${up}journal/journal.css">\n<link rel="stylesheet" href="/editorial-footer.css">${depth === 2 ? '\n<link rel="stylesheet" href="' + up + 'journal/dossier.css">' : ''}
 <script defer src="/portfolio-analytics.js"></script>
 <script defer src="/editorial-return.js"></script>
 </head>
 <body class="jr">
 <a class="skip" href="#main">Skip to content</a>
-<header class="jr-top">
+<header class="jr-top" id="top">
   <a class="jr-home" href="${up}"><img src="${up}assets/logo/jiz-logo-white.svg" alt="" width="28" height="28"> <span>Jonathan Iker Zamarripa</span></a>
-  <nav aria-label="Journal">
-    <a href="/#thinking" class="jr-return" data-editorial-return>← Back to where I was</a>
-    <a href="${up}journal/">${esc(J.name)}</a>
-    <a href="${esc(J.newsletter)}" target="_blank" rel="noopener noreferrer">Newsletter <span aria-hidden="true">↗</span><span class="vh"> on LinkedIn (opens in a new tab)</span></a>
+  <nav class="jr-nav-links" aria-label="Primary navigation">
+    <a href="/#work">Work</a>
+    <a href="/journal/" aria-current="page">Journal</a>
+    <a href="/speaking/">Speaking</a>
+    <a href="/#about">About</a>
   </nav>
+  <a href="/#thinking" class="jr-return" data-editorial-return>← Back to where I was</a>
+  <details class="jr-menu"><summary>Menu</summary><nav aria-label="Mobile navigation">
+    <a href="/#work">Work</a><a href="/journal/" aria-current="page">Journal</a><a href="/speaking/">Speaking</a>
+    <a href="/#about">About</a><a href="${esc(J.newsletter)}" target="_blank" rel="noopener noreferrer">Read the newsletter<span class="vh"> (opens in a new tab)</span></a>
+  </nav></details>
 </header>
 <main id="main">
 ${body}
 </main>
-<footer class="jr-foot">
-  <p>${esc(J.disclosures.join(' '))}</p>
-  <p>© 2026 ${esc(J.author)} · <a href="${up}">Portfolio</a> · <a href="${esc(J.newsletter)}" target="_blank" rel="noopener noreferrer">LinkedIn newsletter<span class="vh"> (opens in a new tab)</span></a></p>
-</footer>
+${editorialFooter({context:"Cinematic Learning Systems",disclosure:J.disclosures.join(" ")})}
 </body>
 </html>
 `;

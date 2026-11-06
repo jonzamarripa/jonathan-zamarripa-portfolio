@@ -213,3 +213,37 @@ body.jr .jr-foot{
 /* Journal navigation spans two rows on narrow phones: reserve the entire
    sticky-header height when arriving at anchored sections. */
 @media(max-width:700px){body.jr .jr-sec{scroll-margin-top:155px}}
+
+
+/* Common editorial subpage chrome: aligned with the Speaking header. */
+body.jr .jr-top{display:flex;align-items:center;justify-content:space-between;gap:clamp(9px,2vw,22px);min-height:70px}
+body.jr .jr-home img{width:39px;height:39px}
+body.jr .jr-home{font-family:Geist,Arial,sans-serif;font-size:.9rem;white-space:nowrap}
+body.jr .jr-nav-links{display:flex;align-items:center;justify-content:center;gap:clamp(10px,2.1vw,28px);margin-left:auto}
+body.jr .jr-nav-links a{display:inline-flex;align-items:center;min-height:44px;color:#D9DDE3;
+  font:500 .84rem/1.25 Geist,Arial,sans-serif;letter-spacing:normal;text-decoration:none}
+body.jr .jr-nav-links [aria-current]{color:#C6F23A;border-bottom:2px solid #C6F23A}
+body.jr .jr-return{color:#C6F23A!important;font-family:Geist,Arial,sans-serif;white-space:nowrap}
+body.jr .jr-menu{display:none;position:relative}
+body.jr .jr-menu summary{display:flex;align-items:center;justify-content:center;min-height:44px;
+  padding:0 13px;cursor:pointer;list-style:none;font-size:.82rem;font-weight:600;color:#D9DDE3}
+body.jr .jr-menu summary::-webkit-details-marker{display:none}
+body.jr .jr-menu nav{position:absolute;z-index:20;right:0;top:calc(100% + 12px);width:min(310px,calc(100vw - 28px));
+  display:grid;gap:3px;padding:16px;border:1px solid rgba(100,225,255,.2);border-radius:17px;
+  background:#0B0D10;box-shadow:0 20px 50px -18px rgba(0,0,0,.78)}
+body.jr .jr-menu nav a{display:flex;align-items:center;min-height:44px;text-decoration:none;color:#F7F8FA;
+  padding-inline:10px;border-radius:8px}
+body.jr .jr-menu nav a:hover,body.jr .jr-menu nav [aria-current]{color:#C6F23A;background:rgba(198,242,58,.06)}
+@media(max-width:1050px){
+ body.jr .jr-nav-links{display:none}
+ body.jr .jr-menu{display:block}
+ body.jr .jr-return{margin-left:auto}
+}
+@media(max-width:700px){
+ body.jr .jr-top{min-height:66px;flex-wrap:nowrap!important}
+ body.jr .jr-home{min-width:0;white-space:normal;font-size:.77rem;line-height:1.2}
+ body.jr .jr-return{font-size:0;min-width:44px;white-space:nowrap}
+ body.jr .jr-menu{display:block}
+ /* Single-row sticky header restores space for reading while retaining safe offsets. */
+ body.jr .jr-sec{scroll-margin-top:110px}
+}

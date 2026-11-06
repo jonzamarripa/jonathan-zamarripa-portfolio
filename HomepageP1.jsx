@@ -351,9 +351,9 @@ html[data-jz-motion-paused="true"] .jz-fw-frame img{transform:none!important}
       </div>
       <div className="jz-fw-controls">
         <span className="jz-fw-count" role="status" aria-live="polite" aria-atomic="true"><span className="jz-visually-hidden">Project </span>{String(active + 1).padStart(2,'0')} / {String(projects.length).padStart(2,'0')}<span className="jz-visually-hidden">: {projects[active].title}</span></span>
-        <div className="jz-fw-steps" role="group" aria-label="Choose a featured project">{projects.map((p,i) => <button className="jz-fw-step" type="button" key={p.view} aria-label={'Show project ' + p.n + ': ' + p.title} aria-current={i === active ? 'true' : undefined} aria-controls="jz-fw-gallery" onClick={() => go(i)}>{p.n}</button>)}</div>
+
       </div>
-      <details className="jz-fw-index"><summary>View all projects</summary><ul>{projects.map((p) => <li key={p.view}><a href={pathOf(p)} onClick={(e) => open(e,p)}>{p.title}</a></li>)}</ul></details>
+      <details className="jz-fw-index"><summary><PortfolioGlyph kind="work" size={18}/> View all projects <PortfolioGlyph kind="arrow" size={16}/></summary><ul>{projects.map((p) => <li key={p.view}><a href={pathOf(p)} onClick={(e) => open(e,p)}>{p.title}</a></li>)}</ul></details>
       </div>
     </section>
   );
@@ -372,16 +372,16 @@ function CountUp({ to, run, suffix, srSuffix }) {
   }, []);
   React.useEffect(() => {
     if (!run || !visible) { setV(to); return; }
-    let raf, timer, start;
+    let raf, start;
     const tick = (time) => {
       if (start === undefined) start = time;
-      const progress = Math.min(1, (time - start) / 1100);
+      const progress = Math.min(1, (time - start) / 900);
       setV(Math.round(to * (1 - Math.pow(1 - progress, 3))));
       if (progress < 1) raf = requestAnimationFrame(tick);
-      else timer = setTimeout(() => { start = undefined; raf = requestAnimationFrame(tick); }, 5500);
+      else setV(to);
     };
     raf = requestAnimationFrame(tick);
-    return () => { cancelAnimationFrame(raf); clearTimeout(timer); };
+    return () => { cancelAnimationFrame(raf); };
   }, [run, visible, to]);
   return <React.Fragment>
     <span ref={numberRef} aria-hidden="true">{v}<span className="jz-im-unit">{suffix}</span></span>
@@ -389,6 +389,15 @@ function CountUp({ to, run, suffix, srSuffix }) {
   </React.Fragment>;
 }
 
+function MetricEvidence({context,work}) {
+ return <details className="jz-im-evidence">
+  <summary><PortfolioGlyph kind="evidence" size={17}/> How this outcome was supported <PortfolioGlyph kind="arrow" size={15}/></summary>
+  <div className="jz-im-evidence__body"><p>{context}</p>
+    <p className="jz-im-evidence__note">Portfolio-reported outcome. The figure represents a program result, not a claim of sole individual causation.</p>
+    {work ? <a href={work}>Explore related work <PortfolioGlyph kind="arrow" size={15}/></a> : null}
+  </div>
+ </details>;
+}
 function ImpactEditorial() {
   const [animate, setAnimate] = React.useState(true);
   const [reduced, setReduced] = React.useState(false);
@@ -402,11 +411,11 @@ function ImpactEditorial() {
   const run = animate && !reduced && pageVisible;
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref, { threshold: 0.3 });
-  const lead = { to: 98, suffix: '%', label: 'Platform adoption in Q1, supported through targeted enablement', src: 'Workday Learn launch · Cox Enterprises', cat: 'Adoption' };
+  const lead = { to: 98, suffix: '%', label: 'Platform adoption in Q1, supported through targeted enablement', src: 'Workday Learn launch · Cox Enterprises', cat: 'Adoption', evidence: 'The reported Q1 adoption rate belongs to the Workday Learn launch at Cox Enterprises. The related work sample describes the enablement approach and communication context; this is not an independently audited effectiveness estimate.', work: '/work/workday-learn-launch/' };
   const rest = [
-    { to: 40, suffix: '%', label: 'Faster content development using an AI-assisted production pipeline, adopted team-wide', src: 'Learning production · Cox Enterprises', cat: 'Production' },
-    { to: 35, suffix: '%', label: 'Lift in strategic knowledge retention versus presentation formats', src: 'Cox 20/20 executive simulation', cat: 'Leadership' },
-    { to: 95, suffix: '%', label: 'Adoption and 4.9/5 satisfaction on an organization-wide LMS migration', src: 'Digital learning function · Atlanta International School', cat: 'Migration' },
+    { to: 40, suffix: '%', label: 'Faster content development using an AI-assisted production pipeline, adopted team-wide', src: 'Learning production · Cox Enterprises', cat: 'Production', evidence: 'Reported improvement in development cycle time associated with an AI-assisted production pipeline. The figure describes workflow speed, not independently established learner performance.', work: '/work/legacy-unlocked/' },
+    { to: 35, suffix: '%', label: 'Lift in strategic knowledge retention versus presentation formats', src: 'Cox 20/20 executive simulation', cat: 'Leadership', evidence: 'Reported comparison between a strategic leadership simulation and presentation-led formats. The precise assessment methodology is not published here, so the figure should be read as contextual program evidence.', work: '/work/legacy-unlocked/' },
+    { to: 95, suffix: '%', label: 'Adoption and 4.9/5 satisfaction on an organization-wide LMS migration', src: 'Digital learning function · Atlanta International School', cat: 'Migration', evidence: 'Reported adoption and satisfaction during the school-wide LMS migration at Atlanta International School. A complete evaluation protocol is not publicly available.', work: '' },
     // Non-numeric until a verified duration is confirmed.
     { text: 'Education to enterprise', label: 'Experience across education, enterprise learning, technology enablement, and creative production', cat: 'Experience' }
   ];
@@ -445,6 +454,7 @@ function ImpactEditorial() {
           <p className="jz-im-fig"><CountUp to={lead.to} run={run} suffix={lead.suffix} srSuffix={lead.srSuffix} /></p>
           <p className="jz-im-label">{lead.label}</p>
           <p className="jz-im-src">{lead.src}</p>
+          <MetricEvidence context={lead.evidence} work={lead.work}/>
         </div>
         <div className="jz-im-row">
           {rest.map((m) => (
@@ -455,6 +465,7 @@ function ImpactEditorial() {
                 : <p className="jz-im-fig"><CountUp to={m.to} run={run} suffix={m.suffix} srSuffix={m.srSuffix} /></p>}
               <p className="jz-im-label">{m.label}</p>
               {m.src ? <p className="jz-im-src">{m.src}</p> : null}
+              {m.evidence ? <MetricEvidence context={m.evidence} work={m.work}/> : null}
             </div>
           ))}
         </div>
@@ -622,6 +633,27 @@ function CareerJourney() {
   );
 }
 
+/* Cohesive compact line icon system for portfolio category and principles. */
+function PortfolioGlyph({kind='design',size=24}) {
+ const d={design:<><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 16l8-8m-6 2h6v6"/></>,
+ ai:<><rect x="5" y="5" width="14" height="14" rx="3"/><path d="M9 2v3m6-3v3M2 9h3m-3 6h3m14-6h3m-3 6h3m-10 4v3m-6-3v3M9 11l3-3 3 3-3 4z"/></>,
+ automation:<><circle cx="5" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 6h8v6m-6 6h8m-3-9 3 3-3 3"/></>,
+ video:<><rect x="3" y="5" width="15" height="14" rx="2"/><path d="m18 9 4-3v12l-4-3M8 10l4 2-4 2z"/></>,
+ delivery:<><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></>,
+ measure:<><path d="M4 20V4m0 16h16M8 16v-5m4 5V7m4 9V9m4 7V5"/></>,
+ access:<><circle cx="12" cy="4" r="2"/><path d="M4 9h16m-8 0v12m0-7-5 7m5-7 5 7"/></>,
+ clarity:<><circle cx="12" cy="12" r="9"/><path d="M8 12h8m-4-4v8"/></>,
+ people:<><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M17 7a3 3 0 0 1 0 6m1 3c2 1 3 2 3 4"/></>,
+ evidence:<><path d="M5 3h11l3 3v15H5zM8 12l3 3 5-6"/></>,
+ behavior:<><path d="m4 18 5-5 4 3 7-9m-5 0h5v5"/></>,
+ human:<><path d="M12 20s-8-5-8-11a4 4 0 0 1 8-1 4 4 0 0 1 8 1c0 6-8 11-8 11z"/></>,
+ direction:<><path d="M3 18 20 4 15 20 11 13z"/></>,
+ speed:<><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 3"/></>,
+ review:<><path d="M4 5h12l4 4v11H4zM8 13l3 3 5-6"/></>,
+ work:<><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4h8v3M3 12h18"/></>,
+ arrow:<><path d="M4 12h16m-7-7 7 7-7 7"/></>};
+ return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">{d[kind]||d.design}</svg>;
+}
 /* ---------- Stack (restored from the original LearningStack; same eight categories, outcomes and tools) ---------- */
 function LearningStack() {
   const ref = React.useRef(null);
@@ -674,12 +706,12 @@ function LearningStack() {
             return (
               <li key={g.n} className="jz-st-card jz-rise">
                 <div className="jz-st-top"><span className="jz-label">{g.n}</span><span className="jz-label jz-st-layer">{g.layer}</span></div>
-                <h3 className="jz-st-t">{g.title}</h3>
+                <div className="jz-st-titleline"><span className="jz-st-glyph"><PortfolioGlyph kind={g.layer === "AI Production" ? "ai" : g.layer === "Automation" ? "automation" : g.layer === "Design" ? "design" : g.layer === "Delivery" ? "delivery" : g.layer === "Measurement" ? "measure" : "access"} /></span><h3 className="jz-st-t">{g.title}</h3></div>
                 <p className="jz-st-l">{g.label}</p>
-                <ul className="jz-st-tools" id={listId} aria-label={g.title + ' tools'}>{shown.map((tool) => <li key={tool}>{tool}</li>)}</ul>
+                <ul className="jz-st-tools" id={listId} aria-label={g.title + ' tools'}>{shown.map((tool) => <li key={tool} className={shown.indexOf(tool) < 2 ? "jz-st-tool--primary" : "jz-st-tool--secondary"}>{tool}</li>)}</ul>
                 {rest > 0 && (
                   <button type="button" className="jz-st-more" aria-expanded={expanded} aria-controls={listId} onClick={() => setOpen((o) => ({ ...o, [g.n]: !expanded }))}>
-                    {expanded ? 'Show fewer' : '+' + rest + ' more'}<span className="jz-visually-hidden">{expanded ? '' : ' ' + g.title + ' tools'}</span>
+                    <PortfolioGlyph kind="arrow" size={15}/>{expanded ? "Show fewer" : "+" + rest + " more"}<span className="jz-visually-hidden">{expanded ? '' : ' ' + g.title + ' tools'}</span>
                   </button>
                 )}
               </li>
@@ -732,7 +764,7 @@ function Principles() {
         <ol className="jz-pp-list">
           {principles.map((p) => (
             <li key={p.n} className="jz-pp-item jz-rise">
-              <span className="jz-pp-n">{p.n}</span>
+              <span className="jz-pp-n"><PortfolioGlyph kind={["clarity","people","evidence","behavior","human","direction","speed","review"][Number(p.n)-1]} size={27}/><small>{p.n}</small></span>
               <div><h3 className="jz-pp-t">{p.t}</h3><p className="jz-pp-c">{p.c}</p></div>
             </li>
           ))}

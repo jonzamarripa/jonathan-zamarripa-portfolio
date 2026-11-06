@@ -222,13 +222,6 @@ function CaseStudyFirstSentence({ standalone }) {
   return (
     <article className="tfs" data-case-study="the-first-sentence">
       <style>{TFS_CSS}</style>
-      <div className="tfs-top">
-        <nav className="tfs-crumb" aria-label="Breadcrumb">
-          <a href="/">Jonathan Zamarripa</a> <span aria-hidden="true">/</span> <a href="/#work">Work</a> <span aria-hidden="true">/</span> <span aria-current="page">The First Sentence</span>
-        </nav>
-        <a className="tfs-pill" href="/#work">← All work</a>
-      </div>
-
       <TfsBuildNavigation active="branching" />
 
       {/* Chapter 01 — The Premise */}
@@ -237,9 +230,9 @@ function CaseStudyFirstSentence({ standalone }) {
           <p className="tfs-eyebrow">Independent project · Cinematic branching learning simulation</p>
           <h1 id="tfs-h1" className="tfs-title">{window.JIZ_SITE.project('the-first-sentence').title}</h1>
           <p className="tfs-editorial-subtitle">{window.JIZ_SITE.project('the-first-sentence').subtitle}</p>
-          <p className="tfs-tension">“Yesterday, you were a teammate. Today, you’re their supervisor.”</p>
-          <figure className="tfs-hero">
+          <figure className="tfs-hero tfs-hero--immersive">
             <img src={TFS_IMG + 'first-sentence-hero.webp'} alt="Dana, a newly promoted shift lead in a high-visibility vest, faces Marcus, a veteran picker, between warehouse racks" width="1600" height="893" fetchpriority="high" decoding="async" />
+            <p className="tfs-tension tfs-hero__statement">“Yesterday, you were a teammate. Today, you’re their supervisor.”</p>
             <figcaption>Opening key art from the prototype. AI-generated imagery · Fictional company · Composite characters.</figcaption>
           </figure>
           <div className="tfs-premise">

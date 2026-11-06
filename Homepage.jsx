@@ -418,6 +418,16 @@ function ArchiveBridge({ onNavigate }) {
   );
 }
 
+function ContactGlyph({kind='conversation'}) {
+  const artwork={
+    hiring:<><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V4h8v3M3 12h18"/></>,
+    project:<><path d="M4 20h16M5 16l9-9 3 3-9 9H5zM13 8l3-3 3 3-3 3z"/></>,
+    speaking:<><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M6 11a6 6 0 0 0 12 0m-6 6v5m-4 0h8"/></>,
+    conversation:<><path d="M4 4h16v12H8l-4 4V4zM8 9h8m-8 3h5"/></>,
+    arrow:<><path d="M4 12h16m-7-7 7 7-7 7"/></>
+  };
+  return <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" strokeWidth="1.65" strokeLinecap="round" strokeLinejoin="round" focusable="false" aria-hidden="true">{artwork[kind]||artwork.conversation}</svg>;
+}
 function LetsBuild({ onExploreWork }) {
   // One choice routes the form; only the fields for that choice are shown and sent.
   const INTENTS = [
@@ -591,7 +601,7 @@ function LetsBuild({ onExploreWork }) {
             <h2 className="jiz-build-title" id="jiz-build-title">Have something complex worth making clear?</h2>
           </div>
           <div className="jiz-build-head-right">
-            <p className="jiz-build-sub">Let's turn a complex challenge into something people can understand, use, and remember.</p>
+            <p className="jiz-build-sub">Strategy, learning, and creative technology—built around the people who need to use them.</p>
           </div>
         </header>
         <div className={"jiz-build-stage" + (formOpen ? " is-form-open" : "")}>
@@ -609,23 +619,22 @@ function LetsBuild({ onExploreWork }) {
 .jz-ct-note{margin:0;max-width:36ch;font:400 .9375rem/1.6 var(--font-body);color:rgba(217,221,227,.66)}
 @media(prefers-reduced-motion:reduce){.jz-ct-mail span:last-child{transition:none}}
             `}</style>
-            <a className="jz-ct-mail" href={window.JIZ_SITE.links.email}><span className="jz-label">Email me directly</span><span>jonathan.zamarripa@gmail.com</span></a>
+            <div className="jz-ct-intro"><span className="jz-label">YOUR NEXT CONVERSATION STARTS HERE</span><p>Choose what brings you here. I’ll take care of the next step.</p></div>
             <ul className="jz-ct-sec">
               <li><a href={window.JIZ_SITE.links.resume} target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a></li>
               <li><a href={window.JIZ_SITE.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></li>
             </ul>
             <div className="jz-ct-choices" aria-label="Choose a way to connect">
               <p className="jz-ct-choices-label">START WITH YOUR GOAL</p>
-              <button type="button" onClick={() => openInquiry('hiring')}>Explore a leadership role <span aria-hidden="true">↗</span></button>
-              <button type="button" onClick={() => openInquiry('project')}>Collaborate on a project <span aria-hidden="true">↗</span></button>
-              <button type="button" onClick={() => openInquiry('speaking')}>Invite me to speak <span aria-hidden="true">↗</span></button>
+              <button type="button" onClick={() => openInquiry('hiring')}><span className="jz-ct-choice-icon"><ContactGlyph kind="hiring"/></span><span className="jz-ct-choice-name">Explore a leadership role</span><span className="jz-ct-choice-arrow"><ContactGlyph kind="arrow"/></span></button>
+              <button type="button" onClick={() => openInquiry('project')}><span className="jz-ct-choice-icon"><ContactGlyph kind="project"/></span><span className="jz-ct-choice-name">Collaborate on a project</span><span className="jz-ct-choice-arrow"><ContactGlyph kind="arrow"/></span></button>
+              <button type="button" onClick={() => openInquiry('speaking')}><span className="jz-ct-choice-icon"><ContactGlyph kind="speaking"/></span><span className="jz-ct-choice-name">Invite me to speak</span><span className="jz-ct-choice-arrow"><ContactGlyph kind="arrow"/></span></button>
             </div>
           </div>
-          {!formOpen && <div className="jz-ct-poster" aria-hidden="true">
-            <span className="jz-ct-poster-kicker">FROM COMPLEXITY / TO CLARITY</span>
-            <span className="jz-ct-poster-word">MAKE<br/>IT<br/><em>MATTER.</em></span>
+          {!formOpen && <div className="jz-ct-poster jz-ct-poster--portrait" aria-hidden="true">
+            <span className="jz-ct-poster-kicker">HUMAN-FIRST / FUTURE-READY</span>
             <span className="jz-ct-poster-line"/>
-            <span className="jz-ct-poster-footer">Strategy → Design → Experience</span>
+            <span className="jz-ct-poster-footer">Better learning starts with a conversation.</span>
           </div>}
           <form id="jiz-build-form-start" className="jiz-build-form" hidden={!formOpen} data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
             <h3>Start the Conversation</h3>
@@ -788,7 +797,12 @@ function FinalMoment({ onNavigate, standalone = false }) {
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
-  const toTop = () => scrollToY(0);
+  const toTop = () => {
+    const overlay = ref.current?.closest('.jiz-cs-overlay');
+    if (overlay) overlay.scrollTo({ top: 0, behavior: prefersReduced() ? 'auto' : 'smooth' });
+    else if (window.location.pathname !== '/') window.location.assign('/');
+    else scrollToY(0);
+  };
   return (
     <footer ref={ref} className="jiz-footer" data-footer="ready">
       <style>{`
@@ -798,6 +812,9 @@ function FinalMoment({ onNavigate, standalone = false }) {
         .jiz-footer-mark{grid-area:mark;display:grid;place-items:center;margin:0}
         .jiz-footer-logo{width:48px;height:48px;object-fit:contain;filter:brightness(0)}
         .jiz-footer-name{grid-area:name;margin:0;color:var(--obsidian);font:var(--text-h3);font-size:clamp(1.125rem,1.4vw,1.375rem);letter-spacing:-.025em}
+        .jiz-footer-name--link{text-decoration:none!important;display:inline-flex;align-items:center;min-height:44px;justify-self:start}
+        .jiz-footer-name--link:hover{text-decoration:underline!important;text-underline-offset:5px}
+        .jiz-footer-mark:focus-visible,.jiz-footer-name--link:focus-visible{outline:2px solid var(--obsidian);outline-offset:4px;border-radius:6px}
         .jiz-footer-disciplines{grid-area:disciplines;margin:0;color:rgba(11,13,16,.8);font:var(--text-body);font-size:.875rem;line-height:1.6}
         .jiz-footer-top{grid-area:top;justify-self:end;min-height:44px;padding:0 var(--space-md);border:1px solid var(--obsidian);border-radius:var(--radius-pill);background:var(--obsidian);color:var(--signal-lime);font:var(--text-button);font-size:.875rem;cursor:pointer;transition:background var(--motion-fast) var(--ease-standard)}
         .jiz-footer-top:hover{background:var(--carbon)}
@@ -814,10 +831,10 @@ function FinalMoment({ onNavigate, standalone = false }) {
         @media(prefers-reduced-motion:reduce){.jiz-footer-top,.jiz-footer-nav a{transition:none}}
       `}</style>
       <div className="jiz-footer-inner">
-        <div className="jiz-footer-mark">
-          <img className="jiz-footer-logo" src="./assets/logo/jiz-logo-white.svg" alt="Jonathan Iker Zamarripa logo" />
-        </div>
-        <p className="jiz-footer-name">Jonathan Iker Zamarripa</p>
+        <a className="jiz-footer-mark" href="/" aria-label="Jonathan Iker Zamarripa — back to homepage">
+          <img className="jiz-footer-logo" src="/assets/logo/jiz-logo-white.svg" alt="" />
+        </a>
+        <a className="jiz-footer-name jiz-footer-name--link" href="/" aria-label="Jonathan Iker Zamarripa — back to homepage">Jonathan Iker Zamarripa</a>
         <p className="jiz-footer-disciplines">Learning Strategy &amp; Performance Consulting • Leadership Development • Product &amp; Technology Enablement • AI-Enabled Learning • Creative Technology &amp; Multimedia Production</p>
         <nav className="jiz-footer-nav" aria-label="Footer">
           {NAV.map(([label, index]) => {
@@ -1013,17 +1030,17 @@ function CinematicJournal({ onNavigate }) {
   return (
     <section ref={sectionRef} className={'jz-cls cls-room' + (motionReady ? ' cls-motion-ready' : '') + (inView ? ' cls-in-view' : '')} aria-labelledby="jz-cls-title">
       <div className="cls-room__inner">
-        <div className="cls-room__eyebrow cls-animate"><span className="cls-room__serial">JOURNAL / 001</span><span className="cls-room__eyebrow-line" aria-hidden="true" /><span>INDEPENDENT RESEARCH &amp; CREATIVE PRACTICE</span></div>
+        <div className="cls-room__eyebrow cls-animate"><span className="cls-room__serial">05 / JOURNAL</span><span className="cls-room__eyebrow-line" aria-hidden="true" /><span>INDEPENDENT RESEARCH / OPEN DESIGN PRACTICE</span></div>
         <div className="cls-room__intro cls-animate">
           <div>
-            <p className="cls-room__label">THE JOURNAL / AN OPEN DESIGN PRACTICE</p>
+            
             <h2 id="jz-cls-title" className="cls-room__headline"><span>Cinematic</span><span>Learning <em>Systems.</em></span></h2>
           </div>
           <div className="cls-room__intro-aside"><p>{J.anchor.join(' ')}</p><span>BY {J.author.toUpperCase()}</span></div>
         </div>
         <div className="cls-room__film cls-animate"><ClsScreeningFilm /></div>
         <div className="cls-room__library cls-animate">
-          <div className="cls-room__library-heading"><p className="cls-room__label">BEYOND THE FILM</p><h3>Explore the thinking.</h3><p>Three ways into the research, stories, and design decisions behind the work.</p></div>
+          <div className="cls-room__library-heading"><p className="cls-room__label">BEYOND THE FILM</p><h3>Explore the thinking.</h3><p>Read the work, investigate the framework, or examine a design decision in depth.</p></div>
           <nav className="cls-room__routes" aria-label="Explore Cinematic Learning Systems">
             <a href="./journal/" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="book" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">01 / THE PUBLICATION</span><strong>Read the journal</strong><small>Essays, ideas, and current thinking</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
             <a href="./journal/#framework" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="framework" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">02 / THE METHODOLOGY</span><strong>Explore the framework</strong><small>CLPF {J.framework.version} · The system behind the work</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
@@ -1032,16 +1049,14 @@ function CinematicJournal({ onNavigate }) {
         </div>
         {(lead || support.length > 0) && (
           <div className="cls-room__dispatch cls-animate">
-            <div className="cls-room__dispatch-caption"><p className="cls-room__label">FROM THE EDITORIAL DESK</p><h3>Keep reading.</h3></div>
+            <div className="cls-room__dispatch-caption"><p className="cls-room__label">FROM THE EDITORIAL DESK / SELECTED EDITIONS</p></div>
             {lead && <article className="cls-room__dispatch-lead"><span className="cls-room__route-number">{lead.type} / ISSUE {lead.issue}</span><h4>{lead.title}</h4><p>{lead.standfirst}</p><a {...linkProps(lead)}> {lead.dossier ? 'Read the dossier' : 'Read the essay'} <ClsIcon name="arrow" size={17} /></a></article>}
             {support.length > 0 && <div className="cls-room__dispatch-support">{support.map((a) => <a key={a.slug} {...linkProps(a)}><span className="cls-room__route-number">{a.type} / ISSUE {a.issue}</span><strong>{a.title}</strong><ClsIcon name="arrow" size={17} /></a>)}</div>}
           </div>
         )}
-        <div className="cls-room__issues-footer cls-animate">
-          <span>Explore the complete series, including editions not yet mirrored in the on-site journal.</span>
-          <a href={J.newsletter} target="_blank" rel="noopener noreferrer">All newsletter editions <span aria-hidden="true">↗</span></a>
+        <div className="cls-room__archive-link cls-animate">
+          <a href={J.newsletter} target="_blank" rel="noopener noreferrer">Browse the complete newsletter archive <span aria-hidden="true">↗</span><span className="jz-visually-hidden"> (opens in a new tab)</span></a>
         </div>
-        <div className="cls-room__speaking cls-animate"><div><p className="cls-room__label">SPEAKING / {J.talk.status}</p><h3>{J.talk.title}</h3></div><p>{J.talk.about} {J.talk.formats}.</p><button type="button" onClick={invite}>Invite me to speak <ClsIcon name="arrow" size={20} /></button></div>
       </div>
     </section>
   );
@@ -1269,19 +1284,19 @@ function Homepage({ onOpenCaseStudy }) {
       <main id="main-content" tabIndex={-1} style={{ flex: 1, position: 'relative', zIndex: 1, overflow: 'visible', outline: 'none' }}>
         <div ref={registerSection('hero')}><Hero onExploreWork={() => scrollToSection('work')} onConnect={() => scrollToSection('contact')} /></div>
         <SelectedExperience />
-        <div id="work" ref={registerSection('work')} data-section="featured-work"><span id="archive" className="jz-visually-hidden" aria-hidden="true" /><FeaturedWorkEditorial onOpenWork={onOpenCaseStudy} /></div>
-        <div id="impact" ref={registerSection('impact')} data-section="impact"><ImpactEditorial /></div>
-        <div id="capabilities" ref={registerSection('capabilities')} data-section="capabilities"><Practice part="capabilities" /></div>
-        <div id="method" ref={registerSection('method')} data-section="method"><Practice part="method" /></div>
-        <div id="thinking" ref={registerSection('thinking')} data-section="cinematic-learning-systems"><CinematicJournal onNavigate={scrollToSection} /></div>
-        <div id="speaking" data-section="speaking"><SpeakingPreview /></div>
-        <div id="creative-lab" ref={registerSection('creative-lab')} data-section="creative-lab"><FilmSection /></div>
-        <div id="about" ref={registerSection('about')} data-section="about"><AboutMind /></div>
-        <div id="journey" ref={registerSection('journey')} data-section="journey"><CareerJourney /></div>
-        <div id="stack" ref={registerSection('stack')} data-section="stack"><LearningStack /></div>
-        <div id="principles" ref={registerSection('principles')} data-section="principles"><Principles /></div>
+        <div id="work" ref={registerSection('work')} data-section="featured-work" data-chapter-label="03 / SELECTED WORK"><span id="archive" className="jz-visually-hidden" aria-hidden="true" /><FeaturedWorkEditorial onOpenWork={onOpenCaseStudy} /></div>
+        <div id="impact" ref={registerSection('impact')} data-section="impact" data-chapter-label="04 / IMPACT"><ImpactEditorial /></div>
+        <div id="capabilities" ref={registerSection('capabilities')} data-section="capabilities" data-chapter-label="05 / CAPABILITIES"><Practice part="capabilities" /></div>
+        <div id="method" ref={registerSection('method')} data-section="method" data-chapter-label="06 / METHOD"><Practice part="method" /></div>
+        <div id="thinking" ref={registerSection('thinking')} data-section="cinematic-learning-systems" data-chapter-label="07 / THINKING"><CinematicJournal onNavigate={scrollToSection} /></div>
+        <div id="speaking" data-section="speaking" data-chapter-label="08 / SPEAKING"><SpeakingPreview /></div>
+        <div id="creative-lab" ref={registerSection('creative-lab')} data-section="creative-lab" data-chapter-label="09 / CREATIVE LAB"><FilmSection /></div>
+        <div id="about" ref={registerSection('about')} data-section="about" data-chapter-label="10 / ABOUT"><AboutMind /></div>
+        <div id="journey" ref={registerSection('journey')} data-section="journey" data-chapter-label="11 / JOURNEY"><CareerJourney /></div>
+        <div id="stack" ref={registerSection('stack')} data-section="stack" data-chapter-label="12 / STACK"><LearningStack /></div>
+        <div id="principles" ref={registerSection('principles')} data-section="principles" data-chapter-label="13 / PRINCIPLES"><Principles /></div>
         {/* Additional Work is intentionally held in source for its later editorial redesign. */}
-        <div id="contact" ref={registerSection('contact')} data-section="contact">
+        <div id="contact" ref={registerSection('contact')} data-section="contact" data-chapter-label="14 / CONTACT">
           <LetsBuild onExploreWork={() => scrollToSection('work')} />
           <FinalMoment onNavigate={scrollToSection} />
         </div>
