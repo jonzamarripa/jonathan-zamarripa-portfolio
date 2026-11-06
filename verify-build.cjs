@@ -18,4 +18,13 @@ assert(bundle.includes('jz-editorial-icon'), 'Method and journey icons missing f
 assert(journal.includes('class="jr-pillars"'), 'Journal hub missing navigation');
 assert(dossier.includes('class="dx-ch'), 'Dossier chapters were not generated');
 assert(fs.existsSync('assets/imagery/jonathan-hero-final-poster.webp'), 'Contact portrait asset missing');
-console.log('verified generated homepage, JS bundle, journal, dossier, portrait, and footer');
+const journalStyles = read('journal/journal.css');
+const dossierStyles = read('journal/dossier.css');
+assert(homepage.includes('background:#F4F7F7'), 'Initial page backdrop must match Mist');
+assert(homepage.includes('--design-mist:#F4F7F7'), 'Floating panel design system absent from rendered homepage');
+assert(homepage.includes('--design-elevation:'), 'Layered section shadows are missing');
+assert(homepage.includes('--design-deep-teal:#0F8B8D'), 'Portfolio teal accent is missing');
+assert(homepage.includes('#4C1D68'), 'CLS plum chapter is missing from homepage');
+assert(journalStyles.includes('--jr-amber:#FFB33B'), 'CLS amber identity missing');
+assert(dossierStyles.includes('V2 CLS dossier'), 'CLS dossier visual system missing');
+console.log('verified generated homepage, floating-panel palette, JS bundle, journal, dossier, portrait, and footer');
