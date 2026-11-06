@@ -24,8 +24,8 @@ function MarcusCite({ n }) {
 
 function TfsBuildNavigation({ active }) {
   return <nav className="tfs-build-nav" aria-label="Related learning experiences">
-    <a href="/work/the-first-sentence/" aria-current={active === 'branching' ? 'page' : undefined}>01 · Branching simulation</a>
-    <a href="/work/marcus-live/" aria-current={active === 'live' ? 'page' : undefined}>02 · Marcus, Live / Research &amp; build</a>
+    <a href="/work/the-first-sentence/" aria-current={active === 'branching' ? 'page' : undefined}><span aria-hidden="true" className="tfs-tab-symbol">◇</span><span className="tfs-tab-copy"><strong>The First Sentence</strong><small>Branching practice</small></span></a>
+    <a href="/work/marcus-live/" aria-current={active === 'live' ? 'page' : undefined}><span aria-hidden="true" className="tfs-tab-symbol">◎</span><span className="tfs-tab-copy"><strong>Marcus, Live</strong><small>Conversational practice &amp; research</small></span></a>
   </nav>;
 }
 
