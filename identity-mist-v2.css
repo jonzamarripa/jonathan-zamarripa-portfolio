@@ -361,3 +361,20 @@ html body.jr .dx .dx-ch.jiz-chapter:is([data-surface=paper],[data-surface=mist])
  html .jiz-homepage .cls-room .cls-room__route{min-height:0}
  html .jiz-homepage .cls-room .cls-room__route::before{height:125px}
 }
+
+/* Typography and cross-page material reconciliation: no serif, no cream page canvas. */
+html :is(.jiz-homepage,.jiz-cs,.tfs,.jiz-btb-detail,.sp-page,.jr) :is(h1,h2,h3,h4,h5,h6){
+ font-family:'Manrope','Geist',Arial,sans-serif!important;
+}
+html :is(.jiz-homepage,.jiz-cs,.tfs,.jiz-btb-detail,.sp-page,.jr) :is(p,li,button,input,select,textarea){
+ font-family:'Inter','Geist',Arial,sans-serif;
+}
+html body.jr{--jr-amber:#D4B26F;--jr-teal:#A6C8C7}
+html body.jr :is(.jr-read,.jr-cta,.jr-top a:hover){color:#DCC08C!important}
+html body.sp-page{background:#F4F7F7!important}
+html body.sp-page main{background:transparent}
+html body.sp-page .sp-nav{background:#0B1F2A;color:#F4F7F7}
+html body.sp-page .sp-scene--cover{background-color:#0B1F2A}
+html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons button:focus-visible{
+ outline:3px solid #0B1F2A!important;outline-offset:4px
+}
