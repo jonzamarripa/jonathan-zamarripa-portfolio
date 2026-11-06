@@ -115,9 +115,9 @@ main:has(.dx .jiz-chapter){width:auto;margin:0}
 .dx:has(.jiz-chapter){--panel-gap:clamp(10px,1.4vw,20px);--chapter-pad-x:clamp(22px,5vw,80px);background:#11171B}
 .dx-mast.jiz-chapter,.dx .dx-ch.jiz-chapter{width:calc(100% - 2 * var(--panel-gap));max-width:none;box-sizing:border-box;margin-left:var(--panel-gap);margin-right:var(--panel-gap);border-radius:clamp(14px,2vw,26px);overflow:visible}
 .dx .jiz-chapter>.dx-fig,.dx .jiz-chapter>.dx-fig--artifact{width:100%;max-width:min(1180px,100%)}
-.dx .dx-ch.jiz-chapter:nth-of-type(3n+1){background:#172027}
-.dx .dx-ch.jiz-chapter:nth-of-type(3n+2){background:#20292D}
-.dx .dx-ch.jiz-chapter:nth-of-type(3n){background:#0E1114}
+.dx .dx-ch.jiz-chapter:not([data-surface="paper"]):not([data-surface="mist"]):nth-of-type(3n+1){background:#172027}
+.dx .dx-ch.jiz-chapter:not([data-surface="paper"]):not([data-surface="mist"]):nth-of-type(3n+2){background:#20292D}
+.dx .dx-ch.jiz-chapter:not([data-surface="paper"]):not([data-surface="mist"]):nth-of-type(3n){background:#0E1114}
 .dx .dx-ch.jiz-chapter:not([data-surface]){color:var(--jr-ink)}
 .dx-toc a:hover,.dx-toc a:focus-visible{color:var(--jr-amber)}
 .dx-inquiry{border-color:rgba(227,162,76,.55);background:linear-gradient(130deg,rgba(227,162,76,.13),rgba(227,162,76,.025) 75%)}
