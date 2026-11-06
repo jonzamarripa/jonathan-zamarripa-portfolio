@@ -1049,7 +1049,7 @@ function CinematicJournal({ onNavigate }) {
         </div>
         {(lead || support.length > 0) && (
           <div className="cls-room__dispatch cls-animate">
-            <div className="cls-room__dispatch-caption"><p className="cls-room__label">SELECTED EDITIONS</p><h3>Notes from the editorial desk.</h3></div>
+            <div className="cls-room__dispatch-caption"><p className="cls-room__label">FROM THE EDITORIAL DESK / SELECTED EDITIONS</p></div>
             {lead && <article className="cls-room__dispatch-lead"><span className="cls-room__route-number">{lead.type} / ISSUE {lead.issue}</span><h4>{lead.title}</h4><p>{lead.standfirst}</p><a {...linkProps(lead)}> {lead.dossier ? 'Read the dossier' : 'Read the essay'} <ClsIcon name="arrow" size={17} /></a></article>}
             {support.length > 0 && <div className="cls-room__dispatch-support">{support.map((a) => <a key={a.slug} {...linkProps(a)}><span className="cls-room__route-number">{a.type} / ISSUE {a.issue}</span><strong>{a.title}</strong><ClsIcon name="arrow" size={17} /></a>)}</div>}
           </div>
