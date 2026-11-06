@@ -2362,7 +2362,7 @@ function Homepage({ onOpenCaseStudy }) {
   const activeNavLabel = (SITE.section(activeSection) || {}).nav || '';
 
   return (
-    <div className="jiz-homepage" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#080D0B', position: 'relative', zIndex: 1 }}>
+    <div className="jiz-homepage" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#F4F7F7', position: 'relative', zIndex: 1 }}>
       <NavBar
         items={navItems}
         secondaryItems={['Creative Lab', 'Resume', 'LinkedIn']}
