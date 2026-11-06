@@ -24,8 +24,8 @@ function MarcusCite({ n }) {
 
 function TfsBuildNavigation({ active }) {
   return <nav className="tfs-build-nav" aria-label="Related learning experiences">
-    <a href="/work/the-first-sentence/" aria-current={active === 'branching' ? 'page' : undefined}>01 · Branching simulation</a>
-    <a href="/work/marcus-live/" aria-current={active === 'live' ? 'page' : undefined}>02 · Marcus, Live / Research &amp; build</a>
+    <a href="/work/the-first-sentence/" aria-current={active === 'branching' ? 'page' : undefined}><span aria-hidden="true" className="tfs-tab-symbol">◇</span><span className="tfs-tab-copy"><strong>The First Sentence</strong><small>Branching practice</small></span></a>
+    <a href="/work/marcus-live/" aria-current={active === 'live' ? 'page' : undefined}><span aria-hidden="true" className="tfs-tab-symbol">◎</span><span className="tfs-tab-copy"><strong>Marcus, Live</strong><small>Conversational practice &amp; research</small></span></a>
   </nav>;
 }
 
@@ -149,12 +149,12 @@ function CaseStudyMarcusLive() {
       <p className="tfs-eyebrow">Jonathan Iker Zamarripa · Independent L&amp;D exploration · November 2026</p>
       <h1 id="ml-title" className="tfs-title">{window.JIZ_SITE.project('marcus-live').title}</h1>
       <p className="tfs-editorial-subtitle">{window.JIZ_SITE.project('marcus-live').subtitle}</p>
-      <p className="tfs-tension">From choosing the words to finding your own.</p>
-      <p className="tfs-lede">{window.JIZ_SITE.project('marcus-live').statement}</p>
       <figure className="ml-hero-image" id="ml-images">
         <img src="/assets/imagery/marcus-live/marcus-live-practice.webp" alt="AI-generated concept image of a warehouse supervisor practicing a conversation with Marcus on a laptop in an office overlooking the warehouse" width="1376" height="768" fetchpriority="high" decoding="async" />
         <figcaption>Workplace conversation practice. AI-generated concept image; fictional people and scenario. <a href="/assets/imagery/marcus-live/marcus-live-practice.png" download>Download practice image as PNG</a>.</figcaption>
       </figure>
+      <p className="tfs-tension">From choosing the words to finding your own.</p>
+      <p className="tfs-lede">A research-informed conversational rehearsal prototype for newly promoted supervisors. Explore the interaction, then examine the design decisions and evidence behind it.</p><p className="tfs-disclose">Independent exploration · Learner outcomes have not yet been evaluated.</p>
       <div className="ml-abstract">
         <h2>Executive perspective</h2>
         <p>The design question behind this build is practical: how do you help a newly promoted supervisor rehearse a difficult conversation before the stakes are real? The First Sentence explores the consequences of a chosen opening. Marcus, Live extends that idea into a conversation the learner has to sustain.</p>

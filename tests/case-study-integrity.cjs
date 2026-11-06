@@ -124,6 +124,27 @@ assert.ok(speakingPage.includes('class="sp-format-strip"'), 'Speaking formats mu
 assert.ok(journalPage.includes('class="jr-menu"'), 'Journal must have mobile navigation like Speaking');
 assert.ok(read('editorial-footer.css').includes('.jiz-editorial-footer::before'), 'Shared footer grid system absent');
 assert.ok(read('editorial-v7.css').includes('.jz-im-evidence'), 'Impact evidence interaction styling missing');
+
+const v8 = read('editorial-v8.css');
+assert.ok(homepage.includes('editorial-v8.css'), 'Homepage v8 design system not loaded');
+for(const path of ['speaking/index.html','journal/index.html','resume/index.html']) {
+  assert.ok(read(path).includes('editorial-v8.css'), path+' missing shared v8 styles');
+}
+assert.ok(v8.includes('--chapter-gallery-surface:#515D68'), 'Lighter graphite must be used for gallery');
+assert.ok(read('Chapter.jsx').includes('function ChapterSymbol'), 'Shared case studies must gain accessible visual chapter icons');
+assert.ok(read('App.jsx').includes('Jonathan Iker Zamarripa'), 'Full portfolio name missing from case-study header');
+assert.ok(read('CaseStudy-MarcusLive.jsx').includes('tfs-tab-copy'), 'Companion-project tabs need balanced copy');
+assert.ok(!read('Homepage.jsx').includes("['Behind the Build', 'btb'], ['Speaking'"), 'Footer must omit Behind the Build');
+assert.ok(!read('editorial-footer.cjs').includes('href="/resume/"'), 'Static footer must not promote résumé');
+assert.ok(!read('editorial-footer.cjs').includes('LinkedIn'), 'Static footer must not promote LinkedIn');
+assert.ok(!read('editorial-footer.cjs').includes('Read the Newsletter'), 'Static footer must not include newsletter');
+assert.ok(read('HomepageP1.jsx').includes('jz-pr-tool-chips'), 'Expanded capabilities must use scannable chips');
+assert.ok(read('HomepageP1.jsx').includes('jz-pr-commitment'), 'Method accountability rule must be integrated');
+assert.ok(read('HomepageP1.jsx').includes('Incoming Instructional Designer'), 'Upcoming Intuit role must be factual');
+assert.ok(read('resume/index.html').includes('Incoming Contract'), 'Web résumé must include clearly upcoming Intuit engagement');
+assert.ok(fs.existsSync(path.join(root,'assets/imagery/train-story-preview-frame.jpg')), 'Train Story authentic frame missing');
+assert.ok(read('creative-lab-v5.js').includes('THE THRESHOLD'), 'Train film preview should feature film frame, not large original title');
+
 for (const portrait of ['assets/imagery/speaking/speaker-cinematic-dark.jpg','assets/imagery/speaking/speaker-contact-warm.jpg']) {
   assert.ok(fs.existsSync(path.join(root,portrait)), 'User-provided portrait missing: '+portrait);
 }

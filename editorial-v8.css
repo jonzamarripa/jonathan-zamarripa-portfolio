@@ -1,0 +1,184 @@
+/* V8 — shared editorial architecture, readability and quiet interaction details.
+   All changes are additive and preserve each project's authored content and palette. */
+:root{--chapter-gallery-surface:#515D68;--chapter-gallery-light:#47545F}
+html .jiz-homepage{--panel-gutter-surface:var(--chapter-gallery-surface)!important;background:var(--chapter-gallery-surface)!important}
+html body:has(.jiz-homepage),html body:has(.jiz-cs),html body:has(.tfs),html body:has(.jiz-btb-detail){background:var(--chapter-gallery-surface)!important}
+html :is(.jiz-cs,.tfs,.jiz-btb-detail,.jiz-chapter-stack,.jiz-cs-overlay){--panel-gutter-surface:var(--chapter-gallery-surface);--portfolio-canvas:var(--chapter-gallery-surface);background-color:var(--chapter-gallery-surface)}
+/* Shared case-study cover and rhythm: icons are subtle, never a competing headline. */
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter{position:relative;isolation:isolate;
+  margin-block-end:clamp(17px,2.2vw,31px)!important;border-radius:clamp(19px,2.4vw,32px)!important}
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter__inner{position:relative;max-width:1360px}
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter__glyph{position:absolute;z-index:1;right:clamp(6px,1.3vw,20px);top:clamp(6px,1.2vw,20px);
+ width:42px;height:42px;border:1px solid color-mix(in srgb,var(--chapter-accent,#64E1FF) 34%,transparent);
+ border-radius:13px;color:var(--chapter-accent,#64E1FF);background:color-mix(in srgb,var(--chapter-accent,#64E1FF) 9%,transparent);
+ display:grid;place-items:center;pointer-events:none}
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter :is(.jiz-cs-body,.jiz-cs-lede,.tfs-lede,.tfs-editorial-subtitle,.ml-prose,.jiz-cs-panel>p,.jiz-cs-snapshot>p){
+  max-width:72ch;line-height:1.7;text-wrap:pretty}
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter :is(h2,h3){text-wrap:balance;letter-spacing:-.028em}
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter :is(.jiz-cs-kicker,.tfs-chn,.tfs-eyebrow){
+  display:inline-flex;align-items:center;gap:10px;letter-spacing:.1em}
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter :is(.jiz-cs-kicker,.tfs-chn)::before{
+  content:"";width:7px;height:7px;flex:0 0 7px;border-radius:3px;transform:rotate(45deg);
+  background:var(--chapter-accent,#64E1FF)}
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter :is(.jiz-cs-facts,.tfs-facts,.jiz-cs-snapshot,.ml-grid){
+  gap:clamp(10px,1.5vw,20px)}
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter :is(.jiz-cs-fact,.jiz-cs-snap-cell,.jiz-cs-panel,.ml-card,.tfs-premise-copy){
+  border-radius:clamp(12px,1.5vw,20px)}
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter :is(.ml-abstract,.jiz-cs-roles,.jiz-cs-split,.tfs-premise) {gap:clamp(20px,3vw,38px)}
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter :is(.ml-abstract,.jiz-cs-panel){
+  border-left:2px solid color-mix(in srgb,var(--chapter-accent,#64E1FF) 50%,transparent);
+  padding-inline-start:clamp(16px,2vw,28px)}
+/* Project companion navigation replaces two dense numeric tabs with two balanced cards. */
+.tfs .tfs-build-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
+ margin:clamp(15px,2vw,28px) var(--panel-gap,20px) clamp(17px,2vw,28px);
+ padding:0;border:0;max-width:none}
+.tfs .tfs-build-nav a{display:flex;align-items:center;gap:15px;min-width:0;min-height:77px;
+ padding:15px 20px;border:1px solid rgba(100,225,255,.24);border-radius:18px;
+ background:#151E24;color:#D9DDE3;text-decoration:none!important;
+ transition:border-color .2s ease,background .2s ease,transform .2s ease}
+.tfs .tfs-build-nav a[aria-current=page]{border-color:rgba(198,242,58,.7);
+ background:linear-gradient(120deg,rgba(198,242,58,.10),#151E24 55%);color:#F7F8FA}
+.tfs .tfs-build-nav a:is(:hover,:focus-visible){border-color:#64E1FF;background:#1B303A;transform:translateY(-2px)}
+.tfs .tfs-tab-symbol{font-size:1.65rem;line-height:1;color:#64E1FF;flex:none}
+.tfs .tfs-build-nav [aria-current=page] .tfs-tab-symbol{color:#C6F23A}
+.tfs .tfs-tab-copy{display:grid;gap:4px;min-width:0}
+.tfs .tfs-tab-copy strong{font-size:clamp(.93rem,1.18vw,1.12rem);letter-spacing:-.02em}
+.tfs .tfs-tab-copy small{font-size:.74rem;color:#AEC0C8;line-height:1.4}
+@media(max-width:630px){.tfs .tfs-build-nav{grid-template-columns:1fr}
+ .tfs .tfs-build-nav a{min-height:66px;padding:12px 15px}
+ :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter__glyph{width:34px;height:34px;right:8px;top:8px}
+ :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter__glyph svg{width:19px;height:19px}}
+/* Capabilities expanded rows communicate the tools as individual choices. */
+.jiz-homepage .jz-pr-tools{align-items:start;padding:clamp(15px,1.8vw,24px) 0 clamp(28px,3vw,38px)}
+.jiz-homepage .jz-pr-tools-label{grid-column:5/span 7;color:#1D6572;font:650 .68rem/1.5 var(--font-mono,monospace);letter-spacing:.12em}
+.jiz-homepage .jz-pr-tool-chips{grid-column:5/span 7;display:flex;flex-wrap:wrap;gap:8px;
+ list-style:none;padding:0;margin:10px 0 0}
+.jiz-homepage .jz-pr-tool-chips li{min-height:31px;display:inline-flex;align-items:center;
+ padding:6px 11px;border:1px solid rgba(10,78,96,.29);border-radius:999px;
+ background:#E3F3F6;color:#17495A;font:600 .75rem/1.35 var(--font-body,Arial,sans-serif)}
+.jiz-homepage .jz-pr-tool-chips li:nth-child(3n){background:#E7E9EE;color:#354250;border-color:#B7C4CF}
+.jiz-homepage .jz-pr-tool-chips li:nth-child(3n+2){background:#F4F8D9;color:#465518;border-color:#BBCB8A}
+/* Unified methodological sign-off is a restrained final rule, not another unrelated heading. */
+.jiz-homepage .jz-pr-commitment{grid-column:1/span 12;display:flex;gap:clamp(14px,2vw,24px);
+ align-items:center;margin-top:clamp(28px,4vw,54px);padding:clamp(24px,3vw,40px);
+ background:linear-gradient(115deg,rgba(100,225,255,.09),rgba(198,242,58,.035));
+ border:1px solid rgba(100,225,255,.24);border-radius:clamp(18px,2vw,28px)}
+.jiz-homepage .jz-pr-commitment-icon{display:grid;place-items:center;flex:0 0 48px;width:48px;height:48px;
+ color:#64E1FF;border-radius:15px;background:rgba(100,225,255,.13)}
+.jiz-homepage .jz-pr-commitment-kicker{display:block;margin-bottom:8px;color:#64E1FF;
+ font:650 .66rem/1.5 var(--font-mono,monospace);letter-spacing:.13em}
+.jiz-homepage .jz-pr-commitment .jz-pr-close{margin:0;max-width:65ch;
+ font-size:clamp(1.05rem,1.6vw,1.5rem);line-height:1.45}
+/* Career timeline — six balanced chapters, concise cards, clear upcoming status. */
+.jiz-homepage .jz-jr-rail{grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.8vw,26px) 20px}
+.jiz-homepage .jz-jr-stage{padding:25px clamp(14px,1.7vw,24px) 20px;
+ border:1px solid rgba(15,70,81,.17);border-radius:16px;
+ background:rgba(255,255,255,.38);min-width:0}
+.jiz-homepage .jz-jr-stage::before{top:13px;left:13px}
+.jiz-homepage .jz-jr-stage:last-child{background:#E5F1EB;border-color:rgba(12,102,105,.28)}
+.jiz-homepage .jz-jr-stage:last-child .jz-jr-x{color:#196574}
+.jiz-homepage .jz-jr-rail::before{display:none!important}
+.jiz-homepage .jz-jr-stage .jz-jr-c{max-width:44ch}
+@media(max-width:1024px){.jiz-homepage .jz-pr-tool-chips,.jiz-homepage .jz-pr-tools-label{grid-column:1/span 12}
+ .jiz-homepage .jz-jr-rail{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:640px){.jiz-homepage .jz-jr-rail{grid-template-columns:1fr}
+ .jiz-homepage .jz-pr-commitment{align-items:flex-start;padding:19px}
+ .jiz-homepage .jz-pr-commitment-icon{flex-basis:38px;width:38px;height:38px}
+}
+/* Page widths equalize across editorial routes without flattening visual themes. */
+body.sp-page,body.jr,html:has(body.sp-page),html:has(body.jr){background:#515D68!important}
+body.sp-page main,body.jr main{width:min(1360px,calc(100% - 2*clamp(13px,2vw,28px)))!important}
+body.sp-page main>section,body.jr main>section{margin-block:clamp(17px,2.2vw,31px)!important}
+body.sp-page .sp-scene--cover{
+ background-image:linear-gradient(90deg,rgba(5,10,14,.83),rgba(5,10,14,.65) 29%,rgba(5,10,14,.10) 67%),
+ linear-gradient(0deg,rgba(5,10,14,.5),transparent 60%),var(--sp-scene-image)!important;
+ background-position:center,right 48%,right 48%!important;
+}
+body.sp-page .sp-scene--cover .sp-scene-copy{max-width:610px}
+body.sp-page main>.sp-about{border-color:rgba(100,225,255,.23);box-shadow:0 27px 60px -39px rgba(0,0,0,.7),0 29px 75px -52px rgba(100,225,255,.15)}
+body.sp-page .sp-format-strip>div:first-child{background:#25353D;border-color:rgba(182,222,216,.55)!important}
+body.sp-page .sp-format-strip>div{border-color:rgba(40,84,93,.24)!important}
+@media(max-width:820px){body.sp-page .sp-scene--cover{
+ background-image:linear-gradient(0deg,rgba(5,10,14,.91),rgba(5,10,14,.54) 42%,rgba(5,10,14,.04) 83%),var(--sp-scene-image)!important;
+ background-position:center,58% 27%!important}}
+/* The clean existing footer remains the shared footer for main and case studies.
+   Static editorial pages use the same link set and equivalent grid treatment. */
+footer.jiz-footer .jiz-footer-nav a{font-weight:600}
+
+
+/* Authentic Train Story film-frame preview: 00:55, cinematic threshold sequence. */
+.jiz-creative-lab-v5 .train-cover{
+  background:
+    linear-gradient(0deg,rgba(4,12,15,.8),rgba(4,12,15,.12) 57%,rgba(4,12,15,.40)),
+    url('/assets/imagery/train-story-preview-frame.jpg') center 48%/cover no-repeat!important;
+  justify-items:start!important;align-content:end!important;text-align:left!important;
+  padding:clamp(20px,3vw,37px)!important;
+}
+.jiz-creative-lab-v5 .train-cover::after{content:none!important}
+.jiz-creative-lab-v5 .train-title{
+  font-size:clamp(1.6rem,3.5vw,3.6rem)!important;letter-spacing:-.05em!important;
+  line-height:1.1!important;max-width:13ch!important;text-align:left;color:#F7F8FA!important;
+  text-shadow:0 3px 20px rgba(0,0,0,.55)
+}
+.jiz-creative-lab-v5 .train-index{left:clamp(20px,3vw,37px)!important;top:20px!important;color:#D9E9E9!important}
+.jiz-creative-lab-v5 .train-foot{left:clamp(20px,3vw,37px)!important;
+  bottom:clamp(17px,2vw,26px)!important;color:#DDE6E6!important}
+.jiz-creative-lab-v5 .train-cover .play-pill{
+  position:absolute!important;right:clamp(15px,2vw,28px)!important;
+  bottom:clamp(15px,2vw,27px)!important;left:auto!important;
+  color:#0B0D10!important;background:#C6F23A!important;
+  border-color:#C6F23A!important
+}
+@media(max-width:650px){.jiz-creative-lab-v5 .train-cover{
+  background-position:center 47%!important}
+ .jiz-creative-lab-v5 .train-title{font-size:clamp(1.5rem,7.1vw,2.5rem)!important}
+}
+/* Keep editorial icon labels readable against paper, mist, and deep surfaces. */
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-surface=paper] .jiz-chapter__glyph,
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-surface=mist] .jiz-chapter__glyph{
+ color:#186879;border-color:rgba(24,104,121,.34);background:rgba(24,104,121,.07)}
+/* No footer hover language pretends to open a new tab for an internal route. */
+footer.jiz-footer .jiz-footer-nav,footer.jiz-editorial-footer .jiz-editorial-footer__nav{
+ align-items:center;row-gap:4px}
+
+
+/* Introductory labels are separate block lines, never concatenated inline. */
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter :is(.tfs-chn,.tfs-eyebrow,.jiz-cs-eyebrow){
+ display:flex!important;align-items:center;width:fit-content;max-width:calc(100% - 56px);
+ margin-bottom:clamp(12px,1.4vw,21px);line-height:1.5;
+}
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter .jiz-cs-eyebrow{letter-spacing:.11em}
+.jiz-cs-wrap{padding-top:clamp(18px,2.2vw,34px)!important}
+.tfs .ml-hero-image{margin-block:clamp(26px,3vw,44px) clamp(20px,2vw,32px)!important}
+.tfs .ml-hero-image img{width:100%;max-height:550px;object-fit:cover;object-position:center;
+ border-radius:clamp(15px,2vw,25px)}
+/* Reader-facing detail cards feel authored, not uninterrupted paragraphs. */
+.tfs .ml-abstract{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+ gap:clamp(15px,2vw,27px);padding:clamp(18px,3vw,38px);
+ border:1px solid rgba(100,225,255,.18);border-radius:23px;
+ background:linear-gradient(125deg,rgba(100,225,255,.055),rgba(198,242,58,.035))}
+.tfs .ml-abstract h2{grid-column:1/-1;margin:0}
+.tfs .ml-abstract>p{margin:0;max-width:65ch;line-height:1.7;color:#D9DDE3}
+@media(max-width:760px){.tfs .ml-abstract{grid-template-columns:1fr;padding:20px}}
+
+
+/* A quiet icon grammar in enterprise fact cards. */
+.jiz-cs .jiz-cs-fact-k{display:flex;align-items:center;gap:9px;line-height:1.4}
+.jiz-cs .jiz-cs-fact-k svg{flex:0 0 17px;opacity:.9}
+.jiz-cs .jiz-cs-fact-v{margin-top:13px!important;line-height:1.55}
+.jiz-cs .jiz-cs-fact{padding:clamp(15px,1.8vw,24px)!important;
+ background:linear-gradient(150deg,rgba(255,255,255,.045),rgba(255,255,255,.015))}
+
+
+/* Career-card organization names are readable identifiers, not full-width cyan bars. */
+.jiz-homepage .jz-jr-stage .jz-jr-x{
+  align-self:flex-start;width:fit-content;max-width:100%;
+  padding:6px 10px;border:1px solid rgba(15,94,111,.18);border-radius:8px;
+  background:#D7ECF0!important;color:#205564!important;
+  font:650 .71rem/1.45 var(--font-mono,monospace)!important;
+  overflow-wrap:anywhere;box-decoration-break:clone
+}
+.jiz-homepage .jz-jr-stage:last-child .jz-jr-x{
+  background:#E6EED4!important;border-color:rgba(70,99,40,.22);color:#425F34!important
+}
+.jiz-homepage .jz-jr-stage .jz-jr-m{margin:0;font-size:.72rem;line-height:1.5}

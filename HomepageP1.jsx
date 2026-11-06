@@ -502,7 +502,7 @@ function Practice({ part = 'method' }) {
 .jz-pr-head > div{grid-column:1 / span 7;display:flex;flex-direction:column;gap:18px}
 .jz-pr-h2{margin:0;font:600 clamp(2.25rem,1.4rem + 3vw,4.5rem)/.98 var(--font-display);letter-spacing:-.04em;color:var(--color-text-primary);text-wrap:balance}
 .jz-pr-intro{grid-column:9 / span 4;margin:0;font:400 1.0625rem/1.6 var(--font-body);color:rgba(217,221,227,.78)}
-.jz-pr-steps{grid-column:1 / span 12;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));list-style:none;margin:0;padding:0;border-top:1px solid rgba(217,221,227,.14);counter-reset:s}
+.jz-pr-steps{grid-column:1 / span 12;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));list-style:none;margin:0;padding:0;border-top:1px solid rgba(217,221,227,.14);counter-reset:s}
 .jz-pr-step{position:relative;display:flex;flex-direction:column;gap:14px;padding:26px clamp(14px,1.6vw,26px) 0 0}
 .jz-pr-step::before{content:'';position:absolute;top:-1px;left:0;height:1px;width:0;background:var(--color-accent-primary);transition:width 900ms cubic-bezier(.22,.61,.36,1)}
 .jz-pr[data-in="true"] .jz-pr-step::before{width:32px}
@@ -553,7 +553,7 @@ function Practice({ part = 'method' }) {
             </li>
           ))}
         </ol>
-        <p className="jz-pr-close jz-rise">Every output is reviewed and owned. Nothing ships that I wouldn't defend in front of a stakeholder.</p>
+        <div className="jz-pr-commitment jz-rise"><span className="jz-pr-commitment-icon" aria-hidden="true"><PortfolioGlyph kind="evidence" size={25}/></span><div><span className="jz-pr-commitment-kicker">THE ACCOUNTABILITY STANDARD</span><p className="jz-pr-close">Every output is reviewed and owned. Nothing ships that I wouldn't defend in front of a stakeholder.</p></div></div>
         </>)}
         {part === 'capabilities' && (<>
         <div className="jz-pr-caps-head">
@@ -571,7 +571,10 @@ function Practice({ part = 'method' }) {
                   <span className="jz-pr-cap-c">{c.c}</span>
                   <span className="jz-pr-cap-x" aria-hidden="true">+</span>
                 </button>
-                <div className="jz-pr-tools" id={'jz-pr-tools-' + i} hidden={!open}><p>{c.tools}</p></div>
+                <div className="jz-pr-tools" id={'jz-pr-tools-' + i} hidden={!open}>
+                  <span className="jz-pr-tools-label">PLATFORMS &amp; METHODS</span>
+                  <ul className="jz-pr-tool-chips">{c.tools.split(',').map((tool) => <li key={tool.trim()}>{tool.trim()}</li>)}</ul>
+                </div>
               </li>
             );
           })}
@@ -592,7 +595,8 @@ function CareerJourney() {
     { n: '02', title: 'Digital Transformation', ctx: 'Atlanta International School · International education', meta: 'Instructional Designer & EdTech Integration Specialist · Jul 2019–Apr 2024', copy: 'Supported an organization-wide LMS migration, helping a school community move from hesitation to fluency.' },
     { n: '03', title: 'Enterprise L&D', ctx: 'Cox Enterprises · Enterprise & corporate learning', meta: 'Learning Experience Designer · Contract · Feb\u2060–\u2060Sep 2025', copy: 'Designed leadership and enterprise learning for audiences from frontline teams to SVPs.' },
     { n: '04', title: 'Product & Technology Enablement', ctx: 'IHG Hotels & Resorts · Hospitality technology', meta: 'Creative Content Specialist · Contract · Sep 2025–Jul 2026', copy: 'Turned evolving platforms into release-ready learning that keeps global teams operationally current.' },
-    { n: '05', title: 'Independent Learning Design', ctx: 'Jon Iker Zamarripa Independent Consulting', meta: 'Learning Experience Designer & AI Learning Strategist · Jul 2024–present', copy: 'Client work, research and prototyping across onboarding, product education and AI-enabled learning.' }
+    { n: '05', title: 'Independent Learning Design', ctx: 'Jon Iker Zamarripa Independent Consulting', meta: 'Learning Experience Designer & AI Learning Strategist · Jul 2024–present', copy: 'Client work, research and prototyping across onboarding, product education and AI-enabled learning.' },
+    { n: '06', title: 'Next Chapter', ctx: 'Intuit · QuickBooks', meta: 'Incoming Instructional Designer · Contract · Scheduled Nov 9, 2026', copy: 'Upcoming learning design engagement. Project scope and results will be added only after work is underway.' }
   ];
   return (
     <section className="jz-jr" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-jr-title">
