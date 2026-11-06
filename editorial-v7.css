@@ -99,7 +99,7 @@
 .jiz-homepage .jz-ct-poster--portrait{
  min-height:clamp(340px,39vw,510px);
  background-image:linear-gradient(0deg,rgba(6,12,17,.94),rgba(6,12,17,.3) 54%,rgba(6,12,17,.10)),
- url('/assets/imagery/speaking/speaker-portrait.jpeg')!important;
+ url('/assets/imagery/speaking/speaker-contact-warm.jpg')!important;
  background-position:center,center 34%!important;background-size:cover,cover!important;
  justify-content:flex-end;align-items:flex-start;gap:16px;
 }
