@@ -107,10 +107,10 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
   return (
     <article ref={rootRef} className="jiz-cs" data-case-study={config.slug}>
       <style>{`
-        .jiz-cs{position:relative;min-height:100vh;background:var(--color-background-primary)}
+        .jiz-cs{position:relative;min-height:100vh;background:#F4F7F7;padding:clamp(12px,1.8vw,26px) 0;color:#F7F8FA}
         .jiz-cs-progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:60;background:rgba(255,255,255,.06)}
         .jiz-cs-progress span{display:block;height:100%;background:var(--color-accent-primary);transition:width 90ms linear}
-        .jiz-cs-wrap{width:min(100%,1180px);margin-inline:auto;padding:32px var(--container-pad) clamp(72px,8vw,112px);box-sizing:border-box}
+        .jiz-cs-wrap{width:min(1320px,calc(100% - 2*clamp(12px,1.8vw,26px)));margin-inline:auto;padding:clamp(28px,4vw,64px) clamp(22px,5vw,84px) clamp(72px,8vw,112px);box-sizing:border-box;background:radial-gradient(ellipse at 93% 4%,rgba(15,139,141,.22),transparent 52%),linear-gradient(142deg,#0B1F2A,#183745 76%,#0B1F2A);border:1px solid rgba(12,37,52,.1);border-radius:clamp(22px,2.7vw,36px);box-shadow:0 14px 36px rgba(8,34,44,.13),0 3px 10px rgba(8,34,44,.05)}
         .jiz-cs-crumb{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:clamp(28px,3.4vw,44px);font:var(--text-caption);color:var(--color-text-muted)}
         .jiz-cs-back{display:inline-flex;align-items:center;flex-shrink:0;white-space:nowrap;text-decoration:none;box-sizing:border-box;min-height:44px;padding:0 16px;border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-pill);background:rgba(255,255,255,.03);color:var(--color-text-secondary);font:var(--text-caption);cursor:pointer;transition:all 200ms var(--ease-standard)}
         .jiz-cs-back:hover{border-color:rgba(198,242,58,.4);color:var(--color-text-primary)}
