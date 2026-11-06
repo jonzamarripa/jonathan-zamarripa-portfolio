@@ -243,14 +243,6 @@ function CaseStudyShell({ config, onBack, onOpenProject, standalone }) {
       <div className="jiz-cs-progress" aria-hidden="true"><span style={{ width: (progress * 100) + '%' }} /></div>
 
       <div className="jiz-cs-wrap">
-        <nav className="jiz-cs-crumb" aria-label="Case study">
-          {standalone
-            ? <span><a className="jiz-cs-home" href="/">Jonathan Zamarripa</a> / <a className="jiz-cs-home" href="/#work">Work</a> / <span aria-current="page">{config.projectName}</span></span>
-            : <span>Work → {config.projectName}</span>}
-          {standalone
-            ? <a className="jiz-cs-back" href="/#work">← All Featured Work</a>
-            : <button className="jiz-cs-back" type="button" onClick={onBack}>← All Featured Work</button>}
-        </nav>
 
         {/* 1 — Hero */}
         <Chapter as="header" surface={nextSurface()} className="jiz-cs-section" labelledBy={config.slug + '-title'}>
