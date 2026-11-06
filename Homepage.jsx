@@ -1284,19 +1284,19 @@ function Homepage({ onOpenCaseStudy }) {
       <main id="main-content" tabIndex={-1} style={{ flex: 1, position: 'relative', zIndex: 1, overflow: 'visible', outline: 'none' }}>
         <div ref={registerSection('hero')}><Hero onExploreWork={() => scrollToSection('work')} onConnect={() => scrollToSection('contact')} /></div>
         <SelectedExperience />
-        <div id="work" ref={registerSection('work')} data-section="featured-work"><span id="archive" className="jz-visually-hidden" aria-hidden="true" /><FeaturedWorkEditorial onOpenWork={onOpenCaseStudy} /></div>
-        <div id="impact" ref={registerSection('impact')} data-section="impact"><ImpactEditorial /></div>
-        <div id="capabilities" ref={registerSection('capabilities')} data-section="capabilities"><Practice part="capabilities" /></div>
-        <div id="method" ref={registerSection('method')} data-section="method"><Practice part="method" /></div>
-        <div id="thinking" ref={registerSection('thinking')} data-section="cinematic-learning-systems"><CinematicJournal onNavigate={scrollToSection} /></div>
-        <div id="speaking" data-section="speaking"><SpeakingPreview /></div>
-        <div id="creative-lab" ref={registerSection('creative-lab')} data-section="creative-lab"><FilmSection /></div>
-        <div id="about" ref={registerSection('about')} data-section="about"><AboutMind /></div>
-        <div id="journey" ref={registerSection('journey')} data-section="journey"><CareerJourney /></div>
-        <div id="stack" ref={registerSection('stack')} data-section="stack"><LearningStack /></div>
-        <div id="principles" ref={registerSection('principles')} data-section="principles"><Principles /></div>
+        <div id="work" ref={registerSection('work')} data-section="featured-work" data-chapter-label="03 / SELECTED WORK"><span id="archive" className="jz-visually-hidden" aria-hidden="true" /><FeaturedWorkEditorial onOpenWork={onOpenCaseStudy} /></div>
+        <div id="impact" ref={registerSection('impact')} data-section="impact" data-chapter-label="04 / IMPACT"><ImpactEditorial /></div>
+        <div id="capabilities" ref={registerSection('capabilities')} data-section="capabilities" data-chapter-label="05 / CAPABILITIES"><Practice part="capabilities" /></div>
+        <div id="method" ref={registerSection('method')} data-section="method" data-chapter-label="06 / METHOD"><Practice part="method" /></div>
+        <div id="thinking" ref={registerSection('thinking')} data-section="cinematic-learning-systems" data-chapter-label="07 / THINKING"><CinematicJournal onNavigate={scrollToSection} /></div>
+        <div id="speaking" data-section="speaking" data-chapter-label="08 / SPEAKING"><SpeakingPreview /></div>
+        <div id="creative-lab" ref={registerSection('creative-lab')} data-section="creative-lab" data-chapter-label="09 / CREATIVE LAB"><FilmSection /></div>
+        <div id="about" ref={registerSection('about')} data-section="about" data-chapter-label="10 / ABOUT"><AboutMind /></div>
+        <div id="journey" ref={registerSection('journey')} data-section="journey" data-chapter-label="11 / JOURNEY"><CareerJourney /></div>
+        <div id="stack" ref={registerSection('stack')} data-section="stack" data-chapter-label="12 / STACK"><LearningStack /></div>
+        <div id="principles" ref={registerSection('principles')} data-section="principles" data-chapter-label="13 / PRINCIPLES"><Principles /></div>
         {/* Additional Work is intentionally held in source for its later editorial redesign. */}
-        <div id="contact" ref={registerSection('contact')} data-section="contact">
+        <div id="contact" ref={registerSection('contact')} data-section="contact" data-chapter-label="14 / CONTACT">
           <LetsBuild onExploreWork={() => scrollToSection('work')} />
           <FinalMoment onNavigate={scrollToSection} />
         </div>
