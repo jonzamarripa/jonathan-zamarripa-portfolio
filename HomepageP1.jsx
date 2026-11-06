@@ -84,7 +84,7 @@ const RHYTHM_CSS = `
 @media(max-width:1024px){.jiz-homepage .jz-im-cell:nth-child(n+3),.jiz-homepage .jz-im-cell + .jz-im-cell{border-top-color:rgba(232,240,245,.14)}}
 
 /* Capabilities — Mist light chapter, dark type */
-.jiz-homepage .jz-pr--capabilities{background:#D9DDE3;color:#0B0D10}
+.jiz-homepage .jz-pr--capabilities{background:#F1EBDD;color:#0B0D10}
 .jiz-homepage .jz-pr--capabilities .jz-label{color:rgba(11,13,16,.66)}
 .jiz-homepage .jz-pr--capabilities .jz-pr-caps-h{color:#0B0D10}
 .jiz-homepage .jz-pr--capabilities .jz-pr-sub{color:rgba(11,13,16,.74)}
@@ -94,22 +94,27 @@ const RHYTHM_CSS = `
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap-t{font-weight:600;color:#0B0D10}
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap-c{max-width:60ch;color:rgba(11,13,16,.74)}
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap-x{color:rgba(11,13,16,.6)}
-.jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover{background:linear-gradient(90deg,rgba(var(--accent-cyan-rgb),.12),transparent 60%)}
-.jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover .jz-pr-cap-t,.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-t{color:var(--obsidian);background:var(--accent-cyan)}
-.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-x{color:var(--obsidian);background:var(--accent-cyan)}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover{background:rgba(11,13,16,.035)}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap-t{color:#087B91;background:none}.jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover .jz-pr-cap-t,.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-t{color:#087B91;background:none}
+.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-x{color:#087B91;background:none}
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap button:focus-visible{outline-color:#0B0D10}
-.jiz-homepage .jz-pr--capabilities .jz-pr-tools p{color:rgba(11,13,16,.72)}
+.jiz-homepage .jz-pr--capabilities .jz-pr-tools{padding-block:12px 26px;border-top:1px solid rgba(11,13,16,.1)}.jiz-homepage .jz-pr--capabilities .jz-pr-tools p{color:rgba(11,13,16,.8);font-family:var(--font-body);font-size:.9375rem;line-height:1.65}
 
 /* Method — Slate panel; five stages on a connecting rail */
-.jiz-homepage .jz-pr--method{background:#2A2F37}
+.jiz-homepage .jz-pr--method{background:#171A1F}
+.jiz-homepage .jz-pr-step-title,.jiz-homepage .jz-jr-stage-title{display:flex;align-items:center;gap:12px;min-width:0}
+.jiz-homepage .jz-pr-step-title .jz-editorial-icon{flex:none;color:#C6F23A}
+.jiz-homepage .jz-jr-stage-title .jz-editorial-icon{flex:none;color:#41535A}
+@media(max-width:1024px){.jiz-homepage .jz-pr-step-title{grid-column:2 / span 4;align-self:start}}
+@media(max-width:680px){.jiz-homepage .jz-pr-step-title{grid-column:auto}}
 .jiz-homepage .jz-pr--method .jz-pr-intro,.jiz-homepage .jz-pr--method .jz-pr-c{color:rgba(232,236,240,.86)}
 .jiz-homepage .jz-pr-steps{border-top-color:rgba(217,221,227,.26)}
-.jiz-homepage .jz-pr-step{padding-top:34px}
-.jiz-homepage .jz-pr-step::after{content:'';position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#2A2F37;border:1px solid var(--color-accent-primary);box-sizing:border-box}
+.jiz-homepage .jz-pr-step{padding:28px clamp(12px,1.8vw,26px) 16px 0;gap:12px}
+.jiz-homepage .jz-pr-step::after{content:'';position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:#171A1F;border:1px solid var(--color-accent-primary);box-sizing:border-box}
 .jiz-homepage .jz-pr-step:last-child::after{background:var(--color-accent-primary)}
 .jiz-homepage .jz-pr-step .jz-label{color:var(--color-accent-primary)}
-.jiz-homepage .jz-pr-c{max-width:30ch}
-.jiz-homepage .jz-pr-rule{padding-top:0;border-top:0;font-size:.875rem;color:rgba(217,221,227,.72)}
+.jiz-homepage .jz-pr-c{max-width:34ch}
+.jiz-homepage .jz-pr-rule{margin-top:auto;padding-top:16px;border-top:1px solid rgba(232,236,240,.16);font-size:.875rem;color:rgba(217,221,227,.82)}
 @media(max-width:1024px){
   .jiz-homepage .jz-pr-steps{position:relative;padding-left:28px}
   .jiz-homepage .jz-pr-steps::before{content:'';position:absolute;left:4px;top:34px;bottom:34px;width:1px;background:linear-gradient(180deg,rgba(198,242,58,.6),rgba(198,242,58,.2))}
@@ -137,13 +142,13 @@ const RHYTHM_CSS = `
 .jiz-homepage .jz-jr .jz-label{color:rgba(11,13,16,.62)}
 .jiz-homepage .jz-jr-h2,.jiz-homepage .jz-jr-t{color:#0B0D10}
 .jiz-homepage .jz-jr-sub,.jiz-homepage .jz-jr-c{color:rgba(11,13,16,.76)}
-.jiz-homepage .jz-jr-x{color:var(--obsidian);background:var(--accent-cyan);opacity:1;font-weight:600}
+.jiz-homepage .jz-jr-x{color:#41535A;background:#D6E3DF;opacity:1;font-weight:600;border-radius:4px;padding:5px 8px;align-self:flex-start}
 .jiz-homepage .jz-jr-m{color:rgba(11,13,16,.66)}
 .jiz-homepage .jz-jr-rail{position:relative}
 .jiz-homepage .jz-jr-rail::before{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,rgba(11,13,16,.18),rgba(var(--accent-cyan-rgb),.7))}
 .jiz-homepage .jz-jr-stage{border-top-color:transparent}
 .jiz-homepage .jz-jr-stage::before{box-sizing:border-box;width:9px;height:9px;top:-4px;background:#E8E3D9;border:1.5px solid var(--accent-cyan)}
-.jiz-homepage .jz-jr-stage:last-child::before{background:var(--color-accent-primary);border-color:#0B0D10}
+.jiz-homepage .jz-jr-stage:last-child::before{background:#0B0D10;border-color:#0B0D10}
 @media(max-width:1024px){
   .jiz-homepage .jz-jr-rail::before{display:none}
   .jiz-homepage .jz-jr-stage{border-top-color:rgba(11,13,16,.16)}
@@ -389,17 +394,33 @@ function ImpactEditorial() {
   );
 }
 
+/* One monochrome icon grammar for the five-stage method and career rail. */
+function EditorialGlyph({name}) {
+  const paths = {
+    search: <><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></>,
+    layers: <><path d="m12 2 9 5-9 5-9-5 9-5Z"/><path d="m3 12 9 5 9-5M3 17l9 5 9-5"/></>,
+    pen: <><path d="m15 5 4 4M4 20l4.5-.8L20 7.7 16.3 4 4.8 15.5 4 20Z"/></>,
+    wrench: <><path d="M14 6a6 6 0 0 0-8 8l-4 4 4 4 4-4a6 6 0 0 0 8-8l-4 4-4-4 4-4Z"/></>,
+    chart: <><path d="M4 20V4M4 20h17M8 16l4-5 3 2 5-7"/></>,
+    graduation: <><path d="m2 9 10-5 10 5-10 5-10-5ZM6 11v5c4 3 8 3 12 0v-5M22 9v7"/></>,
+    network: <><rect x="9" y="2" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="16" y="16" width="6" height="6" rx="1"/><path d="M12 8v4M5 16v-4h14v4"/></>,
+    users: <><circle cx="9" cy="8" r="3"/><path d="M3 20v-2a6 6 0 0 1 12 0v2M17 5a3 3 0 0 1 0 6M18 14a5 5 0 0 1 3 5v1"/></>,
+    monitor: <><rect x="2" y="3" width="20" height="15" rx="2"/><path d="M8 22h8M12 18v4M6 8h12M6 12h8"/></>
+  };
+  return <svg className="jz-editorial-icon" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.55" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false">{paths[name] || paths.layers}</svg>;
+}
+
 /* ---------- Practice: method + principles + capabilities + tools, consolidated ---------- */
 function Practice({ part = 'method' }) {
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref);
   const [openCap, setOpenCap] = React.useState(null);
   const steps = [
-    { n: '01', t: 'Clarify', c: 'Define the business problem, learner need, stakeholder expectations, and success criteria.', rule: 'Clarity over complexity. Every complex problem hides a simpler structure worth finding first.' },
-    { n: '02', t: 'Structure', c: 'Organize complexity into a learning architecture, journey, content map, or enablement strategy.', rule: 'People before platforms. Technology only matters once the people using it can succeed with it.' },
-    { n: '03', t: 'Design', c: 'Shape the experience through story, interaction, visuals, accessibility, and human-centered learning principles.', rule: 'Technology should feel human. Systems earn adoption when they respect attention, context, and effort.' },
-    { n: '04', t: 'Build', c: 'Produce eLearning, video, guides, toolkits, job aids, and communications. Prototype early, then scale.', rule: 'Speed for production, not decisions. AI expands what is possible; the point of view stays mine.' },
-    { n: '05', t: 'Measure', c: 'Use feedback, adoption signals, performance evidence, and stakeholder input to refine impact.', rule: 'Learning should move behavior. The measure is what people do differently after.' }
+    { n: '01', t: 'Clarify', icon: 'search', c: 'Define the business problem, learner need, stakeholder expectations, and success criteria.', rule: 'Clarity over complexity. Every complex problem hides a simpler structure worth finding first.' },
+    { n: '02', t: 'Structure', icon: 'layers', c: 'Organize complexity into a learning architecture, journey, content map, or enablement strategy.', rule: 'People before platforms. Technology only matters once the people using it can succeed with it.' },
+    { n: '03', t: 'Design', icon: 'pen', c: 'Shape the experience through story, interaction, visuals, accessibility, and human-centered learning principles.', rule: 'Technology should feel human. Systems earn adoption when they respect attention, context, and effort.' },
+    { n: '04', t: 'Build', icon: 'wrench', c: 'Produce eLearning, video, guides, toolkits, job aids, and communications. Prototype early, then scale.', rule: 'Speed for production, not decisions. AI expands what is possible; the point of view stays mine.' },
+    { n: '05', t: 'Measure', icon: 'chart', c: 'Use feedback, adoption signals, performance evidence, and stakeholder input to refine impact.', rule: 'Learning should move behavior. The measure is what people do differently after.' }
   ];
   const caps = [
     { t: 'Learning strategy & performance consulting', c: 'Needs analysis and performance consulting that connect business goals, learner needs, and stakeholder priorities to measurable outcomes.', tools: 'Miro, FigJam, Tableau, Power BI, learning dashboards, KPI and adoption tracking, survey analysis' },
@@ -462,7 +483,7 @@ function Practice({ part = 'method' }) {
           {steps.map((s) => (
             <li key={s.n} className="jz-pr-step jz-rise">
               <span className="jz-label">{s.n}</span>
-              <h3 className="jz-pr-word">{s.t}</h3>
+              <div className="jz-pr-step-title"><EditorialGlyph name={s.icon} /><h3 className="jz-pr-word">{s.t}</h3></div>
               <p className="jz-pr-c">{s.c}</p>
               <p className="jz-pr-rule">{s.rule}</p>
             </li>
@@ -535,7 +556,7 @@ function CareerJourney() {
           {stages.map((s) => (
             <li key={s.n} className="jz-jr-stage jz-rise">
               <span className="jz-label">{s.n}</span>
-              <h3 className="jz-jr-t">{s.title}</h3>
+              <div className="jz-jr-stage-title"><EditorialGlyph name={['graduation','network','users','monitor'][Number(s.n)-1]} /><h3 className="jz-jr-t">{s.title}</h3></div>
               {s.ctx ? <p className="jz-jr-x">{s.ctx}</p> : null}
               {s.meta ? <p className="jz-jr-m">{s.meta}</p> : null}
               <p className="jz-jr-c">{s.copy}</p>
