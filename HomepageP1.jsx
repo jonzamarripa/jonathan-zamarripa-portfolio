@@ -372,16 +372,16 @@ function CountUp({ to, run, suffix, srSuffix }) {
   }, []);
   React.useEffect(() => {
     if (!run || !visible) { setV(to); return; }
-    let raf, timer, start;
+    let raf, start;
     const tick = (time) => {
       if (start === undefined) start = time;
-      const progress = Math.min(1, (time - start) / 1100);
+      const progress = Math.min(1, (time - start) / 900);
       setV(Math.round(to * (1 - Math.pow(1 - progress, 3))));
       if (progress < 1) raf = requestAnimationFrame(tick);
-      else timer = setTimeout(() => { start = undefined; raf = requestAnimationFrame(tick); }, 5500);
+      else setV(to);
     };
     raf = requestAnimationFrame(tick);
-    return () => { cancelAnimationFrame(raf); clearTimeout(timer); };
+    return () => { cancelAnimationFrame(raf); };
   }, [run, visible, to]);
   return <React.Fragment>
     <span ref={numberRef} aria-hidden="true">{v}<span className="jz-im-unit">{suffix}</span></span>
