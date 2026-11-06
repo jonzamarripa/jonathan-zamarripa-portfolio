@@ -150,3 +150,214 @@ body.jr .dx .dx-ch.jiz-chapter:not([data-surface=paper]):not([data-surface=mist]
 body.jr .dx .dx-ch.jiz-chapter:is([data-surface=paper],[data-surface=mist]){background:#F7FAFA;color:#122C36}
 body.jr .jr-mast :is(h1,.jr-sub,.jr-anchor){color:#F7E9D6}
 /* Keep touch and reduced-motion behavior exactly as authored in the original v8 branch. */
+
+
+/* V3 — Approved cinematic materials on the original Editorial v8 architecture.
+   Navy/Mist/Chartreuse stay; CLS now Onyx + Burnished Gold + Champagne + Petrol Slate.
+   Avoid altering element geometry or behaviors outside the Featured Work gallery. */
+:root{
+ --identity-onyx:#15181C;
+ --identity-burnished-gold:#C6A15B;
+ --identity-champagne:#E7D8B7;
+ --identity-petrol:#31444B;
+ --portfolio-footer:#0B1F2A;
+ --accent-journal-amber:#C6A15B;
+ --accent-journal-teal:#65858A;
+}
+/* Original footer component stays intact; chartreuse is reserved for deliberate action. */
+html footer.jiz-footer,
+html .jiz-editorial-footer{
+ background:linear-gradient(116deg,#0B1F2A,#122D38 62%,#0B1F2A)!important;
+ color:#F4F7F7!important;
+ border:1px solid rgba(201,225,230,.16)!important;
+ box-shadow:var(--identity-shadow)!important;
+}
+html footer.jiz-footer :is(.jiz-footer-name,.jiz-footer-name--link,.jiz-footer-nav a),
+html .jiz-editorial-footer :is(a,p,span,small,strong){
+ color:#F4F7F7!important;
+}
+html footer.jiz-footer :is(.jiz-footer-disciplines,.jiz-footer-credit,.jiz-footer-tech,.jiz-footer-copy){color:#CADCE0!important}
+html footer.jiz-footer .jiz-footer-rule{background:rgba(227,242,244,.2)!important}
+html footer.jiz-footer .jiz-footer-logo{filter:none!important}
+html footer.jiz-footer .jiz-footer-top{
+ border:1px solid #C6F23A!important;
+ color:#0B1F2A!important;background:#C6F23A!important;
+}
+html footer.jiz-footer .jiz-footer-top:hover{background:#D5F777!important}
+html footer.jiz-footer :is(a,button):focus-visible{outline:2px solid #C6F23A!important;outline-offset:4px}
+html footer.jiz-footer .jiz-footer-nav a:hover{border-color:rgba(244,247,247,.6)!important}
+html .jiz-editorial-footer img{filter:none!important}
+/* Selected Work — one coherent row of three image-first cards, scroll-snap still does the work. */
+html .jiz-homepage .jz-fw{
+ background:linear-gradient(145deg,#FCFDFE,#EFF5F6)!important;
+ color:#122C36!important;
+}
+html .jiz-homepage .jz-fw .jz-fw-h2{
+ font-size:clamp(1.85rem,3.1vw,3rem)!important;
+ color:#122C36!important;line-height:1.12;
+}
+html .jiz-homepage .jz-fw :is(.jz-fw-heading>p,.jz-fw-instruction,.jz-fw-count){color:#3C5661!important}
+html .jiz-homepage .jz-fw .jz-label{color:#136B79!important}
+html .jiz-homepage .jz-fw-stage{width:min(1370px,calc(100% - 2*clamp(24px,5vw,90px)))}
+html .jiz-homepage .jz-fw-gallery-layout{position:relative;min-width:0}
+html .jiz-homepage .jz-fw-track{
+ --gallery-gap:clamp(12px,1.6vw,24px);
+ gap:var(--gallery-gap);scrollbar-color:#A3BFC6 transparent;
+ padding:6px 4px 16px;scroll-padding-inline:4px;
+}
+html .jiz-homepage .jz-fw-track::after{display:none}
+html .jiz-homepage .jz-fw-slide{
+ flex:0 0 calc((100% - 2 * var(--gallery-gap)) / 3);
+ min-width:0;scroll-snap-align:start;
+}
+html .jiz-homepage .jz-fw-project-link{
+ background:#F9FCFC!important;color:#122C36!important;
+ border:1px solid rgba(11,31,42,.12)!important;
+ box-shadow:0 9px 22px -17px rgba(7,29,41,.23);
+ border-radius:clamp(14px,1.5vw,20px);
+}
+html .jiz-homepage .jz-fw-project-link:hover{
+ border-color:#0F8B8D!important;
+ box-shadow:0 17px 30px -20px rgba(7,29,41,.35);
+}
+html .jiz-homepage .jz-fw-frame{aspect-ratio:16/10;background:#0B1F2A}
+html .jiz-homepage .jz-fw-slide[data-active=false] .jz-fw-frame img{filter:none}
+html .jiz-homepage .jz-fw-image-label{background:rgba(11,31,42,.86);color:#F4F7F7}
+html .jiz-homepage .jz-fw-slide[data-active=true] .jz-fw-image-label{background:#C6F23A;color:#0B1F2A}
+html .jiz-homepage .jz-fw-image-action{
+ display:flex!important;padding:6px 6px 6px 10px;
+ font-size:.75rem;gap:7px;background:rgba(11,31,42,.88);color:#F4F7F7;
+ right:12px;bottom:12px;
+}
+html .jiz-homepage .jz-fw-image-action>span{width:30px;height:30px}
+html .jiz-homepage .jz-fw-copy{padding:clamp(15px,1.8vw,22px);gap:9px}
+html .jiz-homepage .jz-fw-project-title{
+ color:#122C36!important;font-size:clamp(1.12rem,1.6vw,1.5rem)!important;
+}
+html .jiz-homepage .jz-fw-project-org{color:#526B73}
+html .jiz-homepage .jz-fw-subtitle{color:#136B79!important;font-size:.875rem}
+html .jiz-homepage .jz-fw-value{color:#3B5660!important;font-size:.875rem}
+html .jiz-homepage .jz-fw-tags li{
+ background:#E7F0F1;color:#183C48;border:1px solid #C8DDE0;
+ font-size:.6875rem;padding:5px 9px;
+}
+html .jiz-homepage .jz-fw-tags li:nth-child(3n+2){background:#EBF5D4;color:#3B541D;border-color:#D5E7B6}
+html .jiz-homepage .jz-fw-tags li:nth-child(3n){background:#E5ECEF;color:#2B4955}
+html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons{
+ position:absolute;z-index:4;left:-24px;right:-24px;top:0;bottom:0;
+ width:auto;display:flex;align-items:center;justify-content:space-between;
+ pointer-events:none;
+}
+html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons button{
+ pointer-events:auto;min-height:44px;width:44px;height:44px;
+ padding:0;border-radius:50%;font-size:0;
+ background:#F4F7F7!important;color:#0B1F2A!important;
+ border:1px solid #C8DCE0!important;
+ box-shadow:0 5px 16px rgba(11,31,42,.16);
+}
+html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons button span{
+ font-size:1.2rem;line-height:1;
+}
+html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons button:hover:enabled{background:#C6F23A!important}
+html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons button:disabled{opacity:.3}
+html .jiz-homepage .jz-fw-toolbar{margin-bottom:12px}
+html .jiz-homepage .jz-fw-controls{border-top-color:rgba(11,31,42,.18)}
+html .jiz-homepage .jz-fw-index summary{color:#0B1F2A}
+html .jiz-homepage .jz-fw-index a{color:#245462}
+html .jiz-homepage .jz-fw-index li{border-top-color:#CCD9DC}
+@media(max-width:960px){
+ html .jiz-homepage .jz-fw-slide{flex-basis:calc((100% - var(--gallery-gap))/2)}
+}
+@media(max-width:600px){
+ html .jiz-homepage .jz-fw-stage{width:calc(100% - 36px)}
+ html .jiz-homepage .jz-fw-slide{flex-basis:calc(100% - 35px)}
+ html .jiz-homepage .jz-fw-frame{aspect-ratio:4/3}
+ html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons{left:-13px;right:-13px}
+ html .jiz-homepage .jz-fw-copy{padding:18px}
+}
+/* CLS gold materials: remove every plum/orange override from the previous palette. */
+html .jiz-homepage .jz-cls,
+html .jiz-homepage .cls-room{
+ background:
+  linear-gradient(90deg,rgba(13,23,26,.96) 0%,rgba(16,35,40,.78) 46%,rgba(21,30,33,.48) 100%),
+  url('/assets/imagery/cinematic-learning-systems-poster.webp') center 30%/cover no-repeat,
+  #15181C!important;
+ color:#F3E7D0!important;
+ border:1px solid rgba(198,161,91,.38)!important;
+ box-shadow:var(--identity-shadow)!important;
+}
+html .jiz-homepage .cls-room::before{background:radial-gradient(ellipse,rgba(198,161,91,.15),transparent 67%)}
+html .jiz-homepage .cls-room :is(.cls-room__serial,.cls-room__route-number,.cls-room__label){color:#DDBA77!important}
+html .jiz-homepage .cls-room :is(.cls-room__intro,.cls-room__headline,.cls-room__library-heading){color:#F5EEE1}
+html .jiz-homepage .cls-room .cls-room__routes{
+ grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(9px,1.2vw,17px)
+}
+html .jiz-homepage .cls-room .cls-room__route{
+ display:flex;min-height:270px;gap:0;padding:0;flex-direction:column;
+ background:linear-gradient(155deg,#FCFAF5,#E7D8B7)!important;
+ border:2px solid rgba(245,240,226,.85)!important;
+ color:#15181C!important;border-radius:17px;
+ box-shadow:0 13px 22px rgba(0,0,0,.19);
+}
+html .jiz-homepage .cls-room .cls-room__route::before{
+ content:"";display:block;height:clamp(100px,10vw,142px);flex:none;
+ background:linear-gradient(0deg,rgba(21,24,28,.12),rgba(21,24,28,.05)),
+ url('/assets/imagery/cinematic-learning-systems-poster.webp') center 24%/cover no-repeat;
+}
+html .jiz-homepage .cls-room .cls-room__route:nth-child(2)::before{
+ background-image:linear-gradient(0deg,rgba(21,24,28,.2),rgba(21,24,28,.05)),url('/assets/imagery/train-story-preview-frame.jpg');
+ background-position:center,center;background-size:cover;
+}
+html .jiz-homepage .cls-room .cls-room__route:nth-child(3)::before{
+ background-image:linear-gradient(0deg,rgba(21,24,28,.2),rgba(21,24,28,.05)),url('/assets/imagery/cinematic-learning-systems-poster.webp');
+ background-position:center,80% 45%;background-size:cover;
+}
+html .jiz-homepage .cls-room .cls-room__route:nth-child(4)::before{
+ background-image:linear-gradient(0deg,rgba(21,24,28,.2),rgba(21,24,28,.05)),url('/assets/imagery/jonathan-hero-final-poster.webp');
+ background-position:center,60% 50%;background-size:cover;
+}
+html .jiz-homepage .cls-room .cls-room__route-icon{
+ position:absolute;top:14px;left:14px;width:40px;height:40px;border-radius:10px;
+ background:rgba(21,24,28,.82)!important;border-color:rgba(231,216,183,.64)!important;
+ color:#E7C681!important;
+}
+html .jiz-homepage .cls-room .cls-room__route-copy{padding:clamp(13px,1.3vw,20px);gap:7px;flex:1}
+html .jiz-homepage .cls-room .cls-room__route-number{color:#8C6428!important}
+html .jiz-homepage .cls-room .cls-room__route strong{
+ color:#15181C!important;font-size:clamp(1.12rem,1.5vw,1.45rem)!important
+}
+html .jiz-homepage .cls-room .cls-room__route small{color:#33454A!important;line-height:1.45}
+html .jiz-homepage .cls-room .cls-room__route-arrow{
+ top:auto;bottom:14px;right:14px;color:#15181C!important
+}
+html .jiz-homepage .cls-room .cls-room__route:hover{
+ transform:translateY(-3px);border-color:#C6A15B!important;
+ box-shadow:0 20px 32px rgba(0,0,0,.24)
+}
+html .jiz-homepage .cls-room :is(.cls-room__route a,.cls-room__dispatch a,.cls-room__archive-link a){color:#E8C783}
+html .jiz-homepage .cls-room .cls-room__route:focus-visible{outline:3px solid #C6F23A;outline-offset:3px}
+html .jiz-homepage .cls-room .cls-room__route-arrow svg{color:#15181C}
+html body.jr .jr-mast{
+ background:linear-gradient(105deg,#15181C,#31444B)!important;
+ border-color:rgba(198,161,91,.35);
+}
+html body.jr .jr-sec{background:linear-gradient(135deg,#15181C,#31444B)!important;border-color:rgba(198,161,91,.25)}
+html body.jr .jr-sec:nth-of-type(even){background:linear-gradient(135deg,#202A2F,#3D5053)!important}
+html body.jr .jr-top,html body.jr .jr-foot{background:#15181C!important}
+html body.jr .jr-mast .jr-kicker,html body.jr .jr-sec .jr-kicker{color:#DDBA77!important}
+html body.jr .jr-mast :is(h1,.jr-sub,.jr-anchor){color:#F5EEE1!important}
+html body.jr .jr-sec :is(h2,h3,.jr-lede){color:#F5EEE1}
+html body.jr .jr-sec .jr-meta{color:#B1D1CE}
+html body.jr .jr-pillars a{background:rgba(49,68,75,.5);border-color:rgba(198,161,91,.3)}
+html body.jr .dx:has(.jiz-chapter){background:#F4F7F7!important}
+html body.jr .dx .dx-mast.jiz-chapter{background:linear-gradient(135deg,#15181C,#31444B)!important}
+html body.jr .dx .dx-ch.jiz-chapter:not([data-surface=paper]):not([data-surface=mist]){background:linear-gradient(135deg,#15181C,#31444B)!important}
+html body.jr .dx .dx-ch.jiz-chapter:is([data-surface=paper],[data-surface=mist]){background:#F7FAFA!important}
+@media(max-width:1060px){
+ html .jiz-homepage .cls-room .cls-room__routes{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+ html .jiz-homepage .cls-room .cls-room__routes{grid-template-columns:1fr}
+ html .jiz-homepage .cls-room .cls-room__route{min-height:0}
+ html .jiz-homepage .cls-room .cls-room__route::before{height:125px}
+}
