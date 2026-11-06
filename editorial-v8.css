@@ -168,3 +168,17 @@ footer.jiz-footer .jiz-footer-nav,footer.jiz-editorial-footer .jiz-editorial-foo
 .jiz-cs .jiz-cs-fact-v{margin-top:13px!important;line-height:1.55}
 .jiz-cs .jiz-cs-fact{padding:clamp(15px,1.8vw,24px)!important;
  background:linear-gradient(150deg,rgba(255,255,255,.045),rgba(255,255,255,.015))}
+
+
+/* Career-card organization names are readable identifiers, not full-width cyan bars. */
+.jiz-homepage .jz-jr-stage .jz-jr-x{
+  align-self:flex-start;width:fit-content;max-width:100%;
+  padding:6px 10px;border:1px solid rgba(15,94,111,.18);border-radius:8px;
+  background:#D7ECF0!important;color:#205564!important;
+  font:650 .71rem/1.45 var(--font-mono,monospace)!important;
+  overflow-wrap:anywhere;box-decoration-break:clone
+}
+.jiz-homepage .jz-jr-stage:last-child .jz-jr-x{
+  background:#E6EED4!important;border-color:rgba(70,99,40,.22);color:#425F34!important
+}
+.jiz-homepage .jz-jr-stage .jz-jr-m{margin:0;font-size:.72rem;line-height:1.5}
