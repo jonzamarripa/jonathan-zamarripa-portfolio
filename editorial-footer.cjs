@@ -17,7 +17,7 @@ function editorialFooter({context='Portfolio',disclosure=''}={}){
     <a class="jiz-editorial-footer__top" href="#top" data-editorial-back-top>↑ Back to Top</a>
     ${disclosure ? '<p class="jiz-editorial-footer__disclosure">'+escape(disclosure)+'</p>' : ''}
     <div class="jiz-editorial-footer__meta"><span>© 2026 Jonathan Iker Zamarripa. All rights reserved.</span>
-    <span>${escape(context)} · Designed with curiosity. Guided by human judgment.</span></div>
+    <span>Designed with curiosity. Built with AI. Guided by human judgment.</span></div>
   </div>
 </footer>`;
 }
