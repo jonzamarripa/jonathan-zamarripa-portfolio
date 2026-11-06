@@ -41,7 +41,7 @@ const EDITORIAL_CSS = `
    → Creative Lab (page) → About (Slate) → Journey (Warm Paper, light) → Stack (Carbon) → Principles (light) → Archive (page).
    Scoped to .jiz-homepage so it layers over each section's own styles. */
 const RHYTHM_CSS = `
-.jiz-homepage{--panel-gap:clamp(10px,1.4vw,20px);--panel-r:clamp(18px,2.4vw,32px);--panel-gutter-surface:#171A1F;background:var(--panel-gutter-surface)!important}
+.jiz-homepage{--panel-gap:clamp(10px,1.4vw,20px);--panel-r:clamp(18px,2.4vw,32px);--panel-gutter-surface:#EAE2D4;background:var(--panel-gutter-surface)!important}
 /* Every major chapter is a panel; the Carbon page shows through the gutters, so dark panels keep a visible curved edge. */
 .jiz-homepage .hero,.jiz-homepage .jz-fw,.jiz-homepage .jz-im,.jiz-homepage .jz-pr,.jiz-homepage .jz-cls,.jiz-homepage .jiz-creative-lab,.jiz-homepage .jiz-am,.jiz-homepage .jz-jr,.jiz-homepage .jz-st,.jiz-homepage .jz-pp,.jiz-homepage .jiz-arch,.jiz-homepage .jiz-build{width:auto;margin:var(--panel-gap);border-radius:var(--panel-r);overflow:hidden;border:0}
 
@@ -98,7 +98,7 @@ const RHYTHM_CSS = `
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap-t{color:#087B91;background:none}.jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover .jz-pr-cap-t,.jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-t{color:#087B91;background:none}
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-x{color:#087B91;background:none}
 .jiz-homepage .jz-pr--capabilities .jz-pr-cap button:focus-visible{outline-color:#0B0D10}
-.jiz-homepage .jz-pr--capabilities .jz-pr-tools{padding-block:12px 26px;border-top:1px solid rgba(11,13,16,.1)}.jiz-homepage .jz-pr--capabilities .jz-pr-tools p{color:rgba(11,13,16,.8);font-family:var(--font-body);font-size:.9375rem;line-height:1.65}
+.jiz-homepage .jz-pr--capabilities .jz-pr-tools{padding-block:12px 26px;border-top:1px solid rgba(11,13,16,.1)}.jiz-homepage .jz-pr--capabilities .jz-pr-tools p{color:rgba(11,13,16,.8);font-family:var(--font-body);font-size:.9375rem;line-height:1.65}.jiz-homepage .jz-pr--capabilities .jz-pr-tools strong{color:#087B91}
 
 /* Method — Slate panel; five stages on a connecting rail */
 .jiz-homepage .jz-pr--method{background:#171A1F}
@@ -423,14 +423,13 @@ function Practice({ part = 'method' }) {
     { n: '05', t: 'Measure', icon: 'chart', c: 'Use feedback, adoption signals, performance evidence, and stakeholder input to refine impact.', rule: 'Learning should move behavior. The measure is what people do differently after.' }
   ];
   const caps = [
-    { t: 'Learning strategy & performance consulting', c: 'Needs analysis and performance consulting that connect business goals, learner needs, and stakeholder priorities to measurable outcomes.', tools: 'Miro, FigJam, Tableau, Power BI, learning dashboards, KPI and adoption tracking, survey analysis' },
-    { t: 'Product & technology enablement', c: 'Complex platforms, workflows, and system changes turned into learning that supports adoption and operational readiness, built in partnership with product and business stakeholders.', tools: 'Workday Learn, SharePoint, Microsoft 365, Asana, Frame.io, LMS governance, release workflows' },
-    { t: 'Leadership development', c: 'Leadership experiences that strengthen decision-making, alignment, emotional intelligence, and enterprise capability.', tools: 'Articulate Storyline 360, scenario and branching design, simulations, facilitation kits' },
-    { t: 'AI-enabled learning', c: 'AI-supported workflows that accelerate content development, personalize learning, and scale multimedia, with every output reviewed and owned.', tools: 'ChatGPT, Claude, Gemini, Copilot, NotebookLM, Custom GPTs, Zapier, Make, n8n, Synthesia, ElevenLabs, HeyGen, Descript, Runway' },
-    { t: 'Creative technology & multimedia production', c: 'eLearning, explainer video, motion, job aids, and digital assets that make complex information easier to apply.', tools: 'Storyline 360, Rise 360, Camtasia, Genially, H5P, Canvas LMS, Premiere Pro, After Effects, Photoshop, Illustrator, Figma' },
-    { t: 'Accessibility, evaluation & inclusive design', c: 'Accessible, inclusive learning grounded in WCAG and UDL, evaluated through learner feedback, adoption signals, and performance evidence.', tools: 'WCAG, UDL, accessibility checkers, captioning and SRT workflows, screen-reader and contrast checks, QA checklists' }
-  ];
-  return (
+    { t: 'Learning strategy & performance consulting', c: 'Connect enterprise priorities and performance gaps to measurable human outcomes.', evidence: 'Typical deliverables: stakeholder discovery, needs analysis, performance maps, learning strategy, and success criteria.' },
+    { t: 'Product & technology enablement', c: 'Translate complex systems and changing workflows into actionable guidance for the people who rely on them.', evidence: 'Typical deliverables: launch readiness plans, role-based onboarding, release communications, workflow guidance, and adoption support.' },
+    { t: 'Leadership development', c: 'Design decisions and conversations people can practice before the stakes become real.', evidence: 'Typical deliverables: branching simulations, leadership scenarios, facilitator resources, manager toolkits, and reflection activities.' },
+    { t: 'AI-enabled learning', c: 'Build accountable, human-directed AI workflows that increase production capacity without outsourcing judgment.', evidence: 'Typical deliverables: governed prompt workflows, agent prototypes, content pipelines, review checkpoints, and production standards.' },
+    { t: 'Creative technology & multimedia production', c: 'Use story, interaction, and media to make complex material clearer, more engaging, and easier to apply.', evidence: 'Typical deliverables: interactive learning, explainer films, motion graphics, prototypes, job aids, and visual learning systems.' },
+    { t: 'Accessibility, evaluation & inclusive design', c: 'Make learning usable across diverse needs and evaluate what changes after people engage with it.', evidence: 'Typical deliverables: accessible design reviews, inclusive content patterns, feedback instruments, QA criteria, and performance evidence.' }
+  ];  return (
     <section className={'jz-pr jz-pr--' + part} ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby={part === 'capabilities' ? 'jz-cap-title' : 'jz-pr-title'}>
       <style>{`
 .jz-pr{background:#080D0B;padding-block:clamp(96px,11vw,176px) clamp(80px,9vw,140px)}
@@ -495,7 +494,7 @@ function Practice({ part = 'method' }) {
         <div className="jz-pr-caps-head">
           <p className="jz-label" style={{ gridColumn: '1 / span 12' }}>Capabilities &amp; tools</p>
           <h2 className="jz-pr-caps-h" id="jz-cap-title">What I bring to a team.</h2>
-          <p className="jz-pr-sub">Capability first. Open any row for the tools I use to deliver it; depth varies from daily practice to emerging workflows.</p>
+          <p className="jz-pr-sub">The value I create for teams, organized by the problems I solve. Open a capability to see representative deliverables; the technical stack appears later.</p>
         </div>
         <ul className="jz-pr-caps">
           {caps.map((c, i) => {
@@ -507,7 +506,7 @@ function Practice({ part = 'method' }) {
                   <span className="jz-pr-cap-c">{c.c}</span>
                   <span className="jz-pr-cap-x" aria-hidden="true">+</span>
                 </button>
-                <div className="jz-pr-tools" id={'jz-pr-tools-' + i} hidden={!open}><p>{c.tools}</p></div>
+                <div className="jz-pr-tools" id={'jz-pr-tools-' + i} hidden={!open}><p><strong>In practice · </strong>{c.evidence}</p></div>
               </li>
             );
           })}
@@ -608,8 +607,8 @@ function LearningStack() {
       `}</style>
       <div className="jz-wrap jz-grid">
         <header className="jz-st-head">
-          <div className="jz-rise"><p className="jz-label">Tools &amp; platforms</p><h2 className="jz-st-h2" id="jz-st-title">A modern learning stack for strategy, design, production, and scale.</h2></div>
-          <p className="jz-st-sub jz-rise">Hands-on tools and emerging AI workflows used to design, build, localize, automate, and measure learning experiences across enterprise environments.</p>
+          <div className="jz-rise"><p className="jz-label">Tools &amp; platforms</p><h2 className="jz-st-h2" id="jz-st-title">The production toolkit behind the strategy.</h2></div>
+          <p className="jz-st-sub jz-rise">A transparent look at the platforms and production methods behind the work. Capabilities describe the strategic value; this is the technical toolkit used to deliver it.</p>
         </header>
         <ul className="jz-st-grid">
           {groups.map((g) => {
