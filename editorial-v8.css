@@ -104,3 +104,39 @@ body.sp-page .sp-format-strip>div{border-color:rgba(40,84,93,.24)!important}
 /* The clean existing footer remains the shared footer for main and case studies.
    Static editorial pages use the same link set and equivalent grid treatment. */
 footer.jiz-footer .jiz-footer-nav a{font-weight:600}
+
+
+/* Authentic Train Story film-frame preview: 00:55, cinematic threshold sequence. */
+.jiz-creative-lab-v5 .train-cover{
+  background:
+    linear-gradient(0deg,rgba(4,12,15,.8),rgba(4,12,15,.12) 57%,rgba(4,12,15,.40)),
+    url('/assets/imagery/train-story-preview-frame.jpg') center 48%/cover no-repeat!important;
+  justify-items:start!important;align-content:end!important;text-align:left!important;
+  padding:clamp(20px,3vw,37px)!important;
+}
+.jiz-creative-lab-v5 .train-cover::after{content:none!important}
+.jiz-creative-lab-v5 .train-title{
+  font-size:clamp(1.6rem,3.5vw,3.6rem)!important;letter-spacing:-.05em!important;
+  line-height:1.1!important;max-width:13ch!important;text-align:left;color:#F7F8FA!important;
+  text-shadow:0 3px 20px rgba(0,0,0,.55)
+}
+.jiz-creative-lab-v5 .train-index{left:clamp(20px,3vw,37px)!important;top:20px!important;color:#D9E9E9!important}
+.jiz-creative-lab-v5 .train-foot{left:clamp(20px,3vw,37px)!important;
+  bottom:clamp(17px,2vw,26px)!important;color:#DDE6E6!important}
+.jiz-creative-lab-v5 .train-cover .play-pill{
+  position:absolute!important;right:clamp(15px,2vw,28px)!important;
+  bottom:clamp(15px,2vw,27px)!important;left:auto!important;
+  color:#0B0D10!important;background:#C6F23A!important;
+  border-color:#C6F23A!important
+}
+@media(max-width:650px){.jiz-creative-lab-v5 .train-cover{
+  background-position:center 47%!important}
+ .jiz-creative-lab-v5 .train-title{font-size:clamp(1.5rem,7.1vw,2.5rem)!important}
+}
+/* Keep editorial icon labels readable against paper, mist, and deep surfaces. */
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-surface=paper] .jiz-chapter__glyph,
+:is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter[data-surface=mist] .jiz-chapter__glyph{
+ color:#186879;border-color:rgba(24,104,121,.34);background:rgba(24,104,121,.07)}
+/* No footer hover language pretends to open a new tab for an internal route. */
+footer.jiz-footer .jiz-footer-nav,footer.jiz-editorial-footer .jiz-editorial-footer__nav{
+ align-items:center;row-gap:4px}
