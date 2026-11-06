@@ -129,9 +129,10 @@ assert.ok(read('HomepageP1.jsx').includes('function PortfolioGlyph'), 'Shared ic
 assert.ok(!read('HomepageP1.jsx').includes('className="jz-fw-steps"'), 'Redundant numeric carousel selectors must be removed');
 assert.ok(!homepageSource.includes('Email me directly'), 'Contact should prioritize inquiry flow over raw email');
 assert.ok(speakingPage.includes('sp-scene--cover') && speakingPage.includes('sp-scene-intro'), 'Speaking hero must integrate intro over portrait');
-assert.ok(app.includes('jiz-project-nav__menu') && app.includes('jiz-project-nav__links'), 'Case study navigation must use Speaking style structure');
+
 
 const app = read('App.jsx');
+assert.ok(app.includes('jiz-project-nav__menu') && app.includes('jiz-project-nav__links'), 'Case study navigation must use Speaking style structure');
 assert.ok(app.includes('src="/assets/logo/jiz-logo-white.svg"'), 'Case-study navigation must display actual brand logo');
 assert.ok(app.includes('<CaseStudyNavigation view={displayView} />'), 'Internal view navigation missing');
 assert.ok(app.includes('{Footer && <Footer standalone'), 'Overlay must have shared footer');
