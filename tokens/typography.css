@@ -1,6 +1,6 @@
-/* Fonts (Geist, JetBrains Mono) are linked directly in each page <head> with preconnect, not @imported here. */
+/* Modern neutral sans: Manrope for expressive structure, Inter for legible body; mono only for small technical metadata. */
 :root{
---font-display: 'Geist', 'Helvetica Neue', Arial, sans-serif;
+--font-display: 'Manrope', 'Inter', 'Geist', 'Helvetica Neue', Arial, sans-serif;
 --font-body: 'Geist', 'Helvetica Neue', Arial, sans-serif;
 --font-mono: 'JetBrains Mono', 'SFMono-Regular', Consolas, monospace;
 
