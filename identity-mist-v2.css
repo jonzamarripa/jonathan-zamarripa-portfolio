@@ -1,0 +1,112 @@
+/* Identity V2 — COLOR AND MATERIALS ONLY.
+   Based on the approved Editorial v8 preview (commit 95f6a98).
+   DO NOT replace the layout, images, interaction, motion or chapter markup.
+   Loaded after editorial-v8.css to preserve its established architecture. */
+:root{
+  --identity-mist:#F4F7F7;
+  --identity-navy:#0B1F2A;
+  --identity-teal:#0F8B8D;
+  --identity-chartreuse:#C6F23A;
+  --identity-ink:#122C36;
+  --identity-plum:#4C1D68;
+  --identity-onyx:#1A1A2E;
+  --identity-amber:#F59E0B;
+  --identity-sand:#F7E9D6;
+  --identity-shadow:0 23px 52px -27px rgba(11,31,42,.24),0 9px 24px -14px rgba(11,31,42,.12);
+  --identity-shadow-hover:0 29px 65px -30px rgba(11,31,42,.32),0 12px 28px -16px rgba(11,31,42,.15);
+  --chapter-gallery-surface:var(--identity-mist);
+  --chapter-gallery-light:#EDF4F5;
+  --panel-gutter-surface:var(--identity-mist);
+  --surface-mist:#EFF5F6;
+  --surface-paper:#F7FAFA;
+  --portfolio-canvas:var(--identity-mist);
+}
+/* Mist remains the gallery surround. It does not replace authored section backgrounds. */
+html,html body,html body:has(.jiz-homepage),
+html body:has(.jiz-cs),html body:has(.tfs),
+html body:has(.jiz-btb-detail),html body:has(.sp-page){
+  background:var(--identity-mist)!important;
+}
+html .jiz-homepage{
+  --chapter-gallery-surface:var(--identity-mist);
+  --panel-gutter-surface:var(--identity-mist)!important;
+  background:var(--identity-mist)!important;
+}
+html .jiz-homepage main{background:transparent!important}
+html :is(.jiz-cs,.tfs,.jiz-btb-detail,.jiz-chapter-stack,.jiz-cs-overlay){
+  --panel-gutter-surface:var(--identity-mist);
+  --portfolio-canvas:var(--identity-mist);
+  background-color:var(--identity-mist)!important;
+}
+/* Preserve the exact panel geometry of v8; elevation gives each existing panel its own slide. */
+html .jiz-homepage :is(.hero,.jz-fw,.jz-im,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build),
+html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter{
+  box-shadow:var(--identity-shadow);
+}
+@media(hover:hover) and (pointer:fine){
+  html .jiz-homepage :is(.hero,.jz-fw,.jz-im,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build):hover{
+    box-shadow:var(--identity-shadow-hover);
+  }
+}
+/* Foundational film palette. Existing video and image layers stay in place. */
+html .jiz-homepage .hero{background-color:var(--identity-navy)!important}
+html .jiz-homepage .hero-base-gradient{
+  background:linear-gradient(90deg,rgba(5,24,34,.98) 0%,rgba(7,30,42,.88) 35%,rgba(9,45,57,.65) 68%,rgba(8,27,38,.33) 100%);
+}
+html .jiz-homepage .jz-fw{background:var(--identity-navy)!important}
+html .jiz-homepage .jz-im{background:linear-gradient(135deg,#0B1F2A,#153C49 88%)!important}
+html .jiz-homepage .jz-pr--method{background:linear-gradient(130deg,#0B1F2A,#183A49)!important}
+html .jiz-homepage .jz-st{background:linear-gradient(145deg,#0B1F2A,#203D49)!important}
+html .jiz-homepage .jiz-am{background:linear-gradient(145deg,#0B1F2A,#213E4A)!important}
+html .jiz-homepage .jiz-build{background:linear-gradient(135deg,#0B1F2A,#194452)!important}
+html .jiz-homepage .jiz-creative-lab{background-color:var(--identity-navy)!important}
+/* Neutral reading surfaces are cool and sleek, not cream. The underlying card grid is unchanged. */
+html .jiz-homepage .jz-pr--capabilities,
+html .jiz-homepage .jz-jr,
+html .jiz-homepage .jz-pp{
+  background:linear-gradient(145deg,#FCFDFE,#EFF5F6)!important;
+  color:var(--identity-ink);
+}
+html .jiz-homepage .jz-pr--capabilities :is(.jz-pr-caps-h,.jz-pr-cap-t),
+html .jiz-homepage .jz-jr :is(.jz-jr-h2,.jz-jr-t){color:var(--identity-ink)}
+html .jiz-homepage .jz-pr--capabilities :is(.jz-pr-sub,.jz-pr-cap-c),
+html .jiz-homepage .jz-jr :is(.jz-jr-sub,.jz-jr-c){color:#3C5661}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap-t,
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open=true] .jz-pr-cap-t{background:transparent!important}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover .jz-pr-cap-t{color:#116977}
+html .jiz-homepage .jz-jr-stage{background:rgba(255,255,255,.74);border-color:rgba(11,31,42,.12)}
+html .jiz-homepage .jz-jr-stage:last-child{background:#E6F3EF}
+html .jiz-homepage .jz-jr-stage .jz-jr-x{background:#DDF0F2!important;color:#205564!important}
+/* Film imagery continues to show through the original overlays. */
+html .jiz-homepage .jiz-arch-scrim{
+  background:linear-gradient(100deg,rgba(6,25,35,.95),rgba(7,31,42,.83) 43%,rgba(9,39,50,.65));
+}
+html .jiz-homepage .jiz-arch-tint{
+  background:radial-gradient(ellipse at 80% 10%,rgba(15,139,141,.20),transparent 65%);
+}
+/* The CLS publication is a separate identity, without abandoning its existing journal composition. */
+html .jiz-homepage .jz-cls{
+  background:radial-gradient(ellipse at 85% 12%,rgba(245,158,11,.16),transparent 55%),
+             linear-gradient(125deg,#1A1A2E 2%,#352047 65%,#4C1D68 120%)!important;
+  color:var(--identity-sand);
+}
+html .jiz-homepage .jz-cls :is(.jz-cls-lead,.jz-cls-issue){
+  border-color:rgba(245,158,11,.28);
+}
+html .jiz-homepage .jz-cls :is(.jz-cls-links a,.jz-cls-read,.jz-cls-invite){color:#FFBC57}
+html .jiz-homepage .cls-room{
+  background:linear-gradient(140deg,#1A1A2E,#3A1C4B)!important;
+  color:var(--identity-sand);
+  box-shadow:inset 0 3px var(--identity-amber);
+}
+html .jiz-homepage .cls-room::before{background:radial-gradient(ellipse,rgba(245,158,11,.12),transparent 67%)}
+/* The only saturated primary brand accent is the original Signal Chartreuse. */
+html .jiz-homepage :is(.jz-pr-step,.jz-jr-stage) .jz-label{letter-spacing:.13em}
+html .jiz-homepage :is(.jz-fw-media,.jiz-am-media,.cls-room__media,.jiz-arch-film){isolation:isolate}
+html .jiz-homepage :is(.jz-fw-media,.jiz-am-media) img{border-radius:inherit}
+@media(max-width:760px){
+ html .jiz-homepage :is(.hero,.jz-fw,.jz-im,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build){box-shadow:0 8px 22px rgba(11,31,42,.12)}
+}
+@media(prefers-reduced-motion:reduce){
+ html .jiz-homepage :is(.hero,.jz-fw,.jz-im,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build){transition:none!important}
+}
