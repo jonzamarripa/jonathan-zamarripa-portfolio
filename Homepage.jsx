@@ -214,7 +214,7 @@ function Hero({ onExploreWork, onConnect }) {
           <p className="jz-label hero-eyebrow hero-fade hero-fade--1">Senior Learning Experience Designer &amp; Learning Strategist</p>
           <h1 className="hero-title hero-fade hero-fade--2"><span className="hero-title-main">From complex change </span><span className="hero-title-accent">to finished experience.</span></h1>
           <p className="hero-lead hero-fade hero-fade--3">I turn complex business and learning challenges into experiences people can understand and use—from strategy and experience design to film, AI-enabled production, and the finished build.</p>
-          <p className="hero-support hero-fade hero-fade--4">Learning Strategy &amp; Performance Consulting <span className="hero-dot">•</span> Leadership Development <span className="hero-dot">•</span> Product &amp; Technology Enablement <span className="hero-dot">•</span> AI-Enabled Learning <span className="hero-dot">•</span> Creative Technology &amp; Multimedia Production</p>
+          <p className="hero-support hero-fade hero-fade--4">Strategy <span className="hero-dot">/</span> Learning Experience <span className="hero-dot">/</span> Creative Technology</p>
           <div className="hero-actions hero-fade hero-fade--5">
             <Button variant="primary" onClick={onExploreWork}>View Work</Button>
             <Button variant="secondary" icon={false} onClick={() => { window.jizTrack && window.jizTrack('resume_click'); window.open(RESUME_URL, '_blank', 'noopener'); }}>View Resume</Button>
@@ -791,7 +791,7 @@ function FinalMoment({ onNavigate, standalone = false }) {
   const [lit, setLit] = React.useState(false);
   const ref = React.useRef(null);
   const reduced = prefersReduced();
-  const NAV = [['Creative Lab', 'creative-lab'], ['Behind the Build', 'btb'], ['Speaking', 'speaking'], ['Resume', 'resume'], ['LinkedIn', 'linkedin']].concat(window.JIZ_SITE.links.newsletter ? [['Journal', 'journal'], ['Read the Newsletter', 'newsletter']] : [], [['Email', 'email']]);
+  const NAV = [['Work', 'work'], ['Creative Lab', 'creative-lab'], ['Journal', 'journal'], ['Speaking', 'speaking'], ['About', 'about'], ['Contact', 'contact']];
   React.useEffect(() => {
     const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setLit(true); }, { threshold: 0.4 });
     if (ref.current) obs.observe(ref.current);
@@ -835,11 +835,11 @@ function FinalMoment({ onNavigate, standalone = false }) {
           <img className="jiz-footer-logo" src="/assets/logo/jiz-logo-white.svg" alt="" />
         </a>
         <a className="jiz-footer-name jiz-footer-name--link" href="/" aria-label="Jonathan Iker Zamarripa — back to homepage">Jonathan Iker Zamarripa</a>
-        <p className="jiz-footer-disciplines">Learning Strategy &amp; Performance Consulting • Leadership Development • Product &amp; Technology Enablement • AI-Enabled Learning • Creative Technology &amp; Multimedia Production</p>
+        <p className="jiz-footer-disciplines">Learning strategy · Experience design · Creative technology</p>
         <nav className="jiz-footer-nav" aria-label="Footer">
           {NAV.map(([label, index]) => {
             const href = index === 'journal' ? '/journal/' : index === 'btb' ? '/#behind-the-build' : window.JIZ_SITE.links[index] || '/#' + index;
-            const external = ['resume', 'linkedin', 'newsletter'].includes(index);
+            const external = false;
             return <a key={label} href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined} onClick={(event) => {
               if (!['btb', 'creative-lab', 'archive'].includes(index) || standalone || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
               event.preventDefault();
