@@ -1,0 +1,16 @@
+{
+  "name": "jonathan-zamarripa-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static precompiled React and journal portfolio",
+  "scripts": {
+    "build": "node build-journal.cjs && node build.cjs",
+    "test": "node --check build.cjs && node --check build-journal.cjs"
+  },
+  "devDependencies": {
+    "@babel/core": "7.28.5",
+    "@babel/preset-react": "7.28.5",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}
