@@ -155,7 +155,7 @@ function EditorialStyles() { return <style>{EDITORIAL_CSS + RHYTHM_CSS}</style>;
 
 /* ---------- Selected experience ---------- */
 function SelectedExperience() {
-  const orgs = ['Cox Enterprises', 'IHG Hotels & Resorts', 'Atlanta International School'];
+  const orgs = ['Intuit', 'IHG Hotels & Resorts', 'Cox Enterprises', 'Atlanta International School'];
   return (
     <section className="jz-exp" aria-label="Selected experience">
       <style>{`
