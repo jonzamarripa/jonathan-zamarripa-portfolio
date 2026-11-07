@@ -12,6 +12,7 @@ const binary = Buffer.from(encoded,'base64');
 if(binary.length !== 6245039 || binary.toString('ascii',4,8)!=='ftyp')throw new Error('Contact film integrity verification failed');
 fs.mkdirSync(path.join(__dirname,'assets/video'),{recursive:true});
 fs.writeFileSync(path.join(__dirname,'assets/video/portfolio-contact-executive.mp4'),binary);
+if(process.env.VERCEL)fs.rmSync(partsDir,{recursive:true,force:true});
 console.log('PASS: owner-provided contact portrait film reconstructed and validated');
 for(const file of [
   'build.cjs',
