@@ -1264,7 +1264,7 @@ function Homepage({ onOpenCaseStudy }) {
     return () => observer.disconnect();
   }, []);
 
-  const activeNavLabel = (SITE.section(activeSection) || {}).nav || '';
+  const activeNavLabel = activeSection === 'thinking' ? 'Learning' : activeSection === 'contact' ? 'Contact' : (SITE.section(activeSection) || {}).nav || '';
 
   return (
     <div className="jiz-homepage" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#F4F7F7', position: 'relative', zIndex: 1 }}>
@@ -1273,6 +1273,8 @@ function Homepage({ onOpenCaseStudy }) {
         secondaryItems={['Creative Lab', 'Resume', 'LinkedIn']}
         active={activeNavLabel}
         onNavigate={(item) => {
+          if (item === 'Learning') { scrollToSection('thinking'); return; }
+          if (item === 'Contact') { scrollToSection('contact'); return; }
           if (item === 'Speaking') { window.location.assign(SITE.links.speaking); return; }
           if (item === 'Resume') { window.jizTrack && window.jizTrack('resume_click'); window.open(SITE.links.resume, '_blank', 'noopener,noreferrer'); return; }
           if (item === 'LinkedIn') { window.open(SITE.links.linkedin, '_blank', 'noopener,noreferrer'); return; }
