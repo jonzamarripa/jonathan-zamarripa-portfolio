@@ -98,4 +98,21 @@ assert(css.includes('grid-template-columns:repeat(5,minmax(0,1fr))'),'Five-stage
 assert(css.includes('grid-auto-flow:column'),'Smaller screens must scroll rather than break Method into two rows');
 assert(css.includes('html .jiz-homepage .jz-st-tools li'),'Consistent chartreuse tool chips are missing');
 console.log('PASS: V6 speaker film, six supplemental images, bold capability/tool accents, five-stage Method and summa cum laude.');
+
+const creativeMarkup = read('creative-lab-v5.js');
+assert(p1.includes("'Intuit'"),'Intuit must appear in current Selected Experience list');
+assert(creativeMarkup.includes('Creative Lab <span class=\\\"divider\\\">/</span> Independent Films'),'Creative Lab label is not concise');
+assert(css.includes("portfolio-principles-glass.jpg") && css.includes('html .jiz-homepage .jz-im'),'Impact visual background not connected');
+assert(css.includes('.jiz-creative-lab-v5 .lab') && css.includes("portfolio-creative-lab-camera-workshop.jpg"),'Inner Creative Lab background is not applied');
+assert(css.includes('jiz-node-signal') && css.includes('jiz-rail-reveal'),'Method pulses and connecting rail animation missing');
+assert(home.includes("entry.target.dataset.motionIn = 'true'"),'Scroll-triggered section entrance missing');
+assert(home.includes("prefers-reduced-motion: reduce"),'Reduced motion guard missing');
+assert(home.includes('jz-ct-poster-video') && home.includes('portfolio-contact-executive.mp4'),'Contact portrait video is missing');
+assert(home.includes('video.pause()'),'Contact film is not paused when hidden');
+const contactFilm = 'assets/video/portfolio-contact-executive.mp4';
+const contactPoster = 'assets/imagery/portfolio-contact-executive-poster.jpg';
+assert(fs.existsSync(contactFilm) && fs.statSync(contactFilm).size===6245039,'Original Contact film missing or corrupt');
+assert(fs.existsSync(contactPoster) && fs.statSync(contactPoster).size>50000,'Contact portrait fallback still missing');
+assert(css.includes('jz-ct-poster--portrait .jz-ct-poster-video'),'Larger Contact media framing missing');
+console.log('PASS: V7 scroll motion, Method pulses, Impact image, Creative Lab, Intuit and owner-provided Contact video');
 console.log('PASS: V4 visual identity, five-link navigation, experience contrast, image-first carousel, 11 routes, 4 CLS chapters, brand assets and base contrast.');
