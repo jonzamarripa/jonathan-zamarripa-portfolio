@@ -1264,6 +1264,35 @@ function Homepage({ onOpenCaseStudy }) {
     return () => observer.disconnect();
   }, []);
 
+  // Progressive scene direction: each chapter and its key elements enters once,
+  // with a small stagger. The site remains fully visible without JS or when
+  // reduced-motion is requested.
+  React.useEffect(() => {
+    const root = document.querySelector('.jiz-homepage');
+    if (!root) return undefined;
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const selectors = [
+      '.jz-fw', '.jz-im', '.jz-pr', '.jz-cls', '.cls-room', '.jiz-creative-lab',
+      '.jiz-am', '.jz-jr', '.jz-st', '.jz-pp', '.jiz-arch', '.jiz-build', '.sp-preview',
+      '.jz-pr--method .jz-pr-step', '.jz-im-cell', '.jz-jr-stage',
+      '.jz-fw-slide', '.jz-pr-cap', '.cls-room__route'
+    ];
+    const nodes = Array.from(root.querySelectorAll(selectors.join(',')));
+    if (preference.matches || typeof IntersectionObserver === 'undefined') {
+      nodes.forEach(el => el.dataset.motionIn = 'true');
+      return undefined;
+    }
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.dataset.motionIn = 'true';
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    nodes.forEach(el => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+
   const activeNavLabel = activeSection === 'thinking' ? 'Learning' : activeSection === 'contact' ? 'Contact' : (SITE.section(activeSection) || {}).nav || '';
 
   return (
