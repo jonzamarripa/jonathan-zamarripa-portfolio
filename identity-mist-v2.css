@@ -1116,3 +1116,22 @@ html .jiz-homepage .jz-ct-poster--portrait :is(.jz-ct-poster-kicker,.jz-ct-poste
 @media(prefers-reduced-motion:reduce){
  html .jiz-homepage [data-motion-in="true"]{animation:none!important;transition:none!important}
 }
+
+
+/* Contact film portrait framing. The real supplied still is the
+   fallback when reduced motion, save-data or playback restrictions apply. */
+html .jiz-homepage .jz-ct-poster--portrait{
+ background:linear-gradient(180deg,rgba(6,23,31,.08),rgba(6,23,31,.22)),
+ url('/assets/imagery/portfolio-contact-executive-poster.jpg') 50% 35%/cover no-repeat!important;
+}
+html .jiz-homepage .jz-ct-poster--portrait .jz-ct-poster-video{
+ display:block;position:absolute;z-index:0;inset:0;
+ width:100%;height:100%;object-fit:cover;
+ object-position:50% 35%;opacity:.97;pointer-events:none;
+}
+html .jiz-homepage .jz-ct-poster--portrait::before{
+ background:linear-gradient(180deg,rgba(6,24,34,.3) 0%,rgba(6,24,34,0) 32%,rgba(6,24,34,.03) 56%,rgba(6,24,34,.82) 100%)!important;
+}
+@media(prefers-reduced-motion:reduce){
+ html .jiz-homepage .jz-ct-poster--portrait .jz-ct-poster-video{display:none!important}
+}
