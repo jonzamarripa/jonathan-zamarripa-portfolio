@@ -1135,3 +1135,6 @@ html .jiz-homepage .jz-ct-poster--portrait::before{
 @media(prefers-reduced-motion:reduce){
  html .jiz-homepage .jz-ct-poster--portrait .jz-ct-poster-video{display:none!important}
 }
+
+/* Selected Experience joins the chapter motion sequence without delaying readable text. */
+@media(prefers-reduced-motion:no-preference){html .jiz-homepage .jz-exp[data-motion-in="true"]{animation:jiz-chapter-enter 560ms cubic-bezier(.22,.61,.36,1) both}}
