@@ -52,4 +52,23 @@ assert(css.includes('html .jiz-homepage .jiz-global-nav.is-scrolled'),'Light sti
 assert(css.includes('html .jiz-homepage .jz-exp .jz-exp-org'),'Selected Experience contrast treatment missing');
 assert(css.includes('html .jiz-homepage .jz-fw .jz-fw-project-title'),'Image-first project typography missing');
 assert(css.includes("font-family:'Manrope'"),'Display typography refinement missing');
+// V5: all six user-supplied image backgrounds ship as real local assets.
+const sectionBackgrounds = [
+ ['Featured Work','portfolio-selected-work-architecture.jpg','.jz-fw'],
+ ['Capabilities','portfolio-capabilities-systems.jpg','.jz-pr--capabilities'],
+ ['Method','portfolio-method-process.jpg','.jz-pr--method'],
+ ['Cinematic Learning Systems','portfolio-cls-gold-landscape.jpg','.jz-cls'],
+ ['Creative Lab','portfolio-creative-lab-studio.jpg','.jiz-creative-lab'],
+ ['Contact','portfolio-contact-threshold.jpg','.jiz-build']
+];
+for (const [label,asset,selector] of sectionBackgrounds) {
+ const file='assets/imagery/'+asset;
+ assert(fs.existsSync(file), label+': background asset missing: '+file);
+ assert(fs.statSync(file).size > 100000,label+': source image unexpectedly small');
+ assert(css.includes("url('/"+file+"')"),label+': background CSS asset not wired');
+ assert(css.includes(selector),label+': expected section selector missing');
+ assert(html.includes('identity-mist-v2.css'),label+': homepage stylesheet missing');
+}
+assert(home.includes('jonathan-hero-final.mp4'), 'Hero film must remain unchanged');
+console.log('PASS: Six owner-supplied section backgrounds committed and mapped; original hero preserved.');
 console.log('PASS: V4 visual identity, five-link navigation, experience contrast, image-first carousel, 11 routes, 4 CLS chapters, brand assets and base contrast.');
