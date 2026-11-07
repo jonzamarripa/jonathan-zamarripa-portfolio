@@ -170,7 +170,7 @@ function SelectedExperience() {
       <div className="jz-wrap jz-exp-in">
         <p className="jz-label">Selected experience</p>
         <ul className="jz-exp-list">{orgs.map((o) => <li key={o} className="jz-exp-org">{o}</li>)}</ul>
-        <p className="jz-exp-edu"><span className="jz-label">Education</span><span>M.Ed., Learning Design and Technology, Arizona State University</span></p>
+        <p className="jz-exp-edu"><span className="jz-label">Education</span><span>M.Ed., Learning Design and Technology, Arizona State University · summa cum laude</span></p>
       </div>
     </section>
   );
