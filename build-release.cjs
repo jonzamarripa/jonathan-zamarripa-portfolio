@@ -14,6 +14,16 @@ fs.mkdirSync(path.join(__dirname,'assets/video'),{recursive:true});
 fs.writeFileSync(path.join(__dirname,'assets/video/portfolio-contact-executive.mp4'),binary);
 if(process.env.VERCEL)fs.rmSync(partsDir,{recursive:true,force:true});
 console.log('PASS: owner-provided contact portrait film reconstructed and validated');
+// Owner-supplied Featured Work film, retained as six lossless source segments.
+const featuredDir=path.join(__dirname,'build-assets/featured-work-film');
+const featuredParts=fs.readdirSync(featuredDir).filter(x=>/^part-[0-9]+[.]b64$/.test(x)).sort();
+if(featuredParts.length!==6)throw new Error('Featured Work film segments missing');
+const featuredBinary=Buffer.from(featuredParts.map(n=>fs.readFileSync(path.join(featuredDir,n),'utf8')).join(''),'base64');
+if(featuredBinary.length!==3466951||featuredBinary.toString('ascii',4,8)!=='ftyp')throw new Error('Featured Work film integrity verification failed');
+fs.writeFileSync(path.join(__dirname,'assets/video/portfolio-featured-work-glass.mp4'),featuredBinary);
+if(process.env.VERCEL)fs.rmSync(featuredDir,{recursive:true,force:true});
+console.log('PASS: Featured Work cinematic background reconstructed and validated');
+
 for(const file of [
   'build.cjs',
   'tests/discovery-integrity.cjs',
