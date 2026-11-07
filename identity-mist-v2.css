@@ -1,0 +1,1283 @@
+/* Identity V2 — COLOR AND MATERIALS ONLY.
+   Based on the approved Editorial v8 preview (commit 95f6a98).
+   DO NOT replace the layout, images, interaction, motion or chapter markup.
+   Loaded after editorial-v8.css to preserve its established architecture. */
+:root{
+  --identity-mist:#F4F7F7;
+  --identity-navy:#0B1F2A;
+  --identity-teal:#0F8B8D;
+  --identity-chartreuse:#C6F23A;
+  --identity-ink:#122C36;
+  --identity-plum:#4C1D68;
+  --identity-onyx:#1A1A2E;
+  --identity-amber:#F59E0B;
+  --identity-sand:#F7E9D6;
+  --identity-shadow:0 23px 52px -27px rgba(11,31,42,.24),0 9px 24px -14px rgba(11,31,42,.12);
+  --identity-shadow-hover:0 29px 65px -30px rgba(11,31,42,.32),0 12px 28px -16px rgba(11,31,42,.15);
+  --chapter-gallery-surface:var(--identity-mist);
+  --chapter-gallery-light:#EDF4F5;
+  --panel-gutter-surface:var(--identity-mist);
+  --surface-mist:#EFF5F6;
+  --surface-paper:#F7FAFA;
+  --portfolio-canvas:var(--identity-mist);
+}
+/* Mist remains the gallery surround. It does not replace authored section backgrounds. */
+html,html body,html body:has(.jiz-homepage),
+html body:has(.jiz-cs),html body:has(.tfs),
+html body:has(.jiz-btb-detail),html body:has(.sp-page){
+  background:var(--identity-mist)!important;
+}
+html .jiz-homepage{
+  --chapter-gallery-surface:var(--identity-mist);
+  --panel-gutter-surface:var(--identity-mist)!important;
+  background:var(--identity-mist)!important;
+}
+html .jiz-homepage main{background:transparent!important}
+html :is(.jiz-cs,.tfs,.jiz-btb-detail,.jiz-chapter-stack,.jiz-cs-overlay){
+  --panel-gutter-surface:var(--identity-mist);
+  --portfolio-canvas:var(--identity-mist);
+  background-color:var(--identity-mist)!important;
+}
+/* Preserve the exact panel geometry of v8; elevation gives each existing panel its own slide. */
+html .jiz-homepage :is(.hero,.jz-fw,.jz-im,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build),
+html :is(.jiz-cs,.tfs,.jiz-btb-detail) .jiz-chapter{
+  box-shadow:var(--identity-shadow);
+}
+@media(hover:hover) and (pointer:fine){
+  html .jiz-homepage :is(.hero,.jz-fw,.jz-im,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build):hover{
+    box-shadow:var(--identity-shadow-hover);
+  }
+}
+/* Foundational film palette. Existing video and image layers stay in place. */
+html .jiz-homepage .hero{background-color:var(--identity-navy)!important}
+html .jiz-homepage .hero-base-gradient{
+  background:linear-gradient(90deg,rgba(5,24,34,.98) 0%,rgba(7,30,42,.88) 35%,rgba(9,45,57,.65) 68%,rgba(8,27,38,.33) 100%);
+}
+html .jiz-homepage .jz-fw{background:var(--identity-navy)!important}
+html .jiz-homepage .jz-im{background:linear-gradient(135deg,#0B1F2A,#153C49 88%)!important}
+html .jiz-homepage .jz-pr--method{background:linear-gradient(130deg,#0B1F2A,#183A49)!important}
+html .jiz-homepage .jz-st{background:linear-gradient(145deg,#0B1F2A,#203D49)!important}
+html .jiz-homepage .jiz-am{background:linear-gradient(145deg,#0B1F2A,#213E4A)!important}
+html .jiz-homepage .jiz-build{background:linear-gradient(135deg,#0B1F2A,#194452)!important}
+html .jiz-homepage .jiz-creative-lab{background-color:var(--identity-navy)!important}
+/* Neutral reading surfaces are cool and sleek, not cream. The underlying card grid is unchanged. */
+html .jiz-homepage .jz-pr--capabilities,
+html .jiz-homepage .jz-jr,
+html .jiz-homepage .jz-pp{
+  background:linear-gradient(145deg,#FCFDFE,#EFF5F6)!important;
+  color:var(--identity-ink);
+}
+html .jiz-homepage .jz-pr--capabilities :is(.jz-pr-caps-h,.jz-pr-cap-t),
+html .jiz-homepage .jz-jr :is(.jz-jr-h2,.jz-jr-t){color:var(--identity-ink)}
+html .jiz-homepage .jz-pr--capabilities :is(.jz-pr-sub,.jz-pr-cap-c),
+html .jiz-homepage .jz-jr :is(.jz-jr-sub,.jz-jr-c){color:#3C5661}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap-t,
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open=true] .jz-pr-cap-t{background:transparent!important}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover .jz-pr-cap-t{color:#116977}
+html .jiz-homepage .jz-jr-stage{background:rgba(255,255,255,.74);border-color:rgba(11,31,42,.12)}
+html .jiz-homepage .jz-jr-stage:last-child{background:#E6F3EF}
+html .jiz-homepage .jz-jr-stage .jz-jr-x{background:#DDF0F2!important;color:#205564!important}
+/* Film imagery continues to show through the original overlays. */
+html .jiz-homepage .jiz-arch-scrim{
+  background:linear-gradient(100deg,rgba(6,25,35,.95),rgba(7,31,42,.83) 43%,rgba(9,39,50,.65));
+}
+html .jiz-homepage .jiz-arch-tint{
+  background:radial-gradient(ellipse at 80% 10%,rgba(15,139,141,.20),transparent 65%);
+}
+/* The CLS publication is a separate identity, without abandoning its existing journal composition. */
+html .jiz-homepage .jz-cls{
+  background:radial-gradient(ellipse at 85% 12%,rgba(245,158,11,.16),transparent 55%),
+             linear-gradient(125deg,#1A1A2E 2%,#352047 65%,#4C1D68 120%)!important;
+  color:var(--identity-sand);
+}
+html .jiz-homepage .jz-cls :is(.jz-cls-lead,.jz-cls-issue){
+  border-color:rgba(245,158,11,.28);
+}
+html .jiz-homepage .jz-cls :is(.jz-cls-links a,.jz-cls-read,.jz-cls-invite){color:#FFBC57}
+html .jiz-homepage .cls-room{
+  background:linear-gradient(140deg,#1A1A2E,#3A1C4B)!important;
+  color:var(--identity-sand);
+  box-shadow:inset 0 3px var(--identity-amber);
+}
+html .jiz-homepage .cls-room::before{background:radial-gradient(ellipse,rgba(245,158,11,.12),transparent 67%)}
+/* The only saturated primary brand accent is the original Signal Chartreuse. */
+html .jiz-homepage :is(.jz-pr-step,.jz-jr-stage) .jz-label{letter-spacing:.13em}
+html .jiz-homepage :is(.jz-fw-media,.jiz-am-media,.cls-room__media,.jiz-arch-film){isolation:isolate}
+html .jiz-homepage :is(.jz-fw-media,.jiz-am-media) img{border-radius:inherit}
+@media(max-width:760px){
+ html .jiz-homepage :is(.hero,.jz-fw,.jz-im,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build){box-shadow:0 8px 22px rgba(11,31,42,.12)}
+}
+@media(prefers-reduced-motion:reduce){
+ html .jiz-homepage :is(.hero,.jz-fw,.jz-im,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build){transition:none!important}
+}
+
+/* Modern neutral type without changing headings, text scale, rhythm, or components. */
+:root{
+ --font-display:'Manrope','Geist','Helvetica Neue',Arial,sans-serif;
+ --font-body:'Inter','Geist','Helvetica Neue',Arial,sans-serif;
+ --font-mono:'JetBrains Mono','SFMono-Regular',monospace;
+}
+html .jiz-homepage :is(.jz-exp,.jz-pr,.jz-fw,.jz-jr,.jz-cls),
+html :is(.jiz-cs,.tfs,.jiz-btb-detail,.jr){font-family:var(--font-body)}
+/* Static CLS journal: original issue layout remains unchanged, but section slides are lifted. */
+html:has(body.jr),html body.jr{background:var(--identity-mist)!important}
+body.jr{--jr-ground:var(--identity-mist);--jr-amber:#FFBC57;--jr-teal:#94C6D0}
+body.jr main{background:transparent}
+body.jr .jr-mast{
+ background:radial-gradient(ellipse at 85% 10%,rgba(245,158,11,.16),transparent 56%),
+ linear-gradient(130deg,#1A1A2E,#44205A)!important;
+ border-color:rgba(245,158,11,.24);
+ border-radius:clamp(20px,2.5vw,34px);
+ box-shadow:var(--identity-shadow);
+}
+body.jr .jr-sec{
+ border-radius:clamp(20px,2.5vw,34px);
+ border-color:rgba(245,158,11,.18);
+ background:linear-gradient(140deg,#1A1A2E,#352047)!important;
+ box-shadow:var(--identity-shadow);
+}
+body.jr .jr-sec:nth-of-type(even){background:linear-gradient(140deg,#271B39,#442356)!important}
+body.jr .jr-sec .jr-kicker,body.jr .jr-mast .jr-kicker{color:#FFBC57}
+body.jr .jr-sec .jr-meta{color:#A6D3DF}
+body.jr .jr-top{background:rgba(26,26,46,.96);border-bottom-color:rgba(245,158,11,.24)}
+body.jr .jr-top a{color:#F7E9D6}
+body.jr .jr-foot{background:#1A1A2E!important;color:#F7E9D6;border-radius:clamp(20px,2.5vw,34px)}
+body.jr .jr-foot a{color:#F1BD77}
+body.jr .jr-pillars a{border-color:rgba(247,233,214,.22)}
+body.jr :is(.dx-mast,.dx-ch.jiz-chapter){box-shadow:var(--identity-shadow);border-radius:clamp(20px,2.5vw,34px)}
+body.jr .dx:has(.jiz-chapter){background:var(--identity-mist)!important}
+body.jr .dx .dx-ch.jiz-chapter:not([data-surface=paper]):not([data-surface=mist]){background:linear-gradient(135deg,#1A1A2E,#352047)}
+body.jr .dx .dx-ch.jiz-chapter:is([data-surface=paper],[data-surface=mist]){background:#F7FAFA;color:#122C36}
+body.jr .jr-mast :is(h1,.jr-sub,.jr-anchor){color:#F7E9D6}
+/* Keep touch and reduced-motion behavior exactly as authored in the original v8 branch. */
+
+
+/* V3 — Approved cinematic materials on the original Editorial v8 architecture.
+   Navy/Mist/Chartreuse stay; CLS now Onyx + Burnished Gold + Champagne + Petrol Slate.
+   Avoid altering element geometry or behaviors outside the Featured Work gallery. */
+:root{
+ --identity-onyx:#15181C;
+ --identity-burnished-gold:#C6A15B;
+ --identity-champagne:#E7D8B7;
+ --identity-petrol:#31444B;
+ --portfolio-footer:#0B1F2A;
+ --accent-journal-amber:#C6A15B;
+ --accent-journal-teal:#65858A;
+}
+/* Original footer component stays intact; chartreuse is reserved for deliberate action. */
+html footer.jiz-footer,
+html .jiz-editorial-footer{
+ background:linear-gradient(116deg,#0B1F2A,#122D38 62%,#0B1F2A)!important;
+ color:#F4F7F7!important;
+ border:1px solid rgba(201,225,230,.16)!important;
+ box-shadow:var(--identity-shadow)!important;
+}
+html footer.jiz-footer :is(.jiz-footer-name,.jiz-footer-name--link,.jiz-footer-nav a),
+html .jiz-editorial-footer :is(a,p,span,small,strong){
+ color:#F4F7F7!important;
+}
+html footer.jiz-footer :is(.jiz-footer-disciplines,.jiz-footer-credit,.jiz-footer-tech,.jiz-footer-copy){color:#CADCE0!important}
+html footer.jiz-footer .jiz-footer-rule{background:rgba(227,242,244,.2)!important}
+html footer.jiz-footer .jiz-footer-logo{filter:none!important}
+html footer.jiz-footer .jiz-footer-top{
+ border:1px solid #C6F23A!important;
+ color:#0B1F2A!important;background:#C6F23A!important;
+}
+html footer.jiz-footer .jiz-footer-top:hover{background:#D5F777!important}
+html footer.jiz-footer :is(a,button):focus-visible{outline:2px solid #C6F23A!important;outline-offset:4px}
+html footer.jiz-footer .jiz-footer-nav a:hover{border-color:rgba(244,247,247,.6)!important}
+html .jiz-editorial-footer img{filter:none!important}
+/* Selected Work — one coherent row of three image-first cards, scroll-snap still does the work. */
+html .jiz-homepage .jz-fw{
+ background:linear-gradient(145deg,#FCFDFE,#EFF5F6)!important;
+ color:#122C36!important;
+}
+html .jiz-homepage .jz-fw .jz-fw-h2{
+ font-size:clamp(1.85rem,3.1vw,3rem)!important;
+ color:#122C36!important;line-height:1.12;
+}
+html .jiz-homepage .jz-fw :is(.jz-fw-heading>p,.jz-fw-instruction,.jz-fw-count){color:#3C5661!important}
+html .jiz-homepage .jz-fw .jz-label{color:#136B79!important}
+html .jiz-homepage .jz-fw-stage{width:min(1370px,calc(100% - 2*clamp(24px,5vw,90px)))}
+html .jiz-homepage .jz-fw-gallery-layout{position:relative;min-width:0}
+html .jiz-homepage .jz-fw-track{
+ --gallery-gap:clamp(12px,1.6vw,24px);
+ gap:var(--gallery-gap);scrollbar-color:#A3BFC6 transparent;
+ padding:6px 4px 16px;scroll-padding-inline:4px;
+}
+html .jiz-homepage .jz-fw-track::after{display:none}
+html .jiz-homepage .jz-fw-slide{
+ flex:0 0 calc((100% - 2 * var(--gallery-gap)) / 3);
+ min-width:0;scroll-snap-align:start;
+}
+html .jiz-homepage .jz-fw-project-link{
+ background:#F9FCFC!important;color:#122C36!important;
+ border:1px solid rgba(11,31,42,.12)!important;
+ box-shadow:0 9px 22px -17px rgba(7,29,41,.23);
+ border-radius:clamp(14px,1.5vw,20px);
+}
+html .jiz-homepage .jz-fw-project-link:hover{
+ border-color:#0F8B8D!important;
+ box-shadow:0 17px 30px -20px rgba(7,29,41,.35);
+}
+html .jiz-homepage .jz-fw-frame{aspect-ratio:16/10;background:#0B1F2A}
+html .jiz-homepage .jz-fw-slide[data-active=false] .jz-fw-frame img{filter:none}
+html .jiz-homepage .jz-fw-image-label{background:rgba(11,31,42,.86);color:#F4F7F7}
+html .jiz-homepage .jz-fw-slide[data-active=true] .jz-fw-image-label{background:#C6F23A;color:#0B1F2A}
+html .jiz-homepage .jz-fw-image-action{
+ display:flex!important;padding:6px 6px 6px 10px;
+ font-size:.75rem;gap:7px;background:rgba(11,31,42,.88);color:#F4F7F7;
+ right:12px;bottom:12px;
+}
+html .jiz-homepage .jz-fw-image-action>span{width:30px;height:30px}
+html .jiz-homepage .jz-fw-copy{padding:clamp(15px,1.8vw,22px);gap:9px}
+html .jiz-homepage .jz-fw-project-title{
+ color:#122C36!important;font-size:clamp(1.12rem,1.6vw,1.5rem)!important;
+}
+html .jiz-homepage .jz-fw-project-org{color:#526B73}
+html .jiz-homepage .jz-fw-subtitle{color:#136B79!important;font-size:.875rem}
+html .jiz-homepage .jz-fw-value{color:#3B5660!important;font-size:.875rem}
+html .jiz-homepage .jz-fw-tags li{
+ background:#E7F0F1;color:#183C48;border:1px solid #C8DDE0;
+ font-size:.6875rem;padding:5px 9px;
+}
+html .jiz-homepage .jz-fw-tags li:nth-child(3n+2){background:#EBF5D4;color:#3B541D;border-color:#D5E7B6}
+html .jiz-homepage .jz-fw-tags li:nth-child(3n){background:#E5ECEF;color:#2B4955}
+html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons{
+ position:absolute;z-index:4;left:-24px;right:-24px;top:0;bottom:0;
+ width:auto;display:flex;align-items:center;justify-content:space-between;
+ pointer-events:none;
+}
+html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons button{
+ pointer-events:auto;min-height:44px;width:44px;height:44px;
+ padding:0;border-radius:50%;font-size:0;
+ background:#F4F7F7!important;color:#0B1F2A!important;
+ border:1px solid #C8DCE0!important;
+ box-shadow:0 5px 16px rgba(11,31,42,.16);
+}
+html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons button span{
+ font-size:1.2rem;line-height:1;
+}
+html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons button:hover:enabled{background:#C6F23A!important}
+html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons button:disabled{opacity:.3}
+html .jiz-homepage .jz-fw-toolbar{margin-bottom:12px}
+html .jiz-homepage .jz-fw-controls{border-top-color:rgba(11,31,42,.18)}
+html .jiz-homepage .jz-fw-index summary{color:#0B1F2A}
+html .jiz-homepage .jz-fw-index a{color:#245462}
+html .jiz-homepage .jz-fw-index li{border-top-color:#CCD9DC}
+@media(max-width:960px){
+ html .jiz-homepage .jz-fw-slide{flex-basis:calc((100% - var(--gallery-gap))/2)}
+}
+@media(max-width:600px){
+ html .jiz-homepage .jz-fw-stage{width:calc(100% - 36px)}
+ html .jiz-homepage .jz-fw-slide{flex-basis:calc(100% - 35px)}
+ html .jiz-homepage .jz-fw-frame{aspect-ratio:4/3}
+ html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons{left:-13px;right:-13px}
+ html .jiz-homepage .jz-fw-copy{padding:18px}
+}
+/* CLS gold materials: remove every plum/orange override from the previous palette. */
+html .jiz-homepage .jz-cls,
+html .jiz-homepage .cls-room{
+ background:
+  linear-gradient(90deg,rgba(13,23,26,.96) 0%,rgba(16,35,40,.78) 46%,rgba(21,30,33,.48) 100%),
+  url('/assets/imagery/cinematic-learning-systems-poster.webp') center 30%/cover no-repeat,
+  #15181C!important;
+ color:#F3E7D0!important;
+ border:1px solid rgba(198,161,91,.38)!important;
+ box-shadow:var(--identity-shadow)!important;
+}
+html .jiz-homepage .cls-room::before{background:radial-gradient(ellipse,rgba(198,161,91,.15),transparent 67%)}
+html .jiz-homepage .cls-room :is(.cls-room__serial,.cls-room__route-number,.cls-room__label){color:#DDBA77!important}
+html .jiz-homepage .cls-room :is(.cls-room__intro,.cls-room__headline,.cls-room__library-heading){color:#F5EEE1}
+html .jiz-homepage .cls-room .cls-room__routes{
+ grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(9px,1.2vw,17px)
+}
+html .jiz-homepage .cls-room .cls-room__route{
+ display:flex;min-height:270px;gap:0;padding:0;flex-direction:column;
+ background:linear-gradient(155deg,#FCFAF5,#E7D8B7)!important;
+ border:2px solid rgba(245,240,226,.85)!important;
+ color:#15181C!important;border-radius:17px;
+ box-shadow:0 13px 22px rgba(0,0,0,.19);
+}
+html .jiz-homepage .cls-room .cls-room__route::before{
+ content:"";display:block;height:clamp(100px,10vw,142px);flex:none;
+ background:linear-gradient(0deg,rgba(21,24,28,.12),rgba(21,24,28,.05)),
+ url('/assets/imagery/cinematic-learning-systems-poster.webp') center 24%/cover no-repeat;
+}
+html .jiz-homepage .cls-room .cls-room__route:nth-child(2)::before{
+ background-image:linear-gradient(0deg,rgba(21,24,28,.2),rgba(21,24,28,.05)),url('/assets/imagery/train-story-preview-frame.jpg');
+ background-position:center,center;background-size:cover;
+}
+html .jiz-homepage .cls-room .cls-room__route:nth-child(3)::before{
+ background-image:linear-gradient(0deg,rgba(21,24,28,.2),rgba(21,24,28,.05)),url('/assets/imagery/cinematic-learning-systems-poster.webp');
+ background-position:center,80% 45%;background-size:cover;
+}
+html .jiz-homepage .cls-room .cls-room__route:nth-child(4)::before{
+ background-image:linear-gradient(0deg,rgba(21,24,28,.2),rgba(21,24,28,.05)),url('/assets/imagery/jonathan-hero-final-poster.webp');
+ background-position:center,60% 50%;background-size:cover;
+}
+html .jiz-homepage .cls-room .cls-room__route-icon{
+ position:absolute;top:14px;left:14px;width:40px;height:40px;border-radius:10px;
+ background:rgba(21,24,28,.82)!important;border-color:rgba(231,216,183,.64)!important;
+ color:#E7C681!important;
+}
+html .jiz-homepage .cls-room .cls-room__route-copy{padding:clamp(13px,1.3vw,20px);gap:7px;flex:1}
+html .jiz-homepage .cls-room .cls-room__route-number{color:#8C6428!important}
+html .jiz-homepage .cls-room .cls-room__route strong{
+ color:#15181C!important;font-size:clamp(1.12rem,1.5vw,1.45rem)!important
+}
+html .jiz-homepage .cls-room .cls-room__route small{color:#33454A!important;line-height:1.45}
+html .jiz-homepage .cls-room .cls-room__route-arrow{
+ top:auto;bottom:14px;right:14px;color:#15181C!important
+}
+html .jiz-homepage .cls-room .cls-room__route:hover{
+ transform:translateY(-3px);border-color:#C6A15B!important;
+ box-shadow:0 20px 32px rgba(0,0,0,.24)
+}
+html .jiz-homepage .cls-room :is(.cls-room__route a,.cls-room__dispatch a,.cls-room__archive-link a){color:#E8C783}
+html .jiz-homepage .cls-room .cls-room__route:focus-visible{outline:3px solid #C6F23A;outline-offset:3px}
+html .jiz-homepage .cls-room .cls-room__route-arrow svg{color:#15181C}
+html body.jr .jr-mast{
+ background:linear-gradient(105deg,#15181C,#31444B)!important;
+ border-color:rgba(198,161,91,.35);
+}
+html body.jr .jr-sec{background:linear-gradient(135deg,#15181C,#31444B)!important;border-color:rgba(198,161,91,.25)}
+html body.jr .jr-sec:nth-of-type(even){background:linear-gradient(135deg,#202A2F,#3D5053)!important}
+html body.jr .jr-top,html body.jr .jr-foot{background:#15181C!important}
+html body.jr .jr-mast .jr-kicker,html body.jr .jr-sec .jr-kicker{color:#DDBA77!important}
+html body.jr .jr-mast :is(h1,.jr-sub,.jr-anchor){color:#F5EEE1!important}
+html body.jr .jr-sec :is(h2,h3,.jr-lede){color:#F5EEE1}
+html body.jr .jr-sec .jr-meta{color:#B1D1CE}
+html body.jr .jr-pillars a{background:rgba(49,68,75,.5);border-color:rgba(198,161,91,.3)}
+html body.jr .dx:has(.jiz-chapter){background:#F4F7F7!important}
+html body.jr .dx .dx-mast.jiz-chapter{background:linear-gradient(135deg,#15181C,#31444B)!important}
+html body.jr .dx .dx-ch.jiz-chapter:not([data-surface=paper]):not([data-surface=mist]){background:linear-gradient(135deg,#15181C,#31444B)!important}
+html body.jr .dx .dx-ch.jiz-chapter:is([data-surface=paper],[data-surface=mist]){background:#F7FAFA!important}
+@media(max-width:1060px){
+ html .jiz-homepage .cls-room .cls-room__routes{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:600px){
+ html .jiz-homepage .cls-room .cls-room__routes{grid-template-columns:1fr}
+ html .jiz-homepage .cls-room .cls-room__route{min-height:0}
+ html .jiz-homepage .cls-room .cls-room__route::before{height:125px}
+}
+
+/* Typography and cross-page material reconciliation: no serif, no cream page canvas. */
+html :is(.jiz-homepage,.jiz-cs,.tfs,.jiz-btb-detail,.sp-page,.jr) :is(h1,h2,h3,h4,h5,h6){
+ font-family:'Manrope','Geist',Arial,sans-serif!important;
+}
+html :is(.jiz-homepage,.jiz-cs,.tfs,.jiz-btb-detail,.sp-page,.jr) :is(p,li,button,input,select,textarea){
+ font-family:'Inter','Geist',Arial,sans-serif;
+}
+html body.jr{--jr-amber:#D4B26F;--jr-teal:#A6C8C7}
+html body.jr :is(.jr-read,.jr-cta,.jr-top a:hover){color:#DCC08C!important}
+html body.sp-page{background:#F4F7F7!important}
+html body.sp-page main{background:transparent}
+html body.sp-page .sp-nav{background:#0B1F2A;color:#F4F7F7}
+html body.sp-page .sp-scene--cover{background-color:#0B1F2A}
+html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons button:focus-visible{
+ outline:3px solid #0B1F2A!important;outline-offset:4px
+}
+
+
+/* V4 visual reconciliation — match approved reference, not just its swatches.
+   Editorial v8 experience and existing assets remain intact. */
+/* Quiet light navigation. Brand stays original; the original white asset is
+   tinted ink only on the light navigation, never replaced with a faux logo. */
+html .jiz-homepage .jiz-global-nav,
+html .jiz-homepage .jiz-global-nav.is-scrolled{
+ --nav-pad-x:clamp(18px,3vw,48px);
+ position:sticky;
+ top:0!important;
+ margin:0!important;
+ width:100%!important;
+ min-height:76px!important;
+ padding:10px clamp(22px,4.2vw,72px)!important;
+ display:grid;
+ grid-template-columns:minmax(250px,1fr) auto minmax(112px,.4fr)!important;
+ align-items:center;
+ column-gap:clamp(20px,2.7vw,46px)!important;
+ border-radius:0!important;
+ border:0!important;
+ border-bottom:1px solid rgba(11,31,42,.12)!important;
+ background:rgba(244,247,247,.97)!important;
+ color:#0B1F2A!important;
+ box-shadow:none!important;
+ backdrop-filter:blur(22px) saturate(130%);
+ -webkit-backdrop-filter:blur(22px) saturate(130%);
+}
+html .jiz-homepage .jiz-brand{gap:12px!important}
+html .jiz-homepage .jiz-brand__logo,
+html .jiz-homepage .jiz-global-nav.is-scrolled .jiz-brand__logo{
+ width:clamp(36px,3.3vw,46px)!important;
+ height:clamp(36px,3.3vw,46px)!important;
+ filter:brightness(0) saturate(100%) invert(8%) sepia(23%) saturate(1381%) hue-rotate(152deg);
+}
+html .jiz-homepage .jiz-brand__name{
+ font-family:'Manrope',sans-serif!important;
+ color:#0B1F2A!important;
+ font-size:clamp(.92rem,1.1vw,1.08rem)!important;
+ font-weight:700!important;
+ letter-spacing:-.035em!important;
+}
+html .jiz-homepage .jiz-brand__accent{color:#0B1F2A!important}
+html .jiz-homepage .jiz-nav-links{gap:clamp(12px,1.5vw,28px)!important}
+html .jiz-homepage .jiz-nav-link{
+ padding:0 9px!important;
+ color:#31444B!important;
+ font-family:'Inter',sans-serif!important;
+ font-size:clamp(.83rem,.94vw,.96rem)!important;
+ font-weight:550!important;
+ border-radius:8px!important;
+}
+html .jiz-homepage .jiz-nav-link[data-hovered=true]{color:#0B1F2A!important;background:rgba(15,139,141,.07)!important}
+html .jiz-homepage .jiz-nav-link[data-active=true]{color:#0A7077!important;background:transparent!important}
+html .jiz-homepage .jiz-nav-indicator{background:#0F8B8D!important}
+html .jiz-homepage .jiz-nav-cta{
+ min-height:43px!important;
+ justify-self:end;
+ padding:10px 20px!important;
+ border-color:#C6F23A!important;
+ background:#C6F23A!important;
+ color:#0B1F2A!important;
+ font-family:'Inter',sans-serif!important;
+ font-weight:700!important;
+ font-size:.86rem!important;
+}
+html .jiz-homepage .jiz-nav-cta:hover,
+html .jiz-homepage .jiz-nav-cta[data-hovered=true]{
+ background:#D4F66C!important;color:#0B1F2A!important;
+ box-shadow:0 5px 14px rgba(11,31,42,.11)!important;
+}
+html .jiz-homepage .jiz-nav-menu-button{
+ border-color:rgba(11,31,42,.2)!important;
+ background:rgba(255,255,255,.45)!important;
+}
+html .jiz-homepage .jiz-nav-menu-button span{background:#0B1F2A!important}
+/* Restore a crisp transition from navigation to cinematic hero.
+   The original hero video and photographic composition remain untouched. */
+html .jiz-homepage .hero{
+ margin-top:clamp(12px,1.5vw,22px)!important;
+ border-radius:clamp(22px,2.4vw,34px)!important;
+}
+html .jiz-homepage .hero-title{
+ font-family:'Manrope',sans-serif!important;
+ font-weight:500!important;
+ letter-spacing:-.065em!important;
+ line-height:1.045!important;
+}
+html .jiz-homepage .hero-title-main,
+html .jiz-homepage .hero-title-accent{font-weight:500!important}
+html .jiz-homepage .hero-lead{
+ font-family:'Inter',sans-serif!important;
+ font-weight:400!important;
+ line-height:1.58!important;
+ max-width:61ch;
+}
+html .jiz-homepage .hero-eyebrow{
+ font-family:'Inter',sans-serif!important;
+ font-weight:650!important;
+ letter-spacing:.15em!important;
+ color:#91E1E1!important;
+}
+html .jiz-homepage .hero-support{
+ font-family:'Inter',sans-serif!important;
+ letter-spacing:.05em;
+}
+/* Selected Experience needed explicit ink; previously it was nearly invisible
+   because the old dark-theme text inherited into the new light gallery. */
+html .jiz-homepage .jz-exp{
+ background:transparent!important;
+ color:#102B36!important;
+ border:0!important;
+ margin-block:clamp(8px,1.3vw,20px)!important;
+}
+html .jiz-homepage .jz-exp-in{
+ padding-block:clamp(13px,2vw,27px)!important;
+ border-bottom:1px solid rgba(11,31,42,.17);
+ gap:clamp(12px,1.6vw,22px) clamp(20px,2.5vw,42px);
+}
+html .jiz-homepage .jz-exp .jz-label{
+ color:#44616A!important;
+ opacity:1!important;
+}
+html .jiz-homepage .jz-exp .jz-exp-org{
+ color:#173641!important;
+ font-family:'Manrope',sans-serif!important;
+ font-weight:650!important;
+ font-size:clamp(.86rem,1vw,1.05rem)!important;
+}
+html .jiz-homepage .jz-exp .jz-exp-edu span:last-child{color:#47616B!important}
+/* Reference-like Featured Work: image-first tiles and a compact editorial title,
+   not the dense left-aligned presentation of the previous preview. */
+html .jiz-homepage .jz-fw{
+ padding-block:clamp(32px,3.8vw,60px)!important;
+}
+html .jiz-homepage .jz-fw-stage{
+ width:min(1350px,calc(100% - 2*clamp(23px,5vw,92px)))!important;
+}
+html .jiz-homepage .jz-fw-heading{
+ max-width:none!important;
+ margin-bottom:clamp(16px,2vw,25px)!important;
+}
+html .jiz-homepage .jz-fw .jz-fw-h2{
+ font-family:'Manrope',sans-serif!important;
+ font-weight:550!important;
+ font-size:clamp(1.75rem,2.7vw,2.7rem)!important;
+ letter-spacing:-.055em!important;
+ margin:8px 0 10px!important;
+}
+html .jiz-homepage .jz-fw .jz-fw-heading>p{
+ max-width:65ch!important;
+ font-size:clamp(.88rem,1vw,1rem)!important;
+ line-height:1.5!important;
+}
+html .jiz-homepage .jz-fw-toolbar{margin-bottom:8px!important}
+html .jiz-homepage .jz-fw-instruction{
+ font-size:.78rem!important;
+ font-family:'Inter',sans-serif!important;
+ color:#526E78!important;
+}
+html .jiz-homepage .jz-fw .jz-fw-project-link{
+ border:0!important;
+ background:transparent!important;
+ box-shadow:none!important;
+ border-radius:0!important;
+}
+html .jiz-homepage .jz-fw .jz-fw-project-link:hover{box-shadow:none!important}
+html .jiz-homepage .jz-fw .jz-fw-frame{
+ border-radius:clamp(13px,1.4vw,19px);
+ overflow:hidden;
+ box-shadow:0 6px 16px rgba(11,31,42,.1);
+}
+html .jiz-homepage .jz-fw .jz-fw-copy{
+ padding:12px 3px 8px!important;
+ gap:5px!important;
+}
+html .jiz-homepage .jz-fw .jz-fw-project-title{
+ font-family:'Manrope',sans-serif!important;
+ font-weight:750!important;
+ letter-spacing:-.042em!important;
+ line-height:1.16!important;
+}
+html .jiz-homepage .jz-fw .jz-fw-value{
+ display:-webkit-box;
+ -webkit-box-orient:vertical;
+ -webkit-line-clamp:2;
+ overflow:hidden;
+ line-height:1.45!important;
+}
+html .jiz-homepage .jz-fw .jz-fw-tags{
+ gap:5px;
+ margin-top:4px!important;
+}
+html .jiz-homepage .jz-fw .jz-fw-tags li{font-size:.63rem!important}
+html .jiz-homepage .jz-fw .jz-fw-image-action{
+ opacity:0;transition:opacity .2s ease;
+}
+html .jiz-homepage .jz-fw .jz-fw-project-link:is(:hover,:focus-visible) .jz-fw-image-action,
+html .jiz-homepage .jz-fw .jz-fw-slide[data-active=true] .jz-fw-image-action{opacity:1}
+html .jiz-homepage .jz-fw .jz-fw-gallery-layout .jz-fw-buttons{top:0;bottom:0}
+html .jiz-homepage .jz-fw .jz-fw-gallery-layout .jz-fw-buttons button{
+ background:#E8F5F6!important;color:#0B1F2A!important;
+}
+/* Shared type hierarchy remains sans serif and predictable across subpages. */
+html :is(.jiz-homepage,.jiz-cs,.tfs,.jr,.sp-page,.jiz-btb-detail) :is(h1,h2,h3,h4){
+ font-family:'Manrope','Geist',Arial,sans-serif!important;
+ letter-spacing:-.045em;
+}
+html :is(.jiz-homepage,.jiz-cs,.tfs,.jr,.sp-page,.jiz-btb-detail) :is(button,input,textarea,select){
+ font-family:'Inter','Geist',Arial,sans-serif!important;
+}
+@media(max-width:1080px){
+ html .jiz-homepage .jiz-global-nav,
+ html .jiz-homepage .jiz-global-nav.is-scrolled{
+  grid-template-columns:1fr auto!important;
+ }
+ html .jiz-homepage .jiz-nav-links,
+ html .jiz-homepage .jiz-nav-cta{display:none!important}
+ html .jiz-homepage .jiz-nav-menu-button{display:block!important}
+}
+@media(max-width:650px){
+ html .jiz-homepage .jiz-global-nav,
+ html .jiz-homepage .jiz-global-nav.is-scrolled{
+   min-height:65px!important;
+   padding:9px 17px!important;
+ }
+ html .jiz-homepage .jiz-brand__logo{width:36px!important;height:36px!important}
+ html .jiz-homepage .jiz-brand__name{font-size:.82rem!important}
+ html .jiz-homepage .hero{margin-top:12px!important}
+ html .jiz-homepage .jz-exp-in{padding-block:13px!important}
+ html .jiz-homepage .jz-fw .jz-fw-image-action{display:none!important}
+}
+
+
+/* V4 visual fidelity pass — exact light navigation and balanced type on Mist.
+   Overrides original inline nav CSS intentionally, without replacing its behavior. */
+html .jiz-homepage .jiz-global-nav{
+  --nav-pad-x:clamp(22px,3.4vw,68px);
+  top:0;min-height:76px;
+  grid-template-columns:minmax(260px,1fr) auto;
+  gap:clamp(18px,2vw,38px);
+  margin:0 var(--panel-gap) 0;
+  padding:10px var(--nav-pad-x);
+  width:calc(100% - 2 * var(--panel-gap));
+  border:0;border-radius:0;
+  background:#F4F7F7!important;
+  box-shadow:none;
+  -webkit-backdrop-filter:blur(24px) saturate(140%);
+  backdrop-filter:blur(24px) saturate(140%);
+}
+html .jiz-homepage .jiz-global-nav.is-scrolled{
+  top:0;min-height:66px;border:1px solid rgba(11,31,42,.09);
+  border-top:0;border-radius:0 0 16px 16px;
+  background:rgba(244,247,247,.96)!important;
+  box-shadow:0 10px 23px -17px rgba(11,31,42,.18);
+}
+html .jiz-homepage .jiz-brand{gap:13px}
+html .jiz-homepage .jiz-brand__logo{
+  width:45px;height:45px;
+  filter:brightness(0) saturate(100%);
+}
+html .jiz-homepage .is-scrolled .jiz-brand__logo{width:42px;height:42px}
+html .jiz-homepage .jiz-brand__name{
+  font-family:'Manrope',sans-serif!important;
+  font-weight:650;font-size:clamp(.87rem,1vw,1.08rem);
+  color:#102A35!important;letter-spacing:-.035em;gap:.32em;
+}
+html .jiz-homepage .jiz-brand__accent{color:inherit!important}
+html .jiz-homepage .jiz-nav-links{
+  justify-self:end;gap:clamp(12px,2.2vw,36px);
+}
+html .jiz-homepage .jiz-nav-link{
+  min-height:44px;padding:0 3px;
+  font-family:'Inter',sans-serif!important;
+  font-size:clamp(.83rem,.92vw,.95rem);
+  font-weight:550;letter-spacing:-.015em;
+  color:#1C3038!important;background:transparent!important;
+}
+html .jiz-homepage .jiz-nav-link:is(:hover,[data-hovered="true"],[data-active="true"]){
+  color:#0A6772!important;background:transparent!important;
+  text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;
+}
+html .jiz-homepage .jiz-nav-indicator{
+  background:#0F8B8D;bottom:5px;height:2px;
+}
+html .jiz-homepage .jiz-nav-cta{display:none!important}
+html .jiz-homepage .jiz-nav-menu-button{border-color:rgba(11,31,42,.24);background:#FFFFFFAA}
+html .jiz-homepage .jiz-nav-menu-button span{background:#0B1F2A}
+html .jiz-homepage .jiz-mobile-panel{
+  background:#F4F7F7;color:#122C36;
+  border-left-color:#B8CDD3;
+  box-shadow:-18px 0 55px rgba(11,31,42,.22);
+}
+html .jiz-homepage .jiz-mobile-panel__header{color:#0B1F2A}
+html .jiz-homepage .jiz-mobile-panel__header button{
+  color:#0B1F2A;border-color:#BDCED2;
+}
+html .jiz-homepage .jiz-mobile-panel__links button{
+  color:#16313D;border-color:rgba(11,31,42,.12);
+  font-family:'Manrope',sans-serif;font-size:1.05rem;
+}
+html .jiz-homepage .jiz-mobile-panel__links button[data-active="true"]{
+  color:#0C646D;background:#E8F2F3;border-left-color:#0F8B8D;
+}
+html .jiz-homepage .jiz-mobile-panel__secondary{
+  border-top-color:rgba(11,31,42,.13);
+}
+html .jiz-homepage .jiz-mobile-panel__secondary-label{color:#3F6069}
+html .jiz-homepage .jiz-mobile-panel__secondary-links button{color:#21424E}
+html .jiz-homepage .jiz-mobile-panel__cta{
+  background:#C6F23A;border-color:#C6F23A;color:#0B1F2A;
+}
+html .jiz-homepage .jiz-global-nav :is(button,a):focus-visible{
+  outline:2px solid #086B77!important;outline-offset:4px;
+}
+/* The experience strip previously inherited white-on-dark colors and vanished on Mist. */
+html .jiz-homepage .jz-exp{
+  background:#F4F7F7!important;
+  border:0;border-bottom:1px solid rgba(11,31,42,.14)!important;
+  box-shadow:none!important;margin-top:0;margin-bottom:clamp(12px,1.4vw,20px);
+}
+html .jiz-homepage .jz-exp-in{
+  padding-block:clamp(20px,2.3vw,32px);
+  gap:clamp(10px,1.2vw,20px) clamp(18px,2.5vw,38px);
+}
+html .jiz-homepage .jz-exp .jz-label{
+  color:#526D77!important;font-weight:600;font-size:.69rem;
+}
+html .jiz-homepage .jz-exp .jz-exp-org{
+  color:#183640!important;font-weight:650;font-size:clamp(.86rem,.95vw,1.05rem);
+}
+html .jiz-homepage .jz-exp .jz-exp-edu span:last-child{
+  color:#385661!important;font-size:.87rem;
+}
+/* Large editorial typography: fewer competing accents, calmer hierarchy. */
+html .jiz-homepage :is(.hero-title,.jz-fw-h2,.jz-pr-caps-h,.jz-jr-h2,.cls-room__headline,.jz-ab-h2){
+  font-family:'Manrope','Geist',sans-serif!important;
+  font-weight:550!important;letter-spacing:-.045em!important;
+  text-wrap:balance;
+}
+html .jiz-homepage .hero-title{
+  line-height:1.045!important;
+  max-width:17ch;
+}
+html .jiz-homepage .hero-lead{
+  font-family:'Inter',sans-serif!important;
+  font-size:clamp(1rem,1.26vw,1.15rem);
+  line-height:1.65;letter-spacing:-.012em;
+}
+html .jiz-homepage :is(.jz-fw-h2,.jz-pr-caps-h,.jz-jr-h2){
+  color:#122C36!important;
+  line-height:1.14!important;
+}
+html .jiz-homepage .jz-fw-heading{max-width:100%;margin-bottom:22px}
+html .jiz-homepage .jz-fw-stage{width:min(1370px,calc(100% - 2 * clamp(22px,4.5vw,74px)))}
+html .jiz-homepage .jz-fw{padding-block:clamp(42px,5vw,68px)}
+html .jiz-homepage .jz-fw .jz-fw-heading>p{max-width:63ch}
+html .jiz-homepage .jz-fw-project-title{font-weight:700!important;letter-spacing:-.025em!important}
+html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons{left:-20px;right:-20px}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap-t{font-weight:650}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap-c{color:#34525D}
+html .jiz-homepage :is(.jz-fw,.jz-pr--capabilities,.jz-jr,.jz-pp){
+  border:1px solid rgba(255,255,255,.88)!important;
+}
+html .jiz-homepage .jz-jr-stage .jz-jr-c{color:#385761}
+html .jiz-homepage .jz-jr-stage .jz-jr-m{color:#52717A}
+/* Favor stable contrast at smaller widths rather than tiny overlay labels. */
+@media(max-width:1080px){
+  html .jiz-homepage .jiz-global-nav{
+    grid-template-columns:minmax(0,1fr) auto;gap:12px;
+  }
+  html .jiz-homepage .jiz-nav-links{display:none}
+  html .jiz-homepage .jiz-nav-menu-button{display:block}
+}
+@media(max-width:680px){
+  html .jiz-homepage .jiz-global-nav{--nav-pad-x:16px;min-height:72px}
+  html .jiz-homepage .jiz-brand__name{font-size:.81rem}
+  html .jiz-homepage .jz-exp .jz-exp-edu{border-top-color:rgba(11,31,42,.13)}
+  html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons{left:-12px;right:-12px}
+}
+
+
+/* V5 — Original section artwork selected and supplied by the site owner.
+   All imagery is served from committed local /assets/imagery files.
+   Preserve the original hero film and every existing thumbnail, icon and control. */
+html .jiz-homepage .jz-fw{
+ background:
+   linear-gradient(100deg,rgba(249,252,253,.975) 0%,rgba(245,249,250,.965) 35%,rgba(239,247,249,.87) 73%,rgba(241,247,249,.80) 100%),
+   url('/assets/imagery/portfolio-selected-work-architecture.jpg') right 48% / cover no-repeat!important;
+ background-color:#F4F7F7!important;
+}
+html .jiz-homepage .jz-pr--capabilities{
+ background:
+   linear-gradient(105deg,rgba(250,253,253,.94) 0%,rgba(250,253,253,.90) 44%,rgba(246,250,250,.76) 100%),
+   url('/assets/imagery/portfolio-capabilities-systems.jpg') right center / cover no-repeat!important;
+ background-color:#F4F7F7!important;
+}
+html .jiz-homepage .jz-pr--method{
+ background:
+   linear-gradient(95deg,rgba(7,26,36,.97) 0%,rgba(9,29,39,.9) 43%,rgba(11,33,42,.77) 75%,rgba(11,34,44,.66) 100%),
+   url('/assets/imagery/portfolio-method-process.jpg') center 46% / cover no-repeat!important;
+ background-color:#0B1F2A!important;
+}
+html .jiz-homepage .jz-cls,
+html .jiz-homepage .cls-room{
+ background:
+   linear-gradient(92deg,rgba(12,24,28,.97) 0%,rgba(15,31,35,.92) 36%,rgba(19,34,38,.68) 68%,rgba(22,31,32,.43) 100%),
+   url('/assets/imagery/portfolio-cls-gold-landscape.jpg') 58% center / cover no-repeat!important;
+ background-color:#15181C!important;
+}
+html .jiz-homepage .jiz-creative-lab{
+ background:
+   linear-gradient(90deg,rgba(6,22,31,.96) 0%,rgba(8,28,37,.87) 48%,rgba(8,29,40,.61) 100%),
+   url('/assets/imagery/portfolio-creative-lab-studio.jpg') 63% center / cover no-repeat!important;
+ background-color:#0B1F2A!important;
+}
+html .jiz-homepage .jiz-build{
+ background:
+   linear-gradient(95deg,rgba(6,25,35,.95) 0%,rgba(7,31,41,.88) 43%,rgba(10,37,46,.6) 73%,rgba(13,43,52,.45) 100%),
+   url('/assets/imagery/portfolio-contact-threshold.jpg') center 44% / cover no-repeat!important;
+ background-color:#0B1F2A!important;
+}
+/* Subtle depth: the artwork supports, never replaces, the existing panels and evidence. */
+html .jiz-homepage :is(.jz-fw,.jz-pr--capabilities,.jz-pr--method,.cls-room,.jiz-creative-lab,.jiz-build){
+ background-repeat:no-repeat!important;
+ background-attachment:scroll!important;
+}
+html .jiz-homepage .jz-fw :is(.jz-fw-h2,.jz-fw-project-title,.jz-fw-heading>p),
+html .jiz-homepage .jz-pr--capabilities :is(h2,h3,.jz-pr-sub,.jz-pr-cap-c){text-shadow:none}
+html .jiz-homepage .jz-pr--method :is(h2,h3),
+html .jiz-homepage .jiz-build :is(h2,h3),
+html .jiz-homepage .cls-room :is(.cls-room__headline,.cls-room__library-heading h3){
+ text-shadow:0 2px 18px rgba(0,0,0,.20);
+}
+@media(max-width:760px){
+ html .jiz-homepage .jz-fw{
+  background:
+   linear-gradient(100deg,rgba(249,252,253,.98),rgba(246,250,250,.93)),
+   url('/assets/imagery/portfolio-selected-work-architecture.jpg') 68% center / cover no-repeat!important;
+ }
+ html .jiz-homepage .jz-pr--capabilities{
+  background:
+   linear-gradient(100deg,rgba(250,253,253,.96),rgba(248,251,251,.89)),
+   url('/assets/imagery/portfolio-capabilities-systems.jpg') 70% center / cover no-repeat!important;
+ }
+ html .jiz-homepage .jz-pr--method{
+  background:
+   linear-gradient(90deg,rgba(7,26,36,.96),rgba(11,33,42,.84)),
+   url('/assets/imagery/portfolio-method-process.jpg') 42% center / cover no-repeat!important;
+ }
+ html .jiz-homepage .cls-room,
+ html .jiz-homepage .jz-cls{
+  background:
+   linear-gradient(100deg,rgba(12,24,28,.96),rgba(16,31,35,.75)),
+   url('/assets/imagery/portfolio-cls-gold-landscape.jpg') 65% center / cover no-repeat!important;
+ }
+ html .jiz-homepage .jiz-creative-lab{
+  background:
+   linear-gradient(90deg,rgba(6,22,31,.97),rgba(8,29,40,.77)),
+   url('/assets/imagery/portfolio-creative-lab-studio.jpg') 60% center / cover no-repeat!important;
+ }
+ html .jiz-homepage .jiz-build{
+  background:
+   linear-gradient(90deg,rgba(6,25,35,.96),rgba(10,37,46,.75)),
+   url('/assets/imagery/portfolio-contact-threshold.jpg') 64% center / cover no-repeat!important;
+ }
+}
+
+
+/* V6 owner-selected image direction, unified accents, readable five-stage Method. */
+html .jiz-homepage .jiz-creative-lab{
+  background:linear-gradient(90deg,rgba(6,22,31,.96),rgba(8,28,37,.84) 48%,rgba(8,29,40,.56) 100%),
+  url('/assets/imagery/portfolio-creative-lab-camera-workshop.jpg') 60% center / cover no-repeat!important;
+}
+/* Companion imagery: calm visual depth with clear section-purpose alignment. */
+html .jiz-homepage .jiz-am{
+  background:linear-gradient(90deg,rgba(7,24,33,.95),rgba(9,33,41,.78) 56%,rgba(10,39,47,.56)),
+  url('/assets/imagery/portfolio-about-reflective-studio.jpg') center 48% / cover no-repeat!important;
+}
+html .jiz-homepage .jz-jr{
+  background:linear-gradient(100deg,rgba(251,253,253,.98),rgba(246,251,252,.92) 47%,rgba(242,248,250,.83)),
+  url('/assets/imagery/portfolio-career-journey.jpg') right center / cover no-repeat!important;
+}
+html .jiz-homepage .jz-st{
+  background:linear-gradient(100deg,rgba(7,25,35,.97),rgba(9,32,43,.88) 47%,rgba(14,39,49,.68)),
+  url('/assets/imagery/portfolio-stack-systems.jpg') 63% center / cover no-repeat!important;
+}
+html .jiz-homepage .jz-pp{
+  background:linear-gradient(100deg,rgba(7,25,35,.96),rgba(10,34,42,.86) 54%,rgba(11,42,50,.65)),
+  url('/assets/imagery/portfolio-principles-glass.jpg') 64% center / cover no-repeat!important;
+  color:#F4F7F7!important;
+}
+html .jiz-homepage .jz-pp :is(h2,h3,p,li){color:#F4F7F7}
+html .jiz-homepage .jz-pp .jz-label{color:#B5DFE5!important}
+html .jiz-homepage .jz-jr :is(h2,h3,.jz-jr-h2,.jz-jr-t){color:#102B35!important}
+html .jiz-homepage .jz-jr :is(p,.jz-jr-sub,.jz-jr-c){color:#34525D}
+html .jiz-homepage .jz-pp,.jiz-homepage .jz-st,.jiz-homepage .jiz-am,.jiz-homepage .jz-jr{
+  background-attachment:scroll!important;background-repeat:no-repeat!important;
+}
+/* Speaking · real owner-supplied ten-second film, readable as a hero with the existing copy above. */
+html .jiz-homepage .sp-preview--immersive .sp-preview-scene{
+ position:relative;isolation:isolate;overflow:hidden;
+ background:linear-gradient(95deg,rgba(5,20,29,.96),rgba(7,28,38,.79) 53%,rgba(8,31,41,.42)),
+ url('/assets/imagery/portfolio-speaking-film-still.jpg') center center / cover no-repeat!important;
+ min-height:clamp(430px,42vw,660px);
+}
+html .jiz-homepage .sp-preview-backdrop-video{
+ position:absolute;inset:0;width:100%;height:100%;
+ object-fit:cover;object-position:62% 50%;
+ display:block;z-index:0;pointer-events:none;
+}
+html .jiz-homepage .sp-preview-backdrop-shade{
+ position:absolute;inset:0;z-index:1;pointer-events:none;
+ background:linear-gradient(90deg,rgba(5,20,29,.97) 0%,rgba(5,23,33,.88) 41%,rgba(6,27,38,.54) 70%,rgba(7,32,40,.30) 100%);
+}
+html .jiz-homepage .sp-preview--immersive .sp-preview-scene :is(.sp-preview-copy,.sp-preview-disclosure){
+ position:relative;z-index:2;
+}
+html .jiz-homepage .sp-preview--immersive .sp-preview-copy :is(h2,p,.sp-kicker){
+ color:#F4F7F7!important;text-shadow:0 2px 12px rgba(0,0,0,.2);
+}
+html .jiz-homepage .sp-preview--immersive .sp-preview-copy .sp-kicker{color:#B0ECF5!important}
+html .jiz-homepage .sp-preview--immersive .sp-preview-formats span{
+ background:#C6F23A!important;color:#0B1F2A!important;
+ border:1px solid #C6F23A!important;font-weight:650;
+}
+html .jiz-homepage .sp-preview--immersive .sp-preview-disclosure{color:#D6E6E9!important}
+/* One deliberately bold brand color instead of pastel/Easter category assortment. */
+html .jiz-homepage .jz-fw-tags li,
+html .jiz-homepage .jz-fw-tags li:nth-child(3n+2),
+html .jiz-homepage .jz-fw-tags li:nth-child(3n){
+ background:#C6F23A!important;color:#102330!important;
+ border:1px solid #A6D12A!important;font-weight:700;
+}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap-x,
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-x{
+ background:#C6F23A!important;color:#102330!important;
+ border:1px solid #A6D12A!important;border-radius:8px;
+}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap-t,
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-t{
+ background:transparent!important;color:#112D39!important;
+}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover .jz-pr-cap-t{color:#086B77!important}
+html .jiz-homepage .jz-st-tools{gap:8px}
+html .jiz-homepage .jz-st-tools li{
+ display:inline-flex;align-items:center;padding:5px 9px;
+ background:#C6F23A!important;color:#102330!important;
+ border-radius:6px;border:1px solid #A6D12A!important;
+ font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;
+}
+html .jiz-homepage .jz-st-layer{color:#C6F23A!important}
+/* Five equal stages: one continuous horizontal line, never a two-row grid. */
+html .jiz-homepage .jz-pr--method .jz-pr-steps{
+ display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;
+ gap:clamp(12px,1.35vw,24px);width:100%;
+ padding:0!important;margin:clamp(24px,3vw,42px) 0 0;
+ overflow:visible;align-items:stretch;
+ border-top:1px solid rgba(198,242,58,.36);
+}
+html .jiz-homepage .jz-pr--method .jz-pr-steps::before{display:none!important}
+html .jiz-homepage .jz-pr--method .jz-pr-step{
+ display:flex!important;flex-direction:column!important;
+ gap:clamp(7px,.8vw,12px)!important;min-width:0;
+ padding:clamp(18px,1.6vw,26px) 4px 6px 0!important;
+ border-top:0!important;border-left:0!important;
+}
+html .jiz-homepage .jz-pr--method .jz-pr-step::before{display:none!important}
+html .jiz-homepage .jz-pr--method .jz-pr-step::after{
+ top:-5px!important;left:0!important;width:10px;height:10px;
+ background:#0B1F2A;border:2px solid #C6F23A;
+}
+html .jiz-homepage .jz-pr--method .jz-pr-step:last-child::after{background:#C6F23A}
+html .jiz-homepage .jz-pr--method .jz-pr-step :is(.jz-pr-word,.jz-pr-c,.jz-pr-rule,.jz-label){
+ grid-column:auto!important;grid-row:auto!important;max-width:100%;
+}
+html .jiz-homepage .jz-pr--method .jz-pr-word{
+ font-size:clamp(1.14rem,1.45vw,1.55rem)!important;
+ line-height:1.15;letter-spacing:-.025em;margin:0;
+}
+html .jiz-homepage .jz-pr--method .jz-pr-c{
+ font-size:clamp(.76rem,.92vw,.9rem);line-height:1.5!important;
+ color:#ECF3F5!important;
+}
+html .jiz-homepage .jz-pr--method .jz-pr-rule{
+ font-size:clamp(.7rem,.82vw,.78rem)!important;
+ line-height:1.55;color:#C8DDE3!important;padding-top:8px!important;
+}
+/* Headline focal hierarchy, preserve the original line breaks and words. */
+html .jiz-homepage .hero-title-main{
+ font-family:'Manrope',sans-serif!important;font-weight:850!important;
+ letter-spacing:-.052em!important;
+}
+html .jiz-homepage .hero-title-accent{
+ font-family:'Manrope',sans-serif!important;font-weight:450!important;
+ letter-spacing:-.043em!important;
+}
+@media(max-width:1090px){
+ html .jiz-homepage .jz-pr--method .jz-pr-steps{
+  display:grid!important;grid-template-columns:none!important;
+  grid-auto-flow:column;grid-auto-columns:minmax(195px,40%);
+  overflow-x:auto;overscroll-behavior-inline:contain;
+  scroll-snap-type:x proximity;scrollbar-width:thin;
+  padding-bottom:14px!important;
+ }
+ html .jiz-homepage .jz-pr--method .jz-pr-step{scroll-snap-align:start}
+}
+@media(max-width:680px){
+ html .jiz-homepage .jz-pr--method .jz-pr-steps{grid-auto-columns:minmax(200px,78%);gap:16px}
+ html .jiz-homepage .sp-preview-backdrop-video{object-position:60% center}
+ html .jiz-homepage .sp-preview-backdrop-shade{
+  background:linear-gradient(90deg,rgba(5,20,29,.97),rgba(6,27,38,.78));
+ }
+ html .jiz-homepage .jz-jr{
+  background:linear-gradient(100deg,rgba(251,253,253,.98),rgba(246,251,252,.91)),
+  url('/assets/imagery/portfolio-career-journey.jpg') 67% center / cover no-repeat!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ html .jiz-homepage .sp-preview-backdrop-video{display:none!important}
+}
+
+
+/* V7 -- directed motion, impact, Creative Lab and contact refinement.
+   All animations are entered once, not distracting continuous blinks. */
+html .jiz-homepage .jz-im{
+ background:linear-gradient(95deg,rgba(7,24,34,.96) 0%,rgba(8,30,41,.9) 48%,rgba(10,38,48,.68) 100%),
+ url('/assets/imagery/portfolio-principles-glass.jpg') 67% 44%/cover no-repeat!important;
+ color:#F4F7F7;
+}
+html .jiz-homepage .jz-im :is(.jz-im-h2,.jz-im-note,.jz-im-label,.jz-im-src){text-shadow:0 2px 13px rgba(3,15,22,.27)}
+/* The actual Creative Lab interior is .lab; setting only its parent leaves the image hidden. */
+html .jiz-homepage .jiz-creative-lab-v5 .lab{
+ background:linear-gradient(92deg,rgba(5,22,32,.95),rgba(6,28,38,.86) 48%,rgba(8,31,42,.58)),
+ url('/assets/imagery/portfolio-creative-lab-camera-workshop.jpg') 66% 42%/cover no-repeat!important;
+}
+html .jiz-homepage .jiz-creative-lab-v5 .shell{
+ width:min(1312px,calc(100% - 2 * clamp(32px,5.6vw,94px)))!important;
+ padding-top:clamp(75px,8vw,120px)!important;
+}
+html .jiz-homepage .jiz-creative-lab-v5 .headline-grid{
+ gap:clamp(22px,4vw,78px)!important;align-items:center;
+}
+html .jiz-homepage .jiz-creative-lab-v5 .headline-grid h2{
+ font-family:'Manrope',sans-serif!important;
+ font-size:clamp(3.55rem,7.8vw,7.3rem)!important;
+ font-weight:650!important;
+ letter-spacing:-.064em!important;
+ line-height:1.04!important;color:#F6FAFA!important;
+ text-shadow:0 5px 32px rgba(3,16,24,.44);
+}
+html .jiz-homepage .jiz-creative-lab-v5 .headline-side{
+ border-left:2px solid #64E1FF;padding-left:clamp(18px,2vw,28px);
+ background:linear-gradient(90deg,rgba(3,22,31,.26),transparent);
+}
+html .jiz-homepage .jiz-creative-lab-v5 .headline-side :is(strong,p){color:#F0F8F9!important}
+html .jiz-homepage .jiz-creative-lab-v5 .eyebrow{
+ font-size:clamp(.69rem,.9vw,.84rem);
+ font-weight:650;letter-spacing:.12em;
+ color:#64E1FF!important;
+}
+/* Contact portrait is the visual companion to the form, not a small supporting thumbnail. */
+html .jiz-homepage .jiz-build-stage{
+ grid-template-columns:minmax(320px,.87fr) minmax(0,1.13fr);
+ gap:clamp(16px,2.2vw,30px);
+}
+html .jiz-homepage .jz-ct-poster--portrait{
+ position:relative;isolation:isolate;overflow:hidden;
+ min-height:clamp(490px,47vw,690px);
+ border-radius:clamp(18px,2.2vw,30px);
+ background:linear-gradient(90deg,rgba(6,28,38,.38),rgba(6,28,38,.02)),
+ url('/assets/imagery/portfolio-contact-threshold.jpg') center/cover no-repeat;
+}
+html .jiz-homepage .jz-ct-poster--portrait::before{
+ content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+ background:linear-gradient(180deg,rgba(5,21,30,.08) 0%,rgba(5,21,30,.08) 58%,rgba(5,21,30,.75) 100%);
+}
+html .jiz-homepage .jz-ct-poster--portrait :is(.jz-ct-poster-kicker,.jz-ct-poster-line,.jz-ct-poster-footer){position:relative;z-index:2}
+/* Chapter entrances build attention without disorienting transforms during scrolling. */
+@keyframes jiz-chapter-enter{from{opacity:.72;box-shadow:0 8px 24px rgba(11,31,42,.07)}to{opacity:1;box-shadow:var(--identity-shadow)}}
+@keyframes jiz-detail-enter{from{opacity:.2;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes jiz-rail-reveal{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes jiz-node-signal{
+ 0%{box-shadow:0 0 0 0 rgba(198,242,58,.1);background:#0B1F2A}
+ 55%{box-shadow:0 0 0 9px rgba(198,242,58,.12);background:#C6F23A}
+ 100%{box-shadow:0 0 0 0 rgba(198,242,58,0);background:#0B1F2A}
+}
+@media(prefers-reduced-motion:no-preference){
+ html .jiz-homepage :is(.jz-fw,.jz-im,.jz-pr,.jz-cls,.cls-room,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build,.sp-preview)[data-motion-in="true"]{
+   animation:jiz-chapter-enter 750ms cubic-bezier(.22,.61,.36,1) both;
+ }
+ html .jiz-homepage :is(.jz-im-cell,.jz-jr-stage,.jz-fw-slide,.jz-pr-cap,.cls-room__route)[data-motion-in="true"]{
+   animation:jiz-detail-enter 680ms cubic-bezier(.22,.61,.36,1) both;
+ }
+ html .jiz-homepage .jz-pr--method .jz-pr-step[data-motion-in="true"]{
+   animation:jiz-detail-enter 700ms cubic-bezier(.22,.61,.36,1) both;
+ }
+ html .jiz-homepage .jz-pr--method .jz-pr-step:nth-child(2){animation-delay:70ms}
+ html .jiz-homepage .jz-pr--method .jz-pr-step:nth-child(3){animation-delay:140ms}
+ html .jiz-homepage .jz-pr--method .jz-pr-step:nth-child(4){animation-delay:210ms}
+ html .jiz-homepage .jz-pr--method .jz-pr-step:nth-child(5){animation-delay:280ms}
+ html .jiz-homepage .jz-pr--method .jz-pr-step[data-motion-in="true"]::after{
+   animation:jiz-node-signal 1.1s ease-out 1 both;
+ }
+ html .jiz-homepage .jz-pr--method .jz-pr-step:nth-child(2)::after{animation-delay:110ms}
+ html .jiz-homepage .jz-pr--method .jz-pr-step:nth-child(3)::after{animation-delay:220ms}
+ html .jiz-homepage .jz-pr--method .jz-pr-step:nth-child(4)::after{animation-delay:330ms}
+ html .jiz-homepage .jz-pr--method .jz-pr-step:nth-child(5)::after{animation-delay:440ms}
+}
+@media(min-width:1091px) and (prefers-reduced-motion:no-preference){
+ html .jiz-homepage .jz-pr--method .jz-pr-steps:has(.jz-pr-step[data-motion-in="true"]){
+  position:relative;border-top-color:transparent!important;
+ }
+ html .jiz-homepage .jz-pr--method .jz-pr-steps:has(.jz-pr-step[data-motion-in="true"])::before{
+  content:"";display:block!important;position:absolute;left:0;top:0;
+  height:2px;width:100%;background:linear-gradient(90deg,#C6F23A,#64E1FF);
+  transform-origin:left center;animation:jiz-rail-reveal 1150ms ease-out both;
+ }
+}
+@media(max-width:1040px){
+ html .jiz-homepage .jiz-build-stage{grid-template-columns:1fr}
+ html .jiz-homepage .jz-ct-poster--portrait{min-height:clamp(340px,55vw,540px)}
+}
+@media(max-width:680px){
+ html .jiz-homepage .jiz-creative-lab-v5 .shell{
+  width:calc(100% - 44px)!important;padding-top:65px!important;
+ }
+ html .jiz-homepage .jiz-creative-lab-v5 .headline-grid h2{
+  font-size:clamp(2.9rem,12vw,4.8rem)!important;
+ }
+ html .jiz-homepage .jz-im{
+  background:linear-gradient(96deg,rgba(7,24,34,.96),rgba(8,30,41,.85)),
+  url('/assets/imagery/portfolio-principles-glass.jpg') 63% 50%/cover no-repeat!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ html .jiz-homepage [data-motion-in="true"]{animation:none!important;transition:none!important}
+}
+
+
+/* Contact film portrait framing. The real supplied still is the
+   fallback when reduced motion, save-data or playback restrictions apply. */
+html .jiz-homepage .jz-ct-poster--portrait{
+ background:linear-gradient(180deg,rgba(6,23,31,.08),rgba(6,23,31,.22)),
+ url('/assets/imagery/portfolio-contact-executive-poster.jpg') 50% 35%/cover no-repeat!important;
+}
+html .jiz-homepage .jz-ct-poster--portrait .jz-ct-poster-video{
+ display:block;position:absolute;z-index:0;inset:0;
+ width:100%;height:100%;object-fit:cover;
+ object-position:50% 35%;opacity:.97;pointer-events:none;
+}
+html .jiz-homepage .jz-ct-poster--portrait::before{
+ background:linear-gradient(180deg,rgba(6,24,34,.3) 0%,rgba(6,24,34,0) 32%,rgba(6,24,34,.03) 56%,rgba(6,24,34,.82) 100%)!important;
+}
+@media(prefers-reduced-motion:reduce){
+ html .jiz-homepage .jz-ct-poster--portrait .jz-ct-poster-video{display:none!important}
+}
+
+/* Selected Experience joins the chapter motion sequence without delaying readable text. */
+@media(prefers-reduced-motion:no-preference){html .jiz-homepage .jz-exp[data-motion-in="true"]{animation:jiz-chapter-enter 560ms cubic-bezier(.22,.61,.36,1) both}}
+
+
+/* V8 motion-led finish: two real full-bleed films, aligned journeys and scroll-aware navigation.
+   Keep the original carousel, logo, layouts and all semantic controls. */
+/* Featured Work: the cinematic glass project layers ARE the canvas. */
+html .jiz-homepage .jz-fw{
+  position:relative;overflow:hidden;isolation:isolate;
+  background:#0B1F2A!important;color:#F4F7F7!important;
+  border:1px solid rgba(42,88,101,.45)!important;
+}
+html .jiz-homepage .jz-fw>.jz-fw-ambient-video{
+ position:absolute;inset:0;width:100%;height:100%;
+ z-index:0;object-fit:cover;object-position:center 45%;
+ opacity:1;pointer-events:none;
+}
+html .jiz-homepage .jz-fw>.jz-fw-ambient-scrim{
+ position:absolute;inset:0;z-index:1;pointer-events:none;
+ background:linear-gradient(90deg,rgba(6,27,38,.94) 0%,rgba(7,31,43,.79) 37%,rgba(7,35,46,.54) 72%,rgba(6,25,35,.54) 100%),
+ linear-gradient(180deg,rgba(5,20,29,.26),transparent 42%,rgba(5,20,29,.66));
+}
+html .jiz-homepage .jz-fw>.jz-fw-stage{position:relative;z-index:2}
+html .jiz-homepage .jz-fw :is(.jz-fw-h2,.jz-fw-heading>p,.jz-fw-instruction,.jz-fw-count,.jz-fw-label){
+ color:#F4F7F7!important;text-shadow:0 2px 16px rgba(3,17,24,.26);
+}
+html .jiz-homepage .jz-fw .jz-label{color:#C6F23A!important}
+html .jiz-homepage .jz-fw :is(.jz-fw-project-title,.jz-fw-project-org,.jz-fw-value,.jz-fw-subtitle){text-shadow:none}
+html .jiz-homepage .jz-fw .jz-fw-project-link{
+ background:rgba(250,252,253,.97)!important;
+ box-shadow:0 12px 30px rgba(0,0,0,.28);
+}
+html .jiz-homepage .jz-fw .jz-fw-gallery-layout .jz-fw-buttons button{
+ border-color:rgba(255,255,255,.8)!important;
+}
+@media(prefers-reduced-motion:reduce){
+ html .jiz-homepage .jz-fw>.jz-fw-ambient-video{display:none!important}
+ html .jiz-homepage .jz-fw{
+  background:linear-gradient(95deg,rgba(6,27,38,.95),rgba(7,34,45,.78)),url('/assets/imagery/portfolio-stack-systems.jpg') center/cover no-repeat!important;
+ }
+}
+/* Contact: full-section film rather than a small second-column media poster. */
+html .jiz-homepage .jiz-build{
+ position:relative;isolation:isolate;overflow:hidden;
+ background:#0B1F2A url('/assets/imagery/portfolio-contact-executive-poster.jpg') 60% 35%/cover no-repeat!important;
+}
+html .jiz-homepage .jiz-build>.jiz-build-background-video{
+ display:block;position:absolute;inset:0;width:100%;height:100%;
+ object-fit:cover;object-position:60% 33%;z-index:0;
+ opacity:1;pointer-events:none;
+}
+html .jiz-homepage .jiz-build::before{
+ content:"";position:absolute;inset:0;z-index:1!important;
+ background:linear-gradient(90deg,rgba(6,27,38,.97) 0%,rgba(7,30,42,.91) 35%,rgba(9,34,45,.54) 70%,rgba(8,29,39,.22) 100%),
+ linear-gradient(180deg,rgba(7,27,38,.30),transparent 42%,rgba(7,27,38,.42));
+ opacity:1!important;-webkit-mask-image:none!important;mask-image:none!important;
+ pointer-events:none;
+}
+html .jiz-homepage .jiz-build>.jiz-build-inner{z-index:2;position:relative}
+html .jiz-homepage .jiz-build .jiz-build-head{
+ max-width:790px;grid-template-columns:1fr!important;
+ gap:clamp(15px,2vw,24px);align-items:start;
+}
+html .jiz-homepage .jiz-build .jiz-build-title{max-width:19ch;color:#F7FAFA!important}
+html .jiz-homepage .jiz-build .jiz-build-sub{color:#DBE8EA!important}
+html .jiz-homepage .jiz-build .jiz-build-stage{
+ grid-template-columns:minmax(0,620px)!important;max-width:650px;
+}
+html .jiz-homepage .jiz-build .jz-ct-direct{
+ background:linear-gradient(120deg,rgba(9,33,44,.48),rgba(9,33,44,.24));
+ padding:clamp(22px,3.1vw,36px);border-radius:22px;
+ border:1px solid rgba(227,242,244,.18);
+ backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+}
+html .jiz-homepage .jiz-build .jz-ct-poster--portrait{display:none!important}
+html .jiz-homepage .jiz-build :is(.jz-ct-direct,.jiz-build-form){position:relative;z-index:3}
+@media(prefers-reduced-motion:reduce){
+ html .jiz-homepage .jiz-build>.jiz-build-background-video{display:none!important}
+}
+@media(max-width:760px){
+ html .jiz-homepage .jiz-build>.jiz-build-background-video{object-position:63% center}
+ html .jiz-homepage .jiz-build::before{
+  background:linear-gradient(90deg,rgba(6,27,38,.94),rgba(7,30,42,.82)),linear-gradient(0deg,rgba(6,27,38,.55),transparent)!important;
+ }
+ html .jiz-homepage .jiz-build .jiz-build-stage{grid-template-columns:minmax(0,1fr)!important}
+}
+/* Journey: repurpose previously understated Featured Work architecture;
+   create a readable, more elevated progression rather than new clutter. */
+html .jiz-homepage .jz-jr{
+ background:linear-gradient(100deg,rgba(248,251,252,.97) 0%,rgba(242,248,250,.92) 43%,rgba(239,247,249,.71) 100%),
+ url('/assets/imagery/portfolio-selected-work-architecture.jpg') 62% 49%/cover no-repeat!important;
+ color:#102730!important;
+}
+html .jiz-homepage .jz-jr-stage{
+ padding:clamp(21px,2vw,30px)!important;
+ border:1px solid rgba(33,73,85,.14)!important;
+ border-top:3px solid #0F8B8D!important;
+ border-radius:clamp(13px,1.4vw,19px);
+ background:rgba(250,253,254,.86);
+ box-shadow:0 12px 30px -20px rgba(8,34,44,.38),0 4px 12px rgba(8,34,44,.045);
+ backdrop-filter:blur(6px);
+}
+html .jiz-homepage .jz-jr-stage::before{top:-7px;left:24px;background:#C6F23A;border:2px solid #0B1F2A}
+html .jiz-homepage .jz-jr .jz-jr-t{color:#0B1F2A!important;font-weight:700}
+html .jiz-homepage .jz-jr .jz-jr-c{color:#37515A!important}
+html .jiz-homepage .jz-jr .jz-jr-m{color:#465F68!important}
+html .jiz-homepage .jz-jr .jz-jr-x{color:#0A5664;background:#E1F1F3;border:1px solid #BDDDE2;border-radius:99px;padding:5px 10px}
+@media(hover:hover){
+ html .jiz-homepage .jz-jr-stage:hover{
+  box-shadow:0 20px 42px -24px rgba(8,34,44,.44),0 8px 16px rgba(8,34,44,.07);
+  border-color:#0F8B8D!important;
+ }
+}
+/* Principles: the existing eight bespoke icons receive a deliberate chartreuse signal. */
+html .jiz-homepage .jz-pp-n svg{
+ display:block;width:44px;height:44px;padding:8px;box-sizing:border-box;
+ color:#C6F23A!important;stroke:#C6F23A!important;
+ background:#0B1F2A;border:1px solid #21434B;border-radius:12px;
+ box-shadow:0 7px 14px rgba(11,31,42,.13);
+}
+html .jiz-homepage .jz-pp-n::before{background:#0F8B8D!important}
+html .jiz-homepage .jz-pp-n small{color:#38545E!important}
+/* Navigation responds continuously to scroll location with a restrained progress rule.
+   Active labels are set by scrollspy; no flashing or forced palette switching. */
+html .jiz-homepage nav.jiz-global-nav{
+ position:sticky;isolation:isolate;--jiz-nav-progress:0%;
+ transition:background-color .3s ease,box-shadow .3s ease,border-color .3s ease;
+}
+html .jiz-homepage nav.jiz-global-nav::after{
+ content:"";position:absolute;z-index:5;bottom:0;left:0;
+ width:var(--jiz-nav-progress);height:2px;
+ background:linear-gradient(90deg,#0F8B8D 0%,#C6F23A 100%);
+ border-radius:0 2px 2px 0;pointer-events:none;
+ transition:width 120ms linear;
+}
+html .jiz-homepage nav.jiz-global-nav[data-current-section="work"],
+html .jiz-homepage nav.jiz-global-nav[data-current-section="thinking"],
+html .jiz-homepage nav.jiz-global-nav[data-current-section="contact"]{
+ background:rgba(238,246,248,.97)!important;
+ box-shadow:0 10px 23px -17px rgba(11,31,42,.22);
+}
+@media(prefers-reduced-motion:reduce){
+ html .jiz-homepage nav.jiz-global-nav,
+ html .jiz-homepage nav.jiz-global-nav::after{transition:none!important}
+}

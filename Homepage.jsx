@@ -212,7 +212,7 @@ function Hero({ onExploreWork, onConnect }) {
       <div className="hero-content">
         <div className="hero-copy">
           <p className="jz-label hero-eyebrow hero-fade hero-fade--1">Senior Learning Experience Designer &amp; Learning Strategist</p>
-          <h1 className="hero-title hero-fade hero-fade--2"><span className="hero-title-main">From complex change </span><span className="hero-title-accent">to finished experience.</span></h1>
+          <h1 className="hero-title hero-fade hero-fade--2"><strong className="hero-title-main">From complex change </strong><span className="hero-title-accent">to finished experience.</span></h1>
           <p className="hero-lead hero-fade hero-fade--3">I turn complex business and learning challenges into experiences people can understand and use—from strategy and experience design to film, AI-enabled production, and the finished build.</p>
           <p className="hero-support hero-fade hero-fade--4">Strategy <span className="hero-dot">/</span> Learning Experience <span className="hero-dot">/</span> Creative Technology</p>
           <div className="hero-actions hero-fade hero-fade--5">
@@ -537,6 +537,10 @@ function LetsBuild({ onExploreWork }) {
 
   return (
     <section className="jiz-build" data-lets-build="ready" aria-labelledby="jiz-build-title">
+      <video className="jiz-build-background-video jz-ct-poster-video" muted playsInline loop preload="none" tabIndex={-1}
+        poster="/assets/imagery/portfolio-contact-executive-poster.jpg" aria-hidden="true">
+        <source src="/assets/video/portfolio-contact-executive.mp4" type="video/mp4"/>
+      </video>
       <style>{`
         .jiz-build{position:relative;isolation:isolate;overflow:hidden;padding:clamp(76px,8vw,124px) var(--container-pad) clamp(52px,5vw,76px);background:radial-gradient(ellipse 74% 54% at 18% 8%,rgba(var(--accent-cyan-rgb),.094),transparent 66%),radial-gradient(ellipse 62% 50% at 88% 64%,rgba(198,242,58,.05),transparent 70%),linear-gradient(180deg,#121a1d 0%,#141d20 40%,#101619 100%)}
         .jiz-build::before{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%);mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%)}
@@ -631,11 +635,7 @@ function LetsBuild({ onExploreWork }) {
               <button type="button" onClick={() => openInquiry('speaking')}><span className="jz-ct-choice-icon"><ContactGlyph kind="speaking"/></span><span className="jz-ct-choice-name">Invite me to speak</span><span className="jz-ct-choice-arrow"><ContactGlyph kind="arrow"/></span></button>
             </div>
           </div>
-          {!formOpen && <div className="jz-ct-poster jz-ct-poster--portrait" aria-hidden="true">
-            <span className="jz-ct-poster-kicker">HUMAN-FIRST / FUTURE-READY</span>
-            <span className="jz-ct-poster-line"/>
-            <span className="jz-ct-poster-footer">Better learning starts with a conversation.</span>
-          </div>}
+          
           <form id="jiz-build-form-start" className="jiz-build-form" hidden={!formOpen} data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
             <h3>Start the Conversation</h3>
             <p className="jiz-build-form-note">Hiring, projects, or speaking — a few details are enough to begin.</p>
@@ -866,6 +866,7 @@ function ClsIcon({ name, size = 22 }) {
   const artwork = {
     book: <><path d="M12 20c-2-1.4-5-2.1-9-2V4c4-.2 7 .5 9 2 2-1.5 5-2.2 9-2v14c-4-.1-7 .6-9 2Z" /><path d="M12 6v14" /></>,
     framework: <><rect x="3.2" y="3.2" width="7" height="7" rx="1.5" /><rect x="13.8" y="3.2" width="7" height="7" rx="1.5" /><rect x="3.2" y="13.8" width="7" height="7" rx="1.5" /><path d="M17.3 13.8v7m-3.5-3.5h7" /></>,
+    studio: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M8 5v14m8-14v14M3 10h5m-5 4h5m8-4h5m-5 4h5" /><path d="m10 9 5 3-5 3Z" /></>,
     dossier: <><path d="M3 7V5a2 2 0 0 1 2-2h5l2.2 2.5H19a2 2 0 0 1 2 2V9" /><path d="M4 9h16l-1.2 11H5.2L4 9Z" /><path d="M9 14h6m-6 3h4" /></>,
     arrow: <><path d="M5 12h14m-6-6 6 6-6 6" /></>,
     play: <path d="m8 5 11 7-11 7V5Z" fill="currentColor" stroke="none" />,
@@ -1044,7 +1045,8 @@ function CinematicJournal({ onNavigate }) {
           <nav className="cls-room__routes" aria-label="Explore Cinematic Learning Systems">
             <a href="./journal/" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="book" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">01 / THE PUBLICATION</span><strong>Read the journal</strong><small>Essays, ideas, and current thinking</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
             <a href="./journal/#framework" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="framework" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">02 / THE METHODOLOGY</span><strong>Explore the framework</strong><small>CLPF {J.framework.version} · The system behind the work</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
-            <a {...dossier} className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="dossier" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">03 / THE EVIDENCE</span><strong>Open the dossier</strong><small>Scenes, artifacts, and the design rationale</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
+            <a href="/#creative-lab" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="studio" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">03 / THE STUDIO</span><strong>Explore the studio</strong><small>Cinematic experiments, prototypes, and creative production</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
+            <a {...dossier} className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="dossier" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">04 / THE EVIDENCE</span><strong>Open the dossier</strong><small>Scenes, artifacts, and the design rationale</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
           </nav>
         </div>
         {(lead || support.length > 0) && (
@@ -1218,7 +1220,7 @@ function Homepage({ onOpenCaseStudy }) {
   const sectionRefs = React.useRef({});
   const [activeSection, setActiveSection] = React.useState('hero');
   const reduced = prefersReduced();
-  const navItems = ['Work', 'Capabilities', 'Method', 'Thinking', 'Speaking', 'Stack', 'About'];
+  const navItems = ['Work', 'Method', 'Learning', 'About', 'Contact'];
 
   const registerSection = React.useCallback((id) => (element) => { sectionRefs.current[id] = element; }, []);
   const scrollToSection = React.useCallback((id) => {
@@ -1240,37 +1242,100 @@ function Homepage({ onOpenCaseStudy }) {
   }, [reduced, scrollToSection]);
 
   React.useEffect(() => {
-    const entries = Object.entries(sectionRefs.current).filter(([, el]) => el);
-    if (typeof IntersectionObserver === 'undefined') {
-      const onScroll = () => {
-        let current = 'hero';
-        entries.forEach(([id, el]) => { if (el.getBoundingClientRect().top <= window.innerHeight * 0.48) current = id; });
-        setActiveSection(current);
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-      return () => window.removeEventListener('scroll', onScroll);
+    // Scrollspy tracks the current chapter and drives a restrained progress
+    // line across the nav; no per-frame React state changes for scroll progress.
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const entries = Object.entries(sectionRefs.current).filter(([, el]) => el);
+        const nav = document.querySelector('nav.jiz-global-nav');
+        const markerY = (nav?.getBoundingClientRect().height || 72) + window.innerHeight * .25;
+        let active = entries[0]?.[0] || 'hero';
+        for (const [id, el] of entries) if (el.getBoundingClientRect().top <= markerY) active = id;
+        setActiveSection(previous => previous === active ? previous : active);
+        const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        nav?.style.setProperty('--jiz-nav-progress', (window.scrollY / max * 100).toFixed(2) + '%');
+        nav?.setAttribute('data-current-section',active);
+      });
+    };
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll,{passive:true});
+    onScroll();
+    return () => { window.removeEventListener('scroll',onScroll);window.removeEventListener('resize',onScroll);cancelAnimationFrame(frame); };
+  }, []);
+
+  // Progressive scene direction: each chapter and its key elements enters once,
+  // with a small stagger. The site remains fully visible without JS or when
+  // reduced-motion is requested.
+  React.useEffect(() => {
+    const root = document.querySelector('.jiz-homepage');
+    if (!root) return undefined;
+    const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const selectors = [
+      '.jz-exp', '.jz-fw', '.jz-im', '.jz-pr', '.jz-cls', '.cls-room', '.jiz-creative-lab',
+      '.jiz-am', '.jz-jr', '.jz-st', '.jz-pp', '.jiz-arch', '.jiz-build', '.sp-preview',
+      '.jz-pr--method .jz-pr-step', '.jz-im-cell', '.jz-jr-stage',
+      '.jz-fw-slide', '.jz-pr-cap', '.cls-room__route'
+    ];
+    const nodes = Array.from(root.querySelectorAll(selectors.join(',')));
+    if (preference.matches || typeof IntersectionObserver === 'undefined') {
+      nodes.forEach(el => el.dataset.motionIn = 'true');
+      return undefined;
     }
-    const visibility = new Map();
-    const observer = new IntersectionObserver((list) => {
-      list.forEach((entry) => visibility.set(entry.target.dataset.sectionId, entry.intersectionRatio));
-      let best = 'hero', bestRatio = -1;
-      visibility.forEach((ratio, id) => { if (ratio > bestRatio) { bestRatio = ratio; best = id; } });
-      setActiveSection(best);
-    }, { rootMargin: '-20% 0px -55% 0px', threshold: [0, 0.15, 0.35, 0.6] });
-    entries.forEach(([id, el]) => { el.dataset.sectionId = id; observer.observe(el); });
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.dataset.motionIn = 'true';
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    nodes.forEach(el => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 
-  const activeNavLabel = (SITE.section(activeSection) || {}).nav || '';
+  // Contact film starts only when visible; visitors who prefer less motion
+  // or use data saving always receive the atmospheric still background.
+  React.useEffect(() => {
+    const video = document.querySelector('.jiz-homepage .jz-ct-poster-video');
+    if (!video) return undefined;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const saveData = !!(navigator.connection && navigator.connection.saveData);
+    if (reduced || saveData || typeof IntersectionObserver === 'undefined') return undefined;
+    let visible = false;
+    const syncPlayback = () => {
+      if (visible && !document.hidden && document.documentElement.dataset.jzMotionPaused !== 'true') video.play().catch(() => {});
+      else video.pause();
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      syncPlayback();
+    }, { threshold: 0.18 });
+    observer.observe(video);
+    const mutation = new MutationObserver(syncPlayback);
+    mutation.observe(document.documentElement,{attributes:true,attributeFilter:['data-jz-motion-paused']});
+    document.addEventListener('visibilitychange',syncPlayback);
+    return () => { observer.disconnect();mutation.disconnect();document.removeEventListener('visibilitychange',syncPlayback);video.pause(); };
+  }, []);
+
+  const activeNavLabel = (
+    ['work','impact','capabilities'].includes(activeSection) ? 'Work' :
+    activeSection === 'method' ? 'Method' :
+    ['thinking','speaking','creative-lab'].includes(activeSection) ? 'Learning' :
+    ['about','journey','stack','principles'].includes(activeSection) ? 'About' :
+    activeSection === 'contact' ? 'Contact' : ''
+  );
 
   return (
-    <div className="jiz-homepage" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#080D0B', position: 'relative', zIndex: 1 }}>
+    <div className="jiz-homepage" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#F4F7F7', position: 'relative', zIndex: 1 }}>
       <NavBar
         items={navItems}
         secondaryItems={['Creative Lab', 'Resume', 'LinkedIn']}
         active={activeNavLabel}
         onNavigate={(item) => {
+          if (item === 'Learning') { scrollToSection('thinking'); return; }
+          if (item === 'Contact') { scrollToSection('contact'); return; }
           if (item === 'Speaking') { window.location.assign(SITE.links.speaking); return; }
           if (item === 'Resume') { window.jizTrack && window.jizTrack('resume_click'); window.open(SITE.links.resume, '_blank', 'noopener,noreferrer'); return; }
           if (item === 'LinkedIn') { window.open(SITE.links.linkedin, '_blank', 'noopener,noreferrer'); return; }

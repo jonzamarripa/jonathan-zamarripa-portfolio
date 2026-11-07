@@ -51,7 +51,7 @@ assert.ok(homepage.includes('TEACHING STUDIO / IN DEVELOPMENT'), 'Teaching must 
 assert.ok(!homepage.includes('Selected Additional Work'), 'Additional Work must be held from the rendered homepage');
 assert.ok(!homepage.includes('Explore additional work'), 'Hidden Additional Work must not be promoted in Featured Work');
 assert.ok(homepage.includes('jz-ct-choices'), 'Contact must offer goal-based entry points');
-assert.ok(homepage.includes('jz-ct-poster'), 'Contact editorial visual missing');
+assert.ok(read('Homepage.jsx').includes('jiz-build-background-video'), 'Full-section Contact background film source missing');
 assert.ok(homepage.includes('jiz-build-form-start'), 'Progressive contact form missing');
 assert.ok(homepage.includes('id="archive"'), 'Legacy archive hash must resolve to Featured Work');
 assert.ok(read('Homepage.jsx').includes('setForm({ ...EMPTY, intent: form.intent })'), 'Contact should retain inquiry category after successful submission');

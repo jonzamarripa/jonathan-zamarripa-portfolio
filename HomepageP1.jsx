@@ -155,7 +155,7 @@ function EditorialStyles() { return <style>{EDITORIAL_CSS + RHYTHM_CSS}</style>;
 
 /* ---------- Selected experience ---------- */
 function SelectedExperience() {
-  const orgs = ['Cox Enterprises', 'IHG Hotels & Resorts', 'Atlanta International School'];
+  const orgs = ['Intuit', 'IHG Hotels & Resorts', 'Cox Enterprises', 'Atlanta International School'];
   return (
     <section className="jz-exp" aria-label="Selected experience">
       <style>{`
@@ -170,7 +170,7 @@ function SelectedExperience() {
       <div className="jz-wrap jz-exp-in">
         <p className="jz-label">Selected experience</p>
         <ul className="jz-exp-list">{orgs.map((o) => <li key={o} className="jz-exp-org">{o}</li>)}</ul>
-        <p className="jz-exp-edu"><span className="jz-label">Education</span><span>M.Ed., Learning Design and Technology, Arizona State University</span></p>
+        <p className="jz-exp-edu"><span className="jz-label">Education</span><span>M.Ed., Learning Design and Technology, Arizona State University · summa cum laude</span></p>
       </div>
     </section>
   );
@@ -185,6 +185,28 @@ function FeaturedWorkEditorial({ onOpenWork }) {
   const [active, setActive] = React.useState(0);
   const [direction, setDirection] = React.useState('next');
   const inView = useInViewOnce(ref);
+  React.useEffect(() => {
+    const root = ref.current;
+    const video = root?.querySelector('.jz-fw-ambient-video');
+    if (!root || !video) return undefined;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const saveData = !!(navigator.connection && navigator.connection.saveData);
+    if (reduced || saveData || typeof IntersectionObserver === 'undefined') return undefined;
+    let visible = false;
+    const syncPlayback = () => {
+      if (visible && !document.hidden && document.documentElement.dataset.jzMotionPaused !== 'true') video.play().catch(() => {});
+      else video.pause();
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      syncPlayback();
+    }, { threshold: .08 });
+    observer.observe(root);
+    const mutation = new MutationObserver(syncPlayback);
+    mutation.observe(document.documentElement,{attributes:true,attributeFilter:['data-jz-motion-paused']});
+    document.addEventListener('visibilitychange',syncPlayback);
+    return () => { observer.disconnect(); mutation.disconnect(); document.removeEventListener('visibilitychange',syncPlayback); video.pause(); };
+  }, []);
   // Enterprise proof first, independent innovation second; the catalog remains the source of truth.
   // Stable view IDs make this presentation order resilient as new studies are added.
   const featuredOrder = ['case-study','hotelkey-onboarding','guest-crm-pilot','workday-learn','the-first-sentence','marcus-live','drafted-by-ai'];
@@ -237,6 +259,11 @@ function FeaturedWorkEditorial({ onOpenWork }) {
   }, []);
   return (
     <section className="jz-fw" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-fw-title" style={{ '--gallery-enter-offset': direction === 'next' ? '18px' : '-18px' }}>
+      <video className="jz-fw-ambient-video" muted playsInline loop preload="none" aria-hidden="true"
+        poster="/assets/imagery/portfolio-stack-systems.jpg" tabIndex={-1}>
+        <source src="/assets/video/portfolio-featured-work-glass.mp4" type="video/mp4"/>
+      </video>
+      <span className="jz-fw-ambient-scrim" aria-hidden="true"/>
       <EditorialStyles />
       <style>{`
 .jiz-homepage .jz-fw{--gallery-preview:96px;--gallery-gap:24px;background:var(--obsidian);color:var(--white);padding-block:clamp(48px,6vw,80px)}
@@ -321,19 +348,18 @@ html[data-jz-motion-paused="true"] .jz-fw-frame img{transform:none!important}
         <p>Learning strategy, scenario design, and enablement built around the decisions people make at work.</p>
       </header>
       <div className="jz-fw-toolbar">
-        <div><p className="jz-fw-instruction" id="jz-fw-help">Swipe or use the arrows to browse. Click the selected image to explore.</p><span className="jz-fw-motion-paused">Motion paused</span><span className="jz-fw-motion-reduced">Reduced motion enabled</span></div>
-        <div className="jz-fw-buttons"><button type="button" aria-label="Previous project" aria-controls="jz-fw-gallery" disabled={active === 0} onClick={() => go((destination.current ?? active) - 1)}><span aria-hidden="true">←</span> Previous</button><button type="button" aria-label="Next project" aria-controls="jz-fw-gallery" disabled={active === projects.length - 1} onClick={() => go((destination.current ?? active) + 1)}>Next project <span aria-hidden="true">→</span></button></div>
+        <div><p className="jz-fw-instruction" id="jz-fw-help">Swipe or use the arrows to browse real case studies. Open any project to explore.</p><span className="jz-fw-motion-paused">Motion paused</span><span className="jz-fw-motion-reduced">Reduced motion enabled</span></div>
+
       </div>
       <p id="jz-fw-keyboard-help" className="jz-visually-hidden">With the gallery focused, use Left and Right arrows, Home or End. Tab to case-study links or choose a numbered project button.</p>
+      <div className="jz-fw-gallery-layout">
+        <div className="jz-fw-buttons"><button type="button" aria-label="Previous project" aria-controls="jz-fw-gallery" disabled={active === 0} onClick={() => go((destination.current ?? active) - 1)}><span aria-hidden="true">←</span> Previous</button><button type="button" aria-label="Next project" aria-controls="jz-fw-gallery" disabled={active === projects.length - 1} onClick={() => go((destination.current ?? active) + 1)}>Next project <span aria-hidden="true">→</span></button></div>
       <div className="jz-fw-track" id="jz-fw-gallery" ref={track} tabIndex="0" role="region" aria-roledescription="carousel" aria-label="Featured projects" aria-describedby="jz-fw-help jz-fw-keyboard-help" onKeyDown={(e) => {
         if (e.target !== e.currentTarget || !['ArrowLeft','ArrowRight','Home','End'].includes(e.key)) return;
         e.preventDefault(); go(e.key === 'Home' ? 0 : e.key === 'End' ? projects.length - 1 : (destination.current ?? active) + (e.key === 'ArrowRight' ? 1 : -1));
       }}>
         {projects.map((p, i) => <article className="jz-fw-slide" key={p.view} data-active={i === active} aria-labelledby={'jz-fw-project-' + i}>
-          <a className="jz-fw-project-link" href={pathOf(p)} aria-label={(i === active ? 'View case study: ' : 'Select project: ') + p.title} onFocus={() => { if (i !== active) go(i); }} onClick={(e) => {
-            if (plain(e) && i !== active) { e.preventDefault(); go(i); return; }
-            open(e, p);
-          }}>
+          <a className="jz-fw-project-link" href={pathOf(p)} aria-label={'View case study: ' + p.title} onFocus={() => { if (i !== active) go(i); }} onClick={(e) => open(e, p)}>
             <div className="jz-fw-frame" style={{ '--project-focal': p.focal || '50% 50%' }}>
               <img src={p.image} alt={p.alt} loading="lazy" decoding="async" width="1600" height="900" />
               <span className="jz-fw-image-label" aria-hidden="true">{i === active ? p.n + ' / ' + String(projects.length).padStart(2, '0') + ' · Selected project' : 'Select project →'}</span>
@@ -348,6 +374,7 @@ html[data-jz-motion-paused="true"] .jz-fw-frame img{transform:none!important}
             </div>
           </a>
         </article>)}
+      </div>
       </div>
       <div className="jz-fw-controls">
         <span className="jz-fw-count" role="status" aria-live="polite" aria-atomic="true"><span className="jz-visually-hidden">Project </span>{String(active + 1).padStart(2,'0')} / {String(projects.length).padStart(2,'0')}<span className="jz-visually-hidden">: {projects[active].title}</span></span>
