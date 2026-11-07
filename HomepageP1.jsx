@@ -192,14 +192,20 @@ function FeaturedWorkEditorial({ onOpenWork }) {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const saveData = !!(navigator.connection && navigator.connection.saveData);
     if (reduced || saveData || typeof IntersectionObserver === 'undefined') return undefined;
+    let visible = false;
+    const syncPlayback = () => {
+      if (visible && !document.hidden && document.documentElement.dataset.jzMotionPaused !== 'true') video.play().catch(() => {});
+      else video.pause();
+    };
     const observer = new IntersectionObserver(([entry]) => {
-      const shouldPlay = entry.isIntersecting && !document.hidden && document.documentElement.dataset.jzMotionPaused !== 'true';
-      if (shouldPlay) video.play().catch(() => {}); else video.pause();
+      visible = entry.isIntersecting;
+      syncPlayback();
     }, { threshold: .08 });
     observer.observe(root);
-    const pause = () => { if (document.hidden) video.pause(); };
-    document.addEventListener('visibilitychange', pause);
-    return () => { observer.disconnect(); document.removeEventListener('visibilitychange', pause); video.pause(); };
+    const mutation = new MutationObserver(syncPlayback);
+    mutation.observe(document.documentElement,{attributes:true,attributeFilter:['data-jz-motion-paused']});
+    document.addEventListener('visibilitychange',syncPlayback);
+    return () => { observer.disconnect(); mutation.disconnect(); document.removeEventListener('visibilitychange',syncPlayback); video.pause(); };
   }, []);
   // Enterprise proof first, independent innovation second; the catalog remains the source of truth.
   // Stable view IDs make this presentation order resilient as new studies are added.
