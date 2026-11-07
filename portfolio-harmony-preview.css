@@ -1,0 +1,65 @@
+/* Portfolio Harmony — experimental editorial refinement. Preview only.
+   CSS-only overrides: all original components remain available for rollback. */
+:root{--harmony-ink:#0B1F2A;--harmony-lime:#C6F23A;--harmony-teal:#0F8B8D;--harmony-mist:#F4F7F7}
+html{scroll-behavior:smooth}
+html .jiz-homepage{--panel-gap:clamp(12px,1.6vw,24px)!important;--panel-r:clamp(20px,2.5vw,34px)!important}
+html .jiz-homepage :is(.hero,.jz-fw,.jz-im,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build){box-shadow:0 18px 60px -40px rgba(5,29,40,.34)!important}
+html .jiz-homepage :is(.jz-fw,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp){scroll-margin-top:92px}
+html .jiz-homepage :is(.jz-fw,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp) :is(h2,h3){text-wrap:balance}
+html .jiz-homepage :is(.jz-fw,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp) p{overflow-wrap:break-word}
+html .jiz-homepage :is(.jz-pr--capabilities,.jz-jr,.jz-pp){background:linear-gradient(145deg,#FCFEFE 0%,#ECF3F5 100%)!important}
+html .jiz-homepage :is(.jz-pr--capabilities,.jz-jr,.jz-pp) :is(p,li){line-height:1.65}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap{border-top-color:rgba(13,58,73,.15)!important}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap button{padding-block:clamp(18px,2vw,26px)}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap-t{font-weight:650}
+html .jiz-homepage .jz-fw{background-color:#0B1F2A!important}
+html .jiz-homepage .jz-fw :is(a,button):focus-visible{outline:2px solid #C6F23A;outline-offset:4px}
+html .jiz-homepage .jz-fw :is(button,[role="button"]){transition:background-color .25s ease,color .25s ease,border-color .25s ease,transform .25s ease}
+html .jiz-homepage .jz-fw :is(button,[role="button"]):hover{transform:translateY(-2px)}
+html .jiz-homepage .jz-fw :is(.jz-fw-card,.jz-fw-item){transition:transform .35s ease,box-shadow .35s ease}
+@media (hover:hover){html .jiz-homepage .jz-fw :is(.jz-fw-card,.jz-fw-item):hover{transform:translateY(-3px)}}
+/* Contact — replace busy dual-column form with a considered single action.
+   No photo or video is loaded, so the large portrait cannot obscure the copy. */
+html .jiz-homepage .jiz-build{
+  min-height:clamp(490px,55vw,670px)!important;
+  display:flex!important;align-items:center!important;
+  padding:clamp(70px,9vw,125px) clamp(26px,7vw,108px)!important;
+  position:relative!important;isolation:isolate!important;
+  background:
+    radial-gradient(ellipse 38% 66% at 88% 28%,rgba(100,225,255,.20),transparent 80%),
+    radial-gradient(ellipse 45% 70% at 76% 105%,rgba(198,242,58,.12),transparent 72%),
+    radial-gradient(ellipse 66% 70% at 110% 65%,rgba(15,139,141,.23),transparent 80%),
+    linear-gradient(120deg,#08151c 0%,#0b2633 54%,#17424b 100%)!important;
+}
+html .jiz-homepage .jiz-build:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,rgba(6,18,25,.42),transparent 70%),repeating-linear-gradient(115deg,rgba(255,255,255,.025) 0 1px,transparent 1px 115px);opacity:.7}
+html .jiz-homepage .jiz-build:after{content:"";position:absolute;right:-17%;top:-72%;width:min(80vw,880px);height:min(80vw,880px);border:1px solid rgba(255,255,255,.09);border-radius:50%;box-shadow:0 0 0 75px rgba(255,255,255,.018),0 0 0 150px rgba(255,255,255,.014),0 0 0 225px rgba(255,255,255,.009);pointer-events:none;z-index:-1}
+html .jiz-homepage .jiz-build .jiz-build-inner{width:min(1180px,100%)!important;margin-inline:auto!important}
+html .jiz-homepage .jiz-build .jiz-build-head{display:block!important;max-width:850px!important;margin:0!important}
+html .jiz-homepage .jiz-build .jiz-build-head-left{max-width:850px}
+html .jiz-homepage .jiz-build .jiz-build-eyebrow{color:#C6F23A!important;font:650 12px/1.5 "JetBrains Mono",monospace!important;letter-spacing:.20em!important;margin-bottom:clamp(20px,2.5vw,35px)!important}
+html .jiz-homepage .jiz-build .jiz-build-title{font-family:Manrope,Inter,sans-serif!important;font-size:clamp(2.8rem,6vw,6rem)!important;line-height:1.06!important;letter-spacing:-.055em!important;max-width:14.5ch!important;font-weight:750!important;color:#F7F8FA!important;text-wrap:balance!important}
+html .jiz-homepage .jiz-build .jiz-build-head-right{margin-top:clamp(22px,2.7vw,32px)}
+html .jiz-homepage .jiz-build .jiz-build-sub{font:400 clamp(1rem,1.35vw,1.17rem)/1.7 Inter,sans-serif!important;color:#D5E4E6!important;max-width:54ch!important}
+html .jiz-homepage .jiz-build .jiz-build-stage{display:block!important;margin-top:clamp(25px,3vw,40px)!important}
+html .jiz-homepage .jiz-build .jz-ct-direct{display:flex!important;flex-direction:row!important;align-items:center!important;flex-wrap:wrap!important;gap:20px!important;padding:0!important}
+html .jiz-homepage .jiz-build .jz-ct-mail{display:inline-flex!important;flex-direction:row!important;align-items:center!important;gap:14px!important;min-height:55px!important;padding:15px 27px!important;border:1px solid rgba(255,255,255,.32)!important;border-radius:999px!important;background:rgba(255,255,255,.13)!important;color:white!important;backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.14)!important;transition:background .2s,border-color .2s,transform .2s!important}
+html .jiz-homepage .jiz-build .jz-ct-mail:hover{transform:translateY(-2px);background:rgba(255,255,255,.23)!important;border-color:rgba(198,242,58,.65)!important}
+html .jiz-homepage .jiz-build .jz-ct-mail span:first-child{display:none!important}
+html .jiz-homepage .jiz-build .jz-ct-mail span:last-child{display:none!important}
+html .jiz-homepage .jiz-build .jz-ct-mail:before{content:"Start a Conversation";font:700 .93rem/1.2 Inter,sans-serif;letter-spacing:0}
+html .jiz-homepage .jiz-build .jz-ct-mail:after{content:"↗";font-size:1.3rem;line-height:1}
+html .jiz-homepage .jiz-build .jz-ct-sec{display:flex!important;gap:8px!important}
+html .jiz-homepage .jiz-build .jz-ct-sec li:first-child{display:none!important}
+html .jiz-homepage .jiz-build .jz-ct-sec a{font:600 .92rem/1.2 Inter,sans-serif!important;color:#E1ECEC!important;padding:14px 0!important}
+html .jiz-homepage .jiz-build .jz-ct-sec a:hover{color:#C6F23A!important}
+html .jiz-homepage .jiz-build .jz-ct-note,html .jiz-homepage .jiz-build .jiz-build-form,html .jiz-homepage .jiz-build .jiz-build-film{display:none!important}
+html .jiz-homepage .jiz-build a:focus-visible{outline:3px solid #C6F23A!important;outline-offset:5px!important}
+html .jiz-homepage .jiz-footer-disciplines{font-weight:750!important;letter-spacing:.035em!important;text-transform:uppercase!important}
+@media(max-width:720px){
+ html .jiz-homepage .jiz-build{min-height:520px!important;padding:76px 27px 80px!important}
+ html .jiz-homepage .jiz-build .jiz-build-title{font-size:clamp(2.4rem,10vw,4.15rem)!important}
+ html .jiz-homepage .jiz-build:after{right:-84%;top:-25%}
+ html .jiz-homepage .jiz-build .jz-ct-direct{align-items:flex-start!important;flex-direction:column!important;gap:10px!important}
+ html .jiz-homepage .jiz-build .jz-ct-mail{width:auto;max-width:100%}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}html .jiz-homepage .jz-fw *{transition:none!important}}
