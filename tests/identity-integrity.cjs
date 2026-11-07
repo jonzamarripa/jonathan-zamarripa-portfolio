@@ -107,8 +107,8 @@ assert(css.includes('.jiz-creative-lab-v5 .lab') && css.includes("portfolio-crea
 assert(css.includes('jiz-node-signal') && css.includes('jiz-rail-reveal'),'Method pulses and connecting rail animation missing');
 assert(home.includes("entry.target.dataset.motionIn = 'true'"),'Scroll-triggered section entrance missing');
 assert(home.includes("prefers-reduced-motion: reduce"),'Reduced motion guard missing');
-assert(home.includes('jz-ct-poster-video') && home.includes('portfolio-contact-executive.mp4'),'Contact portrait video is missing');
-assert(home.includes('video.pause()'),'Contact film is not paused when hidden');
+assert(!home.includes('className="jiz-build-background-video') && home.includes('jiz-build-form-start'), 'Contact portrait must be removed and the form rendered directly');
+assert(home.includes('React.useState(true)'), 'Contact conversation form must be visible by default');
 const contactFilm = 'assets/video/portfolio-contact-executive.mp4';
 const contactPoster = 'assets/imagery/portfolio-contact-executive-poster.jpg';
 assert(fs.existsSync(contactFilm) && fs.statSync(contactFilm).size===6245039,'Original Contact film missing or corrupt');
@@ -118,11 +118,11 @@ console.log('PASS: V7 scroll motion, Method pulses, Impact image, Creative Lab, 
 // V8 full-bleed media and navigation regression gates.
 const featuredFilm='assets/video/portfolio-featured-work-glass.mp4';
 assert(fs.existsSync(featuredFilm)&&fs.statSync(featuredFilm).size===3466951,'Featured Work original film absent/corrupted');
-assert(p1.includes('jz-fw-ambient-video')&&p1.includes('portfolio-featured-work-glass.mp4'),'Featured Work cinematic video not wired');
-assert(p1.includes('video.pause()') && p1.includes('IntersectionObserver'), 'Featured Work playback must stop outside viewport');
-assert(home.includes('jiz-build-background-video') && home.includes('portfolio-contact-executive.mp4'),'Contact video not promoted to full section');
+assert(p1.includes('featured-work-glass-panels.webp')&&!p1.includes('jz-fw-ambient-video'),'Featured Work must display the new static glass-panel image, not the video');
+assert(fs.existsSync('assets/imagery/featured-work-glass-panels.webp'),'Featured Work image asset must be committed');
+assert(!home.includes('className="jiz-build-background-video') && home.includes('jz-ct-mail'),'Contact must have no portrait video and a direct email option');
 assert(!home.includes('<div className="jz-ct-poster jz-ct-poster--portrait"'),'Old Contact portrait layout must be removed');
-assert(css.includes('.jiz-build>.jiz-build-background-video'),'Contact background must cover whole section');
+assert(home.includes('backdrop-filter:blur(24px)'),'Contact conversation card must use translucent glass styling');
 assert(css.includes('.jz-fw>.jz-fw-ambient-scrim'),'Featured Work text-legibility gradient missing');
 assert(css.includes('.jz-jr-stage') && css.includes('portfolio-selected-work-architecture.jpg'),'Journey elevated background/card design missing');
 assert(p1.includes('<PortfolioGlyph kind={["clarity","people","evidence"'),'Principles glyphs missing');
@@ -130,5 +130,5 @@ assert(css.includes('.jz-pp-n svg') && css.includes('color:#C6F23A'),'Chartreuse
 assert(home.includes('--jiz-nav-progress') && css.includes('nav.jiz-global-nav::after'),'Scroll-responsive navigation progress missing');
 assert(home.includes('activeSection === \'method\'')&&home.includes("activeSection === 'contact'"),'Active nav grouping absent');
 assert(css.includes('@media(prefers-reduced-motion:reduce)'),'Motion accessibility protections missing');
-console.log('PASS: V8 Featured Work film, full-screen Contact, elevated Journey, chartreuse Principles, scrollspy nav.');
+console.log('PASS: Featured Work static image, portrait-free glass Contact, elevated Journey, chartreuse Principles, scrollspy nav.');
 console.log('PASS: V4 visual identity, five-link navigation, experience contrast, image-first carousel, 11 routes, 4 CLS chapters, brand assets and base contrast.');
