@@ -212,7 +212,7 @@ function Hero({ onExploreWork, onConnect }) {
       <div className="hero-content">
         <div className="hero-copy">
           <p className="jz-label hero-eyebrow hero-fade hero-fade--1">Senior Learning Experience Designer &amp; Learning Strategist</p>
-          <h1 className="hero-title hero-fade hero-fade--2"><span className="hero-title-main">From complex change </span><span className="hero-title-accent">to finished experience.</span></h1>
+          <h1 className="hero-title hero-fade hero-fade--2"><strong className="hero-title-main">From complex change </strong><span className="hero-title-accent">to finished experience.</span></h1>
           <p className="hero-lead hero-fade hero-fade--3">I turn complex business and learning challenges into experiences people can understand and use—from strategy and experience design to film, AI-enabled production, and the finished build.</p>
           <p className="hero-support hero-fade hero-fade--4">Strategy <span className="hero-dot">/</span> Learning Experience <span className="hero-dot">/</span> Creative Technology</p>
           <div className="hero-actions hero-fade hero-fade--5">
