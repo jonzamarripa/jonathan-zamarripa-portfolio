@@ -1276,7 +1276,7 @@ function Homepage({ onOpenCaseStudy }) {
     if (!root) return undefined;
     const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
     const selectors = [
-      '.jz-fw', '.jz-im', '.jz-pr', '.jz-cls', '.cls-room', '.jiz-creative-lab',
+      '.jz-exp', '.jz-fw', '.jz-im', '.jz-pr', '.jz-cls', '.cls-room', '.jiz-creative-lab',
       '.jiz-am', '.jz-jr', '.jz-st', '.jz-pp', '.jiz-arch', '.jiz-build', '.sp-preview',
       '.jz-pr--method .jz-pr-step', '.jz-im-cell', '.jz-jr-stage',
       '.jz-fw-slide', '.jz-pr-cap', '.cls-room__route'
