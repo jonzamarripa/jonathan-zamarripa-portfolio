@@ -51,7 +51,11 @@ assert.ok(homepage.includes('TEACHING STUDIO / IN DEVELOPMENT'), 'Teaching must 
 assert.ok(!homepage.includes('Selected Additional Work'), 'Additional Work must be held from the rendered homepage');
 assert.ok(!homepage.includes('Explore additional work'), 'Hidden Additional Work must not be promoted in Featured Work');
 assert.ok(homepage.includes('jz-ct-choices'), 'Contact must offer goal-based entry points');
-assert.ok(read('Homepage.jsx').includes('jiz-build-background-video'), 'Full-section Contact background film source missing');
+assert.ok(!read('Homepage.jsx').includes('className="jiz-build-background-video'), 'Contact must not show portrait overlay');
+assert.ok(read('Homepage.jsx').includes('React.useState(true)'), 'Contact form must be visible immediately');
+assert.ok(read('Homepage.jsx').includes('jz-ct-mail'), 'Contact direct email pathway missing');
+assert.ok(read('HomepageP1.jsx').includes('featured-work-glass-panels.webp'), 'Featured Work must use the approved glass image');
+assert.ok(fs.existsSync(path.join(root,'assets/imagery/featured-work-glass-panels.webp')), 'Approved Featured Work image asset missing');
 assert.ok(homepage.includes('jiz-build-form-start'), 'Progressive contact form missing');
 assert.ok(homepage.includes('id="archive"'), 'Legacy archive hash must resolve to Featured Work');
 assert.ok(read('Homepage.jsx').includes('setForm({ ...EMPTY, intent: form.intent })'), 'Contact should retain inquiry category after successful submission');
