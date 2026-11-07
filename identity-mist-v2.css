@@ -758,3 +758,90 @@ html .jiz-homepage .jz-jr-stage .jz-jr-m{color:#52717A}
   html .jiz-homepage .jz-exp .jz-exp-edu{border-top-color:rgba(11,31,42,.13)}
   html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons{left:-12px;right:-12px}
 }
+
+
+/* V5 — Original section artwork selected and supplied by the site owner.
+   All imagery is served from committed local /assets/imagery files.
+   Preserve the original hero film and every existing thumbnail, icon and control. */
+html .jiz-homepage .jz-fw{
+ background:
+   linear-gradient(100deg,rgba(249,252,253,.975) 0%,rgba(245,249,250,.965) 35%,rgba(239,247,249,.87) 73%,rgba(241,247,249,.80) 100%),
+   url('/assets/imagery/portfolio-selected-work-architecture.jpg') right 48% / cover no-repeat!important;
+ background-color:#F4F7F7!important;
+}
+html .jiz-homepage .jz-pr--capabilities{
+ background:
+   linear-gradient(105deg,rgba(250,253,253,.94) 0%,rgba(250,253,253,.90) 44%,rgba(246,250,250,.76) 100%),
+   url('/assets/imagery/portfolio-capabilities-systems.jpg') right center / cover no-repeat!important;
+ background-color:#F4F7F7!important;
+}
+html .jiz-homepage .jz-pr--method{
+ background:
+   linear-gradient(95deg,rgba(7,26,36,.97) 0%,rgba(9,29,39,.9) 43%,rgba(11,33,42,.77) 75%,rgba(11,34,44,.66) 100%),
+   url('/assets/imagery/portfolio-method-process.jpg') center 46% / cover no-repeat!important;
+ background-color:#0B1F2A!important;
+}
+html .jiz-homepage .jz-cls,
+html .jiz-homepage .cls-room{
+ background:
+   linear-gradient(92deg,rgba(12,24,28,.97) 0%,rgba(15,31,35,.92) 36%,rgba(19,34,38,.68) 68%,rgba(22,31,32,.43) 100%),
+   url('/assets/imagery/portfolio-cls-gold-landscape.jpg') 58% center / cover no-repeat!important;
+ background-color:#15181C!important;
+}
+html .jiz-homepage .jiz-creative-lab{
+ background:
+   linear-gradient(90deg,rgba(6,22,31,.96) 0%,rgba(8,28,37,.87) 48%,rgba(8,29,40,.61) 100%),
+   url('/assets/imagery/portfolio-creative-lab-studio.jpg') 63% center / cover no-repeat!important;
+ background-color:#0B1F2A!important;
+}
+html .jiz-homepage .jiz-build{
+ background:
+   linear-gradient(95deg,rgba(6,25,35,.95) 0%,rgba(7,31,41,.88) 43%,rgba(10,37,46,.6) 73%,rgba(13,43,52,.45) 100%),
+   url('/assets/imagery/portfolio-contact-threshold.jpg') center 44% / cover no-repeat!important;
+ background-color:#0B1F2A!important;
+}
+/* Subtle depth: the artwork supports, never replaces, the existing panels and evidence. */
+html .jiz-homepage :is(.jz-fw,.jz-pr--capabilities,.jz-pr--method,.cls-room,.jiz-creative-lab,.jiz-build){
+ background-repeat:no-repeat!important;
+ background-attachment:scroll!important;
+}
+html .jiz-homepage .jz-fw :is(.jz-fw-h2,.jz-fw-project-title,.jz-fw-heading>p),
+html .jiz-homepage .jz-pr--capabilities :is(h2,h3,.jz-pr-sub,.jz-pr-cap-c){text-shadow:none}
+html .jiz-homepage .jz-pr--method :is(h2,h3),
+html .jiz-homepage .jiz-build :is(h2,h3),
+html .jiz-homepage .cls-room :is(.cls-room__headline,.cls-room__library-heading h3){
+ text-shadow:0 2px 18px rgba(0,0,0,.20);
+}
+@media(max-width:760px){
+ html .jiz-homepage .jz-fw{
+  background:
+   linear-gradient(100deg,rgba(249,252,253,.98),rgba(246,250,250,.93)),
+   url('/assets/imagery/portfolio-selected-work-architecture.jpg') 68% center / cover no-repeat!important;
+ }
+ html .jiz-homepage .jz-pr--capabilities{
+  background:
+   linear-gradient(100deg,rgba(250,253,253,.96),rgba(248,251,251,.89)),
+   url('/assets/imagery/portfolio-capabilities-systems.jpg') 70% center / cover no-repeat!important;
+ }
+ html .jiz-homepage .jz-pr--method{
+  background:
+   linear-gradient(90deg,rgba(7,26,36,.96),rgba(11,33,42,.84)),
+   url('/assets/imagery/portfolio-method-process.jpg') 42% center / cover no-repeat!important;
+ }
+ html .jiz-homepage .cls-room,
+ html .jiz-homepage .jz-cls{
+  background:
+   linear-gradient(100deg,rgba(12,24,28,.96),rgba(16,31,35,.75)),
+   url('/assets/imagery/portfolio-cls-gold-landscape.jpg') 65% center / cover no-repeat!important;
+ }
+ html .jiz-homepage .jiz-creative-lab{
+  background:
+   linear-gradient(90deg,rgba(6,22,31,.97),rgba(8,29,40,.77)),
+   url('/assets/imagery/portfolio-creative-lab-studio.jpg') 60% center / cover no-repeat!important;
+ }
+ html .jiz-homepage .jiz-build{
+  background:
+   linear-gradient(90deg,rgba(6,25,35,.96),rgba(10,37,46,.75)),
+   url('/assets/imagery/portfolio-contact-threshold.jpg') 64% center / cover no-repeat!important;
+ }
+}
