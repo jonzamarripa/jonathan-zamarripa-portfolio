@@ -1313,7 +1313,13 @@ function Homepage({ onOpenCaseStudy }) {
     return () => { observer.disconnect();document.removeEventListener('visibilitychange', onVisibility);video.pause(); };
   }, []);
 
-  const activeNavLabel = activeSection === 'thinking' ? 'Learning' : activeSection === 'contact' ? 'Contact' : (SITE.section(activeSection) || {}).nav || '';
+  const activeNavLabel = (
+    ['work','impact','capabilities'].includes(activeSection) ? 'Work' :
+    activeSection === 'method' ? 'Method' :
+    ['thinking','speaking','creative-lab'].includes(activeSection) ? 'Learning' :
+    ['about','journey','stack','principles'].includes(activeSection) ? 'About' :
+    activeSection === 'contact' ? 'Contact' : ''
+  );
 
   return (
     <div className="jiz-homepage" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#F4F7F7', position: 'relative', zIndex: 1 }}>
