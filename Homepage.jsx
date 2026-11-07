@@ -537,6 +537,10 @@ function LetsBuild({ onExploreWork }) {
 
   return (
     <section className="jiz-build" data-lets-build="ready" aria-labelledby="jiz-build-title">
+      <video className="jiz-build-background-video jz-ct-poster-video" muted playsInline loop preload="none" tabIndex={-1}
+        poster="/assets/imagery/portfolio-contact-executive-poster.jpg" aria-hidden="true">
+        <source src="/assets/video/portfolio-contact-executive.mp4" type="video/mp4"/>
+      </video>
       <style>{`
         .jiz-build{position:relative;isolation:isolate;overflow:hidden;padding:clamp(76px,8vw,124px) var(--container-pad) clamp(52px,5vw,76px);background:radial-gradient(ellipse 74% 54% at 18% 8%,rgba(var(--accent-cyan-rgb),.094),transparent 66%),radial-gradient(ellipse 62% 50% at 88% 64%,rgba(198,242,58,.05),transparent 70%),linear-gradient(180deg,#121a1d 0%,#141d20 40%,#101619 100%)}
         .jiz-build::before{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%);mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%)}
@@ -631,15 +635,7 @@ function LetsBuild({ onExploreWork }) {
               <button type="button" onClick={() => openInquiry('speaking')}><span className="jz-ct-choice-icon"><ContactGlyph kind="speaking"/></span><span className="jz-ct-choice-name">Invite me to speak</span><span className="jz-ct-choice-arrow"><ContactGlyph kind="arrow"/></span></button>
             </div>
           </div>
-          {!formOpen && <div className="jz-ct-poster jz-ct-poster--portrait" aria-hidden="true">
-            <video className="jz-ct-poster-video" muted playsInline loop preload="none" tabIndex={-1}
-              poster="/assets/imagery/portfolio-contact-executive-poster.jpg" aria-hidden="true">
-              <source src="/assets/video/portfolio-contact-executive.mp4" type="video/mp4"/>
-            </video>
-            <span className="jz-ct-poster-kicker">HUMAN-FIRST / FUTURE-READY</span>
-            <span className="jz-ct-poster-line"/>
-            <span className="jz-ct-poster-footer">Better learning starts with a conversation.</span>
-          </div>}
+          
           <form id="jiz-build-form-start" className="jiz-build-form" hidden={!formOpen} data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
             <h3>Start the Conversation</h3>
             <p className="jiz-build-form-note">Hiring, projects, or speaking — a few details are enough to begin.</p>
@@ -1246,26 +1242,28 @@ function Homepage({ onOpenCaseStudy }) {
   }, [reduced, scrollToSection]);
 
   React.useEffect(() => {
-    const entries = Object.entries(sectionRefs.current).filter(([, el]) => el);
-    if (typeof IntersectionObserver === 'undefined') {
-      const onScroll = () => {
-        let current = 'hero';
-        entries.forEach(([id, el]) => { if (el.getBoundingClientRect().top <= window.innerHeight * 0.48) current = id; });
-        setActiveSection(current);
-      };
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-      return () => window.removeEventListener('scroll', onScroll);
-    }
-    const visibility = new Map();
-    const observer = new IntersectionObserver((list) => {
-      list.forEach((entry) => visibility.set(entry.target.dataset.sectionId, entry.intersectionRatio));
-      let best = 'hero', bestRatio = -1;
-      visibility.forEach((ratio, id) => { if (ratio > bestRatio) { bestRatio = ratio; best = id; } });
-      setActiveSection(best);
-    }, { rootMargin: '-20% 0px -55% 0px', threshold: [0, 0.15, 0.35, 0.6] });
-    entries.forEach(([id, el]) => { el.dataset.sectionId = id; observer.observe(el); });
-    return () => observer.disconnect();
+    // Scrollspy tracks the current chapter and drives a restrained progress
+    // line across the nav; no per-frame React state changes for scroll progress.
+    let frame = 0;
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const entries = Object.entries(sectionRefs.current).filter(([, el]) => el);
+        const nav = document.querySelector('nav.jiz-global-nav');
+        const markerY = (nav?.getBoundingClientRect().height || 72) + window.innerHeight * .25;
+        let active = entries[0]?.[0] || 'hero';
+        for (const [id, el] of entries) if (el.getBoundingClientRect().top <= markerY) active = id;
+        setActiveSection(previous => previous === active ? previous : active);
+        const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        nav?.style.setProperty('--jiz-nav-progress', (window.scrollY / max * 100).toFixed(2) + '%');
+        nav?.setAttribute('data-current-section',active);
+      });
+    };
+    window.addEventListener('scroll',onScroll,{passive:true});
+    window.addEventListener('resize',onScroll,{passive:true});
+    onScroll();
+    return () => { window.removeEventListener('scroll',onScroll);window.removeEventListener('resize',onScroll);cancelAnimationFrame(frame); };
   }, []);
 
   // Progressive scene direction: each chapter and its key elements enters once,
