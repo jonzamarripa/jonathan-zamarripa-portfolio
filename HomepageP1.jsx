@@ -185,28 +185,6 @@ function FeaturedWorkEditorial({ onOpenWork }) {
   const [active, setActive] = React.useState(0);
   const [direction, setDirection] = React.useState('next');
   const inView = useInViewOnce(ref);
-  React.useEffect(() => {
-    const root = ref.current;
-    const video = root?.querySelector('.jz-fw-ambient-video');
-    if (!root || !video) return undefined;
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const saveData = !!(navigator.connection && navigator.connection.saveData);
-    if (reduced || saveData || typeof IntersectionObserver === 'undefined') return undefined;
-    let visible = false;
-    const syncPlayback = () => {
-      if (visible && !document.hidden && document.documentElement.dataset.jzMotionPaused !== 'true') video.play().catch(() => {});
-      else video.pause();
-    };
-    const observer = new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      syncPlayback();
-    }, { threshold: .08 });
-    observer.observe(root);
-    const mutation = new MutationObserver(syncPlayback);
-    mutation.observe(document.documentElement,{attributes:true,attributeFilter:['data-jz-motion-paused']});
-    document.addEventListener('visibilitychange',syncPlayback);
-    return () => { observer.disconnect(); mutation.disconnect(); document.removeEventListener('visibilitychange',syncPlayback); video.pause(); };
-  }, []);
   // Enterprise proof first, independent innovation second; the catalog remains the source of truth.
   // Stable view IDs make this presentation order resilient as new studies are added.
   const featuredOrder = ['case-study','hotelkey-onboarding','guest-crm-pilot','workday-learn','the-first-sentence','marcus-live','drafted-by-ai'];
@@ -259,14 +237,16 @@ function FeaturedWorkEditorial({ onOpenWork }) {
   }, []);
   return (
     <section className="jz-fw" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-fw-title" style={{ '--gallery-enter-offset': direction === 'next' ? '18px' : '-18px' }}>
-      <video className="jz-fw-ambient-video" muted playsInline loop preload="none" aria-hidden="true"
-        poster="/assets/imagery/portfolio-stack-systems.jpg" tabIndex={-1}>
-        <source src="/assets/video/portfolio-featured-work-glass.mp4" type="video/mp4"/>
-      </video>
+      <div className="jz-fw-ambient-image" aria-hidden="true"/>
       <span className="jz-fw-ambient-scrim" aria-hidden="true"/>
       <EditorialStyles />
       <style>{`
 .jiz-homepage .jz-fw{--gallery-preview:96px;--gallery-gap:24px;background:var(--obsidian);color:var(--white);padding-block:clamp(48px,6vw,80px)}
+.jiz-homepage .jz-fw{position:relative;isolation:isolate}
+.jiz-homepage .jz-fw .jz-fw-ambient-image{position:absolute;inset:0;z-index:0;pointer-events:none;background-color:#0B0D10;background-image:url('/assets/imagery/featured-work-glass-panels.webp');background-position:center center;background-size:cover;background-repeat:no-repeat}
+.jiz-homepage .jz-fw .jz-fw-ambient-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(11,13,16,.83) 0%,rgba(11,13,16,.64) 47%,rgba(11,13,16,.43) 100%),linear-gradient(180deg,rgba(11,13,16,.25),rgba(11,13,16,.62))}
+.jiz-homepage .jz-fw .jz-fw-stage{position:relative;z-index:2}
+@media(max-width:700px){.jiz-homepage .jz-fw .jz-fw-ambient-image{background-position:66% center}.jiz-homepage .jz-fw .jz-fw-ambient-scrim{background:linear-gradient(180deg,rgba(11,13,16,.82),rgba(11,13,16,.6) 50%,rgba(11,13,16,.82))}}
 .jz-fw-stage{width:min(var(--chapter-max,1180px),calc(100% - 2 * clamp(20px,4vw,56px)));margin-inline:auto}
 .jz-fw-heading{display:block;margin:0 0 28px;max-width:720px}
 .jiz-homepage .jz-fw .jz-label{color:var(--accent-cyan)}
