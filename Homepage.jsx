@@ -629,6 +629,7 @@ function LetsBuild({ onExploreWork }) {
 @media(prefers-reduced-motion:reduce){.jz-ct-mail span:last-child{transition:none}}
             `}</style>
             <div className="jz-ct-intro"><span className="jz-label">YOUR NEXT CONVERSATION STARTS HERE</span><p>Choose what brings you here. I’ll take care of the next step.</p></div>
+            <a className="jz-ct-mail" href={window.JIZ_SITE.links.email} aria-label="Email Jonathan Zamarripa"><span className="jz-label">EMAIL DIRECTLY</span><span>jonathan.zamarripa@gmail.com</span></a>
             <ul className="jz-ct-sec">
               <li><a href={window.JIZ_SITE.links.resume} target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a></li>
               <li><a href={window.JIZ_SITE.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></li>
