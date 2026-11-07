@@ -443,7 +443,7 @@ function LetsBuild({ onExploreWork }) {
   const REFERRALS = ['LinkedIn', 'Referral', 'Google Search', 'Previous Colleague', 'Conference or Event', 'Other'];
   const EMPTY = { name: '', email: '', org: '', intent: '', detail: '', role: '', location: '', jobLink: '', focus: [], timeline: '', budget: '', eventName: '', eventDate: '', format: '', topic: '', referral: '' };
   const [form, setForm] = React.useState(EMPTY);
-  const [formOpen, setFormOpen] = React.useState(false);
+  const [formOpen, setFormOpen] = React.useState(true);
   const openInquiry = (type) => {
     if(type) setForm(f => ({...f,intent:type}));
     setFormOpen(true);
@@ -537,10 +537,6 @@ function LetsBuild({ onExploreWork }) {
 
   return (
     <section className="jiz-build" data-lets-build="ready" aria-labelledby="jiz-build-title">
-      <video className="jiz-build-background-video jz-ct-poster-video" muted playsInline loop preload="none" tabIndex={-1}
-        poster="/assets/imagery/portfolio-contact-executive-poster.jpg" aria-hidden="true">
-        <source src="/assets/video/portfolio-contact-executive.mp4" type="video/mp4"/>
-      </video>
       <style>{`
         .jiz-build{position:relative;isolation:isolate;overflow:hidden;padding:clamp(76px,8vw,124px) var(--container-pad) clamp(52px,5vw,76px);background:radial-gradient(ellipse 74% 54% at 18% 8%,rgba(var(--accent-cyan-rgb),.094),transparent 66%),radial-gradient(ellipse 62% 50% at 88% 64%,rgba(198,242,58,.05),transparent 70%),linear-gradient(180deg,#121a1d 0%,#141d20 40%,#101619 100%)}
         .jiz-build::before{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%);mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%)}
@@ -594,6 +590,15 @@ function LetsBuild({ onExploreWork }) {
         
         
         
+        /* Contact: always-visible transparent glass conversation and no portrait media. */
+        .jiz-build{background:radial-gradient(ellipse 78% 70% at 90% 8%,rgba(100,225,255,.12),transparent 68%),radial-gradient(ellipse 65% 58% at 3% 100%,rgba(198,242,58,.07),transparent 70%),linear-gradient(145deg,#10171b,#171e23 55%,#0b0d10)}
+        .jiz-build-stage{grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);align-items:start;gap:clamp(22px,3.5vw,60px)}
+        .jiz-build-form{order:2;min-width:0;border:1px solid rgba(219,244,252,.23);background:linear-gradient(135deg,rgba(255,255,255,.105),rgba(100,225,255,.032) 48%,rgba(255,255,255,.045));box-shadow:0 26px 80px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.16);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px)}
+        .jz-ct-direct{order:1}
+        .jz-ct-choices button[aria-pressed="true"]{border-color:rgba(198,242,58,.64)}
+        .jiz-build-form h3{color:var(--white)}
+        @media(max-width:1040px){.jiz-build-stage{grid-template-columns:1fr}.jiz-build-form{order:2}.jz-ct-direct{order:1}}
+        @media(prefers-reduced-transparency:reduce){.jiz-build-form{background:#242d33;-webkit-backdrop-filter:none;backdrop-filter:none}}
         @media(max-width:1040px){.jiz-build-stage{grid-template-columns:1fr}.jiz-build-film{min-height:clamp(300px,52vw,460px)}}
         @media(max-width:520px){.jiz-build-head,.jiz-build-fields{grid-template-columns:1fr}}
         @media(prefers-reduced-motion:reduce){.jiz-build-submit,.jiz-build-chip{transition:none}}
@@ -636,7 +641,7 @@ function LetsBuild({ onExploreWork }) {
             </div>
           </div>
           
-          <form id="jiz-build-form-start" className="jiz-build-form" hidden={!formOpen} data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
+          <form id="jiz-build-form-start" className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
             <h3>Start the Conversation</h3>
             <p className="jiz-build-form-note">Hiring, projects, or speaking — a few details are enough to begin.</p>
             <div className="jiz-build-fields">
@@ -815,7 +820,7 @@ function FinalMoment({ onNavigate, standalone = false }) {
         .jiz-footer-name--link{text-decoration:none!important;display:inline-flex;align-items:center;min-height:44px;justify-self:start}
         .jiz-footer-name--link:hover{text-decoration:underline!important;text-underline-offset:5px}
         .jiz-footer-mark:focus-visible,.jiz-footer-name--link:focus-visible{outline:2px solid var(--obsidian);outline-offset:4px;border-radius:6px}
-        .jiz-footer-disciplines{grid-area:disciplines;margin:0;color:rgba(11,13,16,.8);font:var(--text-body);font-size:.875rem;line-height:1.6}
+        .jiz-footer-disciplines{grid-area:disciplines;margin:0;color:rgba(11,13,16,.92);font:var(--text-body);font-size:clamp(.875rem,.8rem + .22vw,1rem);font-weight:750;line-height:1.6;letter-spacing:.025em}
         .jiz-footer-top{grid-area:top;justify-self:end;min-height:44px;padding:0 var(--space-md);border:1px solid var(--obsidian);border-radius:var(--radius-pill);background:var(--obsidian);color:var(--signal-lime);font:var(--text-button);font-size:.875rem;cursor:pointer;transition:background var(--motion-fast) var(--ease-standard)}
         .jiz-footer-top:hover{background:var(--carbon)}
         .jiz-footer-rule{grid-area:rule;height:1px;margin:0;background:rgba(11,13,16,.24)}
@@ -835,7 +840,7 @@ function FinalMoment({ onNavigate, standalone = false }) {
           <img className="jiz-footer-logo" src="/assets/logo/jiz-logo-white.svg" alt="" />
         </a>
         <a className="jiz-footer-name jiz-footer-name--link" href="/" aria-label="Jonathan Iker Zamarripa — back to homepage">Jonathan Iker Zamarripa</a>
-        <p className="jiz-footer-disciplines">Learning strategy · Experience design · Creative technology</p>
+        <p className="jiz-footer-disciplines">Learning Strategy · Experience Design · Creative Technology</p>
         <nav className="jiz-footer-nav" aria-label="Footer">
           {NAV.map(([label, index]) => {
             const href = index === 'journal' ? '/journal/' : index === 'btb' ? '/#behind-the-build' : window.JIZ_SITE.links[index] || '/#' + index;
