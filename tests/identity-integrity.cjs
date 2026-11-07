@@ -71,4 +71,31 @@ for (const [label,asset,selector] of sectionBackgrounds) {
 }
 assert(home.includes('jonathan-hero-final.mp4'), 'Hero film must remain unchanged');
 console.log('PASS: Six owner-supplied section backgrounds committed and mapped; original hero preserved.');
+// V6: user-selected additional assets, speaker video, emphasis and single-row workflow.
+const latestAssets = [
+ ['About','assets/imagery/portfolio-about-reflective-studio.jpg'],
+ ['Speaking poster','assets/imagery/portfolio-speaking-film-still.jpg'],
+ ['Creative Lab','assets/imagery/portfolio-creative-lab-camera-workshop.jpg'],
+ ['Principles','assets/imagery/portfolio-principles-glass.jpg'],
+ ['Stack','assets/imagery/portfolio-stack-systems.jpg'],
+ ['Journey','assets/imagery/portfolio-career-journey.jpg'],
+ ['Speaking film','assets/video/speaking/portfolio-speaking-editorial-720p.mp4']
+];
+for (const [label,path] of latestAssets) {
+  assert(fs.existsSync(path),'Missing '+label+' media '+path);
+  assert(fs.statSync(path).size>100000,'Unexpectedly small '+label+' media');
+}
+const speaker=read('SpeakingPreview.jsx');
+assert(speaker.includes('sp-preview-backdrop-video'),'Speaking film element is missing');
+assert(speaker.includes('portfolio-speaking-editorial-720p.mp4'),'Speaking film asset not connected');
+assert(css.includes("portfolio-creative-lab-camera-workshop.jpg"),'Vintage camera lab background absent');
+for (const asset of ['portfolio-about-reflective-studio.jpg','portfolio-principles-glass.jpg','portfolio-stack-systems.jpg','portfolio-career-journey.jpg']) {
+ assert(css.includes(asset),'Companion background not wired: '+asset);
+}
+assert(p1.includes('summa cum laude'),'Education distinction missing');
+assert(home.includes('<strong className="hero-title-main">From complex change'),'Headline hierarchy not updated');
+assert(css.includes('grid-template-columns:repeat(5,minmax(0,1fr))'),'Five-stage desktop line is missing');
+assert(css.includes('grid-auto-flow:column'),'Smaller screens must scroll rather than break Method into two rows');
+assert(css.includes('html .jiz-homepage .jz-st-tools li'),'Consistent chartreuse tool chips are missing');
+console.log('PASS: V6 speaker film, six supplemental images, bold capability/tool accents, five-stage Method and summa cum laude.');
 console.log('PASS: V4 visual identity, five-link navigation, experience contrast, image-first carousel, 11 routes, 4 CLS chapters, brand assets and base contrast.');
