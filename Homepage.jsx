@@ -866,6 +866,7 @@ function ClsIcon({ name, size = 22 }) {
   const artwork = {
     book: <><path d="M12 20c-2-1.4-5-2.1-9-2V4c4-.2 7 .5 9 2 2-1.5 5-2.2 9-2v14c-4-.1-7 .6-9 2Z" /><path d="M12 6v14" /></>,
     framework: <><rect x="3.2" y="3.2" width="7" height="7" rx="1.5" /><rect x="13.8" y="3.2" width="7" height="7" rx="1.5" /><rect x="3.2" y="13.8" width="7" height="7" rx="1.5" /><path d="M17.3 13.8v7m-3.5-3.5h7" /></>,
+    studio: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M8 5v14m8-14v14M3 10h5m-5 4h5m8-4h5m-5 4h5" /><path d="m10 9 5 3-5 3Z" /></>,
     dossier: <><path d="M3 7V5a2 2 0 0 1 2-2h5l2.2 2.5H19a2 2 0 0 1 2 2V9" /><path d="M4 9h16l-1.2 11H5.2L4 9Z" /><path d="M9 14h6m-6 3h4" /></>,
     arrow: <><path d="M5 12h14m-6-6 6 6-6 6" /></>,
     play: <path d="m8 5 11 7-11 7V5Z" fill="currentColor" stroke="none" />,
@@ -1044,7 +1045,8 @@ function CinematicJournal({ onNavigate }) {
           <nav className="cls-room__routes" aria-label="Explore Cinematic Learning Systems">
             <a href="./journal/" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="book" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">01 / THE PUBLICATION</span><strong>Read the journal</strong><small>Essays, ideas, and current thinking</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
             <a href="./journal/#framework" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="framework" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">02 / THE METHODOLOGY</span><strong>Explore the framework</strong><small>CLPF {J.framework.version} · The system behind the work</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
-            <a {...dossier} className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="dossier" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">03 / THE EVIDENCE</span><strong>Open the dossier</strong><small>Scenes, artifacts, and the design rationale</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
+            <a href="/#creative-lab" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="studio" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">03 / THE STUDIO</span><strong>Explore the studio</strong><small>Cinematic experiments, prototypes, and creative production</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
+            <a {...dossier} className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="dossier" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">04 / THE EVIDENCE</span><strong>Open the dossier</strong><small>Scenes, artifacts, and the design rationale</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
           </nav>
         </div>
         {(lead || support.length > 0) && (
@@ -1218,7 +1220,7 @@ function Homepage({ onOpenCaseStudy }) {
   const sectionRefs = React.useRef({});
   const [activeSection, setActiveSection] = React.useState('hero');
   const reduced = prefersReduced();
-  const navItems = ['Work', 'Capabilities', 'Method', 'Thinking', 'Speaking', 'Stack', 'About'];
+  const navItems = ['Work', 'Method', 'Learning', 'About', 'Contact'];
 
   const registerSection = React.useCallback((id) => (element) => { sectionRefs.current[id] = element; }, []);
   const scrollToSection = React.useCallback((id) => {
@@ -1262,15 +1264,17 @@ function Homepage({ onOpenCaseStudy }) {
     return () => observer.disconnect();
   }, []);
 
-  const activeNavLabel = (SITE.section(activeSection) || {}).nav || '';
+  const activeNavLabel = activeSection === 'thinking' ? 'Learning' : activeSection === 'contact' ? 'Contact' : (SITE.section(activeSection) || {}).nav || '';
 
   return (
-    <div className="jiz-homepage" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#080D0B', position: 'relative', zIndex: 1 }}>
+    <div className="jiz-homepage" style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', background: '#F4F7F7', position: 'relative', zIndex: 1 }}>
       <NavBar
         items={navItems}
         secondaryItems={['Creative Lab', 'Resume', 'LinkedIn']}
         active={activeNavLabel}
         onNavigate={(item) => {
+          if (item === 'Learning') { scrollToSection('thinking'); return; }
+          if (item === 'Contact') { scrollToSection('contact'); return; }
           if (item === 'Speaking') { window.location.assign(SITE.links.speaking); return; }
           if (item === 'Resume') { window.jizTrack && window.jizTrack('resume_click'); window.open(SITE.links.resume, '_blank', 'noopener,noreferrer'); return; }
           if (item === 'LinkedIn') { window.open(SITE.links.linkedin, '_blank', 'noopener,noreferrer'); return; }
