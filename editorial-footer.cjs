@@ -8,13 +8,13 @@ function editorialFooter({context='Portfolio',disclosure=''}={}){
       <img src="/assets/logo/jiz-logo-white.svg" width="48" height="48" alt="">
       <span>Jonathan Iker Zamarripa</span>
     </a>
-    <p class="jiz-editorial-footer__tagline">Learning strategy · Experience design · Creative technology</p>
+    <p class="jiz-editorial-footer__tagline">Learning Strategy · Experience Design · Creative Technology</p>
     <nav class="jiz-editorial-footer__nav" aria-label="Footer navigation">
       <a href="/#work">Work</a><a href="/#creative-lab">Creative Lab</a>
       <a href="/journal/">Journal</a><a href="/speaking/">Speaking</a>
       <a href="/#about">About</a><a href="/#contact">Contact</a>
     </nav>
-    <a class="jiz-editorial-footer__top" href="#top" data-editorial-back-top>↑ Back to Top</a>
+    <a class="jiz-editorial-footer__top" href="#" data-editorial-back-top>↑ Back to Top</a>
     ${disclosure ? '<p class="jiz-editorial-footer__disclosure">'+escape(disclosure)+'</p>' : ''}
     <div class="jiz-editorial-footer__meta"><span>© 2026 Jonathan Iker Zamarripa. All rights reserved.</span>
     <span>Designed with curiosity. Built with AI. Guided by human judgment.</span></div>
