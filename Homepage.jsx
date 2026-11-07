@@ -1303,14 +1303,20 @@ function Homepage({ onOpenCaseStudy }) {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const saveData = !!(navigator.connection && navigator.connection.saveData);
     if (reduced || saveData || typeof IntersectionObserver === 'undefined') return undefined;
-    const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting && !document.hidden) video.play().catch(() => {});
+    let visible = false;
+    const syncPlayback = () => {
+      if (visible && !document.hidden && document.documentElement.dataset.jzMotionPaused !== 'true') video.play().catch(() => {});
       else video.pause();
+    };
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      syncPlayback();
     }, { threshold: 0.18 });
     observer.observe(video);
-    const onVisibility = () => { if (document.hidden) video.pause(); };
-    document.addEventListener('visibilitychange', onVisibility);
-    return () => { observer.disconnect();document.removeEventListener('visibilitychange', onVisibility);video.pause(); };
+    const mutation = new MutationObserver(syncPlayback);
+    mutation.observe(document.documentElement,{attributes:true,attributeFilter:['data-jz-motion-paused']});
+    document.addEventListener('visibilitychange',syncPlayback);
+    return () => { observer.disconnect();mutation.disconnect();document.removeEventListener('visibilitychange',syncPlayback);video.pause(); };
   }, []);
 
   const activeNavLabel = (
