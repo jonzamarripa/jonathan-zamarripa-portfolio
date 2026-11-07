@@ -1138,3 +1138,146 @@ html .jiz-homepage .jz-ct-poster--portrait::before{
 
 /* Selected Experience joins the chapter motion sequence without delaying readable text. */
 @media(prefers-reduced-motion:no-preference){html .jiz-homepage .jz-exp[data-motion-in="true"]{animation:jiz-chapter-enter 560ms cubic-bezier(.22,.61,.36,1) both}}
+
+
+/* V8 motion-led finish: two real full-bleed films, aligned journeys and scroll-aware navigation.
+   Keep the original carousel, logo, layouts and all semantic controls. */
+/* Featured Work: the cinematic glass project layers ARE the canvas. */
+html .jiz-homepage .jz-fw{
+  position:relative;overflow:hidden;isolation:isolate;
+  background:#0B1F2A!important;color:#F4F7F7!important;
+  border:1px solid rgba(42,88,101,.45)!important;
+}
+html .jiz-homepage .jz-fw>.jz-fw-ambient-video{
+ position:absolute;inset:0;width:100%;height:100%;
+ z-index:0;object-fit:cover;object-position:center 45%;
+ opacity:1;pointer-events:none;
+}
+html .jiz-homepage .jz-fw>.jz-fw-ambient-scrim{
+ position:absolute;inset:0;z-index:1;pointer-events:none;
+ background:linear-gradient(90deg,rgba(6,27,38,.94) 0%,rgba(7,31,43,.79) 37%,rgba(7,35,46,.54) 72%,rgba(6,25,35,.54) 100%),
+ linear-gradient(180deg,rgba(5,20,29,.26),transparent 42%,rgba(5,20,29,.66));
+}
+html .jiz-homepage .jz-fw>.jz-fw-stage{position:relative;z-index:2}
+html .jiz-homepage .jz-fw :is(.jz-fw-h2,.jz-fw-heading>p,.jz-fw-instruction,.jz-fw-count,.jz-fw-label){
+ color:#F4F7F7!important;text-shadow:0 2px 16px rgba(3,17,24,.26);
+}
+html .jiz-homepage .jz-fw .jz-label{color:#C6F23A!important}
+html .jiz-homepage .jz-fw :is(.jz-fw-project-title,.jz-fw-project-org,.jz-fw-value,.jz-fw-subtitle){text-shadow:none}
+html .jiz-homepage .jz-fw .jz-fw-project-link{
+ background:rgba(250,252,253,.97)!important;
+ box-shadow:0 12px 30px rgba(0,0,0,.28);
+}
+html .jiz-homepage .jz-fw .jz-fw-gallery-layout .jz-fw-buttons button{
+ border-color:rgba(255,255,255,.8)!important;
+}
+@media(prefers-reduced-motion:reduce){
+ html .jiz-homepage .jz-fw>.jz-fw-ambient-video{display:none!important}
+ html .jiz-homepage .jz-fw{
+  background:linear-gradient(95deg,rgba(6,27,38,.95),rgba(7,34,45,.78)),url('/assets/imagery/portfolio-stack-systems.jpg') center/cover no-repeat!important;
+ }
+}
+/* Contact: full-section film rather than a small second-column media poster. */
+html .jiz-homepage .jiz-build{
+ position:relative;isolation:isolate;overflow:hidden;
+ background:#0B1F2A url('/assets/imagery/portfolio-contact-executive-poster.jpg') 60% 35%/cover no-repeat!important;
+}
+html .jiz-homepage .jiz-build>.jiz-build-background-video{
+ display:block;position:absolute;inset:0;width:100%;height:100%;
+ object-fit:cover;object-position:60% 33%;z-index:0;
+ opacity:1;pointer-events:none;
+}
+html .jiz-homepage .jiz-build::before{
+ content:"";position:absolute;inset:0;z-index:1!important;
+ background:linear-gradient(90deg,rgba(6,27,38,.97) 0%,rgba(7,30,42,.91) 35%,rgba(9,34,45,.54) 70%,rgba(8,29,39,.22) 100%),
+ linear-gradient(180deg,rgba(7,27,38,.30),transparent 42%,rgba(7,27,38,.42));
+ opacity:1!important;-webkit-mask-image:none!important;mask-image:none!important;
+ pointer-events:none;
+}
+html .jiz-homepage .jiz-build>.jiz-build-inner{z-index:2;position:relative}
+html .jiz-homepage .jiz-build .jiz-build-head{
+ max-width:790px;grid-template-columns:1fr!important;
+ gap:clamp(15px,2vw,24px);align-items:start;
+}
+html .jiz-homepage .jiz-build .jiz-build-title{max-width:19ch;color:#F7FAFA!important}
+html .jiz-homepage .jiz-build .jiz-build-sub{color:#DBE8EA!important}
+html .jiz-homepage .jiz-build .jiz-build-stage{
+ grid-template-columns:minmax(0,620px)!important;max-width:650px;
+}
+html .jiz-homepage .jiz-build .jz-ct-direct{
+ background:linear-gradient(120deg,rgba(9,33,44,.48),rgba(9,33,44,.24));
+ padding:clamp(22px,3.1vw,36px);border-radius:22px;
+ border:1px solid rgba(227,242,244,.18);
+ backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);
+}
+html .jiz-homepage .jiz-build .jz-ct-poster--portrait{display:none!important}
+html .jiz-homepage .jiz-build :is(.jz-ct-direct,.jiz-build-form){position:relative;z-index:3}
+@media(prefers-reduced-motion:reduce){
+ html .jiz-homepage .jiz-build>.jiz-build-background-video{display:none!important}
+}
+@media(max-width:760px){
+ html .jiz-homepage .jiz-build>.jiz-build-background-video{object-position:63% center}
+ html .jiz-homepage .jiz-build::before{
+  background:linear-gradient(90deg,rgba(6,27,38,.94),rgba(7,30,42,.82)),linear-gradient(0deg,rgba(6,27,38,.55),transparent)!important;
+ }
+ html .jiz-homepage .jiz-build .jiz-build-stage{grid-template-columns:minmax(0,1fr)!important}
+}
+/* Journey: repurpose previously understated Featured Work architecture;
+   create a readable, more elevated progression rather than new clutter. */
+html .jiz-homepage .jz-jr{
+ background:linear-gradient(100deg,rgba(248,251,252,.97) 0%,rgba(242,248,250,.92) 43%,rgba(239,247,249,.71) 100%),
+ url('/assets/imagery/portfolio-selected-work-architecture.jpg') 62% 49%/cover no-repeat!important;
+ color:#102730!important;
+}
+html .jiz-homepage .jz-jr-stage{
+ padding:clamp(21px,2vw,30px)!important;
+ border:1px solid rgba(33,73,85,.14)!important;
+ border-top:3px solid #0F8B8D!important;
+ border-radius:clamp(13px,1.4vw,19px);
+ background:rgba(250,253,254,.86);
+ box-shadow:0 12px 30px -20px rgba(8,34,44,.38),0 4px 12px rgba(8,34,44,.045);
+ backdrop-filter:blur(6px);
+}
+html .jiz-homepage .jz-jr-stage::before{top:-7px;left:24px;background:#C6F23A;border:2px solid #0B1F2A}
+html .jiz-homepage .jz-jr .jz-jr-t{color:#0B1F2A!important;font-weight:700}
+html .jiz-homepage .jz-jr .jz-jr-c{color:#37515A!important}
+html .jiz-homepage .jz-jr .jz-jr-m{color:#465F68!important}
+html .jiz-homepage .jz-jr .jz-jr-x{color:#0A5664;background:#E1F1F3;border:1px solid #BDDDE2;border-radius:99px;padding:5px 10px}
+@media(hover:hover){
+ html .jiz-homepage .jz-jr-stage:hover{
+  box-shadow:0 20px 42px -24px rgba(8,34,44,.44),0 8px 16px rgba(8,34,44,.07);
+  border-color:#0F8B8D!important;
+ }
+}
+/* Principles: the existing eight bespoke icons receive a deliberate chartreuse signal. */
+html .jiz-homepage .jz-pp-n svg{
+ display:block;width:44px;height:44px;padding:8px;box-sizing:border-box;
+ color:#C6F23A!important;stroke:#C6F23A!important;
+ background:#0B1F2A;border:1px solid #21434B;border-radius:12px;
+ box-shadow:0 7px 14px rgba(11,31,42,.13);
+}
+html .jiz-homepage .jz-pp-n::before{background:#0F8B8D!important}
+html .jiz-homepage .jz-pp-n small{color:#38545E!important}
+/* Navigation responds continuously to scroll location with a restrained progress rule.
+   Active labels are set by scrollspy; no flashing or forced palette switching. */
+html .jiz-homepage nav.jiz-global-nav{
+ position:sticky;isolation:isolate;--jiz-nav-progress:0%;
+ transition:background-color .3s ease,box-shadow .3s ease,border-color .3s ease;
+}
+html .jiz-homepage nav.jiz-global-nav::after{
+ content:"";position:absolute;z-index:5;bottom:0;left:0;
+ width:var(--jiz-nav-progress);height:2px;
+ background:linear-gradient(90deg,#0F8B8D 0%,#C6F23A 100%);
+ border-radius:0 2px 2px 0;pointer-events:none;
+ transition:width 120ms linear;
+}
+html .jiz-homepage nav.jiz-global-nav[data-current-section="work"],
+html .jiz-homepage nav.jiz-global-nav[data-current-section="thinking"],
+html .jiz-homepage nav.jiz-global-nav[data-current-section="contact"]{
+ background:rgba(238,246,248,.97)!important;
+ box-shadow:0 10px 23px -17px rgba(11,31,42,.22);
+}
+@media(prefers-reduced-motion:reduce){
+ html .jiz-homepage nav.jiz-global-nav,
+ html .jiz-homepage nav.jiz-global-nav::after{transition:none!important}
+}
