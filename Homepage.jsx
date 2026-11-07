@@ -633,7 +633,7 @@ function LetsBuild({ onExploreWork }) {
           </div>
           {!formOpen && <div className="jz-ct-poster jz-ct-poster--portrait" aria-hidden="true">
             <video className="jz-ct-poster-video" muted playsInline loop preload="none" tabIndex={-1}
-              poster="/assets/imagery/portfolio-contact-threshold.jpg" aria-hidden="true">
+              poster="/assets/imagery/portfolio-contact-executive-poster.jpg" aria-hidden="true">
               <source src="/assets/video/portfolio-contact-executive.mp4" type="video/mp4"/>
             </video>
             <span className="jz-ct-poster-kicker">HUMAN-FIRST / FUTURE-READY</span>
