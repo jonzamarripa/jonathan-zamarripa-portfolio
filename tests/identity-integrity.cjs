@@ -45,4 +45,11 @@ function contrast(fg,bg){
 assert(contrast('#F4F7F7','#0B1F2A')>=4.5,'Hero/footer contrast too low');
 assert(contrast('#122C36','#F4F7F7')>=4.5,'Editorial text contrast too low');
 assert(contrast('#15181C','#E7D8B7')>=4.5,'CLS card text contrast too low');
-console.log('PASS: V3 design identity, 11 generated routes, original content, live carousel, 4 CLS links, images, logo and base color contrast.');
+const siteConfig = read('site-config.js');
+assert(home.includes("['Work', 'Method', 'Learning', 'About', 'Contact']"),'Reference navigation must use five sections');
+assert(siteConfig.includes("nav: 'Learning'") && siteConfig.includes("'Thinking'"),'Learning link must retain the Thinking route');
+assert(css.includes('html .jiz-homepage .jiz-global-nav.is-scrolled'),'Light sticky header treatment missing');
+assert(css.includes('html .jiz-homepage .jz-exp .jz-exp-org'),'Selected Experience contrast treatment missing');
+assert(css.includes('html .jiz-homepage .jz-fw .jz-fw-project-title'),'Image-first project typography missing');
+assert(css.includes("font-family:'Manrope'"),'Display typography refinement missing');
+console.log('PASS: V4 visual identity, five-link navigation, experience contrast, image-first carousel, 11 routes, 4 CLS chapters, brand assets and base contrast.');
