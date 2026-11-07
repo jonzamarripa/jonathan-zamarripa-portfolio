@@ -610,3 +610,151 @@ html :is(.jiz-homepage,.jiz-cs,.tfs,.jr,.sp-page,.jiz-btb-detail) :is(button,inp
  html .jiz-homepage .jz-exp-in{padding-block:13px!important}
  html .jiz-homepage .jz-fw .jz-fw-image-action{display:none!important}
 }
+
+
+/* V4 visual fidelity pass — exact light navigation and balanced type on Mist.
+   Overrides original inline nav CSS intentionally, without replacing its behavior. */
+html .jiz-homepage .jiz-global-nav{
+  --nav-pad-x:clamp(22px,3.4vw,68px);
+  top:0;min-height:76px;
+  grid-template-columns:minmax(260px,1fr) auto;
+  gap:clamp(18px,2vw,38px);
+  margin:0 var(--panel-gap) 0;
+  padding:10px var(--nav-pad-x);
+  width:calc(100% - 2 * var(--panel-gap));
+  border:0;border-radius:0;
+  background:#F4F7F7!important;
+  box-shadow:none;
+  -webkit-backdrop-filter:blur(24px) saturate(140%);
+  backdrop-filter:blur(24px) saturate(140%);
+}
+html .jiz-homepage .jiz-global-nav.is-scrolled{
+  top:0;min-height:66px;border:1px solid rgba(11,31,42,.09);
+  border-top:0;border-radius:0 0 16px 16px;
+  background:rgba(244,247,247,.96)!important;
+  box-shadow:0 10px 23px -17px rgba(11,31,42,.18);
+}
+html .jiz-homepage .jiz-brand{gap:13px}
+html .jiz-homepage .jiz-brand__logo{
+  width:45px;height:45px;
+  filter:brightness(0) saturate(100%);
+}
+html .jiz-homepage .is-scrolled .jiz-brand__logo{width:42px;height:42px}
+html .jiz-homepage .jiz-brand__name{
+  font-family:'Manrope',sans-serif!important;
+  font-weight:650;font-size:clamp(.87rem,1vw,1.08rem);
+  color:#102A35!important;letter-spacing:-.035em;gap:.32em;
+}
+html .jiz-homepage .jiz-brand__accent{color:inherit!important}
+html .jiz-homepage .jiz-nav-links{
+  justify-self:end;gap:clamp(12px,2.2vw,36px);
+}
+html .jiz-homepage .jiz-nav-link{
+  min-height:44px;padding:0 3px;
+  font-family:'Inter',sans-serif!important;
+  font-size:clamp(.83rem,.92vw,.95rem);
+  font-weight:550;letter-spacing:-.015em;
+  color:#1C3038!important;background:transparent!important;
+}
+html .jiz-homepage .jiz-nav-link:is(:hover,[data-hovered="true"],[data-active="true"]){
+  color:#0A6772!important;background:transparent!important;
+  text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;
+}
+html .jiz-homepage .jiz-nav-indicator{
+  background:#0F8B8D;bottom:5px;height:2px;
+}
+html .jiz-homepage .jiz-nav-cta{display:none!important}
+html .jiz-homepage .jiz-nav-menu-button{border-color:rgba(11,31,42,.24);background:#FFFFFFAA}
+html .jiz-homepage .jiz-nav-menu-button span{background:#0B1F2A}
+html .jiz-homepage .jiz-mobile-panel{
+  background:#F4F7F7;color:#122C36;
+  border-left-color:#B8CDD3;
+  box-shadow:-18px 0 55px rgba(11,31,42,.22);
+}
+html .jiz-homepage .jiz-mobile-panel__header{color:#0B1F2A}
+html .jiz-homepage .jiz-mobile-panel__header button{
+  color:#0B1F2A;border-color:#BDCED2;
+}
+html .jiz-homepage .jiz-mobile-panel__links button{
+  color:#16313D;border-color:rgba(11,31,42,.12);
+  font-family:'Manrope',sans-serif;font-size:1.05rem;
+}
+html .jiz-homepage .jiz-mobile-panel__links button[data-active="true"]{
+  color:#0C646D;background:#E8F2F3;border-left-color:#0F8B8D;
+}
+html .jiz-homepage .jiz-mobile-panel__secondary{
+  border-top-color:rgba(11,31,42,.13);
+}
+html .jiz-homepage .jiz-mobile-panel__secondary-label{color:#3F6069}
+html .jiz-homepage .jiz-mobile-panel__secondary-links button{color:#21424E}
+html .jiz-homepage .jiz-mobile-panel__cta{
+  background:#C6F23A;border-color:#C6F23A;color:#0B1F2A;
+}
+html .jiz-homepage .jiz-global-nav :is(button,a):focus-visible{
+  outline:2px solid #086B77!important;outline-offset:4px;
+}
+/* The experience strip previously inherited white-on-dark colors and vanished on Mist. */
+html .jiz-homepage .jz-exp{
+  background:#F4F7F7!important;
+  border:0;border-bottom:1px solid rgba(11,31,42,.14)!important;
+  box-shadow:none!important;margin-top:0;margin-bottom:clamp(12px,1.4vw,20px);
+}
+html .jiz-homepage .jz-exp-in{
+  padding-block:clamp(20px,2.3vw,32px);
+  gap:clamp(10px,1.2vw,20px) clamp(18px,2.5vw,38px);
+}
+html .jiz-homepage .jz-exp .jz-label{
+  color:#526D77!important;font-weight:600;font-size:.69rem;
+}
+html .jiz-homepage .jz-exp .jz-exp-org{
+  color:#183640!important;font-weight:650;font-size:clamp(.86rem,.95vw,1.05rem);
+}
+html .jiz-homepage .jz-exp .jz-exp-edu span:last-child{
+  color:#385661!important;font-size:.87rem;
+}
+/* Large editorial typography: fewer competing accents, calmer hierarchy. */
+html .jiz-homepage :is(.hero-title,.jz-fw-h2,.jz-pr-caps-h,.jz-jr-h2,.cls-room__headline,.jz-ab-h2){
+  font-family:'Manrope','Geist',sans-serif!important;
+  font-weight:550!important;letter-spacing:-.045em!important;
+  text-wrap:balance;
+}
+html .jiz-homepage .hero-title{
+  line-height:1.045!important;
+  max-width:17ch;
+}
+html .jiz-homepage .hero-lead{
+  font-family:'Inter',sans-serif!important;
+  font-size:clamp(1rem,1.26vw,1.15rem);
+  line-height:1.65;letter-spacing:-.012em;
+}
+html .jiz-homepage :is(.jz-fw-h2,.jz-pr-caps-h,.jz-jr-h2){
+  color:#122C36!important;
+  line-height:1.14!important;
+}
+html .jiz-homepage .jz-fw-heading{max-width:100%;margin-bottom:22px}
+html .jiz-homepage .jz-fw-stage{width:min(1370px,calc(100% - 2 * clamp(22px,4.5vw,74px)))}
+html .jiz-homepage .jz-fw{padding-block:clamp(42px,5vw,68px)}
+html .jiz-homepage .jz-fw .jz-fw-heading>p{max-width:63ch}
+html .jiz-homepage .jz-fw-project-title{font-weight:700!important;letter-spacing:-.025em!important}
+html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons{left:-20px;right:-20px}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap-t{font-weight:650}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap-c{color:#34525D}
+html .jiz-homepage :is(.jz-fw,.jz-pr--capabilities,.jz-jr,.jz-pp){
+  border:1px solid rgba(255,255,255,.88)!important;
+}
+html .jiz-homepage .jz-jr-stage .jz-jr-c{color:#385761}
+html .jiz-homepage .jz-jr-stage .jz-jr-m{color:#52717A}
+/* Favor stable contrast at smaller widths rather than tiny overlay labels. */
+@media(max-width:1080px){
+  html .jiz-homepage .jiz-global-nav{
+    grid-template-columns:minmax(0,1fr) auto;gap:12px;
+  }
+  html .jiz-homepage .jiz-nav-links{display:none}
+  html .jiz-homepage .jiz-nav-menu-button{display:block}
+}
+@media(max-width:680px){
+  html .jiz-homepage .jiz-global-nav{--nav-pad-x:16px;min-height:72px}
+  html .jiz-homepage .jiz-brand__name{font-size:.81rem}
+  html .jiz-homepage .jz-exp .jz-exp-edu{border-top-color:rgba(11,31,42,.13)}
+  html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons{left:-12px;right:-12px}
+}
