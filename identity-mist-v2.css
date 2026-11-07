@@ -845,3 +845,157 @@ html .jiz-homepage .cls-room :is(.cls-room__headline,.cls-room__library-heading 
    url('/assets/imagery/portfolio-contact-threshold.jpg') 64% center / cover no-repeat!important;
  }
 }
+
+
+/* V6 owner-selected image direction, unified accents, readable five-stage Method. */
+html .jiz-homepage .jiz-creative-lab{
+  background:linear-gradient(90deg,rgba(6,22,31,.96),rgba(8,28,37,.84) 48%,rgba(8,29,40,.56) 100%),
+  url('/assets/imagery/portfolio-creative-lab-camera-workshop.jpg') 60% center / cover no-repeat!important;
+}
+/* Companion imagery: calm visual depth with clear section-purpose alignment. */
+html .jiz-homepage .jiz-am{
+  background:linear-gradient(90deg,rgba(7,24,33,.95),rgba(9,33,41,.78) 56%,rgba(10,39,47,.56)),
+  url('/assets/imagery/portfolio-about-reflective-studio.jpg') center 48% / cover no-repeat!important;
+}
+html .jiz-homepage .jz-jr{
+  background:linear-gradient(100deg,rgba(251,253,253,.98),rgba(246,251,252,.92) 47%,rgba(242,248,250,.83)),
+  url('/assets/imagery/portfolio-career-journey.jpg') right center / cover no-repeat!important;
+}
+html .jiz-homepage .jz-st{
+  background:linear-gradient(100deg,rgba(7,25,35,.97),rgba(9,32,43,.88) 47%,rgba(14,39,49,.68)),
+  url('/assets/imagery/portfolio-stack-systems.jpg') 63% center / cover no-repeat!important;
+}
+html .jiz-homepage .jz-pp{
+  background:linear-gradient(100deg,rgba(7,25,35,.96),rgba(10,34,42,.86) 54%,rgba(11,42,50,.65)),
+  url('/assets/imagery/portfolio-principles-glass.jpg') 64% center / cover no-repeat!important;
+  color:#F4F7F7!important;
+}
+html .jiz-homepage .jz-pp :is(h2,h3,p,li){color:#F4F7F7}
+html .jiz-homepage .jz-pp .jz-label{color:#B5DFE5!important}
+html .jiz-homepage .jz-jr :is(h2,h3,.jz-jr-h2,.jz-jr-t){color:#102B35!important}
+html .jiz-homepage .jz-jr :is(p,.jz-jr-sub,.jz-jr-c){color:#34525D}
+html .jiz-homepage .jz-pp,.jiz-homepage .jz-st,.jiz-homepage .jiz-am,.jiz-homepage .jz-jr{
+  background-attachment:scroll!important;background-repeat:no-repeat!important;
+}
+/* Speaking · real owner-supplied ten-second film, readable as a hero with the existing copy above. */
+html .jiz-homepage .sp-preview--immersive .sp-preview-scene{
+ position:relative;isolation:isolate;overflow:hidden;
+ background:linear-gradient(95deg,rgba(5,20,29,.96),rgba(7,28,38,.79) 53%,rgba(8,31,41,.42)),
+ url('/assets/imagery/portfolio-speaking-film-still.jpg') center center / cover no-repeat!important;
+ min-height:clamp(430px,42vw,660px);
+}
+html .jiz-homepage .sp-preview-backdrop-video{
+ position:absolute;inset:0;width:100%;height:100%;
+ object-fit:cover;object-position:62% 50%;
+ display:block;z-index:0;pointer-events:none;
+}
+html .jiz-homepage .sp-preview-backdrop-shade{
+ position:absolute;inset:0;z-index:1;pointer-events:none;
+ background:linear-gradient(90deg,rgba(5,20,29,.97) 0%,rgba(5,23,33,.88) 41%,rgba(6,27,38,.54) 70%,rgba(7,32,40,.30) 100%);
+}
+html .jiz-homepage .sp-preview--immersive .sp-preview-scene :is(.sp-preview-copy,.sp-preview-disclosure){
+ position:relative;z-index:2;
+}
+html .jiz-homepage .sp-preview--immersive .sp-preview-copy :is(h2,p,.sp-kicker){
+ color:#F4F7F7!important;text-shadow:0 2px 12px rgba(0,0,0,.2);
+}
+html .jiz-homepage .sp-preview--immersive .sp-preview-copy .sp-kicker{color:#B0ECF5!important}
+html .jiz-homepage .sp-preview--immersive .sp-preview-formats span{
+ background:#C6F23A!important;color:#0B1F2A!important;
+ border:1px solid #C6F23A!important;font-weight:650;
+}
+html .jiz-homepage .sp-preview--immersive .sp-preview-disclosure{color:#D6E6E9!important}
+/* One deliberately bold brand color instead of pastel/Easter category assortment. */
+html .jiz-homepage .jz-fw-tags li,
+html .jiz-homepage .jz-fw-tags li:nth-child(3n+2),
+html .jiz-homepage .jz-fw-tags li:nth-child(3n){
+ background:#C6F23A!important;color:#102330!important;
+ border:1px solid #A6D12A!important;font-weight:700;
+}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap-x,
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-x{
+ background:#C6F23A!important;color:#102330!important;
+ border:1px solid #A6D12A!important;border-radius:8px;
+}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap-t,
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-t{
+ background:transparent!important;color:#112D39!important;
+}
+html .jiz-homepage .jz-pr--capabilities .jz-pr-cap button:hover .jz-pr-cap-t{color:#086B77!important}
+html .jiz-homepage .jz-st-tools{gap:8px}
+html .jiz-homepage .jz-st-tools li{
+ display:inline-flex;align-items:center;padding:5px 9px;
+ background:#C6F23A!important;color:#102330!important;
+ border-radius:6px;border:1px solid #A6D12A!important;
+ font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;
+}
+html .jiz-homepage .jz-st-layer{color:#C6F23A!important}
+/* Five equal stages: one continuous horizontal line, never a two-row grid. */
+html .jiz-homepage .jz-pr--method .jz-pr-steps{
+ display:grid!important;grid-template-columns:repeat(5,minmax(0,1fr))!important;
+ gap:clamp(12px,1.35vw,24px);width:100%;
+ padding:0!important;margin:clamp(24px,3vw,42px) 0 0;
+ overflow:visible;align-items:stretch;
+ border-top:1px solid rgba(198,242,58,.36);
+}
+html .jiz-homepage .jz-pr--method .jz-pr-steps::before{display:none!important}
+html .jiz-homepage .jz-pr--method .jz-pr-step{
+ display:flex!important;flex-direction:column!important;
+ gap:clamp(7px,.8vw,12px)!important;min-width:0;
+ padding:clamp(18px,1.6vw,26px) 4px 6px 0!important;
+ border-top:0!important;border-left:0!important;
+}
+html .jiz-homepage .jz-pr--method .jz-pr-step::before{display:none!important}
+html .jiz-homepage .jz-pr--method .jz-pr-step::after{
+ top:-5px!important;left:0!important;width:10px;height:10px;
+ background:#0B1F2A;border:2px solid #C6F23A;
+}
+html .jiz-homepage .jz-pr--method .jz-pr-step:last-child::after{background:#C6F23A}
+html .jiz-homepage .jz-pr--method .jz-pr-step :is(.jz-pr-word,.jz-pr-c,.jz-pr-rule,.jz-label){
+ grid-column:auto!important;grid-row:auto!important;max-width:100%;
+}
+html .jiz-homepage .jz-pr--method .jz-pr-word{
+ font-size:clamp(1.14rem,1.45vw,1.55rem)!important;
+ line-height:1.15;letter-spacing:-.025em;margin:0;
+}
+html .jiz-homepage .jz-pr--method .jz-pr-c{
+ font-size:clamp(.76rem,.92vw,.9rem);line-height:1.5!important;
+ color:#ECF3F5!important;
+}
+html .jiz-homepage .jz-pr--method .jz-pr-rule{
+ font-size:clamp(.7rem,.82vw,.78rem)!important;
+ line-height:1.55;color:#C8DDE3!important;padding-top:8px!important;
+}
+/* Headline focal hierarchy, preserve the original line breaks and words. */
+html .jiz-homepage .hero-title-main{
+ font-family:'Manrope',sans-serif!important;font-weight:850!important;
+ letter-spacing:-.052em!important;
+}
+html .jiz-homepage .hero-title-accent{
+ font-family:'Manrope',sans-serif!important;font-weight:450!important;
+ letter-spacing:-.043em!important;
+}
+@media(max-width:1090px){
+ html .jiz-homepage .jz-pr--method .jz-pr-steps{
+  display:grid!important;grid-template-columns:none!important;
+  grid-auto-flow:column;grid-auto-columns:minmax(195px,40%);
+  overflow-x:auto;overscroll-behavior-inline:contain;
+  scroll-snap-type:x proximity;scrollbar-width:thin;
+  padding-bottom:14px!important;
+ }
+ html .jiz-homepage .jz-pr--method .jz-pr-step{scroll-snap-align:start}
+}
+@media(max-width:680px){
+ html .jiz-homepage .jz-pr--method .jz-pr-steps{grid-auto-columns:minmax(200px,78%);gap:16px}
+ html .jiz-homepage .sp-preview-backdrop-video{object-position:60% center}
+ html .jiz-homepage .sp-preview-backdrop-shade{
+  background:linear-gradient(90deg,rgba(5,20,29,.97),rgba(6,27,38,.78));
+ }
+ html .jiz-homepage .jz-jr{
+  background:linear-gradient(100deg,rgba(251,253,253,.98),rgba(246,251,252,.91)),
+  url('/assets/imagery/portfolio-career-journey.jpg') 67% center / cover no-repeat!important;
+ }
+}
+@media(prefers-reduced-motion:reduce){
+ html .jiz-homepage .sp-preview-backdrop-video{display:none!important}
+}
