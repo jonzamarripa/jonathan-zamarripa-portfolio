@@ -185,6 +185,22 @@ function FeaturedWorkEditorial({ onOpenWork }) {
   const [active, setActive] = React.useState(0);
   const [direction, setDirection] = React.useState('next');
   const inView = useInViewOnce(ref);
+  React.useEffect(() => {
+    const root = ref.current;
+    const video = root?.querySelector('.jz-fw-ambient-video');
+    if (!root || !video) return undefined;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const saveData = !!(navigator.connection && navigator.connection.saveData);
+    if (reduced || saveData || typeof IntersectionObserver === 'undefined') return undefined;
+    const observer = new IntersectionObserver(([entry]) => {
+      const shouldPlay = entry.isIntersecting && !document.hidden && document.documentElement.dataset.jzMotionPaused !== 'true';
+      if (shouldPlay) video.play().catch(() => {}); else video.pause();
+    }, { threshold: .08 });
+    observer.observe(root);
+    const pause = () => { if (document.hidden) video.pause(); };
+    document.addEventListener('visibilitychange', pause);
+    return () => { observer.disconnect(); document.removeEventListener('visibilitychange', pause); video.pause(); };
+  }, []);
   // Enterprise proof first, independent innovation second; the catalog remains the source of truth.
   // Stable view IDs make this presentation order resilient as new studies are added.
   const featuredOrder = ['case-study','hotelkey-onboarding','guest-crm-pilot','workday-learn','the-first-sentence','marcus-live','drafted-by-ai'];
@@ -237,6 +253,11 @@ function FeaturedWorkEditorial({ onOpenWork }) {
   }, []);
   return (
     <section className="jz-fw" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-fw-title" style={{ '--gallery-enter-offset': direction === 'next' ? '18px' : '-18px' }}>
+      <video className="jz-fw-ambient-video" muted playsInline loop preload="none" aria-hidden="true"
+        poster="/assets/imagery/portfolio-stack-systems.jpg" tabIndex={-1}>
+        <source src="/assets/video/portfolio-featured-work-glass.mp4" type="video/mp4"/>
+      </video>
+      <span className="jz-fw-ambient-scrim" aria-hidden="true"/>
       <EditorialStyles />
       <style>{`
 .jiz-homepage .jz-fw{--gallery-preview:96px;--gallery-gap:24px;background:var(--obsidian);color:var(--white);padding-block:clamp(48px,6vw,80px)}
