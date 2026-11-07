@@ -632,6 +632,10 @@ function LetsBuild({ onExploreWork }) {
             </div>
           </div>
           {!formOpen && <div className="jz-ct-poster jz-ct-poster--portrait" aria-hidden="true">
+            <video className="jz-ct-poster-video" muted playsInline loop preload="none" tabIndex={-1}
+              poster="/assets/imagery/portfolio-contact-threshold.jpg" aria-hidden="true">
+              <source src="/assets/video/portfolio-contact-executive.mp4" type="video/mp4"/>
+            </video>
             <span className="jz-ct-poster-kicker">HUMAN-FIRST / FUTURE-READY</span>
             <span className="jz-ct-poster-line"/>
             <span className="jz-ct-poster-footer">Better learning starts with a conversation.</span>
@@ -1291,6 +1295,24 @@ function Homepage({ onOpenCaseStudy }) {
     }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
     nodes.forEach(el => observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+
+  // Contact film starts only when visible; visitors who prefer less motion
+  // or use data saving always receive the atmospheric still background.
+  React.useEffect(() => {
+    const video = document.querySelector('.jiz-homepage .jz-ct-poster-video');
+    if (!video) return undefined;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const saveData = !!(navigator.connection && navigator.connection.saveData);
+    if (reduced || saveData || typeof IntersectionObserver === 'undefined') return undefined;
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && !document.hidden) video.play().catch(() => {});
+      else video.pause();
+    }, { threshold: 0.18 });
+    observer.observe(video);
+    const onVisibility = () => { if (document.hidden) video.pause(); };
+    document.addEventListener('visibilitychange', onVisibility);
+    return () => { observer.disconnect();document.removeEventListener('visibilitychange', onVisibility);video.pause(); };
   }, []);
 
   const activeNavLabel = activeSection === 'thinking' ? 'Learning' : activeSection === 'contact' ? 'Contact' : (SITE.section(activeSection) || {}).nav || '';
