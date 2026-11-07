@@ -115,4 +115,20 @@ assert(fs.existsSync(contactFilm) && fs.statSync(contactFilm).size===6245039,'Or
 assert(fs.existsSync(contactPoster) && fs.statSync(contactPoster).size>50000,'Contact portrait fallback still missing');
 assert(css.includes('jz-ct-poster--portrait .jz-ct-poster-video'),'Larger Contact media framing missing');
 console.log('PASS: V7 scroll motion, Method pulses, Impact image, Creative Lab, Intuit and owner-provided Contact video');
+// V8 full-bleed media and navigation regression gates.
+const featuredFilm='assets/video/portfolio-featured-work-glass.mp4';
+assert(fs.existsSync(featuredFilm)&&fs.statSync(featuredFilm).size===3466951,'Featured Work original film absent/corrupted');
+assert(p1.includes('jz-fw-ambient-video')&&p1.includes('portfolio-featured-work-glass.mp4'),'Featured Work cinematic video not wired');
+assert(p1.includes('video.pause()') && p1.includes('IntersectionObserver'), 'Featured Work playback must stop outside viewport');
+assert(home.includes('jiz-build-background-video') && home.includes('portfolio-contact-executive.mp4'),'Contact video not promoted to full section');
+assert(!home.includes('<div className="jz-ct-poster jz-ct-poster--portrait"'),'Old Contact portrait layout must be removed');
+assert(css.includes('.jiz-build>.jiz-build-background-video'),'Contact background must cover whole section');
+assert(css.includes('.jz-fw>.jz-fw-ambient-scrim'),'Featured Work text-legibility gradient missing');
+assert(css.includes('.jz-jr-stage') && css.includes('portfolio-selected-work-architecture.jpg'),'Journey elevated background/card design missing');
+assert(p1.includes('<PortfolioGlyph kind={["clarity","people","evidence"'),'Principles glyphs missing');
+assert(css.includes('.jz-pp-n svg') && css.includes('color:#C6F23A'),'Chartreuse Principles icon treatment missing');
+assert(home.includes('--jiz-nav-progress') && css.includes('nav.jiz-global-nav::after'),'Scroll-responsive navigation progress missing');
+assert(home.includes('activeSection === \'method\'')&&home.includes("activeSection === 'contact'"),'Active nav grouping absent');
+assert(css.includes('@media(prefers-reduced-motion:reduce)'),'Motion accessibility protections missing');
+console.log('PASS: V8 Featured Work film, full-screen Contact, elevated Journey, chartreuse Principles, scrollspy nav.');
 console.log('PASS: V4 visual identity, five-link navigation, experience contrast, image-first carousel, 11 routes, 4 CLS chapters, brand assets and base contrast.');
