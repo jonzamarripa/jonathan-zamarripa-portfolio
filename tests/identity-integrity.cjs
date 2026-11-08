@@ -28,9 +28,9 @@ assert(css.includes('.jz-fw-slide') && css.includes('grid-template-columns:repea
 assert(p1.includes('jz-fw-gallery-layout'),'Gallery side-navigation wrapper absent');
 assert(p1.includes('aria-label="Previous project"')&&p1.includes('aria-label="Next project"'),'Gallery arrow controls absent');
 assert(p1.includes("onClick={(e) => open(e, p)}"),'Visible cards should open their real case study');
-assert(home.includes('04 / THE EVIDENCE')&&home.includes('03 / THE STUDIO'),'CLS four chapters absent');
-for(const label of ['Read the journal','Explore the framework','Explore the studio','Open the dossier']){
- assert(home.includes(label),'CLS navigation missing: '+label);
+assert(home.includes('04 / THE DESIGNER')&&home.includes('03 / THE AUTHOR'),'CLS four editorial chapters absent');
+for(const label of ['Explore the thinking','Hear the ideas','Read the writing','Explore the work']){
+ assert(home.includes(label),'CLS editorial navigation missing: '+label);
 }
 for(const asset of ['assets/logo/jiz-logo-white.svg','assets/imagery/cinematic-learning-systems-poster.webp','assets/imagery/jonathan-hero-final-poster.webp','assets/imagery/train-story-preview-frame.jpg']){
  assert(fs.existsSync(asset),'Visual asset missing: '+asset);
