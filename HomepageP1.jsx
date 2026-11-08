@@ -448,6 +448,91 @@ html[data-jz-motion-paused="true"] .jiz-homepage .jz-fw .jz-fw-motion-paused{dis
  .jiz-homepage .jz-fw *{animation:none!important;transition:none!important}
 }
 html[data-jz-motion-paused="true"] .jiz-homepage .jz-fw *{animation:none!important;transition:none!important}
+
+/* Screen-verified art direction: premium graphite, readable type, subtle 3-D elevation. */
+.jiz-homepage .jz-fw .jz-fw-track{
+  border:1px solid rgba(203,219,224,.22)!important;
+  border-radius:20px!important;
+  background:#1a2229!important;
+  box-shadow:0 26px 65px rgba(0,0,0,.34),0 5px 18px rgba(0,0,0,.24),inset 0 1px 0 rgba(245,250,250,.09)!important;
+  overflow:hidden!important;
+}
+.jiz-homepage .jz-fw .jz-fw-slide,
+.jiz-homepage .jz-fw .jz-fw-project-link{border-radius:0!important;box-shadow:none!important}
+.jiz-homepage .jz-fw .jz-fw-copy{
+  color:#f5f8f9!important;
+  background:linear-gradient(135deg,#35414a 0%,#27333b 42%,#1c262d 100%)!important;
+  box-shadow:inset 1px 0 0 rgba(245,250,250,.14),inset 0 1px 0 rgba(245,250,250,.07)!important;
+  opacity:1!important;filter:none!important;
+}
+.jiz-homepage .jz-fw .jz-fw-copy .jz-fw-project-title{
+  color:#f8fafb!important;-webkit-text-fill-color:#f8fafb!important;
+  opacity:1!important;filter:none!important;text-shadow:none!important;
+  font-weight:650!important;line-height:1.09!important;
+}
+.jiz-homepage .jz-fw .jz-fw-copy .jz-fw-subtitle{
+  color:#dde8eb!important;-webkit-text-fill-color:#dde8eb!important;
+  opacity:1!important;filter:none!important;
+}
+.jiz-homepage .jz-fw .jz-fw-copy .jz-fw-value{
+  color:#cbd9dd!important;-webkit-text-fill-color:#cbd9dd!important;
+  opacity:1!important;filter:none!important;
+}
+.jiz-homepage .jz-fw .jz-fw-copy .jz-label,
+.jiz-homepage .jz-fw .jz-fw-copy .jz-fw-project-org{
+  color:#c6d6db!important;-webkit-text-fill-color:#c6d6db!important;
+  opacity:1!important;
+}
+.jiz-homepage .jz-fw .jz-fw-copy .jz-fw-tags li,
+.jiz-homepage .jz-fw .jz-fw-copy .jz-fw-tags li:nth-child(3n+2),
+.jiz-homepage .jz-fw .jz-fw-copy .jz-fw-tags li:nth-child(3n){
+  background:rgba(228,239,241,.095)!important;
+  color:#e8eff1!important;-webkit-text-fill-color:#e8eff1!important;
+  border:1px solid rgba(228,239,241,.2)!important;
+  border-radius:7px!important;font-weight:500!important;
+  box-shadow:inset 0 1px 0 rgba(245,250,250,.06)!important;
+}
+.jiz-homepage .jz-fw .jz-fw-buttons{
+  display:flex!important;position:relative!important;inset:auto!important;
+  justify-content:flex-end!important;align-items:center!important;
+  width:auto!important;gap:10px!important;margin:0 0 16px!important;
+  padding:0!important;transform:none!important;
+}
+.jiz-homepage .jz-fw .jz-fw-buttons button{
+  display:inline-flex!important;position:static!important;transform:none!important;
+  width:auto!important;height:46px!important;min-width:112px!important;
+  padding:10px 16px!important;gap:9px!important;
+  border-radius:11px!important;
+  background:rgba(27,38,46,.86)!important;color:#eef4f5!important;
+  border:1px solid rgba(218,234,238,.3)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08)!important;
+  font:600 .82rem/1.3 var(--font-body)!important;
+}
+.jiz-homepage .jz-fw .jz-fw-buttons button:enabled:hover{
+  background:#3b4b54!important;color:#fff!important;
+  border-color:rgba(235,246,247,.62)!important;
+}
+.jiz-homepage .jz-fw .jz-fw-buttons button:disabled{opacity:.42!important}
+.jiz-homepage .jz-fw .jz-fw-image-label,
+.jiz-homepage .jz-fw .jz-fw-slide[data-active="true"] .jz-fw-image-label{
+  background:rgba(15,24,30,.8)!important;color:#eaf1f3!important;
+  -webkit-text-fill-color:#eaf1f3!important;
+  border-color:rgba(230,241,244,.28)!important;
+}
+.jiz-homepage .jz-fw .jz-fw-index-trigger{
+  color:var(--signal-lime)!important;-webkit-text-fill-color:var(--signal-lime)!important;
+}
+.jiz-homepage .jz-fw .jz-fw-index-trigger:is(:hover,:focus-visible){
+  color:#fff!important;-webkit-text-fill-color:#fff!important;
+}
+@media(max-width:900px){
+  .jiz-homepage .jz-fw .jz-fw-copy{box-shadow:inset 0 1px 0 rgba(245,250,250,.12)!important}
+}
+@media(max-width:600px){
+  .jiz-homepage .jz-fw .jz-fw-buttons button{
+    flex:1!important;min-width:0!important;padding:10px 12px!important
+  }
+}
 `}</style>
       <div className="jz-fw-stage">
       <header className="jz-fw-heading">
