@@ -1,0 +1,95 @@
+/* Portfolio Remediation 01 — preview-only, additive and reversible.
+ * Scope: navigation, hero media, featured work, overflow, icon language,
+ * creative-lab cinema, archive-to-contact rhythm. Footer intentionally untouched.
+ */
+:root {
+  --ref-ink:#0B1F2A;
+  --ref-lime:#C6F23A;
+  --ref-lime-hover:#E4FF8B;
+  --ref-cyan:#64E1FF;
+  --ref-radius-card:clamp(18px,2vw,24px);
+  --ref-gutter:clamp(12px,1.6vw,24px);
+  --ref-motion:260ms;
+}
+/* 01 Brand: accent is legible at rest; monogram has a consistent footprint */
+.jiz-homepage .jiz-brand {gap:clamp(14px,1.6vw,24px)!important;min-width:0}
+.jiz-homepage .jiz-brand__logo {width:clamp(54px,4.7vw,72px)!important;height:clamp(54px,4.7vw,72px)!important;object-fit:contain!important;flex-shrink:0;transition:transform var(--ref-motion) ease}
+.jiz-homepage .jiz-brand__accent {color:var(--ref-lime)!important;transition:color var(--ref-motion) ease,text-shadow var(--ref-motion) ease}
+.jiz-homepage .jiz-brand:is(:hover,:focus-visible) .jiz-brand__accent {color:var(--ref-lime-hover)!important;text-shadow:0 0 20px rgba(198,242,58,.16)}
+.jiz-homepage .jiz-brand:hover .jiz-brand__logo {transform:scale(1.025)}
+.jiz-homepage .jiz-brand:focus-visible {outline:2px solid var(--ref-cyan);outline-offset:5px}
+@media(max-width:430px){.jiz-homepage .jiz-brand__name .jiz-brand__accent{display:inline!important}}
+/* 02 Full-bleed hero: let the actual injected media fill the stage, not an inset frame.
+ * No new asset URLs are guessed or synthesized. */
+.jiz-homepage .hero {isolation:isolate}
+.jiz-homepage .hero-video-stage {position:absolute!important;inset:0!important;width:100%!important;height:100%!important;min-height:100%!important;max-width:none!important;padding:0!important;margin:0!important;border:0!important;border-radius:0!important;overflow:hidden!important;box-shadow:none!important;transform:none!important}
+.jiz-homepage .hero-video-stage :is(video,.hero-video){position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-width:none!important;object-fit:cover!important;object-position:center center!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+.jiz-homepage .hero-video-blend {position:absolute!important;inset:0!important;width:100%!important;height:100%!important;pointer-events:none;background:linear-gradient(90deg,rgba(5,18,26,.82) 0%,rgba(8,24,32,.51) 45%,rgba(8,25,33,.16) 100%),linear-gradient(0deg,rgba(5,17,24,.60),transparent 36%)!important}
+.jiz-homepage .hero :is(.hero-video-stage,.hero-environment){pointer-events:none}
+/* 03 Featured work — grounded images already in source, unified dark photographic finish */
+.jiz-homepage .jz-fw {--gallery-preview:clamp(30px,5vw,84px)}
+.jiz-homepage .jz-fw-stage,.jiz-homepage .jz-fw-track {min-width:0;max-width:100%}
+.jiz-homepage .jz-fw-slide {min-width:0}
+.jiz-homepage .jz-fw-project-link {
+  position:relative;
+  border:1px solid rgba(190,219,226,.22)!important;
+  border-radius:var(--ref-radius-card)!important;
+  background:linear-gradient(150deg,#203741 0%,#142731 48%,#0D1D27 100%)!important;
+  box-shadow:0 24px 70px rgba(2,12,19,.24),inset 0 1px 0 rgba(255,255,255,.07)!important;
+  overflow:hidden!important;
+  transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease!important;
+}
+.jiz-homepage .jz-fw-project-link:before{content:"";position:absolute;inset:0 0 auto;height:36%;background:linear-gradient(180deg,rgba(255,255,255,.06),transparent);pointer-events:none;z-index:2;opacity:.65}
+.jiz-homepage .jz-fw-project-link:is(:hover,:focus-visible) {border-color:rgba(198,242,58,.58)!important;box-shadow:0 30px 76px rgba(2,12,19,.42),0 0 0 1px rgba(198,242,58,.1)!important}
+.jiz-homepage .jz-fw-frame {border-radius:var(--ref-radius-card) var(--ref-radius-card) 0 0;overflow:hidden}
+.jiz-homepage .jz-fw-frame img {filter:saturate(1.12) contrast(1.07)!important;object-fit:cover!important}
+.jiz-homepage .jz-fw-slide[data-active="false"] .jz-fw-frame img{filter:saturate(.88) brightness(.82)!important}
+.jiz-homepage .jz-fw-project-link:is(:hover,:focus-visible) .jz-fw-frame img {filter:saturate(1.2) contrast(1.09)!important;transform:scale(1.025)}
+.jiz-homepage .jz-fw-image-action {display:flex!important;opacity:1!important;border-color:rgba(255,255,255,.5)!important;background:rgba(9,25,35,.82)!important;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.jiz-homepage .jz-fw-slide[data-active="false"] .jz-fw-image-action {display:flex!important;opacity:.9!important}
+.jiz-homepage .jz-fw-image-action>span {background:var(--ref-lime)!important}
+.jiz-homepage .jz-fw-tags li {background:rgba(198,242,58,.10)!important;color:#E8F7DB!important;border:1px solid rgba(198,242,58,.22)!important}
+.jiz-homepage .jz-fw-tags li:nth-child(n) {background:rgba(198,242,58,.10)!important;color:#E8F7DB!important}
+.jiz-homepage .jz-fw-instruction {color:#E1EFF0!important;font-weight:550;max-width:70ch}
+.jiz-homepage .jz-fw-buttons button:focus-visible,.jiz-homepage .jz-fw-project-link:focus-visible{outline:3px solid var(--ref-lime)!important;outline-offset:4px}
+/* 04 Nested grids and rogue overflow: size tracks instead of hiding the entire page */
+.jiz-homepage :is(.jz-im,.jz-pr,.jz-st,.jiz-arch,.jiz-creative-lab,.jz-fw) {min-width:0;max-width:calc(100% - 2*var(--panel-gap));box-sizing:border-box}
+.jiz-homepage :is(.jz-im,.jz-pr,.jz-st,.jiz-arch) :is(.jz-grid,.jz-wrap,.jz-im-row,.jz-im-cell) {min-width:0;box-sizing:border-box}
+.jiz-homepage .jz-im-row {max-width:100%;grid-template-columns:repeat(4,minmax(0,1fr))}
+.jiz-homepage .jz-im-cell {min-width:0;overflow-wrap:anywhere}
+.jiz-homepage .jz-im-cell .jz-im-fig {font-size:clamp(2.2rem,3.8vw,5.25rem)}
+.jiz-homepage :is(.jz-im,.jiz-arch) :is(img,video,svg) {max-width:100%}
+.jiz-homepage .jiz-arch{background:linear-gradient(145deg,#0B1F2A,#163B49)!important;padding-block:clamp(80px,9vw,128px)!important}
+.jiz-homepage .jiz-arch :is(h2,h3){text-wrap:balance}
+.jiz-homepage .jiz-arch :is(p,li){overflow-wrap:break-word;line-height:1.65}
+/* 05 Cohesive icon colorway: primary lime, supporting muted neutral */
+.jiz-homepage :is(.jz-fw,.jz-im,.jz-pr,.jiz-creative-lab,.jiz-am,.jiz-arch,.jz-pp) :is(button,a):focus-visible{outline-color:var(--ref-lime)}
+.jiz-homepage :is(.jz-pr,.jz-pp,.jiz-arch) :is(.jz-pr-cap-x,.jiz-arch-link-arrow){color:var(--ref-lime)!important}
+/* 06 Cinematic video — borderless bleed, but retain working native controls and focus affordances */
+.jiz-homepage .jiz-creative-lab-stage{position:relative;overflow:hidden!important;padding:0!important;border:0!important;border-radius:var(--panel-r)!important;background:#081722!important;box-shadow:none!important}
+.jiz-homepage .jiz-creative-lab-video-frame{position:relative!important;overflow:hidden!important;width:100%!important;max-width:100%!important;border:0!important;border-radius:0!important;background:transparent!important;box-shadow:none!important}
+.jiz-homepage .jiz-creative-lab-video-frame :is(video,iframe){display:block;width:100%!important;max-width:100%!important;aspect-ratio:16/9;object-fit:cover!important;border:0!important;border-radius:0!important;box-shadow:none!important}
+.jiz-homepage .jiz-creative-lab-controls {position:relative;z-index:5;padding:12px clamp(12px,2.5vw,28px)!important;background:linear-gradient(90deg,rgba(8,23,34,.95),rgba(18,44,54,.93))!important;border:0!important}
+.jiz-homepage .jiz-creative-lab-control {min-height:44px!important;border-color:rgba(255,255,255,.2)!important}
+.jiz-homepage .jiz-creative-lab-control:focus-visible{outline:2px solid var(--ref-lime)!important;outline-offset:3px}
+/* 07 Contact breathing room; existing short CTA design remains the single primary action */
+.jiz-homepage .jiz-build{padding-top:clamp(104px,12vw,176px)!important;padding-bottom:clamp(120px,13vw,186px)!important}
+.jiz-homepage .jiz-build-head-right{margin-top:clamp(22px,3vw,40px)!important}
+.jiz-homepage .jiz-build-stage{margin-top:clamp(30px,4vw,50px)!important}
+@media(max-width:900px){
+ .jiz-homepage .jz-im-row{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .jiz-homepage .jz-im-cell:nth-child(3){border-left:0}
+ .jiz-homepage .jz-fw-frame{aspect-ratio:16/10}
+}
+@media(max-width:600px){
+ .jiz-homepage .jz-im-row{grid-template-columns:1fr}
+ .jiz-homepage .jz-im-cell+ .jz-im-cell{padding-left:0;border-left:0}
+ .jiz-homepage .jz-fw-image-action{right:10px;bottom:10px;font-size:.75rem;padding:5px 5px 5px 10px}
+ .jiz-homepage .jz-fw-frame{aspect-ratio:4/3}
+ .jiz-homepage .jiz-build{padding-top:90px!important;padding-bottom:118px!important}
+ .jiz-homepage .jiz-creative-lab-controls{flex-wrap:wrap}
+}
+@media(prefers-reduced-motion:reduce){
+ .jiz-homepage .jiz-brand__logo,.jiz-homepage .jiz-brand__accent,
+ .jiz-homepage .jz-fw-project-link,.jiz-homepage .jz-fw-frame img{transition:none!important;transform:none!important}
+}
