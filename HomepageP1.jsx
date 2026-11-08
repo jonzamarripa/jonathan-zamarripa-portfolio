@@ -325,7 +325,7 @@ html[data-jz-motion-paused="true"] .jiz-homepage .jz-fw .jz-fw-motion-paused{dis
 }
 .jiz-homepage .jz-fw .jz-fw-copy{
   display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
-  min-width:0;gap:16px;padding:clamp(30px,4vw,60px);
+  min-width:0;gap:18px;padding:clamp(32px,4.2vw,62px);
   background:linear-gradient(140deg,#253039,#182128);
 }
 .jiz-homepage .jz-fw .jz-fw-copy .jz-label{
@@ -334,7 +334,7 @@ html[data-jz-motion-paused="true"] .jiz-homepage .jz-fw .jz-fw-motion-paused{dis
 }
 .jiz-homepage .jz-fw .jz-fw-project-org{color:#c4d0d4;font:.82rem/1.5 var(--font-body);letter-spacing:0}
 .jiz-homepage .jz-fw .jz-fw-project-title{
-  margin:0;max-width:17ch;color:#f6f8f8;
+  margin:0;max-width:20ch;color:#f6f8f8;
   font:600 clamp(1.8rem,3.1vw,3.1rem)/1.09 var(--font-display);
   letter-spacing:-.035em;overflow-wrap:anywhere;text-wrap:balance;
 }
@@ -346,7 +346,7 @@ html[data-jz-motion-paused="true"] .jiz-homepage .jz-fw .jz-fw-motion-paused{dis
 }
 .jiz-homepage .jz-fw .jz-fw-tags{display:flex;flex-wrap:wrap;gap:7px;list-style:none;padding:0;margin:4px 0 0}
 .jiz-homepage .jz-fw .jz-fw-tags li{
-  padding:6px 10px;border:1px solid rgba(232,240,245,.13);border-radius:6px;
+  padding:7px 11px;border:1px solid rgba(232,240,245,.13);border-radius:7px;
   background:rgba(232,240,245,.075);color:#dce5e6;font:500 .72rem/1.4 var(--font-body);
 }
 .jiz-homepage .jz-fw .jz-fw-image-label{
@@ -454,14 +454,14 @@ html[data-jz-motion-paused="true"] .jiz-homepage .jz-fw *{animation:none!importa
   border:1px solid rgba(203,219,224,.22)!important;
   border-radius:20px!important;
   background:#1a2229!important;
-  box-shadow:0 26px 65px rgba(0,0,0,.34),0 5px 18px rgba(0,0,0,.24),inset 0 1px 0 rgba(245,250,250,.09)!important;
+  box-shadow:0 22px 54px rgba(0,0,0,.3),0 6px 18px rgba(0,0,0,.16),inset 0 1px 0 rgba(245,250,250,.11)!important;
   overflow:hidden!important;
 }
 .jiz-homepage .jz-fw .jz-fw-slide,
 .jiz-homepage .jz-fw .jz-fw-project-link{border-radius:0!important;box-shadow:none!important}
 .jiz-homepage .jz-fw .jz-fw-copy{
   color:#f5f8f9!important;
-  background:linear-gradient(135deg,#35414a 0%,#27333b 42%,#1c262d 100%)!important;
+  background:linear-gradient(145deg,#323e47 0%,#27333b 47%,#1d282f 100%)!important;
   box-shadow:inset 1px 0 0 rgba(245,250,250,.14),inset 0 1px 0 rgba(245,250,250,.07)!important;
   opacity:1!important;filter:none!important;
 }
@@ -534,6 +534,18 @@ html[data-jz-motion-paused="true"] .jiz-homepage .jz-fw *{animation:none!importa
   }
 }
 
+/* Soft optical transition without disturbing the straight internal seam. */
+.jiz-homepage .jz-fw .jz-fw-frame::after{
+  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,transparent 76%,rgba(24,34,41,.14) 92%,rgba(24,34,41,.3) 100%);
+}
+.jiz-homepage .jz-fw .jz-fw-image-label,
+.jiz-homepage .jz-fw .jz-fw-image-action{z-index:2}
+@media(max-width:900px){
+  .jiz-homepage .jz-fw .jz-fw-frame::after{
+    background:linear-gradient(180deg,transparent 76%,rgba(24,34,41,.23) 100%);
+  }
+}
 /* Seam correction: only outer gallery corners may be rounded. */
 .jiz-homepage .jz-fw .jz-fw-frame{
   border-radius:0!important;
