@@ -196,8 +196,6 @@ function Hero({ onExploreWork, onConnect }) {
   const RESUME_URL = window.JIZ_SITE.links.resume;
   // Reduced motion and data-saver visitors get the still poster; every other device plays the loop.
   const heroStill = prefersReduced() || !!(typeof navigator !== 'undefined' && navigator.connection && navigator.connection.saveData);
-  // Phones and narrow tablets get a lighter encode of the same 1080p master (same frames, about a third of the size).
-  const heroCompact = !!(typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(max-width: 900px)').matches);
   return (
     <section className="hero">
       <div className="hero-environment" aria-hidden="true">
@@ -226,11 +224,7 @@ function Hero({ onExploreWork, onConnect }) {
         {heroStill
           ? <img className="hero-video" src="./assets/imagery/jonathan-hero-final-poster.webp" alt="" decoding="async" fetchpriority="high" />
           : <InViewVideo eager className="hero-video" poster="./assets/imagery/jonathan-hero-final-poster.webp" disablePictureInPicture tabIndex={-1} onLoadedData={e => { e.target.muted = true; e.target.volume = 0; }}>
-              {heroCompact
-                ? <source src="./assets/video/hero-portrait-2026.mp4" type="video/mp4" />
-                : <source src="./assets/video/hero-portrait-2026.mp4" type="video/mp4" />}
-              <source src="./assets/video/jonathan-hero-final.mp4" type="video/mp4" />
-              <source src="./assets/video/jonathan-hero-final.webm" type="video/webm" />
+              <source src="./assets/video/hero-portrait-2026.mp4" type="video/mp4" />
             </InViewVideo>}
         <div className="hero-video-blend" />
       </div>
@@ -284,7 +278,7 @@ function Hero({ onExploreWork, onConnect }) {
 @media(max-width:600px){.hero-content{padding-top:40px;padding-bottom:400px}.hero-title{font-size:clamp(1.95rem,7.6vw,2.4rem);line-height:1.02;margin:0 0 18px}.hero-lead{font-size:1.0625rem;margin:0 0 20px}.hero-support{font-size:.75rem}.hero-actions{margin-top:26px}.hero-eyebrow{margin-bottom:14px}.hero-portrait{top:400px;width:min(340px,80vw)}.hero-portrait-backlight{top:400px;height:340px}}
 .hero-video-stage{position:absolute;inset:0;z-index:1;pointer-events:none;overflow:hidden;background:#0B0D10}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:22% 0%;display:block}
-.hero-video-blend{position:absolute;inset:0;background:linear-gradient(90deg,transparent 0%,transparent 38%,rgba(42,47,55,.14) 48%,rgba(11,13,16,.5) 57%,rgba(11,13,16,.78) 70%,rgba(11,13,16,.88) 100%),linear-gradient(180deg,transparent 0%,transparent 72%,#080D0B 100%)}
+.hero-video-blend{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(8,13,11,.04) 0%,rgba(8,13,11,.06) 34%,rgba(8,13,11,.42) 52%,rgba(8,13,11,.86) 76%,rgba(8,13,11,.96) 100%),linear-gradient(180deg,rgba(8,13,11,.08) 0%,transparent 55%,#080D0B 100%)}
 .hero-content{grid-template-columns:44fr 56fr}
 .hero-copy{grid-column:2}
 @media(max-width:1180px){.hero-content{grid-template-columns:40fr 60fr}}
@@ -292,7 +286,7 @@ function Hero({ onExploreWork, onConnect }) {
 @media(min-width:1181px) and (max-width:1400px){.hero-content{grid-template-columns:minmax(0,47fr) minmax(0,53fr)}.hero-support{width:auto;max-width:100%}}
 @media(min-width:901px) and (max-height:820px){.hero-content{padding-block:clamp(28px,4vh,48px)}.hero-title{margin-bottom:20px}.hero-lead{margin-bottom:20px}.hero-actions{margin-top:24px}}
 @media(min-width:1181px){.hero-copy{margin-left:clamp(0px,calc((100vw - 1480px) * .32),140px)}}
-@media(max-width:900px){.hero-content{grid-template-columns:1fr}.hero-copy{grid-column:1}.hero-video-stage{top:auto;height:520px}.hero-video{object-position:8% 0%}.hero-video-blend{background:linear-gradient(180deg,#080D0B 0%,transparent 6%,transparent 80%,#080D0B 100%),linear-gradient(90deg,transparent 0%,transparent 50%,rgba(42,47,55,.14) 62%,rgba(11,13,16,.6) 100%)}}
+@media(max-width:900px){.hero-content{grid-template-columns:1fr}.hero-copy{grid-column:1}.hero-video-stage{top:auto;height:520px}.hero-video{object-position:8% 0%}.hero-video-blend{background:linear-gradient(180deg,rgba(8,13,11,.15) 0%,rgba(8,13,11,.15) 36%,rgba(8,13,11,.78) 76%,#080D0B 100%)}}
 @media(max-width:768px){.hero-video-stage{height:480px}.hero-video{object-position:0% 0%}}
 @media(max-width:600px){.hero-video-stage{height:400px}}
 @media(orientation:landscape) and (max-height:600px) and (min-width:560px){.hero{min-height:auto}.hero-content{grid-template-columns:40fr 60fr;min-height:calc(100svh - 96px);padding-top:clamp(20px,5vh,40px);padding-bottom:clamp(20px,5vh,40px);padding-inline:clamp(20px,4vw,48px)}.hero-copy{grid-column:2;max-width:100%}.hero-title{font-size:clamp(1.4rem,1rem + 2vw,2.1rem);margin:0 0 12px}.hero-lead{font-size:clamp(.875rem,.8rem + .4vw,1rem);line-height:1.45;margin:0 0 12px}.hero-support{font-size:.6875rem}.hero-actions{margin-top:16px;gap:10px}.hero-video-stage{top:0;height:auto}.hero-video{object-position:18% 0%}.hero-video-blend{background:linear-gradient(90deg,transparent 0%,transparent 34%,rgba(42,47,55,.14) 42%,rgba(11,13,16,.55) 50%,rgba(11,13,16,.85) 64%,rgba(11,13,16,.92) 100%),linear-gradient(180deg,transparent 0%,transparent 75%,#080D0B 100%)}}
