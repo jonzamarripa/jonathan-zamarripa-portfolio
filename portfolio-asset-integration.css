@@ -79,3 +79,18 @@ html .jiz-homepage .cls-room__routes--editorial .cls-room__route:focus-visible{o
  html .jiz-homepage .cls-room__routes--editorial .cls-room__route,
  html .jiz-homepage .cls-room__routes--editorial .cls-room__route::before{transition:none!important;transform:none!important}
 }
+
+/* Visible preview fallbacks until the owner-supplied media package is committed. 
+   Each layered background preserves the correct final --tile-media when available. */
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route:nth-child(1)::before{
+ background-image:var(--tile-media),url('/assets/imagery/cinematic-learning-systems-poster.webp')!important;
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route:nth-child(2)::before{
+ background-image:var(--tile-media),url('/assets/imagery/portfolio-speaking-film-still.jpg')!important;
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route:nth-child(3)::before{
+ background-image:var(--tile-media),url('/assets/imagery/train-story-preview-frame.jpg')!important;
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route:nth-child(4)::before{
+ background-image:var(--tile-media),url('/assets/imagery/portfolio-creative-lab-camera-workshop.jpg')!important;
+}
