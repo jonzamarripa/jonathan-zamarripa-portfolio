@@ -224,11 +224,11 @@ function Hero({ onExploreWork, onConnect }) {
 
       <div className="hero-video-stage" aria-hidden="true">
         {heroStill
-          ? <img className="hero-video" src="./assets/imagery/jonathan-hero-final-poster.webp" alt="" decoding="async" fetchpriority="high" />
-          : <InViewVideo eager className="hero-video" poster="./assets/imagery/jonathan-hero-final-poster.webp" disablePictureInPicture tabIndex={-1} onLoadedData={e => { e.target.muted = true; e.target.volume = 0; }}>
+          ? <img className="hero-video" src="./assets/imagery/hero-portrait-poster.webp" alt="" decoding="async" fetchpriority="high" />
+          : <InViewVideo eager className="hero-video" poster="./assets/imagery/hero-portrait-poster.webp" disablePictureInPicture tabIndex={-1} onLoadedData={e => { e.target.muted = true; e.target.volume = 0; }}>
               {heroCompact
-                ? <source src="./assets/video/jonathan-hero-final-mobile.mp4" type="video/mp4" />
-                : <source src="./assets/video/jonathan-hero-final.mp4" type="video/mp4" />}
+                ? <source src="./assets/video/hero-portrait-2026.mp4" type="video/mp4" />
+                : <source src="./assets/video/hero-portrait-2026.mp4" type="video/mp4" />}
               <source src="./assets/video/jonathan-hero-final.webm" type="video/webm" />
             </InViewVideo>}
         <div className="hero-video-blend" />
@@ -1048,11 +1048,11 @@ function CinematicJournal({ onNavigate }) {
         <div className="cls-room__film cls-animate"><ClsScreeningFilm /></div>
         <div className="cls-room__library cls-animate">
           <div className="cls-room__library-heading"><p className="cls-room__label">BEYOND THE FILM</p><h3>Explore the thinking.</h3><p>Read the work, investigate the framework, or examine a design decision in depth.</p></div>
-          <nav className="cls-room__routes" aria-label="Explore Cinematic Learning Systems">
-            <a href="./journal/" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="book" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">01 / THE PUBLICATION</span><strong>Read the journal</strong><small>Essays, ideas, and current thinking</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
-            <a href="./journal/#framework" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="framework" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">02 / THE METHODOLOGY</span><strong>Explore the framework</strong><small>CLPF {J.framework.version} · The system behind the work</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
-            <a href="/#creative-lab" className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="studio" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">03 / THE STUDIO</span><strong>Explore the studio</strong><small>Cinematic experiments, prototypes, and creative production</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
-            <a {...dossier} className="cls-room__route"><span className="cls-room__route-icon"><ClsIcon name="dossier" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">04 / THE EVIDENCE</span><strong>Open the dossier</strong><small>Scenes, artifacts, and the design rationale</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
+          <nav className="cls-room__routes cls-room__routes--editorial" aria-label="Explore the thinking, speaking, writing, and design">
+            <a href="./journal/#framework" className="cls-room__route" style={{'--tile-media':"url('/assets/imagery/tile-thinking.webp')"}}><span className="cls-room__route-icon"><ClsIcon name="framework" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">01 / THE THINKING</span><strong>Explore the thinking</strong><small>Research, frameworks, and the decisions behind the work</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
+            <a href="/speaking/" className="cls-room__route" style={{'--tile-media':"url('/assets/imagery/tile-speaker.webp')"}}><span className="cls-room__route-icon"><ClsIcon name="studio" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">02 / THE SPEAKER</span><strong>Hear the ideas</strong><small>Talks, workshops, and learning innovation</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
+            <a href="./journal/" className="cls-room__route" style={{'--tile-media':"url('/assets/imagery/tile-author.webp')"}}><span className="cls-room__route-icon"><ClsIcon name="book" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">03 / THE AUTHOR</span><strong>Read the writing</strong><small>Essays, perspectives, and published thinking</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
+            <a href="/#work" className="cls-room__route" style={{'--tile-media':"url('/assets/imagery/tile-designer.webp')"}}><span className="cls-room__route-icon"><ClsIcon name="dossier" size={26} /></span><span className="cls-room__route-copy"><span className="cls-room__route-number">04 / THE DESIGNER</span><strong>Explore the work</strong><small>Experiences, prototypes, and finished systems</small></span><span className="cls-room__route-arrow"><ClsIcon name="arrow" size={21} /></span></a>
           </nav>
         </div>
         {(lead || support.length > 0) && (
