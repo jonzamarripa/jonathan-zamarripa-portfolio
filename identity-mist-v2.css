@@ -189,14 +189,14 @@ html footer.jiz-footer .jiz-footer-nav a:hover{border-color:rgba(244,247,247,.6)
 html .jiz-editorial-footer img{filter:none!important}
 /* Selected Work — one coherent row of three image-first cards, scroll-snap still does the work. */
 html .jiz-homepage .jz-fw{
- background:linear-gradient(145deg,#FCFDFE,#EFF5F6)!important;
- color:#122C36!important;
+ background:#0B1F2A!important;
+ color:#F4F7F7!important;
 }
 html .jiz-homepage .jz-fw .jz-fw-h2{
  font-size:clamp(1.85rem,3.1vw,3rem)!important;
- color:#122C36!important;line-height:1.12;
+ color:#F4F7F7!important;line-height:1.12;
 }
-html .jiz-homepage .jz-fw :is(.jz-fw-heading>p,.jz-fw-instruction,.jz-fw-count){color:#3C5661!important}
+html .jiz-homepage .jz-fw :is(.jz-fw-heading>p,.jz-fw-instruction,.jz-fw-count){color:#D4E1E5!important}
 html .jiz-homepage .jz-fw .jz-label{color:#136B79!important}
 html .jiz-homepage .jz-fw-stage{width:min(1370px,calc(100% - 2*clamp(24px,5vw,90px)))}
 html .jiz-homepage .jz-fw-gallery-layout{position:relative;min-width:0}
@@ -211,16 +211,18 @@ html .jiz-homepage .jz-fw-slide{
  min-width:0;scroll-snap-align:start;
 }
 html .jiz-homepage .jz-fw-project-link{
- background:#F9FCFC!important;color:#122C36!important;
- border:1px solid rgba(11,31,42,.12)!important;
- box-shadow:0 9px 22px -17px rgba(7,29,41,.23);
- border-radius:clamp(14px,1.5vw,20px);
+ background:linear-gradient(160deg,#203A46 0%,#122B36 52%,#10222C 100%)!important;
+ color:#F4F7F7!important;
+ border:1px solid rgba(205,234,236,.2)!important;
+ box-shadow:0 18px 44px rgba(3,18,25,.28),inset 0 1px 0 rgba(255,255,255,.06)!important;
+ border-radius:22px!important;
+ overflow:hidden;
 }
-html .jiz-homepage .jz-fw-project-link:hover{
- border-color:#0F8B8D!important;
- box-shadow:0 17px 30px -20px rgba(7,29,41,.35);
+html .jiz-homepage .jz-fw-project-link:is(:hover,:focus-visible){
+ border-color:rgba(198,242,58,.68)!important;
+ box-shadow:0 23px 54px rgba(3,18,25,.43),0 0 0 1px rgba(198,242,58,.08)!important;
 }
-html .jiz-homepage .jz-fw-frame{aspect-ratio:16/10;background:#0B1F2A}
+html .jiz-homepage .jz-fw-frame{aspect-ratio:16/10;background:#0B1F2A;border-radius:21px 21px 0 0;overflow:hidden}
 html .jiz-homepage .jz-fw-slide[data-active=false] .jz-fw-frame img{filter:none}
 html .jiz-homepage .jz-fw-image-label{background:rgba(11,31,42,.86);color:#F4F7F7}
 html .jiz-homepage .jz-fw-slide[data-active=true] .jz-fw-image-label{background:#C6F23A;color:#0B1F2A}
@@ -232,17 +234,17 @@ html .jiz-homepage .jz-fw-image-action{
 html .jiz-homepage .jz-fw-image-action>span{width:30px;height:30px}
 html .jiz-homepage .jz-fw-copy{padding:clamp(15px,1.8vw,22px);gap:9px}
 html .jiz-homepage .jz-fw-project-title{
- color:#122C36!important;font-size:clamp(1.12rem,1.6vw,1.5rem)!important;
+ color:#F4F7F7!important;font-size:clamp(1.12rem,1.6vw,1.5rem)!important;
 }
-html .jiz-homepage .jz-fw-project-org{color:#526B73}
-html .jiz-homepage .jz-fw-subtitle{color:#136B79!important;font-size:.875rem}
-html .jiz-homepage .jz-fw-value{color:#3B5660!important;font-size:.875rem}
-html .jiz-homepage .jz-fw-tags li{
- background:#E7F0F1;color:#183C48;border:1px solid #C8DDE0;
+html .jiz-homepage .jz-fw-project-org{color:#C7D6DB}
+html .jiz-homepage .jz-fw-subtitle{color:#8CE6EF!important;font-size:.875rem}
+html .jiz-homepage .jz-fw-value{color:#C8D9DE!important;font-size:.875rem}
+html .jiz-homepage .jz-fw-tags li,
+html .jiz-homepage .jz-fw-tags li:nth-child(3n+2),
+html .jiz-homepage .jz-fw-tags li:nth-child(3n){
+ background:rgba(198,242,58,.09);color:#E5F1DF;border:1px solid rgba(198,242,58,.22);
  font-size:.6875rem;padding:5px 9px;
 }
-html .jiz-homepage .jz-fw-tags li:nth-child(3n+2){background:#EBF5D4;color:#3B541D;border-color:#D5E7B6}
-html .jiz-homepage .jz-fw-tags li:nth-child(3n){background:#E5ECEF;color:#2B4955}
 html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons{
  position:absolute;z-index:4;left:-24px;right:-24px;top:0;bottom:0;
  width:auto;display:flex;align-items:center;justify-content:space-between;
@@ -261,10 +263,18 @@ html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons button span{
 html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons button:hover:enabled{background:#C6F23A!important}
 html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons button:disabled{opacity:.3}
 html .jiz-homepage .jz-fw-toolbar{margin-bottom:12px}
-html .jiz-homepage .jz-fw-controls{border-top-color:rgba(11,31,42,.18)}
-html .jiz-homepage .jz-fw-index summary{color:#0B1F2A}
-html .jiz-homepage .jz-fw-index a{color:#245462}
-html .jiz-homepage .jz-fw-index li{border-top-color:#CCD9DC}
+html .jiz-homepage .jz-fw-controls{border-top-color:rgba(221,238,242,.2)}
+html .jiz-homepage .jz-fw-index summary{
+ display:inline-flex;align-items:center;gap:10px;min-height:48px;
+ padding:12px 22px;border-radius:999px;
+ background:#C6F23A;color:#0B1F2A!important;
+ font-weight:750;box-shadow:0 8px 18px rgba(0,0,0,.23);
+ transition:background .2s ease,transform .2s ease;
+}
+html .jiz-homepage .jz-fw-index summary:hover{background:#E2FA8D;transform:translateY(-2px)}
+html .jiz-homepage .jz-fw-index summary:focus-visible{outline:3px solid #64E1FF;outline-offset:4px}
+html .jiz-homepage .jz-fw-index a{color:#C9E6EF}
+html .jiz-homepage .jz-fw-index li{border-top-color:rgba(221,238,242,.18)}
 @media(max-width:960px){
  html .jiz-homepage .jz-fw-slide{flex-basis:calc((100% - var(--gallery-gap))/2)}
 }
@@ -539,20 +549,22 @@ html .jiz-homepage .jz-fw-instruction{
  color:#526E78!important;
 }
 html .jiz-homepage .jz-fw .jz-fw-project-link{
- border:0!important;
- background:transparent!important;
- box-shadow:none!important;
- border-radius:0!important;
+ border:1px solid rgba(205,234,236,.2)!important;
+ background:linear-gradient(160deg,#203A46,#10222C)!important;
+ box-shadow:0 18px 44px rgba(3,18,25,.28)!important;
+ border-radius:22px!important;
 }
-html .jiz-homepage .jz-fw .jz-fw-project-link:hover{box-shadow:none!important}
+html .jiz-homepage .jz-fw .jz-fw-project-link:hover{
+ box-shadow:0 23px 54px rgba(3,18,25,.43)!important;
+}
 html .jiz-homepage .jz-fw .jz-fw-frame{
- border-radius:clamp(13px,1.4vw,19px);
+ border-radius:21px 21px 0 0;
  overflow:hidden;
- box-shadow:0 6px 16px rgba(11,31,42,.1);
+ box-shadow:none;
 }
 html .jiz-homepage .jz-fw .jz-fw-copy{
- padding:12px 3px 8px!important;
- gap:5px!important;
+ padding:clamp(18px,2vw,26px)!important;
+ gap:9px!important;
 }
 html .jiz-homepage .jz-fw .jz-fw-project-title{
  font-family:'Manrope',sans-serif!important;
@@ -1165,8 +1177,9 @@ html .jiz-homepage .jz-fw :is(.jz-fw-h2,.jz-fw-heading>p,.jz-fw-instruction,.jz-
 html .jiz-homepage .jz-fw .jz-label{color:#C6F23A!important}
 html .jiz-homepage .jz-fw :is(.jz-fw-project-title,.jz-fw-project-org,.jz-fw-value,.jz-fw-subtitle){text-shadow:none}
 html .jiz-homepage .jz-fw .jz-fw-project-link{
- background:rgba(250,252,253,.97)!important;
- box-shadow:0 12px 30px rgba(0,0,0,.28);
+ background:linear-gradient(160deg,rgba(34,58,69,.98),rgba(12,32,43,.98))!important;
+ border-radius:22px!important;
+ box-shadow:0 18px 44px rgba(0,0,0,.32)!important;
 }
 html .jiz-homepage .jz-fw .jz-fw-gallery-layout .jz-fw-buttons button{
  border-color:rgba(255,255,255,.8)!important;
