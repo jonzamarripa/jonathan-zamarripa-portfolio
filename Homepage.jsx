@@ -444,7 +444,7 @@ function LetsBuild({ onExploreWork }) {
   const REFERRALS = ['LinkedIn', 'Referral', 'Google Search', 'Previous Colleague', 'Conference or Event', 'Other'];
   const EMPTY = { name: '', email: '', org: '', intent: '', detail: '', role: '', location: '', jobLink: '', focus: [], timeline: '', budget: '', eventName: '', eventDate: '', format: '', topic: '', referral: '' };
   const [form, setForm] = React.useState(EMPTY);
-  const [formOpen, setFormOpen] = React.useState(true);
+  const [formOpen, setFormOpen] = React.useState(false);
   const openInquiry = (type) => {
     if(type) setForm(f => ({...f,intent:type}));
     setFormOpen(true);
@@ -629,7 +629,8 @@ function LetsBuild({ onExploreWork }) {
 .jz-ct-note{margin:0;max-width:36ch;font:400 .9375rem/1.6 var(--font-body);color:rgba(217,221,227,.66)}
 @media(prefers-reduced-motion:reduce){.jz-ct-mail span:last-child{transition:none}}
             `}</style>
-            <div className="jz-ct-intro"><span className="jz-label">YOUR NEXT CONVERSATION STARTS HERE</span><p>Choose what brings you here. I’ll take care of the next step.</p></div>
+            <div className="jz-ct-intro"><span className="jz-label">YOUR NEXT CONVERSATION STARTS HERE</span><p>Hiring, collaboration, or speaking—one thoughtful conversation can move things forward.</p></div>
+            <button type="button" className="jz-ct-primary" aria-expanded={formOpen} aria-controls="jiz-build-form-start" onClick={() => formOpen ? setFormOpen(false) : openInquiry()}>Start a Conversation <span aria-hidden="true">↗</span></button>
             <a className="jz-ct-mail" href={window.JIZ_SITE.links.email} aria-label="Email Jonathan Zamarripa"><span className="jz-label">EMAIL DIRECTLY</span><span>jonathan.zamarripa@gmail.com</span></a>
             <ul className="jz-ct-sec">
               <li><a href={window.JIZ_SITE.links.resume} target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a></li>
@@ -643,7 +644,7 @@ function LetsBuild({ onExploreWork }) {
             </div>
           </div>
           
-          <form id="jiz-build-form-start" className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
+          <form id="jiz-build-form-start" className="jiz-build-form" data-build-form="ready" hidden={!formOpen} onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
             <h3>Start the Conversation</h3>
             <p className="jiz-build-form-note">Hiring, projects, or speaking — a few details are enough to begin.</p>
             <div className="jiz-build-fields">
