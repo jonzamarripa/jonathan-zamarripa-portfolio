@@ -69,7 +69,7 @@ for (const [label,asset,selector] of sectionBackgrounds) {
  assert(css.includes(selector),label+': expected section selector missing');
  assert(html.includes('identity-mist-v2.css'),label+': homepage stylesheet missing');
 }
-assert(home.includes('jonathan-hero-final.mp4'), 'Hero film must remain unchanged');
+assert(home.includes('hero-portrait-2026.mp4') && home.includes('jonathan-hero-final.mp4'), 'Owner hero film and original compatibility fallback required');
 console.log('PASS: Six owner-supplied section backgrounds committed and mapped; original hero preserved.');
 // V6: user-selected additional assets, speaker video, emphasis and single-row workflow.
 const latestAssets = [
