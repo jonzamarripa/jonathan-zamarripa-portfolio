@@ -54,7 +54,6 @@ html .jiz-homepage .jiz-build .jz-ct-sec a{font:600 .92rem/1.2 Inter,sans-serif!
 html .jiz-homepage .jiz-build .jz-ct-sec a:hover{color:#C6F23A!important}
 html .jiz-homepage .jiz-build .jz-ct-note,html .jiz-homepage .jiz-build .jiz-build-form,html .jiz-homepage .jiz-build .jiz-build-film{display:none!important}
 html .jiz-homepage .jiz-build a:focus-visible{outline:3px solid #C6F23A!important;outline-offset:5px!important}
-html .jiz-homepage .jiz-footer-disciplines{font-weight:750!important;letter-spacing:.035em!important;text-transform:uppercase!important}
 @media(max-width:720px){
  html .jiz-homepage .jiz-build{min-height:520px!important;padding:76px 27px 80px!important}
  html .jiz-homepage .jiz-build .jiz-build-title{font-size:clamp(2.4rem,10vw,4.15rem)!important}
