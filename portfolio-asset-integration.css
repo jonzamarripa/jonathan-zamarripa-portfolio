@@ -1,0 +1,81 @@
+/* Asset integration · Editorial Cut · November 2026
+   This layer only coordinates user-provided artwork with existing components.
+   Its media filenames are packaged separately and must be present before release.
+*/
+:root{--assets-navy:#0B1F2A;--assets-moss:#C6F23A;--assets-cyan:#64E1FF}
+html .jiz-homepage .hero{isolation:isolate}
+html .jiz-homepage .hero-video-stage{
+ position:absolute!important;inset:0!important;
+ width:100%!important;height:100%!important;
+ min-height:100%!important;max-width:none!important;
+ border:0!important;border-radius:0!important;
+ padding:0!important;margin:0!important;
+ overflow:hidden!important;box-shadow:none!important;
+ transform:none!important
+}
+html .jiz-homepage .hero-video-stage .hero-video{
+ position:absolute!important;inset:0!important;
+ display:block!important;width:100%!important;height:100%!important;
+ object-fit:cover!important;object-position:center center!important;
+ border:0!important;border-radius:0!important
+}
+html .jiz-homepage .hero-video-blend{
+ position:absolute!important;inset:0!important;
+ background:linear-gradient(90deg,rgba(3,18,23,.76) 0%,rgba(4,25,32,.48) 35%,transparent 61%),linear-gradient(0deg,rgba(6,20,27,.42),transparent 30%)!important;
+ pointer-events:none
+}
+/* Preserve user supplied principles image and regain readable foreground */
+html .jiz-homepage .jz-pp{
+ background:linear-gradient(105deg,rgba(6,24,33,.94) 0%,rgba(7,28,37,.9) 42%,rgba(10,40,48,.68) 100%),
+ url('/assets/imagery/portfolio-principles-glass.jpg') 64% center/cover no-repeat!important;
+ color:#F7F8FA!important;
+}
+html .jiz-homepage .jz-pp :is(h2,h3,p,li,.jz-pp-h2,.jz-pp-t,.jz-pp-c,.jz-pp-sub){color:#F7F8FA!important}
+html .jiz-homepage .jz-pp .jz-label{color:#D0E5E5!important}
+/* Cinematic Learning Systems four distinct editorial tiles */
+html .jiz-homepage .cls-room__routes--editorial{
+ display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:clamp(10px,1.4vw,22px)!important
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route{
+ position:relative!important;display:flex!important;flex-direction:column!important;
+ isolation:isolate!important;min-width:0!important;overflow:hidden!important;
+ min-height:clamp(258px,27vw,360px)!important;padding:clamp(18px,2vw,28px)!important;
+ border:1px solid rgba(202,235,238,.22)!important;
+ border-radius:clamp(18px,2.2vw,26px)!important;
+ background:#102A32!important;
+ color:#F7F8FA!important;
+ box-shadow:0 20px 52px rgba(0,0,0,.16)!important;
+ transition:border-color .26s ease,transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s ease!important
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route::before{
+ content:""!important;position:absolute!important;inset:0!important;z-index:-2!important;
+ background-image:var(--tile-media)!important;background-size:cover!important;
+ background-position:center!important;opacity:1!important;
+ transition:transform .7s cubic-bezier(.2,.7,.3,1)!important
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route::after{
+ content:""!important;position:absolute!important;inset:0!important;z-index:-1!important;
+ background:linear-gradient(180deg,rgba(5,19,26,.2) 0%,rgba(5,19,26,.34) 29%,rgba(5,19,26,.95) 100%)!important;
+ opacity:1!important;pointer-events:none
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route :is(.cls-room__route-icon,.cls-room__route-copy,.cls-room__route-arrow){position:relative!important;z-index:1!important}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route .cls-room__route-copy{margin-top:auto!important}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route :is(strong,small){color:#F7F8FA!important}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route .cls-room__route-number{color:#C6F23A!important}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route:hover{
+ transform:translateY(-5px)!important;border-color:rgba(198,242,58,.68)!important;
+ box-shadow:0 26px 65px rgba(0,0,0,.29)!important
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route:hover::before{transform:scale(1.045)!important}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route:focus-visible{outline:3px solid #C6F23A!important;outline-offset:4px!important}
+@media(max-width:1080px){html .jiz-homepage .cls-room__routes--editorial{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+@media(max-width:600px){
+ html .jiz-homepage .cls-room__routes--editorial{grid-template-columns:1fr!important}
+ html .jiz-homepage .cls-room__routes--editorial .cls-room__route{min-height:270px!important}
+ html .jiz-homepage .hero-video-stage .hero-video{object-position:65% center!important}
+ html .jiz-homepage .hero-video-blend{background:linear-gradient(90deg,rgba(4,17,23,.74),rgba(4,18,25,.32)),linear-gradient(0deg,rgba(4,17,23,.7),transparent 62%)!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html .jiz-homepage .cls-room__routes--editorial .cls-room__route,
+ html .jiz-homepage .cls-room__routes--editorial .cls-room__route::before{transition:none!important;transform:none!important}
+}
