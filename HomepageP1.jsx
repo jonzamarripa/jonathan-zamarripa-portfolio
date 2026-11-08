@@ -180,6 +180,8 @@ function SelectedExperience() {
 
 function FeaturedWorkEditorial({ onOpenWork }) {
   const track = React.useRef(null);
+  const indexDialog = React.useRef(null);
+  const indexTrigger = React.useRef(null);
   const ref = React.useRef(null);
   const destination = React.useRef(null);
   const [active, setActive] = React.useState(0);
@@ -491,6 +493,132 @@ html[data-jz-motion-paused="true"] .jz-fw-frame img{transform:none!important}
  .jiz-homepage .jz-fw .jz-fw-index ul{grid-template-columns:1fr;padding:10px;gap:8px;border-radius:14px}
  .jiz-homepage .jz-fw .jz-fw-index li a{padding:14px 16px;min-height:54px}
 }
+
+/* Editorial gallery V2: one deliberate panel, not a row of floating tiles. */
+.jiz-homepage .jz-fw{--gallery-preview:0px;--gallery-gap:0px}
+.jiz-homepage .jz-fw .jz-fw-gallery-layout{position:relative}
+.jiz-homepage .jz-fw .jz-fw-track{
+  display:flex;gap:0;overflow-x:auto;overflow-y:hidden;
+  padding:0;scroll-padding:0;scroll-snap-type:x mandatory;
+  scrollbar-width:none;border-radius:18px;
+  border:1px solid rgba(232,240,245,.19);
+  background:rgba(11,13,16,.84);
+}
+.jiz-homepage .jz-fw .jz-fw-track::-webkit-scrollbar{display:none}
+.jiz-homepage .jz-fw .jz-fw-track::after{display:none}
+.jiz-homepage .jz-fw .jz-fw-slide{
+  flex:0 0 100%;width:100%;
+  scroll-snap-align:start;min-width:0;
+}
+.jiz-homepage .jz-fw .jz-fw-project-link,
+.jiz-homepage .jz-fw .jz-fw-slide[data-active="true"] .jz-fw-project-link{
+  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+  width:100%;min-height:490px;padding:0;
+  border:0;border-radius:0;background:transparent;box-shadow:none;
+  -webkit-backdrop-filter:none;backdrop-filter:none;
+  overflow:hidden;
+}
+.jiz-homepage .jz-fw .jz-fw-project-link:is(:hover,:focus-visible){
+  background:rgba(232,240,245,.025);border:0;box-shadow:none;
+}
+.jiz-homepage .jz-fw .jz-fw-frame{
+  aspect-ratio:auto;min-height:490px;height:100%;
+  border-radius:0;clip-path:none;overflow:hidden;border:0;
+  background:#121a1e;
+}
+.jiz-homepage .jz-fw .jz-fw-frame img{
+  width:100%;height:100%;object-fit:cover;border-radius:0;
+  filter:saturate(.87) brightness(.87);transform:none;
+}
+.jiz-homepage .jz-fw .jz-fw-slide[data-active="false"] .jz-fw-frame img{filter:saturate(.87) brightness(.87)}
+.jiz-homepage .jz-fw .jz-fw-copy{
+  justify-content:center;align-items:flex-start;
+  padding:clamp(30px,4.4vw,64px);gap:18px;
+  min-width:0;
+  background:linear-gradient(135deg,rgba(30,37,43,.97),rgba(21,27,32,.98));
+}
+.jiz-homepage .jz-fw .jz-fw-project-title{
+  max-width:16ch;font:600 clamp(1.85rem,3.3vw,3.35rem)/1.06 var(--font-display);
+}
+.jiz-homepage .jz-fw .jz-fw-subtitle{font-size:clamp(.95rem,1.2vw,1.1rem);color:#dce4e5}
+.jiz-homepage .jz-fw .jz-fw-value{font-size:.94rem;max-width:45ch}
+.jiz-homepage .jz-fw .jz-fw-tags li,
+.jiz-homepage .jz-fw .jz-fw-tags li:nth-child(3n+2),
+.jiz-homepage .jz-fw .jz-fw-tags li:nth-child(3n){
+  border:0;border-radius:6px;
+  padding:6px 10px;background:rgba(232,240,245,.09);color:#dce5e6;
+}
+.jiz-homepage .jz-fw .jz-fw-image-label{
+  top:24px;left:24px;background:rgba(11,13,16,.73);
+  color:#f1f4f4;border:1px solid rgba(232,240,245,.16);
+}
+.jiz-homepage .jz-fw .jz-fw-image-action{
+  right:24px;bottom:24px;background:rgba(11,13,16,.8);
+}
+.jiz-homepage .jz-fw .jz-fw-buttons{position:relative;justify-content:flex-end;margin-bottom:14px;gap:10px}
+.jiz-homepage .jz-fw .jz-fw-buttons button,
+.jiz-homepage .jz-fw .jz-fw-buttons button:last-child{
+  background:rgba(11,13,16,.52);border:1px solid rgba(232,240,245,.28);
+  border-radius:9px;color:#eff3f4;
+}
+.jiz-homepage .jz-fw .jz-fw-buttons button:hover:enabled{
+  background:#2a343b;color:#fff;border-color:rgba(232,240,245,.54);
+}
+.jiz-homepage .jz-fw .jz-fw-controls{margin-top:22px;padding-top:12px;border-color:rgba(232,240,245,.2)}
+.jiz-homepage .jz-fw .jz-fw-count{color:#eef3f5}
+.jiz-homepage .jz-fw .jz-fw-index{margin-top:22px}
+.jiz-homepage .jz-fw .jz-fw-index-trigger{
+  display:inline-flex;align-items:center;gap:10px;min-height:48px;
+  padding:12px 16px;cursor:pointer;
+  border:1px solid rgba(232,240,245,.3);border-radius:9px;
+  background:rgba(11,13,16,.72);color:var(--signal-lime);
+  font:700 .875rem/1.4 var(--font-body);transition:background 160ms,color 160ms,border-color 160ms;
+}
+.jiz-homepage .jz-fw .jz-fw-index-trigger:is(:hover,:focus-visible){
+  background:#29343a;color:#fff;border-color:rgba(232,240,245,.6);
+}
+.jiz-homepage .jz-fw .jz-fw-index-trigger:focus-visible{outline:2px solid var(--signal-lime);outline-offset:3px}
+.jz-fw-archive-dialog{
+  width:min(850px,calc(100% - 32px));max-height:min(82svh,800px);
+  padding:0;margin:auto;overflow:auto;
+  color:#f5f7f7;background:#1b242a;
+  border:1px solid rgba(232,240,245,.25);border-radius:18px;
+  box-shadow:0 24px 80px rgba(0,0,0,.5);
+}
+.jz-fw-archive-dialog::backdrop{background:rgba(4,7,10,.77);backdrop-filter:blur(9px)}
+.jz-fw-archive-inner{padding:clamp(22px,4vw,42px)}
+.jz-fw-archive-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;padding-bottom:23px;border-bottom:1px solid rgba(232,240,245,.18)}
+.jz-fw-archive-heading{margin:0;font:600 clamp(1.65rem,3vw,2.4rem)/1.12 var(--font-display);letter-spacing:-.035em;color:#fff}
+.jz-fw-archive-note{margin:9px 0 0;color:#bdcbd0;max-width:55ch;line-height:1.5}
+.jz-fw-archive-close{min-width:44px;min-height:44px;cursor:pointer;flex:none;background:#2b353b;color:#fff;border:1px solid rgba(232,240,245,.24);border-radius:9px;font-size:1.3rem}
+.jz-fw-archive-close:is(:hover,:focus-visible){background:#415158;border-color:rgba(232,240,245,.5)}
+.jz-fw-archive-grid{list-style:none;margin:22px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.jz-fw-archive-grid li{margin:0;min-width:0}
+.jz-fw-archive-grid a{
+ display:flex;align-items:center;justify-content:space-between;gap:14px;
+ padding:20px;min-height:74px;
+ border:1px solid rgba(232,240,245,.17);border-radius:10px;
+ background:#29333a;color:#f3f7f7;font-weight:600;line-height:1.4;text-decoration:none;
+}
+.jz-fw-archive-grid a::after{content:'↗';color:var(--signal-lime);font-size:1.15rem}
+.jz-fw-archive-grid a:is(:hover,:focus-visible){background:#394850;color:#fff;border-color:rgba(232,240,245,.5)}
+@media(max-width:900px){
+ .jiz-homepage .jz-fw .jz-fw-project-link,
+ .jiz-homepage .jz-fw .jz-fw-slide[data-active="true"] .jz-fw-project-link{grid-template-columns:1fr;min-height:0}
+ .jiz-homepage .jz-fw .jz-fw-frame{min-height:0;height:auto;aspect-ratio:16/9}
+ .jiz-homepage .jz-fw .jz-fw-copy{padding:30px;min-height:310px}
+ .jiz-homepage .jz-fw .jz-fw-project-title{max-width:25ch}
+}
+@media(max-width:600px){
+ .jiz-homepage .jz-fw .jz-fw-frame{aspect-ratio:4/3;clip-path:none;border-radius:0}
+ .jiz-homepage .jz-fw .jz-fw-frame img{border-radius:0}
+ .jiz-homepage .jz-fw .jz-fw-track{border-radius:14px}
+ .jiz-homepage .jz-fw .jz-fw-copy{padding:24px 20px;min-height:0}
+ .jiz-homepage .jz-fw .jz-fw-buttons button{flex:1}
+ .jz-fw-archive-grid{grid-template-columns:1fr}
+ .jiz-homepage .jz-fw .jz-fw-image-label{top:14px;left:14px}
+ .jiz-homepage .jz-fw .jz-fw-image-action{right:12px;bottom:12px}
+}
       `}</style>
       <div className="jz-fw-stage">
       <header className="jz-fw-heading">
@@ -530,7 +658,13 @@ html[data-jz-motion-paused="true"] .jz-fw-frame img{transform:none!important}
         <span className="jz-fw-count" role="status" aria-live="polite" aria-atomic="true"><span className="jz-visually-hidden">Project </span>{String(active + 1).padStart(2,'0')} / {String(projects.length).padStart(2,'0')}<span className="jz-visually-hidden">: {projects[active].title}</span></span>
 
       </div>
-      <details className="jz-fw-index"><summary><PortfolioGlyph kind="work" size={18}/> View all projects <PortfolioGlyph kind="arrow" size={16}/></summary><ul>{projects.map((p) => <li key={p.view}><a href={pathOf(p)} onClick={(e) => open(e,p)}>{p.title}</a></li>)}</ul></details>
+      <div className="jz-fw-index"><button type="button" className="jz-fw-index-trigger" ref={indexTrigger} onClick={() => indexDialog.current?.showModal()}><PortfolioGlyph kind="work" size={18}/> View all projects <PortfolioGlyph kind="arrow" size={16}/></button></div>
+      <dialog className="jz-fw-archive-dialog" ref={indexDialog} aria-labelledby="jz-fw-archive-title" onClose={() => indexTrigger.current?.focus()} onClick={(e) => { if (e.target === e.currentTarget) e.currentTarget.close(); }}>
+        <div className="jz-fw-archive-inner">
+          <div className="jz-fw-archive-head"><div><h3 className="jz-fw-archive-heading" id="jz-fw-archive-title">All featured projects</h3><p className="jz-fw-archive-note">Explore the selected learning experiences and enterprise case studies.</p></div><button type="button" className="jz-fw-archive-close" aria-label="Close project list" onClick={() => indexDialog.current?.close()}>×</button></div>
+          <ul className="jz-fw-archive-grid">{projects.map((p) => <li key={p.view}><a href={pathOf(p)} onClick={(e) => { indexDialog.current?.close(); open(e,p); }}>{p.title}</a></li>)}</ul>
+        </div>
+      </dialog>
       </div>
     </section>
   );
