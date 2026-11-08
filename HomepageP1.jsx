@@ -533,6 +533,27 @@ html[data-jz-motion-paused="true"] .jiz-homepage .jz-fw *{animation:none!importa
     flex:1!important;min-width:0!important;padding:10px 12px!important
   }
 }
+
+/* Seam correction: only outer gallery corners may be rounded. */
+.jiz-homepage .jz-fw .jz-fw-frame{
+  border-radius:0!important;
+  background:#1b252c!important;
+  clip-path:none!important;
+  overflow:hidden!important;
+}
+.jiz-homepage .jz-fw .jz-fw-frame img{
+  border-radius:0!important;
+  clip-path:none!important;
+  -webkit-mask-image:none!important;
+  mask-image:none!important;
+  background:#1b252c!important;
+}
+.jiz-homepage .jz-fw .jz-fw-copy{
+  border-radius:0!important;
+}
+.jiz-homepage .jz-fw .jz-fw-project-link{
+  background:#1b252c!important;
+}
 `}</style>
       <div className="jz-fw-stage">
       <header className="jz-fw-heading">
