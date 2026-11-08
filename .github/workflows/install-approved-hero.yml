@@ -18,6 +18,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
           mkdir -p assets/video assets/imagery
           curl -fLsS --retry 3 --retry-delay 2 'https://drive.usercontent.google.com/download?id=1tJVx6AQd4ye8WMAach36GNzEo86BSHHG&export=download&confirm=t' -o /tmp/approved-hero.mp4
           echo 'e3eae1c28f573dfc0102585c789ece95d9285fb49723c1b17dd8214c94722736  /tmp/approved-hero.mp4' | sha256sum -c -
