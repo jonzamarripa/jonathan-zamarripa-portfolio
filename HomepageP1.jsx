@@ -321,6 +321,82 @@ html:not([data-jz-motion-paused="true"]) .jz-fw-project-link:active .jz-fw-frame
 @media(prefers-reduced-motion:reduce){.jz-fw *{animation:none!important;transition:none!important}.jz-fw-frame img{transform:none!important}.jz-fw-motion-reduced{display:block}html[data-jz-motion-paused="true"] .jz-fw-motion-reduced{display:none}}
 html[data-jz-motion-paused="true"] .jz-fw *{animation:none!important;transition:none!important}
 html[data-jz-motion-paused="true"] .jz-fw-frame img{transform:none!important}
+
+/* Featured Work — restrained editorial glass system; scoped to this carousel. */
+.jiz-homepage .jz-fw .jz-fw-project-link{
+  background:linear-gradient(150deg,rgba(41,49,55,.79),rgba(17,23,28,.86) 55%,rgba(20,28,32,.9));
+  border:1px solid rgba(225,235,236,.19);
+  border-radius:22px;
+  color:#f3f5f5;
+  -webkit-backdrop-filter:blur(18px) saturate(112%);
+  backdrop-filter:blur(18px) saturate(112%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 12px 32px rgba(0,0,0,.14);
+  transition:border-color 200ms ease,background 200ms ease,box-shadow 200ms ease;
+}
+.jiz-homepage .jz-fw .jz-fw-slide[data-active="true"] .jz-fw-project-link{
+  border-color:rgba(233,244,242,.29);
+}
+.jiz-homepage .jz-fw .jz-fw-project-link:is(:hover,:focus-visible){
+  color:#fff;
+  border-color:rgba(236,246,243,.46);
+  background:linear-gradient(150deg,rgba(49,59,65,.88),rgba(19,26,30,.94));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.21),0 16px 36px rgba(0,0,0,.2);
+}
+.jiz-homepage .jz-fw .jz-fw-frame{background:#182126;border-bottom:1px solid rgba(237,246,243,.11)}
+.jiz-homepage .jz-fw .jz-fw-slide[data-active="false"] .jz-fw-frame img{filter:saturate(.82) brightness(.82)}
+.jiz-homepage .jz-fw .jz-fw-image-label,
+.jiz-homepage .jz-fw .jz-fw-slide[data-active="true"] .jz-fw-image-label{
+  background:rgba(12,19,23,.66);color:#edf2f1;
+  border:1px solid rgba(244,249,247,.22);
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+}
+.jiz-homepage .jz-fw .jz-fw-image-action,
+.jiz-homepage .jz-fw .jz-fw-project-link:is(:hover,:focus-visible) .jz-fw-image-action{
+  background:rgba(17,25,29,.79);color:#f4f7f6;
+  border-color:rgba(243,250,247,.36);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+}
+.jiz-homepage .jz-fw .jz-fw-image-action>span{
+  background:rgba(230,241,237,.14);color:#f8faf9;
+  border:1px solid rgba(240,248,245,.27);
+}
+.jiz-homepage .jz-fw .jz-fw-project-link:is(:hover,:focus-visible) .jz-fw-image-action>span{
+  background:var(--signal-lime);color:#10150d;border-color:var(--signal-lime);
+}
+.jiz-homepage .jz-fw .jz-fw-copy{gap:12px}
+.jiz-homepage .jz-fw .jz-fw-project-title{color:#f5f7f7}
+.jiz-homepage .jz-fw .jz-fw-subtitle{color:#cbd9d9}
+.jiz-homepage .jz-fw .jz-fw-value,.jiz-homepage .jz-fw .jz-fw-project-org{color:#bfcacc}
+.jiz-homepage .jz-fw .jz-fw-tags li,
+.jiz-homepage .jz-fw .jz-fw-tags li:nth-child(3n+2),
+.jiz-homepage .jz-fw .jz-fw-tags li:nth-child(3n){
+  background:rgba(222,237,236,.075);color:#dbe5e4;
+  border:1px solid rgba(223,239,237,.19);
+  font-weight:500;
+}
+.jiz-homepage .jz-fw .jz-fw-buttons button:last-child{
+  background:rgba(233,244,241,.1);color:#f7faf9;
+  border-color:rgba(234,246,242,.34);
+}
+.jiz-homepage .jz-fw .jz-fw-buttons button:hover:enabled{
+  background:rgba(234,245,242,.2);color:#fff;border-color:rgba(241,250,247,.57);
+}
+.jiz-homepage .jz-fw .jz-fw-step[aria-current="true"]{color:#f1f7f4}
+.jiz-homepage .jz-fw .jz-fw-step[aria-current="true"]:after{background:var(--signal-lime)}
+.jiz-homepage .jz-fw .jz-fw-index summary{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:12px 16px;border:1px solid rgba(233,246,241,.35);
+  border-radius:999px;background:rgba(24,34,38,.64);color:#f7faf8;
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  transition:background 180ms ease,border-color 180ms ease,color 180ms ease;
+}
+.jiz-homepage .jz-fw .jz-fw-index summary:is(:hover,:focus-visible){
+  background:rgba(226,242,236,.17);color:#fff;border-color:rgba(240,251,246,.68);
+}
+.jiz-homepage .jz-fw .jz-fw-index a:is(:hover,:focus-visible){color:#fff}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+ html:not([data-jz-motion-paused="true"]) .jiz-homepage .jz-fw-project-link:is(:hover,:focus-visible) .jz-fw-frame img{transform:scale(1.015);filter:brightness(1.05)}
+}
       `}</style>
       <div className="jz-fw-stage">
       <header className="jz-fw-heading">
