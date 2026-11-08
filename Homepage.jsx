@@ -224,11 +224,12 @@ function Hero({ onExploreWork, onConnect }) {
 
       <div className="hero-video-stage" aria-hidden="true">
         {heroStill
-          ? <img className="hero-video" src="./assets/imagery/hero-portrait-poster.webp" alt="" decoding="async" fetchpriority="high" />
-          : <InViewVideo eager className="hero-video" poster="./assets/imagery/hero-portrait-poster.webp" disablePictureInPicture tabIndex={-1} onLoadedData={e => { e.target.muted = true; e.target.volume = 0; }}>
+          ? <img className="hero-video" src="./assets/imagery/jonathan-hero-final-poster.webp" alt="" decoding="async" fetchpriority="high" />
+          : <InViewVideo eager className="hero-video" poster="./assets/imagery/jonathan-hero-final-poster.webp" disablePictureInPicture tabIndex={-1} onLoadedData={e => { e.target.muted = true; e.target.volume = 0; }}>
               {heroCompact
                 ? <source src="./assets/video/hero-portrait-2026.mp4" type="video/mp4" />
                 : <source src="./assets/video/hero-portrait-2026.mp4" type="video/mp4" />}
+              <source src="./assets/video/jonathan-hero-final.mp4" type="video/mp4" />
               <source src="./assets/video/jonathan-hero-final.webm" type="video/webm" />
             </InViewVideo>}
         <div className="hero-video-blend" />
