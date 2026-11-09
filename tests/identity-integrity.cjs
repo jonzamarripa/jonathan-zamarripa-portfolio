@@ -45,7 +45,7 @@ function contrast(fg,bg){
 assert(contrast('#F4F7F7','#0B1F2A')>=4.5,'Hero/footer contrast too low');
 assert(contrast('#122C36','#F4F7F7')>=4.5,'Editorial text contrast too low');
 assert(contrast('#15181C','#E7D8B7')>=4.5,'CLS card text contrast too low');
-const siteConfig = read('site-config.js');
+const motionSiteConfig = read('site-config.js');
 assert(home.includes("['Work', 'Method', 'Learning', 'About', 'Contact']"),'Reference navigation must use five sections');
 assert(siteConfig.includes("nav: 'Learning'") && siteConfig.includes("'Thinking'"),'Learning link must retain the Thinking route');
 assert(css.includes('html .jiz-homepage .jiz-global-nav.is-scrolled'),'Light sticky header treatment missing');
@@ -141,7 +141,7 @@ assert(css.includes('nav.jiz-global-nav .jiz-brand__name .jiz-brand__accent'), '
 assert(cinematicScroll.includes('IntersectionObserver') && cinematicScroll.includes('revealAll()'), 'Scroll reveals must support observer fallback and motion off');
 assert(cinematicScroll.includes("data-jz-motion-paused") && cinematicScroll.includes('prefers-reduced-motion'), 'Scroll reveals must honor manual pause and reduced motion');
 assert(atmosphereScript.includes("prefers-reduced-motion") && atmosphereScript.includes('requestAnimationFrame'), 'Atmospheric motion must be frame-scheduled and honor user preference');
-assert(siteConfig.includes('syncDecorativeMotion') && siteConfig.includes("jiz-motion-paused"), 'Motion pause preference wiring is missing');
+assert(motionSiteConfig.includes('syncDecorativeMotion') && motionSiteConfig.includes("jiz-motion-paused"), 'Motion pause preference wiring is missing');
 assert(html.includes('cinematic-scroll.js') && html.includes('editorial-atmosphere.js'), 'Motion modules not linked in published HTML');
 console.log('PASS: Distinct Iker nav treatment and source-level animation, reduced-motion and observer contracts.');
 console.log('PASS: Featured Work static image, portrait-free glass Contact, elevated Journey, chartreuse Principles, scrollspy nav.');
