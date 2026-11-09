@@ -152,6 +152,23 @@ const RHYTHM_CSS = `
 .jiz-homepage .jz-st-card{background:transparent;border:0;border-bottom:1px solid rgba(17,37,26,.2);border-radius:0}
 .jiz-homepage .jz-st-l{color:#465A50}
 .jiz-homepage .jz-st-tools{border-top:1px solid rgba(17,37,26,.12);padding-top:22px}
+/* Contrast repair: the architectural scene is dark in the actual layout.
+   Use explicit accessible light foreground colors regardless of backdrop layers. */
+.jiz-homepage .jz-st{color:#F7F8FA}
+.jiz-homepage .jz-st .jz-st-h2,
+.jiz-homepage .jz-st .jz-st-t{color:#F7F8FA;text-shadow:0 2px 22px rgba(0,0,0,.2)}
+.jiz-homepage .jz-st .jz-st-sub,
+.jiz-homepage .jz-st .jz-st-l{color:#E0E8E6}
+.jiz-homepage .jz-st .jz-label,
+.jiz-homepage .jz-st .jz-st-top .jz-label{color:#C6F23A}
+.jiz-homepage .jz-st .jz-st-note{color:#D4E0DB}
+.jiz-homepage .jz-st .jz-st-card{border-bottom-color:rgba(240,248,246,.30)}
+.jiz-homepage .jz-st .jz-st-grid{border-top-color:rgba(240,248,246,.32)}
+.jiz-homepage .jz-st .jz-st-tools{border-top-color:rgba(240,248,246,.24)}
+.jiz-homepage .jz-st .jz-st-tools li{color:#F2F6F1;background:rgba(5,24,26,.70);border-color:rgba(240,248,246,.35)}
+.jiz-homepage .jz-st .jz-st-actions .jz-st-more{color:#0B1513;background:#C6F23A;border-color:#C6F23A}
+.jiz-homepage .jz-st .jz-st-actions .jz-st-more:hover{color:#07150E;background:#D8FF68;border-color:#D8FF68}
+.jiz-homepage .jz-st .jz-st-actions .jz-st-more:focus-visible{outline:3px solid #F7F8FA;outline-offset:4px}
 
 `;
 function EditorialStyles() { return <style>{EDITORIAL_CSS + RHYTHM_CSS}</style>; }
