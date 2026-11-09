@@ -601,6 +601,7 @@ function LetsBuild({ onExploreWork }) {
         @media(prefers-reduced-motion:reduce){.jiz-build-submit,.jiz-build-chip{transition:none}}
 
         /* Contact / The Invitation — one owning, responsive composition. */
+        html body .jiz-homepage .jiz-build-form[hidden]{display:none!important}
         html body .jiz-homepage section.jiz-build[data-lets-build="ready"]{
           isolation:isolate!important; position:relative!important;
           padding:clamp(76px,8vw,120px) clamp(24px,5vw,92px) clamp(64px,7vw,105px)!important;
@@ -668,7 +669,7 @@ function LetsBuild({ onExploreWork }) {
             </div>
           </div>
           
-          {formOpen ? (<form id="jiz-build-form-start" className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
+          <form hidden={!formOpen} id="jiz-build-form-start" className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
             <h3>Start the Conversation</h3>
             <p className="jiz-build-form-note">Hiring, projects, or speaking — a few details are enough to begin.</p>
             <div className="jiz-build-fields">
@@ -810,7 +811,7 @@ function LetsBuild({ onExploreWork }) {
             </p>
 
             <p className="jiz-build-privacy">Your details are used only to respond to this inquiry. No mailing lists. No unsolicited follow-up. This site measures anonymous pageviews and inquiry counts; form contents are excluded from analytics.</p>
-          </form>) : null}
+          </form>
         </div>
 
 
