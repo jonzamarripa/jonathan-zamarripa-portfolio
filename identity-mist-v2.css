@@ -1031,3 +1031,20 @@ html .jiz-homepage nav.jiz-global-nav[data-current-section="contact"]{
  html .jiz-homepage nav.jiz-global-nav,
  html .jiz-homepage nav.jiz-global-nav::after{transition:none!important}
 }
+
+/* Navigation identity emphasis — make Iker the signature wordmark without adding another decoration layer. */
+html .jiz-homepage nav.jiz-global-nav .jiz-brand__name .jiz-brand__accent{
+ color:#496300!important;
+ font-family:'Manrope',sans-serif!important;
+ font-weight:900!important;
+ letter-spacing:-.045em!important;
+ text-shadow:0 1px 0 rgba(198,242,58,.16);
+}
+html .jiz-homepage nav.jiz-global-nav .jiz-brand__name .jiz-brand__accent::after{
+ content:"";display:block;height:2px;width:100%;margin-top:2px;
+ background:linear-gradient(90deg,#9BC323,#C6F23A);border-radius:2px;opacity:.86;
+}
+@media(max-width:430px){
+ html .jiz-homepage nav.jiz-global-nav .jiz-brand__name .jiz-brand__accent{display:inline!important}
+ html .jiz-homepage nav.jiz-global-nav .jiz-brand__name span:first-child{display:none!important}
+}
