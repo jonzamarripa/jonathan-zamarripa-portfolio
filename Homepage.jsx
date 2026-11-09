@@ -718,7 +718,8 @@ function LetsBuild({ onExploreWork }) {
             </div>
           </div>
           
-          {formOpen && <div className="jiz-contact-backdrop" onClick={closeInquiry} aria-hidden="true" />}\n          <form hidden={!formOpen} ref={dialogRef} role="dialog" aria-modal={formOpen} aria-labelledby="contact-dialog-title" id="jiz-build-form-start" className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
+          {formOpen && <div className="jiz-contact-backdrop" onClick={closeInquiry} aria-hidden="true" />}
+          <form hidden={!formOpen} ref={dialogRef} role="dialog" aria-modal={formOpen} aria-labelledby="contact-dialog-title" id="jiz-build-form-start" className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
             <button className="jiz-contact-close" type="button" onClick={closeInquiry} aria-label="Close contact form">×</button>
             <p className="jiz-contact-dialog-eyebrow">LET'S CONNECT</p>
             <h3 id="contact-dialog-title">Start the Conversation</h3>
