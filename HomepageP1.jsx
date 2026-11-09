@@ -1059,53 +1059,51 @@ function LearningStack() {
   );
 }
 
-/* ---------- Principles (restored from the original FoundationManifesto; same eight principles) ---------- */
+/* ---------- Leadership philosophy: editorial decision lens ---------- */
 function Principles() {
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref);
   const principles = [
-    { n: '01', t: 'Clarity over complexity', c: 'Every complex problem hides a simpler structure worth finding first.' },
-    { n: '02', t: 'People before platforms', c: 'Technology only matters once the people using it can succeed with it.' },
-    { n: '03', t: 'Design with evidence', c: 'Decisions hold up when grounded in data, feedback, and observed behavior.' },
-    { n: '04', t: 'Learning should move behavior', c: 'The measure of a learning experience is what people do differently after.' },
-    { n: '05', t: 'Technology should feel human', c: 'Systems earn adoption when they respect attention, context, and effort.' },
-    { n: '06', t: 'Direction, not delegation', c: 'AI expands what is possible; the point of view still has to be mine.' },
-    { n: '07', t: 'Speed for production, not decisions', c: 'Move fast on assets. Slow down on the choices that shape outcomes.' },
-    { n: '08', t: 'Every output is reviewed and owned', c: 'Nothing ships that I would not defend in front of a stakeholder.' }
+    {"n":"01","t":"Design for business impact.","k":"PERFORMANCE","c":"Start with the business challenge. Define the behavior that needs to change, then design learning around outcomes that matter."},
+    {"n":"02","t":"Lead with people and purpose.","k":"ADOPTION","c":"Make complex change clear and usable. Build trust, reduce friction, and put human capability ahead of any platform."},
+    {"n":"03","t":"Build what comes next.","k":"FUTURE READINESS","c":"Use emerging technology with discernment. Experiment deliberately, measure what works, and make systems resilient enough to evolve."}
   ];
   return (
     <section className="jz-pp" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-pp-title">
       <style>{`
-.jz-pp{background:#EEF0EA;color:#0B0D10;padding-block:clamp(88px,10vw,160px)}
-.jz-pp .jz-label{color:rgba(11,13,16,.6)}
-.jz-pp-head{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;align-items:end;margin-bottom:clamp(48px,6vw,88px)}
-.jz-pp-head > div{grid-column:1 / span 7;display:flex;flex-direction:column;gap:14px}
-.jz-pp-h2{margin:0;font:600 clamp(2.25rem,1.4rem + 3vw,4.5rem)/.98 var(--font-display);letter-spacing:-.04em;color:#0B0D10;text-wrap:balance}
-.jz-pp-sub{grid-column:9 / span 4;margin:0;font:400 1.0625rem/1.6 var(--font-body);color:rgba(11,13,16,.72)}
-.jz-pp-list{grid-column:1 / span 12;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(24px,4vw,72px);list-style:none;margin:0;padding:0}
-.jz-pp-item{display:grid;grid-template-columns:56px 1fr;gap:16px;padding:24px 0;border-top:1px solid rgba(11,13,16,.14)}
-.jz-pp-n{position:relative;padding-top:14px;font:500 .75rem/1.2 var(--font-mono);letter-spacing:.14em;color:rgba(11,13,16,.7)}
-.jz-pp-n::before{content:'';position:absolute;top:0;left:0;width:24px;height:3px;background:var(--color-accent-primary)}
-.jz-pp-t{margin:0 0 6px;font:600 clamp(1.125rem,1rem + .5vw,1.5rem)/1.2 var(--font-display);letter-spacing:-.02em;color:#0B0D10}
-.jz-pp-c{margin:0;font:400 .9375rem/1.55 var(--font-body);color:rgba(11,13,16,.74)}
-@media(max-width:1024px){.jz-pp-head > div,.jz-pp-sub{grid-column:1 / span 12}.jz-pp-sub{margin-top:18px}}
-@media(max-width:760px){.jz-pp-list{grid-template-columns:1fr}.jz-pp-item{grid-template-columns:44px 1fr}}
-      `}</style>
+.jz-pp{position:relative;background:#E8E3D9;color:#0B0D10;padding-block:clamp(72px,8vw,128px) clamp(76px,8vw,130px)}
+.jz-pp .jz-label{color:#48544B}
+.jz-pp-head{grid-column:1 / span 12;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));align-items:end;gap:20px;margin-bottom:clamp(38px,5vw,70px)}
+.jz-pp-head>div{grid-column:1 / span 7;display:flex;flex-direction:column;gap:12px}
+.jz-pp-h2{margin:0;max-width:15ch;font:650 clamp(2.35rem,1.6rem + 2.9vw,4.6rem)/1.02 var(--font-display);letter-spacing:-.055em;color:#0B0D10;text-wrap:balance}
+.jz-pp-sub{grid-column:9 / span 4;margin:0;max-width:35ch;font:400 clamp(.95rem,.9rem + .22vw,1.08rem)/1.65 var(--font-body);color:#48504C}
+.jz-pp-list{grid-column:1 / span 12;display:flex;flex-direction:column;gap:0;list-style:none;margin:0;padding:0;border-top:1px solid rgba(11,13,16,.27)}
+.jz-pp-item{display:grid;grid-template-columns:minmax(70px,1fr) minmax(260px,4.3fr) minmax(230px,3.2fr);align-items:baseline;gap:clamp(16px,3vw,50px);padding:clamp(24px,3.7vw,53px) clamp(2px,1vw,14px);border-bottom:1px solid rgba(11,13,16,.23);transition:background-color .3s ease,padding-left .3s ease}
+.jz-pp-item:hover{background:rgba(198,242,58,.14);padding-left:clamp(10px,2vw,24px)}
+.jz-pp-n{font:550 .77rem/1.5 var(--font-mono);letter-spacing:.1em;color:#4D584B;white-space:nowrap}
+.jz-pp-t{margin:0;font:600 clamp(1.65rem,1.12rem + 1.65vw,3rem)/1.12 var(--font-display);letter-spacing:-.045em;color:#121A13;text-wrap:balance}
+.jz-pp-c{margin:0;max-width:39ch;font:400 clamp(.93rem,.88rem + .19vw,1.05rem)/1.7 var(--font-body);color:#414A44}
+.jz-pp-footer{grid-column:1 / span 12;margin:clamp(26px,3.2vw,44px) 0 0;max-width:70ch;color:#596258;font:400 .86rem/1.6 var(--font-body)}
+@media(max-width:960px){.jz-pp-head>div{grid-column:1 / span 8}.jz-pp-sub{grid-column:9 / span 4}.jz-pp-item{grid-template-columns:60px 1fr;gap:10px 22px}.jz-pp-n{grid-column:1;grid-row:1}.jz-pp-t{grid-column:2;grid-row:1}.jz-pp-c{grid-column:2;grid-row:2}}
+@media(max-width:700px){.jz-pp-head>div,.jz-pp-sub{grid-column:1 / -1}.jz-pp-head{gap:16px}.jz-pp-h2{font-size:clamp(2.15rem,8.6vw,3.15rem)}.jz-pp-item{grid-template-columns:36px 1fr;padding:25px 0;gap:8px 14px}.jz-pp-item:hover{padding-left:0}.jz-pp-t{font-size:clamp(1.55rem,6vw,2.15rem)}.jz-pp-c{line-height:1.6}}
+@media(prefers-reduced-motion:reduce){.jz-pp-item{transition:none}}
+`}</style>
       <div className="jz-wrap jz-grid">
         <header className="jz-pp-head">
-          <div className="jz-rise"><p className="jz-label">Principles</p><h2 className="jz-pp-h2" id="jz-pp-title">The principles behind every decision.</h2></div>
-          <p className="jz-pp-sub jz-rise">Eight commitments that hold whether the work is a leadership simulation, a platform launch, or an AI-assisted production run.</p>
+          <div className="jz-rise"><p className="jz-label">Leadership philosophy</p><h2 className="jz-pp-h2" id="jz-pp-title">The thinking behind the work.</h2></div>
+          <p className="jz-pp-sub jz-rise">How I make consequential decisions at the intersection of people, performance, and emerging technology.</p>
         </header>
         <ol className="jz-pp-list">
-          {principles.map((p) => (
+          {principles.map(p => (
             <li key={p.n} className="jz-pp-item jz-rise">
-              <span className="jz-pp-n"><PortfolioGlyph kind={["clarity","people","evidence","behavior","human","direction","speed","review"][Number(p.n)-1]} size={27}/><small>{p.n}</small></span>
-              <div><h3 className="jz-pp-t">{p.t}</h3><p className="jz-pp-c">{p.c}</p></div>
+              <span className="jz-pp-n">{p.n} / {p.k}</span>
+              <h3 className="jz-pp-t">{p.t}</h3>
+              <p className="jz-pp-c">{p.c}</p>
             </li>
           ))}
         </ol>
+        <p className="jz-pp-footer">A decision lens, not a checklist. The methods evolve; the accountability stays.</p>
       </div>
     </section>
   );
 }
-
