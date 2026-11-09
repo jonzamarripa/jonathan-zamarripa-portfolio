@@ -547,71 +547,61 @@ function CareerJourney() {
   );
 }
 
-/* ---------- Stack (restored from the original LearningStack; same eight categories, outcomes and tools) ---------- */
+/* ---------- Stack: capability-led summary with optional complete inventory ---------- */
 function LearningStack() {
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref);
-  const [open, setOpen] = React.useState({});
-  const SHOW = 4;
+  const [showTools, setShowTools] = React.useState(false);
   const groups = [
-    { n: '01', layer: 'Design', title: 'Learning Design & Authoring', label: 'Interactive learning, microlearning, simulations, branching, assessments, and performance support.', tools: ['Articulate Storyline 360', 'Rise 360', 'Genially', 'Canvas LMS', 'H5P', 'Camtasia interactive video', 'Scenario-based learning tools'] },
-    { n: '02', layer: 'AI Production', title: 'AI-Enabled Content & Workflow', label: 'Rapid ideation, content transformation, SME synthesis, scenario drafting, script development, learning architecture, and review acceleration.', tools: ['ChatGPT', 'Claude', 'Gemini', 'Microsoft Copilot', 'NotebookLM', 'Perplexity', 'Prompt systems', 'AI-assisted storyboarding', 'AI review workflows'] },
-    { n: '03', layer: 'Automation', title: 'Agentic AI & Learning Automation', label: 'Agentic workflow awareness across content intake, SME analysis, knowledge retrieval, QA checks, learner support, and scalable learning operations.', tools: ['Custom GPTs', 'Claude Projects', 'Zapier', 'Make', 'n8n', 'Airtable automations', 'MCP-enabled workflow concepts', 'RAG knowledge systems', 'AI agents for L&D operations'] },
-    { n: '04', layer: 'AI Production', title: 'AI Video, Voice & Localization', label: 'AI-assisted video production, voiceover, localization, multilingual enablement, explainer content, and scalable media production.', tools: ['Synthesia', 'ElevenLabs', 'HeyGen', 'Descript', 'Runway', 'Luma', 'VEED', 'Adobe Podcast', 'AI dubbing and subtitle workflows'] },
-    { n: '05', layer: 'Design', title: 'Multimedia & Visual Design', label: 'Visual systems, branded learning assets, motion design, storyboards, prototypes, job aids, decks, and digital learning interfaces.', tools: ['Adobe Creative Suite', 'Photoshop', 'Illustrator', 'Premiere Pro', 'After Effects', 'Canva', 'Figma', 'Miro', 'FigJam'] },
-    { n: '06', layer: 'Delivery', title: 'Learning Operations & Platforms', label: 'Learning delivery, stakeholder workflows, content governance, launch operations, versioning, and enterprise enablement.', tools: ['Workday Learn', 'SharePoint', 'Microsoft 365', 'Asana', 'Frame.io', 'LMS governance', 'Release workflows', 'Content intake systems'] },
-    { n: '07', layer: 'Measurement', title: 'Analytics, Skills & Measurement', label: 'Learning impact, adoption signals, performance evidence, executive visibility, and data-informed decisions.', tools: ['Tableau', 'Power BI', 'Excel', 'Learning dashboards', 'KPI tracking', 'Adoption metrics', 'Survey analysis', 'Skills intelligence concepts', 'xAPI / LRS awareness'] },
-    { n: '08', layer: 'Strategy', title: 'Accessibility & Quality Assurance', label: 'Accessible, inclusive, compliant learning experiences that support learner variability and enterprise quality standards.', tools: ['WCAG', 'UDL', 'Accessibility checkers', 'Captioning tools', 'SRT workflows', 'Screen reader considerations', 'Color contrast checks', 'QA checklists'] }
+    { n: '01', title: 'Learning Experience Strategy', label: 'Translate business needs into purposeful, accessible learning experiences, performance support, and measurable behavior change.', tools: ['Articulate Storyline 360', 'Rise 360', 'Genially', 'Canvas LMS', 'H5P', 'Camtasia interactive video', 'Scenario-based learning tools', 'WCAG', 'UDL', 'Accessibility checkers', 'Captioning tools', 'SRT workflows', 'Screen reader considerations', 'Color contrast checks', 'QA checklists'] },
+    { n: '02', title: 'AI & Automation', label: 'Orchestrate AI-assisted workflows for content strategy, knowledge synthesis, rapid prototyping, quality reviews, and responsible scale.', tools: ['ChatGPT', 'Claude', 'Gemini', 'Microsoft Copilot', 'NotebookLM', 'Perplexity', 'Prompt systems', 'AI-assisted storyboarding', 'AI review workflows', 'Custom GPTs', 'Claude Projects', 'Zapier', 'Make', 'n8n', 'Airtable automations', 'MCP-enabled workflow concepts', 'RAG knowledge systems', 'AI agents for L&D operations'] },
+    { n: '03', title: 'Cinematic Production', label: 'Bring complex stories to life through motion, interactive media, visual systems, voice, and localization.', tools: ['Synthesia', 'ElevenLabs', 'HeyGen', 'Descript', 'Runway', 'Luma', 'VEED', 'Adobe Podcast', 'AI dubbing and subtitle workflows', 'Adobe Creative Suite', 'Photoshop', 'Illustrator', 'Premiere Pro', 'After Effects', 'Canva', 'Figma', 'Miro', 'FigJam'] },
+    { n: '04', title: 'Measurement & Delivery', label: 'Connect launch operations and learning platforms with adoption data, stakeholder visibility, and continuous improvement.', tools: ['Workday Learn', 'SharePoint', 'Microsoft 365', 'Asana', 'Frame.io', 'LMS governance', 'Release workflows', 'Content intake systems', 'Tableau', 'Power BI', 'Excel', 'Learning dashboards', 'KPI tracking', 'Adoption metrics', 'Survey analysis', 'Skills intelligence concepts', 'xAPI / LRS awareness'] }
   ];
   return (
     <section className="jz-st" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-st-title">
       <style>{`
 .jz-st{background:#080D0B;padding-block:clamp(88px,10vw,160px) clamp(72px,8vw,128px);border-top:1px solid rgba(217,221,227,.06)}
-.jz-st-head{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;align-items:end;margin-bottom:clamp(48px,6vw,88px)}
+.jz-st-head{grid-column:1 / span 12;display:grid;grid-template-columns:subgrid;align-items:end;margin-bottom:clamp(36px,4vw,64px)}
 .jz-st-head > div{grid-column:1 / span 7;display:flex;flex-direction:column;gap:14px}
 .jz-st-h2{margin:0;font:600 clamp(2.25rem,1.4rem + 3vw,4.5rem)/.98 var(--font-display);letter-spacing:-.04em;color:var(--color-text-primary);text-wrap:balance}
 .jz-st-sub{grid-column:9 / span 4;margin:0;font:400 1.0625rem/1.6 var(--font-body);color:rgba(217,221,227,.78)}
 .jz-st-grid{grid-column:1 / span 12;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2vw,28px);list-style:none;margin:0;padding:0}
-.jz-st-card{display:flex;flex-direction:column;gap:12px;padding:clamp(22px,2.4vw,32px);background:var(--color-background-secondary);border:1px solid var(--color-border-subtle);border-radius:var(--radius-md)}
+.jz-st-card{display:flex;flex-direction:column;gap:14px;padding:clamp(24px,2.8vw,38px);background:var(--color-background-secondary);border:1px solid var(--color-border-subtle);border-radius:var(--radius-md)}
 .jz-st-top{display:flex;justify-content:space-between;gap:12px}
-.jz-st-layer{color:rgba(var(--accent-cyan-rgb),.8)}
-.jz-st-t{margin:0;font:600 clamp(1.125rem,1rem + .5vw,1.5rem)/1.15 var(--font-display);letter-spacing:-.02em;color:var(--color-text-primary)}
-.jz-st-l{margin:0;font:400 .9375rem/1.55 var(--font-body);color:rgba(217,221,227,.82)}
-.jz-st-tools{display:flex;flex-wrap:wrap;gap:6px 18px;list-style:none;margin:6px 0 0;padding:14px 0 0;border-top:1px solid rgba(217,221,227,.08)}
-.jz-st-tools li{font:400 .8125rem/1.5 var(--font-mono);color:rgba(217,221,227,.74)}
-.jz-st-more{align-self:flex-start;min-height:44px;padding:0;background:none;border:0;color:var(--color-accent-primary);font:600 .8125rem/1 var(--font-body);cursor:pointer}
-.jz-st-more:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:4px;border-radius:2px}
-.jz-st-note{grid-column:1 / span 12;margin:clamp(32px,4vw,56px) 0 0;max-width:60ch;font:400 .875rem/1.6 var(--font-body);color:rgba(217,221,227,.62)}
+.jz-st-t{margin:0;font:600 clamp(1.25rem,1.05rem + .6vw,1.65rem)/1.15 var(--font-display);letter-spacing:-.025em;color:var(--color-text-primary)}
+.jz-st-l{margin:0;font:400 .975rem/1.6 var(--font-body);color:rgba(217,221,227,.82)}
+.jz-st-tools{display:flex;flex-wrap:wrap;gap:8px 18px;list-style:none;margin:8px 0 0;padding:18px 0 0;border-top:1px solid rgba(217,221,227,.1)}
+.jz-st-tools li{font:400 .8rem/1.5 var(--font-mono);color:rgba(217,221,227,.74)}
+.jz-st-actions{grid-column:1 / span 12;display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:clamp(28px,3vw,44px)}
+.jz-st-more{min-height:44px;padding:12px 20px;border:1px solid rgba(198,242,58,.5);border-radius:999px;background:transparent;color:var(--color-accent-primary);font:600 .875rem/1.2 var(--font-body);cursor:pointer;transition:background .2s,border-color .2s}
+.jz-st-more:hover{background:rgba(198,242,58,.09);border-color:var(--color-accent-primary)}
+.jz-st-more:focus-visible{outline:2px solid var(--color-accent-primary);outline-offset:4px}
+.jz-st-note{margin:0;max-width:65ch;font:400 .875rem/1.6 var(--font-body);color:rgba(217,221,227,.65)}
 @media(max-width:1024px){.jz-st-head > div,.jz-st-sub{grid-column:1 / span 12}.jz-st-sub{margin-top:18px}}
 @media(max-width:760px){.jz-st-grid{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.jz-st-more{transition:none}}
       `}</style>
       <div className="jz-wrap jz-grid">
         <header className="jz-st-head">
-          <div className="jz-rise"><p className="jz-label">Tools &amp; platforms</p><h2 className="jz-st-h2" id="jz-st-title">A modern learning stack for strategy, design, production, and scale.</h2></div>
-          <p className="jz-st-sub jz-rise">Hands-on tools and emerging AI workflows used to design, build, localize, automate, and measure learning experiences across enterprise environments.</p>
+          <div className="jz-rise"><p className="jz-label">Tools &amp; platforms</p><h2 className="jz-st-h2" id="jz-st-title">Capabilities first. Tools in service of impact.</h2></div>
+          <p className="jz-st-sub jz-rise">Four connected disciplines that bring strategy, emerging technology, storytelling, and measurement together for enterprise learning.</p>
         </header>
         <ul className="jz-st-grid">
-          {groups.map((g) => {
-            const expanded = !!open[g.n];
-            const shown = expanded ? g.tools : g.tools.slice(0, SHOW);
-            const rest = g.tools.length - SHOW;
-            const listId = 'jz-st-tools-' + g.n;
-            return (
-              <li key={g.n} className="jz-st-card jz-rise">
-                <div className="jz-st-top"><span className="jz-label">{g.n}</span><span className="jz-label jz-st-layer">{g.layer}</span></div>
-                <h3 className="jz-st-t">{g.title}</h3>
-                <p className="jz-st-l">{g.label}</p>
-                <ul className="jz-st-tools" id={listId} aria-label={g.title + ' tools'}>{shown.map((tool) => <li key={tool}>{tool}</li>)}</ul>
-                {rest > 0 && (
-                  <button type="button" className="jz-st-more" aria-expanded={expanded} aria-controls={listId} onClick={() => setOpen((o) => ({ ...o, [g.n]: !expanded }))}>
-                    {expanded ? 'Show fewer' : '+' + rest + ' more'}<span className="jz-visually-hidden">{expanded ? '' : ' ' + g.title + ' tools'}</span>
-                  </button>
-                )}
-              </li>
-            );
-          })}
+          {groups.map((g) => (
+            <li key={g.n} className="jz-st-card jz-rise">
+              <div className="jz-st-top"><span className="jz-label">{g.n} / 04</span></div>
+              <h3 className="jz-st-t">{g.title}</h3>
+              <p className="jz-st-l">{g.label}</p>
+              {showTools && <ul className="jz-st-tools" aria-label={g.title + ' tools'}>{g.tools.map((tool) => <li key={tool}>{tool}</li>)}</ul>}
+            </li>
+          ))}
         </ul>
-        <p className="jz-st-note jz-rise">Depth varies by tool. Some are daily practice; others are emerging workflows I actively explore and apply where they earn their place.</p>
+        <div className="jz-st-actions">
+          <button className="jz-st-more" type="button" aria-expanded={showTools} aria-controls="jz-st-inventory" onClick={() => setShowTools((v) => !v)}>{showTools ? 'Hide full tool inventory −' : 'Explore all tools +'}<span className="jz-visually-hidden"> across all four capability areas</span></button>
+          <p className="jz-st-note">Depth varies by tool: from daily practice to emerging workflows explored for their business value.</p>
+        </div>
+        <span id="jz-st-inventory" className="jz-visually-hidden">{showTools ? 'Full tool inventory expanded above' : 'Full tool inventory collapsed'}</span>
       </div>
     </section>
   );
