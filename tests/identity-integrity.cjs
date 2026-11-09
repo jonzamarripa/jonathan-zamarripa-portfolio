@@ -45,7 +45,7 @@ function contrast(fg,bg){
 assert(contrast('#F4F7F7','#0B1F2A')>=4.5,'Hero/footer contrast too low');
 assert(contrast('#122C36','#F4F7F7')>=4.5,'Editorial text contrast too low');
 assert(contrast('#15181C','#E7D8B7')>=4.5,'CLS card text contrast too low');
-const motionSiteConfig = read('site-config.js');
+const siteConfig = read('site-config.js');
 assert(home.includes("['Work', 'Method', 'Learning', 'About', 'Contact']"),'Reference navigation must use five sections');
 assert(siteConfig.includes("nav: 'Learning'") && siteConfig.includes("'Thinking'"),'Learning link must retain the Thinking route');
 assert(css.includes('html .jiz-homepage .jiz-global-nav.is-scrolled'),'Light sticky header treatment missing');
@@ -133,7 +133,7 @@ assert(css.includes('@media(prefers-reduced-motion:reduce)'),'Motion accessibili
 // Navigation wordmark and motion invariants: catch regressions before preview deployment.
 const cinematicScroll = read('cinematic-scroll.js');
 const atmosphereScript = read('editorial-atmosphere.js');
-const siteConfig = read('site-config.js');
+const motionSiteConfig = read('site-config.js');
 const sourceBundle = read('_ds_bundle.js');
 assert(sourceBundle.includes('jiz-brand__accent') && sourceBundle.includes('"Iker"'), 'Navigation must retain separate Iker wordmark span');
 assert(css.includes('Navigation identity emphasis') && css.includes('font-weight:900!important') && css.includes('color:#496300!important'), 'Distinct high-contrast Iker identity styling missing');
