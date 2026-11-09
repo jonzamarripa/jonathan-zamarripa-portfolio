@@ -708,7 +708,7 @@ function LetsBuild({ onExploreWork }) {
 @media(prefers-reduced-motion:reduce){.jz-ct-mail span:last-child{transition:none}}
             `}</style>
             <div className="jz-ct-intro"><span className="jz-label">YOUR NEXT CONVERSATION STARTS HERE</span><p>Choose what brings you here. I’ll take care of the next step.</p></div>
-            <a className="jz-ct-mail" href={window.JIZ_SITE.links.email} aria-label="Email Jonathan Zamarripa"><span className="jz-label">EMAIL DIRECTLY</span><span>jonathan.zamarripa@gmail.com</span></a>
+            <a className="jz-ct-mail" href={window.JIZ_SITE.links.email} aria-label="Email Jonathan Zamarripa"><span className="jz-label">EMAIL DIRECTLY</span><span>jonathan.zamarripa<wbr/>@gmail.com</span></a>
             
             <div className="jz-ct-choices" aria-label="Choose a way to connect">
               <p className="jz-ct-choices-label">START WITH YOUR GOAL</p>
@@ -1216,9 +1216,14 @@ function Homepage({ onOpenCaseStudy }) {
   const navItems = ['Work', 'Method', 'Learning', 'About', 'Contact'];
 
   const registerSection = React.useCallback((id) => (element) => { sectionRefs.current[id] = element; }, []);
-  const scrollToSection = React.useCallback((id) => {
+  const scrollToSection = React.useCallback((id, moveFocus = false) => {
     const target = sectionRefs.current[id];
     if (!target) return;
+    if (moveFocus) {
+      const focusTarget = target.querySelector('h1, h2') || target;
+      focusTarget.tabIndex = -1;
+      focusTarget.focus({ preventScroll: true });
+    }
     scrollToElement(target, navOffset());
     setActiveSection(id);
   }, []);
@@ -1326,18 +1331,18 @@ function Homepage({ onOpenCaseStudy }) {
         items={navItems}
         secondaryItems={['Creative Lab', 'Resume', 'LinkedIn']}
         active={activeNavLabel}
-        onNavigate={(item) => {
-          if (item === 'Learning') { scrollToSection('thinking'); return; }
-          if (item === 'Contact') { scrollToSection('contact'); return; }
+        onNavigate={(item, fromMobileMenu) => {
+          if (item === 'Learning') { scrollToSection('thinking', fromMobileMenu); return; }
+          if (item === 'Contact') { scrollToSection('contact', fromMobileMenu); return; }
           if (item === 'Speaking') { window.location.assign(SITE.links.speaking); return; }
           if (item === 'Resume') { window.jizTrack && window.jizTrack('resume_click'); window.open(SITE.links.resume, '_blank', 'noopener,noreferrer'); return; }
           if (item === 'LinkedIn') { window.open(SITE.links.linkedin, '_blank', 'noopener,noreferrer'); return; }
           const target = SITE.resolve(item);
           if (!target) return;
-          if (target.view === 'home') scrollToSection(target.section);
+          if (target.view === 'home') scrollToSection(target.section, fromMobileMenu);
           else window.jizNavigate?.(item);
         }}
-        onConnect={() => scrollToSection('contact')}
+        onConnect={(fromMobileMenu) => scrollToSection('contact', fromMobileMenu)}
       />
       <main id="main-content" tabIndex={-1} style={{ flex: 1, position: 'relative', zIndex: 1, overflow: 'visible', outline: 'none' }}>
         <div ref={registerSection('hero')}><Hero onExploreWork={() => scrollToSection('work')} onConnect={() => scrollToSection('contact')} /></div>

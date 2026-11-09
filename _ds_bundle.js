@@ -6384,8 +6384,9 @@ function NavBar({
     if (!menuOpen) return undefined;
     const previousOverflow = document.body.style.overflow;
     const previousFocus = document.activeElement;
+    const panel = mobilePanelRef.current;
     document.body.style.overflow = 'hidden';
-    requestAnimationFrame(() => {
+    const focusFrame = requestAnimationFrame(() => {
       mobilePanelRef.current?.querySelector('button')?.focus();
     });
     const onKeyDown = event => {
@@ -6410,18 +6411,22 @@ function NavBar({
     return () => {
       window.removeEventListener('keydown', onKeyDown);
       document.body.style.overflow = previousOverflow;
-      if (previousFocus instanceof HTMLElement) previousFocus.focus();else menuButtonRef.current?.focus();
+      cancelAnimationFrame(focusFrame);
+      if (document.activeElement === document.body || panel?.contains(document.activeElement)) {
+        if (previousFocus instanceof HTMLElement && previousFocus.isConnected) previousFocus.focus();
+        else menuButtonRef.current?.focus();
+      }
     };
   }, [menuOpen]);
   const chooseItem = item => {
     setActive(item);
     setMenuOpen(false);
-    onNavigate?.(item);
+    onNavigate?.(item, menuOpen);
   };
   const chooseConnect = () => {
     setActive(ctaLabel);
     setMenuOpen(false);
-    onConnect?.();
+    onConnect?.(menuOpen);
   };
   const ctaActive = active === ctaLabel;
   return /*#__PURE__*/React.createElement("nav", {
