@@ -134,8 +134,8 @@ assert(css.includes('@media(prefers-reduced-motion:reduce)'),'Motion accessibili
 const cinematicScroll = read('cinematic-scroll.js');
 const atmosphereScript = read('editorial-atmosphere.js');
 const motionSiteConfig = read('site-config.js');
-const sourceBundle = read('_ds_bundle.js');
-assert(sourceBundle.includes('jiz-brand__accent') && sourceBundle.includes('"Iker"'), 'Navigation must retain separate Iker wordmark span');
+
+assert(html.includes('jiz-brand__accent') && html.includes('>Iker</span>'), 'Navigation must retain separate Iker wordmark span');
 assert(css.includes('Navigation identity emphasis') && css.includes('font-weight:900!important') && css.includes('color:#496300!important'), 'Distinct high-contrast Iker identity styling missing');
 assert(css.includes('nav.jiz-global-nav .jiz-brand__name .jiz-brand__accent'), 'Iker styling must be scoped to navigation');
 assert(cinematicScroll.includes('IntersectionObserver') && cinematicScroll.includes('revealAll()'), 'Scroll reveals must support observer fallback and motion off');
