@@ -52,7 +52,10 @@ assert.ok(!homepage.includes('Selected Additional Work'), 'Additional Work must 
 assert.ok(!homepage.includes('Explore additional work'), 'Hidden Additional Work must not be promoted in Featured Work');
 assert.ok(homepage.includes('jz-ct-choices'), 'Contact must offer goal-based entry points');
 assert.ok(!read('Homepage.jsx').includes('className="jiz-build-background-video'), 'Contact must not show portrait overlay');
-assert.ok(read('Homepage.jsx').includes('React.useState(true)'), 'Contact form must be visible immediately');
+assert.ok(read('Homepage.jsx').includes('const [formOpen, setFormOpen] = React.useState(false)'), 'Contact form must use progressive disclosure by default');
+assert.ok(read('Homepage.jsx').includes('hidden={!formOpen}'), 'Contact form must remain accessible and open on intent choice');
+assert.ok(fs.existsSync(path.join(root,'assets/imagery/contact-the-invitation.webp')), 'Approved Contact architecture image is missing');
+assert.ok(read('Homepage.jsx').includes('contact-the-invitation.webp'), 'Contact must reference its dedicated architectural image');
 assert.ok(read('Homepage.jsx').includes('jz-ct-mail'), 'Contact direct email pathway missing');
 assert.ok(read('HomepageP1.jsx').includes('featured-work-glass-panels.webp'), 'Featured Work must use the approved glass image');
 assert.ok(fs.existsSync(path.join(root,'assets/imagery/featured-work-glass-panels.webp')), 'Approved Featured Work image asset missing');
