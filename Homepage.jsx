@@ -440,7 +440,7 @@ function LetsBuild({ onExploreWork }) {
   const REFERRALS = ['LinkedIn', 'Referral', 'Google Search', 'Previous Colleague', 'Conference or Event', 'Other'];
   const EMPTY = { name: '', email: '', org: '', intent: '', detail: '', role: '', location: '', jobLink: '', focus: [], timeline: '', budget: '', eventName: '', eventDate: '', format: '', topic: '', referral: '' };
   const [form, setForm] = React.useState(EMPTY);
-  const [formOpen, setFormOpen] = React.useState(true);
+  const [formOpen, setFormOpen] = React.useState(false);
   const openInquiry = (type) => {
     if(type) setForm(f => ({...f,intent:type}));
     setFormOpen(true);
@@ -599,6 +599,38 @@ function LetsBuild({ onExploreWork }) {
         @media(max-width:1040px){.jiz-build-stage{grid-template-columns:1fr}.jiz-build-film{min-height:clamp(300px,52vw,460px)}}
         @media(max-width:520px){.jiz-build-head,.jiz-build-fields{grid-template-columns:1fr}}
         @media(prefers-reduced-motion:reduce){.jiz-build-submit,.jiz-build-chip{transition:none}}
+
+        /* Contact / The Invitation — one owning, responsive composition. */
+        html body .jiz-homepage section.jiz-build[data-lets-build="ready"]{
+          isolation:isolate!important; position:relative!important;
+          padding:clamp(76px,8vw,120px) clamp(24px,5vw,92px) clamp(64px,7vw,105px)!important;
+          background-image:linear-gradient(90deg,rgba(7,13,16,.90) 0%,rgba(7,13,16,.78) 32%,rgba(7,13,16,.36) 67%,rgba(7,13,16,.08) 100%),url('/assets/imagery/contact-the-invitation.webp')!important;
+          background-size:cover!important;background-position:center center!important;background-repeat:no-repeat!important;
+          min-height:min(740px,85vh)!important;color:#f7f8fa!important;
+        }
+        html body .jiz-homepage section.jiz-build[data-lets-build="ready"]::before,
+        html body .jiz-homepage section.jiz-build[data-lets-build="ready"]::after{content:none!important;display:none!important;background:none!important}
+        html body .jiz-homepage .jiz-build-inner{max-width:1280px!important;margin:auto!important;position:relative!important;z-index:2!important}
+        html body .jiz-homepage .jiz-build-head{display:block!important;max-width:740px!important;margin:0 0 clamp(28px,3vw,46px)!important}
+        html body .jiz-homepage .jiz-build-title{max-width:15ch!important;font-size:clamp(2.75rem,5.2vw,5.25rem)!important;line-height:1.045!important;letter-spacing:-.055em!important;text-wrap:balance!important;text-shadow:0 8px 36px rgba(0,0,0,.34)!important}
+        html body .jiz-homepage .jiz-build-sub{max-width:47ch!important;margin:24px 0 0!important;color:rgba(240,246,248,.83)!important;line-height:1.65!important}
+        html body .jiz-homepage .jiz-build-stage{display:grid!important;grid-template-columns:minmax(0,490px)!important;gap:20px!important;align-items:start!important}
+        html body .jiz-homepage .jiz-build-stage.is-form-open{grid-template-columns:minmax(0,.75fr) minmax(0,1fr)!important;max-width:1100px!important;gap:clamp(22px,3vw,48px)!important}
+        html body .jiz-homepage .jz-ct-direct{gap:clamp(18px,2.2vw,30px)!important;max-width:490px!important;padding:0!important}
+        html body .jiz-homepage .jz-ct-intro{display:none!important}
+        html body .jiz-homepage .jz-ct-mail{gap:6px!important}
+        html body .jiz-homepage .jz-ct-mail span:last-child{font-size:clamp(1.13rem,2vw,1.6rem)!important;color:#f7f8fa!important}
+        html body .jiz-homepage .jz-ct-choices{margin-top:0!important;max-width:460px!important}
+        html body .jiz-homepage .jz-ct-choices-label{color:#c6f23a!important;letter-spacing:.17em!important}
+        html body .jiz-homepage .jz-ct-choices button{background:linear-gradient(105deg,rgba(15,30,35,.72),rgba(25,43,49,.48))!important;border:1px solid rgba(224,240,240,.19)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.09)!important;backdrop-filter:blur(20px)!important;-webkit-backdrop-filter:blur(20px)!important}
+        html body .jiz-homepage .jz-ct-choices button:hover{border-color:rgba(198,242,58,.48)!important;transform:translateY(-2px)!important}
+        html body .jiz-homepage .jiz-build-form{min-width:0!important;max-width:600px!important;order:2!important;padding:clamp(22px,2.8vw,36px)!important;background:linear-gradient(135deg,rgba(21,34,40,.89),rgba(21,40,46,.76))!important;border:1px solid rgba(219,244,252,.26)!important;box-shadow:0 30px 70px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.10)!important;backdrop-filter:blur(26px)!important;-webkit-backdrop-filter:blur(26px)!important}
+        html body .jiz-homepage .jiz-build-field{gap:5px!important}
+        html body .jiz-homepage .jiz-build-fields{gap:12px!important}
+        html body .jiz-homepage .jiz-build-form-note{margin-bottom:18px!important}
+        @media(max-width:850px){html body .jiz-homepage section.jiz-build[data-lets-build="ready"]{min-height:640px!important;background-position:60% center!important;background-image:linear-gradient(90deg,rgba(7,13,16,.92),rgba(7,13,16,.63)),url('/assets/imagery/contact-the-invitation.webp')!important}html body .jiz-homepage .jiz-build-stage.is-form-open{grid-template-columns:minmax(0,1fr)!important}html body .jiz-homepage .jiz-build-title{font-size:clamp(2.5rem,8.2vw,4.2rem)!important}}
+        @media(max-width:520px){html body .jiz-homepage section.jiz-build[data-lets-build="ready"]{padding:68px 22px 76px!important;min-height:unset!important;background-position:63% center!important}html body .jiz-homepage .jiz-build-title{font-size:clamp(2.4rem,11vw,3.6rem)!important}html body .jiz-homepage .jiz-build-head{margin-bottom:26px!important}html body .jiz-homepage .jiz-build-fields{grid-template-columns:1fr!important}}
+        @media(prefers-reduced-transparency:reduce){html body .jiz-homepage .jiz-build-form,html body .jiz-homepage .jz-ct-choices button{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:#17282c!important}}
       `}</style>
       <div className="jiz-build-inner">
         <header className="jiz-build-head">
@@ -627,10 +659,7 @@ function LetsBuild({ onExploreWork }) {
             `}</style>
             <div className="jz-ct-intro"><span className="jz-label">YOUR NEXT CONVERSATION STARTS HERE</span><p>Choose what brings you here. I’ll take care of the next step.</p></div>
             <a className="jz-ct-mail" href={window.JIZ_SITE.links.email} aria-label="Email Jonathan Zamarripa"><span className="jz-label">EMAIL DIRECTLY</span><span>jonathan.zamarripa@gmail.com</span></a>
-            <ul className="jz-ct-sec">
-              <li><a href={window.JIZ_SITE.links.resume} target="_blank" rel="noopener noreferrer">Resume <span aria-hidden="true">↗</span></a></li>
-              <li><a href={window.JIZ_SITE.links.linkedin} target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></li>
-            </ul>
+            
             <div className="jz-ct-choices" aria-label="Choose a way to connect">
               <p className="jz-ct-choices-label">START WITH YOUR GOAL</p>
               <button type="button" onClick={() => openInquiry('hiring')}><span className="jz-ct-choice-icon"><ContactGlyph kind="hiring"/></span><span className="jz-ct-choice-name">Explore a leadership role</span><span className="jz-ct-choice-arrow"><ContactGlyph kind="arrow"/></span></button>
@@ -639,7 +668,7 @@ function LetsBuild({ onExploreWork }) {
             </div>
           </div>
           
-          <form id="jiz-build-form-start" className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
+          {formOpen ? (<form id="jiz-build-form-start" className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
             <h3>Start the Conversation</h3>
             <p className="jiz-build-form-note">Hiring, projects, or speaking — a few details are enough to begin.</p>
             <div className="jiz-build-fields">
@@ -781,7 +810,7 @@ function LetsBuild({ onExploreWork }) {
             </p>
 
             <p className="jiz-build-privacy">Your details are used only to respond to this inquiry. No mailing lists. No unsolicited follow-up. This site measures anonymous pageviews and inquiry counts; form contents are excluded from analytics.</p>
-          </form>
+          </form>) : null}
         </div>
 
 
