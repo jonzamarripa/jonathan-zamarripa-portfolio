@@ -155,12 +155,14 @@ const RHYTHM_CSS = `
   .jiz-homepage .jz-jr-stage::before{left:-24px;top:4px}
 }
 
-/* Stack — Carbon technical panel; open groups */
-.jiz-homepage .jz-st{background:#2A2F37}
-.jiz-homepage .jz-st-grid{column-gap:clamp(28px,4vw,72px);row-gap:clamp(8px,1.2vw,16px)}
-.jiz-homepage .jz-st-card{padding:clamp(22px,2.2vw,30px) 0 clamp(18px,2vw,26px);background:none;border:0;border-top:1px solid rgba(217,221,227,.16);border-radius:0}
-.jiz-homepage .jz-st-l{max-width:58ch;color:rgba(217,221,227,.8)}
-.jiz-homepage .jz-st-tools{border-top:0;padding-top:4px}
+/* Stack — Mist architectural chapter; editorial capability rows.
+   Preserve the shared inset radius and Carbon gutters while allowing the
+   capability section's interactive row geometry to own its layout. */
+.jiz-homepage .jz-st{background:var(--surface-mist);color:var(--obsidian)}
+.jiz-homepage .jz-st-grid{column-gap:0;row-gap:0}
+.jiz-homepage .jz-st-card{background:transparent;border:0;border-bottom:1px solid rgba(17,37,26,.2);border-radius:0}
+.jiz-homepage .jz-st-l{color:#465A50}
+.jiz-homepage .jz-st-tools{border-top:1px solid rgba(17,37,26,.12);padding-top:22px}
 `;
 function EditorialStyles() { return <style>{EDITORIAL_CSS + RHYTHM_CSS}</style>; }
 
