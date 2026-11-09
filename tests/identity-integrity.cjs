@@ -125,7 +125,9 @@ assert(!home.includes('<div className="jz-ct-poster jz-ct-poster--portrait"'),'O
 assert(home.includes('backdrop-filter:blur(24px)'),'Contact conversation card must use translucent glass styling');
 assert(p1.includes('.jz-fw-ambient-scrim'),'Featured Work text-legibility gradient missing');
 assert(css.includes('.jz-jr-stage') && css.includes('portfolio-selected-work-architecture.jpg'),'Journey elevated background/card design missing');
-assert(p1.includes('<PortfolioGlyph kind={["clarity","people","evidence"'),'Principles glyphs missing');
+assert(p1.includes('The thinking behind the work.') && p1.includes('Leadership philosophy'),'Leadership philosophy heading missing');
+assert(['Design for business impact.','Lead with people and purpose.','Build what comes next.'].every(x=>p1.includes(x)),'Three executive commitments missing');
+assert(!p1.includes('Eight commitments that hold'),'Retired eight-point principles copy remains');
 assert(css.includes('.jz-pp-n svg') && css.includes('color:#C6F23A'),'Chartreuse Principles icon treatment missing');
 assert(home.includes('--jiz-nav-progress') && css.includes('nav.jiz-global-nav::after'),'Scroll-responsive navigation progress missing');
 assert(home.includes('activeSection === \'method\'')&&home.includes("activeSection === 'contact'"),'Active nav grouping absent');
