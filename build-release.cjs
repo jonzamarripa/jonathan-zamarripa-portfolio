@@ -28,7 +28,8 @@ for(const file of [
   'build.cjs',
   'tests/discovery-integrity.cjs',
   'tests/case-study-integrity.cjs',
-  'tests/identity-integrity.cjs'
+  'tests/identity-integrity.cjs',
+  'tests/featured-work-style-guard.cjs'
 ]){
   console.log('> '+file);
   execFileSync(process.execPath,[file],{stdio:'inherit'});
