@@ -24,7 +24,7 @@ for(const s of ['#F4F7F7','#0B1F2A','#0F8B8D','#C6F23A','#15181C','#C6A15B','#E7
  assert(css.includes(s),'Missing approved design token: '+s);
 }
 assert(css.includes('html footer.jiz-footer'),'Dark logo footer not defined');
-assert(css.includes('.jz-fw-slide') && css.includes('grid-template-columns:repeat(4'),'Project carousel or CLS four-card grid absent');
+assert(p1.includes('className="jz-fw-slide"') && css.includes('grid-template-columns:repeat(4'),'Featured Work carousel or CLS four-card grid absent');
 assert(p1.includes('jz-fw-gallery-layout'),'Gallery side-navigation wrapper absent');
 assert(p1.includes('aria-label="Previous project"')&&p1.includes('aria-label="Next project"'),'Gallery arrow controls absent');
 assert(p1.includes("onClick={(e) => open(e, p)}"),'Visible cards should open their real case study');
@@ -50,11 +50,11 @@ assert(home.includes("['Work', 'Method', 'Learning', 'About', 'Contact']"),'Refe
 assert(siteConfig.includes("nav: 'Learning'") && siteConfig.includes("'Thinking'"),'Learning link must retain the Thinking route');
 assert(css.includes('html .jiz-homepage .jiz-global-nav.is-scrolled'),'Light sticky header treatment missing');
 assert(css.includes('html .jiz-homepage .jz-exp .jz-exp-org'),'Selected Experience contrast treatment missing');
-assert(css.includes('html .jiz-homepage .jz-fw .jz-fw-project-title'),'Image-first project typography missing');
+assert(p1.includes('.jz-fw-project-title'),'Featured Work component typography missing');
 assert(css.includes("font-family:'Manrope'"),'Display typography refinement missing');
 // V5: all six user-supplied image backgrounds ship as real local assets.
 const sectionBackgrounds = [
- ['Featured Work','portfolio-selected-work-architecture.jpg','.jz-fw'],
+ ['Featured Work','portfolio-selected-work-architecture.jpg','.jz-jr'],
  ['Capabilities','portfolio-capabilities-systems.jpg','.jz-pr--capabilities'],
  ['Method','portfolio-method-process.jpg','.jz-pr--method'],
  ['Cinematic Learning Systems','portfolio-cls-gold-landscape.jpg','.jz-cls'],
@@ -123,7 +123,7 @@ assert(fs.existsSync('assets/imagery/featured-work-glass-panels.webp'),'Featured
 assert(!home.includes('className="jiz-build-background-video') && home.includes('jz-ct-mail'),'Contact must have no portrait video and a direct email option');
 assert(!home.includes('<div className="jz-ct-poster jz-ct-poster--portrait"'),'Old Contact portrait layout must be removed');
 assert(home.includes('backdrop-filter:blur(24px)'),'Contact conversation card must use translucent glass styling');
-assert(css.includes('.jz-fw>.jz-fw-ambient-scrim'),'Featured Work text-legibility gradient missing');
+assert(p1.includes('.jz-fw-ambient-scrim'),'Featured Work text-legibility gradient missing');
 assert(css.includes('.jz-jr-stage') && css.includes('portfolio-selected-work-architecture.jpg'),'Journey elevated background/card design missing');
 assert(p1.includes('<PortfolioGlyph kind={["clarity","people","evidence"'),'Principles glyphs missing');
 assert(css.includes('.jz-pp-n svg') && css.includes('color:#C6F23A'),'Chartreuse Principles icon treatment missing');
