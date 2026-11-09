@@ -130,5 +130,19 @@ assert(css.includes('.jz-pp-n svg') && css.includes('color:#C6F23A'),'Chartreuse
 assert(home.includes('--jiz-nav-progress') && css.includes('nav.jiz-global-nav::after'),'Scroll-responsive navigation progress missing');
 assert(home.includes('activeSection === \'method\'')&&home.includes("activeSection === 'contact'"),'Active nav grouping absent');
 assert(css.includes('@media(prefers-reduced-motion:reduce)'),'Motion accessibility protections missing');
+// Navigation wordmark and motion invariants: catch regressions before preview deployment.
+const cinematicScroll = read('cinematic-scroll.js');
+const atmosphereScript = read('editorial-atmosphere.js');
+const siteConfig = read('site-config.js');
+const sourceBundle = read('_ds_bundle.js');
+assert(sourceBundle.includes('jiz-brand__accent') && sourceBundle.includes('"Iker"'), 'Navigation must retain separate Iker wordmark span');
+assert(css.includes('Navigation identity emphasis') && css.includes('font-weight:900!important') && css.includes('color:#496300!important'), 'Distinct high-contrast Iker identity styling missing');
+assert(css.includes('nav.jiz-global-nav .jiz-brand__name .jiz-brand__accent'), 'Iker styling must be scoped to navigation');
+assert(cinematicScroll.includes('IntersectionObserver') && cinematicScroll.includes('revealAll()'), 'Scroll reveals must support observer fallback and motion off');
+assert(cinematicScroll.includes("data-jz-motion-paused") && cinematicScroll.includes('prefers-reduced-motion'), 'Scroll reveals must honor manual pause and reduced motion');
+assert(atmosphereScript.includes("prefers-reduced-motion") && atmosphereScript.includes('requestAnimationFrame'), 'Atmospheric motion must be frame-scheduled and honor user preference');
+assert(siteConfig.includes('syncDecorativeMotion') && siteConfig.includes("jiz-motion-paused"), 'Motion pause preference wiring is missing');
+assert(html.includes('cinematic-scroll.js') && html.includes('editorial-atmosphere.js'), 'Motion modules not linked in published HTML');
+console.log('PASS: Distinct Iker nav treatment and source-level animation, reduced-motion and observer contracts.');
 console.log('PASS: Featured Work static image, portrait-free glass Contact, elevated Journey, chartreuse Principles, scrollspy nav.');
 console.log('PASS: V4 visual identity, five-link navigation, experience contrast, image-first carousel, 11 routes, 4 CLS chapters, brand assets and base contrast.');
