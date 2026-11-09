@@ -32,65 +32,130 @@ html .jiz-homepage .jz-pp{
 }
 html .jiz-homepage .jz-pp :is(h2,h3,p,li,.jz-pp-h2,.jz-pp-t,.jz-pp-c,.jz-pp-sub){color:#F7F8FA!important}
 html .jiz-homepage .jz-pp .jz-label{color:#D0E5E5!important}
-/* Cinematic Learning Systems four distinct editorial tiles */
+/* Cinematic Learning Systems — unified graphite-glass editorial navigation.
+   One owning layer: legacy identity/CLS tile rules are intentionally reconciled here.
+   All media, routes, copy and icons remain as authored. */
 html .jiz-homepage .cls-room__routes--editorial{
- display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:clamp(10px,1.4vw,22px)!important
+ display:grid!important;
+ grid-template-columns:repeat(4,minmax(0,1fr))!important;
+ align-items:stretch!important;
+ gap:clamp(13px,1.4vw,22px)!important;
 }
 html .jiz-homepage .cls-room__routes--editorial .cls-room__route{
  position:relative!important;display:flex!important;flex-direction:column!important;
  isolation:isolate!important;min-width:0!important;overflow:hidden!important;
- min-height:clamp(258px,27vw,360px)!important;padding:clamp(18px,2vw,28px)!important;
- border:1px solid rgba(202,235,238,.22)!important;
- border-radius:clamp(18px,2.2vw,26px)!important;
- background:#102A32!important;
- color:#F7F8FA!important;
- box-shadow:0 20px 52px rgba(0,0,0,.16)!important;
- transition:border-color .26s ease,transform .35s cubic-bezier(.2,.7,.3,1),box-shadow .35s ease!important
+ min-height:clamp(360px,30vw,405px)!important;
+ padding:clamp(16px,1.45vw,22px)!important;
+ gap:0!important;
+ border:1px solid rgba(214,232,235,.24)!important;
+ border-radius:clamp(20px,2vw,26px)!important;
+ background:linear-gradient(155deg,#26373e,#111e25)!important;
+ color:#f5f8f9!important;
+ box-shadow:0 22px 52px rgba(0,0,0,.27),inset 0 1px rgba(255,255,255,.16)!important;
+ text-decoration:none!important;
+ transition:transform .35s cubic-bezier(.2,.75,.3,1),border-color .3s ease,box-shadow .3s ease!important;
 }
 html .jiz-homepage .cls-room__routes--editorial .cls-room__route::before{
  content:""!important;position:absolute!important;inset:0!important;z-index:-2!important;
- background-image:var(--tile-media)!important;background-size:cover!important;
- background-position:center!important;opacity:1!important;
- transition:transform .7s cubic-bezier(.2,.7,.3,1)!important
+ display:block!important;width:auto!important;height:auto!important;
+ background-image:var(--tile-media)!important;
+ background-position:center 38%!important;background-size:cover!important;
+ opacity:.86!important;
+ filter:saturate(.82) contrast(1.06)!important;
+ transform:scale(1)!important;
+ transition:transform .75s cubic-bezier(.2,.75,.3,1),filter .4s ease!important;
 }
 html .jiz-homepage .cls-room__routes--editorial .cls-room__route::after{
  content:""!important;position:absolute!important;inset:0!important;z-index:-1!important;
- background:linear-gradient(180deg,rgba(5,19,26,.2) 0%,rgba(5,19,26,.34) 29%,rgba(5,19,26,.95) 100%)!important;
- opacity:1!important;pointer-events:none
+ display:block!important;width:auto!important;height:auto!important;
+ background:linear-gradient(180deg,rgba(7,17,23,.18) 0%,rgba(8,22,29,.06) 28%,rgba(9,23,30,.68) 61%,rgba(9,20,26,.96) 100%)!important;
+ pointer-events:none!important;opacity:1!important;
 }
-html .jiz-homepage .cls-room__routes--editorial .cls-room__route :is(.cls-room__route-icon,.cls-room__route-copy,.cls-room__route-arrow){position:relative!important;z-index:1!important}
-html .jiz-homepage .cls-room__routes--editorial .cls-room__route .cls-room__route-copy{margin-top:auto!important}
-html .jiz-homepage .cls-room__routes--editorial .cls-room__route :is(strong,small){color:#F7F8FA!important}
-html .jiz-homepage .cls-room__routes--editorial .cls-room__route .cls-room__route-number{color:#C6F23A!important}
-html .jiz-homepage .cls-room__routes--editorial .cls-room__route:hover{
- transform:translateY(-5px)!important;border-color:rgba(198,242,58,.68)!important;
- box-shadow:0 26px 65px rgba(0,0,0,.29)!important
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route .cls-room__route-icon{
+ position:relative!important;z-index:2!important;flex:none!important;
+ top:auto!important;left:auto!important;
+ display:grid!important;place-items:center!important;
+ width:44px!important;height:44px!important;
+ border:1px solid rgba(228,240,241,.38)!important;border-radius:12px!important;
+ background:linear-gradient(145deg,rgba(29,43,49,.75),rgba(11,22,27,.52))!important;
+ color:#e9d6a6!important;
+ -webkit-backdrop-filter:blur(13px)!important;backdrop-filter:blur(13px)!important;
+ box-shadow:inset 0 1px rgba(255,255,255,.12),0 6px 18px rgba(0,0,0,.18)!important;
 }
-html .jiz-homepage .cls-room__routes--editorial .cls-room__route:hover::before{transform:scale(1.045)!important}
-html .jiz-homepage .cls-room__routes--editorial .cls-room__route:focus-visible{outline:3px solid #C6F23A!important;outline-offset:4px!important}
-@media(max-width:1080px){html .jiz-homepage .cls-room__routes--editorial{grid-template-columns:repeat(2,minmax(0,1fr))!important}}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route .cls-room__route-copy{
+ position:relative!important;z-index:2!important;
+ display:flex!important;flex-direction:column!important;
+ align-items:flex-start!important;justify-content:flex-end!important;
+ gap:9px!important;flex:none!important;
+ width:100%!important;min-height:166px!important;
+ margin:0!important;margin-top:auto!important;
+ padding:clamp(18px,1.65vw,23px)!important;
+ box-sizing:border-box!important;
+ background:linear-gradient(150deg,rgba(36,53,61,.81),rgba(17,32,39,.88))!important;
+ border:1px solid rgba(235,244,245,.20)!important;
+ border-radius:16px!important;
+ -webkit-backdrop-filter:blur(20px) saturate(125%)!important;
+ backdrop-filter:blur(20px) saturate(125%)!important;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.16),0 14px 26px rgba(0,0,0,.16)!important;
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route .cls-room__route-number{
+ display:block!important;margin:0!important;
+ color:#d7e5ad!important;
+ font:600 .62rem/1.5 var(--font-mono,monospace)!important;
+ letter-spacing:.1em!important;
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route strong{
+ display:block!important;margin:0!important;
+ font:600 clamp(1.12rem,1.35vw,1.45rem)/1.16 var(--font-display)!important;
+ letter-spacing:-.035em!important;
+ color:#f8fbfb!important;
+ text-wrap:balance!important;
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route small{
+ display:block!important;margin:0!important;
+ font:400 .81rem/1.5 var(--font-body)!important;
+ color:rgba(239,247,248,.83)!important;
+ text-wrap:pretty!important;
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route .cls-room__route-arrow{
+ position:absolute!important;z-index:2!important;
+ top:20px!important;right:20px!important;bottom:auto!important;
+ color:#f5f8f8!important;
+ opacity:.68!important;transform:rotate(-45deg)!important;
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route .cls-room__route-arrow svg{color:inherit!important}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route:is(:hover,:focus-visible){
+ transform:translateY(-4px)!important;
+ border-color:rgba(227,239,242,.58)!important;
+ box-shadow:0 29px 63px rgba(0,0,0,.32),inset 0 1px rgba(255,255,255,.22)!important;
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route:is(:hover,:focus-visible)::before{
+ transform:scale(1.045)!important;filter:saturate(.92) contrast(1.04)!important;
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route:is(:hover,:focus-visible) .cls-room__route-copy{
+ border-color:rgba(236,246,248,.36)!important;
+ background:linear-gradient(145deg,rgba(48,66,73,.85),rgba(21,37,44,.9))!important;
+}
+html .jiz-homepage .cls-room__routes--editorial .cls-room__route:focus-visible{
+ outline:3px solid #c6f23a!important;outline-offset:4px!important;
+}
+@media(max-width:1080px){
+ html .jiz-homepage .cls-room__routes--editorial{grid-template-columns:repeat(2,minmax(0,1fr))!important}
+ html .jiz-homepage .cls-room__routes--editorial .cls-room__route{min-height:365px!important}
+}
 @media(max-width:600px){
  html .jiz-homepage .cls-room__routes--editorial{grid-template-columns:1fr!important}
- html .jiz-homepage .cls-room__routes--editorial .cls-room__route{min-height:270px!important}
+ html .jiz-homepage .cls-room__routes--editorial .cls-room__route{min-height:350px!important}
+ html .jiz-homepage .cls-room__routes--editorial .cls-room__route .cls-room__route-copy{min-height:0!important}
  html .jiz-homepage .hero-video-stage .hero-video{object-position:65% center!important}
  html .jiz-homepage .hero-video-blend{background:linear-gradient(90deg,rgba(4,17,23,.74),rgba(4,18,25,.32)),linear-gradient(0deg,rgba(4,17,23,.7),transparent 62%)!important}
+}
+@media(prefers-reduced-transparency:reduce){
+ html .jiz-homepage .cls-room__routes--editorial .cls-room__route .cls-room__route-copy{
+  background:#23343d!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;
+ }
 }
 @media(prefers-reduced-motion:reduce){
  html .jiz-homepage .cls-room__routes--editorial .cls-room__route,
  html .jiz-homepage .cls-room__routes--editorial .cls-room__route::before{transition:none!important;transform:none!important}
-}
-
-/* Visible preview fallbacks until the owner-supplied media package is committed. 
-   Each layered background preserves the correct final --tile-media when available. */
-html .jiz-homepage .cls-room__routes--editorial .cls-room__route:nth-child(1)::before{
- background-image:var(--tile-media),url('/assets/imagery/cinematic-learning-systems-poster.webp')!important;
-}
-html .jiz-homepage .cls-room__routes--editorial .cls-room__route:nth-child(2)::before{
- background-image:var(--tile-media),url('/assets/imagery/portfolio-speaking-film-still.jpg')!important;
-}
-html .jiz-homepage .cls-room__routes--editorial .cls-room__route:nth-child(3)::before{
- background-image:var(--tile-media),url('/assets/imagery/train-story-preview-frame.jpg')!important;
-}
-html .jiz-homepage .cls-room__routes--editorial .cls-room__route:nth-child(4)::before{
- background-image:var(--tile-media),url('/assets/imagery/portfolio-creative-lab-camera-workshop.jpg')!important;
 }
