@@ -53,7 +53,6 @@ html .jiz-homepage .hero{background-color:var(--identity-navy)!important}
 html .jiz-homepage .hero-base-gradient{
   background:linear-gradient(90deg,rgba(5,24,34,.98) 0%,rgba(7,30,42,.88) 35%,rgba(9,45,57,.65) 68%,rgba(8,27,38,.33) 100%);
 }
-html .jiz-homepage .jz-fw{background:var(--identity-navy)!important}
 html .jiz-homepage .jz-im{background:linear-gradient(135deg,#0B1F2A,#153C49 88%)!important}
 html .jiz-homepage .jz-pr--method{background:linear-gradient(130deg,#0B1F2A,#183A49)!important}
 html .jiz-homepage .jz-st{background:linear-gradient(145deg,#0B1F2A,#203D49)!important}
@@ -102,8 +101,6 @@ html .jiz-homepage .cls-room{
 html .jiz-homepage .cls-room::before{background:radial-gradient(ellipse,rgba(245,158,11,.12),transparent 67%)}
 /* The only saturated primary brand accent is the original Signal Chartreuse. */
 html .jiz-homepage :is(.jz-pr-step,.jz-jr-stage) .jz-label{letter-spacing:.13em}
-html .jiz-homepage :is(.jz-fw-media,.jiz-am-media,.cls-room__media,.jiz-arch-film){isolation:isolate}
-html .jiz-homepage :is(.jz-fw-media,.jiz-am-media) img{border-radius:inherit}
 @media(max-width:760px){
  html .jiz-homepage :is(.hero,.jz-fw,.jz-im,.jz-pr,.jz-cls,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build){box-shadow:0 8px 22px rgba(11,31,42,.12)}
 }
@@ -117,8 +114,6 @@ html .jiz-homepage :is(.jz-fw-media,.jiz-am-media) img{border-radius:inherit}
  --font-body:'Inter','Geist','Helvetica Neue',Arial,sans-serif;
  --font-mono:'JetBrains Mono','SFMono-Regular',monospace;
 }
-html .jiz-homepage :is(.jz-exp,.jz-pr,.jz-fw,.jz-jr,.jz-cls),
-html :is(.jiz-cs,.tfs,.jiz-btb-detail,.jr){font-family:var(--font-body)}
 /* Static CLS journal: original issue layout remains unchanged, but section slides are lifted. */
 html:has(body.jr),html body.jr{background:var(--identity-mist)!important}
 body.jr{--jr-ground:var(--identity-mist);--jr-amber:#FFBC57;--jr-teal:#94C6D0}
@@ -289,9 +284,6 @@ html body.sp-page{background:#F4F7F7!important}
 html body.sp-page main{background:transparent}
 html body.sp-page .sp-nav{background:#0B1F2A;color:#F4F7F7}
 html body.sp-page .sp-scene--cover{background-color:#0B1F2A}
-html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons button:focus-visible{
- outline:3px solid #0B1F2A!important;outline-offset:4px
-}
 
 
 /* V4 visual reconciliation — match approved reference, not just its swatches.
@@ -422,79 +414,6 @@ html .jiz-homepage .jz-exp .jz-exp-org{
  font-size:clamp(.86rem,1vw,1.05rem)!important;
 }
 html .jiz-homepage .jz-exp .jz-exp-edu span:last-child{color:#47616B!important}
-/* Reference-like Featured Work: image-first tiles and a compact editorial title,
-   not the dense left-aligned presentation of the previous preview. */
-html .jiz-homepage .jz-fw{
- padding-block:clamp(32px,3.8vw,60px)!important;
-}
-html .jiz-homepage .jz-fw-stage{
- width:min(1350px,calc(100% - 2*clamp(23px,5vw,92px)))!important;
-}
-html .jiz-homepage .jz-fw-heading{
- max-width:none!important;
- margin-bottom:clamp(16px,2vw,25px)!important;
-}
-html .jiz-homepage .jz-fw .jz-fw-h2{
- font-family:'Manrope',sans-serif!important;
- font-weight:550!important;
- font-size:clamp(1.75rem,2.7vw,2.7rem)!important;
- letter-spacing:-.055em!important;
- margin:8px 0 10px!important;
-}
-html .jiz-homepage .jz-fw .jz-fw-heading>p{
- max-width:65ch!important;
- font-size:clamp(.88rem,1vw,1rem)!important;
- line-height:1.5!important;
-}
-html .jiz-homepage .jz-fw-toolbar{margin-bottom:8px!important}
-html .jiz-homepage .jz-fw-instruction{
- font-size:.78rem!important;
- font-family:'Inter',sans-serif!important;
- color:#526E78!important;
-}
-html .jiz-homepage .jz-fw .jz-fw-project-link{
- border:0!important;
- background:transparent!important;
- box-shadow:none!important;
- border-radius:0!important;
-}
-html .jiz-homepage .jz-fw .jz-fw-project-link:hover{box-shadow:none!important}
-html .jiz-homepage .jz-fw .jz-fw-frame{
- border-radius:clamp(13px,1.4vw,19px);
- overflow:hidden;
- box-shadow:0 6px 16px rgba(11,31,42,.1);
-}
-html .jiz-homepage .jz-fw .jz-fw-copy{
- padding:12px 3px 8px!important;
- gap:5px!important;
-}
-html .jiz-homepage .jz-fw .jz-fw-project-title{
- font-family:'Manrope',sans-serif!important;
- font-weight:750!important;
- letter-spacing:-.042em!important;
- line-height:1.16!important;
-}
-html .jiz-homepage .jz-fw .jz-fw-value{
- display:-webkit-box;
- -webkit-box-orient:vertical;
- -webkit-line-clamp:2;
- overflow:hidden;
- line-height:1.45!important;
-}
-html .jiz-homepage .jz-fw .jz-fw-tags{
- gap:5px;
- margin-top:4px!important;
-}
-html .jiz-homepage .jz-fw .jz-fw-tags li{font-size:.63rem!important}
-html .jiz-homepage .jz-fw .jz-fw-image-action{
- opacity:0;transition:opacity .2s ease;
-}
-html .jiz-homepage .jz-fw .jz-fw-project-link:is(:hover,:focus-visible) .jz-fw-image-action,
-html .jiz-homepage .jz-fw .jz-fw-slide[data-active=true] .jz-fw-image-action{opacity:1}
-html .jiz-homepage .jz-fw .jz-fw-gallery-layout .jz-fw-buttons{top:0;bottom:0}
-html .jiz-homepage .jz-fw .jz-fw-gallery-layout .jz-fw-buttons button{
- background:#E8F5F6!important;color:#0B1F2A!important;
-}
 /* Shared type hierarchy remains sans serif and predictable across subpages. */
 html :is(.jiz-homepage,.jiz-cs,.tfs,.jr,.sp-page,.jiz-btb-detail) :is(h1,h2,h3,h4){
  font-family:'Manrope','Geist',Arial,sans-serif!important;
@@ -522,7 +441,6 @@ html :is(.jiz-homepage,.jiz-cs,.tfs,.jr,.sp-page,.jiz-btb-detail) :is(button,inp
  html .jiz-homepage .jiz-brand__name{font-size:.82rem!important}
  html .jiz-homepage .hero{margin-top:12px!important}
  html .jiz-homepage .jz-exp-in{padding-block:13px!important}
- html .jiz-homepage .jz-fw .jz-fw-image-action{display:none!important}
 }
 
 
@@ -626,12 +544,6 @@ html .jiz-homepage .jz-exp .jz-exp-org{
 html .jiz-homepage .jz-exp .jz-exp-edu span:last-child{
   color:#385661!important;font-size:.87rem;
 }
-/* Large editorial typography: fewer competing accents, calmer hierarchy. */
-html .jiz-homepage :is(.hero-title,.jz-fw-h2,.jz-pr-caps-h,.jz-jr-h2,.cls-room__headline,.jz-ab-h2){
-  font-family:'Manrope','Geist',sans-serif!important;
-  font-weight:550!important;letter-spacing:-.045em!important;
-  text-wrap:balance;
-}
 html .jiz-homepage .hero-title{
   line-height:1.045!important;
   max-width:17ch;
@@ -641,16 +553,6 @@ html .jiz-homepage .hero-lead{
   font-size:clamp(1rem,1.26vw,1.15rem);
   line-height:1.65;letter-spacing:-.012em;
 }
-html .jiz-homepage :is(.jz-fw-h2,.jz-pr-caps-h,.jz-jr-h2){
-  color:#122C36!important;
-  line-height:1.14!important;
-}
-html .jiz-homepage .jz-fw-heading{max-width:100%;margin-bottom:22px}
-html .jiz-homepage .jz-fw-stage{width:min(1370px,calc(100% - 2 * clamp(22px,4.5vw,74px)))}
-html .jiz-homepage .jz-fw{padding-block:clamp(42px,5vw,68px)}
-html .jiz-homepage .jz-fw .jz-fw-heading>p{max-width:63ch}
-html .jiz-homepage .jz-fw-project-title{font-weight:700!important;letter-spacing:-.025em!important}
-html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons{left:-20px;right:-20px}
 html .jiz-homepage .jz-pr--capabilities .jz-pr-cap-t{font-weight:650}
 html .jiz-homepage .jz-pr--capabilities .jz-pr-cap-c{color:#34525D}
 html .jiz-homepage :is(.jz-fw,.jz-pr--capabilities,.jz-jr,.jz-pp){
@@ -670,18 +572,6 @@ html .jiz-homepage .jz-jr-stage .jz-jr-m{color:#52717A}
   html .jiz-homepage .jiz-global-nav{--nav-pad-x:16px;min-height:72px}
   html .jiz-homepage .jiz-brand__name{font-size:.81rem}
   html .jiz-homepage .jz-exp .jz-exp-edu{border-top-color:rgba(11,31,42,.13)}
-  html .jiz-homepage .jz-fw-gallery-layout .jz-fw-buttons{left:-12px;right:-12px}
-}
-
-
-/* V5 — Original section artwork selected and supplied by the site owner.
-   All imagery is served from committed local /assets/imagery files.
-   Preserve the original hero film and every existing thumbnail, icon and control. */
-html .jiz-homepage .jz-fw{
- background:
-   linear-gradient(100deg,rgba(249,252,253,.975) 0%,rgba(245,249,250,.965) 35%,rgba(239,247,249,.87) 73%,rgba(241,247,249,.80) 100%),
-   url('/assets/imagery/portfolio-selected-work-architecture.jpg') right 48% / cover no-repeat!important;
- background-color:#F4F7F7!important;
 }
 html .jiz-homepage .jz-pr--capabilities{
  background:
@@ -719,19 +609,12 @@ html .jiz-homepage :is(.jz-fw,.jz-pr--capabilities,.jz-pr--method,.cls-room,.jiz
  background-repeat:no-repeat!important;
  background-attachment:scroll!important;
 }
-html .jiz-homepage .jz-fw :is(.jz-fw-h2,.jz-fw-project-title,.jz-fw-heading>p),
-html .jiz-homepage .jz-pr--capabilities :is(h2,h3,.jz-pr-sub,.jz-pr-cap-c){text-shadow:none}
 html .jiz-homepage .jz-pr--method :is(h2,h3),
 html .jiz-homepage .jiz-build :is(h2,h3),
 html .jiz-homepage .cls-room :is(.cls-room__headline,.cls-room__library-heading h3){
  text-shadow:0 2px 18px rgba(0,0,0,.20);
 }
 @media(max-width:760px){
- html .jiz-homepage .jz-fw{
-  background:
-   linear-gradient(100deg,rgba(249,252,253,.98),rgba(246,250,250,.93)),
-   url('/assets/imagery/portfolio-selected-work-architecture.jpg') 68% center / cover no-repeat!important;
- }
  html .jiz-homepage .jz-pr--capabilities{
   background:
    linear-gradient(100deg,rgba(250,253,253,.96),rgba(248,251,251,.89)),
@@ -819,13 +702,6 @@ html .jiz-homepage .sp-preview--immersive .sp-preview-formats span{
  border:1px solid #C6F23A!important;font-weight:650;
 }
 html .jiz-homepage .sp-preview--immersive .sp-preview-disclosure{color:#D6E6E9!important}
-/* One deliberately bold brand color instead of pastel/Easter category assortment. */
-html .jiz-homepage .jz-fw-tags li,
-html .jiz-homepage .jz-fw-tags li:nth-child(3n+2),
-html .jiz-homepage .jz-fw-tags li:nth-child(3n){
- background:#C6F23A!important;color:#102330!important;
- border:1px solid #A6D12A!important;font-weight:700;
-}
 html .jiz-homepage .jz-pr--capabilities .jz-pr-cap-x,
 html .jiz-homepage .jz-pr--capabilities .jz-pr-cap[data-open="true"] .jz-pr-cap-x{
  background:#C6F23A!important;color:#102330!important;
@@ -983,9 +859,6 @@ html .jiz-homepage .jz-ct-poster--portrait :is(.jz-ct-poster-kicker,.jz-ct-poste
  html .jiz-homepage :is(.jz-fw,.jz-im,.jz-pr,.jz-cls,.cls-room,.jiz-creative-lab,.jiz-am,.jz-jr,.jz-st,.jz-pp,.jiz-arch,.jiz-build,.sp-preview)[data-motion-in="true"]{
    animation:jiz-chapter-enter 750ms cubic-bezier(.22,.61,.36,1) both;
  }
- html .jiz-homepage :is(.jz-im-cell,.jz-jr-stage,.jz-fw-slide,.jz-pr-cap,.cls-room__route)[data-motion-in="true"]{
-   animation:jiz-detail-enter 680ms cubic-bezier(.22,.61,.36,1) both;
- }
  html .jiz-homepage .jz-pr--method .jz-pr-step[data-motion-in="true"]{
    animation:jiz-detail-enter 700ms cubic-bezier(.22,.61,.36,1) both;
  }
@@ -1052,44 +925,7 @@ html .jiz-homepage .jz-ct-poster--portrait::before{
 
 /* Selected Experience joins the chapter motion sequence without delaying readable text. */
 @media(prefers-reduced-motion:no-preference){html .jiz-homepage .jz-exp[data-motion-in="true"]{animation:jiz-chapter-enter 560ms cubic-bezier(.22,.61,.36,1) both}}
-
-
-/* V8 motion-led finish: two real full-bleed films, aligned journeys and scroll-aware navigation.
-   Keep the original carousel, logo, layouts and all semantic controls. */
-/* Featured Work: the cinematic glass project layers ARE the canvas. */
-html .jiz-homepage .jz-fw{
-  position:relative;overflow:hidden;isolation:isolate;
-  background:#0B1F2A!important;color:#F4F7F7!important;
-  border:1px solid rgba(42,88,101,.45)!important;
-}
-html .jiz-homepage .jz-fw>.jz-fw-ambient-video{
- position:absolute;inset:0;width:100%;height:100%;
- z-index:0;object-fit:cover;object-position:center 45%;
- opacity:1;pointer-events:none;
-}
-html .jiz-homepage .jz-fw>.jz-fw-ambient-scrim{
- position:absolute;inset:0;z-index:1;pointer-events:none;
- background:linear-gradient(90deg,rgba(6,27,38,.94) 0%,rgba(7,31,43,.79) 37%,rgba(7,35,46,.54) 72%,rgba(6,25,35,.54) 100%),
- linear-gradient(180deg,rgba(5,20,29,.26),transparent 42%,rgba(5,20,29,.66));
-}
-html .jiz-homepage .jz-fw>.jz-fw-stage{position:relative;z-index:2}
-html .jiz-homepage .jz-fw :is(.jz-fw-h2,.jz-fw-heading>p,.jz-fw-instruction,.jz-fw-count,.jz-fw-label){
- color:#F4F7F7!important;text-shadow:0 2px 16px rgba(3,17,24,.26);
-}
-html .jiz-homepage .jz-fw .jz-label{color:#C6F23A!important}
-html .jiz-homepage .jz-fw :is(.jz-fw-project-title,.jz-fw-project-org,.jz-fw-value,.jz-fw-subtitle){text-shadow:none}
-html .jiz-homepage .jz-fw .jz-fw-project-link{
- background:rgba(250,252,253,.97)!important;
- box-shadow:0 12px 30px rgba(0,0,0,.28);
-}
-html .jiz-homepage .jz-fw .jz-fw-gallery-layout .jz-fw-buttons button{
- border-color:rgba(255,255,255,.8)!important;
-}
 @media(prefers-reduced-motion:reduce){
- html .jiz-homepage .jz-fw>.jz-fw-ambient-video{display:none!important}
- html .jiz-homepage .jz-fw{
-  background:linear-gradient(95deg,rgba(6,27,38,.95),rgba(7,34,45,.78)),url('/assets/imagery/portfolio-stack-systems.jpg') center/cover no-repeat!important;
- }
 }
 /* Contact: full-section film rather than a small second-column media poster. */
 html .jiz-homepage .jiz-build{
