@@ -1059,44 +1059,47 @@ function LearningStack() {
   );
 }
 
-/* ---------- Leadership philosophy: editorial decision lens ---------- */
+/* ---------- Leadership philosophy: three visual commitments ---------- */
 function Principles() {
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref);
-  const principles = [
-    {"n":"01","t":"Design for business impact.","k":"PERFORMANCE","c":"Start with the business challenge. Define the behavior that needs to change, then design learning around outcomes that matter."},
-    {"n":"02","t":"Lead with people and purpose.","k":"ADOPTION","c":"Make complex change clear and usable. Build trust, reduce friction, and put human capability ahead of any platform."},
-    {"n":"03","t":"Build what comes next.","k":"FUTURE READINESS","c":"Use emerging technology with discernment. Experiment deliberately, measure what works, and make systems resilient enough to evolve."}
-  ];
+  const principles = [{"n":"01","k":"PERFORMANCE","t":"Design for business impact.","c":"Start with the business challenge. Design for behavior change and outcomes that matter.","icon":"impact"},{"n":"02","k":"ADOPTION","t":"Lead with people and purpose.","c":"Earn trust, reduce friction, and put human capability ahead of the platform.","icon":"people"},{"n":"03","k":"FUTURE READINESS","t":"Build what comes next.","c":"Experiment deliberately. Scale what works, and create systems that keep evolving.","icon":"future"}];
+  const icons = {
+    impact: (<svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><circle cx="40" cy="40" r="24"/><circle cx="40" cy="40" r="13"/><circle cx="40" cy="40" r="3" className="jz-pp-signal"/><path d="M40 9v9 M40 62v9 M9 40h9 M62 40h9"/></svg>),
+    people: (<svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><circle cx="40" cy="23" r="9"/><circle cx="22" cy="51" r="8"/><circle cx="58" cy="51" r="8"/><path d="M34 31 27 44 M46 31l7 13 M31 51h18"/><circle cx="40" cy="43" r="3" className="jz-pp-signal"/></svg>),
+    future: (<svg viewBox="0 0 80 80" aria-hidden="true" focusable="false"><path d="M14 57h52 M21 50l16-17 12 9 15-19 M53 23h11v11"/><circle cx="21" cy="50" r="3" className="jz-pp-signal"/><path d="M14 64h52" opacity=".35"/></svg>)
+  };
   return (
     <section className="jz-pp" ref={ref} data-in={inView ? 'true' : 'false'} aria-labelledby="jz-pp-title">
       <style>{`
-.jz-pp{position:relative;background:#E8E3D9;color:#0B0D10;padding-block:clamp(72px,8vw,128px) clamp(76px,8vw,130px)}
-.jz-pp .jz-label{color:#48544B}
-.jz-pp-head{grid-column:1 / span 12;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));align-items:end;gap:20px;margin-bottom:clamp(38px,5vw,70px)}
-.jz-pp-head>div{grid-column:1 / span 7;display:flex;flex-direction:column;gap:12px}
-.jz-pp-h2{margin:0;max-width:15ch;font:650 clamp(2.35rem,1.6rem + 2.9vw,4.6rem)/1.02 var(--font-display);letter-spacing:-.055em;color:#0B0D10;text-wrap:balance}
-.jz-pp-sub{grid-column:9 / span 4;margin:0;max-width:35ch;font:400 clamp(.95rem,.9rem + .22vw,1.08rem)/1.65 var(--font-body);color:#48504C}
-.jz-pp-list{grid-column:1 / span 12;display:flex;flex-direction:column;gap:0;list-style:none;margin:0;padding:0;border-top:1px solid rgba(11,13,16,.27)}
-.jz-pp-item{display:grid;grid-template-columns:minmax(70px,1fr) minmax(260px,4.3fr) minmax(230px,3.2fr);align-items:baseline;gap:clamp(16px,3vw,50px);padding:clamp(24px,3.7vw,53px) clamp(2px,1vw,14px);border-bottom:1px solid rgba(11,13,16,.23);transition:background-color .3s ease,padding-left .3s ease}
-.jz-pp-item:hover{background:rgba(198,242,58,.14);padding-left:clamp(10px,2vw,24px)}
-.jz-pp-n{font:550 .77rem/1.5 var(--font-mono);letter-spacing:.1em;color:#4D584B;white-space:nowrap}
-.jz-pp-t{margin:0;font:600 clamp(1.65rem,1.12rem + 1.65vw,3rem)/1.12 var(--font-display);letter-spacing:-.045em;color:#121A13;text-wrap:balance}
-.jz-pp-c{margin:0;max-width:39ch;font:400 clamp(.93rem,.88rem + .19vw,1.05rem)/1.7 var(--font-body);color:#414A44}
-.jz-pp-footer{grid-column:1 / span 12;margin:clamp(26px,3.2vw,44px) 0 0;max-width:70ch;color:#596258;font:400 .86rem/1.6 var(--font-body)}
-@media(max-width:960px){.jz-pp-head>div{grid-column:1 / span 8}.jz-pp-sub{grid-column:9 / span 4}.jz-pp-item{grid-template-columns:60px 1fr;gap:10px 22px}.jz-pp-n{grid-column:1;grid-row:1}.jz-pp-t{grid-column:2;grid-row:1}.jz-pp-c{grid-column:2;grid-row:2}}
-@media(max-width:700px){.jz-pp-head>div,.jz-pp-sub{grid-column:1 / -1}.jz-pp-head{gap:16px}.jz-pp-h2{font-size:clamp(2.15rem,8.6vw,3.15rem)}.jz-pp-item{grid-template-columns:36px 1fr;padding:25px 0;gap:8px 14px}.jz-pp-item:hover{padding-left:0}.jz-pp-t{font-size:clamp(1.55rem,6vw,2.15rem)}.jz-pp-c{line-height:1.6}}
-@media(prefers-reduced-motion:reduce){.jz-pp-item{transition:none}}
+/* Leadership editorial visual rhythm — three distinct architectural symbols. */
+.jiz-homepage .jz-pp{padding-block:clamp(64px,7vw,108px) clamp(65px,7vw,112px)}
+.jiz-homepage .jz-pp-head{margin-bottom:clamp(30px,4vw,55px)}
+.jiz-homepage .jz-pp-h2{font-size:clamp(2.2rem,1.6rem + 2.5vw,4.1rem)}
+.jiz-homepage .jz-pp-sub{max-width:33ch}
+.jiz-homepage .jz-pp-item{grid-template-columns:clamp(105px,12vw,160px) minmax(230px,1.2fr) minmax(220px,1fr);gap:clamp(18px,3vw,54px);align-items:center;padding-block:clamp(22px,2.7vw,35px);min-height:clamp(142px,15vw,196px)}
+.jiz-homepage .jz-pp-sigil{display:flex;flex-direction:column;align-items:flex-start;gap:12px}
+.jiz-homepage .jz-pp-n{font-size:.67rem;letter-spacing:.11em}
+.jiz-homepage .jz-pp-icon{display:grid;place-items:center;width:clamp(76px,8vw,110px);height:clamp(76px,8vw,110px);border-radius:26px;background:linear-gradient(150deg,#1A2925,#0B1513);box-shadow:inset 0 0 0 1px rgba(198,242,58,.20),0 7px 26px rgba(23,28,26,.1);transition:transform .32s ease,box-shadow .32s ease}
+.jiz-homepage .jz-pp-icon svg{width:74%;height:74%;fill:none;stroke:#C6F23A;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.jiz-homepage .jz-pp-icon .jz-pp-signal{fill:#C6F23A;stroke:none}
+.jiz-homepage .jz-pp-item:hover .jz-pp-icon{transform:translateY(-3px);box-shadow:inset 0 0 0 1px rgba(198,242,58,.5),0 10px 30px rgba(23,28,26,.17)}
+.jiz-homepage .jz-pp-t{font-size:clamp(1.55rem,1.15rem + 1.45vw,2.65rem);max-width:17ch}
+.jiz-homepage .jz-pp-c{font-size:clamp(.91rem,.87rem + .17vw,1rem);line-height:1.65;max-width:37ch}
+.jiz-homepage .jz-pp-footer{margin-top:clamp(20px,2.5vw,34px)}
+@media(max-width:960px){.jiz-homepage .jz-pp-item{grid-template-columns:100px minmax(0,1fr);gap:10px 22px}.jiz-homepage .jz-pp-sigil{grid-column:1;grid-row:1/span 2}.jiz-homepage .jz-pp-t{grid-column:2;grid-row:1}.jiz-homepage .jz-pp-c{grid-column:2;grid-row:2}}
+@media(max-width:600px){.jiz-homepage .jz-pp-item{grid-template-columns:72px minmax(0,1fr);gap:8px 16px;padding-block:25px}.jiz-homepage .jz-pp-icon{width:67px;height:67px;border-radius:19px}.jiz-homepage .jz-pp-sigil{gap:9px}.jiz-homepage .jz-pp-n{font-size:.57rem}.jiz-homepage .jz-pp-t{font-size:clamp(1.34rem,5.5vw,1.85rem)}.jiz-homepage .jz-pp-c{font-size:.9rem;line-height:1.55}}
+@media(prefers-reduced-motion:reduce){.jiz-homepage .jz-pp-icon{transition:none}.jiz-homepage .jz-pp-item:hover .jz-pp-icon{transform:none}}
 `}</style>
       <div className="jz-wrap jz-grid">
         <header className="jz-pp-head">
           <div className="jz-rise"><p className="jz-label">Leadership philosophy</p><h2 className="jz-pp-h2" id="jz-pp-title">The thinking behind the work.</h2></div>
-          <p className="jz-pp-sub jz-rise">How I make consequential decisions at the intersection of people, performance, and emerging technology.</p>
+          <p className="jz-pp-sub jz-rise">Three commitments that guide decisions across people, performance, and emerging technology.</p>
         </header>
         <ol className="jz-pp-list">
           {principles.map(p => (
             <li key={p.n} className="jz-pp-item jz-rise">
-              <span className="jz-pp-n">{p.n} / {p.k}</span>
+              <div className="jz-pp-sigil"><span className="jz-pp-n">{p.n} / {p.k}</span><span className="jz-pp-icon">{icons[p.icon]}</span></div>
               <h3 className="jz-pp-t">{p.t}</h3>
               <p className="jz-pp-c">{p.c}</p>
             </li>
