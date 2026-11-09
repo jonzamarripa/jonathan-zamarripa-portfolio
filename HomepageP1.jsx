@@ -945,7 +945,7 @@ function PortfolioGlyph({kind='design',size=24}) {
 function LearningStack() {
   const ref = React.useRef(null);
   const inView = useInViewOnce(ref);
-  const [showTools, setShowTools] = React.useState(false);
+  const [openCapability, setOpenCapability] = React.useState(null);
   const groups = [
     { n: '01', title: 'Learning Experience Strategy', label: 'Translate business needs into purposeful, accessible learning experiences, performance support, and measurable behavior change.', tools: ['Articulate Storyline 360', 'Rise 360', 'Genially', 'Canvas LMS', 'H5P', 'Camtasia interactive video', 'Scenario-based learning tools', 'WCAG', 'UDL', 'Accessibility checkers', 'Captioning tools', 'SRT workflows', 'Screen reader considerations', 'Color contrast checks', 'QA checklists'] },
     { n: '02', title: 'AI & Automation', label: 'Orchestrate AI-assisted workflows for content strategy, knowledge synthesis, rapid prototyping, quality reviews, and responsible scale.', tools: ['ChatGPT', 'Claude', 'Gemini', 'Microsoft Copilot', 'NotebookLM', 'Perplexity', 'Prompt systems', 'AI-assisted storyboarding', 'AI review workflows', 'Custom GPTs', 'Claude Projects', 'Zapier', 'Make', 'n8n', 'Airtable automations', 'MCP-enabled workflow concepts', 'RAG knowledge systems', 'AI agents for L&D operations'] },
@@ -1003,6 +1003,31 @@ function LearningStack() {
 @media(max-width:1024px){.jz-st-head>div,.jz-st-sub{grid-column:1 / span 12}.jz-st-grid{grid-template-columns:1fr}.jz-st-card{grid-template-columns:55px minmax(0,1fr);gap:12px 20px;min-height:unset}.jz-st-card .jz-st-top{grid-column:1;grid-row:1}.jz-st-t{grid-column:2;grid-row:1}.jz-st-l{grid-column:2;grid-row:2;max-width:54ch}.jz-st-tools{grid-column:2;grid-row:3}}
 @media(max-width:600px){.jz-st-h2{font-size:clamp(2.55rem,11vw,4rem)}.jz-st-card{grid-template-columns:42px minmax(0,1fr);padding:28px 0;gap:12px}.jz-st-t{font-size:clamp(1.65rem,6vw,2.3rem)}.jz-st-l{line-height:1.65}.jz-st-tools{gap:7px}.jz-st-tools li{font-size:.72rem}}
 @media(prefers-reduced-motion:reduce){.jz-st-card,.jz-st-card:before,.jz-st-actions .jz-st-more{transition:none}.jz-st-card:hover{padding-left:clamp(6px,1.3vw,20px)}.jz-st-actions .jz-st-more:hover{transform:none}}
+
+/* Architectural capability accordion v2 — restrained scale + direct disclosure. */
+.jiz-homepage .jz-st{padding-block:clamp(64px,7vw,112px) clamp(58px,6vw,96px)}
+.jiz-homepage .jz-st-head{margin-bottom:clamp(30px,4vw,56px)}
+.jiz-homepage .jz-st-h2{font-size:clamp(2.25rem,1.65rem + 2.4vw,4.15rem);line-height:1.04;letter-spacing:-.047em;max-width:18ch}
+.jiz-homepage .jz-st-sub{font-size:clamp(.94rem,.86rem + .2vw,1.05rem);line-height:1.6}
+.jiz-homepage .jz-st-card{display:block;min-height:0;padding:0 8px;background:transparent}
+.jiz-homepage .jz-st-card:hover{padding-left:8px}
+.jiz-homepage .jz-st-card:before{display:none}
+.jiz-homepage .jz-st-trigger{display:grid;grid-template-columns:62px minmax(200px,1fr) minmax(250px,.95fr) 30px;gap:clamp(12px,2vw,34px);align-items:center;width:100%;padding:clamp(22px,2.6vw,34px) 0;background:transparent;border:0;color:inherit;text-align:left;cursor:pointer;font:inherit}
+.jiz-homepage .jz-st-trigger:hover .jz-st-t,.jiz-homepage .jz-st-trigger:focus-visible .jz-st-t{color:#C6F23A}
+.jiz-homepage .jz-st-trigger:focus-visible{outline:2px solid #C6F23A;outline-offset:-2px;border-radius:4px}
+.jiz-homepage .jz-st-trigger .jz-st-top,.jiz-homepage .jz-st-trigger .jz-st-t,.jiz-homepage .jz-st-trigger .jz-st-l{grid-column:auto;grid-row:auto;margin:0}
+.jiz-homepage .jz-st-trigger .jz-st-top{align-self:center;padding-top:0}
+.jiz-homepage .jz-st-trigger .jz-st-t{font-size:clamp(1.35rem,1.05rem + 1.1vw,2.15rem);line-height:1.13;letter-spacing:-.03em;transition:color .2s ease}
+.jiz-homepage .jz-st-trigger .jz-st-l{font-size:clamp(.89rem,.85rem + .18vw,.98rem);line-height:1.55;max-width:43ch}
+.jiz-homepage .jz-st-chevron{justify-self:end;display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border:1px solid rgba(247,248,250,.55);border-radius:50%;font-size:1.25rem;font-weight:400;color:#C6F23A;transition:transform .25s ease}
+.jiz-homepage .jz-st-trigger[aria-expanded="true"] .jz-st-chevron{transform:rotate(45deg);background:rgba(198,242,58,.1)}
+.jiz-homepage .jz-st-panel{padding:0 40px clamp(24px,3vw,40px) clamp(72px,7vw,100px)}
+.jiz-homepage .jz-st-panel .jz-st-tools{display:flex;flex-wrap:wrap;gap:8px;grid-column:auto;grid-row:auto;border-top:1px solid rgba(247,248,250,.24);padding-top:20px;margin:0;list-style:none}
+.jiz-homepage .jz-st-panel[hidden]{display:none}
+.jiz-homepage .jz-st-actions{margin-top:clamp(20px,3vw,32px)}
+@media(max-width:850px){.jiz-homepage .jz-st-trigger{grid-template-columns:44px minmax(0,1fr) 28px;gap:10px 16px}.jiz-homepage .jz-st-trigger .jz-st-top{grid-column:1;grid-row:1}.jiz-homepage .jz-st-trigger .jz-st-t{grid-column:2;grid-row:1}.jiz-homepage .jz-st-trigger .jz-st-l{grid-column:2;grid-row:2}.jiz-homepage .jz-st-trigger .jz-st-chevron{grid-column:3;grid-row:1}.jiz-homepage .jz-st-panel{padding:0 8px 26px 60px}}
+@media(max-width:600px){.jiz-homepage .jz-st-h2{font-size:clamp(2.05rem,8vw,2.8rem)}.jiz-homepage .jz-st-trigger{padding:22px 0;grid-template-columns:32px minmax(0,1fr) 28px;gap:8px 12px}.jiz-homepage .jz-st-trigger .jz-st-t{font-size:1.33rem}.jiz-homepage .jz-st-panel{padding-left:44px}}
+@media(prefers-reduced-motion:reduce){.jiz-homepage .jz-st-chevron,.jiz-homepage .jz-st-trigger .jz-st-t{transition:none}}
 `}</style>
       <div className="jz-wrap jz-grid">
         <header className="jz-st-head">
@@ -1010,20 +1035,25 @@ function LearningStack() {
           <p className="jz-st-sub jz-rise">An integrated practice across learning strategy, intelligent systems, cinematic craft, and the evidence that proves impact.</p>
         </header>
         <ul className="jz-st-grid">
-          {groups.map((g) => (
-            <li key={g.n} className="jz-st-card jz-rise">
-              <div className="jz-st-top"><span className="jz-label">{g.n} / 04</span></div>
-              <h3 className="jz-st-t">{g.title}</h3>
-              <p className="jz-st-l">{g.label}</p>
-              {showTools && <ul className="jz-st-tools" aria-label={g.title + ' tools'}>{g.tools.map((tool) => <li key={tool}>{tool}</li>)}</ul>}
-            </li>
-          ))}
+          {groups.map((g) => {
+            const expanded = openCapability === g.n;
+            const panelId = 'jz-st-panel-' + g.n;
+            return (
+              <li key={g.n} className="jz-st-card jz-rise">
+                <button type="button" className="jz-st-trigger" aria-expanded={expanded} aria-controls={panelId} onClick={() => setOpenCapability(expanded ? null : g.n)}>
+                  <span className="jz-st-top"><span className="jz-label">{g.n} / 04</span></span>
+                  <span className="jz-st-t">{g.title}</span>
+                  <span className="jz-st-l">{g.label}</span>
+                  <span className="jz-st-chevron" aria-hidden="true">+</span>
+                </button>
+                <div id={panelId} className="jz-st-panel" hidden={!expanded}>
+                  <ul className="jz-st-tools" aria-label={g.title + ' tools'}>{g.tools.map((tool) => <li key={tool}>{tool}</li>)}</ul>
+                </div>
+              </li>
+            );
+          })}
         </ul>
-        <div className="jz-st-actions">
-          <button className="jz-st-more" type="button" aria-expanded={showTools} aria-controls="jz-st-inventory" onClick={() => setShowTools((v) => !v)}>{showTools ? 'Hide full tool inventory −' : 'Explore all tools +'}<span className="jz-visually-hidden"> across all four capability areas</span></button>
-          <p className="jz-st-note">Depth varies by tool: from daily practice to emerging workflows explored for their business value.</p>
-        </div>
-        <span id="jz-st-inventory" className="jz-visually-hidden">{showTools ? 'Full tool inventory expanded above' : 'Full tool inventory collapsed'}</span>
+        <div className="jz-st-actions"><p className="jz-st-note">Select a capability to explore its tools and methods. Depth varies by tool, from daily practice to emerging workflows.</p></div>
       </div>
     </section>
   );
