@@ -297,9 +297,38 @@ React.createElement("style",null,`
 .jz-st-actions .jz-st-more:hover{background:rgba(198,242,58,.09)}
 .jz-st-note{grid-column:auto;margin:0;max-width:65ch}
 @media(prefers-reduced-motion:reduce){.jz-st-more{transition:none}}
+
+/* Iker editorial capability field — immersive rows without decorative clutter */
+.jz-st{position:relative;isolation:isolate;overflow:hidden;background:#E9EDE6;color:#0B1513;padding-block:clamp(92px,11vw,176px) clamp(96px,10vw,148px);border-top:0}
+.jz-st:before{content:"";position:absolute;right:-18vw;top:-22vw;width:min(70vw,850px);height:min(70vw,850px);border-radius:50%;background:radial-gradient(circle,rgba(166,209,71,.18) 0%,rgba(166,209,71,.05) 35%,transparent 70%);pointer-events:none;z-index:-1}
+.jz-st .jz-label{color:#4D665C}
+.jz-st-head{margin-bottom:clamp(52px,7vw,108px)}
+.jz-st-head>div{grid-column:1 / span 8}
+.jz-st-h2{color:#101B17;font-weight:650;font-size:clamp(3rem,2rem + 4.3vw,6.7rem);line-height:.98;letter-spacing:-.065em;max-width:14ch}
+.jz-st-sub{grid-column:9 / span 4;color:#46564E;font-size:clamp(1rem,1.1vw,1.18rem);line-height:1.75}
+.jz-st-grid{grid-template-columns:minmax(0,1fr);gap:0;border-top:1px solid rgba(17,37,26,.21)}
+.jz-st-card{position:relative;isolation:isolate;display:grid;grid-template-columns:minmax(64px,1fr) minmax(260px,4.3fr) minmax(260px,3.2fr);align-items:center;column-gap:clamp(20px,3vw,56px);min-height:clamp(154px,15vw,215px);padding:clamp(24px,3vw,44px) clamp(6px,1.3vw,20px);border:0;border-bottom:1px solid rgba(17,37,26,.2);border-radius:0;background:transparent;transition:padding .35s ease,background .35s ease}
+.jz-st-card:before{content:"";position:absolute;inset:0;z-index:-1;opacity:0;background:linear-gradient(108deg,rgba(198,242,58,.20),rgba(198,242,58,.035) 50%,transparent 82%);transition:opacity .35s ease}
+.jz-st-card:hover:before,.jz-st-card:focus-within:before{opacity:1}
+.jz-st-card:hover{padding-left:clamp(14px,2.1vw,34px)}
+.jz-st-card .jz-st-top{align-self:start;grid-column:1;grid-row:1;padding-top:8px}
+.jz-st-card .jz-st-top .jz-label{font-size:.75rem;font-weight:600;letter-spacing:.12em;color:#4C6755}
+.jz-st-t{grid-column:2;grid-row:1;color:#11241C;font-size:clamp(1.9rem,1.25rem + 2vw,3.45rem);line-height:1.08;letter-spacing:-.048em;font-weight:650;text-wrap:balance}
+.jz-st-l{grid-column:3;grid-row:1;color:#465A50;font-size:clamp(.94rem,.87rem + .22vw,1.06rem);line-height:1.75;max-width:38ch}
+.jz-st-tools{grid-column:2 / span 2;grid-row:2;padding-top:22px;margin:0;border-top:1px solid rgba(17,37,26,.12);gap:9px}
+.jz-st-tools li{border:1px solid rgba(16,48,35,.2);border-radius:100px;padding:7px 12px;color:#274337;background:rgba(255,255,255,.42);font:500 .77rem/1.4 var(--font-body)}
+.jz-st-actions{gap:clamp(18px,3vw,40px);margin-top:clamp(30px,4vw,56px)}
+.jz-st-actions .jz-st-more{background:#15271D;border:1px solid #15271D;color:#E9F6C6;border-radius:100px;padding:16px 26px;font:650 .94rem/1.2 var(--font-body);transition:transform .25s ease,background .25s ease;cursor:pointer}
+.jz-st-actions .jz-st-more:hover{background:#304A33;transform:translateY(-2px)}
+.jz-st-actions .jz-st-more:focus-visible{outline:3px solid #5C842A;outline-offset:4px}
+.jz-st-note{color:#587065;max-width:48ch}
+@media(max-width:1024px){.jz-st-head>div,.jz-st-sub{grid-column:1 / span 12}.jz-st-grid{grid-template-columns:1fr}.jz-st-card{grid-template-columns:55px minmax(0,1fr);gap:12px 20px;min-height:unset}.jz-st-card .jz-st-top{grid-column:1;grid-row:1}.jz-st-t{grid-column:2;grid-row:1}.jz-st-l{grid-column:2;grid-row:2;max-width:54ch}.jz-st-tools{grid-column:2;grid-row:3}}
+@media(max-width:600px){.jz-st-h2{font-size:clamp(2.55rem,11vw,4rem)}.jz-st-card{grid-template-columns:42px minmax(0,1fr);padding:28px 0;gap:12px}.jz-st-t{font-size:clamp(1.65rem,6vw,2.3rem)}.jz-st-l{line-height:1.65}.jz-st-tools{gap:7px}.jz-st-tools li{font-size:.72rem}}
+@media(prefers-reduced-motion:reduce){.jz-st-card,.jz-st-card:before,.jz-st-actions .jz-st-more{transition:none}.jz-st-card:hover{padding-left:clamp(6px,1.3vw,20px)}.jz-st-actions .jz-st-more:hover{transform:none}}
+
 `),
 React.createElement("div",{className:"jz-wrap jz-grid"},
-React.createElement("header",{className:"jz-st-head"},React.createElement("div",{className:"jz-rise"},React.createElement("p",{className:"jz-label"},"Tools & platforms"),React.createElement("h2",{className:"jz-st-h2",id:"jz-st-title"},"Capabilities first. Tools in service of impact.")),React.createElement("p",{className:"jz-st-sub jz-rise"},"Four connected disciplines that bring strategy, emerging technology, storytelling, and measurement together for enterprise learning.")),
+React.createElement("header",{className:"jz-st-head"},React.createElement("div",{className:"jz-rise"},React.createElement("p",{className:"jz-label"},"Tools & platforms"),React.createElement("h2",{className:"jz-st-h2",id:"jz-st-title"},"Where learning systems take shape.")),React.createElement("p",{className:"jz-st-sub jz-rise"},"An integrated practice across learning strategy, intelligent systems, cinematic craft, and the evidence that proves impact.")),
 React.createElement("ul",{className:"jz-st-grid",id:"jz-st-inventory"},pillars.map(g=>React.createElement("li",{key:g.n,className:"jz-st-card jz-rise"},React.createElement("div",{className:"jz-st-top"},React.createElement("span",{className:"jz-label"},g.n+" / 04")),React.createElement("h3",{className:"jz-st-t"},g.title),React.createElement("p",{className:"jz-st-l"},g.label),showTools&&React.createElement("ul",{className:"jz-st-tools","aria-label":g.title+" tools"},g.tools.map(tool=>React.createElement("li",{key:tool},tool)))))),
 React.createElement("div",{className:"jz-st-actions"},React.createElement("button",{type:"button",className:"jz-st-more","aria-expanded":showTools,"aria-controls":"jz-st-inventory",onClick:()=>setShowTools(v=>!v)},showTools?"Hide full tool inventory −":"Explore all tools +"),React.createElement("p",{className:"jz-st-note"},"Depth varies by tool: from daily practice to emerging workflows explored for their business value."))
 ));}
