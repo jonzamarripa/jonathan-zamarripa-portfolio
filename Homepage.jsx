@@ -441,10 +441,32 @@ function LetsBuild({ onExploreWork }) {
   const EMPTY = { name: '', email: '', org: '', intent: '', detail: '', role: '', location: '', jobLink: '', focus: [], timeline: '', budget: '', eventName: '', eventDate: '', format: '', topic: '', referral: '' };
   const [form, setForm] = React.useState(EMPTY);
   const [formOpen, setFormOpen] = React.useState(false);
+  const dialogRef = React.useRef(null);
+  const returnFocusRef = React.useRef(null);
+  const closeInquiry = () => { if(!inFlightRef.current) setFormOpen(false); };
+  React.useEffect(() => {
+    if(!formOpen) return;
+    returnFocusRef.current = document.activeElement;
+    const priorOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const raf = requestAnimationFrame(() => dialogRef.current?.querySelector('input:not([type="hidden"])')?.focus());
+    const keyHandler = (event) => {
+      if(event.key === 'Escape') { event.preventDefault(); closeInquiry(); }
+      if(event.key === 'Tab' && dialogRef.current) {
+        const items = Array.from(dialogRef.current.querySelectorAll('button:not(:disabled),input:not(:disabled):not([type="hidden"]),textarea:not(:disabled),select:not(:disabled),a[href]')).filter(el => el.getClientRects().length);
+        if(!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if(event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if(!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+      }
+    };
+    document.addEventListener('keydown', keyHandler);
+    return () => { cancelAnimationFrame(raf); document.removeEventListener('keydown',keyHandler); document.body.style.overflow = priorOverflow; returnFocusRef.current?.focus?.(); };
+  }, [formOpen]);
   const openInquiry = (type) => {
     if(type) setForm(f => ({...f,intent:type}));
     setFormOpen(true);
-    requestAnimationFrame(() => document.getElementById('jiz-build-form-start')?.scrollIntoView({block:'nearest',behavior:'auto'}));
+    
   };
   const intent = INTENTS.find((i) => i.id === form.intent) || null;
   // Preselect the inquiry type when a visitor arrives from "Invite me to speak" (homepage event or /?intent=speaking).
@@ -533,7 +555,7 @@ function LetsBuild({ onExploreWork }) {
 
 
   return (
-    <section className="jiz-build" data-lets-build="ready" aria-labelledby="jiz-build-title">
+    <section className={"jiz-build" + (formOpen ? " is-dialog-open" : "")} data-lets-build="ready" aria-labelledby="jiz-build-title">
       <style>{`
         .jiz-build{position:relative;isolation:isolate;overflow:hidden;padding:clamp(76px,8vw,124px) var(--container-pad) clamp(52px,5vw,76px);background:radial-gradient(ellipse 74% 54% at 18% 8%,rgba(var(--accent-cyan-rgb),.094),transparent 66%),radial-gradient(ellipse 62% 50% at 88% 64%,rgba(198,242,58,.05),transparent 70%),linear-gradient(180deg,#121a1d 0%,#141d20 40%,#101619 100%)}
         .jiz-build::before{content:'';position:absolute;inset:0;z-index:-2;pointer-events:none;opacity:.12;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:80px 80px;-webkit-mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%);mask-image:radial-gradient(ellipse at 50% 30%,#000,transparent 76%)}
@@ -632,6 +654,33 @@ function LetsBuild({ onExploreWork }) {
         @media(max-width:850px){html body .jiz-homepage section.jiz-build[data-lets-build="ready"]{min-height:640px!important;background-position:60% center!important;background-image:linear-gradient(90deg,rgba(7,13,16,.92),rgba(7,13,16,.63)),url('/assets/imagery/contact-the-invitation.webp')!important}html body .jiz-homepage .jiz-build-stage.is-form-open{grid-template-columns:minmax(0,1fr)!important}html body .jiz-homepage .jiz-build-title{font-size:clamp(2.5rem,8.2vw,4.2rem)!important}}
         @media(max-width:520px){html body .jiz-homepage section.jiz-build[data-lets-build="ready"]{padding:68px 22px 76px!important;min-height:unset!important;background-position:63% center!important}html body .jiz-homepage .jiz-build-title{font-size:clamp(2.4rem,11vw,3.6rem)!important}html body .jiz-homepage .jiz-build-head{margin-bottom:26px!important}html body .jiz-homepage .jiz-build-fields{grid-template-columns:1fr!important}}
         @media(prefers-reduced-transparency:reduce){html body .jiz-homepage .jiz-build-form,html body .jiz-homepage .jz-ct-choices button{backdrop-filter:none!important;-webkit-backdrop-filter:none!important;background:#17282c!important}}
+
+        /* Contact modal / progressively disclosed, compact, keyboard-accessible. */
+        html body .jiz-homepage section.jiz-build.is-dialog-open{z-index:9999!important;isolation:auto!important}
+        html body .jiz-homepage .jiz-build-stage.is-form-open{grid-template-columns:minmax(0,490px)!important;max-width:1100px!important}
+        html body .jiz-homepage .jiz-build-form[hidden]{display:none!important}
+        html body .jiz-homepage .jiz-contact-backdrop{position:fixed!important;inset:0!important;z-index:9998!important;background:rgba(3,9,12,.77)!important;backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px)}
+        html body .jiz-homepage .jiz-build-form:not([hidden]){
+          display:flex!important;position:fixed!important;top:50%!important;left:50%!important;
+          transform:translate(-50%,-50%)!important;z-index:9999!important;
+          width:min(548px,calc(100vw - 32px))!important;max-width:none!important;min-width:0!important;
+          max-height:calc(100dvh - 44px)!important;overflow-y:auto!important;overscroll-behavior:contain!important;
+          padding:clamp(22px,3vw,34px)!important;gap:0!important;
+          border-radius:26px!important;background:linear-gradient(145deg,rgba(31,47,53,.98),rgba(15,29,36,.97))!important;
+          border:1px solid rgba(224,241,243,.31)!important;
+          box-shadow:0 28px 100px rgba(0,0,0,.65),inset 0 1px 0 rgba(255,255,255,.13)!important;
+        }
+        html body .jiz-homepage .jiz-contact-close{position:absolute;right:17px;top:15px;width:40px;height:40px;display:grid;place-items:center;border:1px solid rgba(245,248,250,.22);border-radius:50%;background:rgba(255,255,255,.07);color:#f7f8fa;font-size:26px;line-height:1;cursor:pointer}
+        html body .jiz-homepage .jiz-contact-close:focus-visible{outline:2px solid #c6f23a;outline-offset:3px}
+        html body .jiz-homepage .jiz-contact-dialog-eyebrow{font:var(--text-hud);font-size:.66rem;letter-spacing:.2em;color:#c6f23a;margin:0 0 9px!important}
+        html body .jiz-homepage .jiz-build-form h3{padding-right:38px;font-size:clamp(1.6rem,2.3vw,2rem)!important}
+        html body .jiz-homepage .jiz-build-form-note{margin-bottom:18px!important}
+        html body .jiz-homepage .jiz-build-fields{gap:12px!important}
+        html body .jiz-homepage .jiz-build-area{min-height:100px!important}
+        html body .jiz-homepage .jiz-build-submit{margin-top:18px!important}
+        html body .jiz-homepage .jiz-build-privacy{font-size:.72rem!important;margin-top:10px!important;text-align:left!important}
+        @media(max-width:520px){html body .jiz-homepage .jiz-build-form:not([hidden]){width:calc(100vw - 22px)!important;max-height:calc(100dvh - 20px)!important;padding:22px 18px!important;border-radius:22px!important}html body .jiz-homepage .jiz-build-fields{grid-template-columns:1fr!important}html body .jiz-homepage .jiz-build-chips{gap:6px!important}html body .jiz-homepage .jiz-build-chip{min-height:38px!important}}
+        @media(prefers-reduced-transparency:reduce){html body .jiz-homepage .jiz-build-form:not([hidden]){backdrop-filter:none!important;background:#172a31!important}html body .jiz-homepage .jiz-contact-backdrop{backdrop-filter:none!important}}
       `}</style>
       <div className="jiz-build-inner">
         <header className="jiz-build-head">
@@ -669,8 +718,10 @@ function LetsBuild({ onExploreWork }) {
             </div>
           </div>
           
-          <form hidden={!formOpen} id="jiz-build-form-start" className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
-            <h3>Start the Conversation</h3>
+          {formOpen && <div className="jiz-contact-backdrop" onClick={closeInquiry} aria-hidden="true" />}\n          <form hidden={!formOpen} ref={dialogRef} role="dialog" aria-modal={formOpen} aria-labelledby="contact-dialog-title" id="jiz-build-form-start" className="jiz-build-form" data-build-form="ready" onSubmit={handleSubmit} aria-busy={formStatus === 'submitting'}>
+            <button className="jiz-contact-close" type="button" onClick={closeInquiry} aria-label="Close contact form">×</button>
+            <p className="jiz-contact-dialog-eyebrow">LET'S CONNECT</p>
+            <h3 id="contact-dialog-title">Start the Conversation</h3>
             <p className="jiz-build-form-note">Hiring, projects, or speaking — a few details are enough to begin.</p>
             <div className="jiz-build-fields">
               <div className="jiz-build-field">
@@ -681,110 +732,18 @@ function LetsBuild({ onExploreWork }) {
                 <label className="jiz-build-label" htmlFor="jiz-build-email">Email <span aria-hidden="true">*</span></label>
                 <input className="jiz-build-input" id="jiz-build-email" name="email" type="email" required value={form.email} onChange={set('email')} placeholder="you@company.com" autoComplete="email" />
               </div>
-              <div className="jiz-build-field jiz-span">
-                <label className="jiz-build-label" htmlFor="jiz-build-org">Organization</label>
-                <input className="jiz-build-input" id="jiz-build-org" name="organization" type="text" value={form.org} onChange={set('org')} placeholder="Company or team" autoComplete="organization" />
-              </div>
               <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                <legend className="jiz-build-label">I’m reaching out about <span aria-hidden="true">*</span></legend>
+                <legend className="jiz-build-label">What's on your mind? <span aria-hidden="true">*</span></legend>
                 <div className="jiz-build-chips">
-                  {INTENTS.map((i) => (
-                    <button key={i.id} type="button" className="jiz-build-chip" aria-pressed={form.intent === i.id} onClick={() => setForm((f) => ({ ...f, intent: i.id }))}>{i.label}</button>
-                  ))}
+                  {INTENTS.map(i => <button key={i.id} className="jiz-build-chip" type="button" aria-pressed={form.intent===i.id} onClick={() => setForm(f=>({...f,intent:i.id}))}>{i.label}</button>)}
                 </div>
               </fieldset>
-              {form.intent === 'hiring' ? (
-                <React.Fragment>
-                  <div className="jiz-build-field">
-                    <label className="jiz-build-label" htmlFor="jiz-build-role">Role title</label>
-                    <input className="jiz-build-input" id="jiz-build-role" name="role_title" type="text" value={form.role} onChange={set('role')} placeholder="e.g. Senior Learning Experience Designer" />
-                  </div>
-                  <div className="jiz-build-field">
-                    <label className="jiz-build-label" htmlFor="jiz-build-location">Location or remote</label>
-                    <input className="jiz-build-input" id="jiz-build-location" name="role_location" type="text" value={form.location} onChange={set('location')} placeholder="Atlanta hybrid, U.S. remote…" />
-                  </div>
-                  <div className="jiz-build-field jiz-span">
-                    <label className="jiz-build-label" htmlFor="jiz-build-joblink">Job posting link</label>
-                    <input className="jiz-build-input" id="jiz-build-joblink" name="job_link" type="text" inputMode="url" value={form.jobLink} onChange={set('jobLink')} placeholder="https://" />
-                  </div>
-                </React.Fragment>
-              ) : null}
-              {form.intent === 'speaking' ? (
-                <React.Fragment>
-                  <div className="jiz-build-field"><label className="jiz-build-label" htmlFor="jiz-build-topic">Talk or theme</label><select className="jiz-build-input" id="jiz-build-topic" name="speaking_topic" value={form.topic} onChange={set('topic')}><option value="">Let’s shape it together</option>{(window.JIZ_SPEAKING ? window.JIZ_SPEAKING.talks : []).map(t => <option key={t.id} value={t.title}>{t.title}</option>)}</select></div>
-                  <div className="jiz-build-field">
-                    <label className="jiz-build-label" htmlFor="jiz-build-event">Event or organization</label>
-                    <input className="jiz-build-input" id="jiz-build-event" name="event_name" type="text" value={form.eventName} onChange={set('eventName')} placeholder="Conference, panel, or podcast" />
-                  </div>
-                  <div className="jiz-build-field">
-                    <label className="jiz-build-label" htmlFor="jiz-build-eventdate">Date or timeframe</label>
-                    <input className="jiz-build-input" id="jiz-build-eventdate" name="event_date" type="text" value={form.eventDate} onChange={set('eventDate')} placeholder="e.g. Spring 2027" />
-                  </div>
-                  <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                    <legend className="jiz-build-label">Format</legend>
-                    <div className="jiz-build-chips">
-                      {FORMATS.map((t) => (
-                        <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.format === t} onClick={pick('format', t)}>{t}</button>
-                      ))}
-                    </div>
-                  </fieldset>
-                </React.Fragment>
-              ) : null}
-              {form.intent === 'project' ? (
-                <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                  <legend className="jiz-build-label">Focus</legend>
-                  <div className="jiz-build-chips">
-                    {FOCUS.map((t) => (
-                      <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.focus.indexOf(t) !== -1} onClick={() => toggleFocus(t)}>{t}</button>
-                    ))}
-                  </div>
-                </fieldset>
-              ) : null}
               <div className="jiz-build-field jiz-span">
-                <label className="jiz-build-label" htmlFor="jiz-build-detail">{intent ? intent.detail : 'How can I help?'} <span aria-hidden="true">*</span></label>
-                <textarea className="jiz-build-area" id="jiz-build-detail" name="message" required value={form.detail} onChange={set('detail')} placeholder={intent ? intent.hint : 'Choose an option above, then add a few lines.'} />
+                <label className="jiz-build-label" htmlFor="jiz-build-detail">Tell me a little more <span aria-hidden="true">*</span></label>
+                <textarea className="jiz-build-area" id="jiz-build-detail" name="message" required value={form.detail} onChange={set('detail')} placeholder={intent ? intent.hint : 'A few sentences are plenty.'} />
               </div>
-              {form.intent === 'project' ? (
-                <React.Fragment>
-                  <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                    <legend className="jiz-build-label">Timeline</legend>
-                    <div className="jiz-build-chips">
-                      {TIMELINES.map((t) => (
-                        <button key={t} type="button" className="jiz-build-chip" aria-pressed={form.timeline === t} onClick={pick('timeline', t)}>{t}</button>
-                      ))}
-                    </div>
-                  </fieldset>
-                  <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                    <legend className="jiz-build-label">Budget</legend>
-                    <div className="jiz-build-chips">
-                      {BUDGETS.map((b) => (
-                        <button key={b} type="button" className="jiz-build-chip" aria-pressed={form.budget === b} onClick={pick('budget', b)}>{b}</button>
-                      ))}
-                    </div>
-                  </fieldset>
-                </React.Fragment>
-              ) : null}
-              <fieldset className="jiz-build-field jiz-span jiz-build-fieldset">
-                <legend className="jiz-build-label">How did you hear about me?</legend>
-                <div className="jiz-build-chips">
-                  {REFERRALS.map((r) => (
-                    <button key={r} type="button" className="jiz-build-chip" aria-pressed={form.referral === r} onClick={() => setForm((f) => ({ ...f, referral: f.referral === r ? '' : r }))}>{r}</button>
-                  ))}
-                </div>
-              </fieldset>
             </div>
-
             <input type="hidden" name="inquiry_type" value={intent ? intent.label : ''} />
-            {form.intent === 'project' ? (
-              <React.Fragment>
-                <input type="hidden" name="project_focus" value={form.focus.join(', ')} />
-                <input type="hidden" name="timeline" value={form.timeline} />
-                <input type="hidden" name="budget" value={form.budget} />
-              </React.Fragment>
-            ) : null}
-            {form.intent === 'speaking' ? <input type="hidden" name="speaking_format" value={form.format} /> : null}
-            <input type="hidden" name="referral_source" value={form.referral} />
-
             <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px', width: 1, height: 1, overflow: 'hidden' }}>
               <label htmlFor="jiz-botcheck">Leave this field empty</label>
               <input id="jiz-botcheck" type="checkbox" name="botcheck" tabIndex={-1} autoComplete="off" />
@@ -810,7 +769,7 @@ function LetsBuild({ onExploreWork }) {
               ) : ''}
             </p>
 
-            <p className="jiz-build-privacy">Your details are used only to respond to this inquiry. No mailing lists. No unsolicited follow-up. This site measures anonymous pageviews and inquiry counts; form contents are excluded from analytics.</p>
+            <p className="jiz-build-privacy">Your information is used only to respond to your inquiry. No mailing lists.</p>
           </form>
         </div>
 
